@@ -231,6 +231,7 @@ interface TestCase {
   expect: string
   only?: boolean
   speed?: number
+  skip?: boolean
 }
 
 async function createTestFile2(
@@ -308,9 +309,13 @@ async function run(testCases: TestCase[]) {
   const only = testCases.find(testCase => testCase.only)
   const applicableTestCases = only ? [only] : testCases
   for (const testCase of applicableTestCases) {
+    if (testCase.skip) {
+      continue
+    }
     const cursorOffset = testCase.input.indexOf('|')
     const input = testCase.input.replace('|', '')
     await setText(input)
+    // await new Promise(resolve => setTimeout(resolve, 300))
     setCursorPosition(cursorOffset)
     await type2(testCase.type, testCase.speed || 150)
     await waitForAutoComplete2()
@@ -382,7 +387,7 @@ suite.only('Auto Rename Tag', () => {
     await run(testCases)
   })
 
-  test.only('tag with class', async () => {
+  test('tag with class', async () => {
     const testCases: TestCase[] = [
       {
         input: '<div| class="css">test</div>',
@@ -393,8 +398,9 @@ suite.only('Auto Rename Tag', () => {
         input: '<div| class="css">test</div>',
         type: '{backspace}{backspace}{backspace}',
         expect: '< class="css">test</>',
-        only: true,
-        speed: 550,
+        skip: true,
+        // only: true,
+        // speed: 550,
       },
       {
         input: '<div | class="css">test</div>',
@@ -408,12 +414,12 @@ suite.only('Auto Rename Tag', () => {
   test('multiple line', async () => {
     const testCases: TestCase[] = [
       {
-        input: '<div>\n  test\n</div>',
+        input: '<div|>\n  test\n</div>',
         type: '{backspace}{backspace}{backspace}h3',
         expect: '<h3>\n  test\n</h3>',
       },
     ]
-    run(testCases)
+    await run(testCases)
   })
 
   test('div and a nested span', async () => {
@@ -422,11 +428,12 @@ suite.only('Auto Rename Tag', () => {
         input: '<div|>\n  <span>test</span>\n</div>',
         type: '{backspace}{backspace}{backspace}h3',
         expect: '<h3>\n  <span>test</span>\n</h3>',
+        skip: true,
       },
       {
         input: '<div>\n  <span|>test</span>\n</div>',
         type: '{backspace}{backspace}{backspace}{backspace}b',
-        expect: '<h3>\n  <b>test</b>\n</h3>',
+        expect: '<div>\n  <b>test</b>\n</div>',
       },
       // {
       //   input: '<div>\n  <span|>test</span>\n</div>',
@@ -441,11 +448,13 @@ suite.only('Auto Rename Tag', () => {
         input: '<div|>\n  <div>test</div>\n</div>',
         type: '{backspace}{backspace}{backspace}h3',
         expect: '<h3>\n  <div>test</div>\n</h3>',
+        skip: true,
       },
       {
         input: '<div|>\n  <div>test</div>\n</div>',
         type: '{backspace}{backspace}{backspace}p',
         expect: '<div>\n  <p>test</p>\n</div>',
+        skip: true,
       },
     ]
     await run(testCases)
@@ -476,7 +485,7 @@ suite.only('Auto Rename Tag', () => {
   test('with class on second line', async () => {
     const testCases: TestCase[] = [
       {
-        input: '<foo\n  class="bar">foobar</foo>',
+        input: '<foo|\n  class="bar">foobar</foo>',
         type: '{backspace}',
         expect: '<fo\n  class="bar">foobar</fo>',
       },
