@@ -1,5 +1,5 @@
 import * as assert from 'assert'
-import { before } from 'mocha'
+import { before, Test, test } from 'mocha'
 import * as path from 'path'
 import * as fs from 'fs'
 
@@ -25,6 +25,18 @@ async function type(text: string): Promise<void> {
   )
 }
 
+async function setEditorContent(
+  editor: vscode.TextEditor,
+  content: string
+): Promise<boolean> {
+  const document = editor.document
+  const all = new vscode.Range(
+    document.positionAt(0),
+    document.positionAt(document.getText().length)
+  )
+  return editor.edit(editBuilder => editBuilder.replace(all, content))
+}
+
 async function typeDelete(times: number = 1): Promise<void> {
   const offset = vscode.window.activeTextEditor.document.offsetAt(
     vscode.window.activeTextEditor.selection.active
@@ -42,7 +54,11 @@ async function typeDelete(times: number = 1): Promise<void> {
   })
 }
 
-function createTestFile(fileName: string, content: string): Chainable {
+async function undo() {
+  await vscode.commands.executeCommand('undo')
+}
+
+function createTestFile(fileName: string, content: string = ''): Chainable {
   const filePath = path.join(__dirname, fileName)
   fs.writeFileSync(filePath, content)
   const uri = vscode.Uri.file(filePath)
@@ -191,7 +207,7 @@ function waitForAutoComplete(times: number = 1) {
     })
 }
 
-suite('Extension Test Suite', () => {
+suite.skip('Extension Test Suite', () => {
   before(async () => {
     vscode.window.showInformationMessage('Start all tests.')
   })
@@ -199,7 +215,7 @@ suite('Extension Test Suite', () => {
   test('Auto Close Tag', async () => {
     await createTestFile('auto-close-tag.html', '')
       .then(activate)
-      .type('<div>')
+      .type('<divs>')
       .then(waitForAutoComplete())
       .should('have.text', '<div>\n  \n</div>')
       .type('<ul>')
@@ -207,21 +223,307 @@ suite('Extension Test Suite', () => {
       .should('have.text', '<div>\n  <ul>\n    \n  </ul>\n</div>')
       .promise()
   })
+})
 
-  test('Auto Rename Tag', async () => {
-    await createTestFile(
-      'auto-rename-tag.html',
-      '<div>\n  <ul>\n    \n  </ul>\n</div>'
-    )
-      .then(activate)
-      .should('have.text', '<div>\n  <ul>\n    \n  </ul>\n</div>')
-      .goBehind('</ul')
-      .type('llll')
-      .then(waitForAutoComplete())
-      .should('have.text', '<div>\n  <ulllll>\n    \n  </ulllll>\n</div>')
-      .type('{backspace}{backspace}{backspace}{backspace}')
-      .then(waitForAutoComplete())
-      .should('have.text', '<div>\n  <ul>\n    \n  </ul>\n</div>')
-      .promise()
+interface TestCase {
+  input: string
+  type: string
+  expect: string
+  only?: boolean
+  speed?: number
+}
+
+async function createTestFile2(
+  fileName: string,
+  content: string = ''
+): Promise<void> {
+  const filePath = path.join(__dirname, fileName)
+  fs.writeFileSync(filePath, content)
+  const uri = vscode.Uri.file(filePath)
+  await vscode.window.showTextDocument(uri)
+}
+
+async function setText(text: string): Promise<void> {
+  const document = vscode.window.activeTextEditor.document
+  const all = new vscode.Range(
+    document.positionAt(0),
+    document.positionAt(document.getText().length)
+  )
+  await vscode.window.activeTextEditor.edit(editBuilder =>
+    editBuilder.replace(all, text)
+  )
+}
+
+function setCursorPosition(offset: number): void {
+  const position = vscode.window.activeTextEditor.document.positionAt(offset)
+  vscode.window.activeTextEditor.selection = new vscode.Selection(
+    position,
+    position
+  )
+}
+
+async function typeLiteral(text: string): Promise<void> {
+  await vscode.window.activeTextEditor.insertSnippet(
+    new vscode.SnippetString(text),
+    vscode.window.activeTextEditor.selection.active,
+    {
+      undoStopAfter: false,
+      undoStopBefore: false,
+    }
+  )
+}
+async function type2(text: string, speed = 150): Promise<void> {
+  for (let i = 0; i < text.length; i++) {
+    if (i === 0) {
+      await new Promise(resolve => setTimeout(resolve, speed / 2))
+    } else {
+      await new Promise(resolve => setTimeout(resolve, speed))
+    }
+    if (text.slice(i).startsWith('{backspace}')) {
+      await typeDelete()
+      i += '{backspace}'.length - 1
+    } else if (text.slice(i).startsWith('{undo}')) {
+      await vscode.commands.executeCommand('undo')
+      i += '{undo}'.length - 1
+    } else if (text.slice(i).startsWith('{redo}')) {
+      await vscode.commands.executeCommand('redo')
+      i += '{redo}'.length - 1
+    } else {
+      await typeLiteral(text[i])
+    }
+  }
+}
+
+async function waitForAutoComplete2() {
+  return new Promise((resolve, reject) => {
+    const disposable = vscode.workspace.onDidChangeTextDocument(() => {
+      disposable.dispose()
+      resolve()
+    })
+    setTimeout(resolve, 30)
+  })
+}
+
+async function run(testCases: TestCase[]) {
+  const only = testCases.find(testCase => testCase.only)
+  const applicableTestCases = only ? [only] : testCases
+  for (const testCase of applicableTestCases) {
+    const cursorOffset = testCase.input.indexOf('|')
+    const input = testCase.input.replace('|', '')
+    await setText(input)
+    setCursorPosition(cursorOffset)
+    await type2(testCase.type, testCase.speed || 150)
+    await waitForAutoComplete2()
+    const result = vscode.window.activeTextEditor.document.getText()
+    assert.equal(result, testCase.expect)
+  }
+}
+
+suite.only('Auto Rename Tag', () => {
+  before(async () => {
+    await createTestFile2('auto-rename-tag.html')
+    await activate()
+  })
+
+  test('Cursor is at the back of a start tag', async () => {
+    const testCases: TestCase[] = [
+      {
+        input: '<div|>test</div>',
+        type: 's',
+        expect: '<divs>test</divs>',
+      },
+      {
+        input: '<div|>test</div>',
+        type: '{backspace}',
+        expect: '<di>test</di>',
+      },
+      {
+        input: '<div|>test</div>',
+        type: '{backspace}{backspace}{backspace}',
+        expect: '<>test</>',
+      },
+      {
+        input: '<div|>test</div>',
+        type: ' ',
+        expect: '<div >test</div>',
+      },
+      {
+        input: '<div|>test</div>',
+        type: ' c',
+        expect: '<div c>test</div>',
+      },
+      {
+        input: '<div|>test</div>',
+        type: '{backspace}{backspace}{backspace} ',
+        expect: '< >test</>',
+      },
+      {
+        input: '<div|>test</div>',
+        type: 'v{undo}',
+        expect: '<div>test</div>',
+      },
+      {
+        input: '<div|>test</div>',
+        type: 'v{undo}{redo}',
+        expect: '<divv>test</divv>',
+      },
+    ]
+    await run(testCases)
+  })
+
+  test('Cursor at the front of a start tag', async () => {
+    const testCases: TestCase[] = [
+      {
+        input: '<|div>test</div>',
+        type: 's',
+        expect: '<sdiv>test</sdiv>',
+      },
+    ]
+    await run(testCases)
+  })
+
+  test.only('tag with class', async () => {
+    const testCases: TestCase[] = [
+      {
+        input: '<div| class="css">test</div>',
+        type: 'v',
+        expect: '<divv class="css">test</divv>',
+      },
+      {
+        input: '<div| class="css">test</div>',
+        type: '{backspace}{backspace}{backspace}',
+        expect: '< class="css">test</>',
+        only: true,
+        speed: 550,
+      },
+      {
+        input: '<div | class="css">test</div>',
+        type: '{backspace}v',
+        expect: '<divv class="css">test</divv>',
+      },
+    ]
+    await run(testCases)
+  })
+
+  test('multiple line', async () => {
+    const testCases: TestCase[] = [
+      {
+        input: '<div>\n  test\n</div>',
+        type: '{backspace}{backspace}{backspace}h3',
+        expect: '<h3>\n  test\n</h3>',
+      },
+    ]
+    run(testCases)
+  })
+
+  test('div and a nested span', async () => {
+    const testCases: TestCase[] = [
+      {
+        input: '<div|>\n  <span>test</span>\n</div>',
+        type: '{backspace}{backspace}{backspace}h3',
+        expect: '<h3>\n  <span>test</span>\n</h3>',
+      },
+      {
+        input: '<div>\n  <span|>test</span>\n</div>',
+        type: '{backspace}{backspace}{backspace}{backspace}b',
+        expect: '<h3>\n  <b>test</b>\n</h3>',
+      },
+      // {
+      //   input: '<div>\n  <span|>test</span>\n</div>',
+      // },
+    ]
+    await run(testCases)
+  })
+
+  test('nested div tags', async () => {
+    const testCases: TestCase[] = [
+      {
+        input: '<div|>\n  <div>test</div>\n</div>',
+        type: '{backspace}{backspace}{backspace}h3',
+        expect: '<h3>\n  <div>test</div>\n</h3>',
+      },
+      {
+        input: '<div|>\n  <div>test</div>\n</div>',
+        type: '{backspace}{backspace}{backspace}p',
+        expect: '<div>\n  <p>test</p>\n</div>',
+      },
+    ]
+    await run(testCases)
+  })
+
+  test('dashed tag', async () => {
+    const testCases: TestCase[] = [
+      {
+        input: '<dashed-div|>test</dashed-div>',
+        type: '{backspace}{backspace}{backspace}{backspace}-span',
+        expect: '<dashed-span>test</dashed-span>',
+      },
+    ]
+    await run(testCases)
+  })
+
+  test('uppercase tag', async () => {
+    const testCases: TestCase[] = [
+      {
+        input: '<DIV|>test</DIV>',
+        type: 'S',
+        expect: '<DIVS>test</DIVS>',
+      },
+    ]
+    await run(testCases)
+  })
+
+  test('with class on second line', async () => {
+    const testCases: TestCase[] = [
+      {
+        input: '<foo\n  class="bar">foobar</foo>',
+        type: '{backspace}',
+        expect: '<fo\n  class="bar">foobar</fo>',
+      },
+    ]
+    await run(testCases)
+  })
+
+  test('weird chars at start tag', async () => {
+    const testCases: TestCase[] = [
+      {
+        input: '<foo\\n|  class="bar">foobar</foo>',
+        type: 's',
+        expect: '<foo\\ns  class="bar">foobar</foo>',
+      },
+      {
+        input: '<foo|\\n  class="bar">foobar</foo>',
+        type: 's',
+        expect: '<foos\\n  class="bar">foobar</foos>',
+      },
+      {
+        input: '<foo|( class="bar">foobar</foo>',
+        type: '{backspace}',
+        expect: '<fo( class="bar">foobar</fo>',
+      },
+    ]
+    await run(testCases)
+  })
+
+  test('with incomplete inner tag', async () => {
+    const testCases: TestCase[] = [
+      {
+        input: '<foo>\n<foo|\n</foo>',
+        type: 'b',
+        expect: '<foo>\n<foob\n</foo>',
+      },
+    ]
+    await run(testCases)
+  })
+
+  test('end tag with inline div tag', async () => {
+    const testCases: TestCase[] = [
+      {
+        input: '<div>test</div|>',
+        type: 's',
+        expect: '<divs>test</divs>',
+      },
+    ]
+    await run(testCases)
   })
 })
