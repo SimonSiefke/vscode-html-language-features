@@ -535,4 +535,42 @@ suite.only('Auto Rename Tag', () => {
     ]
     await run(testCases)
   })
+
+  test('with comments', async () => {
+    const testCases: TestCase[] = [
+      {
+        input: '<div|><!-- </div>',
+        type: 'v',
+        expect: '<divv><!-- </div>',
+      },
+      {
+        input: '<div|><!-- </div> --> </div>',
+        type: 'v',
+        expect: '<divv><!-- </div> --> </divv>',
+      },
+      {
+        input: '<div><!-- </div> --> </div|>',
+        type: 'v',
+        expect: '<divv><!-- </div> --> </divv>',
+        skip: true,
+      },
+      {
+        input: '<div><!-- <div> --> </div|>',
+        type: 'v',
+        expect: '<divv><!-- <div> --> </divv>',
+        skip: true,
+      },
+      {
+        input: '<div><!-- </div|> -->',
+        type: 'v',
+        expect: '<div><!-- </divv> -->',
+      },
+      {
+        input: '<div><!-- <div|></div> -->',
+        type: 'v',
+        expect: '<div><!-- <divv></divv> -->',
+      },
+    ]
+    await run(testCases)
+  })
 })
