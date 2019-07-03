@@ -29,16 +29,16 @@ async function typeDelete(times: number = 1): Promise<void> {
   const offset = vscode.window.activeTextEditor.document.offsetAt(
     vscode.window.activeTextEditor.selection.active
   )
-  await new Promise(resolve => {
-    vscode.window.activeTextEditor.edit(editBuilder => {
+  await new Promise(async resolve => {
+    await vscode.window.activeTextEditor.edit(editBuilder => {
       editBuilder.delete(
         new vscode.Range(
           vscode.window.activeTextEditor.document.positionAt(offset - times),
           vscode.window.activeTextEditor.document.positionAt(offset)
         )
       )
-      resolve()
     })
+    resolve()
   })
 }
 
@@ -122,19 +122,22 @@ function createTestFile(fileName: string, content: string): Chainable {
       })
       return chainable
     },
-    type(text, speed = 200) {
+    type(text, speed = 150) {
       promises.push(async () => {
         if (speed >= 0) {
-          for (let i = 0; i < text.length; i++) {
-            if (!firstType) {
-              await new Promise(resolve => setTimeout(resolve, speed))
-            } else {
+          let i = 0
+          for (; i < text.length; i++) {
+            if (firstType) {
+              await new Promise(resolve => setTimeout(resolve, speed / 2))
               firstType = false
+            } else {
+              await new Promise(resolve => setTimeout(resolve, speed))
             }
             let deletes = 0
-            while (text.slice(i).startsWith('{delete}')) {
+            if (text.slice(i).startsWith('{backspace}')) {
               deletes++
-              i += '{delete}'.length
+              i += '{backspace}'.length - 1
+              // continue
             }
             if (deletes) {
               await typeDelete(deletes)
@@ -177,8 +180,13 @@ function waitForAutoComplete(times: number = 1) {
         }
       })
       setTimeout(
-        () => reject(new Error('completion does not work or is too slow')),
-        25
+        () =>
+          reject(
+            new Error(
+              `completion does not work or is too slow and was called ${numberOfEvents} / ${times} times`
+            )
+          ),
+        30 * times
       )
     })
 }
@@ -208,11 +216,11 @@ suite('Extension Test Suite', () => {
       .then(activate)
       .should('have.text', '<div>\n  <ul>\n    \n  </ul>\n</div>')
       .goBehind('</ul')
-      .type('ll')
+      .type('llll')
       .then(waitForAutoComplete())
-      .should('have.text', '<div>\n  <ulll>\n    \n  </ulll>\n</div>')
-      .type('{delete}{delete}')
-      .then(waitForAutoComplete(2))
+      .should('have.text', '<div>\n  <ulllll>\n    \n  </ulllll>\n</div>')
+      .type('{backspace}{backspace}{backspace}{backspace}')
+      .then(waitForAutoComplete())
       .should('have.text', '<div>\n  <ul>\n    \n  </ul>\n</div>')
       .promise()
   })
