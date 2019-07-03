@@ -1,0 +1,322 @@
+{
+  "elements": {
+    "!DOCTYPE": {
+      "description": "Defines the document type"
+    },
+    "a": {
+      "description": "Defines a hyperlink"
+    },
+    "abbr": {
+      "description": "Defines an abbreviation or an acronym"
+    },
+    "address": {
+      "description": "Defines contact information for the author/owner of a document"
+    },
+    "area": {
+      "description": "Defines an area inside an image-map"
+    },
+    "article": {
+      "description": "Defines an article"
+    },
+    "aside": {
+      "description": "Defines content aside from the page content"
+    },
+    "audio": {
+      "description": "Defines sound content"
+    },
+    "b": {
+      "description": "Defines bold text"
+    },
+    "base": {
+      "description": "Specifies the base URL/target for all relative URLs in a document"
+    },
+    "bdi": {
+      "description": "Isolates a part of text that might be formatted in a different direction  from other text outside it"
+    },
+    "bdo": {
+      "description": "Overrides the current text direction"
+    },
+    "blockquote": {
+      "description": "Defines a section that is quoted from another source"
+    },
+    "body": {
+      "description": "Defines the document's body"
+    },
+    "br": {
+      "description": "Defines a single line break"
+    },
+    "button": {
+      "description": "Defines a clickable button"
+    },
+    "canvas": {
+      "description": "Used to draw graphics, on the fly, via scripting (usually JavaScript)"
+    },
+    "caption": {
+      "description": "Defines a table caption"
+    },
+    "cite": {
+      "description": "Defines the title of a work"
+    },
+    "code": {
+      "description": "Defines a piece of computer code"
+    },
+    "col": {
+      "description": "Specifies column properties for each column within a <colgroup> element "
+    },
+    "colgroup": {
+      "description": "Specifies a group of one or more columns in a table for formatting"
+    },
+    "data": {
+      "description": "Links the given content with a machine-readable translation"
+    },
+    "datalist": {
+      "description": "Specifies a list of pre-defined options for input controls"
+    },
+    "dd": {
+      "description": "Defines a description/value of a term in a description list"
+    },
+    "del": {
+      "description": "Defines text that has been deleted from a document"
+    },
+    "details": {
+      "description": "Defines additional details that the user can view or hide"
+    },
+    "dfn": {
+      "description": "Represents the defining instance of a term"
+    },
+    "dialog": {
+      "description": "Defines a dialog box or window"
+    },
+    "div": {
+      "description": "Defines a section in a document"
+    },
+    "dl": {
+      "description": "Defines a description list"
+    },
+    "dt": {
+      "description": "Defines a term/name in a description list"
+    },
+    "em": {
+      "description": "Defines emphasized text "
+    },
+    "embed": {
+      "description": "Defines a container for an external (non-HTML) application"
+    },
+    "fieldset": {
+      "description": "Groups related elements in a form"
+    },
+    "figcaption": {
+      "description": "Defines a caption for a <figure> element"
+    },
+    "figure": {
+      "description": "Specifies self-contained content"
+    },
+    "footer": {
+      "description": "Defines a footer for a document or section"
+    },
+    "form": {
+      "description": "Defines an HTML form for user input"
+    },
+    "h1> to <h6": {
+      "description": " Defines HTML headings"
+    },
+    "head": {
+      "description": "Defines information about the document"
+    },
+    "header": {
+      "description": "Defines a header for a document or section"
+    },
+    "hr": {
+      "description": " Defines a thematic change in the content"
+    },
+    "html": {
+      "description": "Defines the root of an HTML document"
+    },
+    "i": {
+      "description": "Defines a part of text in an alternate voice or mood"
+    },
+    "iframe": {
+      "description": "Defines an inline frame"
+    },
+    "img": {
+      "description": "Defines an image"
+    },
+    "input": {
+      "description": "Defines an input control"
+    },
+    "ins": {
+      "description": "Defines a text that has been inserted into a document"
+    },
+    "kbd": {
+      "description": "Defines keyboard input"
+    },
+    "label": {
+      "description": "Defines a label for an <input> element"
+    },
+    "legend": {
+      "description": "Defines a caption for a <fieldset> element"
+    },
+    "li": {
+      "description": "Defines a list item"
+    },
+    "link": {
+      "description": "Defines the relationship between a document and an external resource (most  used to link to style sheets)"
+    },
+    "main": {
+      "description": "Specifies the main content of a document"
+    },
+    "map": {
+      "description": "Defines a client-side image-map"
+    },
+    "mark": {
+      "description": "Defines marked/highlighted text"
+    },
+    "meta": {
+      "description": "Defines metadata about an HTML document"
+    },
+    "meter": {
+      "description": "Defines a scalar measurement within a known range (a gauge)"
+    },
+    "nav": {
+      "description": "Defines navigation links"
+    },
+    "noscript": {
+      "description": "Defines an alternate content for users that do not support  client-side scripts"
+    },
+    "object": {
+      "description": "Defines an embedded object"
+    },
+    "ol": {
+      "description": "Defines an ordered list"
+    },
+    "optgroup": {
+      "description": "Defines a group of related options in a drop-down list"
+    },
+    "option": {
+      "description": "Defines an option in a drop-down list"
+    },
+    "output": {
+      "description": "Defines the result of a calculation"
+    },
+    "p": {
+      "description": "Defines a paragraph"
+    },
+    "param": {
+      "description": "Defines a parameter for an object"
+    },
+    "picture": {
+      "description": "Defines a container for multiple image resources"
+    },
+    "pre": {
+      "description": "Defines preformatted text"
+    },
+    "progress": {
+      "description": "Represents the progress of a task"
+    },
+    "q": {
+      "description": "Defines a short quotation"
+    },
+    "rp": {
+      "description": "Defines what to show in browsers that do not support ruby annotations"
+    },
+    "rt": {
+      "description": "Defines an explanation/pronunciation of characters (for East Asian  typography)"
+    },
+    "ruby": {
+      "description": "Defines a ruby annotation (for East Asian typography)"
+    },
+    "s": {
+      "description": "Defines text that is no longer correct"
+    },
+    "samp": {
+      "description": "Defines sample output from a computer program"
+    },
+    "script": {
+      "description": "Defines a client-side script"
+    },
+    "section": {
+      "description": "Defines a section in a document"
+    },
+    "select": {
+      "description": "Defines a drop-down list"
+    },
+    "small": {
+      "description": "Defines smaller text"
+    },
+    "source": {
+      "description": "Defines multiple media resources for media elements (<video> and <audio>)"
+    },
+    "span": {
+      "description": "Defines a section in a document"
+    },
+    "strong": {
+      "description": "Defines important text"
+    },
+    "style": {
+      "description": "Defines style information for a document"
+    },
+    "sub": {
+      "description": "Defines subscripted text"
+    },
+    "summary": {
+      "description": "Defines a visible heading for a <details> element"
+    },
+    "sup": {
+      "description": "Defines superscripted text"
+    },
+    "svg": {
+      "description": "Defines a container for SVG graphics"
+    },
+    "table": {
+      "description": "Defines a table"
+    },
+    "tbody": {
+      "description": "Groups the body content in a table"
+    },
+    "td": {
+      "description": "Defines a cell in a table"
+    },
+    "template": {
+      "description": "Defines a template"
+    },
+    "textarea": {
+      "description": "Defines a multiline input control (text area)"
+    },
+    "tfoot": {
+      "description": "Groups the footer content in a table"
+    },
+    "th": {
+      "description": "Defines a header cell in a table"
+    },
+    "thead": {
+      "description": "Groups the header content in a table"
+    },
+    "time": {
+      "description": "Defines a date/time"
+    },
+    "title": {
+      "description": "Defines a title for the document"
+    },
+    "tr": {
+      "description": "Defines a row in a table"
+    },
+    "track": {
+      "description": "Defines text tracks for media elements (<video> and <audio>)"
+    },
+    "u": {
+      "description": "Defines text that should be stylistically different from normal text"
+    },
+    "ul": {
+      "description": "Defines an unordered list"
+    },
+    "var": {
+      "description": "Defines a variable"
+    },
+    "video": {
+      "description": "Defines a video or movie"
+    },
+    "wbr": {
+      "description": "Defines a possible line-break"
+    }
+  }
+}

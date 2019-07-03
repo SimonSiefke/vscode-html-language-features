@@ -1,0 +1,93 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "title": "Schema for html data",
+  "type": "object",
+  "default": {},
+  "additionalProperties": false,
+  "required": ["elements"],
+  "properties": {
+    "$comment": {
+      "type": "string"
+    },
+    "attributeDefinitions": {
+      "type": "object",
+      "description": "definitions"
+    },
+    "elements": {
+      "type": "object",
+      "default": {},
+      "description": "HTML Elements",
+      "patternProperties": {
+        ".*": {
+          "type": "object",
+          "additionalProperties": false,
+          "properties": {
+            "description": {
+              "type": "string",
+              "description": "Description for the element"
+            },
+            "markdownDescription": {
+              "type": "string",
+              "description": "Markdown description for the element"
+            },
+            "self-closing": {
+              "type": "boolean",
+              "default": false,
+              "description": "Whether or not the element is self-closing"
+            },
+            "newline": {
+              "type": "boolean",
+              "default": false,
+              "description": "Whether or not there should be a new line when this tag is inserted"
+            },
+            "allowedChildren": {
+              "type": "array",
+              "items": {
+                "type": "string"
+              }
+            },
+            "attributes": {
+              "type": "object",
+              "patternProperties": {
+                ".*": {
+                  "type": "object",
+                  "additionalProperties": false,
+                  "properties": {
+                    "experimental": {
+                      "type": "boolean"
+                    },
+                    "description": {
+                      "type": "string",
+                      "description": "Description for the attribute"
+                    },
+                    "options": {
+                      "type": "object",
+                      "patternProperties": {
+                        ".*": {
+                          "type": "object",
+                          "properties": {
+                            "description": {
+                              "type": "string",
+                              "description": "description for the option"
+                            }
+                          }
+                        }
+                      }
+                    },
+                    "suggest": {
+                      "type": "string",
+                      "description": "suggested value"
+                    },
+                    "type": {
+                      "type": ["string", "array"]
+                    }
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+}

@@ -1,0 +1,6 @@
+{
+  "unwantedRecommendations": [
+    "vscode.emmet",
+    "vscode.html-language-features"
+  ]
+}

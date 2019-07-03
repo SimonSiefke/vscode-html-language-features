@@ -1,0 +1,11 @@
+{
+  "files": [],
+  "include": [],
+  "references": [
+    { "path": "./packages/extension" },
+    { "path": "./packages/html-language-server" },
+    { "path": "./packages/html-language-service" },
+    { "path": "./packages/html-parser" },
+    { "path": "./packages/html-intellicode" }
+  ]
+}

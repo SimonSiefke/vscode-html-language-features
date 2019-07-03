@@ -1,0 +1,43 @@
+{
+  "attributeDefinitions": {
+    "accept": {
+      "description": "List of types the server accepts, typically a file type."
+    }
+  },
+  "elements": {
+    "form": {
+      "attributes": {
+        "accept": {
+          "description": "List of types the server accepts, typically a file type."
+        },
+        "accept-charset": {},
+        "action": {}
+      }
+    },
+    "applet": {},
+    "caption": {},
+    "iframe": {
+      "attributes": {
+        "allow": {},
+        "height": {
+          "description": "The height of the frame in CSS pixels. Default is 150."
+        }
+      }
+    },
+    "meter": {
+      "attributes": {
+        "value": {
+          "description": "The current numeric value. This must be between the minimum and maximum values (min attribute and max attribute) if they are specified. If unspecified or malformed, the value is 0. If specified, but not within the range given by the min attribute and max attribute, the value is equal to the nearest end of the range. "
+        },
+        "min": {
+          "description": "The lower numeric bound of the measured range. This must be less than the maximum value (max attribute), if specified. If unspecified, the minimum value is 0."
+        },
+        "high": {
+          "description": "Indicates the lower bound of the upper range.",
+          "type": "number",
+          "suggest": "10"
+        }
+      }
+    }
+  }
+}

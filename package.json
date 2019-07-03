@@ -1,0 +1,15 @@
+{
+  "name": "typescript-composite-lerna",
+  "private": true,
+  "license": "MIT",
+  "scripts": {
+    "dev": "tsc -b --watch",
+    "postinstall": "lerna bootstrap && tsc -b"
+  },
+  "devDependencies": {
+    "@types/jest": "^24.0.15",
+    "@types/node": "^12.0.10",
+    "ts-node": "^8.3.0",
+    "typescript": "^3.5.2"
+  }
+}

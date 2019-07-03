@@ -1,0 +1,430 @@
+{
+  "html": [
+    {
+      "name": "head",
+      "probability": 0.5555555555555556
+    },
+    {
+      "name": "body",
+      "probability": 0.4444444444444444
+    }
+  ],
+  "head": [
+    {
+      "name": "link",
+      "probability": 0.7252475247524752
+    },
+    {
+      "name": "meta",
+      "probability": 0.23267326732673269
+    },
+    {
+      "name": "script",
+      "probability": 0.017326732673267328
+    },
+    {
+      "name": "title",
+      "probability": 0.012376237623762377
+    },
+    {
+      "name": "style",
+      "probability": 0.009900990099009901
+    },
+    {
+      "name": "body",
+      "probability": 0.0024752475247524753
+    }
+  ],
+  "svg": [
+    {
+      "name": "path",
+      "probability": 0.5
+    },
+    {
+      "name": "title",
+      "probability": 0.4090909090909091
+    },
+    {
+      "name": "g",
+      "probability": 0.045454545454545456
+    },
+    {
+      "name": "defs",
+      "probability": 0.045454545454545456
+    }
+  ],
+  "body": [
+    {
+      "name": "script",
+      "probability": 0.7142857142857143
+    },
+    {
+      "name": "div",
+      "probability": 0.14285714285714285
+    },
+    {
+      "name": "noscript",
+      "probability": 0.05357142857142857
+    },
+    {
+      "name": "nav",
+      "probability": 0.017857142857142856
+    },
+    {
+      "name": "footer",
+      "probability": 0.017857142857142856
+    },
+    {
+      "name": "main",
+      "probability": 0.017857142857142856
+    },
+    {
+      "name": "header",
+      "probability": 0.017857142857142856
+    },
+    {
+      "name": "a",
+      "probability": 0.017857142857142856
+    }
+  ],
+  "div": [
+    {
+      "name": "div",
+      "probability": 0.4925925925925926
+    },
+    {
+      "name": "a",
+      "probability": 0.12222222222222222
+    },
+    {
+      "name": "p",
+      "probability": 0.11481481481481481
+    },
+    {
+      "name": "ul",
+      "probability": 0.05185185185185185
+    },
+    {
+      "name": "h3",
+      "probability": 0.044444444444444446
+    },
+    {
+      "name": "section",
+      "probability": 0.022222222222222223
+    },
+    {
+      "name": "h2",
+      "probability": 0.018518518518518517
+    },
+    {
+      "name": "span",
+      "probability": 0.018518518518518517
+    },
+    {
+      "name": "hr",
+      "probability": 0.014814814814814815
+    },
+    {
+      "name": "figure",
+      "probability": 0.014814814814814815
+    },
+    {
+      "name": "h1",
+      "probability": 0.014814814814814815
+    },
+    {
+      "name": "svg",
+      "probability": 0.014814814814814815
+    },
+    {
+      "name": "script",
+      "probability": 0.011111111111111112
+    },
+    {
+      "name": "button",
+      "probability": 0.007407407407407408
+    },
+    {
+      "name": "nav",
+      "probability": 0.007407407407407408
+    },
+    {
+      "name": "footer",
+      "probability": 0.007407407407407408
+    },
+    {
+      "name": "h5",
+      "probability": 0.007407407407407408
+    },
+    {
+      "name": "header",
+      "probability": 0.007407407407407408
+    },
+    {
+      "name": "blockquote",
+      "probability": 0.003703703703703704
+    },
+    {
+      "name": "img",
+      "probability": 0.003703703703703704
+    }
+  ],
+  "header": [
+    {
+      "name": "div",
+      "probability": 0.5
+    },
+    {
+      "name": "a",
+      "probability": 0.3333333333333333
+    },
+    {
+      "name": "ul",
+      "probability": 0.16666666666666666
+    }
+  ],
+  "li": [
+    {
+      "name": "a",
+      "probability": 0.9193548387096774
+    },
+    {
+      "name": "div",
+      "probability": 0.04838709677419355
+    },
+    {
+      "name": "button",
+      "probability": 0.03225806451612903
+    }
+  ],
+  "h1": [
+    {
+      "name": "br",
+      "probability": 0.5
+    },
+    {
+      "name": "a",
+      "probability": 0.5
+    }
+  ],
+  "p": [
+    {
+      "name": "a",
+      "probability": 0.5757575757575758
+    },
+    {
+      "name": "strong",
+      "probability": 0.18181818181818182
+    },
+    {
+      "name": "span",
+      "probability": 0.15151515151515152
+    },
+    {
+      "name": "div",
+      "probability": 0.06060606060606061
+    },
+    {
+      "name": "br",
+      "probability": 0.030303030303030304
+    }
+  ],
+  "h3": [
+    {
+      "name": "a",
+      "probability": 1
+    }
+  ],
+  "footer": [
+    {
+      "name": "div",
+      "probability": 0.6666666666666666
+    },
+    {
+      "name": "a",
+      "probability": 0.3333333333333333
+    }
+  ],
+  "h2": [
+    {
+      "name": "br",
+      "probability": 0.5
+    },
+    {
+      "name": "a",
+      "probability": 0.5
+    }
+  ],
+  "a": [
+    {
+      "name": "img",
+      "probability": 0.3191489361702128
+    },
+    {
+      "name": "h4",
+      "probability": 0.2553191489361702
+    },
+    {
+      "name": "em",
+      "probability": 0.2553191489361702
+    },
+    {
+      "name": "svg",
+      "probability": 0.10638297872340426
+    },
+    {
+      "name": "span",
+      "probability": 0.06382978723404255
+    }
+  ],
+  "span": [
+    {
+      "name": "span",
+      "probability": 0.7142857142857143
+    },
+    {
+      "name": "i",
+      "probability": 0.14285714285714285
+    },
+    {
+      "name": "q",
+      "probability": 0.14285714285714285
+    }
+  ],
+  "code": [
+    {
+      "name": "span",
+      "probability": 1
+    }
+  ],
+  "blockquote": [
+    {
+      "name": "footer",
+      "probability": 0.3333333333333333
+    },
+    {
+      "name": "div",
+      "probability": 0.3333333333333333
+    },
+    {
+      "name": "span",
+      "probability": 0.3333333333333333
+    }
+  ],
+  "strong": [
+    {
+      "name": "span",
+      "probability": 1
+    }
+  ],
+  "defs": [
+    {
+      "name": "filter",
+      "probability": 0.3333333333333333
+    },
+    {
+      "name": "linearGradient",
+      "probability": 0.3333333333333333
+    },
+    {
+      "name": "path",
+      "probability": 0.3333333333333333
+    }
+  ],
+  "g": [
+    {
+      "name": "use",
+      "probability": 0.6
+    },
+    {
+      "name": "g",
+      "probability": 0.3
+    },
+    {
+      "name": "path",
+      "probability": 0.1
+    }
+  ],
+  "main": [
+    {
+      "name": "div",
+      "probability": 1
+    }
+  ],
+  "nav": [
+    {
+      "name": "ul",
+      "probability": 0.5
+    },
+    {
+      "name": "div",
+      "probability": 0.5
+    }
+  ],
+  "button": [
+    {
+      "name": "div",
+      "probability": 1
+    }
+  ],
+  "section": [
+    {
+      "name": "div",
+      "probability": 1
+    }
+  ],
+  "ul": [
+    {
+      "name": "li",
+      "probability": 1
+    }
+  ],
+  "linearGradient": [
+    {
+      "name": "stop",
+      "probability": 1
+    }
+  ],
+  "filter": [
+    {
+      "name": "feColorMatrix",
+      "probability": 0.3333333333333333
+    },
+    {
+      "name": "feGaussianBlur",
+      "probability": 0.3333333333333333
+    },
+    {
+      "name": "feOffset",
+      "probability": 0.3333333333333333
+    }
+  ],
+  "figure": [
+    {
+      "name": "pre",
+      "probability": 1
+    }
+  ],
+  "pre": [
+    {
+      "name": "code",
+      "probability": 1
+    }
+  ],
+  "noscript": [
+    {
+      "name": "iframe",
+      "probability": 0.5
+    },
+    {
+      "name": "img",
+      "probability": 0.5
+    }
+  ],
+  "h4": [
+    {
+      "name": "img",
+      "probability": 1
+    }
+  ]
+}

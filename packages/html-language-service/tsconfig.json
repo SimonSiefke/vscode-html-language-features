@@ -1,0 +1,17 @@
+{
+  "extends": "../../tsconfig-base",
+  "compilerOptions": {
+    "outDir": "dist",
+    "rootDir": "src"
+  },
+  "include": ["src/**/*.ts", "src/**/*.json"],
+  "references": [
+    { "path": "../html-parser" },
+    {
+      "path": "../schema"
+    },
+    {
+      "path": "../html-intellicode"
+    }
+  ]
+}

@@ -1,0 +1,123 @@
+{
+  "$comment": "Custom html data",
+  "elements": {
+    "!DOCTYPE": {
+      "description": "Doctype",
+      "self-closing": true
+    },
+    "article": {
+      "newline": true,
+      "description": "The article element represents a self-contained composition in a document"
+    },
+    "address": {
+      "description": "The address element indicates that the enclosed HTML provides contact information"
+    },
+    "aside": {
+      "newline": true,
+      "description": "The aside element represents a portion of a document whose content is only indirectly related to the document's main content."
+    },
+    "base": {
+      "self-closing": true,
+      "description": "The base element specifies the base URL to use for all relative URLs contained within a document"
+    },
+    "button": {
+      "description": "its a button"
+    },
+    "body": {
+      "description": "The body element represents the content of an HTML document."
+    },
+    "details": {
+      "newline": true
+    },
+    "div": {
+      "newline": true
+    },
+    "dl": {
+      "newline": true
+    },
+    "fieldset": {
+      "newline": true
+    },
+    "figure": {
+      "newline": true
+    },
+    "footer": {
+      "newline": true,
+      "description": "The footer element typically contains information about the author of the section, copyright data or links to related documents."
+    },
+    "form": {
+      "newline": true
+    },
+    "link": {
+      "description": "The link element specifies relationships between the current document and an external resource."
+    },
+    "head": {
+      "newline": true,
+      "description": "The head element contains machine-readable information (metadata) about the document"
+    },
+    "header": {
+      "newline": true,
+      "description": "The header element represents introductory content"
+    },
+    "html": {
+      "description": "The html element represents the root (top-level element) of an HTML document,",
+      "newline": true
+    },
+    "img": {
+      "self-closing": true
+    },
+    "input": {
+      "self-closing": true
+    },
+    "meta": {
+      "description": "The meta element represents metadata that cannot be represented by other HTML meta-related elements.",
+      "self-closing": true
+    },
+    "main": {
+      "newline": true
+    },
+    "menu": {
+      "newline": true
+    },
+    "nav": {
+      "newline": true
+    },
+    "ol": {
+      "newline": true
+    },
+    "optgroup": {
+      "newline": true
+    },
+    "script": {
+      "newline": true
+    },
+    "section": {
+      "newline": true
+    },
+    "style": {
+      "newline": true,
+      "description": "The style element contains style information for a document"
+    },
+    "table": {
+      "newline": true
+    },
+    "tbody": {
+      "newline": true
+    },
+    "tfoot": {
+      "newline": true
+    },
+    "thead": {
+      "newline": true
+    },
+    "tr": {
+      "newline": true
+    },
+    "title": {
+      "description": "The title element defines the text that is shown in a browser's title bar."
+    },
+    "ul": {
+      "newline": true
+    }
+  }
+}

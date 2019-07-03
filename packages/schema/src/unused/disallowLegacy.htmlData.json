@@ -1,0 +1,6 @@
+{
+  "$comment": "removes legacy and rare attributes from suggestions",
+  "elements": {
+    "img": {}
+  }
+}

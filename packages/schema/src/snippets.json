@@ -1,0 +1,8 @@
+{
+  "link:css": "link[href='${1:style}.css']",
+  "link:favicon": "<link rel=\"shortcut icon\" type=\"image/x-icon\" href=\"${1:favicon.ico}\">",
+  "script": "<script>$0</script>",
+  "script:src": "<script src=\"${1:index.js}\"></script>",
+  "img": "<img src=\"$0\" alt=\"$1\">",
+  "input": "input[type=${1:text}]"
+}
