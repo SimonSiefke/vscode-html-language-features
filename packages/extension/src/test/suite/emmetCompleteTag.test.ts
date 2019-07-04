@@ -27,11 +27,9 @@ suite('Emmet Complete Tag', () => {
         skip: true,
       },
       {
-        // TODO
         input: '<!DOCTYPE html>\nh|',
         type: '{tab}',
         expect: '<!DOCTYPE html>\n<html>\n  \n</html>',
-        skip: true,
       },
       {
         input: '<!DOCTYPE html>\n<html>\n  h|\n</html>',
@@ -49,6 +47,18 @@ suite('Emmet Complete Tag', () => {
         input: '<ul>\n  l|\n</ul>',
         type: '{tab}',
         expect: '<ul>\n  <li></li>\n</ul>',
+      },
+      {
+        input: '<ul>\n  <li>l|</li>\n</ul>',
+        type: '{tab}',
+        expect: '<ul>\n  <li>l </li>\n</ul>',
+      },
+      {
+        // TODO
+        input: '<ul>\n  <li>li|</li>\n</ul>',
+        type: '{tab}',
+        expect: '<ul>\n  <li><li></li></li>\n</ul>',
+        skip: true,
       },
       {
         // TODO endless loop
