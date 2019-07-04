@@ -124,6 +124,7 @@ connectionProxy.onRequest(
     any
   >('html/emmet-tag-completion'),
   async ({ textDocument, position }) => {
+    console.log('emmet tag')
     const document = documents.get(textDocument.uri) as TextDocument
     const text = document.getText(Range.create(Position.create(0, 0), position))
     const offset = document.offsetAt(position)

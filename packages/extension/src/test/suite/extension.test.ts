@@ -316,7 +316,7 @@ async function run(testCases: TestCase[]) {
     const input = testCase.input.replace('|', '')
     await setText(input)
     setCursorPosition(cursorOffset)
-    await type2(testCase.type, testCase.speed || 1)
+    await type2(testCase.type, testCase.speed || 200)
     await waitForAutoComplete2()
     const result = vscode.window.activeTextEditor.document.getText()
     assert.equal(result, testCase.expect)

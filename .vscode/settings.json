@@ -5,5 +5,11 @@
     "**/dist/**": true,
     "**/files*/**": true,
     "**/tsconfig.tsbuildinfo": true
-  }
+  },
+  "json.schemas": [
+    {
+      "fileMatch": ["**/*.htmlData.json"],
+      "url": "./packages/schema/src/schema.json"
+    }
+  ]
 }

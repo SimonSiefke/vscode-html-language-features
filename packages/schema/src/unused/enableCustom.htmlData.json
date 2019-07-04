@@ -24,7 +24,8 @@
       "description": "its a button"
     },
     "body": {
-      "description": "The body element represents the content of an HTML document."
+      "description": "The body element represents the content of an HTML document.",
+      "newline": true
     },
     "details": {
       "newline": true
