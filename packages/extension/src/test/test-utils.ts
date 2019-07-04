@@ -28,6 +28,10 @@ export async function createTestFile(
   await vscode.window.showTextDocument(uri)
 }
 
+export async function closeTestFile(): Promise<void> {
+  await vscode.commands.executeCommand('workbench.action.closeActiveEditor')
+}
+
 async function setText(text: string): Promise<void> {
   const document = vscode.window.activeTextEditor.document
   const all = new vscode.Range(
@@ -90,6 +94,9 @@ async function type(text: string, speed = 150): Promise<void> {
     } else if (text.slice(i).startsWith('{redo}')) {
       await vscode.commands.executeCommand('redo')
       i += '{redo}'.length - 1
+    } else if (text.slice(i).startsWith('{tab}')) {
+      await vscode.commands.executeCommand('emmet-expand-abbreviation')
+      i += '{tab}'.length
     } else {
       await typeLiteral(text[i])
     }
@@ -102,7 +109,7 @@ async function waitForAutoComplete() {
       disposable.dispose()
       resolve()
     })
-    setTimeout(resolve, 30)
+    setTimeout(resolve, 40)
   })
 }
 
@@ -121,7 +128,7 @@ export async function run(testCases: TestCase[]) {
     const input = testCase.input.replace('|', '')
     await setText(input)
     setCursorPosition(cursorOffset)
-    await type(testCase.type, testCase.speed || 200)
+    await type(testCase.type, testCase.speed || 0)
     await waitForAutoComplete()
     const result = getText()
     assert.equal(result, testCase.expect)

@@ -1,10 +1,21 @@
-import { TestCase, createTestFile, run, activateExtension } from '../test-utils'
+import {
+  TestCase,
+  createTestFile,
+  run,
+  activateExtension,
+  closeTestFile,
+} from '../test-utils'
+import { before, after } from 'mocha'
 
 suite('Auto Close Tag', () => {
   before(async () => {
     await createTestFile('auto-close-tag.html')
     await activateExtension()
   })
+
+  // after(async () => {
+  //   closeTestFile()
+  // })
 
   test('basic', async () => {
     const testCases: TestCase[] = [
