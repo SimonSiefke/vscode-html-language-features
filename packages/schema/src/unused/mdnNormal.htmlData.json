@@ -1,9 +1,4 @@
 {
-  "attributeDefinitions": {
-    "accept": {
-      "description": "List of types the server accepts, typically a file type."
-    }
-  },
   "elements": {
     "form": {
       "attributes": {

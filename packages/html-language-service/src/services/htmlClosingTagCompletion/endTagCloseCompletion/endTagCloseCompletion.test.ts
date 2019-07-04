@@ -1,6 +1,6 @@
 import { doEndTagCloseCompletion } from './endTagCloseCompletion'
 import { DoCompletion } from '../htmlClosingTagCompletion'
-import { addSchema } from '../../../data/HTMLManager'
+import { addConfig } from '../../../data/HTMLManager'
 
 const createExpectCompletion: (
   doCompletion: DoCompletion
@@ -47,7 +47,7 @@ function run(testCases: TestCase[]) {
 }
 
 beforeAll(() => {
-  addSchema({
+  addConfig({
     elements: {
       input: {
         'self-closing': true,

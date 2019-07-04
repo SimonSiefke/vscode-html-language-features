@@ -4,6 +4,7 @@ import * as path from 'path'
 
 const folder = 'files'
 const filter = ''
+const root = path.join(__dirname, '../../')
 
 function pretty(tree) {
   if (Array.isArray(tree)) {
@@ -52,15 +53,12 @@ function analyze(text) {
   // delete statistics.root
 }
 
-const dir = fs.readdirSync(path.join(__dirname, '..', folder))
+const dir = fs.readdirSync(path.join(root, folder))
 for (const file of dir) {
   if (!file.startsWith(filter)) {
     continue
   }
-  const content = fs.readFileSync(
-    path.join(__dirname, '..', folder, file),
-    'utf-8'
-  )
+  const content = fs.readFileSync(path.join(root, folder, file), 'utf-8')
   analyze(content)
 }
 
@@ -123,10 +121,12 @@ for (const tag in finalStatistics) {
 
 statisticsWithProbabilities
 
-if (!fs.existsSync(path.join(__dirname, 'generated'))) {
-  fs.mkdirSync(path.join(__dirname, 'generated'))
+if (!fs.existsSync(path.join(root, 'src/generated'))) {
+  fs.mkdirSync(path.join(root, 'src/generated'))
 }
 fs.writeFileSync(
-  path.join(__dirname, 'generated/statistics.json'),
+  path.join(root, 'src/generated/statistics.json'),
   JSON.stringify(statisticsWithProbabilities, null, 2) + '\n'
 )
+
+// TODO section should be more likely than script in body (probably)

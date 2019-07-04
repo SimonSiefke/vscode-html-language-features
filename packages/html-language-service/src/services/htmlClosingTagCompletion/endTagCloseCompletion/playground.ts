@@ -1,7 +1,7 @@
 import { doEndTagCloseCompletion } from './endTagCloseCompletion'
-import { addSchema } from '../../../data/HTMLManager'
+import { addConfig } from '../../../data/HTMLManager'
 
-addSchema({
+addConfig({
   elements: {
     input: {
       'self-closing': true,

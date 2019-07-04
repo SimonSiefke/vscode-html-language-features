@@ -1,4 +1,6 @@
 **/dist
+packages/html-intellicode/files
+
 # Logs
 logs
 *.log

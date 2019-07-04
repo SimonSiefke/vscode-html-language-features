@@ -1,6 +1,6 @@
 import {
   isSelfClosingTag,
-  addSchema,
+  addConfig,
   shouldHaveNewline,
 } from '../../../data/HTMLManager'
 
@@ -17,7 +17,7 @@ import {
 import { expand } from '../../expand'
 
 const getEmmetTagCompletion = (tagName: string) => {
-  if(isSelfClosingTag(tagName)){
+  if (isSelfClosingTag(tagName)) {
     return `<${tagName}>`
   }
   if (shouldHaveNewline(tagName)) {

@@ -15,4 +15,4 @@ export {
   doComplete,
   CompletionItemType,
 } from './services/htmlCompletion/htmlCompletion'
-export { addSchema } from './data/HTMLManager'
+export { addConfig as addSchema } from './data/HTMLManager'

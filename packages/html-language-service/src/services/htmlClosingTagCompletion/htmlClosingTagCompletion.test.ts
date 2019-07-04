@@ -1,8 +1,8 @@
-import { addSchema } from '../../data/HTMLManager'
-import { DoCompletion } from './htmlClosingTagCompletion';
+import { addConfig } from '../../data/HTMLManager'
+import { DoCompletion } from './htmlClosingTagCompletion'
 
 beforeAll(() => {
-  addSchema({
+  addConfig({
     elements: {
       input: {
         'self-closing': true,

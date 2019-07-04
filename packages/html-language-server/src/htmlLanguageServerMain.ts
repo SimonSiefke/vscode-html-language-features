@@ -10,7 +10,6 @@ import {
   Position,
   TextDocument,
 } from 'vscode-languageserver'
-
 import { createConnectionProxy } from './htmlLanguageServer/connectionProxy'
 import { parseRegions } from 'html-parser'
 import { addSchema, doAutoRenameTagCompletion } from 'html-language-service'
@@ -21,6 +20,7 @@ import {
   doSelfClosingTagCloseCompletion,
 } from 'html-language-service'
 import { doEmmetTagCompletion } from 'html-language-service'
+import * as path from 'path'
 
 // Create a connection for the server
 const connection: IConnection = createConnection()
@@ -51,18 +51,32 @@ connection.onInitialize(() => {
 })
 
 connection.onInitialized(async () => {
-  const w3cSchoolsSchema = await import(
-    'schema/dist/generated/w3cSchools.htmlData.json'
+  // addSchema(
+  //   path.join(
+  //     __dirname,
+  //     '../node_modules',
+  //     'schema/dist/generated/w3cSchools.htmlData.json'
+  //   )
+  // )
+  addSchema(
+    path.join(
+      __dirname,
+      '../node_modules',
+      'schema/dist/manual/essential.htmlData.json'
+    )
   )
-  addSchema(w3cSchoolsSchema)
-  const essentialSchema = await import(
-    'schema/dist/manual/essential.htmlData.json'
-  )
-  addSchema(essentialSchema)
-  const recommendedSchema = await import(
-    'schema/dist/manual/recommended.htmlData.json'
-  )
-  addSchema(recommendedSchema)
+  // const w3cSchoolsSchema = await import(
+  //   'schema/dist/generated/w3cSchools.htmlData.json'
+  // )
+  // addSchema(w3cSchoolsSchema)
+  // const essentialSchema = await import(
+  //   'schema/dist/manual/essential.htmlData.json'
+  // )
+  // addSchema(essentialSchema)
+  // const recommendedSchema = await import(
+  //   'schema/dist/manual/recommended.htmlData.json'
+  // )
+  // addSchema(recommendedSchema)
 })
 
 const connectionProxy = createConnectionProxy(connection)

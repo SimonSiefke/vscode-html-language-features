@@ -4,15 +4,17 @@
   "type": "object",
   "default": {},
   "additionalProperties": false,
-  "required": ["elements"],
   "properties": {
     "$comment": {
       "type": "string",
       "description": "Optional comment about this file"
     },
-    "attributeDefinitions": {
-      "type": "object",
-      "description": "definitions"
+    "extends": {
+      "type": "array",
+      "description": "Extend other configurations",
+      "items": {
+        "type": "string"
+      }
     },
     "elements": {
       "type": "object",

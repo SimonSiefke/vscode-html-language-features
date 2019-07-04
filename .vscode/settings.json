@@ -6,6 +6,9 @@
     "**/files*/**": true,
     "**/tsconfig.tsbuildinfo": true
   },
+  "fileutils.typeahead.exclude": {
+    "**/dist": true
+  },
   "json.schemas": [
     {
       "fileMatch": ["**/*.htmlData.json"],

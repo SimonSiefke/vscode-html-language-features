@@ -7,9 +7,14 @@
     "html-parser": "^1.0.0"
   },
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "fetch-sites": "ts-node src/scripts/fetchSites.ts",
+    "generate-statistics": "ts-node src/scripts/parse.ts"
   },
   "keywords": [],
   "author": "",
-  "license": "ISC"
+  "license": "ISC",
+  "devDependencies": {
+    "axios": "^0.19.0",
+    "ts-node": "^8.3.0"
+  }
 }
