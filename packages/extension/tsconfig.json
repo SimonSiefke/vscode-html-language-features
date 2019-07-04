@@ -5,5 +5,5 @@
     "rootDir": "src",
     "strictNullChecks": false
   },
-  "include": ["src"]
+  "include": ["src", "vscode.proposed.d.ts"]
 }

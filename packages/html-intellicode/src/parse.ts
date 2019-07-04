@@ -3,6 +3,7 @@ import * as fs from 'fs'
 import * as path from 'path'
 
 const folder = 'files'
+const filter = ''
 
 function pretty(tree) {
   if (Array.isArray(tree)) {
@@ -30,8 +31,14 @@ function analyze(text) {
   root.tagName = 'root'
 
   walk(root, leaf => {
+    if (leaf.tagName === '!doctype') {
+      leaf.tagName = '!DOCTYPE'
+    }
     statistics[leaf.tagName] = statistics[leaf.tagName] || {}
-    const parentName = leaf.parent && leaf.parent.tagName
+    let parentName = leaf.parent && leaf.parent.tagName
+    if (parentName === undefined) {
+      parentName = 'root'
+    }
     if (statistics[leaf.tagName][parentName]) {
       statistics[leaf.tagName][parentName]++
     } else {
@@ -39,13 +46,21 @@ function analyze(text) {
     }
   })
 
+  // root //?
+
   // @ts-ignore
-  delete statistics.root
+  // delete statistics.root
 }
 
-const dir = fs.readdirSync(path.join(__dirname,'..', folder))
+const dir = fs.readdirSync(path.join(__dirname, '..', folder))
 for (const file of dir) {
-  const content = fs.readFileSync(path.join(__dirname,'..', folder, file), 'utf-8')
+  if (!file.startsWith(filter)) {
+    continue
+  }
+  const content = fs.readFileSync(
+    path.join(__dirname, '..', folder, file),
+    'utf-8'
+  )
   analyze(content)
 }
 
@@ -67,11 +82,11 @@ for (const tag in statistics) {
       // statistics[tag][otherTag] //?
       // console.log('yes')
     }
-    // tag
-    // otherTag
   }
 }
-// reversedStatistics
+reversedStatistics
+// @ts-ignore
+delete reversedStatistics.root.root
 
 const finalStatistics = {}
 for (const tag in reversedStatistics) {

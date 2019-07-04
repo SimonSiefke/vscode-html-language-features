@@ -117,7 +117,22 @@
     "form": {
       "description": "Defines an HTML form for user input"
     },
-    "h1> to <h6": {
+    "h1": {
+      "description": " Defines HTML headings"
+    },
+    "h2": {
+      "description": " Defines HTML headings"
+    },
+    "h3": {
+      "description": " Defines HTML headings"
+    },
+    "h4": {
+      "description": " Defines HTML headings"
+    },
+    "h5": {
+      "description": " Defines HTML headings"
+    },
+    "h6": {
       "description": " Defines HTML headings"
     },
     "head": {

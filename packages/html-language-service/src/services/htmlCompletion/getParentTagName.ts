@@ -17,6 +17,9 @@ export function getPreviousOpeningTagName(
     scanner.stream.goTo(offset - 2)
     scanner.stream.goBackToUntilEitherChar('<', '>')
     const char = scanner.stream.peekLeft(1)
+    if (!['<', '>'].includes(char)) {
+      return undefined
+    }
     if (char === '>') {
       // skip comment
       if (scanner.stream.previousChars(3) === '-->') {

@@ -17,6 +17,9 @@ import {
 import { expand } from '../../expand'
 
 const getEmmetTagCompletion = (tagName: string) => {
+  if(isSelfClosingTag(tagName)){
+    return `<${tagName}>`
+  }
   if (shouldHaveNewline(tagName)) {
     return `<${tagName}>\n\t$0\n</${tagName}>`
   }
@@ -33,10 +36,12 @@ const emmetTagCompletion = (scanner: Scanner) => {
   scanner.scan()
   const incompleteTagName = scanner.getTokenText()
   const parent = getPreviousOpeningTagName(scanner, completionOffset)
+  let tagName: string | undefined
   if (!parent) {
-    return undefined
+    tagName = expand(incompleteTagName, 'root')
+  } else {
+    tagName = expand(incompleteTagName, parent.tagName)
   }
-  const tagName = expand(incompleteTagName, parent.tagName)
   if (!tagName) {
     return undefined
   }

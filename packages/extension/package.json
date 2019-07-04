@@ -4,6 +4,7 @@
   "description": "",
   "publisher": "SimonSiefke",
   "main": "dist/extensionMain.js",
+  "enableProposedApi": true,
   "activationEvents": [
     "onLanguage:html"
   ],
@@ -11,7 +12,8 @@
     "vscode": "^1.22.0"
   },
   "scripts": {
-    "dev": "cd ../../ && npm run dev"
+    "dev": "cd ../../ && npm run dev",
+    "update-proposed": "vscode-dts dev"
   },
   "contributes": {
     "keybindings": {
@@ -23,6 +25,10 @@
       {
         "command": "emmet-expand-abbreviation",
         "title": "expand abbreviation"
+      },
+      {
+        "command": "extension.sayHello",
+        "title": "say hello"
       }
     ]
   },

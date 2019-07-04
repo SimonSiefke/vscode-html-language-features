@@ -7,10 +7,7 @@ import {
   RequestType,
   TextDocumentPositionParams,
 } from 'vscode-languageclient'
-import {
-  doEmmetTagCompletion,
-  doAutoRenameTagCompletion,
-} from './htmlClosingTagCompletionService'
+import { doEmmetTagCompletion } from './htmlClosingTagCompletionService'
 
 function activate(
   context: vscode.ExtensionContext,
@@ -33,58 +30,7 @@ function activate(
       }
     )
   )
-  context.subscriptions.push(
-    vscode.workspace.onDidChangeTextDocument(async event => {
-      if (event.document.languageId !== 'html') {
-        return
-      }
-      if (event.contentChanges.length === 0) {
-        return
-      }
-      if (event.contentChanges.length !== 1) {
-        return
-      }
-      if (event.document !== vscode.window.activeTextEditor.document) {
-        console.error('what')
-        return
-      }
-      const document = event.document
-      let cursorPosition = vscode.window.activeTextEditor.selection.active
-      const rangeStart = event.contentChanges[0].range.start
-      const rangeEnd = event.contentChanges[0].range.end
-      if (rangeStart.isBefore(rangeEnd)) {
-        cursorPosition = rangeStart
-      } else {
-        cursorPosition = document.positionAt(
-          document.offsetAt(cursorPosition) +
-            event.contentChanges[0].text.length
-        )
-      }
-      const result = await doAutoRenameTagCompletion(
-        client,
-        document,
-        cursorPosition
-      )
-      if (!result) {
-        return
-      }
-      const startPosition = document.positionAt(result.startOffset)
-      const endPosition = document.positionAt(result.endOffset)
-      console.log('completion inserted')
-      vscode.window.activeTextEditor.edit(
-        editBuilder => {
-          editBuilder.replace(
-            new vscode.Range(startPosition, endPosition),
-            result.word
-          )
-        },
-        {
-          undoStopBefore: false,
-          undoStopAfter: false,
-        }
-      )
-    })
-  )
+
   //     try {
   //       const extracted = extractAbbreviation(
   //         textUntilPosition,

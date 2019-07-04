@@ -6,7 +6,7 @@ import {
 } from 'vscode-languageclient'
 import { Service } from '../../types'
 
-type DoCompletion<T = any> = (
+export type DoCompletion<T = any> = (
   client: LanguageClient,
   document: vscode.TextDocument,
   position: vscode.Position
@@ -35,56 +35,6 @@ const createDoCompletion: (
   )
 }
 
-const createDoAutoRenameTagCompletion: (
-  requestType: RequestType<
-    TextDocumentPositionParams,
-    { startOffset: number; endOffset: number; word: string },
-    any,
-    any
-  >
-) => DoCompletion<
-  | {
-      startOffset: number
-      endOffset: number
-      word: string
-    }
-  | undefined
-> = requestType => async (client, document, position) => {
-  const params = client.code2ProtocolConverter.asTextDocumentPositionParams(
-    document,
-    position
-  )
-  // ask the server for the completion
-  const result = await client.sendRequest(requestType, params)
-  if (!result) {
-    // console.error('no completion')
-    // await vscode.commands.executeCommand('tab')
-    return
-  }
-  if (
-    !vscode.window.activeTextEditor ||
-    vscode.window.activeTextEditor.document.version !== document.version
-  ) {
-    throw new Error('too slow')
-  }
-  return result
-  // const { startOffset, endOffset, word } = result
-  // const startPosition = document.positionAt(startOffset)
-  // const endPosition = document.positionAt(endOffset)
-  // vscode.window.activeTextEditor.insertSnippet(
-  //   new vscode.SnippetString(completionString),
-  //   new vscode.Range(completionPosition, position),
-  //   {
-  //     undoStopAfter: false,
-  //     undoStopBefore: false,
-  //   }
-  // )
-}
-
-export const doAutoRenameTagCompletion = createDoAutoRenameTagCompletion(
-  new RequestType('html/auto-rename-tag')
-)
-
 const createDoEmmetCompletion: (
   requestType: RequestType<
     TextDocumentPositionParams,
@@ -100,7 +50,7 @@ const createDoEmmetCompletion: (
   // ask the server for the completion
   const result = await client.sendRequest(requestType, params)
   if (!result) {
-    // console.error('no completion')
+    console.error('no completion')
     await vscode.commands.executeCommand('tab')
     return
   }
@@ -111,6 +61,8 @@ const createDoEmmetCompletion: (
     throw new Error('too slow')
   }
   const { completionString, completionOffset } = result
+  console.log('compl' + completionString)
+  console.log('complo' + completionOffset)
   const completionPosition = document.positionAt(completionOffset)
   vscode.window.activeTextEditor.insertSnippet(
     new vscode.SnippetString(completionString),

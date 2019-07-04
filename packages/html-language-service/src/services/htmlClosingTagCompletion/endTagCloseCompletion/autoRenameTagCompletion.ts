@@ -6,8 +6,8 @@ import {
 } from '../../htmlCompletion/getParentTagName'
 
 const autoRenameTagCompletion = (scanner: Scanner) => {
-  console.log(scanner.stream.position)
-  console.log(scanner.stream.previousChars(3))
+  // console.log(scanner.stream.position)
+  // console.log(scanner.stream.previousChars(3))
   // console.log(scanner.stream.peekRight())
   // scanner.stream.goBack(1)
   const atStartTag = scanner.stream.currentlyEndsWithRegex(/<[!a-zA-Z\d-]*$/)

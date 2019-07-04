@@ -55,10 +55,14 @@ connection.onInitialized(async () => {
     'schema/dist/generated/w3cSchools.htmlData.json'
   )
   addSchema(w3cSchoolsSchema)
-  const customSchema = await import(
-    'schema/dist/unused/enableCustom.htmlData.json'
+  const essentialSchema = await import(
+    'schema/dist/manual/essential.htmlData.json'
   )
-  addSchema(customSchema)
+  addSchema(essentialSchema)
+  const recommendedSchema = await import(
+    'schema/dist/manual/recommended.htmlData.json'
+  )
+  addSchema(recommendedSchema)
 })
 
 const connectionProxy = createConnectionProxy(connection)
@@ -124,7 +128,6 @@ connectionProxy.onRequest(
     any
   >('html/emmet-tag-completion'),
   async ({ textDocument, position }) => {
-    console.log('emmet tag')
     const document = documents.get(textDocument.uri) as TextDocument
     const text = document.getText(Range.create(Position.create(0, 0), position))
     const offset = document.offsetAt(position)

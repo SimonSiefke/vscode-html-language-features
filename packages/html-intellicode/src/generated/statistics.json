@@ -1,12 +1,22 @@
 {
-  "html": [
+  "root": [
     {
-      "name": "head",
-      "probability": 0.5555555555555556
+      "name": "html",
+      "probability": 0.5
     },
     {
+      "name": "!DOCTYPE",
+      "probability": 0.5
+    }
+  ],
+  "html": [
+    {
       "name": "body",
-      "probability": 0.4444444444444444
+      "probability": 0.5
+    },
+    {
+      "name": "head",
+      "probability": 0.5
     }
   ],
   "head": [
