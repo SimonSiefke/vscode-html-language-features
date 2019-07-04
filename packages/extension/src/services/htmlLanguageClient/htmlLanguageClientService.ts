@@ -5,9 +5,6 @@ import {
   ServerOptions,
 } from 'vscode-languageclient'
 import * as vscode from 'vscode'
-import { Service } from '../../types'
-import { htmlClosingTagCompletionService } from './htmlClosingTagCompletionService'
-import { emmetService } from './emmetService'
 
 const clientOptions: LanguageClientOptions = {
   documentSelector: [
@@ -18,7 +15,7 @@ const clientOptions: LanguageClientOptions = {
   ],
 }
 
-async function activate(
+export async function createLanguageClient(
   context: vscode.ExtensionContext
 ): Promise<LanguageClient> {
   const serverModule = context.asAbsolutePath(
@@ -130,11 +127,4 @@ async function activate(
   return client
   // emmetService.activate(context, client)
   // htmlClosingTagCompletionService.activate(context, client)
-}
-
-export const createLanguageClient = (context: vscode.ExtensionContext) =>
-  activate(context)
-
-export const htmlLanguageClientService: Service = {
-  activate,
 }

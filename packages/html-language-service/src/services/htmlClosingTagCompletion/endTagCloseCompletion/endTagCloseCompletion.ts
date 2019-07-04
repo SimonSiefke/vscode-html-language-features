@@ -27,10 +27,23 @@ const getEmmetTagCompletion = (tagName: string) => {
 }
 
 const emmetTagCompletion = (scanner: Scanner) => {
+  console.log('em')
   if (!scanner.stream.currentlyEndsWithRegex(/[!a-zA-Z\d-]+$/)) {
+    console.log('un')
     return undefined
   }
-  scanner.stream.goBackToUntilChar(' ')
+  const currentPosition = scanner.stream.position
+  scanner.stream.goBackToUntilChar('\n')
+  const startOfLine = scanner.stream.position
+  scanner.stream.goTo(currentPosition)
+  const tagNameRE = /[a-zA-Z]/
+  while (
+    scanner.stream.position >= startOfLine &&
+    tagNameRE.test(scanner.stream.peekLeft())
+  ) {
+    scanner.stream.position--
+  }
+  scanner.stream.position++
   const completionOffset = scanner.stream.position
   scanner.state = ScannerState.WithinContent
   scanner.scan()

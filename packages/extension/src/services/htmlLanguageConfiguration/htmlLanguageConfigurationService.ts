@@ -98,8 +98,7 @@ const htmlLanguageConfiguration: vscode.LanguageConfiguration = {
        * [^<]*$  ### not another tag
        *
        */
-      beforeText: /<(?!(?:area|base|br|input|meta|hr|img|link))[^/>]*(?!\/)>[^<]*$/i,
-      // beforeText: /<(?!(?:div|area|base|br|col|frame|hr|html|img|input|link|meta|param))/i,
+      beforeText: /<(?!(?:area|base|br|input|meta|hr|img|link))\w[^/>]*(?!\/)>[^<]*$/i,
       action: { indentAction: vscode.IndentAction.Indent },
     },
   ],
