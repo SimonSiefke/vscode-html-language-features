@@ -86,7 +86,7 @@ connectionProxy.onRequest(
   ),
   async ({ textDocument, position }) => {
     const document = documents.get(textDocument.uri) as TextDocument
-    const text = document.getText(Range.create(Position.create(0, 0), position))
+    const text = document.getText()
     const offset = document.offsetAt(position)
     return doEndTagCloseCompletion(text, offset)
   }

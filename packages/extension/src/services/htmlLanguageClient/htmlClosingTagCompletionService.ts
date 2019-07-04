@@ -177,7 +177,7 @@ function activate(
         )
         let completion: DoCompletion
         if (lastCharacter === '>') {
-          completion = doEndTagAutoCloseCompletion
+          await doEndTagAutoCloseCompletion(client, document, position)
         } else if (lastCharacter === '/') {
           const secondToLastCharacter = document.getText(
             new vscode.Range(
@@ -191,9 +191,10 @@ function activate(
               )
             )
           )
-          completion = doEndTagCloseCompletion
+          if (secondToLastCharacter === '<') {
+            await doEndTagCloseCompletion(client, document, position)
+          }
         }
-        await completion(client, document, position)
       }
     )
   )

@@ -1,7 +1,7 @@
 import { Scanner, createScanner, ScannerState } from 'html-parser'
 
 import {
-  getParentTagName,
+  getPreviousOpeningTagName,
   getNextClosingTag,
 } from '../../htmlCompletion/getParentTagName'
 
@@ -23,7 +23,10 @@ const autoRenameTagCompletion = (scanner: Scanner) => {
     const tagName = scanner.getTokenText()
     scanner.stream.goTo(currentPosition)
     scanner.stream.goBackToUntilChar('<')
-    const parent = getParentTagName(scanner, scanner.stream.position - 2)
+    const parent = getPreviousOpeningTagName(
+      scanner,
+      scanner.stream.position - 2
+    )
     if (!parent) {
       return undefined
     }
@@ -50,7 +53,7 @@ const autoRenameTagCompletion = (scanner: Scanner) => {
     }
     scanner.stream.advanceUntilChar('>')
     scanner.stream.advance(1)
-    const nextClosingTag = getNextClosingTag(scanner)
+    const nextClosingTag = getNextClosingTag(scanner, scanner.stream.position)
     if (!nextClosingTag) {
       return undefined
     }

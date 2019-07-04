@@ -1,7 +1,7 @@
 import { isSelfClosingTag } from '../../data/HTMLManager'
 import { Scanner, ScannerState, TokenType, createScanner } from 'html-parser'
 
-export function getParentTagName(
+export function getPreviousOpeningTagName(
   scanner: Scanner,
   initialOffset: number
 ):
@@ -64,13 +64,15 @@ export function getParentTagName(
 }
 
 export function getNextClosingTag(
-  scanner: Scanner
+  scanner: Scanner,
+  initialOffset: number
 ):
   | {
       tagName: string
       offset: number
     }
   | undefined {
+  scanner.stream.goTo(initialOffset)
   let offset = scanner.stream.position
   let parentTagName: string | undefined
   let stack: string[] = []

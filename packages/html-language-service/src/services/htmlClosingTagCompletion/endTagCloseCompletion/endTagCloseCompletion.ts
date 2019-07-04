@@ -10,7 +10,10 @@ import {
   Completion,
 } from '../htmlClosingTagCompletion'
 import { ScannerState, TokenType, createScanner, Scanner } from 'html-parser'
-import { getParentTagName } from '../../htmlCompletion/getParentTagName'
+import {
+  getPreviousOpeningTagName,
+  getNextClosingTag,
+} from '../../htmlCompletion/getParentTagName'
 import { expand } from '../../expand'
 
 const getEmmetTagCompletion = (tagName: string) => {
@@ -29,7 +32,7 @@ const emmetTagCompletion = (scanner: Scanner) => {
   scanner.state = ScannerState.WithinContent
   scanner.scan()
   const incompleteTagName = scanner.getTokenText()
-  const parent = getParentTagName(scanner, completionOffset)
+  const parent = getPreviousOpeningTagName(scanner, completionOffset)
   if (!parent) {
     return undefined
   }
@@ -64,10 +67,39 @@ const endTagCloseCompletion: Completion<{ tagName: string }> = {
     if (!scanner.stream.currentlyEndsWith('</')) {
       return false
     }
-    scanner.stream.goBack(3)
-    let i = 0
+    let before = scanner.stream.position - 3
+    let after = scanner.stream.position
+    // scanner.stream.goBack(3)
     let tagName: string
     let stack = []
+    let i = 0
+    while (before > 0) {
+      if (i++ > 1) {
+        return false
+      }
+      const previousOpeningTagName = getPreviousOpeningTagName(scanner, before)
+      const nextClosingTagName = getNextClosingTag(scanner, after)
+      console.log('prev' + JSON.stringify(previousOpeningTagName))
+      console.log('next' + JSON.stringify(nextClosingTagName))
+      if (!previousOpeningTagName) {
+        return false
+      }
+      if (
+        !nextClosingTagName ||
+        previousOpeningTagName.tagName !== nextClosingTagName.tagName
+      ) {
+        return {
+          tagName: previousOpeningTagName.tagName,
+        }
+      }
+      before = previousOpeningTagName.offset - 1
+      after = nextClosingTagName.offset
+    }
+
+    // console.log('prev' + previousOpeningTagName!.tagName)
+    // console.log(scanner.stream.getSource())
+    // console.log('next' + JSON.stringify(nextClosingTagName))
+    return false
     do {
       scanner.stream.goBackToUntilChar('<')
       if (scanner.stream.position === 0) {
