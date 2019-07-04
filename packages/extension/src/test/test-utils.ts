@@ -3,6 +3,12 @@ import * as fs from 'fs'
 import * as path from 'path'
 import * as assert from 'assert'
 
+const extension = vscode.extensions.getExtension('SimonSiefke.extension')
+
+export async function activateExtension() {
+  await extension.activate()
+}
+
 export interface TestCase {
   input: string
   type: string

@@ -2,8 +2,7 @@ import * as assert from 'assert'
 import { before, Test, test } from 'mocha'
 
 // You can import and use all API from the 'vscode' module
-import { activateExtension } from '../activateExtension'
-import { TestCase, createTestFile, run } from '../test-utils'
+import { TestCase, createTestFile, run, activateExtension } from '../test-utils'
 
 // interface Chainable {
 //   then: (fn: () => void | Promise<void> | Thenable<any>) => Chainable

@@ -1,5 +1,4 @@
-import { TestCase, createTestFile, run } from '../test-utils'
-import { activateExtension } from '../activateExtension'
+import { TestCase, createTestFile, run, activateExtension } from '../test-utils'
 
 suite('Auto Close Tag', () => {
   before(async () => {
