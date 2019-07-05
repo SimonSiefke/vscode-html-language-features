@@ -18,6 +18,8 @@
     "fs-extra": "^8.1.0",
     "lerna": "^3.15.0",
     "merge-options": "^1.0.1",
+    "semantic-release": "^15.13.18",
+    "semantic-release-vsce": "^2.2.8",
     "ts-loader": "^6.0.4",
     "ts-node": "^8.3.0",
     "typescript": "^3.5.2",
