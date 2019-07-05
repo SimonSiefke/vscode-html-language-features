@@ -22,14 +22,14 @@ fs.writeFileSync(
   `${JSON.stringify(pkg, null, 2)}\n`
 )
 
-fs.copySync(
-  path.join(root, 'packages/extension/dist'),
-  path.join(root, 'dist/packages/extension/dist')
-)
-fs.copySync(
-  path.join(root, 'packages/html-language-server/dist'),
-  path.join(root, 'dist/packages/html-language-server/dist')
-)
+// fs.copySync(
+//   path.join(root, 'packages/extension/dist'),
+//   path.join(root, 'dist/packages/extension/dist')
+// )
+// fs.copySync(
+//   path.join(root, 'packages/html-language-server/dist'),
+//   path.join(root, 'dist/packages/html-language-server/dist')
+// )
 
 let extensionMain = fs
   .readFileSync(
