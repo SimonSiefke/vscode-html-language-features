@@ -5,6 +5,7 @@
   "publisher": "SimonSiefke",
   "main": "dist/extensionMain.js",
   "enableProposedApi": true,
+  "preview": true,
   "activationEvents": [
     "onLanguage:html"
   ],
