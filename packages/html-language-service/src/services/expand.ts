@@ -1,12 +1,6 @@
 import { statistics } from 'html-intellicode'
 import { fuzzySearch } from './fuzzySearch'
-import { getHTMLTagNames, getHTMLTags } from '../data/HTMLManager'
-
-// const statistics = {
-//   div: {
-//     subtags: ['div'],
-//   },
-// }
+import {  getHTMLTags } from '../data/HTMLManager'
 
 /**
  * Expands `div` into `div` but doesn't handle partial matches like `di`

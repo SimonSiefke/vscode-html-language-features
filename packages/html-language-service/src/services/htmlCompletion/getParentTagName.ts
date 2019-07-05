@@ -13,7 +13,12 @@ export function getPreviousOpeningTagName(
   let offset = initialOffset + 2
   let parentTagName: string | undefined
   let stack: string[] = []
+  // let i = 0
   do {
+    // if (i++ > 10) {
+    //   console.log('no')
+    //   return undefined
+    // }
     scanner.stream.goTo(offset - 2)
     scanner.stream.goBackToUntilEitherChar('<', '>')
     const char = scanner.stream.peekLeft(1)
@@ -28,6 +33,7 @@ export function getPreviousOpeningTagName(
         continue
       } else {
         scanner.stream.goBackToUntilChar('<')
+        // scanner.stream.goBack(1)
         offset = scanner.stream.position
       }
     }
@@ -37,10 +43,11 @@ export function getPreviousOpeningTagName(
     }
     // push closing tags onto the stack
     if (scanner.stream.peekRight() === '/') {
-      offset = scanner.stream.position
+      offset = scanner.stream.position - 1
       scanner.stream.advance(1)
       scanner.state = ScannerState.AfterOpeningEndTag
       scanner.scan()
+      console.log('push' + scanner.getTokenText())
       stack.push(scanner.getTokenText())
       continue
     }

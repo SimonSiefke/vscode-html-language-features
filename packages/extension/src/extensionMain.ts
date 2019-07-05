@@ -24,21 +24,5 @@ export async function activate(context: vscode.ExtensionContext) {
   // fakeEmmetService.activate(context)
   emmetService.activate(context, languageClient)
   // autoRenameTagService.activate(context, languageClient)
-  htmlClosingTagCompletionService.activate(context, languageClient)
-
-  vscode.commands.registerCommand('extension.sayHello', async () => {
-    if (!vscode.window.activeTextEditor) {
-      return
-    }
-
-    const inset = vscode.window.createWebviewTextEditorInset(
-      vscode.window.activeTextEditor,
-      0,
-      10
-    )
-    inset.onDidDispose(() => {
-      console.log('WEBVIEW disposed...')
-    })
-    inset.webview.html = `<head><meta></head><body><button style="display:block">click me</button><input type="number"><img src="https://imgs.xkcd.com/comics/plutonium.png"/><body>`
-  })
+  // htmlClosingTagCompletionService.activate(context, languageClient)
 }

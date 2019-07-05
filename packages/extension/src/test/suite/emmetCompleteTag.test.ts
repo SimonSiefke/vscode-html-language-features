@@ -61,11 +61,9 @@ suite('Emmet Complete Tag', () => {
         skip: true,
       },
       {
-        // TODO endless loop
         input: '<ul>\n  <li></li>\n  l|\n</ul>',
         type: '{tab}',
         expect: '<ul>\n  <li></li>\n  <li></li>\n</ul>',
-        skip: true,
       },
     ]
     await run(testCases)
