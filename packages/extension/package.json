@@ -1,7 +1,7 @@
 {
   "name": "html-language-features",
   "version": "1.0.0",
-  "description": "",
+  "description": "HTML Language Features",
   "publisher": "SimonSiefke",
   "main": "dist/extensionMain.js",
   "enableProposedApi": true,
@@ -28,8 +28,12 @@
       }
     ]
   },
-  "keywords": [],
-  "author": "",
+  "keywords": [
+    "HTML",
+    "HTML IntelliCode",
+    "HTML Language Features"
+  ],
+  "author": "Simon Siefke",
   "license": "MIT",
   "devDependencies": {
     "@types/glob": "^7.1.1",
