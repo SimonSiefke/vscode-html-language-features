@@ -19,4 +19,4 @@ TODO:
 - attribute value completions
 - snippets
 
-  <!-- TODO:  [html] Automatically delete HTML closing tag when converting to self-closing tag #58315  -->
+<!-- TODO:  [html] Automatically delete HTML closing tag when converting to self-closing tag #58315  -->
