@@ -9,7 +9,7 @@
     "onLanguage:html"
   ],
   "engines": {
-    "vscode": "^1.22.0"
+    "vscode": "^1.35.0"
   },
   "scripts": {
     "dev": "cd ../../ && npm run dev",

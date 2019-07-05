@@ -16,6 +16,7 @@ export interface TestCase {
   only?: boolean
   speed?: number
   skip?: boolean
+  timeout?: 'never' | number
 }
 
 export async function createTestFile(
@@ -103,13 +104,15 @@ async function type(text: string, speed = 150): Promise<void> {
   }
 }
 
-async function waitForAutoComplete() {
+async function waitForAutoComplete(timeout: 'never' | number) {
   return new Promise(resolve => {
     const disposable = vscode.workspace.onDidChangeTextDocument(() => {
       disposable.dispose()
       resolve()
     })
-    setTimeout(resolve, 40)
+    if (timeout !== 'never') {
+      setTimeout(resolve, timeout)
+    }
   })
 }
 
@@ -129,7 +132,8 @@ export async function run(testCases: TestCase[]) {
     await setText(input)
     setCursorPosition(cursorOffset)
     await type(testCase.type, testCase.speed || 0)
-    await waitForAutoComplete()
+    let timeout = testCase.timeout === undefined ? 40 : testCase.timeout
+    await waitForAutoComplete(timeout)
     const result = getText()
     assert.equal(result, testCase.expect)
   }

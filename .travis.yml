@@ -1,0 +1,19 @@
+language: node_js
+
+node_js: lts/*
+
+script:
+  - npm run lint
+  - npm run build # check that the build is passing
+
+stages:
+  - test
+  - name: release
+    if: branch = master AND type = push AND fork = false
+
+jobs:
+  include:
+    - stage: release
+      language: node_js
+      node_js: 'lts/*'
+      script: npx semantic-release

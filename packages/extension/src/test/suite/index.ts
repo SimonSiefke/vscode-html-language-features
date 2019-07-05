@@ -5,6 +5,7 @@ import * as glob from 'glob'
 // const testFiles = '**/**.test.js'
 // const testFiles = '**/+(emmetCompleteTag|autoCloseTag).test.js'
 const testFiles = '**/+(emmetCompleteTag).test.js'
+// const testFiles = '**/+(emmetCompleteTag).benchmark.js'
 
 export function run(): Promise<void> {
   // Create the mocha test

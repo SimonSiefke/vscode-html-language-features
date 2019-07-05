@@ -20,13 +20,6 @@ suite('Emmet Complete Tag', () => {
   test('basic', async () => {
     const testCases: TestCase[] = [
       {
-        // TODO
-        input: '!|',
-        type: '{tab}',
-        expect: '<!DOCTYPE html>...',
-        skip: true,
-      },
-      {
         input: '<!DOCTYPE html>\nh|',
         type: '{tab}',
         expect: '<!DOCTYPE html>\n<html>\n  \n</html>',
@@ -54,16 +47,25 @@ suite('Emmet Complete Tag', () => {
         expect: '<ul>\n  <li>l </li>\n</ul>',
       },
       {
-        // TODO
+        // TODO bug
         input: '<ul>\n  <li>li|</li>\n</ul>',
         type: '{tab}',
         expect: '<ul>\n  <li><li></li></li>\n</ul>',
         skip: true,
+        // only: true,
       },
       {
         input: '<ul>\n  <li></li>\n  l|\n</ul>',
         type: '{tab}',
         expect: '<ul>\n  <li></li>\n  <li></li>\n</ul>',
+      },
+      {
+        // TODO bug
+        input: '<ul>\n  <li><a href="#">link</a></li>\n  l|\n</ul>',
+        type: '{tab}',
+        expect: '<ul>\n  <li><a href="#">link</a></li>\n  <li></li>\n</ul>',
+        // only: true,
+        skip: true,
       },
     ]
     await run(testCases)
@@ -71,6 +73,13 @@ suite('Emmet Complete Tag', () => {
 
   test('snippets', async () => {
     const testCases: TestCase[] = [
+      {
+        // TODO no implemented
+        input: '!|',
+        type: '{tab}',
+        expect: '<!DOCTYPE html>...',
+        skip: true,
+      },
       {
         input: '<head>l|</head>',
         type: '{tab}',

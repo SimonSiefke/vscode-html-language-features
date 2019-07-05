@@ -2,7 +2,6 @@
 
 [TypeScript Composite Project(Project References)](https://www.typescriptlang.org/docs/handbook/release-notes/typescript-3-0.html#project-references) + [Lerna](https://github.com/lerna/lerna)
 
-
 ## Usage
 
 ### Initialization
@@ -16,13 +15,13 @@ npm run watch
 
 #### `npm run bootstrap`
 
-* installs the project dependencies (in `/package.json`)
-* links each packages
-* and builds the project with `npm run build` (`tsc --build packages/tsconfig.project.json`)
+- installs the project dependencies (in `/package.json`)
+- links each packages
+- and builds the project with `npm run build` (`tsc --build packages/tsconfig.project.json`)
 
 #### `npm run watch`
 
-* run tsc project build mode with `--watch` flag (`tsc --build --watch packages/tsconfig.project.json`)
+- run tsc project build mode with `--watch` flag (`tsc --build --watch packages/tsconfig.project.json`)
 
 You can watch the entire project with a single tsc running.
 
@@ -52,15 +51,11 @@ To integrate those building process into project, we need `references` field lis
       "path": "../bar/tsconfig.package.json"
     }
   ],
-  "include": [
-    "src"
-  ],
-  "exclude": [
-    "tests",
-    "lib"
-  ]
+  "include": ["src"],
+  "exclude": ["tests", "lib"]
 }
 ```
 
 `update:tsconfig.json` is a script which resolves and updates those dependencies.
 
+<!-- TODO:  [html] Automatically delete HTML closing tag when converting to self-closing tag #58315  -->
