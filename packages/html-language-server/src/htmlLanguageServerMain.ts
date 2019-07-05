@@ -51,32 +51,8 @@ connection.onInitialize(() => {
 })
 
 connection.onInitialized(async () => {
-  // addSchema(
-  //   path.join(
-  //     __dirname,
-  //     '../node_modules',
-  //     'schema/dist/generated/w3cSchools.htmlData.json'
-  //   )
-  // )
-  addSchema(
-    path.join(
-      __dirname,
-      '../node_modules',
-      'schema/dist/manual/essential.htmlData.json'
-    )
-  )
-  // const w3cSchoolsSchema = await import(
-  //   'schema/dist/generated/w3cSchools.htmlData.json'
-  // )
-  // addSchema(w3cSchoolsSchema)
-  // const essentialSchema = await import(
-  //   'schema/dist/manual/essential.htmlData.json'
-  // )
-  // addSchema(essentialSchema)
-  // const recommendedSchema = await import(
-  //   'schema/dist/manual/recommended.htmlData.json'
-  // )
-  // addSchema(recommendedSchema)
+  const { essentialConfig } = await import('schema/dist/configs')
+  addSchema(essentialConfig)
 })
 
 const connectionProxy = createConnectionProxy(connection)

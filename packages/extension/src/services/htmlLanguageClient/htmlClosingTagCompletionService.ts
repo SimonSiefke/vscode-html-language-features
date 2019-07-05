@@ -1,19 +1,14 @@
 import * as vscode from 'vscode'
-import {
-  LanguageClient,
-  RequestType,
-  TextDocumentPositionParams,
-} from 'vscode-languageclient'
-import { Service } from '../../types'
+import * as vsl from 'vscode-languageclient'
 
 export type DoCompletion<T = any> = (
-  client: LanguageClient,
+  client: vsl.LanguageClient,
   document: vscode.TextDocument,
   position: vscode.Position
 ) => Promise<T>
 
 const createDoCompletion: (
-  requestType: RequestType<TextDocumentPositionParams, string, any, any>
+  requestType: vsl.RequestType<vsl.TextDocumentPositionParams, string, any, any>
 ) => DoCompletion = requestType => async (client, document, position) => {
   const params = client.code2ProtocolConverter.asTextDocumentPositionParams(
     document,
@@ -36,8 +31,8 @@ const createDoCompletion: (
 }
 
 const createDoEmmetCompletion: (
-  requestType: RequestType<
-    TextDocumentPositionParams,
+  requestType: vsl.RequestType<
+    vsl.TextDocumentPositionParams,
     { completionString: string; completionOffset: number },
     any,
     any
@@ -78,11 +73,11 @@ const createDoEmmetCompletion: (
  *`<p>this is text</` -> `<p>this is text</p>`.
  */
 const doEndTagCloseCompletion: DoCompletion = createDoCompletion(
-  new RequestType('html/end-tag-close')
+  new vsl.RequestType('html/end-tag-close')
 )
 
 export const doEmmetTagCompletion: DoCompletion = createDoEmmetCompletion(
-  new RequestType('html/emmet-tag-completion')
+  new vsl.RequestType('html/emmet-tag-completion')
 )
 
 /**
@@ -90,7 +85,7 @@ export const doEmmetTagCompletion: DoCompletion = createDoEmmetCompletion(
  * `<div>` -> `<div></div>`.
  */
 const doEndTagAutoCloseCompletion: DoCompletion = createDoCompletion(
-  new RequestType('html/end-tag-auto-close')
+  new vsl.RequestType('html/end-tag-auto-close')
 )
 
 /**
@@ -98,12 +93,12 @@ const doEndTagAutoCloseCompletion: DoCompletion = createDoCompletion(
  * `<div/` -> `<div/>`.
  */
 const doSelfClosingTagCloseCompletion: DoCompletion = createDoCompletion(
-  new RequestType('html/end-tag-auto-close')
+  new vsl.RequestType('html/end-tag-auto-close')
 )
 
-function activate(
+export function activate(
   context: vscode.ExtensionContext,
-  client: LanguageClient
+  client: vsl.LanguageClient
 ): void {
   context.subscriptions.push(
     vscode.workspace.onDidChangeTextDocument(
@@ -150,8 +145,4 @@ function activate(
       }
     )
   )
-}
-
-export const htmlClosingTagCompletionService: Service<LanguageClient> = {
-  activate,
 }

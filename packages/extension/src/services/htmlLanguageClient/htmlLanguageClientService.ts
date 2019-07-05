@@ -1,12 +1,7 @@
-import {
-  LanguageClient,
-  TransportKind,
-  LanguageClientOptions,
-  ServerOptions,
-} from 'vscode-languageclient'
+import * as vsl from 'vscode-languageclient'
 import * as vscode from 'vscode'
 
-const clientOptions: LanguageClientOptions = {
+const clientOptions: vsl.LanguageClientOptions = {
   documentSelector: [
     {
       language: 'html',
@@ -17,17 +12,17 @@ const clientOptions: LanguageClientOptions = {
 
 export async function createLanguageClient(
   context: vscode.ExtensionContext
-): Promise<LanguageClient> {
+): Promise<vsl.LanguageClient> {
   const serverModule = context.asAbsolutePath(
     '../html-language-server/dist/htmlLanguageServerMain.js'
   )
   // If the extension is launch in debug mode the debug server options are use
   // Otherwise the run options are used
-  const serverOptions: ServerOptions = {
-    run: { module: serverModule, transport: TransportKind.ipc },
+  const serverOptions: vsl.ServerOptions = {
+    run: { module: serverModule, transport: vsl.TransportKind.ipc },
     debug: {
       module: serverModule,
-      transport: TransportKind.ipc,
+      transport: vsl.TransportKind.ipc,
       options: { execArgv: ['--nolazy', '--inspect=6009'] },
     },
   }
@@ -116,7 +111,7 @@ export async function createLanguageClient(
   // // // // //                \\ \\ \\ \\ \\
   // // // // // // // // \\ \\ \\ \\ \\ \\ \\
 
-  const client = new LanguageClient(
+  const client = new vsl.LanguageClient(
     'htmlLanguageClient',
     'HTML Language Client',
     serverOptions,

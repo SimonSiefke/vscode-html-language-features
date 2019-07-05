@@ -1,5 +1,5 @@
 {
-  "name": "extension",
+  "name": "html-language-features",
   "version": "1.0.0",
   "description": "",
   "publisher": "SimonSiefke",
@@ -17,18 +17,14 @@
   },
   "contributes": {
     "keybindings": {
-      "command": "emmet-expand-abbreviation",
+      "command": "html-expand-abbreviation",
       "key": "tab",
-      "when": "editorTextFocus"
+      "when": "editorTextFocus && resourceLangId == html && !editorReadonly"
     },
     "commands": [
       {
-        "command": "emmet-expand-abbreviation",
+        "command": "html-expand-abbreviation",
         "title": "expand abbreviation"
-      },
-      {
-        "command": "extension.sayHello",
-        "title": "say hello"
       }
     ]
   },
@@ -38,7 +34,7 @@
   "devDependencies": {
     "@types/glob": "^7.1.1",
     "@types/mocha": "^5.2.7",
-    "@types/vscode": "^1.36.0",
+    "@types/vscode": "^1.35.0",
     "@types/ws": "^6.0.1",
     "glob": "^7.1.4",
     "mocha": "^6.1.4",
@@ -46,8 +42,6 @@
     "ws": "^7.0.1"
   },
   "dependencies": {
-    "vscode-languageclient": "^5.3.0-next.6",
-    "@emmetio/expand-abbreviation": "^0.7.3",
-    "@emmetio/extract-abbreviation": "^0.2.0"
+    "vscode-languageclient": "^5.3.0-next.6"
   }
 }

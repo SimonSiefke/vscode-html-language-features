@@ -1,20 +1,16 @@
 import * as vscode from 'vscode'
-import {
-  LanguageClient,
-  RequestType,
-  TextDocumentPositionParams,
-} from 'vscode-languageclient'
+import * as vsl from 'vscode-languageclient'
 import { DoCompletion } from './htmlClosingTagCompletionService'
 
-const autoRenameTagRequest = new RequestType<
-  TextDocumentPositionParams,
+const autoRenameTagRequest = new vsl.RequestType<
+  vsl.TextDocumentPositionParams,
   { startOffset: number; endOffset: number; word: string },
   any,
   any
 >('html/auto-rename-tag')
 
 const requestAutoRenameTag = async (
-  client: LanguageClient,
+  client: vsl.LanguageClient,
   document: vscode.TextDocument,
   position: vscode.Position
 ): Promise<
@@ -47,7 +43,7 @@ const requestAutoRenameTag = async (
 
 export function activate(
   context: vscode.ExtensionContext,
-  languageClient: LanguageClient
+  languageClient: vsl.LanguageClient
 ): void {
   context.subscriptions.push(
     vscode.workspace.onDidChangeTextDocument(async event => {

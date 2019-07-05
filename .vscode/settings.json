@@ -12,7 +12,7 @@
   "json.schemas": [
     {
       "fileMatch": ["**/*.htmlData.json"],
-      "url": "./packages/schema/src/schema.json"
+      "url": "./packages/schema/src/schema/schema.json"
     }
   ]
 }

@@ -1,22 +1,17 @@
 import * as vscode from 'vscode'
-import { expand } from '@emmetio/expand-abbreviation'
-import * as extractAbbreviation from '@emmetio/extract-abbreviation'
-import { Service } from '../../types'
-import {
-  LanguageClient,
-  RequestType,
-  TextDocumentPositionParams,
-} from 'vscode-languageclient'
+import { LanguageClient } from 'vscode-languageclient'
 import { doEmmetTagCompletion } from './htmlClosingTagCompletionService'
 
-function activate(
+export function activate(
   context: vscode.ExtensionContext,
-  client: LanguageClient
+  languageClientPromise: Promise<LanguageClient>
 ): void {
+  console.log('em')
   context.subscriptions.push(
     vscode.commands.registerTextEditorCommand(
-      'emmet-expand-abbreviation',
+      'html-expand-abbreviation',
       async textEditor => {
+        const languageClient = await languageClientPromise
         const document = textEditor.document
         const position = textEditor.selection.active
         // const rangeUntilPosition = new vscode.Range(
@@ -26,7 +21,7 @@ function activate(
         // const textUntilPosition = textEditor.document.getText(
         //   rangeUntilPosition
         // )
-        await doEmmetTagCompletion(client, document, position)
+        await doEmmetTagCompletion(languageClient, document, position)
       }
     )
   )
@@ -62,5 +57,3 @@ function activate(
   //   }
   // )
 }
-
-export const emmetService: Service<LanguageClient> = { activate }

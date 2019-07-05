@@ -1,9 +1,4 @@
 import * as vscode from 'vscode'
-import { Service } from '../../types'
-import {
-  increaseIndentPatternOriginal,
-  decreaseIndentPatternOriginal,
-} from './htmlLanguageConfigurationService2'
 
 /**
  * When do we want an indent? (explaining the regex)
@@ -105,13 +100,8 @@ const htmlLanguageConfiguration: vscode.LanguageConfiguration = {
   wordPattern,
 }
 
-export const htmlLanguageConfigurationService: Service = {
-  activate(context) {
-    context.subscriptions.push(
-      vscode.languages.setLanguageConfiguration(
-        'html',
-        htmlLanguageConfiguration
-      )
-    )
-  },
+export function activate(context: vscode.ExtensionContext) {
+  context.subscriptions.push(
+    vscode.languages.setLanguageConfiguration('html', htmlLanguageConfiguration)
+  )
 }
