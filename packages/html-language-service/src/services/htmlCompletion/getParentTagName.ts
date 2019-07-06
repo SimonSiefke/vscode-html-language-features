@@ -47,7 +47,7 @@ export function getPreviousOpeningTagName(
       scanner.stream.advance(1)
       scanner.state = ScannerState.AfterOpeningEndTag
       scanner.scan()
-      console.log('push' + scanner.getTokenText())
+      // console.log('push' + scanner.getTokenText())
       stack.push(scanner.getTokenText())
       continue
     }
@@ -58,15 +58,21 @@ export function getPreviousOpeningTagName(
       return undefined
     }
     const tokenText = scanner.getTokenText()
+    if (isSelfClosingTag(tokenText)) {
+      continue
+    }
     // pop closing tags from the tags
-    if (stack.length) {
+    if (stack.length && !isSelfClosingTag(tokenText)) {
       if (stack.pop() !== tokenText) {
         console.error('no')
       }
       continue
     }
-    parentTagName = scanner.getTokenText()
-  } while (parentTagName === undefined || isSelfClosingTag(parentTagName))
+    parentTagName = tokenText
+    if (parentTagName !== undefined) {
+      break
+    }
+  } while (true)
   return {
     tagName: parentTagName,
     offset,
@@ -115,7 +121,7 @@ export function getNextClosingTag(
         // pop closing tags from the tags
         if (stack.length) {
           if (stack.pop() !== closingTagName) {
-            console.error('no')
+            console.error('no 2')
           }
           scanner.stream.advanceUntilChar('>')
           scanner.stream.advance(1)
