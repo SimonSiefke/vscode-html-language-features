@@ -18,5 +18,6 @@ TODO:
 - attribute key completions
 - attribute value completions
 - snippets
+- support for emmet abbreviations
 
 <!-- TODO:  [html] Automatically delete HTML closing tag when converting to self-closing tag #58315  -->

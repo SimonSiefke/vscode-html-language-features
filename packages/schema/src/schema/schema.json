@@ -53,6 +53,19 @@
             "allowedChildren": {
               "type": "array",
               "items": {
+                "type": "object",
+                "additionalProperties": false,
+                "properties": {
+                  "category": {
+                    "type": "string"
+                  }
+                }
+              }
+            },
+            "categories": {
+              "type": "array",
+              "description": "A list of categories that this element belongs to.",
+              "items": {
                 "type": "string"
               }
             },

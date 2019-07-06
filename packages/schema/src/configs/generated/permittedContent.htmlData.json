@@ -1,0 +1,458 @@
+{
+  "elements": {
+    "main": {
+      "allowedChildren": [
+        {
+          "category": "flow content"
+        }
+      ]
+    },
+    "body": {
+      "allowedChildren": [
+        {
+          "category": "flow content"
+        }
+      ]
+    },
+    "address": {
+      "allowedChildren": [
+        {
+          "category": "flow content"
+        }
+      ]
+    },
+    "article": {
+      "allowedChildren": [
+        {
+          "category": "flow content"
+        }
+      ]
+    },
+    "aside": {
+      "allowedChildren": [
+        {
+          "category": "flow content"
+        }
+      ]
+    },
+    "footer": {
+      "allowedChildren": [
+        {
+          "category": "flow content"
+        }
+      ]
+    },
+    "header": {
+      "allowedChildren": [
+        {
+          "category": "flow content"
+        }
+      ]
+    },
+    "h1": {
+      "allowedChildren": [
+        {
+          "category": "phrasing content"
+        }
+      ]
+    },
+    "h2": {
+      "allowedChildren": [
+        {
+          "category": "phrasing content"
+        }
+      ]
+    },
+    "h3": {
+      "allowedChildren": [
+        {
+          "category": "phrasing content"
+        }
+      ]
+    },
+    "h4": {
+      "allowedChildren": [
+        {
+          "category": "phrasing content"
+        }
+      ]
+    },
+    "h5": {
+      "allowedChildren": [
+        {
+          "category": "phrasing content"
+        }
+      ]
+    },
+    "h6": {
+      "allowedChildren": [
+        {
+          "category": "phrasing content"
+        }
+      ]
+    },
+    "nav": {
+      "allowedChildren": [
+        {
+          "category": "flow content"
+        }
+      ]
+    },
+    "section": {
+      "allowedChildren": [
+        {
+          "category": "flow content"
+        }
+      ]
+    },
+    "blockquote": {
+      "allowedChildren": [
+        {
+          "category": "flow content"
+        }
+      ]
+    },
+    "dd": {
+      "allowedChildren": [
+        {
+          "category": "flow content"
+        }
+      ]
+    },
+    "div": {
+      "allowedChildren": [
+        {
+          "category": "flow content"
+        }
+      ]
+    },
+    "dt": {
+      "allowedChildren": [
+        {
+          "category": "flow content"
+        }
+      ]
+    },
+    "figcaption": {
+      "allowedChildren": [
+        {
+          "category": "flow content"
+        }
+      ]
+    },
+    "li": {
+      "allowedChildren": [
+        {
+          "category": "flow content"
+        }
+      ]
+    },
+    "p": {
+      "allowedChildren": [
+        {
+          "category": "phrasing content"
+        }
+      ]
+    },
+    "pre": {
+      "allowedChildren": [
+        {
+          "category": "phrasing content"
+        }
+      ]
+    },
+    "abbr": {
+      "allowedChildren": [
+        {
+          "category": "phrasing content"
+        }
+      ]
+    },
+    "b": {
+      "allowedChildren": [
+        {
+          "category": "phrasing content"
+        }
+      ]
+    },
+    "bdi": {
+      "allowedChildren": [
+        {
+          "category": "phrasing content"
+        }
+      ]
+    },
+    "bdo": {
+      "allowedChildren": [
+        {
+          "category": "phrasing content"
+        }
+      ]
+    },
+    "cite": {
+      "allowedChildren": [
+        {
+          "category": "phrasing content"
+        }
+      ]
+    },
+    "code": {
+      "allowedChildren": [
+        {
+          "category": "phrasing content"
+        }
+      ]
+    },
+    "data": {
+      "allowedChildren": [
+        {
+          "category": "phrasing content"
+        }
+      ]
+    },
+    "dfn": {
+      "allowedChildren": [
+        {
+          "category": "phrasing content"
+        }
+      ]
+    },
+    "em": {
+      "allowedChildren": [
+        {
+          "category": "phrasing content"
+        }
+      ]
+    },
+    "i": {
+      "allowedChildren": [
+        {
+          "category": "phrasing content"
+        }
+      ]
+    },
+    "kbd": {
+      "allowedChildren": [
+        {
+          "category": "phrasing content"
+        }
+      ]
+    },
+    "mark": {
+      "allowedChildren": [
+        {
+          "category": "phrasing content"
+        }
+      ]
+    },
+    "q": {
+      "allowedChildren": [
+        {
+          "category": "phrasing content"
+        }
+      ]
+    },
+    "rt": {
+      "allowedChildren": [
+        {
+          "category": "phrasing content"
+        }
+      ]
+    },
+    "rtc": {
+      "allowedChildren": [
+        {
+          "category": "phrasing content"
+        }
+      ]
+    },
+    "ruby": {
+      "allowedChildren": [
+        {
+          "category": "phrasing content"
+        }
+      ]
+    },
+    "s": {
+      "allowedChildren": [
+        {
+          "category": "phrasing content"
+        }
+      ]
+    },
+    "samp": {
+      "allowedChildren": [
+        {
+          "category": "phrasing content"
+        }
+      ]
+    },
+    "small": {
+      "allowedChildren": [
+        {
+          "category": "phrasing content"
+        }
+      ]
+    },
+    "span": {
+      "allowedChildren": [
+        {
+          "category": "phrasing content"
+        }
+      ]
+    },
+    "strong": {
+      "allowedChildren": [
+        {
+          "category": "phrasing content"
+        }
+      ]
+    },
+    "sub": {
+      "allowedChildren": [
+        {
+          "category": "phrasing content"
+        }
+      ]
+    },
+    "sup": {
+      "allowedChildren": [
+        {
+          "category": "phrasing content"
+        }
+      ]
+    },
+    "time": {
+      "allowedChildren": [
+        {
+          "category": "phrasing content"
+        }
+      ]
+    },
+    "tt": {
+      "allowedChildren": [
+        {
+          "category": "phrasing content"
+        }
+      ]
+    },
+    "u": {
+      "allowedChildren": [
+        {
+          "category": "phrasing content"
+        }
+      ]
+    },
+    "var": {
+      "allowedChildren": [
+        {
+          "category": "phrasing content"
+        }
+      ]
+    },
+    "caption": {
+      "allowedChildren": [
+        {
+          "category": "flow content"
+        }
+      ]
+    },
+    "td": {
+      "allowedChildren": [
+        {
+          "category": "flow content"
+        }
+      ]
+    },
+    "th": {
+      "allowedChildren": [
+        {
+          "category": "flow content"
+        }
+      ]
+    },
+    "button": {
+      "allowedChildren": [
+        {
+          "category": "phrasing content"
+        }
+      ]
+    },
+    "form": {
+      "allowedChildren": [
+        {
+          "category": "flow content"
+        }
+      ]
+    },
+    "label": {
+      "allowedChildren": [
+        {
+          "category": "phrasing content"
+        }
+      ]
+    },
+    "legend": {
+      "allowedChildren": [
+        {
+          "category": "phrasing content"
+        }
+      ]
+    },
+    "meter": {
+      "allowedChildren": [
+        {
+          "category": "phrasing content"
+        }
+      ]
+    },
+    "output": {
+      "allowedChildren": [
+        {
+          "category": "phrasing content"
+        }
+      ]
+    },
+    "progress": {
+      "allowedChildren": [
+        {
+          "category": "phrasing content"
+        }
+      ]
+    },
+    "dialog": {
+      "allowedChildren": [
+        {
+          "category": "flow content"
+        }
+      ]
+    },
+    "figure": {
+      "allowedChildren": [
+        {
+          "category": "flow content"
+        }
+      ]
+    },
+    "a": {
+      "allowedChildren": [
+        {
+          "category": "flow content"
+        },
+        {
+          "category": "phrasing content"
+        }
+      ]
+    },
+    "noscript": {
+      "allowedChildren": [
+        {
+          "category": "flow content"
+        },
+        {
+          "category": "phrasing content"
+        }
+      ]
+    }
+  }
+}

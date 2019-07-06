@@ -50,7 +50,7 @@ export function getConfig(configOrAbsoluteConfigPath: Config | string): Config {
   }
   let htmlTags: { [key: string]: Element } = {}
   if (config.elements) {
-    htmlTags = _.merge(htmlTags, config.elements)
+    htmlTags = _.mergeWith(htmlTags, config.elements)
     for (const htmlTag in htmlTags) {
       if (htmlTag.startsWith('-')) {
         delete htmlTags[htmlTag]

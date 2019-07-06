@@ -1,0 +1,409 @@
+{
+  "elements": {
+    "a": {
+      "categories": [
+        "flow content"
+      ]
+    },
+    "abbr": {
+      "categories": [
+        "flow content"
+      ]
+    },
+    "address": {
+      "categories": [
+        "flow content"
+      ]
+    },
+    "article": {
+      "categories": [
+        "flow content"
+      ]
+    },
+    "aside": {
+      "categories": [
+        "flow content"
+      ]
+    },
+    "audio": {
+      "categories": [
+        "flow content"
+      ]
+    },
+    "b": {
+      "categories": [
+        "flow content"
+      ]
+    },
+    "bdo": {
+      "categories": [
+        "flow content"
+      ]
+    },
+    "bdi": {
+      "categories": [
+        "flow content"
+      ]
+    },
+    "blockquote": {
+      "categories": [
+        "flow content"
+      ]
+    },
+    "br": {
+      "categories": [
+        "flow content"
+      ]
+    },
+    "button": {
+      "categories": [
+        "flow content"
+      ]
+    },
+    "canvas": {
+      "categories": [
+        "flow content"
+      ]
+    },
+    "cite": {
+      "categories": [
+        "flow content"
+      ]
+    },
+    "code": {
+      "categories": [
+        "flow content"
+      ]
+    },
+    "command": {
+      "categories": [
+        "flow content"
+      ]
+    },
+    "data": {
+      "categories": [
+        "flow content"
+      ]
+    },
+    "datalist": {
+      "categories": [
+        "flow content"
+      ]
+    },
+    "del": {
+      "categories": [
+        "flow content"
+      ]
+    },
+    "details": {
+      "categories": [
+        "flow content"
+      ]
+    },
+    "dfn": {
+      "categories": [
+        "flow content"
+      ]
+    },
+    "div": {
+      "categories": [
+        "flow content"
+      ]
+    },
+    "dl": {
+      "categories": [
+        "flow content"
+      ]
+    },
+    "em": {
+      "categories": [
+        "flow content"
+      ]
+    },
+    "embed": {
+      "categories": [
+        "flow content"
+      ]
+    },
+    "fieldset": {
+      "categories": [
+        "flow content"
+      ]
+    },
+    "figure": {
+      "categories": [
+        "flow content"
+      ]
+    },
+    "footer": {
+      "categories": [
+        "flow content"
+      ]
+    },
+    "form": {
+      "categories": [
+        "flow content"
+      ]
+    },
+    "h1": {
+      "categories": [
+        "flow content"
+      ]
+    },
+    "h2": {
+      "categories": [
+        "flow content"
+      ]
+    },
+    "h3": {
+      "categories": [
+        "flow content"
+      ]
+    },
+    "h4": {
+      "categories": [
+        "flow content"
+      ]
+    },
+    "h5": {
+      "categories": [
+        "flow content"
+      ]
+    },
+    "h6": {
+      "categories": [
+        "flow content"
+      ]
+    },
+    "header": {
+      "categories": [
+        "flow content"
+      ]
+    },
+    "hgroup": {
+      "categories": [
+        "flow content"
+      ]
+    },
+    "hr": {
+      "categories": [
+        "flow content"
+      ]
+    },
+    "i": {
+      "categories": [
+        "flow content"
+      ]
+    },
+    "iframe": {
+      "categories": [
+        "flow content"
+      ]
+    },
+    "img": {
+      "categories": [
+        "flow content"
+      ]
+    },
+    "input": {
+      "categories": [
+        "flow content"
+      ]
+    },
+    "ins": {
+      "categories": [
+        "flow content"
+      ]
+    },
+    "kbd": {
+      "categories": [
+        "flow content"
+      ]
+    },
+    "keygen": {
+      "categories": [
+        "flow content"
+      ]
+    },
+    "label": {
+      "categories": [
+        "flow content"
+      ]
+    },
+    "main": {
+      "categories": [
+        "flow content"
+      ]
+    },
+    "map": {
+      "categories": [
+        "flow content"
+      ]
+    },
+    "mark": {
+      "categories": [
+        "flow content"
+      ]
+    },
+    "menu": {
+      "categories": [
+        "flow content"
+      ]
+    },
+    "meter": {
+      "categories": [
+        "flow content"
+      ]
+    },
+    "nav": {
+      "categories": [
+        "flow content"
+      ]
+    },
+    "noscript": {
+      "categories": [
+        "flow content"
+      ]
+    },
+    "object": {
+      "categories": [
+        "flow content"
+      ]
+    },
+    "ol": {
+      "categories": [
+        "flow content"
+      ]
+    },
+    "output": {
+      "categories": [
+        "flow content"
+      ]
+    },
+    "p": {
+      "categories": [
+        "flow content"
+      ]
+    },
+    "picture": {
+      "categories": [
+        "flow content"
+      ]
+    },
+    "pre": {
+      "categories": [
+        "flow content"
+      ]
+    },
+    "progress": {
+      "categories": [
+        "flow content"
+      ]
+    },
+    "q": {
+      "categories": [
+        "flow content"
+      ]
+    },
+    "ruby": {
+      "categories": [
+        "flow content"
+      ]
+    },
+    "s": {
+      "categories": [
+        "flow content"
+      ]
+    },
+    "samp": {
+      "categories": [
+        "flow content"
+      ]
+    },
+    "script": {
+      "categories": [
+        "flow content"
+      ]
+    },
+    "section": {
+      "categories": [
+        "flow content"
+      ]
+    },
+    "select": {
+      "categories": [
+        "flow content"
+      ]
+    },
+    "small": {
+      "categories": [
+        "flow content"
+      ]
+    },
+    "span": {
+      "categories": [
+        "flow content"
+      ]
+    },
+    "strong": {
+      "categories": [
+        "flow content"
+      ]
+    },
+    "sub": {
+      "categories": [
+        "flow content"
+      ]
+    },
+    "sup": {
+      "categories": [
+        "flow content"
+      ]
+    },
+    "svg": {
+      "categories": [
+        "flow content"
+      ]
+    },
+    "table": {
+      "categories": [
+        "flow content"
+      ]
+    },
+    "template": {
+      "categories": [
+        "flow content"
+      ]
+    },
+    "textarea": {
+      "categories": [
+        "flow content"
+      ]
+    },
+    "time": {
+      "categories": [
+        "flow content"
+      ]
+    },
+    "ul": {
+      "categories": [
+        "flow content"
+      ]
+    },
+    "var": {
+      "categories": [
+        "flow content"
+      ]
+    },
+    "video": {
+      "categories": [
+        "flow content"
+      ]
+    },
+    "wbr": {
+      "categories": [
+        "flow content"
+      ]
+    }
+  }
+}

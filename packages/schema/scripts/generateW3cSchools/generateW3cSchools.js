@@ -6,6 +6,7 @@ const path = require('path')
 const referenceUrl = 'https://www.w3schools.com/tags/default.asp'
 
 async function getTagsAndDescriptions() {
+  // @ts-ignore
   const html = await fetch(referenceUrl).then(res => res.text())
   const $ = cheerio.load(html)
   const tags = []

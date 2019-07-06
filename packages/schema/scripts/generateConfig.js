@@ -7,7 +7,7 @@ const configs = fs.readdirSync(path.join(root, 'src/configs'))
 
 for (const config of configs) {
   const isFile = fs.statSync(path.join(root, 'src/configs', config)).isFile()
-  if (!isFile) {
+  if (!isFile || !config.endsWith('.json')) {
     continue
   }
   const generatedConfig = getConfig(path.join(root, 'src/configs', config))

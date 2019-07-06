@@ -1,0 +1,229 @@
+{
+  "elements": {
+    "abbr": {
+      "categories": [
+        "phrasing content"
+      ]
+    },
+    "audio": {
+      "categories": [
+        "phrasing content"
+      ]
+    },
+    "b": {
+      "categories": [
+        "phrasing content"
+      ]
+    },
+    "bdo": {
+      "categories": [
+        "phrasing content"
+      ]
+    },
+    "br": {
+      "categories": [
+        "phrasing content"
+      ]
+    },
+    "button": {
+      "categories": [
+        "phrasing content"
+      ]
+    },
+    "canvas": {
+      "categories": [
+        "phrasing content"
+      ]
+    },
+    "cite": {
+      "categories": [
+        "phrasing content"
+      ]
+    },
+    "code": {
+      "categories": [
+        "phrasing content"
+      ]
+    },
+    "command": {
+      "categories": [
+        "phrasing content"
+      ]
+    },
+    "data": {
+      "categories": [
+        "phrasing content"
+      ]
+    },
+    "datalist": {
+      "categories": [
+        "phrasing content"
+      ]
+    },
+    "dfn": {
+      "categories": [
+        "phrasing content"
+      ]
+    },
+    "em": {
+      "categories": [
+        "phrasing content"
+      ]
+    },
+    "embed": {
+      "categories": [
+        "phrasing content"
+      ]
+    },
+    "i": {
+      "categories": [
+        "phrasing content"
+      ]
+    },
+    "iframe": {
+      "categories": [
+        "phrasing content"
+      ]
+    },
+    "img": {
+      "categories": [
+        "phrasing content"
+      ]
+    },
+    "input": {
+      "categories": [
+        "phrasing content"
+      ]
+    },
+    "kbd": {
+      "categories": [
+        "phrasing content"
+      ]
+    },
+    "keygen": {
+      "categories": [
+        "phrasing content"
+      ]
+    },
+    "label": {
+      "categories": [
+        "phrasing content"
+      ]
+    },
+    "mark": {
+      "categories": [
+        "phrasing content"
+      ]
+    },
+    "meter": {
+      "categories": [
+        "phrasing content"
+      ]
+    },
+    "noscript": {
+      "categories": [
+        "phrasing content"
+      ]
+    },
+    "object": {
+      "categories": [
+        "phrasing content"
+      ]
+    },
+    "output": {
+      "categories": [
+        "phrasing content"
+      ]
+    },
+    "picture": {
+      "categories": [
+        "phrasing content"
+      ]
+    },
+    "progress": {
+      "categories": [
+        "phrasing content"
+      ]
+    },
+    "q": {
+      "categories": [
+        "phrasing content"
+      ]
+    },
+    "ruby": {
+      "categories": [
+        "phrasing content"
+      ]
+    },
+    "samp": {
+      "categories": [
+        "phrasing content"
+      ]
+    },
+    "script": {
+      "categories": [
+        "phrasing content"
+      ]
+    },
+    "select": {
+      "categories": [
+        "phrasing content"
+      ]
+    },
+    "small": {
+      "categories": [
+        "phrasing content"
+      ]
+    },
+    "span": {
+      "categories": [
+        "phrasing content"
+      ]
+    },
+    "strong": {
+      "categories": [
+        "phrasing content"
+      ]
+    },
+    "sub": {
+      "categories": [
+        "phrasing content"
+      ]
+    },
+    "sup": {
+      "categories": [
+        "phrasing content"
+      ]
+    },
+    "svg": {
+      "categories": [
+        "phrasing content"
+      ]
+    },
+    "textarea": {
+      "categories": [
+        "phrasing content"
+      ]
+    },
+    "time": {
+      "categories": [
+        "phrasing content"
+      ]
+    },
+    "var": {
+      "categories": [
+        "phrasing content"
+      ]
+    },
+    "video": {
+      "categories": [
+        "phrasing content"
+      ]
+    },
+    "wbr": {
+      "categories": [
+        "phrasing content"
+      ]
+    }
+  }
+}
