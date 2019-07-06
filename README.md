@@ -2,7 +2,7 @@
 
 # HTML Language Features for VSCode
 
-> Context aware HTML Completions for HTML.
+> Context aware HTML Completions.
 
 <!-- TODO image -->
 
