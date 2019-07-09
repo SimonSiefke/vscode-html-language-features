@@ -3,7 +3,9 @@ import * as fs from 'fs'
 import * as path from 'path'
 import * as assert from 'assert'
 
-const extension = vscode.extensions.getExtension('SimonSiefke.extension')
+const extension = vscode.extensions.getExtension(
+  'SimonSiefke.html-language-features'
+)
 
 export async function activateExtension() {
   await extension.activate()
@@ -96,8 +98,17 @@ async function type(text: string, speed = 150): Promise<void> {
       await vscode.commands.executeCommand('redo')
       i += '{redo}'.length - 1
     } else if (text.slice(i).startsWith('{tab}')) {
-      await vscode.commands.executeCommand('emmet-expand-abbreviation')
-      i += '{tab}'.length
+      await vscode.commands.executeCommand('html-expand-abbreviation')
+      i += '{tab}'.length - 1
+    } else if (text.slice(i).startsWith('{end}')) {
+      await vscode.commands.executeCommand('cursorEnd')
+      i += '{end}'.length - 1
+    } else if (text.slice(i).startsWith('{down}')) {
+      await vscode.commands.executeCommand('cursorDown')
+      i += '{down}'.length - 1
+    } else if (text.slice(i).startsWith('{copyLineDown}')) {
+      await vscode.commands.executeCommand('editor.action.copyLinesDownAction')
+      i += '{copyLineDown}'.length - 1
     } else {
       await typeLiteral(text[i])
     }
