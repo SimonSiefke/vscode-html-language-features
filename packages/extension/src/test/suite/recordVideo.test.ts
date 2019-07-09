@@ -6,8 +6,8 @@ suite('Emmet Complete Tag', () => {
   before(async () => {
     await createTestFile('index.html')
     await activateExtension()
-    // vscode.commands.executeCommand('chronicler.record')
-    // await new Promise(resolve => setTimeout(resolve, 6000))
+    vscode.commands.executeCommand('chronicler.record')
+    await new Promise(resolve => setTimeout(resolve, 1000))
   })
 
   after(async () => {
