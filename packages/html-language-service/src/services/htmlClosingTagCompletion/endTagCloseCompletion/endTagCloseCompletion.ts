@@ -36,7 +36,7 @@ const emmetTagCompletion = (scanner: Scanner) => {
   scanner.stream.goBackToUntilChar('\n')
   const startOfLine = scanner.stream.position
   scanner.stream.goTo(currentPosition)
-  const tagNameRE = /[a-zA-Z]/
+  const tagNameRE = /[a-zA-Z0-9]/
   while (
     scanner.stream.position >= startOfLine &&
     tagNameRE.test(scanner.stream.peekLeft())
@@ -48,18 +48,13 @@ const emmetTagCompletion = (scanner: Scanner) => {
   scanner.state = ScannerState.WithinContent
   scanner.scan()
   const incompleteTagName = scanner.getTokenText()
-  console.log('incomplete tag name' + incompleteTagName)
   const parent = getPreviousOpeningTagName(scanner, completionOffset)
   let tagName: string | undefined
 
-  console.log('parent is')
-  // @ts-ignore
-  console.log(parent.tagName)
-  // @ts-ignore
-  // console.log('parent' + parent && parent.tagName)
   if (parent && !parent.seenRightAngleBracket) {
     return undefined
   }
+  console.log('incomplete' + incompleteTagName)
   if (!parent) {
     tagName = expand(incompleteTagName, 'root')
   } else {

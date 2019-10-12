@@ -54,6 +54,8 @@
     "input": {
       "self-closing": true
     },
+    "h1": {},
+    "h2": {},
     "meta": {
       "self-closing": true
     },

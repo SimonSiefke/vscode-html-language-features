@@ -32,6 +32,12 @@
           "type": "object",
           "additionalProperties": false,
           "properties": {
+            "experimental": {
+              "type": "boolean"
+            },
+            "deprecated": {
+              "type": "boolean"
+            },
             "description": {
               "type": "string",
               "description": "Description for the element"
@@ -40,7 +46,7 @@
               "type": "string",
               "description": "Markdown description for the element"
             },
-            "self-closing": {
+            "selfClosing": {
               "type": "boolean",
               "default": false,
               "description": "Whether or not the element is self-closing"
@@ -57,7 +63,8 @@
                 "additionalProperties": false,
                 "properties": {
                   "category": {
-                    "type": "string"
+                    "type": "string",
+                    "enum": ["flow content"]
                   }
                 }
               }
@@ -76,7 +83,13 @@
                   "type": "object",
                   "additionalProperties": false,
                   "properties": {
+                    "required": {
+                      "type": "boolean"
+                    },
                     "experimental": {
+                      "type": "boolean"
+                    },
+                    "deprecated": {
                       "type": "boolean"
                     },
                     "description": {
@@ -102,7 +115,17 @@
                       "description": "suggested value"
                     },
                     "type": {
-                      "type": ["string", "array"]
+                      "description": "type",
+                      "type": "string",
+                      "enum": [
+                        "string",
+                        "integer",
+                        "url",
+                        "lang",
+                        "enum",
+                        "boolean",
+                        "number"
+                      ]
                     }
                   }
                 }

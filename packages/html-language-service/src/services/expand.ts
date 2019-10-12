@@ -7,6 +7,11 @@ import { getHTMLTags } from '../data/HTMLManager'
  */
 function fallback(abbreviation: string) {
   const htmlTagMap = getHTMLTags()
+  console.log('fallback')
+  console.log('map')
+  console.log(JSON.stringify(htmlTagMap))
+  console.log('abbr')
+  console.log(abbreviation)
   if (htmlTagMap[abbreviation]) {
     return abbreviation
   }
@@ -24,6 +29,7 @@ export function expand(
   abbreviation: string,
   parentTagName: string
 ): string | undefined {
+  console.log('abr' + abbreviation)
   console.log('expand' + parentTagName)
   const suggestions = statistics[parentTagName]
   if (!suggestions) {

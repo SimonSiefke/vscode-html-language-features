@@ -1,0 +1,44 @@
+{
+  "elements": {
+    "audio": {
+      "attributes": {
+        "autoplay": {
+          "type": "boolean"
+        },
+        "controls": {
+          "type": "boolean"
+        },
+        "cross-origin": {
+          "type": "enum",
+          "options": {
+            "anonymous": {},
+            "use-credentials": {}
+          }
+        },
+        "currentTime": {
+          "type": "number"
+        },
+        "disableRemotePlayback": {
+          "type": "boolean"
+        },
+        "loop": {
+          "type": "boolean"
+        },
+        "muted": {
+          "type": "boolean"
+        },
+        "preload": {
+          "type": "enum",
+          "options": {
+            "none": {},
+            "metadata": {},
+            "auto": {}
+          }
+        },
+        "src": {
+          "type": "url"
+        }
+      }
+    }
+  }
+}

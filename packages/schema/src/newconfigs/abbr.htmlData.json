@@ -1,0 +1,13 @@
+{
+  "elements": {
+    "abbr": {
+      "allowedChildren": [],
+      "attributes": {
+        "title": {
+          "type": "string",
+          "required": true
+        }
+      }
+    }
+  }
+}

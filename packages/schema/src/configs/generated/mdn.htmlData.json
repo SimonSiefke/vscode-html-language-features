@@ -253,15 +253,13 @@
       "selfClosing": false,
       "experimental": false,
       "deprecated": false,
-      "attributes": {},
-      "newline": true
+      "attributes": {}
     },
     "aside": {
       "selfClosing": false,
       "experimental": false,
       "deprecated": false,
-      "attributes": {},
-      "newline": true
+      "attributes": {}
     },
     "audio": {
       "selfClosing": false,
@@ -604,8 +602,7 @@
           "experimental": false,
           "description": "Color of text for visited hypertext links. <em>This method is non-conforming, use CSS <a href=\"https://developer.mozilla.org/en-US/docs/Web/CSS/color\" title=\"The color CSS property sets the foreground color value of an element&apos;s text and text decorations, and sets the currentcolor value.\"><code>color</code></a> property in conjunction with the <a href=\"https://developer.mozilla.org/en-US/docs/Web/CSS/:visited\" title=\"The :visited CSS pseudo-class represents links that the user has already visited. For privacy reasons, the styles that can be modified using this selector are very limited.\"><code>:visited</code></a> pseudo-class instead.</em>"
         }
-      },
-      "newline": true
+      }
     },
     "br": {
       "selfClosing": true,
@@ -948,8 +945,7 @@
           "experimental": false,
           "description": "This Boolean attribute indicates whether or not the details &#x2014; that is, the contents of the <code>&lt;details&gt;</code> element &#x2014; are currently visible. The default, <code>false</code>, means the details are not visible."
         }
-      },
-      "newline": true
+      }
     },
     "dfn": {
       "selfClosing": false,
@@ -985,15 +981,13 @@
       "selfClosing": false,
       "experimental": false,
       "deprecated": false,
-      "attributes": {},
-      "newline": true
+      "attributes": {}
     },
     "dl": {
       "selfClosing": false,
       "experimental": false,
       "deprecated": false,
-      "attributes": {},
-      "newline": true
+      "attributes": {}
     },
     "dt": {
       "selfClosing": false,
@@ -1060,8 +1054,7 @@
           "experimental": false,
           "description": "The name associated with the group.\n <div class=\"note\"><strong>Note</strong>: The caption for the fieldset is given by the first <a href=\"https://developer.mozilla.org/en-US/docs/Web/HTML/Element/legend\" title=\"The HTML &lt;legend&gt; element represents a caption for the content of its parent &lt;fieldset&gt;.\"><code>&lt;legend&gt;</code></a> element nested inside it.</div>\n "
         }
-      },
-      "newline": true
+      }
     },
     "figcaption": {
       "selfClosing": false,
@@ -1073,8 +1066,7 @@
       "selfClosing": false,
       "experimental": false,
       "deprecated": false,
-      "attributes": {},
-      "newline": true
+      "attributes": {}
     },
     "font": {
       "selfClosing": false,
@@ -1102,8 +1094,7 @@
       "selfClosing": false,
       "experimental": false,
       "deprecated": false,
-      "attributes": {},
-      "newline": true
+      "attributes": {}
     },
     "form": {
       "selfClosing": false,
@@ -1160,8 +1151,7 @@
           "experimental": false,
           "description": "A name or keyword indicating where to display the response that is received after submitting the form. In HTML 4, this is the name/keyword for a frame. In HTML5, it is a name/keyword for a <em>browsing context</em> (for example, tab, window, or inline frame). The following keywords have special meanings:\n <ul>\n  <li><code>_self</code>: Load the response into the same HTML 4 frame (or HTML5 browsing context) as the current one. This value is the default if the attribute is not specified.</li>\n  <li><code>_blank</code>: Load the response into a new unnamed HTML 4 window or HTML5 browsing context.</li>\n  <li><code>_parent</code>: Load the response into the HTML 4 frameset parent of the current frame, or HTML5 parent browsing context of the current one. If there is no parent, this option behaves the same way as <code>_self</code>.</li>\n  <li><code>_top</code>: HTML 4: Load the response into the full original window, and cancel all other frames. HTML5: Load the response into the top-level browsing context (i.e., the browsing context that is an ancestor of the current one, and has no parent). If there is no parent, this option behaves the same way as <code>_self</code>.</li>\n  <li><em>iframename</em>: The response is displayed in a named <a href=\"https://developer.mozilla.org/en-US/docs/Web/HTML/Element/iframe\" title=\"The HTML Inline Frame element (&lt;iframe&gt;) represents a nested browsing context, embedding another HTML page into the current one.\"><code>&lt;iframe&gt;</code></a>.</li>\n </ul>\n\n <p>HTML5: This value can be overridden by a <code><a href=\"https://developer.mozilla.org/en-US/docs/Web/HTML/Element/button#attr-formtarget\">formtarget</a></code> attribute on a <a href=\"https://developer.mozilla.org/en-US/docs/Web/HTML/Element/button\" title=\"The HTML &lt;button&gt; element represents a clickable button, which can be used in forms or anywhere in a document that needs simple, standard button functionality.\"><code>&lt;button&gt;</code></a>,&#xA0;<code><a href=\"https://developer.mozilla.org/en-US/docs/Web/HTML/Element/input/submit\">&lt;input type=&quot;submit&quot;&gt;</a></code> or <code><a href=\"https://developer.mozilla.org/en-US/docs/Web/HTML/Element/input/image\">&lt;input type=&quot;image&quot;&gt;</a></code> element.</p>\n "
         }
-      },
-      "newline": true
+      }
     },
     "frame": {
       "selfClosing": false,
@@ -1238,15 +1228,13 @@
           "experimental": false,
           "description": "The <a class=\"glossaryLink\" href=\"/en-US/docs/Glossary/URI\" title=\"URI: A URI (Uniform Resource Identifier) is a string that refers to a resource. The most common are URLs, which identify the resource by giving its location on the Web. URNs, by contrast, refer to a resource by a name, in a given namespace, such as&#xA0;the ISBN of a book.\">URI</a>s of one or more metadata profiles, separated by <a class=\"glossaryLink\" href=\"/en-US/docs/Glossary/whitespace\" title=\"white space: Whitespace is a set of characters used to show horizontal or vertical spaces between other characters. They are often used to separate tokens in HTML, CSS, JavaScript, and other computer languages.\">white space</a>."
         }
-      },
-      "newline": true
+      }
     },
     "header": {
       "selfClosing": false,
       "experimental": false,
       "deprecated": false,
-      "attributes": {},
-      "newline": true
+      "attributes": {}
     },
     "hgroup": {
       "selfClosing": false,
@@ -1306,8 +1294,7 @@
           "experimental": false,
           "description": "Specifies the <a class=\"glossaryLink\" href=\"/en-US/docs/Glossary/XML\" title=\"XML: eXtensible Markup Language (XML) is a generic markup language specified by the W3C. The information technology (IT) industry uses many languages based on XML as data-description languages.\">XML</a> <a class=\"glossaryLink\" href=\"/en-US/docs/Glossary/Namespace\" title=\"Namespace: Namespace is a context for identifiers, a logical grouping of names used in a program. Within the same context and same scope,&#xA0; an identifier must uniquely identify an entity.\">Namespace</a> of the document. Default value is <code>&quot;http://www.w3.org/1999/xhtml&quot;</code>. This is required in documents parsed with XML <a class=\"glossaryLink\" href=\"/en-US/docs/Glossary/parser\" title=\"parsers: A parser is the module of a compiler or interpreter that parses a source code file.\">parsers</a>, and optional in text/html documents."
         }
-      },
-      "newline": true
+      }
     },
     "i": {
       "selfClosing": false,
@@ -1871,8 +1858,7 @@
       "selfClosing": false,
       "experimental": false,
       "deprecated": false,
-      "attributes": {},
-      "newline": true
+      "attributes": {}
     },
     "map": {
       "selfClosing": false,
@@ -1994,8 +1980,7 @@
           "experimental": false,
           "description": "This attribute indicates the kind of menu being declared, and can be one of two values.\n <ul>\n  <li><code>context</code> <span class=\"icon-only-inline\" title=\"This deprecated API should no longer be used, but will probably still work.\"><i class=\"icon-thumbs-down-alt\"> </i></span> : Indicates the <em>popup menu</em> state, which represents a group of commands activated through another element. This might be as a button menu referenced by a <code><a href=\"https://developer.mozilla.org/en-US/docs/Web/HTML/Element/button#attr-menu\">menu</a></code> attribute of a <a href=\"https://developer.mozilla.org/en-US/docs/Web/HTML/Element/button\" title=\"The HTML &lt;button&gt; element represents a clickable button, which can be used in forms or anywhere in a document that needs simple, standard button functionality.\"><code>&lt;button&gt;</code></a> element, or as context menu for an element with a <a href=\"https://developer.mozilla.org/en-US/docs/HTML/Global_attributes#attr-contextmenu\"><code>contextmenu</code></a> attribute. This value is the default if the attribute is missing and the parent element is also a <code>&lt;menu&gt;</code> element.</li>\n  <li><code>toolbar</code>: Indicates the <em>toolbar</em> state, which represents a toolbar consisting of a series of commands for user interaction. This might be in the form of an unordered list of <a href=\"https://developer.mozilla.org/en-US/docs/Web/HTML/Element/li\" title=\"The HTML &lt;li&gt; element is used to represent an item in a list.\"><code>&lt;li&gt;</code></a> elements, or, if the element has no <code>&lt;li&gt;</code> element children, flow content describing available commands. This value is the default if the attribute is missing.</li>\n </ul>\n "
         }
-      },
-      "newline": true
+      }
     },
     "menuitem": {
       "selfClosing": true,
@@ -2143,8 +2128,7 @@
       "selfClosing": false,
       "experimental": false,
       "deprecated": false,
-      "attributes": {},
-      "newline": true
+      "attributes": {}
     },
     "nextid": {
       "selfClosing": false,
@@ -2294,8 +2278,7 @@
           "experimental": false,
           "description": "This attribute sets the numbering type:\n <ul>\n  <li><code>&apos;a&apos;</code> indicates lowercase letters</li>\n  <li><code>&apos;A&apos;</code> indicates uppercase letters</li>\n  <li><code>&apos;i&apos;</code> indicates lowercase Roman numerals</li>\n  <li><code>&apos;I&apos;</code> indicates uppercase Roman numerals</li>\n  <li><code>&apos;1&apos;</code> indicates numbers (default)</li>\n </ul>\n\n <p>The specified type is used for the entire list unless a different <code><a href=\"https://developer.mozilla.org/en-US/docs/Web/HTML/Element/li#attr-type\">type</a></code> attribute is used within an enclosed <a href=\"https://developer.mozilla.org/en-US/docs/Web/HTML/Element/li\" title=\"The HTML &lt;li&gt; element is used to represent an item in a list.\"><code>&lt;li&gt;</code></a> element.</p>\n\n <div class=\"blockIndicator note\">\n <p><strong>Note:</strong> This attribute was deprecated in HTML4, but reintroduced in HTML5.</p>\n\n <p>Unless the value of the list number matters (e.g., in legal or technical documents where items are to be referenced by their number/letter), the CSS <a href=\"https://developer.mozilla.org/en-US/docs/Web/CSS/list-style-type\" title=\"The list-style-type CSS property sets the marker (such as a disc, character, or custom counter style) of a list item element.\"><code>list-style-type</code></a> property should be used instead.</p>\n </div>\n "
         }
-      },
-      "newline": true
+      }
     },
     "optgroup": {
       "selfClosing": false,
@@ -2312,8 +2295,7 @@
           "experimental": false,
           "description": "The name of the group of options, which the browser can use when labeling the options in the user interface. This attribute is mandatory if this element is used."
         }
-      },
-      "newline": true
+      }
     },
     "option": {
       "selfClosing": false,
@@ -2562,15 +2544,13 @@
           "experimental": false,
           "description": "Like the <code>type</code> attribute, this attribute identifies the scripting language in use. Unlike the <code>type</code> attribute, however, this attribute&#x2019;s possible values were never standardized. The <code>type</code> attribute should be used instead."
         }
-      },
-      "newline": true
+      }
     },
     "section": {
       "selfClosing": false,
       "experimental": false,
       "deprecated": false,
-      "attributes": {},
-      "newline": true
+      "attributes": {}
     },
     "select": {
       "selfClosing": false,
@@ -2755,8 +2735,7 @@
           "experimental": false,
           "description": "This attribute specifies that the styles only apply to the elements of its parent(s) and children."
         }
-      },
-      "newline": true
+      }
     },
     "sub": {
       "selfClosing": false,
@@ -2826,8 +2805,7 @@
           "experimental": false,
           "description": "This attribute defines the width of the table. The width may be defined by pixels or a percentage value. A percentage value will be defined by the width of the container in which the table is placed.\n <div class=\"note\"><strong>Usage Note: </strong>Do not use this attribute, as it has been deprecated. The rules should be defined and styled using <a href=\"https://developer.mozilla.org/en-US/docs/CSS\">CSS</a>. Use the <a href=\"https://developer.mozilla.org/en-US/docs/Web/CSS/width\" title=\"The width CSS property sets an element&apos;s width. By default, it sets the width of the content area, but if box-sizing is set to border-box, it sets the width of the border area.\"><code>width</code></a> property instead.</div>\n "
         }
-      },
-      "newline": true
+      }
     },
     "tbody": {
       "selfClosing": false,
@@ -2859,8 +2837,7 @@
           "experimental": false,
           "description": "This attribute specifies the vertical alignment of the text within each row of cells of the table header. Possible values for this attribute are:\n <ul>\n  <li><code>baseline</code>, which will put the text as close to the bottom of the cell as it is possible, but align it on the <a class=\"external\" href=\"https://en.wikipedia.org/wiki/Baseline_%28typography%29\" rel=\"noopener\">baseline</a> of the characters instead of the bottom of them. If characters are all of the size, this has the same effect as <code>bottom</code>.</li>\n  <li><code>bottom</code>, which will put the text as close to the bottom of the cell as it is possible;</li>\n  <li><code>middle</code>, which will center the text in the cell;</li>\n  <li>and <code>top</code>, which will put the text as close to the top of the cell as it is possible.</li>\n </ul>\n\n <div class=\"note\"><strong>Note: </strong>Do not use this attribute as it is obsolete (and not supported) in the latest standard: instead set the CSS <a href=\"https://developer.mozilla.org/en-US/docs/Web/CSS/vertical-align\" title=\"The vertical-align CSS property sets vertical alignment of an inline or table-cell box.\"><code>vertical-align</code></a> property on it.</div>\n "
         }
-      },
-      "newline": true
+      }
     },
     "td": {
       "selfClosing": false,
@@ -3052,8 +3029,7 @@
           "experimental": false,
           "description": "This attribute specifies the vertical alignment of the text within each row of cells of the table header. Possible values for this attribute are:\n <ul>\n  <li><code>baseline</code>, which will put the text as close to the bottom of the cell as it is possible, but align it on the <a class=\"external\" href=\"https://en.wikipedia.org/wiki/Baseline_%28typography%29\" rel=\"noopener\">baseline</a> of the characters instead of the bottom of them. If characters are all of the size, this has the same effect as <code>bottom</code>.</li>\n  <li><code>bottom</code>, which will put the text as close to the bottom of the cell as it is possible;</li>\n  <li><code>middle</code>, which will center the text in the cell;</li>\n  <li>and <code>top</code>, which will put the text as close to the top of the cell as it is possible.</li>\n </ul>\n\n <div class=\"note\"><strong>Note:</strong> Do not use this attribute as it is obsolete (and not supported) in the latest standard: instead set the CSS <a href=\"https://developer.mozilla.org/en-US/docs/Web/CSS/vertical-align\" title=\"The vertical-align CSS property sets vertical alignment of an inline or table-cell box.\"><code>vertical-align</code></a> property on it.</div>\n "
         }
-      },
-      "newline": true
+      }
     },
     "th": {
       "selfClosing": false,
@@ -3157,8 +3133,7 @@
           "experimental": false,
           "description": "This attribute specifies the vertical alignment of the text within each row of cells of the table header. Possible values for this attribute are:\n <ul>\n  <li><code>baseline</code>, which will put the text as close to the bottom of the cell as it is possible, but align it on the <a class=\"external\" href=\"https://en.wikipedia.org/wiki/Baseline_%28typography%29\" rel=\"noopener\">baseline</a> of the characters instead of the bottom of them. If characters are all of the size, this has the same effect as <code>bottom</code>.</li>\n  <li><code>bottom</code>, which will put the text as close to the bottom of the cell as it is possible;</li>\n  <li><code>middle</code>, which will center the text in the cell;</li>\n  <li><code>top</code>, which will put the text as close to the top of the cell as it is possible.</li>\n </ul>\n\n <div class=\"note\"><strong>Note:</strong> Do not use this attribute as it is obsolete (and not supported) in the latest standard: instead set the CSS <a href=\"https://developer.mozilla.org/en-US/docs/Web/CSS/vertical-align\" title=\"The vertical-align CSS property sets vertical alignment of an inline or table-cell box.\"><code>vertical-align</code></a> property on it.</div>\n "
         }
-      },
-      "newline": true
+      }
     },
     "time": {
       "selfClosing": false,
@@ -3248,8 +3223,7 @@
           "experimental": false,
           "description": "Each cell&apos;s text is drawn as closely as possible to the top edge of the containing cell."
         }
-      },
-      "newline": true
+      }
     },
     "track": {
       "selfClosing": true,
@@ -3310,8 +3284,7 @@
           "experimental": false,
           "description": "This attribute sets the bullet style for the list. The values defined under <a class=\"new\" href=\"/en-US/docs/HTML3.2\" rel=\"nofollow\">HTML3.2</a> and the transitional version of <a class=\"new\" href=\"/en-US/docs/HTML4.01\" rel=\"nofollow\">HTML 4.0/4.01</a> are:\n <ul>\n  <li><code>circle</code></li>\n  <li><code>disc</code></li>\n  <li><code>square</code></li>\n </ul>\n\n <p>A fourth bullet type has been defined in the WebTV interface, but not all browsers support it: <code>triangle</code>.</p>\n\n <p>If not present and if no <a href=\"https://developer.mozilla.org/en-US/docs/CSS\">CSS</a> <a href=\"https://developer.mozilla.org/en-US/docs/Web/CSS/list-style-type\" title=\"The list-style-type CSS property sets the marker (such as a disc, character, or custom counter style) of a list item element.\"><code>list-style-type</code></a> property applies to the element, the user agent selects a bullet type depending on the nesting level of the list.</p>\n\n <div class=\"warning\"><strong>Warning:</strong> Do not use this attribute, as it has been deprecated; use the <a href=\"https://developer.mozilla.org/en-US/docs/Web/CSS\">CSS</a> <a href=\"https://developer.mozilla.org/en-US/docs/Web/CSS/list-style-type\" title=\"The list-style-type CSS property sets the marker (such as a disc, character, or custom counter style) of a list item element.\"><code>list-style-type</code></a> property instead.</div>\n "
         }
-      },
-      "newline": true
+      }
     },
     "var": {
       "selfClosing": false,
@@ -3457,14 +3430,6 @@
       "experimental": false,
       "deprecated": true,
       "attributes": {}
-    },
-    "!DOCTYPE": {
-      "selfClosing": true
-    },
-    "h2": {},
-    "h3": {},
-    "h4": {},
-    "h5": {},
-    "h6": {}
+    }
   }
 }

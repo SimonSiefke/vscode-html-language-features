@@ -1,7 +1,8 @@
 {
+  "extends": ["./generated/mdn.htmlData.json"],
   "elements": {
     "!DOCTYPE": {
-      "self-closing": true
+      "selfClosing": true
     },
     "article": {
       "newline": true
@@ -9,12 +10,8 @@
     "aside": {
       "newline": true
     },
-    "base": {
-      "self-closing": true
-    },
-    "link": {
-      "self-closing": true
-    },
+    "base": {},
+    "link": {},
     "body": {
       "newline": true
     },
@@ -48,15 +45,15 @@
     "html": {
       "newline": true
     },
-    "img": {
-      "self-closing": true
-    },
-    "input": {
-      "self-closing": true
-    },
-    "meta": {
-      "self-closing": true
-    },
+    "img": {},
+    "input": {},
+    "h1": {},
+    "h2": {},
+    "h3": {},
+    "h4": {},
+    "h5": {},
+    "h6": {},
+    "meta": {},
     "main": {
       "newline": true
     },
@@ -72,6 +69,7 @@
     "optgroup": {
       "newline": true
     },
+    "p": {},
     "script": {
       "newline": true
     },
