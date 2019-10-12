@@ -4,7 +4,7 @@ import { getConfig, Config } from 'schema'
 interface Element {
   description?: string
   markdownDescription?: string
-  'self-closing'?: boolean
+  selfClosing?: boolean
   newline?: boolean
 }
 
@@ -38,7 +38,7 @@ export const getHTMLTags = (): Schema['elements'] => {
 }
 
 export const isSelfClosingTag = (tagName: string): boolean => {
-  return (htmlTags[tagName] && htmlTags[tagName]['self-closing']) as boolean
+  return (htmlTags[tagName] && htmlTags[tagName].selfClosing) as boolean
 }
 
 export const shouldHaveNewline = (tagName: string): boolean => {
