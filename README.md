@@ -1,4 +1,4 @@
-[![travis build](https://img.shields.io/travis/com/SimonSiefke/vscode-html-language-features?style=flat-square)](https://travis-ci.com/SimonSiefke/vscode-svg-preview) [![Version](https://vsmarketplacebadge.apphb.com/version/SimonSiefke.html-language-features)](https://marketplace.visualstudio.com/items?itemName=SimonSiefke.html-language-features) [![Renovate enabled](https://img.shields.io/badge/renovate-enabled-brightgreen.svg)](https://renovatebot.com/)
+[![travis build](https://img.shields.io/travis/com/SimonSiefke/vscode-html-language-features?style=flat-square)](https://travis-ci.com/SimonSiefke/vscode-svg-preview) [![Version](https://vsmarketplacebadge.apphb.com/version/SimonSiefke.html-language-features.svg)](https://marketplace.visualstudio.com/items?itemName=SimonSiefke.html-language-features) [![Renovate enabled](https://img.shields.io/badge/renovate-enabled-brightgreen.svg)](https://renovatebot.com/)
 
 # HTML Language Features for VSCode
 
