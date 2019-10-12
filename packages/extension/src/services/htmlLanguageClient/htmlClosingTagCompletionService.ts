@@ -1,5 +1,6 @@
 import * as vscode from 'vscode'
 import * as vsl from 'vscode-languageclient'
+import { LanguageClient } from 'vscode-languageclient'
 
 export type DoCompletion<T = any> = (
   client: vsl.LanguageClient,
@@ -98,7 +99,7 @@ const doSelfClosingTagCloseCompletion: DoCompletion = createDoCompletion(
 
 export function activate(
   context: vscode.ExtensionContext,
-  client: vsl.LanguageClient
+  languageClientPromise: Promise<LanguageClient>
 ): void {
   context.subscriptions.push(
     vscode.workspace.onDidChangeTextDocument(
@@ -124,7 +125,8 @@ export function activate(
         )
         let completion: DoCompletion
         if (lastCharacter === '>') {
-          await doEndTagAutoCloseCompletion(client, document, position)
+          const languageClient = await languageClientPromise
+          await doEndTagAutoCloseCompletion(languageClient, document, position)
         } else if (lastCharacter === '/') {
           const secondToLastCharacter = document.getText(
             new vscode.Range(
@@ -139,7 +141,8 @@ export function activate(
             )
           )
           if (secondToLastCharacter === '<') {
-            await doEndTagCloseCompletion(client, document, position)
+            const languageClient = await languageClientPromise
+            await doEndTagCloseCompletion(languageClient, document, position)
           }
         }
       }

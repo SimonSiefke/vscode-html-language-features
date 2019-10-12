@@ -160,19 +160,19 @@ export function createScanner(
   }
 }
 
-// const scanner = createScannerReadable('<style>css</style>') // ?
+const scanner = createScanner('<style>css</style>') // ?
 
-// scanner.scan() // ?
-// scanner.getTokenText() // ?
-// scanner.scan() // ?
-// scanner.getTokenText() // ?
-// scanner.scan() // ?
-// scanner.getTokenText() // ?
-// scanner.scan() // ?
-// scanner.getTokenText() // ?
-// scanner.scan() // ?
-// scanner.getTokenText() // ?
-// scanner.scan() // ?
-// scanner.getTokenText() // ?
-// scanner.scan() // ?
-// scanner.getTokenText() // ?
+scanner.scan() // ?
+scanner.getTokenText() // ?
+scanner.scan() // ?
+scanner.getTokenText() // ?
+scanner.scan() // ?
+scanner.getTokenText() // ?
+scanner.scan() // ?
+scanner.getTokenText() // ?
+scanner.scan() // ?
+scanner.getTokenText() // ?
+scanner.scan() // ?
+scanner.getTokenText() // ?
+scanner.scan() // ?
+scanner.getTokenText() // ?

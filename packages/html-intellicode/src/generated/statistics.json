@@ -12,331 +12,161 @@
   "html": [
     {
       "name": "head",
-      "probability": 0.5714285714285714
+      "probability": 0.6666666666666666
     },
     {
       "name": "body",
-      "probability": 0.42857142857142855
+      "probability": 0.3333333333333333
     }
   ],
   "head": [
     {
-      "name": "meta",
-      "probability": 0.4573170731707317
+      "name": "link",
+      "probability": 0.5315315315315315
     },
     {
-      "name": "link",
-      "probability": 0.4451219512195122
+      "name": "meta",
+      "probability": 0.42342342342342343
     },
     {
       "name": "script",
-      "probability": 0.04878048780487805
+      "probability": 0.018018018018018018
     },
     {
       "name": "title",
-      "probability": 0.024390243902439025
-    },
-    {
-      "name": "style",
-      "probability": 0.012195121951219513
-    },
-    {
-      "name": "noscript",
-      "probability": 0.006097560975609756
+      "probability": 0.018018018018018018
     },
     {
       "name": "body",
-      "probability": 0.006097560975609756
+      "probability": 0.009009009009009009
     }
   ],
   "body": [
     {
       "name": "script",
-      "probability": 0.6590909090909091
+      "probability": 0.72
     },
     {
       "name": "div",
-      "probability": 0.13636363636363635
-    },
-    {
-      "name": "section",
-      "probability": 0.09090909090909091
+      "probability": 0.2
     },
     {
       "name": "nav",
-      "probability": 0.045454545454545456
+      "probability": 0.04
     },
     {
       "name": "noscript",
-      "probability": 0.045454545454545456
-    },
-    {
-      "name": "footer",
-      "probability": 0.022727272727272728
+      "probability": 0.04
     }
   ],
   "div": [
     {
       "name": "div",
-      "probability": 0.3715277777777778
-    },
-    {
-      "name": "style",
-      "probability": 0.13194444444444445
+      "probability": 0.5179856115107914
     },
     {
       "name": "a",
-      "probability": 0.12152777777777778
-    },
-    {
-      "name": "p",
-      "probability": 0.07291666666666667
-    },
-    {
-      "name": "img",
-      "probability": 0.06597222222222222
+      "probability": 0.11510791366906475
     },
     {
       "name": "h2",
-      "probability": 0.04513888888888889
+      "probability": 0.07913669064748201
     },
     {
-      "name": "noscript",
-      "probability": 0.034722222222222224
+      "name": "p",
+      "probability": 0.07913669064748201
+    },
+    {
+      "name": "img",
+      "probability": 0.05755395683453238
     },
     {
       "name": "h3",
-      "probability": 0.027777777777777776
-    },
-    {
-      "name": "span",
-      "probability": 0.024305555555555556
-    },
-    {
-      "name": "h4",
-      "probability": 0.013888888888888888
-    },
-    {
-      "name": "button",
-      "probability": 0.013888888888888888
+      "probability": 0.04316546762589928
     },
     {
       "name": "hr",
-      "probability": 0.010416666666666666
+      "probability": 0.02158273381294964
     },
     {
       "name": "h1",
-      "probability": 0.010416666666666666
+      "probability": 0.014388489208633094
     },
     {
-      "name": "ul",
-      "probability": 0.010416666666666666
-    },
-    {
-      "name": "br",
-      "probability": 0.006944444444444444
-    },
-    {
-      "name": "footer",
-      "probability": 0.006944444444444444
-    },
-    {
-      "name": "header",
-      "probability": 0.006944444444444444
-    },
-    {
-      "name": "section",
-      "probability": 0.006944444444444444
-    },
-    {
-      "name": "nav",
-      "probability": 0.006944444444444444
+      "name": "span",
+      "probability": 0.014388489208633094
     },
     {
       "name": "script",
-      "probability": 0.006944444444444444
+      "probability": 0.014388489208633094
     },
     {
-      "name": "form",
-      "probability": 0.003472222222222222
+      "name": "footer",
+      "probability": 0.007194244604316547
+    },
+    {
+      "name": "section",
+      "probability": 0.007194244604316547
+    },
+    {
+      "name": "header",
+      "probability": 0.007194244604316547
+    },
+    {
+      "name": "ul",
+      "probability": 0.007194244604316547
+    },
+    {
+      "name": "button",
+      "probability": 0.007194244604316547
+    },
+    {
+      "name": "nav",
+      "probability": 0.007194244604316547
     }
   ],
   "noscript": [
     {
-      "name": "picture",
-      "probability": 0.9090909090909091
-    },
-    {
       "name": "iframe",
-      "probability": 0.09090909090909091
+      "probability": 1
     }
   ],
   "nav": [
     {
       "name": "div",
-      "probability": 0.36363636363636365
-    },
-    {
-      "name": "style",
-      "probability": 0.2727272727272727
+      "probability": 0.75
     },
     {
       "name": "ul",
-      "probability": 0.18181818181818182
-    },
-    {
-      "name": "a",
-      "probability": 0.09090909090909091
-    },
-    {
-      "name": "button",
-      "probability": 0.09090909090909091
+      "probability": 0.25
     }
   ],
   "button": [
     {
       "name": "div",
-      "probability": 0.5
-    },
-    {
-      "name": "style",
-      "probability": 0.25
-    },
-    {
-      "name": "span",
-      "probability": 0.25
-    }
-  ],
-  "a": [
-    {
-      "name": "img",
-      "probability": 0.3673469387755102
-    },
-    {
-      "name": "h4",
-      "probability": 0.24489795918367346
-    },
-    {
-      "name": "h3",
-      "probability": 0.10204081632653061
-    },
-    {
-      "name": "i",
-      "probability": 0.08163265306122448
-    },
-    {
-      "name": "div",
-      "probability": 0.08163265306122448
-    },
-    {
-      "name": "svg",
-      "probability": 0.061224489795918366
-    },
-    {
-      "name": "style",
-      "probability": 0.04081632653061224
-    },
-    {
-      "name": "span",
-      "probability": 0.02040816326530612
-    }
-  ],
-  "li": [
-    {
-      "name": "a",
-      "probability": 0.6428571428571429
-    },
-    {
-      "name": "div",
-      "probability": 0.35714285714285715
-    }
-  ],
-  "section": [
-    {
-      "name": "p",
-      "probability": 0.391304347826087
-    },
-    {
-      "name": "div",
-      "probability": 0.17391304347826086
-    },
-    {
-      "name": "h2",
-      "probability": 0.13043478260869565
-    },
-    {
-      "name": "a",
-      "probability": 0.13043478260869565
-    },
-    {
-      "name": "style",
-      "probability": 0.08695652173913043
-    },
-    {
-      "name": "picture",
-      "probability": 0.043478260869565216
-    },
-    {
-      "name": "h1",
-      "probability": 0.043478260869565216
+      "probability": 1
     }
   ],
   "header": [
     {
       "name": "div",
-      "probability": 0.6666666666666666
-    },
-    {
-      "name": "style",
-      "probability": 0.3333333333333333
+      "probability": 1
     }
   ],
-  "footer": [
+  "section": [
     {
       "name": "div",
-      "probability": 0.5
-    },
-    {
-      "name": "style",
-      "probability": 0.3333333333333333
-    },
-    {
-      "name": "a",
-      "probability": 0.16666666666666666
-    }
-  ],
-  "label": [
-    {
-      "name": "div",
-      "probability": 0.6666666666666666
-    },
-    {
-      "name": "style",
-      "probability": 0.3333333333333333
-    }
-  ],
-  "form": [
-    {
-      "name": "input",
-      "probability": 0.4
-    },
-    {
-      "name": "label",
-      "probability": 0.4
-    },
-    {
-      "name": "button",
-      "probability": 0.2
+      "probability": 1
     }
   ],
   "span": [
     {
       "name": "span",
-      "probability": 0.8571428571428571
+      "probability": 0.8333333333333334
     },
     {
       "name": "i",
-      "probability": 0.14285714285714285
+      "probability": 0.16666666666666666
     }
   ],
   "h3": [
@@ -351,16 +181,18 @@
   ],
   "p": [
     {
-      "name": "strong",
-      "probability": 0.45
-    },
-    {
       "name": "a",
-      "probability": 0.45
+      "probability": 0.8
     },
     {
       "name": "span",
-      "probability": 0.1
+      "probability": 0.2
+    }
+  ],
+  "li": [
+    {
+      "name": "a",
+      "probability": 1
     }
   ],
   "h1": [
@@ -369,14 +201,20 @@
       "probability": 1
     }
   ],
-  "picture": [
+  "footer": [
     {
-      "name": "source",
-      "probability": 0.5
-    },
+      "name": "a",
+      "probability": 1
+    }
+  ],
+  "a": [
     {
       "name": "img",
-      "probability": 0.5
+      "probability": 0.52
+    },
+    {
+      "name": "h4",
+      "probability": 0.48
     }
   ],
   "h4": [
@@ -388,12 +226,6 @@
   "ul": [
     {
       "name": "li",
-      "probability": 1
-    }
-  ],
-  "svg": [
-    {
-      "name": "path",
       "probability": 1
     }
   ]

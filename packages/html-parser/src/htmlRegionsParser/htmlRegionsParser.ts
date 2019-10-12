@@ -79,4 +79,4 @@ export function parseRegions(input: string): Region[] {
   return regions
 }
 
-// parseRegions('<script i>x=2<style></script><style> </style>') // ?
+parseRegions('<script i>x=2<style></script><style> </style>') // ?

@@ -1,6 +1,6 @@
 import { statistics } from 'html-intellicode'
 import { fuzzySearch } from './fuzzySearch'
-import {  getHTMLTags } from '../data/HTMLManager'
+import { getHTMLTags } from '../data/HTMLManager'
 
 /**
  * Expands `div` into `div` but doesn't handle partial matches like `di`
@@ -24,6 +24,7 @@ export function expand(
   abbreviation: string,
   parentTagName: string
 ): string | undefined {
+  console.log('expand' + parentTagName)
   const suggestions = statistics[parentTagName]
   if (!suggestions) {
     return fallback(abbreviation)

@@ -32,6 +32,9 @@ console.error = connection.console.error.bind(connection.console)
 const documents: TextDocuments = new TextDocuments(
   TextDocumentSyncKind.Incremental
 )
+setInterval(() => {
+  console.log(documents.all().length)
+}, 200)
 // Make the text document manager listen on the connection
 // for open, change and close text document events
 documents.listen(connection)
@@ -41,10 +44,10 @@ documents.listen(connection)
 connection.onInitialize(() => {
   const capabilities: ServerCapabilities = {
     textDocumentSync: documents.syncKind,
-    completionProvider: {
-      resolveProvider: false,
-      triggerCharacters: [],
-    },
+    // completionProvider: {
+    //   resolveProvider: false,
+    //   triggerCharacters: [],
+    // },
     // hoverProvider: true,
   }
   return { capabilities }
@@ -66,13 +69,6 @@ connectionProxy.onCompletion(({ textDocument, position }) => {
   }
   return doComplete(document, position)
 })
-
-// // eslint-disable-next-line
-// // connectionProxy.onHover(({ textDocument, position }) => {
-// //   return undefined
-// //   // const document = documents.get(textDocument.uri)
-// //   // return doHover(document, position)
-// // })
 
 connectionProxy.onRequest(
   new RequestType<TextDocumentPositionParams, string | undefined, any, any>(

@@ -48,8 +48,18 @@ const emmetTagCompletion = (scanner: Scanner) => {
   scanner.state = ScannerState.WithinContent
   scanner.scan()
   const incompleteTagName = scanner.getTokenText()
+  console.log('incomplete tag name' + incompleteTagName)
   const parent = getPreviousOpeningTagName(scanner, completionOffset)
   let tagName: string | undefined
+
+  console.log('parent is')
+  // @ts-ignore
+  console.log(parent.tagName)
+  // @ts-ignore
+  // console.log('parent' + parent && parent.tagName)
+  if (parent && !parent.seenRightAngleBracket) {
+    return undefined
+  }
   if (!parent) {
     tagName = expand(incompleteTagName, 'root')
   } else {

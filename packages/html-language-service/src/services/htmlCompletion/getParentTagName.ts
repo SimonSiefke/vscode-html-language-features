@@ -8,11 +8,13 @@ export function getPreviousOpeningTagName(
   | {
       tagName: string
       offset: number
+      seenRightAngleBracket: boolean
     }
   | undefined {
   let offset = initialOffset + 2
   let parentTagName: string | undefined
   let stack: string[] = []
+  let seenRightAngleBracket = false
   // let i = 0
   do {
     // if (i++ > 10) {
@@ -32,10 +34,15 @@ export function getPreviousOpeningTagName(
         offset = scanner.stream.position - 3
         continue
       } else {
+        seenRightAngleBracket = true
         scanner.stream.goBackToUntilChar('<')
         // scanner.stream.goBack(1)
         offset = scanner.stream.position
       }
+    }
+    if (char === '<') {
+      seenRightAngleBracket //?
+      console.log('<')
     }
     // don't go outside of comment when inside
     if (scanner.stream.nextChars(3) === '!--') {
@@ -54,6 +61,9 @@ export function getPreviousOpeningTagName(
     offset = scanner.stream.position
     scanner.state = ScannerState.AfterOpeningStartTag
     const token = scanner.scan()
+    if (!seenRightAngleBracket) {
+      console.log('no see')
+    }
     if (token !== TokenType.StartTag) {
       return undefined
     }
@@ -69,13 +79,17 @@ export function getPreviousOpeningTagName(
       continue
     }
     parentTagName = tokenText
+    console.log('pa:' + parentTagName)
     if (parentTagName !== undefined) {
       break
     }
   } while (true)
+  console.log('return')
+
   return {
     tagName: parentTagName,
     offset,
+    seenRightAngleBracket,
   }
 }
 
@@ -179,3 +193,5 @@ export function getNextClosingTag(
   //   offset,
   // }
 }
+
+getPreviousOpeningTagName(createScanner('<div class="">div'), 14) //?
