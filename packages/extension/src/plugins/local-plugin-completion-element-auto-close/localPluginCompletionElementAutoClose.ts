@@ -4,6 +4,11 @@ import * as vscode from 'vscode'
 
 // TODO use optional chaining once prettier works with that
 
+type Result = {
+  completionString: string
+  completionOffset: number
+}
+
 const askServerForCompletionElementAutoClose: (
   api: LocalPluginApi,
   document: vscode.TextDocument,
@@ -15,7 +20,7 @@ const askServerForCompletionElementAutoClose: (
   )
   const requestType = new vsl.RequestType<
     vsl.TextDocumentPositionParams,
-    string,
+    Result,
     any,
     any
   >('html/end-tag-auto-close')
@@ -30,7 +35,7 @@ const askServerForCompletionElementAutoClose: (
     throw new Error('too slow')
   }
   api.vscode.window.activeTextEditor.insertSnippet(
-    new api.vscode.SnippetString(result)
+    new api.vscode.SnippetString(result.completionString)
   )
 }
 

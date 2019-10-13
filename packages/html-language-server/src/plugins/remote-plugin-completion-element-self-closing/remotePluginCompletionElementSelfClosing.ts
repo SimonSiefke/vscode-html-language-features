@@ -2,29 +2,30 @@ import { RemotePlugin } from '../remotePluginApi'
 import {
   RequestType,
   TextDocumentPositionParams,
+  TextDocument,
   Range,
   Position,
-  TextDocument,
 } from 'vscode-languageserver'
-import { doCompletionElementAutoClose } from 'html-language-service'
+import { doCompletionElementSelfClosing } from 'html-language-service'
 
 type Result = {
-  completionString:string
-  completionOffset:number
+  completionString: string
+  completionOffset: number
 }
 
-export const remotePluginCompletionElementAutoClose: RemotePlugin = api => {
+export const remotePluginCompletionElementSelfClosing: RemotePlugin = api => {
   api.languageServer.onRequest(
     new RequestType<TextDocumentPositionParams, Result | undefined, any, any>(
-      'html/end-tag-auto-close'
+      'html/self-closing-tag-close-completion'
     ),
     async ({ textDocument, position }) => {
       const document = api.documents.get(textDocument.uri) as TextDocument
       const text = document.getText(
         Range.create(Position.create(0, 0), position)
       )
+      console.log('do completion')
       const offset = document.offsetAt(position)
-      return doCompletionElementAutoClose(text, offset)
+      return doCompletionElementSelfClosing(text, offset)
     }
   )
 }

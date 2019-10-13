@@ -1,18 +1,13 @@
 export {
-  doAutoRenameTagCompletion,
-} from './services/htmlClosingTagCompletion/endTagCloseCompletion/autoRenameTagCompletion'
-export {
   doCompletionElementAutoClose,
-} from './services/completionElementAutoClose/completionElementAutoClose'
+} from './services/completion-element-auto-close/completionElementAutoClose'
 export {
-  doEndTagCloseCompletion,
-  doEmmetTagCompletion,
-} from './services/htmlClosingTagCompletion/endTagCloseCompletion/endTagCloseCompletion'
+  doCompletionElementClose,
+} from './services/completion-element-close/completionElementClose'
 export {
-  doSelfClosingTagCloseCompletion,
-} from './services/htmlClosingTagCompletion/htmlClosingTagCompletion'
+  doCompletionElementExpand,
+} from './services/completion-element-expand/completionElementExpand'
 export {
-  doComplete,
-  CompletionItemType,
-} from './services/htmlCompletion/htmlCompletion'
-export { addConfig as addSchema } from './data/HTMLManager'
+  doCompletionElementSelfClosing,
+} from './services/completion-element-self-closing/completionElementSelfClosing'
+export { addConfig } from './data/HTMLManager'

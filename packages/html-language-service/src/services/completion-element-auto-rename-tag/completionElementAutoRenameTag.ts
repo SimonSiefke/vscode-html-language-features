@@ -1,0 +1,1 @@
+// const autoRenameTagCompletion: Completion<any>

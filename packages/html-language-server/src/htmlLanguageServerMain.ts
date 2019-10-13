@@ -4,27 +4,14 @@ import {
   TextDocuments,
   ServerCapabilities,
   TextDocumentSyncKind,
-  TextDocumentPositionParams,
-  RequestType,
-  Range,
-  Position,
-  TextDocument,
 } from 'vscode-languageserver'
 import { createConnectionProxy } from './htmlLanguageServer/connectionProxy'
-import { parseRegions } from 'html-parser'
-import {
-  addSchema,
-  doAutoRenameTagCompletion,
-  doCompletionElementAutoClose,
-} from 'html-language-service'
-import {
-  doComplete,
-  doEndTagCloseCompletion,
-  doSelfClosingTagCloseCompletion,
-} from 'html-language-service'
-import { doEmmetTagCompletion } from 'html-language-service'
-import * as path from 'path'
-import { pluginCompletionElementAutoClose } from './plugins/remotePluginCompletionElementExpand'
+import { RemotePluginApi } from './plugins/remotePluginApi'
+import { remotePluginCompletionElementAutoClose } from './plugins/remote-plugin-completion-element-auto-close/remotePluginCompletionElementAutoClose'
+import { remotePluginCompletionElementClose } from './plugins/remote-plugin-completion-element-close/remotePluginCompletionElementClose'
+import { remotePluginCompletionElementExpand } from './plugins/remote-plugin-completion-element-expand/remotePluginCompletionElementExpand'
+import { addConfig } from 'html-language-service'
+import { remotePluginCompletionElementSelfClosing } from './plugins/remote-plugin-completion-element-self-closing/remotePluginCompletionElementSelfClosing'
 
 // Create a connection for the server
 const connection: IConnection = createConnection()
@@ -36,9 +23,6 @@ console.error = connection.console.error.bind(connection.console)
 const documents: TextDocuments = new TextDocuments(
   TextDocumentSyncKind.Incremental
 )
-setInterval(() => {
-  console.log(documents.all().length)
-}, 200)
 // Make the text document manager listen on the connection
 // for open, change and close text document events
 documents.listen(connection)
@@ -58,96 +42,44 @@ connection.onInitialize(() => {
 })
 
 connection.onInitialized(async () => {
+  console.log('server initialized')
   const { essentialConfig } = await import('schema/dist/configs')
-  addSchema(essentialConfig)
+  addConfig(essentialConfig)
+  const connectionProxy = createConnectionProxy(connection)
+  const api: RemotePluginApi = {
+    languageServer: connectionProxy,
+    documents,
+  }
+  remotePluginCompletionElementAutoClose(api)
+  remotePluginCompletionElementClose(api)
+  remotePluginCompletionElementExpand(api)
+  remotePluginCompletionElementSelfClosing(api)
 })
 
-connection.window
+// connectionProxy.onCompletion(({ textDocument, position }) => {
+//   const document = documents.get(textDocument.uri) as TextDocument
+//   const regions = parseRegions(document.getText())
+//   const offset = document.offsetAt(position)
+//   if (regions.find(region => region.start <= offset && offset <= region.end)) {
+//     return undefined
+//   }
+//   // return doComplete(document, position)
+// })
 
-const connectionProxy = createConnectionProxy(connection)
-
-// const api = {
-//   onRequest: connectionProxy.onRequest.bind(connectionProxy),
-// }
-
-// pluginCompletionElementAutoClose(api)
-
-connectionProxy.onCompletion(({ textDocument, position }) => {
-  const document = documents.get(textDocument.uri) as TextDocument
-  const regions = parseRegions(document.getText())
-  const offset = document.offsetAt(position)
-  if (regions.find(region => region.start <= offset && offset <= region.end)) {
-    return undefined
-  }
-  return doComplete(document, position)
-})
-
-connectionProxy.onRequest(
-  new RequestType<TextDocumentPositionParams, string | undefined, any, any>(
-    'html/end-tag-close'
-  ),
-  async ({ textDocument, position }) => {
-    const document = documents.get(textDocument.uri) as TextDocument
-    const text = document.getText()
-    const offset = document.offsetAt(position)
-    return doEndTagCloseCompletion(text, offset)
-  }
-)
-
-connectionProxy.onRequest(
-  new RequestType<TextDocumentPositionParams, string | undefined, any, any>(
-    'html/end-tag-auto-close'
-  ),
-  async ({ textDocument, position }) => {
-    console.log('auto close')
-    const document = documents.get(textDocument.uri) as TextDocument
-    const text = document.getText(Range.create(Position.create(0, 0), position))
-    const offset = document.offsetAt(position)
-    return doCompletionElementAutoClose(text, offset)
-  }
-)
-
-connectionProxy.onRequest(
-  new RequestType<TextDocumentPositionParams, string | undefined, any, any>(
-    'html/self-closing-tag-close-completion'
-  ),
-  async ({ textDocument, position }) => {
-    const document = documents.get(textDocument.uri) as TextDocument
-    const text = document.getText(Range.create(Position.create(0, 0), position))
-    const offset = document.offsetAt(position)
-    return doSelfClosingTagCloseCompletion(text, offset)
-  }
-)
-
-connectionProxy.onRequest(
-  new RequestType<
-    TextDocumentPositionParams,
-    { completionString: string; completionOffset: number },
-    any,
-    any
-  >('html/emmet-tag-completion'),
-  async ({ textDocument, position }) => {
-    const document = documents.get(textDocument.uri) as TextDocument
-    const text = document.getText(Range.create(Position.create(0, 0), position))
-    const offset = document.offsetAt(position)
-    return doEmmetTagCompletion(text, offset)
-  }
-)
-
-connectionProxy.onRequest(
-  new RequestType<
-    TextDocumentPositionParams,
-    { startOffset: number; endOffset: number; word: string },
-    any,
-    any
-  >('html/auto-rename-tag'),
-  async ({ textDocument, position }) => {
-    const document = documents.get(textDocument.uri) as TextDocument
-    const text = document.getText()
-    const offset = document.offsetAt(position)
-    return doAutoRenameTagCompletion(text, offset)
-  }
-)
+// connectionProxy.onRequest(
+//   new RequestType<
+//     TextDocumentPositionParams,
+//     { startOffset: number; endOffset: number; word: string },
+//     any,
+//     any
+//   >('html/auto-rename-tag'),
+//   async ({ textDocument, position }) => {
+//     const document = documents.get(textDocument.uri) as TextDocument
+//     const text = document.getText()
+//     const offset = document.offsetAt(position)
+//     return doAutoRenameTagCompletion(text, offset)
+//   }
+// )
 
 // Listen on the connection
 connection.listen()

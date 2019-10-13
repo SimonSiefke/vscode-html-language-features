@@ -1,7 +1,6 @@
 import { LocalPlugin, LocalPluginApi } from '../localPluginApi'
-import * as vsl from 'vscode-languageclient'
 import * as vscode from 'vscode'
-
+import * as vsl from 'vscode-languageclient'
 // TODO use optional chaining once prettier works with that
 
 type Result = {
@@ -9,12 +8,11 @@ type Result = {
   completionOffset: number
 }
 
-const askServerForCompletionElementClose: (
+const askServerForCompletionElementSelfClosing: (
   api: LocalPluginApi,
   document: vscode.TextDocument,
   position: vscode.Position
 ) => Promise<void> = async (api, document, position) => {
-  console.log('ask server')
   const params = api.languageClient.code2ProtocolConverter.asTextDocumentPositionParams(
     document,
     position
@@ -24,9 +22,10 @@ const askServerForCompletionElementClose: (
     Result,
     any,
     any
-  >('html/end-tag-close')
+  >('html/self-closing-tag-close-completion')
   const result = await api.languageClient.sendRequest(requestType, params)
   if (!result) {
+    console.log('no result')
     return
   }
   if (
@@ -40,7 +39,7 @@ const askServerForCompletionElementClose: (
   )
 }
 
-export const localPluginCompletionElementClose: LocalPlugin = api => {
+export const localPluginCompletionElementSelfClosing: LocalPlugin = api => {
   api.vscode.workspace.onDidChangeTextDocument(async event => {
     const activeDocument =
       api.vscode.window.activeTextEditor &&
@@ -53,33 +52,19 @@ export const localPluginCompletionElementClose: LocalPlugin = api => {
     }
     const lastChange = event.contentChanges[event.contentChanges.length - 1]
     const lastCharacter = lastChange.text[lastChange.text.length - 1]
-    if (
-      lastChange.rangeLength > 0 ||
-      (lastCharacter !== '>' && lastCharacter !== '/')
-    ) {
+    if (lastChange.rangeLength > 0 || lastCharacter !== '/') {
       return
     }
+    console.log('request')
     const rangeStart = lastChange.range.start
     const position = new api.vscode.Position(
       rangeStart.line,
       rangeStart.character + lastChange.text.length
     )
-    if (lastCharacter === '/') {
-      const secondToLastCharacter = event.document.getText(
-        new api.vscode.Range(
-          new api.vscode.Position(
-            rangeStart.line,
-            rangeStart.character + lastChange.text.length - 2
-          ),
-          new api.vscode.Position(
-            rangeStart.line,
-            rangeStart.character + lastChange.text.length - 1
-          )
-        )
-      )
-      if (secondToLastCharacter === '<') {
-        await askServerForCompletionElementClose(api, event.document, position)
-      }
-    }
+    await askServerForCompletionElementSelfClosing(
+      api,
+      event.document,
+      position
+    )
   })
 }

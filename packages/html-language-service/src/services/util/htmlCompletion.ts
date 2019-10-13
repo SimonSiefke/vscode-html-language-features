@@ -8,7 +8,7 @@ import {
 } from 'vscode-languageserver-types'
 import { isSelfClosingTag } from '../../data/HTMLManager'
 import { Scanner, ScannerState, createScanner, TokenType } from 'html-parser'
-import * as statistics from 'html-intellicode/dist/generated/statistics.json'
+import * as statistics from 'html-intellicode'
 
 export const enum CompletionItemType {
   tagName,
@@ -130,10 +130,10 @@ const createCompletionItem: ({
   ),
 })
 
-export function doComplete(
+export const doComplete: (
   textDocument: TextDocument,
   position: Position
-): CompletionList | undefined {
+) => CompletionList | undefined = (textDocument, position) => {
   const text = textDocument.getText({
     start: {
       character: 0,

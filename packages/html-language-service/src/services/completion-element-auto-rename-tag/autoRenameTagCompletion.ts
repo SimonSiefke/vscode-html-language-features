@@ -1,11 +1,16 @@
-import { Scanner, createScanner, ScannerState } from 'html-parser'
+import { createScanner, ScannerState } from 'html-parser'
 
 import {
   getPreviousOpeningTagName,
   getNextClosingTag,
-} from '../../htmlCompletion/getParentTagName'
+} from '../util/getParentTagName'
 
-const autoRenameTagCompletion = (scanner: Scanner) => {
+export const doAutoRenameTagCompletion: (
+  text: string,
+  offset: number
+) => any | undefined = (text, offset) => {
+  const scanner = createScanner(text)
+  scanner.stream.goTo(offset)
   // console.log(scanner.stream.position)
   // console.log(scanner.stream.previousChars(3))
   // console.log(scanner.stream.peekRight())
@@ -72,13 +77,5 @@ const autoRenameTagCompletion = (scanner: Scanner) => {
     }
   }
 }
-
-const createDoAutoRenameTagCompletion = (text: string, offset: number) => {
-  const scanner = createScanner(text)
-  scanner.stream.goTo(offset)
-  return autoRenameTagCompletion(scanner)
-}
-
-export const doAutoRenameTagCompletion = createDoAutoRenameTagCompletion
 
 // createDoAutoRenameTagCompletion('    ', 5) //?

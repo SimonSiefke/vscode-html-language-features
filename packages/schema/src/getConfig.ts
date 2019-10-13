@@ -27,8 +27,9 @@ const EMPTY_CONFIG: Config = {
   elements: {},
 }
 
-export function getConfig(configOrAbsoluteConfigPath: Config | string): Config {
-  console.log('get config' + configOrAbsoluteConfigPath)
+export const getConfig = (
+  configOrAbsoluteConfigPath: Config | string
+): Config => {
   let config = configOrAbsoluteConfigPath
   if (typeof configOrAbsoluteConfigPath === 'string') {
     const configString = fs.readFileSync(configOrAbsoluteConfigPath, 'utf-8')
