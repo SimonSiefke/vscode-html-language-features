@@ -42,7 +42,6 @@ export function getPreviousOpeningTagName(
     }
     if (char === '<') {
       seenRightAngleBracket //?
-      console.log('<')
     }
     // don't go outside of comment when inside
     if (scanner.stream.nextChars(3) === '!--') {

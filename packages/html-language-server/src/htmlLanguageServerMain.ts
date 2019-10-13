@@ -42,7 +42,6 @@ connection.onInitialize(() => {
 })
 
 connection.onInitialized(async () => {
-  console.log('server initialized')
   const { essentialConfig } = await import('schema/dist/configs')
   addConfig(essentialConfig)
   const connectionProxy = createConnectionProxy(connection)

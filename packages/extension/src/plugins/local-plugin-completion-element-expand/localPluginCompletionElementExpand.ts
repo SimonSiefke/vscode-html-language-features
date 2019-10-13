@@ -40,8 +40,6 @@ const askServerForCompletionElementExpand: (
     throw new Error('too slow')
   }
   const { completionString, completionOffset } = result
-  console.log('compl' + completionString)
-  console.log('complo' + completionOffset)
   const completionPosition = document.positionAt(completionOffset)
   vscode.window.activeTextEditor.insertSnippet(
     new vscode.SnippetString(completionString),
