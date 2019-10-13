@@ -23,6 +23,7 @@ export const doCompletionElementClose: (
   scanner.stream.goTo(offset)
   // console.log('inside')
   if (!scanner.stream.currentlyEndsWith('</')) {
+    console.log('no end')
     return undefined
   }
   let before = scanner.stream.position - 3
@@ -46,9 +47,8 @@ export const doCompletionElementClose: (
       !nextClosingTagName ||
       previousOpeningTagName.tagName !== nextClosingTagName.tagName
     ) {
-      const completionString = `${previousOpeningTagName.tagName}>`
       return {
-        completionString,
+        completionString: `${previousOpeningTagName.tagName}>`,
         completionOffset: offset,
       }
     }

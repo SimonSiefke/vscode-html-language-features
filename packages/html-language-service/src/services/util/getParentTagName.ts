@@ -79,12 +79,10 @@ export function getPreviousOpeningTagName(
       continue
     }
     parentTagName = tokenText
-    console.log('pa:' + parentTagName)
     if (parentTagName !== undefined) {
       break
     }
   } while (true)
-  console.log('return')
 
   return {
     tagName: parentTagName,

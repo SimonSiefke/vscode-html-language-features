@@ -1,41 +1,65 @@
-function isAtHTMLTag(input: string) {}
+import { doCompletionElementExpand } from './completionElementExpand'
+import { addConfig } from '../../data/HTMLManager'
 
-// based on https://github.com/emmetio/extract-abbreviation/blob/master/test/is-html.js
+// TODO
 
-function expectToBeAtHtmlTag(input: string): void {
-  expect(isAtHTMLTag(input)).toBe(true)
-}
-
-function expectNotToBeAtHTMLTag(input: string): void {
-  expect(isAtHTMLTag(input)).toBe(false)
-}
-
-test('simple tag', () => {
-  expectToBeAtHtmlTag('<div>')
-  expectToBeAtHtmlTag('<div/>')
-  expectToBeAtHtmlTag('<div />')
-  expectToBeAtHtmlTag('</div>')
+beforeAll(() => {
+  addConfig({
+    elements: {
+      h1: {},
+      ul: {
+        newline: true,
+      },
+      input: {
+        selfClosing: true,
+      },
+      Daten: {},
+      DatenSätze: {},
+    },
+  })
 })
 
-test('tag with attributes', () => {
-  expectToBeAtHtmlTag('<div foo="bar">')
-  expectToBeAtHtmlTag('<div foo=bar>')
-  expectToBeAtHtmlTag('<div foo>')
-  expectToBeAtHtmlTag('<div a="b" c=d>')
-  expectToBeAtHtmlTag('<div a=b c=d>')
-  expectToBeAtHtmlTag('<div a=^b$ c=d>')
-  expectToBeAtHtmlTag('<div a=b c=^%d]$>')
-  expectToBeAtHtmlTag('<div title=привет>')
-  expectToBeAtHtmlTag('<div title=привет123>')
-  expectToBeAtHtmlTag('<foo-bar>')
-})
+test('completion-element-expand', () => {
+  const testCases = [
+    {
+      input: 'h1|',
+      expected: '<h1>$0</h1>',
+    },
+    {
+      input: 'ul|',
+      expected: '<ul>\n\t$0\n</ul>',
+    },
+    {
+      input: 'input|',
+      expected: '<input>',
+    },
+    {
+      input: 'Daten|',
+      expected: '<Daten>$0</Daten>',
+    },
+    {
+      input: 'DatenSätze|',
+      expected: '<DatenSätze>$0</DatenSätze>',
+    },
+    {
+      input: '🚀|',
+      expected: undefined,
+    },
+  ]
 
-test('invalid tags', () => {
-  expectNotToBeAtHTMLTag('div>')
-  expectNotToBeAtHTMLTag('<div')
-  expectNotToBeAtHTMLTag('<div привет>')
-  expectNotToBeAtHTMLTag('<div =bar>')
-  expectNotToBeAtHTMLTag('<div foo=>')
-  expectNotToBeAtHTMLTag('[a=b c=d]>')
-  expectNotToBeAtHTMLTag('div[a=b c=d]>')
+  for (const testCase of testCases) {
+    const offset = testCase.input.indexOf('|')
+    expect(offset).toBeGreaterThan(-1)
+    const text = testCase.input.replace('|', '')
+    const result = doCompletionElementExpand(text, offset)
+    if (testCase.expected === undefined) {
+      expect(result).toBe(undefined)
+    } else {
+      expect(result).toBeDefined()
+      expect(
+        text.slice(0, result && result.completionOffset) +
+          (result && result.completionString)
+      ).toBe(testCase.expected)
+    }
+  }
 })

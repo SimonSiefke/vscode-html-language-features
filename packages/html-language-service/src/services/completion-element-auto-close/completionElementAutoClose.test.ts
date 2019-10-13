@@ -1,49 +1,61 @@
-// import { doCompletionElementAutoClose } from './completionElementAutoClose'
-// import { addConfig } from '../../data/HTMLManager'
-// import { DoCompletion } from '../htmlClosingTagCompletion/htmlClosingTagCompletion'
+import { doCompletionElementAutoClose } from './completionElementAutoClose'
+import { addConfig } from '../../data/HTMLManager'
 
-// const createExpectCompletion: (
-//   doCompletion: DoCompletion
-// ) => (
-//   input: string
-// ) => {
-//   toBe: (expected: string) => void
-// } = doCompletion => input => {
-//   const offset = input.length
-//   const completion = doCompletion(input, offset)
-//   const result = `${input}${(completion || '').replace('$0', '')}`
-//   return {
-//     toBe(expected: string) {
-//       expect(result).toBe(expected)
-//     },
-//   }
-// }
+beforeAll(() => {
+  addConfig({
+    elements: {
+      input: {
+        selfClosing: true,
+      },
+      ul: {
+        newline: true,
+      },
+    },
+  })
+})
 
-// const expectEndTagAutoCloseCompletion = createExpectCompletion(
-//   doCompletionElementAutoClose
-// )
+test('completion-element-auto-close', () => {
+  const testCases: { input: string; expected: string | undefined }[] = [
+    {
+      input: '<h1>|',
+      expected: '<h1>$0</h1>',
+    },
+    {
+      input: '<h1></h1>|',
+      expected: undefined,
+    },
+    {
+      input: '<input>|',
+      expected: undefined,
+    },
+    {
+      input: '<ul>|',
+      expected: '<ul>\n\t$0\n</ul>',
+    },
+    {
+      input: '<Daten>|',
+      expected: '<Daten>$0</Daten>',
+    },
+    {
+      input: '<DatenSätze>|',
+      expected: '<DatenSätze>$0</DatenSätze>',
+    },
+    {
+      input: '<🚀>|',
+      expected: undefined,
+    },
+  ]
 
-// beforeAll(() => {
-//   addConfig({
-//     elements: {
-//       input: {
-//         'self-closing': true,
-//       },
-//       ul: {
-//         newline: true,
-//       },
-//     },
-//   })
-// })
-
-// test('end tag auto close completion', () => {
-//   expectEndTagAutoCloseCompletion('h1>').toBe('h1>')
-//   expectEndTagAutoCloseCompletion('<h1>').toBe('<h1></h1>')
-//   expectEndTagAutoCloseCompletion('<h1></h1>').toBe('<h1></h1>')
-//   expectEndTagAutoCloseCompletion('<ul>').toBe('<ul>\n\t\n</ul>')
-//   expectEndTagAutoCloseCompletion('<input>').toBe('<input>')
-//   expectEndTagAutoCloseCompletion('<<<').toBe('<<<')
-//   expectEndTagAutoCloseCompletion('<div class="<div>').toBe(
-//     '<div class="<div></div>'
-//   )
-// })
+  for (const testCase of testCases) {
+    const offset = testCase.input.indexOf('|')
+    expect(offset).toBeGreaterThan(-1)
+    const text = testCase.input.replace('|', '')
+    const result = doCompletionElementAutoClose(text, offset)
+    if (testCase.expected === undefined) {
+      expect(result).toBe(undefined)
+    } else {
+      expect(result).toBeDefined()
+      expect(text + (result && result.completionString)).toBe(testCase.expected)
+    }
+  }
+})

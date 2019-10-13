@@ -6,8 +6,7 @@
   "main": "dist/htmlLanguageServiceMain.js",
   "scripts": {
     "dev": "tsc --watch",
-    "test:htmlCompletion": "jest services/htmlCompletion",
-    "test:htmlClosingTagCompletion": "jest services/htmlClosingTagCompletion"
+    "test": "jest"
   },
   "keywords": [],
   "author": "",

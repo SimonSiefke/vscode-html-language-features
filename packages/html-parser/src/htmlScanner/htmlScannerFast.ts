@@ -32,7 +32,7 @@ function isQuote(char: string): boolean {
  * [:\w]  ### ":" or character or digit
  * [:\w-.]  ### ":" or character or digit or "-" or "."
  */
-const htmlTagNameRE = /^[!:\w][:\w-.]*/
+const htmlTagNameRE = /^[!:\w]((?!>)[\S])*/
 
 /**
  * Html attribute name (explaining the regex)

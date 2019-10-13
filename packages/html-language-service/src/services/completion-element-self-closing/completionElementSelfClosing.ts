@@ -14,8 +14,6 @@ export const doCompletionElementSelfClosing: (
       completionOffset: number
     })
   | undefined = (text, offset) => {
-  console.log('text')
-  // console.log(text, offset)
   const scanner = createScanner(text)
   scanner.stream.goTo(offset)
 

@@ -6,14 +6,29 @@
     "**/files*/**": true,
     "**/tsconfig.tsbuildinfo": true
   },
-  "fileutils.typeahead.exclude": {
-    "**/dist": true
-  },
   "json.schemas": [
     {
       "fileMatch": ["**/*.htmlData.json"],
       "url": "./packages/schema/src/schema/schema.json"
     }
   ],
-  "typescript.tsdk": "node_modules/typescript/lib"
+  "typescript.tsdk": "node_modules/typescript/lib",
+  "files.exclude": {
+    "**/.git": true,
+    "**/.svn": true,
+    "**/.hg": true,
+    "**/CVS": true,
+    "**/.DS_Store": true,
+    "**/node_modules": true,
+    "**/dist": true,
+    "**/.vscode": true,
+    "**/tsconfig.json": true,
+    "**/tsconfig*.json": true,
+    "**/*.webpack.config.js": true,
+    ".travis.yml": true,
+    ".gitignore": true,
+    "fixtures": true,
+    "scripts": true,
+    "**/*.d.ts": true
+  }
 }

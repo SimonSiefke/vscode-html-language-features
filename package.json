@@ -7,6 +7,7 @@
     "build": "tsc -b",
     "postinstall": "lerna bootstrap && tsc -b",
     "clean": "",
+    "test": "cd packages/html-language-service && npm run test",
     "bundle": "npm run clean && npm run bundle:client && npm run bundle:server",
     "bundle:client": "webpack --mode production --config ./client.webpack.config.js",
     "bundle:server": "webpack --mode production --config ./server.webpack.config.js",

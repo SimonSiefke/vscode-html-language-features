@@ -51,8 +51,6 @@ const expandAbbreviation = (
   abbreviation: string,
   parentTagName: string
 ): string | undefined => {
-  console.log('abr' + abbreviation)
-  console.log('expand' + parentTagName)
   const suggestions = statistics[parentTagName]
   if (!suggestions) {
     return fallback(abbreviation)
@@ -92,16 +90,14 @@ export const doCompletionElementExpand: (
   | undefined = (text, offset) => {
   const scanner = createScanner(text)
   scanner.stream.goTo(offset)
-  console.log('em')
-  if (!scanner.stream.currentlyEndsWithRegex(/[!a-zA-Z\d-]+$/)) {
-    console.log('un')
+  if (!scanner.stream.currentlyEndsWithRegex(/[\S]+$/)) {
     return undefined
   }
   const currentPosition = scanner.stream.position
   scanner.stream.goBackToUntilChar('\n')
   const startOfLine = scanner.stream.position
   scanner.stream.goTo(currentPosition)
-  const tagNameRE = /[a-zA-Z0-9]/
+  const tagNameRE = /[\S]/
   while (
     scanner.stream.position >= startOfLine &&
     tagNameRE.test(scanner.stream.peekLeft())
@@ -119,7 +115,6 @@ export const doCompletionElementExpand: (
   if (parent && !parent.seenRightAngleBracket) {
     return undefined
   }
-  console.log('incomplete' + incompleteTagName)
   if (!parent) {
     tagName = expandAbbreviation(incompleteTagName, 'root')
   } else {

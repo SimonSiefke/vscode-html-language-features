@@ -7,7 +7,7 @@ import * as fs from 'fs'
 interface Element {
   description?: string
   markdownDescription?: string
-  'self-closing'?: boolean
+  selfClosing?: boolean
   newline?: boolean
 }
 
