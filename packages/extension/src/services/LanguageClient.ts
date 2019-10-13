@@ -124,19 +124,12 @@ export const createLanguageClient = async (
   const autoDispose = fn => fn
   const api: LocalPluginApi = {
     vscode: {
-      SnippetString: vscode.SnippetString,
-      Range: vscode.Range,
-      Position: vscode.Position,
-      window: {
-        activeTextEditor: vscode.window.activeTextEditor,
-      },
       workspace: {
         onDidChangeTextDocument: autoDispose(
           vscode.workspace.onDidChangeTextDocument
         ),
       },
       commands: {
-        executeCommand: vscode.commands.executeCommand,
         registerTextEditorCommand: autoDispose(
           vscode.commands.registerTextEditorCommand
         ),

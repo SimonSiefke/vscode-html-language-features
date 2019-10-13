@@ -8,6 +8,13 @@ type Result = {
   completionOffset: number
 }
 
+const requestType = new vsl.RequestType<
+  vsl.TextDocumentPositionParams,
+  Result,
+  any,
+  any
+>('html/completion-element-self-closing')
+
 const askServerForCompletionElementSelfClosing: (
   api: LocalPluginApi,
   document: vscode.TextDocument,
@@ -17,33 +24,27 @@ const askServerForCompletionElementSelfClosing: (
     document,
     position
   )
-  const requestType = new vsl.RequestType<
-    vsl.TextDocumentPositionParams,
-    Result,
-    any,
-    any
-  >('html/self-closing-tag-close-completion')
+
   const result = await api.languageClient.sendRequest(requestType, params)
   if (!result) {
     console.log('no result')
     return
   }
   if (
-    !api.vscode.window.activeTextEditor ||
-    api.vscode.window.activeTextEditor.document.version !== document.version
+    !vscode.window.activeTextEditor ||
+    vscode.window.activeTextEditor.document.version !== document.version
   ) {
     throw new Error('too slow')
   }
-  api.vscode.window.activeTextEditor.insertSnippet(
-    new api.vscode.SnippetString(result.completionString)
+  vscode.window.activeTextEditor.insertSnippet(
+    new vscode.SnippetString(result.completionString)
   )
 }
 
 export const localPluginCompletionElementSelfClosing: LocalPlugin = api => {
   api.vscode.workspace.onDidChangeTextDocument(async event => {
     const activeDocument =
-      api.vscode.window.activeTextEditor &&
-      api.vscode.window.activeTextEditor.document
+      vscode.window.activeTextEditor && vscode.window.activeTextEditor.document
     if (
       event.document !== activeDocument ||
       event.contentChanges.length === 0
@@ -57,7 +58,7 @@ export const localPluginCompletionElementSelfClosing: LocalPlugin = api => {
     }
     console.log('request')
     const rangeStart = lastChange.range.start
-    const position = new api.vscode.Position(
+    const position = new vscode.Position(
       rangeStart.line,
       rangeStart.character + lastChange.text.length
     )

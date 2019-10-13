@@ -9,42 +9,41 @@ type Result = {
   completionOffset: number
 }
 
+const requestType = new vsl.RequestType<
+  vsl.TextDocumentPositionParams,
+  Result,
+  any,
+  any
+>('html/completion-element-close')
+
 const askServerForCompletionElementClose: (
   api: LocalPluginApi,
   document: vscode.TextDocument,
   position: vscode.Position
 ) => Promise<void> = async (api, document, position) => {
-  console.log('ask server')
   const params = api.languageClient.code2ProtocolConverter.asTextDocumentPositionParams(
     document,
     position
   )
-  const requestType = new vsl.RequestType<
-    vsl.TextDocumentPositionParams,
-    Result,
-    any,
-    any
-  >('html/end-tag-close')
   const result = await api.languageClient.sendRequest(requestType, params)
   if (!result) {
     return
   }
   if (
-    !api.vscode.window.activeTextEditor ||
-    api.vscode.window.activeTextEditor.document.version !== document.version
+    !vscode.window.activeTextEditor ||
+    vscode.window.activeTextEditor.document.version !== document.version
   ) {
     throw new Error('too slow')
   }
-  api.vscode.window.activeTextEditor.insertSnippet(
-    new api.vscode.SnippetString(result.completionString)
+  vscode.window.activeTextEditor.insertSnippet(
+    new vscode.SnippetString(result.completionString)
   )
 }
 
 export const localPluginCompletionElementClose: LocalPlugin = api => {
   api.vscode.workspace.onDidChangeTextDocument(async event => {
     const activeDocument =
-      api.vscode.window.activeTextEditor &&
-      api.vscode.window.activeTextEditor.document
+      vscode.window.activeTextEditor && vscode.window.activeTextEditor.document
     if (
       event.document !== activeDocument ||
       event.contentChanges.length === 0
@@ -60,18 +59,18 @@ export const localPluginCompletionElementClose: LocalPlugin = api => {
       return
     }
     const rangeStart = lastChange.range.start
-    const position = new api.vscode.Position(
+    const position = new vscode.Position(
       rangeStart.line,
       rangeStart.character + lastChange.text.length
     )
     if (lastCharacter === '/') {
       const secondToLastCharacter = event.document.getText(
-        new api.vscode.Range(
-          new api.vscode.Position(
+        new vscode.Range(
+          new vscode.Position(
             rangeStart.line,
             rangeStart.character + lastChange.text.length - 2
           ),
-          new api.vscode.Position(
+          new vscode.Position(
             rangeStart.line,
             rangeStart.character + lastChange.text.length - 1
           )

@@ -8,14 +8,21 @@ import {
 } from 'vscode-languageserver'
 import { doCompletionElementExpand } from 'html-language-service'
 
+type Result = {
+  completionString: string
+  completionOffset: number
+}
+
+const requestType = new RequestType<
+  TextDocumentPositionParams,
+  Result,
+  any,
+  any
+>('html/completion-element-expand')
+
 export const remotePluginCompletionElementExpand: RemotePlugin = api => {
   api.languageServer.onRequest(
-    new RequestType<
-      TextDocumentPositionParams,
-      { completionString: string; completionOffset: number },
-      any,
-      any
-    >('html/emmet-tag-completion'),
+    requestType,
     async ({ textDocument, position }) => {
       const document = api.documents.get(textDocument.uri) as TextDocument
       const text = document.getText(

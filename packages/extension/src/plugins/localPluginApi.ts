@@ -22,17 +22,10 @@ type VslSendRequest = (<R, E, RO>(
 
 export interface LocalPluginApi {
   vscode: {
-    SnippetString: typeof vscode.SnippetString
-    Range: typeof vscode.Range
-    Position: typeof vscode.Position
     commands: {
-      executeCommand: typeof vscode.commands.executeCommand
       registerTextEditorCommand: AutoDispose<
         typeof vscode.commands.registerTextEditorCommand
       >
-    }
-    window: {
-      activeTextEditor: vscode.TextEditor
     }
     workspace: {
       onDidChangeTextDocument: AutoDispose<
