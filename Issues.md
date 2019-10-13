@@ -54,6 +54,7 @@ https://github.com/microsoft/vscode/issues/58315
 - go to css https://github.com/microsoft/vscode/issues/27892
 - convert to self-closing tag https://github.com/microsoft/vscode/issues/58315
 - macro: when typing select + tab, insert the select element and some option elements
+- word to self-closing tag https://github.com/emmetio/emmet/issues/413
 
 ## uncategorized
 
