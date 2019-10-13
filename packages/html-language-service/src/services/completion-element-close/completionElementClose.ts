@@ -37,8 +37,8 @@ export const doCompletionElementClose: (
       return undefined
     }
     const previousOpeningTagName = getPreviousOpeningTagName(scanner, before)
-    const nextClosingTagName = getNextClosingTag(scanner, after)
     console.log('prev' + JSON.stringify(previousOpeningTagName))
+    const nextClosingTagName = getNextClosingTag(scanner, after)
     console.log('next' + JSON.stringify(nextClosingTagName))
     if (!previousOpeningTagName) {
       return undefined
@@ -82,3 +82,6 @@ export const doCompletionElementClose: (
   // // @ts-ignore
   // return { tagName }
 }
+
+const text = `<h1><!-- <h2> --></`
+doCompletionElementClose(text, text.length) //?

@@ -44,6 +44,14 @@ test('completion-element-auto-close', () => {
       input: '<🚀>|',
       expected: undefined,
     },
+    {
+      input: '<button/>|',
+      expected: undefined,
+    },
+    {
+      input: '<button />|',
+      expected: undefined,
+    },
   ]
 
   for (const testCase of testCases) {

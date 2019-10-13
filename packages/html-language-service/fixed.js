@@ -1,19 +1,11 @@
-import { isSelfClosingTag } from '../../data/HTMLManager'
-import { Scanner, ScannerState, TokenType, createScanner } from 'html-parser'
-
-export const getPreviousOpeningTagName: (
-  scanner: Scanner,
-  initialOffset: number
-) =>
-  | {
-      tagName: string
-      offset: number
-      seenRightAngleBracket: boolean
-    }
-  | undefined = (scanner, initialOffset) => {
+'use strict'
+Object.defineProperty(exports, '__esModule', { value: true })
+const HTMLManager_1 = require('../../data/HTMLManager')
+const html_parser_1 = require('html-parser')
+exports.getPreviousOpeningTagName = (scanner, initialOffset) => {
   let offset = initialOffset + 2
-  let parentTagName: string | undefined
-  let stack: string[] = []
+  let parentTagName
+  let stack = []
   let seenRightAngleBracket = false
   let i = 0
   do {
@@ -21,12 +13,14 @@ export const getPreviousOpeningTagName: (
       console.log('no')
       return undefined
     }
+    offset - 2 //?
     scanner.stream.goTo(offset - 2)
     scanner.stream.position //?
     scanner.stream.goBackToUntilEitherChar('<', '>')
     // scanner.stream.goBack(1)
     scanner.stream.position //?
     const char = scanner.stream.peekLeft(1) //?
+    scanner.stream.nextChars(4) //?
     console.log('char' + char)
     if (!['<', '>'].includes(char)) {
       console.log('retun 1' + char)
@@ -34,22 +28,26 @@ export const getPreviousOpeningTagName: (
       return undefined
     }
     if (char === '>') {
+      char
+      scanner.stream.previousChars(3) //?
       // skip comment
       if (scanner.stream.previousChars(3) === '-->') {
         scanner.stream.goBackToUntilChars('<!--')
-        offset = scanner.stream.position - 3
+        offset = scanner.stream.position - 4
         continue
       } else {
         seenRightAngleBracket = true
         console.log('go all back')
-        scanner.stream.goBack(1)
         scanner.stream.goBackToUntilChar('<')
+        // scanner.stream.goBack(1)
         offset = scanner.stream.position
       }
     }
     if (char === '<') {
       seenRightAngleBracket //?
     }
+    char
+    scanner.stream.nextChars(4) //?
     // don't go outside of comment when inside
     if (scanner.stream.nextChars(3) === '!--') {
       return undefined
@@ -58,7 +56,7 @@ export const getPreviousOpeningTagName: (
     if (scanner.stream.peekRight() === '/') {
       offset = scanner.stream.position - 1
       scanner.stream.advance(1)
-      scanner.state = ScannerState.AfterOpeningEndTag
+      scanner.state = html_parser_1.ScannerState.AfterOpeningEndTag
       scanner.scan()
       const token = scanner.getTokenText()
       if (token === '') {
@@ -70,24 +68,24 @@ export const getPreviousOpeningTagName: (
       continue
     }
     offset = scanner.stream.position
-    scanner.state = ScannerState.AfterOpeningStartTag
+    scanner.state = html_parser_1.ScannerState.AfterOpeningStartTag
     // scanner.stream.advance(1)
     console.log('oo' + offset)
     const token = scanner.scan()
     // if (!seenRightAngleBracket) {
     //   console.log('no see')
     // }
-    if (token !== TokenType.StartTag) {
+    if (token !== html_parser_1.TokenType.StartTag) {
       console.log('no start tag')
       return undefined
     }
     const tokenText = scanner.getTokenText()
-    if (isSelfClosingTag(tokenText)) {
+    if (HTMLManager_1.isSelfClosingTag(tokenText)) {
       console.log('self closing')
       continue
     }
     // pop closing tags from the tags
-    if (stack.length && !isSelfClosingTag(tokenText)) {
+    if (stack.length && !HTMLManager_1.isSelfClosingTag(tokenText)) {
       if (stack.pop() !== tokenText) {
         console.error('no')
       }
@@ -99,7 +97,6 @@ export const getPreviousOpeningTagName: (
       break
     }
   } while (true)
-
   console.log('retunin')
   return {
     tagName: parentTagName,
@@ -107,24 +104,14 @@ export const getPreviousOpeningTagName: (
     seenRightAngleBracket,
   }
 }
-
-const text = '<h1><!-- </h1> --><!-- <h2> --></'
+const text = '<h1><!-- <h2> --></'
 const offset = text.length //?
-getPreviousOpeningTagName(createScanner(text), offset) //?
-
-export const getNextClosingTag: (
-  scanner: Scanner,
-  initialOffset: number
-) =>
-  | {
-      tagName: string
-      offset: number
-    }
-  | undefined = (scanner, initialOffset) => {
+exports.getPreviousOpeningTagName(html_parser_1.createScanner(text), offset) //?
+exports.getNextClosingTag = (scanner, initialOffset) => {
   scanner.stream.goTo(initialOffset)
   let offset = scanner.stream.position
-  let parentTagName: string | undefined
-  let stack: string[] = []
+  let parentTagName
+  let stack = []
   // scanner.state = ScannerState.WithinContent
   let i = 0
   while (!scanner.stream.eos()) {
@@ -144,10 +131,10 @@ export const getNextClosingTag: (
       }
       if (scanner.stream.nextChars(2) === '</') {
         scanner.stream.advance(2)
-        scanner.state = ScannerState.AfterOpeningEndTag
+        scanner.state = html_parser_1.ScannerState.AfterOpeningEndTag
         offset = scanner.stream.position
         const token = scanner.scan()
-        if (token !== TokenType.EndTag) {
+        if (token !== html_parser_1.TokenType.EndTag) {
           return undefined
         }
         const closingTagName = scanner.getTokenText()
@@ -166,16 +153,15 @@ export const getNextClosingTag: (
           }
         }
       }
-      scanner.state = ScannerState.AfterOpeningStartTag
+      scanner.state = html_parser_1.ScannerState.AfterOpeningStartTag
       scanner.scan()
       const tagName = scanner.getTokenText()
-      if (!isSelfClosingTag(tagName)) {
+      if (!HTMLManager_1.isSelfClosingTag(tagName)) {
         stack.push(tagName)
       }
       // continue
     }
   }
-
   // const token = scanner.scan()
   // if (token === TokenType.StartTagOpen) {
   //   scanner.scan()
@@ -188,7 +174,6 @@ export const getNextClosingTag: (
   // do {
   // scanner.stream.goTo(offset)
   // const char = scanner.stream.peekRight()
-
   // if (char === '>') {
   //   // skip comment
   //   if (scanner.stream.previousChars(3) === '-->') {
@@ -204,7 +189,6 @@ export const getNextClosingTag: (
   // if (scanner.stream.nextChars(3) === '!--') {
   //   return undefined
   // }
-
   // push opening tags onto the stack
   // } while (parentTagName === undefined || isSelfClosingTag(parentTagName))
   // return {
@@ -212,5 +196,5 @@ export const getNextClosingTag: (
   //   offset,
   // }
 }
-
 // getPreviousOpeningTagName(createScanner('<div class="">div'), 14) //?
+//# sourceMappingURL=getParentTagName.js.map

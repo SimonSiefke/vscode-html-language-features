@@ -88,8 +88,15 @@ export class MultiLineStream {
 
   public goBackToUntilEitherChar(...chars: string[]): void {
     while (this.position >= 0 && !chars.includes(this.source[this.position])) {
+      // console.log('minus')
       this.position--
     }
+    // console.log(chars)
+    // console.log(this.position)
+    // console.log(this.source[this.position])
+    // console.log(!chars.includes(this.source[this.position]))
+    // console.log(this.position >= 0)
+    // console.log('plus')
     this.position++
   }
   public advanceUntilEitherChar(...chars: string[]): void {

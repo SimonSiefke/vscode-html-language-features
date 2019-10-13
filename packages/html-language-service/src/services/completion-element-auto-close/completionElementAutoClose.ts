@@ -17,6 +17,9 @@ export const doCompletionElementAutoClose: (
   | undefined = (text, offset) => {
   const scanner = createScanner(text)
   scanner.stream.goTo(offset)
+  if (scanner.stream.currentlyEndsWith('/>')) {
+    return undefined
+  }
   if (!scanner.stream.currentlyEndsWith('>')) {
     return undefined
   }
