@@ -1,30 +1,30 @@
 import * as vscode from 'vscode'
 import { LanguageClient } from 'vscode-languageclient'
-import { doEmmetTagCompletion } from './htmlClosingTagCompletionService'
+// import { doEmmetTagCompletion } from './htmlClosingTagCompletionService'
 
 export function activate(
   context: vscode.ExtensionContext,
   languageClientPromise: Promise<LanguageClient>
 ): void {
   console.log('em')
-  context.subscriptions.push(
-    vscode.commands.registerTextEditorCommand(
-      'html-expand-abbreviation',
-      async textEditor => {
-        const languageClient = await languageClientPromise
-        const document = textEditor.document
-        const position = textEditor.selection.active
-        // const rangeUntilPosition = new vscode.Range(
-        //   new vscode.Position(position.line, 0),
-        //   position
-        // )
-        // const textUntilPosition = textEditor.document.getText(
-        //   rangeUntilPosition
-        // )
-        await doEmmetTagCompletion(languageClient, document, position)
-      }
-    )
-  )
+  // context.subscriptions.push(
+  //   vscode.commands.registerTextEditorCommand(
+  //     'html-expand-abbreviation',
+  //     async textEditor => {
+  //       const languageClient = await languageClientPromise
+  //       const document = textEditor.document
+  //       const position = textEditor.selection.active
+  //       // const rangeUntilPosition = new vscode.Range(
+  //       //   new vscode.Position(position.line, 0),
+  //       //   position
+  //       // )
+  //       // const textUntilPosition = textEditor.document.getText(
+  //       //   rangeUntilPosition
+  //       // )
+  //       await doEmmetTagCompletion(languageClient, document, position)
+  //     }
+  //   )
+  // )
 
   //     try {
   //       const extracted = extractAbbreviation(

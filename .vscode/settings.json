@@ -14,5 +14,6 @@
       "fileMatch": ["**/*.htmlData.json"],
       "url": "./packages/schema/src/schema/schema.json"
     }
-  ]
+  ],
+  "typescript.tsdk": "node_modules/typescript/lib"
 }

@@ -12,15 +12,19 @@ import {
 } from 'vscode-languageserver'
 import { createConnectionProxy } from './htmlLanguageServer/connectionProxy'
 import { parseRegions } from 'html-parser'
-import { addSchema, doAutoRenameTagCompletion } from 'html-language-service'
+import {
+  addSchema,
+  doAutoRenameTagCompletion,
+  doCompletionElementAutoClose,
+} from 'html-language-service'
 import {
   doComplete,
   doEndTagCloseCompletion,
-  doEndTagAutoCloseCompletion,
   doSelfClosingTagCloseCompletion,
 } from 'html-language-service'
 import { doEmmetTagCompletion } from 'html-language-service'
 import * as path from 'path'
+import { pluginCompletionElementAutoClose } from './plugins/remotePluginCompletionElementExpand'
 
 // Create a connection for the server
 const connection: IConnection = createConnection()
@@ -58,7 +62,15 @@ connection.onInitialized(async () => {
   addSchema(essentialConfig)
 })
 
+connection.window
+
 const connectionProxy = createConnectionProxy(connection)
+
+// const api = {
+//   onRequest: connectionProxy.onRequest.bind(connectionProxy),
+// }
+
+// pluginCompletionElementAutoClose(api)
 
 connectionProxy.onCompletion(({ textDocument, position }) => {
   const document = documents.get(textDocument.uri) as TextDocument
@@ -87,10 +99,11 @@ connectionProxy.onRequest(
     'html/end-tag-auto-close'
   ),
   async ({ textDocument, position }) => {
+    console.log('auto close')
     const document = documents.get(textDocument.uri) as TextDocument
     const text = document.getText(Range.create(Position.create(0, 0), position))
     const offset = document.offsetAt(position)
-    return doEndTagAutoCloseCompletion(text, offset)
+    return doCompletionElementAutoClose(text, offset)
   }
 )
 

@@ -8,7 +8,7 @@ export type DoCompletion<T = any> = (
   position: vscode.Position
 ) => Promise<T>
 
-const createDoCompletion: (
+export const createDoCompletion: (
   requestType: vsl.RequestType<vsl.TextDocumentPositionParams, string, any, any>
 ) => DoCompletion = requestType => async (client, document, position) => {
   const params = client.code2ProtocolConverter.asTextDocumentPositionParams(
@@ -31,44 +31,6 @@ const createDoCompletion: (
   )
 }
 
-const createDoEmmetCompletion: (
-  requestType: vsl.RequestType<
-    vsl.TextDocumentPositionParams,
-    { completionString: string; completionOffset: number },
-    any,
-    any
-  >
-) => DoCompletion = requestType => async (client, document, position) => {
-  const params = client.code2ProtocolConverter.asTextDocumentPositionParams(
-    document,
-    position
-  )
-  // ask the server for the completion
-  const result = await client.sendRequest(requestType, params)
-  if (!result) {
-    console.error('no completion')
-    await vscode.commands.executeCommand('tab')
-    return
-  }
-  if (
-    !vscode.window.activeTextEditor ||
-    vscode.window.activeTextEditor.document.version !== document.version
-  ) {
-    throw new Error('too slow')
-  }
-  const { completionString, completionOffset } = result
-  console.log('compl' + completionString)
-  console.log('complo' + completionOffset)
-  const completionPosition = document.positionAt(completionOffset)
-  vscode.window.activeTextEditor.insertSnippet(
-    new vscode.SnippetString(completionString),
-    new vscode.Range(completionPosition, position),
-    {
-      undoStopAfter: false,
-      undoStopBefore: false,
-    }
-  )
-}
 /**
  * End tag close completion
  *`<p>this is text</` -> `<p>this is text</p>`.
@@ -77,9 +39,7 @@ const doEndTagCloseCompletion: DoCompletion = createDoCompletion(
   new vsl.RequestType('html/end-tag-close')
 )
 
-export const doEmmetTagCompletion: DoCompletion = createDoEmmetCompletion(
-  new vsl.RequestType('html/emmet-tag-completion')
-)
+
 
 /**
  * End tag auto close completion.

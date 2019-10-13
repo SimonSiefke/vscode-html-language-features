@@ -1,15 +1,15 @@
 import * as vscode from 'vscode'
-import * as htmlLanguageConfigurationService from './services/htmlLanguageConfiguration/htmlLanguageConfigurationService'
-import { createLanguageClient } from './services/htmlLanguageClient/htmlLanguageClientService'
-import * as emmetService from './services/htmlLanguageClient/emmetService'
-import * as htmlClosingTagCompletionService from './services/htmlLanguageClient/htmlClosingTagCompletionService'
-// import * as autoRenameTagService from './services/htmlLanguageClient/autoRenameTagService'
+import * as htmlLanguageConfigurationService from './services/LanguageConfiguration/htmlLanguageConfigurationService'
+import { createLanguageClient } from './services/LanguageClient'
+import { localPluginCompletionElementExpand } from './plugins/local-plugin-completion-element-expand/localPluginCompletionElementExpand'
+import { localPluginCompletionElementAutoClose } from './plugins/local-plugin-completion-element-auto-close/localPluginCompletionElementAutoClose'
+import { localPluginCompletionElementClose } from './plugins/local-plugin-completion-element-close/localPluginCompletionElementClose'
 
 export async function activate(context: vscode.ExtensionContext) {
-  console.log('activated')
-  const languageClientPromise = createLanguageClient(context)
-  emmetService.activate(context, languageClientPromise)
   htmlLanguageConfigurationService.activate(context)
-  // autoRenameTagService.activate(context, languageClient)
-  htmlClosingTagCompletionService.activate(context, languageClientPromise)
+
+  const languageClient = await createLanguageClient(context)
+  languageClient.registerLocalPlugin(localPluginCompletionElementExpand)
+  languageClient.registerLocalPlugin(localPluginCompletionElementAutoClose)
+  languageClient.registerLocalPlugin(localPluginCompletionElementClose)
 }

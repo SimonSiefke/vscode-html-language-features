@@ -1,6 +1,6 @@
-import { doEndTagAutoCloseCompletion } from './endTagAutoCloseCompletion'
-import { addConfig } from '../../../data/HTMLManager'
-import { DoCompletion } from '../htmlClosingTagCompletion'
+import { doCompletionElementAutoClose } from './completionElementAutoClose'
+import { addConfig } from '../../data/HTMLManager'
+import { DoCompletion } from '../htmlClosingTagCompletion/htmlClosingTagCompletion'
 
 const createExpectCompletion: (
   doCompletion: DoCompletion
@@ -20,7 +20,7 @@ const createExpectCompletion: (
 }
 
 const expectEndTagAutoCloseCompletion = createExpectCompletion(
-  doEndTagAutoCloseCompletion
+  doCompletionElementAutoClose
 )
 
 beforeAll(() => {

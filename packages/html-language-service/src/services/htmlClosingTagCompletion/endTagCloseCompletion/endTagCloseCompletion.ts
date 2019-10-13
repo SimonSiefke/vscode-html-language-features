@@ -14,7 +14,7 @@ import {
   getPreviousOpeningTagName,
   getNextClosingTag,
 } from '../../htmlCompletion/getParentTagName'
-import { expand } from '../../expand'
+import { completionElementExpand } from '../../completionElementExpand/completionElementExpand'
 
 const getEmmetTagCompletion = (tagName: string) => {
   if (isSelfClosingTag(tagName)) {
@@ -56,9 +56,9 @@ const emmetTagCompletion = (scanner: Scanner) => {
   }
   console.log('incomplete' + incompleteTagName)
   if (!parent) {
-    tagName = expand(incompleteTagName, 'root')
+    tagName = completionElementExpand(incompleteTagName, 'root')
   } else {
-    tagName = expand(incompleteTagName, parent.tagName)
+    tagName = completionElementExpand(incompleteTagName, parent.tagName)
   }
   if (!tagName) {
     return undefined

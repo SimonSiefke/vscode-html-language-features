@@ -2,7 +2,7 @@
   "compilerOptions": {
     "pretty": true,
     "lib": ["esnext"],
-    "target": "esnext",
+    "target": "es2019",
     "module": "commonjs",
     // "rootDir": ".",
 

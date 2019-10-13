@@ -30,7 +30,7 @@ type RequestHandler<Params, Result> = (
   handler: (params: Params) => Result
 ) => void
 
-interface ConnectionProxy {
+export interface ConnectionProxy {
   /**
    * Installs a handler for the `Hover` request.
    *
@@ -118,7 +118,9 @@ const runSafe: <Handler extends (...args: any) => any>(
   }
 }
 
-export function createConnectionProxy(connection: Connection): ConnectionProxy {
+export const createConnectionProxy: (
+  connection: Connection
+) => ConnectionProxy = connection => {
   return {
     onHover(handler) {
       connection.onHover(runSafe(handler, ErrorMessages.onHover, 'onHover'))

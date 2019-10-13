@@ -1,5 +1,6 @@
 import * as vsl from 'vscode-languageclient'
 import * as vscode from 'vscode'
+import { LocalPlugin, LocalPluginApi } from '../plugins/localPluginApi'
 
 const clientOptions: vsl.LanguageClientOptions = {
   documentSelector: [
@@ -10,9 +11,9 @@ const clientOptions: vsl.LanguageClientOptions = {
   ],
 }
 
-export async function createLanguageClient(
+export const createLanguageClient = async (
   context: vscode.ExtensionContext
-): Promise<vsl.LanguageClient> {
+): Promise<{ registerLocalPlugin: (plugin: LocalPlugin) => void }> => {
   const serverModule = context.asAbsolutePath(
     '../html-language-server/dist/htmlLanguageServerMain.js'
   )
@@ -111,15 +112,41 @@ export async function createLanguageClient(
   // // // // //                \\ \\ \\ \\ \\
   // // // // // // // // \\ \\ \\ \\ \\ \\ \\
 
-  const client = new vsl.LanguageClient(
+  const languageClient = new vsl.LanguageClient(
     'htmlLanguageClient',
     'HTML Language Client',
     serverOptions,
     clientOptions
   )
-  context.subscriptions.push(client.start())
-  await client.onReady()
-  return client
-  // emmetService.activate(context, client)
-  // htmlClosingTagCompletionService.activate(context, client)
+  context.subscriptions.push(languageClient.start())
+  await languageClient.onReady()
+
+  const autoDispose = fn => fn
+  const api: LocalPluginApi = {
+    vscode: {
+      SnippetString: vscode.SnippetString,
+      Range: vscode.Range,
+      Position: vscode.Position,
+      window: {
+        activeTextEditor: vscode.window.activeTextEditor,
+      },
+      workspace: {
+        onDidChangeTextDocument: autoDispose(
+          vscode.workspace.onDidChangeTextDocument
+        ),
+      },
+      commands: {
+        executeCommand: vscode.commands.executeCommand,
+        registerTextEditorCommand: autoDispose(
+          vscode.commands.registerTextEditorCommand
+        ),
+      },
+    },
+    languageClient,
+  }
+  return {
+    registerLocalPlugin: plugin => {
+      plugin(api)
+    },
+  }
 }

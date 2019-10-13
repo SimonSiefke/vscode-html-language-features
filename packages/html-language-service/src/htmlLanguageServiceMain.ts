@@ -2,8 +2,8 @@ export {
   doAutoRenameTagCompletion,
 } from './services/htmlClosingTagCompletion/endTagCloseCompletion/autoRenameTagCompletion'
 export {
-  doEndTagAutoCloseCompletion,
-} from './services/htmlClosingTagCompletion/endTagAutoCloseCompletion/endTagAutoCloseCompletion'
+  doCompletionElementAutoClose,
+} from './services/completionElementAutoClose/completionElementAutoClose'
 export {
   doEndTagCloseCompletion,
   doEmmetTagCompletion,

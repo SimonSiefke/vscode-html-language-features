@@ -1,18 +1,18 @@
 /* eslint-disable no-param-reassign */
-import { shouldHaveNewline, isSelfClosingTag } from '../../../data/HTMLManager'
+import { shouldHaveNewline, isSelfClosingTag } from '../../data/HTMLManager'
 
 import {
   DoCompletion,
   createDoCompletion,
   Completion,
-} from '../htmlClosingTagCompletion'
+} from '../htmlClosingTagCompletion/htmlClosingTagCompletion'
 import { ScannerState, TokenType } from 'html-parser'
 
 /**
  * End tag auto close completion.
  * `<div>` -> `<div></div>`.
  */
-const endTagAutoCloseCompletion: Completion<{
+const completionElementAutoClose: Completion<{
   tagName: string
 }> = {
   getCompletion({ tagName }) {
@@ -47,6 +47,6 @@ const endTagAutoCloseCompletion: Completion<{
  * End tag auto close completion.
  * `<div>` -> `<div></div>`.
  */
-export const doEndTagAutoCloseCompletion: DoCompletion = createDoCompletion(
-  endTagAutoCloseCompletion
+export const doCompletionElementAutoClose: DoCompletion = createDoCompletion(
+  completionElementAutoClose
 )

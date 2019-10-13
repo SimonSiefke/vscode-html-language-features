@@ -1,17 +1,12 @@
 import { statistics } from 'html-intellicode'
 import { fuzzySearch } from './fuzzySearch'
-import { getHTMLTags } from '../data/HTMLManager'
+import { getHTMLTags } from '../../data/HTMLManager'
 
 /**
  * Expands `div` into `div` but doesn't handle partial matches like `di`
  */
-function fallback(abbreviation: string) {
+const fallback = (abbreviation: string) => {
   const htmlTagMap = getHTMLTags()
-  console.log('fallback')
-  console.log('map')
-  console.log(JSON.stringify(htmlTagMap))
-  console.log('abbr')
-  console.log(abbreviation)
   if (htmlTagMap[abbreviation]) {
     return abbreviation
   }
@@ -25,10 +20,10 @@ function fallback(abbreviation: string) {
  * @param abbreviation - the partial tag name
  * @param parentTagName - the name of the parent tag (or root if there is no parent tag)
  */
-export function expand(
+export const completionElementExpand = (
   abbreviation: string,
   parentTagName: string
-): string | undefined {
+): string | undefined => {
   console.log('abr' + abbreviation)
   console.log('expand' + parentTagName)
   const suggestions = statistics[parentTagName]
