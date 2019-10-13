@@ -53,6 +53,7 @@ https://github.com/microsoft/vscode/issues/58315
 - star custom attributes https://github.com/microsoft/vscode/issues/68548
 - go to css https://github.com/microsoft/vscode/issues/27892
 - convert to self-closing tag https://github.com/microsoft/vscode/issues/58315
+- macro: when typing select + tab, insert the select element and some option elements
 
 ## uncategorized
 
