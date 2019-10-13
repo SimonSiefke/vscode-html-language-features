@@ -1,11 +1,3 @@
-https://github.com/microsoft/vscode/issues/52777
-https://github.com/microsoft/vscode/issues/47069
-https://github.com/microsoft/vscode/issues/47192
-https://github.com/microsoft/vscode/issues/68548
-https://github.com/microsoft/vscode/issues/27892
-https://github.com/microsoft/vscode/issues/50420
-https://github.com/microsoft/vscode/issues/79911
-https://github.com/microsoft/vscode/issues/7008
 https://github.com/microsoft/vscode/issues/58315
 
 # wrap html tag
@@ -19,6 +11,7 @@ https://github.com/microsoft/vscode/issues/58315
 - html entities https://github.com/microsoft/vscode/issues/63217
 - data attributes https://github.com/microsoft/vscode/issues/40149
 - context aware https://github.com/microsoft/vscode/issues/375
+- attributes https://github.com/microsoft/vscode/issues/7008
 
 ## auto close tag
 
@@ -27,6 +20,11 @@ https://github.com/microsoft/vscode/issues/58315
 - multicursor: https://github.com/microsoft/vscode/issues/33429
 - dont duplicate close https://github.com/microsoft/vscode/issues/35143
 - wrong closing tab https://github.com/microsoft/vscode/issues/24322
+- wrong undo/redo https://github.com/microsoft/vscode/issues/52777
+
+## auto rename tag
+
+- https://github.com/microsoft/vscode/issues/47069
 
 ## embedded support
 
@@ -51,3 +49,11 @@ https://github.com/microsoft/vscode/issues/58315
 ## interesting features
 
 - auto id class https://github.com/microsoft/vscode/issues/33592
+- show deprecated attributes https://github.com/microsoft/vscode/issues/47192
+- star custom attributes https://github.com/microsoft/vscode/issues/68548
+- go to css https://github.com/microsoft/vscode/issues/27892
+- convert to self-closing tag https://github.com/microsoft/vscode/issues/58315
+
+## uncategorized
+
+- https://github.com/microsoft/vscode/issues/79911
