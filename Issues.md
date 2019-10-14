@@ -67,3 +67,11 @@ https://github.com/microsoft/vscode/issues/58315
 - check if element requires newline from mdn
 - https://designmodo.com/css-editors/
 - http://websitetips.com/html/tools/
+- https://www.developerdrive.com/10-best-open-source-tools-for-web-developers/
+- https://stackoverflow.com/questions/411954/tools-for-faster-better-web-development
+- westciv
+- search web development tools
+- https://onextrapixel.com/useful-html5-tools-and-resources-for-web-designers-developers/
+- https://royal.pingdom.com/ten-useful-open-source-tools-for-web-developers/
+- https://savedelete.com/design/best-linux-web-development-tools/11623/
+- https://softwareengineering.stackexchange.com/questions/17929/web-versus-desktop-development-is-web-development-worse
