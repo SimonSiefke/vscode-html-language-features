@@ -1,7 +1,9 @@
-/** @typedef {} WebpackConfig **/
+/** @typedef {import('webpack').Configuration} WebpackConfig **/
 
 const path = require('path')
 const merge = require('merge-options')
+const BundleAnalyzerPlugin = require('webpack-bundle-analyzer')
+  .BundleAnalyzerPlugin
 
 module.exports = function withDefaults(/** @type WebpackConfig */ extConfig) {
   /** @type WebpackConfig */
@@ -47,6 +49,7 @@ module.exports = function withDefaults(/** @type WebpackConfig */ extConfig) {
     },
     // yes, really source maps
     devtool: 'source-map',
+    // plugins: [new BundleAnalyzerPlugin()],
   }
 
   return merge(defaultConfig, extConfig)

@@ -7,15 +7,17 @@
     "build": "tsc -b",
     "postinstall": "lerna bootstrap && tsc -b",
     "clean": "",
-    "test": "cd packages/html-language-service && npm run test",
+    "test": "cd packages/html-language-service && npm run test && cd ../../ && npm run bundlesize",
     "bundle": "npm run clean && npm run bundle:client && npm run bundle:server",
     "bundle:client": "webpack --mode production --config ./client.webpack.config.js",
     "bundle:server": "webpack --mode production --config ./server.webpack.config.js",
+    "bundlesize": "bundlesize",
     "package": "npm run bundle && node scripts/package.js && cd dist && vsce package"
   },
   "devDependencies": {
     "@types/jest": "^24.0.18",
     "@types/node": "^12.7.12",
+    "bundlesize": "^0.18.0",
     "fs-extra": "^8.1.0",
     "lerna": "^3.17.0",
     "merge-options": "^1.0.1",
@@ -25,9 +27,21 @@
     "ts-node": "^8.4.1",
     "typescript": "^3.7.0-dev.20191013",
     "webpack": "^4.41.1",
+    "webpack-bundle-analyzer": "^3.5.2",
     "webpack-cli": "^3.3.9"
   },
   "renovate": {
     "extends": "bitworkers"
-  }
+  },
+  "bundlesize": [
+    {
+      "path": "./dist/packages/extension/dist/extensionMain.js",
+      "maxSize": "212 kB",
+      "compression": "none"
+    },
+    {
+      "path": "./dist/packages/html-language-server/dist/htmlLanguageServerMain.js",
+      "maxSize": "206 kB"
+    }
+  ]
 }

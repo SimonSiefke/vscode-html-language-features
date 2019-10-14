@@ -1,5 +1,7 @@
 const withDefaults = require('./shared.webpack.config')
 const path = require('path')
+const BundleAnalyzerPlugin = require('webpack-bundle-analyzer')
+  .BundleAnalyzerPlugin
 
 module.exports = withDefaults({
   context: path.join(__dirname, 'packages/html-language-server'),
@@ -10,4 +12,5 @@ module.exports = withDefaults({
     filename: 'htmlLanguageServerMain.js',
     path: path.join(__dirname, 'dist', 'packages/html-language-server/dist'),
   },
+  // plugins: [new BundleAnalyzerPlugin()],
 })
