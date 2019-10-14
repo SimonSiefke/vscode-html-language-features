@@ -1,0 +1,8 @@
+text:
+DatenSätze
+
+command:
+tab
+
+expectedText:
+<DatenSätze></DatenSätze>

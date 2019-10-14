@@ -1,0 +1,8 @@
+text:
+Daten
+
+command:
+tab
+
+expectedText:
+<Daten></Daten>

@@ -1,0 +1,23 @@
+schema:
+{
+  ul: [
+    {
+      name: li
+      probability: 1
+    }
+  ]
+}
+
+
+text:
+<ul>
+  <li></li>|
+</ul>
+
+command:
+tab
+
+expectedText:
+<ul>
+  <li></li>
+</ul>

@@ -1,0 +1,17 @@
+elements:
+{
+  div: {
+    newline: true
+  }
+}
+
+text:
+.big
+
+command:
+tab
+
+expectedText:
+<div class="big">
+
+</div>

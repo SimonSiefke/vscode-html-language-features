@@ -1,0 +1,17 @@
+elements:
+{
+  ul: {
+    newline: true
+  }
+}
+
+text:
+ul|
+
+command:
+tab
+
+expectedText:
+<ul>
+
+</ul>

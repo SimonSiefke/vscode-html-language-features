@@ -1,0 +1,8 @@
+text:
+<h1 class="big|"></h1>
+
+command:
+tab
+
+expectedText:
+<h1 class="big|"></h1>

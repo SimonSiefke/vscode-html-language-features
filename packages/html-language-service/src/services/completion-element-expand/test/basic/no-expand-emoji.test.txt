@@ -1,0 +1,8 @@
+text:
+🚀|
+
+command:
+tab
+
+expectedText:
+🚀|

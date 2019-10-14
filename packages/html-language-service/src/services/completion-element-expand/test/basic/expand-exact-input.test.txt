@@ -1,0 +1,15 @@
+elements:
+{
+  input: {
+    selfClosing: true
+  }
+}
+
+text:
+input|
+
+command:
+tab
+
+expectedText:
+<input>

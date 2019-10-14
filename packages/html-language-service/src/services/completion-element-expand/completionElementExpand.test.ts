@@ -45,6 +45,11 @@ test('completion-element-expand', () => {
       input: '🚀|',
       expected: undefined,
     },
+    {
+      input: `<select>
+        <option>op|
+      </select>`,
+    },
   ]
 
   for (const testCase of testCases) {

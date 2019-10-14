@@ -1,0 +1,17 @@
+elements:
+{
+  button: {
+    newline: true
+  }
+}
+
+text:
+button.big
+
+command:
+tab
+
+expectedText:
+<button class="big">
+
+</button>
