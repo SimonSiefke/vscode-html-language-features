@@ -55,7 +55,8 @@ https://github.com/microsoft/vscode/issues/58315
 - convert to self-closing tag https://github.com/microsoft/vscode/issues/58315
 - macro: when typing select + tab, insert the select element and some option elements
 - word to self-closing tag https://github.com/emmetio/emmet/issues/413
-- hayaya: ctrl+enter adds curly braces in css
+- hayaku: ctrl+enter adds curly braces in css
+- read color from clipboard for css (hayaku) https://github.com/sindresorhus/clipboardy
 
 ## uncategorized
 
