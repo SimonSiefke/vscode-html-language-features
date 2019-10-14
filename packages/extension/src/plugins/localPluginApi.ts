@@ -8,17 +8,11 @@ import {
 
 type AutoDispose<T> = T
 
-type VslSendRequest = (<R, E, RO>(
-  type: RequestType0<R, E, RO>,
-  token?: vscode.CancellationToken
-) => Thenable<R>) &
-  (<P, R, E, RO>(
-    type: RequestType<P, R, E, RO>,
-    params: P,
-    token?: CancellationToken
-  ) => Thenable<R>) &
-  (<R>(method: string, token?: CancellationToken) => Thenable<R>) &
-  (<R>(method: string, param: any, token?: CancellationToken) => Thenable<R>)
+type VslSendRequest = <P, R, E, RO>(
+  type: RequestType<P, R, E, RO>,
+  params: P,
+  token?: CancellationToken
+) => Thenable<R>
 
 export interface LocalPluginApi {
   vscode: {

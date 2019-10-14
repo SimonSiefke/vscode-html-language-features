@@ -65,3 +65,5 @@ https://github.com/microsoft/vscode/issues/58315
 ## todo
 
 - check if element requires newline from mdn
+- https://designmodo.com/css-editors/
+- http://websitetips.com/html/tools/

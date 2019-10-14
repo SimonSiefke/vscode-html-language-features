@@ -2,6 +2,29 @@ import * as vsl from 'vscode-languageclient'
 import * as vscode from 'vscode'
 import { LocalPlugin, LocalPluginApi } from '../plugins/localPluginApi'
 
+class TimeoutError extends Error {}
+
+/**
+ * Rejects a promise after a certain amount of milliseconds
+ *
+ * @param promise - the promise to time out
+ * @param timeout - timeout in milliseconds
+ */
+const timeout: <T>(promise: Promise<T>, timeout: number) => Promise<T> = (
+  promise,
+  timeout
+) => {
+  return new Promise((resolve, reject) => {
+    setTimeout(() => reject(new TimeoutError()), timeout)
+    promise.then(resolve).catch(reject)
+  })
+}
+
+// const defaultTimeout = 3 // for self closing tag
+const defaultTimeout = 40 // for expand abbreviation
+// const defaultTimeout = 45
+// const defaultTimeout = 350 // very large files
+
 const clientOptions: vsl.LanguageClientOptions = {
   documentSelector: [
     {
@@ -122,6 +145,7 @@ export const createLanguageClient = async (
   await languageClient.onReady()
 
   const autoDispose = fn => fn
+
   const api: LocalPluginApi = {
     vscode: {
       workspace: {
@@ -135,8 +159,33 @@ export const createLanguageClient = async (
         ),
       },
     },
-    languageClient,
+    languageClient: {
+      code2ProtocolConverter: languageClient.code2ProtocolConverter,
+      sendRequest: async (type, params) => {
+        const cancellationTokenSource = new vsl.CancellationTokenSource()
+
+        const promise = languageClient.sendRequest(
+          type,
+          params,
+          cancellationTokenSource.token
+        ) as Promise<any>
+        try {
+          return await timeout(promise, defaultTimeout)
+        } catch (error) {
+          if (error instanceof TimeoutError) {
+            cancellationTokenSource.cancel()
+            vscode.window.showErrorMessage(
+              `Request for ${type.method} took longer than ${defaultTimeout}ms`
+            )
+          } else {
+            vscode.window.showErrorMessage(JSON.stringify(error))
+          }
+          return undefined
+        }
+      },
+    },
   }
+
   return {
     registerLocalPlugin: plugin => {
       plugin(api)
