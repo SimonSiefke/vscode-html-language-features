@@ -12,5 +12,5 @@ module.exports = withDefaults({
     filename: 'extensionMain.js',
     path: path.join(__dirname, 'dist', 'packages/extension/dist'),
   },
-  plugins: [new BundleAnalyzerPlugin()],
+  // plugins: [new BundleAnalyzerPlugin()],
 })
