@@ -15,12 +15,14 @@ beforeAll(() => {
       },
       Daten: {},
       DatenSätze: {},
+      option: {},
+      select: {},
     },
   })
 })
 
 test('completion-element-expand', () => {
-  const testCases = [
+  const testCases: { input: string; expected: string | undefined }[] = [
     {
       input: 'h1|',
       expected: '<h1>$0</h1>',
@@ -49,6 +51,21 @@ test('completion-element-expand', () => {
       input: `<select>
         <option>op|
       </select>`,
+      expected: undefined,
+    },
+    {
+      input: `<select>
+        <option></option>
+        op|`,
+      expected: `<select>
+        <option></option>
+        <option>$0</option>`,
+    },
+    {
+      input: `<select>
+  op|`,
+      expected: `<select>
+  <option>$0</option>`,
     },
   ]
 

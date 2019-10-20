@@ -21,3 +21,5 @@ TODO:
 - support for emmet abbreviations
 
 <!-- TODO:  [html] Automatically delete HTML closing tag when converting to self-closing tag #58315  -->
+
+<!-- TODO emmet is really smart: it computed the expansions as one types so when one hits tab the expansions are already computed and applied instantly -->

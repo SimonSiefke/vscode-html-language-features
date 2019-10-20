@@ -17,9 +17,8 @@ export const getPreviousOpeningTagName: (
   let seenRightAngleBracket = false
   let i = 0
   do {
-    if (i++ > 10) {
-      console.log('no')
-      return undefined
+    if (i++ > 100) {
+      throw new Error('infinite loop')
     }
     scanner.stream.goTo(offset - 2)
     scanner.stream.position //?
@@ -108,7 +107,14 @@ export const getPreviousOpeningTagName: (
   }
 }
 
-const text = '<h1><!-- </h1> --><!-- <h2> --></'
+const text = `<select>
+  <option></option>
+  <option></option>
+  <option></option>
+  <option></option>
+  <option></option>
+  <option></option>
+  op`
 const offset = text.length //?
 getPreviousOpeningTagName(createScanner(text), offset) //?
 

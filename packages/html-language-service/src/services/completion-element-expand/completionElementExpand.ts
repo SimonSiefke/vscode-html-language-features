@@ -116,6 +116,7 @@ export const doCompletionElementExpand: (
     return undefined
   }
   if (!parent) {
+    console.log('no parent')
     tagName = expandAbbreviation(incompleteTagName, 'root')
   } else {
     tagName = expandAbbreviation(incompleteTagName, parent.tagName)

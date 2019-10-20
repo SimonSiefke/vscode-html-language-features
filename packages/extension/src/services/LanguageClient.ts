@@ -21,9 +21,10 @@ const timeout: <T>(promise: Promise<T>, timeout: number) => Promise<T> = (
 }
 
 // const defaultTimeout = 3 // for self closing tag
-const defaultTimeout = 40 // for expand abbreviation
+// const defaultTimeout = 40 // for expand abbreviation
 // const defaultTimeout = 45
 // const defaultTimeout = 350 // very large files
+const defaultTimeout = 100
 
 const clientOptions: vsl.LanguageClientOptions = {
   documentSelector: [
@@ -175,10 +176,10 @@ export const createLanguageClient = async (
           if (error instanceof TimeoutError) {
             cancellationTokenSource.cancel()
             vscode.window.showErrorMessage(
-              `Request for ${type.method} took longer than ${defaultTimeout}ms`
+              `Performance Violation: Request for ${type.method} took longer than ${defaultTimeout}ms`
             )
           } else {
-            vscode.window.showErrorMessage(JSON.stringify(error))
+            vscode.window.showWarningMessage(JSON.stringify(error))
           }
           return undefined
         }
