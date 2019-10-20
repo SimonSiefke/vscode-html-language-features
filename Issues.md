@@ -75,3 +75,5 @@ https://github.com/microsoft/vscode/issues/58315
 - https://royal.pingdom.com/ten-useful-open-source-tools-for-web-developers/
 - https://savedelete.com/design/best-linux-web-development-tools/11623/
 - https://softwareengineering.stackexchange.com/questions/17929/web-versus-desktop-development-is-web-development-worse
+
+- https://stackoverflow.com/questions/130734/how-can-one-close-html-tags-in-vim-quickly

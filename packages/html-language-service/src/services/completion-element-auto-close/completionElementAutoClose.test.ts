@@ -28,6 +28,7 @@ test('completion-element-auto-close', () => {
       input: '<input>|',
       expected: undefined,
     },
+
     {
       input: '<ul>|',
       expected: '<ul>\n\t$0\n</ul>',
@@ -50,6 +51,46 @@ test('completion-element-auto-close', () => {
     },
     {
       input: '<button />|',
+      expected: undefined,
+    },
+    {
+      input: '<div>abc</div>|',
+      expected: undefined,
+    },
+    {
+      input: '<div>Abc</div>|',
+      expected: undefined,
+    },
+    {
+      input: '<div>abc12</div>|',
+      expected: undefined,
+    },
+    {
+      input: '<div>abc.</div>|',
+      expected: undefined,
+    },
+    {
+      input: '<div>(div)</div>|',
+      expected: undefined,
+    },
+    {
+      input: '<div>($db)</div>|',
+      expected: undefined,
+    },
+    {
+      input: '<div>($db.)</div>|',
+      expected: undefined,
+    },
+    {
+      input: '<div>ul::l</div>|',
+      expected: undefined,
+    },
+    {
+      input: '<div|',
+      expected: undefined,
+    },
+    {
+      input: '<div>ul:</div>|',
       expected: undefined,
     },
   ]
