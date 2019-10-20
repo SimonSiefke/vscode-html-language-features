@@ -1,5 +1,6 @@
 **/dist
 packages/html-intellicode/files
+packages/github-scraper/generated
 
 # Logs
 logs

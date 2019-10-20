@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<meta charset="utf-8" />
+
+<head>
+  <style>
+    body {
+      font-family: sans-serif;
+    }
+    .chart div {
+      font: 10px sans-serif;
+      background-color: steelblue;
+      text-align: right;
+      padding: 3px;
+      margin: 1px;
+      color: white;
+    }
+  </style>
+</head>
+
+<body>
+  <div id="app">
+    <section v-for="[name, tags] in Object.entries(statistics)" :key="name">
+      <h2>{{ name }}</h2>
+      <svg :style="`height: ${tags.length*30}px`">
+        <g v-for="(tag, index) in tags" :key="tag.name">
+          <rect
+            :width="`${tag.probability*100}px`"
+            height="20px"
+            :y="`${20*index*1.5}px`"
+            fill="#7bbbf0"
+          ></rect>
+          <text
+            :x="`${tag.probability*100 + 5}px`"
+            :y="`${20*index*1.5 + 16}px`"
+            class="small"
+          >
+            {{ tag.name }}
+          </text>
+        </g>
+      </svg>
+    </section>
+  </div>
+
+  <script type="module">
+    import Vue from 'https://cdn.jsdelivr.net/npm/vue@2.6.10/dist/vue.esm.browser.js'
+
+    new Vue({
+      el: '#app',
+      data() {
+        return {
+          statistics: {},
+        }
+      },
+      async mounted() {
+        const url = location.search.slice(3)
+        const statistics = await fetch('./generated/' + url + '.json').then(
+          res => res.json()
+        )
+        delete statistics['__meta__']
+        this.statistics = statistics
+      },
+    })
+    // d3.json(
+    //   './generated/birendra114__login-and-sign-up-page.statistics.json',
+    //   function(error, data) {
+    //     delete data['__meta__']
+    //     console.log(data)
+
+    //     d3.select('.chart')
+    //       .selectAll('div')
+    //       .data(data['body'])
+    //       .enter()
+    //       .append('div')
+    //       .style('width', d => d.probability * 500 + 'px')
+    //       .text(d => d.name)
+    //   }
+    // )
+  </script>
+</body>

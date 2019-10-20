@@ -1,0 +1,10 @@
+{
+  "extends": "../../tsconfig-base",
+  "compilerOptions": {
+    "outDir": "dist",
+    "rootDir": "src",
+    "strictNullChecks": false
+  },
+  "include": ["src/**/*.ts", "src/**/*.json"],
+  "references": [{ "path": "../statistics-generator" }]
+}

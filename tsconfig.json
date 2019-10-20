@@ -6,6 +6,7 @@
     { "path": "./packages/html-language-server" },
     { "path": "./packages/html-language-service" },
     { "path": "./packages/html-parser" },
-    { "path": "./packages/html-intellicode" }
+    { "path": "./packages/html-intellicode" },
+    { "path": "./packages/statistics-generator" }
   ]
 }
