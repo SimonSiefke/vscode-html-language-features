@@ -14,7 +14,6 @@ Note: for this to work, you need to disable:
 TODO:
 
 - auto rename tag
-- auto close tag
 - attribute key completions
 - attribute value completions
 - snippets
