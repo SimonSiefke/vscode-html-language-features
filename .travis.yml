@@ -17,6 +17,7 @@ jobs:
       script:
         - npm test
         - npm run package
+        - npm run bundlesize
     - stage: release
       script:
         - npm run package
