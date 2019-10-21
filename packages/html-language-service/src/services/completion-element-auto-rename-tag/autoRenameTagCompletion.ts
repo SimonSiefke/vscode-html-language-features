@@ -5,10 +5,16 @@ import {
   getNextClosingTag,
 } from '../util/getParentTagName'
 
-export const doAutoRenameTagCompletion: (
+export const doCompletionElementAutoRenameTag: (
   text: string,
   offset: number
-) => any | undefined = (text, offset) => {
+) =>
+  | {
+      startOffset: number
+      endOffset: number
+      word: string
+    }
+  | undefined = (text, offset) => {
   const scanner = createScanner(text)
   scanner.stream.goTo(offset)
   // console.log(scanner.stream.position)
@@ -78,4 +84,5 @@ export const doAutoRenameTagCompletion: (
   }
 }
 
-// createDoAutoRenameTagCompletion('    ', 5) //?
+// doAutoRenameTagCompletion('<div></dov>', 7) //?
+// createDoAutoRenameTagCompletion('', 5) //?

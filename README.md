@@ -2,7 +2,11 @@
 
 # HTML Language Features for VSCode
 
-> Context aware HTML Completions.
+Features:
+
+- Context aware HTML Completions
+- Auto rename tags
+- Auto close tags
 
 <!-- TODO image -->
 
@@ -13,7 +17,6 @@ Note: for this to work, you need to disable:
 
 TODO:
 
-- auto rename tag
 - attribute key completions
 - attribute value completions
 - snippets
@@ -22,3 +25,8 @@ TODO:
 <!-- TODO:  [html] Automatically delete HTML closing tag when converting to self-closing tag #58315  -->
 
 <!-- TODO emmet is really smart: it computed the expansions as one types so when one hits tab the expansions are already computed and applied instantly -->
+
+<!-- TODO
+
+
+ -->

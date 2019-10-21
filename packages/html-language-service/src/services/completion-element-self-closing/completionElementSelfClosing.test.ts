@@ -3,8 +3,28 @@ import { doCompletionElementSelfClosing } from './completionElementSelfClosing'
 test('completion-element-self-closing', () => {
   const testCases: { input: string; expected: string | undefined }[] = [
     {
+      input: '<|',
+      expected: undefined,
+    },
+    {
+      input: '<h1|',
+      expected: undefined,
+    },
+    {
+      input: '<h1>|',
+      expected: undefined,
+    },
+    {
+      input: '<h1><|',
+      expected: undefined,
+    },
+    {
       input: '<h1/|',
       expected: '<h1/>',
+    },
+    {
+      input: '<h1>|',
+      expected: undefined,
     },
     {
       input: '<h1></|',

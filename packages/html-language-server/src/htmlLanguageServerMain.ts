@@ -12,6 +12,7 @@ import { remotePluginCompletionElementClose } from './plugins/remote-plugin-comp
 import { remotePluginCompletionElementExpand } from './plugins/remote-plugin-completion-element-expand/remotePluginCompletionElementExpand'
 import { addConfig } from 'html-language-service'
 import { remotePluginCompletionElementSelfClosing } from './plugins/remote-plugin-completion-element-self-closing/remotePluginCompletionElementSelfClosing'
+import { remotePluginCompletionElementAutoRenameTag } from './plugins/remote-plugin-completion-element-auto-rename-tag/remotePluginCompletionElementAutoRenameTag'
 
 // Create a connection for the server
 const connection: IConnection = createConnection()
@@ -53,6 +54,7 @@ connection.onInitialized(async () => {
   remotePluginCompletionElementClose(api)
   remotePluginCompletionElementExpand(api)
   remotePluginCompletionElementSelfClosing(api)
+  remotePluginCompletionElementAutoRenameTag(api)
 })
 
 // connectionProxy.onCompletion(({ textDocument, position }) => {

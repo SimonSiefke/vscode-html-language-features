@@ -77,3 +77,18 @@ https://github.com/microsoft/vscode/issues/58315
 - https://softwareengineering.stackexchange.com/questions/17929/web-versus-desktop-development-is-web-development-worse
 
 - https://stackoverflow.com/questions/130734/how-can-one-close-html-tags-in-vim-quickly
+
+<!-- auto delete tag
+
+Having
+
+<xml>
+	<test>
+		<test2>Foo Bar</test2>
+	</test>
+</xml>
+
+and deleting, let's say <test2 or </test2>, it should automatically remove the pairing tag.
+ -->
+
+<!-- multi cursor support for auto rename tag and others -->
