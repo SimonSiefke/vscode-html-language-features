@@ -1,5 +1,4 @@
-import { createScanner, ScannerState, TokenType } from 'html-parser'
-import { getPreviousOpeningTagName } from '../util/getParentTagName'
+import { createScanner, ScannerState } from 'html-parser'
 import { statisticsForAttributes } from 'html-intellicode'
 
 /**
@@ -12,20 +11,17 @@ export const doSuggestionAttributeKey: (
 ) => { probability: number; name: string }[] | undefined = (text, offset) => {
   const scanner = createScanner(text)
   scanner.stream.goTo(offset)
-  // if (!scanner.stream.currentlyEndsWithRegex(/<[\S]*\s+$/)) {
-  //   return []
-  // }
+  if (!scanner.stream.currentlyEndsWithRegex(/<[\S]+\s+[\s\S]*$/)) {
+    return undefined
+  }
   scanner.stream.goBackToUntilChar('<')
   scanner.state = ScannerState.AfterOpeningStartTag
   scanner.scan()
-  console.log('tagname')
   const tagName = scanner.getTokenText()
 
-  console.log(tagName)
-  console.log(Object.keys(statisticsForAttributes).length)
-  console.log(typeof statisticsForAttributes)
-  console.log(JSON.stringify(statisticsForAttributes))
-
+  if (!tagName) {
+    return undefined
+  }
   // TODO
   // 1. import statistics
   // 2. fuzzy search in statistics[tagName][inCompleteAttributeName]
