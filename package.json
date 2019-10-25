@@ -36,12 +36,12 @@
   "bundlesize": [
     {
       "path": "./dist/packages/extension/dist/extensionMain.js",
-      "maxSize": "400 kB",
+      "maxSize": "500 kB",
       "compression": "none"
     },
     {
       "path": "./dist/packages/html-language-server/dist/htmlLanguageServerMain.js",
-      "maxSize": "206 kB"
+      "maxSize": "500 kB"
     }
   ]
 }
