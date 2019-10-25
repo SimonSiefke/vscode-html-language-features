@@ -8,7 +8,7 @@ import {
 } from 'vscode-languageserver-types'
 import { isSelfClosingTag } from '../../data/HTMLManager'
 import { Scanner, ScannerState, createScanner, TokenType } from 'html-parser'
-import * as statistics from 'html-intellicode'
+import { statisticsForTags } from 'html-intellicode'
 
 export const enum CompletionItemType {
   tagName,
@@ -55,7 +55,7 @@ const startTagCompletion: Completion = scanner => {
     }
     parentTagName = scanner.getTokenText()
   } while (isSelfClosingTag(parentTagName))
-  const suggestedTags = statistics[parentTagName]
+  const suggestedTags = statisticsForTags[parentTagName]
   if (!suggestedTags) {
     return undefined
   }

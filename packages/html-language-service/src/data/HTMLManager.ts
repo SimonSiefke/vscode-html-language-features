@@ -6,6 +6,10 @@ interface Element {
   markdownDescription?: string
   selfClosing?: boolean
   newline?: boolean
+  reference?: {
+    url: string
+    name: string
+  }
 }
 
 interface Schema {
@@ -43,4 +47,27 @@ export const isSelfClosingTag = (tagName: string): boolean => {
 
 export const shouldHaveNewline = (tagName: string): boolean => {
   return htmlTags[tagName] && (htmlTags[tagName].newline as boolean)
+}
+
+export const getInfoForHtmlTag = (tagName: string): Element | undefined => {
+  return htmlTags[tagName]
+}
+
+export const getInfoDescriptionForHtmlTag = (
+  tagName: string
+): string | undefined => {
+  return htmlTags[tagName] && htmlTags[tagName].description
+}
+
+export const getInfoReference = (
+  tagName: string
+):
+  | {
+      url: string
+      name: string
+    }
+  | undefined => {
+  console.log('grt ref info')
+  console.log(htmlTags[tagName] && htmlTags[tagName].reference)
+  return htmlTags[tagName] && htmlTags[tagName].reference
 }

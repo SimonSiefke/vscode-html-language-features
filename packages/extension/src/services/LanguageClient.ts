@@ -2,6 +2,13 @@ import * as vsl from 'vscode-languageclient'
 import * as vscode from 'vscode'
 import { LocalPlugin, LocalPluginApi } from '../plugins/localPluginApi'
 
+// const defaultTimeout = 3 // for self closing tag
+// const defaultTimeout = 40 // for expand abbreviation
+// const defaultTimeout = 45
+const defaultTimeout = 100
+// const defaultTimeout = 350 // very large files
+// const defaultTimeout = 1000 // for html spec
+
 class TimeoutError extends Error {}
 
 /**
@@ -19,12 +26,6 @@ const timeout: <T>(promise: Promise<T>, timeout: number) => Promise<T> = (
     promise.then(resolve).catch(reject)
   })
 }
-
-// const defaultTimeout = 3 // for self closing tag
-// const defaultTimeout = 40 // for expand abbreviation
-// const defaultTimeout = 45
-// const defaultTimeout = 350 // very large files
-const defaultTimeout = 100
 
 const clientOptions: vsl.LanguageClientOptions = {
   documentSelector: [

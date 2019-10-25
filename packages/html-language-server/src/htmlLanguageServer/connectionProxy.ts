@@ -121,14 +121,56 @@ const runSafe: <Handler extends (...args: any) => any>(
 export const createConnectionProxy: (
   connection: Connection
 ) => ConnectionProxy = connection => {
+  const onHoverHandlers: any[] = []
+  const onCompletionHandlers: ((
+    params: CompletionParams
+  ) => CompletionItem[] | CompletionList | undefined)[] = []
+  const onCompletionResolverHandlers: any[] = []
+  const onSignatureHelpHandlers: any[] = []
+  const onRequestHandlers: any[] = []
   return {
     onHover(handler) {
-      connection.onHover(runSafe(handler, ErrorMessages.onHover, 'onHover'))
+      onHoverHandlers.push(handler)
+      if (onHoverHandlers.length === 1) {
+        connection.onHover(
+          runSafe(
+            (...args) => {
+              for (const hoverHandler of onHoverHandlers) {
+                const result = hoverHandler(...args)
+                if (result) {
+                  return result
+                }
+              }
+              return undefined
+            },
+            ErrorMessages.onHover,
+            'onHover'
+          )
+        )
+      }
     },
     onCompletion(handler) {
-      connection.onCompletion(
-        runSafe(handler, ErrorMessages.onCompletion, 'onCompletion')
-      )
+      onCompletionHandlers.push(handler)
+      if (onCompletionHandlers.length === 1) {
+        connection.onCompletion(
+          runSafe(
+            params => {
+              let i = 0
+              for (const onCompletionHandler of onCompletionHandlers) {
+                const result = onCompletionHandler(params)
+                console.log('i' + i)
+                console.log(typeof result)
+                if (result) {
+                  return result
+                }
+              }
+              return undefined
+            },
+            ErrorMessages.onCompletion,
+            'onCompletion'
+          )
+        )
+      }
     },
     onCompletionResolve(handler) {
       connection.onCompletionResolve(

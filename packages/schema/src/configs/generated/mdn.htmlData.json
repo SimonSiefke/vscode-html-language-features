@@ -1,9 +1,14 @@
 {
   "elements": {
     "a": {
+      "reference": {
+        "name": "MDN Reference",
+        "url": "https://developer.mozilla.org//en-US/docs/Web/HTML/Element/a"
+      },
       "selfClosing": false,
       "experimental": false,
       "deprecated": false,
+      "description": "The HTML <a> element (or anchor element), with its href attribute, creates a hyperlink to web pages, files, email addresses, locations in the same page, or anything else a URL can address.",
       "attributes": {
         "download": {
           "deprecated": false,
@@ -73,27 +78,46 @@
       }
     },
     "abbr": {
+      "reference": {
+        "name": "MDN Reference",
+        "url": "https://developer.mozilla.org//en-US/docs/Web/HTML/Element/abbr"
+      },
       "selfClosing": false,
       "experimental": false,
       "deprecated": false,
+      "description": "The HTML Abbreviation element (<abbr>) represents an abbreviation or acronym; the optional title attribute can provide an expansion or description for the abbreviation.",
       "attributes": {}
     },
     "acronym": {
+      "reference": {
+        "name": "MDN Reference",
+        "url": "https://developer.mozilla.org//en-US/docs/Web/HTML/Element/acronym"
+      },
       "selfClosing": false,
       "experimental": false,
       "deprecated": true,
       "attributes": {}
     },
     "address": {
+      "reference": {
+        "name": "MDN Reference",
+        "url": "https://developer.mozilla.org//en-US/docs/Web/HTML/Element/address"
+      },
       "selfClosing": false,
       "experimental": false,
       "deprecated": false,
+      "description": "The HTML <address> element indicates that the enclosed HTML provides contact information for a person or people, or for an organization.",
       "attributes": {}
     },
     "applet": {
+      "reference": {
+        "name": "MDN Reference",
+        "url": "https://developer.mozilla.org//en-US/docs/Web/HTML/Element/applet"
+      },
       "selfClosing": false,
       "experimental": false,
       "deprecated": true,
+      "description": "The obsolete HTML Applet Element (<applet>) embeds a Java applet into the document; this element has been deprecated in favor of <object>.",
       "attributes": {
         "align": {
           "deprecated": false,
@@ -173,6 +197,10 @@
       }
     },
     "area": {
+      "reference": {
+        "name": "MDN Reference",
+        "url": "https://developer.mozilla.org//en-US/docs/Web/HTML/Element/area"
+      },
       "selfClosing": true,
       "experimental": false,
       "deprecated": false,
@@ -190,7 +218,7 @@
         "download": {
           "deprecated": false,
           "experimental": false,
-          "description": "This attribute, if present, indicates that the author intends the hyperlink to be used for downloading a resource. See <a href=\"https://developer.mozilla.org/en-US/docs/Web/HTML/Element/a\" title=\"The HTML &lt;a&gt; element (or anchor element), along with its href attribute, creates a hyperlink to other web pages, files, locations within the same page, email addresses, or any other URL.\"><code>&lt;a&gt;</code></a> for a full description of the <code><a href=\"https://developer.mozilla.org/en-US/docs/Web/HTML/Element/a#attr-download\">download</a></code> attribute."
+          "description": "This attribute, if present, indicates that the author intends the hyperlink to be used for downloading a resource. See <a href=\"https://developer.mozilla.org/en-US/docs/Web/HTML/Element/a\" title=\"The HTML &lt;a&gt; element (or anchor element), with its href attribute, creates a hyperlink to web pages, files, email addresses, locations in the same page, or anything else a URL can address.\"><code>&lt;a&gt;</code></a> for a full description of the <code><a href=\"https://developer.mozilla.org/en-US/docs/Web/HTML/Element/a#attr-download\">download</a></code> attribute."
         },
         "href": {
           "deprecated": false,
@@ -250,21 +278,36 @@
       }
     },
     "article": {
+      "reference": {
+        "name": "MDN Reference",
+        "url": "https://developer.mozilla.org//en-US/docs/Web/HTML/Element/article"
+      },
       "selfClosing": false,
       "experimental": false,
       "deprecated": false,
+      "description": "The HTML <article> element represents a self-contained composition in a document, page, application, or site, which is intended to be independently distributable or reusable (e.g., in syndication).",
       "attributes": {}
     },
     "aside": {
+      "reference": {
+        "name": "MDN Reference",
+        "url": "https://developer.mozilla.org//en-US/docs/Web/HTML/Element/aside"
+      },
       "selfClosing": false,
       "experimental": false,
       "deprecated": false,
+      "description": "The HTML <aside> element represents a portion of a document whose content is only indirectly related to the document's main content.",
       "attributes": {}
     },
     "audio": {
+      "reference": {
+        "name": "MDN Reference",
+        "url": "https://developer.mozilla.org//en-US/docs/Web/HTML/Element/audio"
+      },
       "selfClosing": false,
       "experimental": false,
       "deprecated": false,
+      "description": "The HTML <audio> element is used to embed sound content in documents. It may contain one or more audio sources, represented using the src attribute or the <source> element: the browser will choose the most suitable one. It can also be the destination for streamed media, using a MediaStream.",
       "attributes": {
         "autoplay": {
           "deprecated": false,
@@ -344,15 +387,25 @@
       }
     },
     "b": {
+      "reference": {
+        "name": "MDN Reference",
+        "url": "https://developer.mozilla.org//en-US/docs/Web/HTML/Element/b"
+      },
       "selfClosing": false,
       "experimental": false,
       "deprecated": false,
+      "description": "The HTML Bring Attention To element (<b>)  is used to draw the reader's attention to the element's contents, which are not otherwise granted special importance.",
       "attributes": {}
     },
     "base": {
+      "reference": {
+        "name": "MDN Reference",
+        "url": "https://developer.mozilla.org//en-US/docs/Web/HTML/Element/base"
+      },
       "selfClosing": true,
       "experimental": false,
       "deprecated": false,
+      "description": "The HTML <base> element specifies the base URL to use for all relative URLs in a document.",
       "attributes": {
         "href": {
           "deprecated": false,
@@ -367,9 +420,14 @@
       }
     },
     "basefont": {
+      "reference": {
+        "name": "MDN Reference",
+        "url": "https://developer.mozilla.org//en-US/docs/Web/HTML/Element/basefont"
+      },
       "selfClosing": false,
       "experimental": false,
       "deprecated": true,
+      "description": "The obsolete HTML Base Font element (<basefont>) sets a default font face, size, and color for the other elements which are descended from its parent element.",
       "attributes": {
         "color": {
           "deprecated": false,
@@ -389,15 +447,25 @@
       }
     },
     "bdi": {
+      "reference": {
+        "name": "MDN Reference",
+        "url": "https://developer.mozilla.org//en-US/docs/Web/HTML/Element/bdi"
+      },
       "selfClosing": false,
       "experimental": false,
       "deprecated": false,
+      "description": "The HTML Bidirectional Isolate element (<bdi>)  tells the browser's bidirectional algorithm to treat the text it contains in isolation from its surrounding text.",
       "attributes": {}
     },
     "bdo": {
+      "reference": {
+        "name": "MDN Reference",
+        "url": "https://developer.mozilla.org//en-US/docs/Web/HTML/Element/bdo"
+      },
       "selfClosing": false,
       "experimental": false,
       "deprecated": false,
+      "description": "The HTML Bidirectional Text Override element (<bdo>) overrides the current directionality of text, so that the text within is rendered in a different direction.",
       "attributes": {
         "dir": {
           "deprecated": false,
@@ -407,9 +475,14 @@
       }
     },
     "bgsound": {
+      "reference": {
+        "name": "MDN Reference",
+        "url": "https://developer.mozilla.org//en-US/docs/Web/HTML/Element/bgsound"
+      },
       "selfClosing": false,
       "experimental": false,
       "deprecated": true,
+      "description": "The Internet Explorer only HTML Background Sound element (<bgsound>) sets up a sound file to play in the background while the page is used; use <audio> instead.",
       "attributes": {
         "balance": {
           "deprecated": false,
@@ -434,18 +507,32 @@
       }
     },
     "big": {
+      "reference": {
+        "name": "MDN Reference",
+        "url": "https://developer.mozilla.org//en-US/docs/Web/HTML/Element/big"
+      },
       "selfClosing": false,
       "experimental": false,
       "deprecated": true,
+      "description": "The obsolete HTML Big Element (<big>) renders the enclosed text at a font size one level larger than the surrounding text (medium becomes large, for example).",
       "attributes": {}
     },
     "blink": {
+      "reference": {
+        "name": "MDN Reference",
+        "url": "https://developer.mozilla.org//en-US/docs/Web/HTML/Element/blink"
+      },
       "selfClosing": false,
       "experimental": false,
       "deprecated": true,
+      "description": "The HTML Blink Element (<blink>) is a non-standard element which causes the enclosed text to flash slowly.",
       "attributes": {}
     },
     "blockquote": {
+      "reference": {
+        "name": "MDN Reference",
+        "url": "https://developer.mozilla.org//en-US/docs/Web/HTML/Element/blockquote"
+      },
       "selfClosing": false,
       "experimental": false,
       "deprecated": false,
@@ -458,9 +545,14 @@
       }
     },
     "body": {
+      "reference": {
+        "name": "MDN Reference",
+        "url": "https://developer.mozilla.org//en-US/docs/Web/HTML/Element/body"
+      },
       "selfClosing": false,
       "experimental": false,
       "deprecated": false,
+      "description": "The HTML <body> Element represents the content of an HTML document. There can be only one <body> element in a document.",
       "attributes": {
         "alink": {
           "deprecated": true,
@@ -605,6 +697,10 @@
       }
     },
     "br": {
+      "reference": {
+        "name": "MDN Reference",
+        "url": "https://developer.mozilla.org//en-US/docs/Web/HTML/Element/br"
+      },
       "selfClosing": true,
       "experimental": false,
       "deprecated": false,
@@ -617,9 +713,14 @@
       }
     },
     "button": {
+      "reference": {
+        "name": "MDN Reference",
+        "url": "https://developer.mozilla.org//en-US/docs/Web/HTML/Element/button"
+      },
       "selfClosing": false,
       "experimental": false,
       "deprecated": false,
+      "description": "The HTML <button> element represents a clickable button, which can be used in forms or anywhere in a document that needs simple, standard button functionality.",
       "attributes": {
         "autofocus": {
           "deprecated": false,
@@ -684,6 +785,10 @@
       }
     },
     "canvas": {
+      "reference": {
+        "name": "MDN Reference",
+        "url": "https://developer.mozilla.org//en-US/docs/Web/HTML/Element/canvas"
+      },
       "selfClosing": false,
       "experimental": false,
       "deprecated": false,
@@ -706,9 +811,14 @@
       }
     },
     "caption": {
+      "reference": {
+        "name": "MDN Reference",
+        "url": "https://developer.mozilla.org//en-US/docs/Web/HTML/Element/caption"
+      },
       "selfClosing": false,
       "experimental": false,
       "deprecated": false,
+      "description": "The HTML Table Caption element (<caption>) specifies the caption (or title) of a table, and if used is always the first child of a <table>.",
       "attributes": {
         "align": {
           "deprecated": true,
@@ -738,24 +848,43 @@
       }
     },
     "center": {
+      "reference": {
+        "name": "MDN Reference",
+        "url": "https://developer.mozilla.org//en-US/docs/Web/HTML/Element/center"
+      },
       "selfClosing": false,
       "experimental": false,
       "deprecated": true,
+      "description": "The obsolete HTML Center Element (<center>) is a block-level element that displays its block-level or inline contents centered horizontally within its containing element.",
       "attributes": {}
     },
     "cite": {
+      "reference": {
+        "name": "MDN Reference",
+        "url": "https://developer.mozilla.org//en-US/docs/Web/HTML/Element/cite"
+      },
       "selfClosing": false,
       "experimental": false,
       "deprecated": false,
+      "description": "The HTML Citation element (<cite>) is used to describe a reference to a cited creative work, and must include the title of that work.",
       "attributes": {}
     },
     "code": {
+      "reference": {
+        "name": "MDN Reference",
+        "url": "https://developer.mozilla.org//en-US/docs/Web/HTML/Element/code"
+      },
       "selfClosing": false,
       "experimental": false,
       "deprecated": false,
+      "description": "The HTML <code> element displays its contents styled in a fashion intended to indicate that the text is a short fragment of computer code.",
       "attributes": {}
     },
     "col": {
+      "reference": {
+        "name": "MDN Reference",
+        "url": "https://developer.mozilla.org//en-US/docs/Web/HTML/Element/col"
+      },
       "selfClosing": true,
       "experimental": false,
       "deprecated": false,
@@ -798,6 +927,10 @@
       }
     },
     "colgroup": {
+      "reference": {
+        "name": "MDN Reference",
+        "url": "https://developer.mozilla.org//en-US/docs/Web/HTML/Element/colgroup"
+      },
       "selfClosing": false,
       "experimental": false,
       "deprecated": false,
@@ -840,9 +973,14 @@
       }
     },
     "command": {
+      "reference": {
+        "name": "MDN Reference",
+        "url": "https://developer.mozilla.org//en-US/docs/Web/HTML/Element/command"
+      },
       "selfClosing": true,
       "experimental": false,
       "deprecated": true,
+      "description": "The HTML Command element (<command>) represents a command which the user can invoke. Commands are often used as part of a context menu or toolbar.",
       "attributes": {
         "checked": {
           "deprecated": false,
@@ -877,9 +1015,14 @@
       }
     },
     "content": {
+      "reference": {
+        "name": "MDN Reference",
+        "url": "https://developer.mozilla.org//en-US/docs/Web/HTML/Element/content"
+      },
       "selfClosing": false,
       "experimental": false,
       "deprecated": true,
+      "description": "The HTML <content> element—an obsolete part of the Web Components suite of technologies—was used inside of Shadow DOM as an insertion point, and wasn't meant to be used in ordinary HTML.",
       "attributes": {
         "select": {
           "deprecated": false,
@@ -889,6 +1032,10 @@
       }
     },
     "data": {
+      "reference": {
+        "name": "MDN Reference",
+        "url": "https://developer.mozilla.org//en-US/docs/Web/HTML/Element/data"
+      },
       "selfClosing": false,
       "experimental": false,
       "deprecated": false,
@@ -901,15 +1048,24 @@
       }
     },
     "datalist": {
+      "reference": {
+        "name": "MDN Reference",
+        "url": "https://developer.mozilla.org//en-US/docs/Web/HTML/Element/datalist"
+      },
       "selfClosing": false,
       "experimental": false,
       "deprecated": false,
       "attributes": {}
     },
     "dd": {
+      "reference": {
+        "name": "MDN Reference",
+        "url": "https://developer.mozilla.org//en-US/docs/Web/HTML/Element/dd"
+      },
       "selfClosing": false,
       "experimental": false,
       "deprecated": false,
+      "description": "The HTML <dd> element provides the description, definition, or value for the preceding term (<dt>) in a description list (<dl>).",
       "attributes": {
         "nowrap": {
           "deprecated": false,
@@ -919,9 +1075,14 @@
       }
     },
     "del": {
+      "reference": {
+        "name": "MDN Reference",
+        "url": "https://developer.mozilla.org//en-US/docs/Web/HTML/Element/del"
+      },
       "selfClosing": false,
       "experimental": false,
       "deprecated": false,
+      "description": "The HTML <del> element represents a range of text that has been deleted from a document.",
       "attributes": {
         "cite": {
           "deprecated": false,
@@ -931,14 +1092,19 @@
         "datetime": {
           "deprecated": false,
           "experimental": false,
-          "description": "This attribute indicates the time and date of the change and must be a valid date string with an optional time. If the value cannot be parsed as a date with an optional time string, the element does not have an associated time stamp. For the format of the string without a time, see <a href=\"https://developer.mozilla.org/en-US/docs/Web/HTML/Date_and_time_formats#Format_of_a_valid_date_string\" title=\"Certain HTML elements use date and/or time values. The formats of the strings that specify these values are described in this article.\">Format of a valid date string</a> in <a href=\"https://developer.mozilla.org/en-US/docs/Web/HTML/Date_and_time_formats\" title=\"Certain HTML elements use date and/or time values. The formats of the strings that specify these values are described in this article.\">Date and time formats used in HTML</a>. The format of the string if it includes both date and time is covered in <a href=\"https://developer.mozilla.org/en-US/docs/Web/HTML/Date_and_time_formats#Format_of_a_valid_local_date_and_time_string\" title=\"Certain HTML elements use date and/or time values. The formats of the strings that specify these values are described in this article.\">Format of a valid local date and time string</a> in <a href=\"https://developer.mozilla.org/en-US/docs/Web/HTML/Date_and_time_formats\" title=\"Certain HTML elements use date and/or time values. The formats of the strings that specify these values are described in this article.\">Date and time formats used in HTML</a>."
+          "description": "This attribute indicates the time and date of the change and must be a valid date string with an optional time. If the value cannot be parsed as a date with an optional time string, the element does not have an associated time stamp. For the format of the string without a time, see <a href=\"https://developer.mozilla.org/en-US/docs/Web/HTML/Date_and_time_formats#Date_strings\">Date strings</a>. The format of the string if it includes both date and time is covered in <a href=\"https://developer.mozilla.org/en-US/docs/Web/HTML/Date_and_time_formats#Local_date_and_time_strings\">Local date and time strings</a>."
         }
       }
     },
     "details": {
+      "reference": {
+        "name": "MDN Reference",
+        "url": "https://developer.mozilla.org//en-US/docs/Web/HTML/Element/details"
+      },
       "selfClosing": false,
       "experimental": false,
       "deprecated": false,
+      "description": "The HTML Details Element (<details>) creates a disclosure widget in which information is visible only when the widget is toggled into an \"open\" state.",
       "attributes": {
         "open": {
           "deprecated": false,
@@ -948,12 +1114,21 @@
       }
     },
     "dfn": {
+      "reference": {
+        "name": "MDN Reference",
+        "url": "https://developer.mozilla.org//en-US/docs/Web/HTML/Element/dfn"
+      },
       "selfClosing": false,
       "experimental": false,
       "deprecated": false,
+      "description": "The HTML Definition element (<dfn>) is used to indicate the term being defined within the context of a definition phrase or sentence.",
       "attributes": {}
     },
     "dialog": {
+      "reference": {
+        "name": "MDN Reference",
+        "url": "https://developer.mozilla.org//en-US/docs/Web/HTML/Element/dialog"
+      },
       "selfClosing": false,
       "experimental": true,
       "deprecated": false,
@@ -966,9 +1141,14 @@
       }
     },
     "dir": {
+      "reference": {
+        "name": "MDN Reference",
+        "url": "https://developer.mozilla.org//en-US/docs/Web/HTML/Element/dir"
+      },
       "selfClosing": false,
       "experimental": false,
       "deprecated": true,
+      "description": "The obsolete HTML Directory element (<dir>) is used as a container for a directory of files and/or folders, potentially with styles and icons applied by the user agent.",
       "attributes": {
         "compact": {
           "deprecated": false,
@@ -978,36 +1158,63 @@
       }
     },
     "div": {
+      "reference": {
+        "name": "MDN Reference",
+        "url": "https://developer.mozilla.org//en-US/docs/Web/HTML/Element/div"
+      },
       "selfClosing": false,
       "experimental": false,
       "deprecated": false,
+      "description": "The HTML Content Division element (<div>) is the generic container for flow content. It has no effect on the content or layout until styled using CSS.",
       "attributes": {}
     },
     "dl": {
+      "reference": {
+        "name": "MDN Reference",
+        "url": "https://developer.mozilla.org//en-US/docs/Web/HTML/Element/dl"
+      },
       "selfClosing": false,
       "experimental": false,
       "deprecated": false,
       "attributes": {}
     },
     "dt": {
+      "reference": {
+        "name": "MDN Reference",
+        "url": "https://developer.mozilla.org//en-US/docs/Web/HTML/Element/dt"
+      },
       "selfClosing": false,
       "experimental": false,
       "deprecated": false,
+      "description": "The HTML <dt> element specifies a term in a description or definition list, and as such must be used inside a <dl> element.",
       "attributes": {}
     },
     "element": {
+      "reference": {
+        "name": "MDN Reference",
+        "url": "https://developer.mozilla.org//en-US/docs/Web/HTML/Element/element"
+      },
       "selfClosing": false,
       "experimental": false,
       "deprecated": true,
+      "description": "The obsolete HTML <element> element was part of the Web Components specification; it was intended to be used to define new custom DOM elements.",
       "attributes": {}
     },
     "em": {
+      "reference": {
+        "name": "MDN Reference",
+        "url": "https://developer.mozilla.org//en-US/docs/Web/HTML/Element/em"
+      },
       "selfClosing": false,
       "experimental": false,
       "deprecated": false,
       "attributes": {}
     },
     "embed": {
+      "reference": {
+        "name": "MDN Reference",
+        "url": "https://developer.mozilla.org//en-US/docs/Web/HTML/Element/embed"
+      },
       "selfClosing": true,
       "experimental": false,
       "deprecated": false,
@@ -1035,6 +1242,10 @@
       }
     },
     "fieldset": {
+      "reference": {
+        "name": "MDN Reference",
+        "url": "https://developer.mozilla.org//en-US/docs/Web/HTML/Element/fieldset"
+      },
       "selfClosing": false,
       "experimental": false,
       "deprecated": false,
@@ -1057,18 +1268,32 @@
       }
     },
     "figcaption": {
+      "reference": {
+        "name": "MDN Reference",
+        "url": "https://developer.mozilla.org//en-US/docs/Web/HTML/Element/figcaption"
+      },
       "selfClosing": false,
       "experimental": false,
       "deprecated": false,
+      "description": "The HTML <figcaption> or Figure Caption element represents a caption or legend describing the rest of the contents of its parent <figure> element.",
       "attributes": {}
     },
     "figure": {
+      "reference": {
+        "name": "MDN Reference",
+        "url": "https://developer.mozilla.org//en-US/docs/Web/HTML/Element/figure"
+      },
       "selfClosing": false,
       "experimental": false,
       "deprecated": false,
+      "description": "The HTML <figure> (Figure With Optional Caption) element represents self-contained content, potentially with an optional caption, which is specified using the (<figcaption>) element.",
       "attributes": {}
     },
     "font": {
+      "reference": {
+        "name": "MDN Reference",
+        "url": "https://developer.mozilla.org//en-US/docs/Web/HTML/Element/font"
+      },
       "selfClosing": false,
       "experimental": false,
       "deprecated": true,
@@ -1091,12 +1316,21 @@
       }
     },
     "footer": {
+      "reference": {
+        "name": "MDN Reference",
+        "url": "https://developer.mozilla.org//en-US/docs/Web/HTML/Element/footer"
+      },
       "selfClosing": false,
       "experimental": false,
       "deprecated": false,
+      "description": "The HTML <footer> element represents a footer for its nearest sectioning content or sectioning root element. A footer typically contains information about the author of the section, copyright data or links to related documents.",
       "attributes": {}
     },
     "form": {
+      "reference": {
+        "name": "MDN Reference",
+        "url": "https://developer.mozilla.org//en-US/docs/Web/HTML/Element/form"
+      },
       "selfClosing": false,
       "experimental": false,
       "deprecated": false,
@@ -1114,7 +1348,7 @@
         "action": {
           "deprecated": false,
           "experimental": false,
-          "description": "The URI of a program that processes the form information. This value can be overridden by a <code><a href=\"https://developer.mozilla.org/en-US/docs/Web/HTML/Element/button#attr-formaction\">formaction</a></code> attribute on a <a href=\"https://developer.mozilla.org/en-US/docs/Web/HTML/Element/button\" title=\"The HTML &lt;button&gt; element represents a clickable button, which can be used in forms or anywhere in a document that needs simple, standard button functionality.\"><code>&lt;button&gt;</code></a>, <code><a href=\"https://developer.mozilla.org/en-US/docs/Web/HTML/Element/input/submit\">&lt;input type=&quot;submit&quot;&gt;</a></code> or <code><a href=\"https://developer.mozilla.org/en-US/docs/Web/HTML/Element/input/image\">&lt;input type=&quot;image&quot;&gt;</a></code> element."
+          "description": "The URL&#xA0;of a program that processes the form information. This value can be overridden by a <code><a href=\"https://developer.mozilla.org/en-US/docs/Web/HTML/Element/button#attr-formaction\">formaction</a></code> attribute on a <a href=\"https://developer.mozilla.org/en-US/docs/Web/HTML/Element/button\" title=\"The HTML &lt;button&gt; element represents a clickable button, which can be used in forms or anywhere in a document that needs simple, standard button functionality.\"><code>&lt;button&gt;</code></a>, <code><a href=\"https://developer.mozilla.org/en-US/docs/Web/HTML/Element/input/submit\">&lt;input type=&quot;submit&quot;&gt;</a></code> or <code><a href=\"https://developer.mozilla.org/en-US/docs/Web/HTML/Element/input/image\">&lt;input type=&quot;image&quot;&gt;</a></code> element."
         },
         "autocapitalize": {
           "deprecated": false,
@@ -1134,7 +1368,7 @@
         "method": {
           "deprecated": false,
           "experimental": false,
-          "description": "The <a href=\"https://developer.mozilla.org/en-US/docs/Web/HTTP\">HTTP</a> method that the browser uses to submit the form. Possible values are:\n <ul>\n  <li><code>post</code>: Corresponds to the HTTP <a class=\"external\" href=\"https://www.w3.org/Protocols/rfc2616/rfc2616-sec9.html#sec9.5\" rel=\"noopener\">POST method</a> ; form data are included in the body of the form and sent to the server.</li>\n  <li><code>get</code>: Corresponds to the HTTP <a class=\"external\" href=\"https://www.w3.org/Protocols/rfc2616/rfc2616-sec9.html#sec9.3\" rel=\"noopener\">GET method</a>; form data are appended to the <code>action</code> attribute URI with a &apos;?&apos; as separator, and the resulting URI is sent to the server. Use this method when the form has no side-effects and contains only ASCII characters.</li>\n  <li><code>dialog</code>: Use when the form is inside a&#xA0;<a href=\"https://developer.mozilla.org/en-US/docs/Web/HTML/Element/dialog\" title=\"The HTML &lt;dialog&gt; element represents a dialog box or other interactive component, such as an inspector or window.\"><code>&lt;dialog&gt;</code></a> element to close the dialog when submitted.</li>\n </ul>\n\n <p>This value can be overridden by a <code><a href=\"https://developer.mozilla.org/en-US/docs/Web/HTML/Element/button#attr-formmethod\">formmethod</a></code> attribute on a <a href=\"https://developer.mozilla.org/en-US/docs/Web/HTML/Element/button\" title=\"The HTML &lt;button&gt; element represents a clickable button, which can be used in forms or anywhere in a document that needs simple, standard button functionality.\"><code>&lt;button&gt;</code></a>,&#xA0;<code><a href=\"https://developer.mozilla.org/en-US/docs/Web/HTML/Element/input/submit\">&lt;input type=&quot;submit&quot;&gt;</a></code> or <code><a href=\"https://developer.mozilla.org/en-US/docs/Web/HTML/Element/input/image\">&lt;input type=&quot;image&quot;&gt; </a></code>element.</p>\n "
+          "description": "The <a href=\"https://developer.mozilla.org/en-US/docs/Web/HTTP\">HTTP</a> method that the browser uses to submit the form. Possible values are:\n <ul>\n  <li><code>post</code>: Corresponds to the HTTP <a class=\"external\" href=\"https://www.w3.org/Protocols/rfc2616/rfc2616-sec9.html#sec9.5\" rel=\"noopener\">POST method</a> ; form data are included in the body of the form and sent to the server.</li>\n  <li><code>get</code>: Corresponds to the HTTP <a class=\"external\" href=\"https://www.w3.org/Protocols/rfc2616/rfc2616-sec9.html#sec9.3\" rel=\"noopener\">GET method</a>; form data are appended to the <code>action</code> attribute URL with a &apos;?&apos; as separator, and the resulting URL is sent to the server. Use this method when the form has no side-effects and contains only ASCII characters.</li>\n  <li><code>dialog</code>: Use when the form is inside a&#xA0;<a href=\"https://developer.mozilla.org/en-US/docs/Web/HTML/Element/dialog\" title=\"The HTML &lt;dialog&gt; element represents a dialog box or other interactive component, such as an inspector or window.\"><code>&lt;dialog&gt;</code></a> element to close the dialog when submitted.</li>\n </ul>\n\n <p>This value can be overridden by a <code><a href=\"https://developer.mozilla.org/en-US/docs/Web/HTML/Element/button#attr-formmethod\">formmethod</a></code> attribute on a <a href=\"https://developer.mozilla.org/en-US/docs/Web/HTML/Element/button\" title=\"The HTML &lt;button&gt; element represents a clickable button, which can be used in forms or anywhere in a document that needs simple, standard button functionality.\"><code>&lt;button&gt;</code></a>,&#xA0;<code><a href=\"https://developer.mozilla.org/en-US/docs/Web/HTML/Element/input/submit\">&lt;input type=&quot;submit&quot;&gt;</a></code> or <code><a href=\"https://developer.mozilla.org/en-US/docs/Web/HTML/Element/input/image\">&lt;input type=&quot;image&quot;&gt; </a></code>element.</p>\n "
         },
         "name": {
           "deprecated": false,
@@ -1154,6 +1388,10 @@
       }
     },
     "frame": {
+      "reference": {
+        "name": "MDN Reference",
+        "url": "https://developer.mozilla.org//en-US/docs/Web/HTML/Element/frame"
+      },
       "selfClosing": false,
       "experimental": false,
       "deprecated": true,
@@ -1196,6 +1434,10 @@
       }
     },
     "frameset": {
+      "reference": {
+        "name": "MDN Reference",
+        "url": "https://developer.mozilla.org//en-US/docs/Web/HTML/Element/frameset"
+      },
       "selfClosing": false,
       "experimental": false,
       "deprecated": true,
@@ -1213,15 +1455,25 @@
       }
     },
     "h1": {
+      "reference": {
+        "name": "MDN Reference",
+        "url": "https://developer.mozilla.org//en-US/docs/Web/HTML/Element/Heading_Elements"
+      },
       "selfClosing": false,
       "experimental": false,
       "deprecated": false,
+      "description": "The HTML <h1>–<h6> elements represent six levels of section headings. <h1> is the highest section level and <h6> is the lowest.",
       "attributes": {}
     },
     "head": {
+      "reference": {
+        "name": "MDN Reference",
+        "url": "https://developer.mozilla.org//en-US/docs/Web/HTML/Element/head"
+      },
       "selfClosing": false,
       "experimental": false,
       "deprecated": false,
+      "description": "The HTML <head> element contains machine-readable information (metadata) about the document, like its title, scripts, and style sheets.",
       "attributes": {
         "profile": {
           "deprecated": true,
@@ -1231,21 +1483,35 @@
       }
     },
     "header": {
+      "reference": {
+        "name": "MDN Reference",
+        "url": "https://developer.mozilla.org//en-US/docs/Web/HTML/Element/header"
+      },
       "selfClosing": false,
       "experimental": false,
       "deprecated": false,
+      "description": "The HTML <header> element represents introductory content, typically a group of introductory or navigational aids. It may contain some heading elements but also a logo, a search form, an author name, and other elements.",
       "attributes": {}
     },
     "hgroup": {
+      "reference": {
+        "name": "MDN Reference",
+        "url": "https://developer.mozilla.org//en-US/docs/Web/HTML/Element/hgroup"
+      },
       "selfClosing": false,
       "experimental": true,
       "deprecated": false,
       "attributes": {}
     },
     "hr": {
+      "reference": {
+        "name": "MDN Reference",
+        "url": "https://developer.mozilla.org//en-US/docs/Web/HTML/Element/hr"
+      },
       "selfClosing": true,
       "experimental": false,
       "deprecated": false,
+      "description": "The HTML <hr> element represents a thematic break between paragraph-level elements: for example, a change of scene in a story, or a shift of topic within a section.",
       "attributes": {
         "align": {
           "deprecated": false,
@@ -1275,9 +1541,14 @@
       }
     },
     "html": {
+      "reference": {
+        "name": "MDN Reference",
+        "url": "https://developer.mozilla.org//en-US/docs/Web/HTML/Element/html"
+      },
       "selfClosing": false,
       "experimental": false,
       "deprecated": false,
+      "description": "The HTML <html> element represents the root (top-level element) of an HTML document, so it is also referred to as the root element. All other elements must be descendants of this element.",
       "attributes": {
         "manifest": {
           "deprecated": true,
@@ -1297,15 +1568,24 @@
       }
     },
     "i": {
+      "reference": {
+        "name": "MDN Reference",
+        "url": "https://developer.mozilla.org//en-US/docs/Web/HTML/Element/i"
+      },
       "selfClosing": false,
       "experimental": false,
       "deprecated": false,
       "attributes": {}
     },
     "iframe": {
+      "reference": {
+        "name": "MDN Reference",
+        "url": "https://developer.mozilla.org//en-US/docs/Web/HTML/Element/iframe"
+      },
       "selfClosing": false,
       "experimental": false,
       "deprecated": false,
+      "description": "The HTML Inline Frame element (<iframe>) represents a nested browsing context, embedding another HTML page into the current one.",
       "attributes": {
         "allow": {
           "deprecated": false,
@@ -1420,15 +1700,25 @@
       }
     },
     "image": {
+      "reference": {
+        "name": "MDN Reference",
+        "url": "https://developer.mozilla.org//en-US/docs/Web/HTML/Element/image"
+      },
       "selfClosing": false,
       "experimental": false,
       "deprecated": true,
+      "description": "The obsolete HTML Image element (<image>) is an obsolete remnant of an ancient version of HTML lost in the mists of time; use the standard <img> element instead.",
       "attributes": {}
     },
     "img": {
+      "reference": {
+        "name": "MDN Reference",
+        "url": "https://developer.mozilla.org//en-US/docs/Web/HTML/Element/img"
+      },
       "selfClosing": true,
       "experimental": false,
       "deprecated": false,
+      "description": "The HTML <img> element embeds an image into the document.",
       "attributes": {
         "alt": {
           "deprecated": false,
@@ -1578,56 +1868,25 @@
       }
     },
     "input": {
+      "reference": {
+        "name": "MDN Reference",
+        "url": "https://developer.mozilla.org//en-US/docs/Web/HTML/Element/input"
+      },
       "selfClosing": true,
       "experimental": false,
       "deprecated": false,
-      "attributes": {
-        "checkValidity()": {
-          "deprecated": false,
-          "experimental": false,
-          "description": "Immediately runs the validity check on the element, triggering the document to fire the <a href=\"https://developer.mozilla.org/en-US/docs/Web/API/HTMLInputElement/invalid_event\" title=\"The invalid event fires when a submittable element has been checked for validity and doesn&apos;t satisfy its constraints.\"><code>invalid</code></a> event at the element if the value isn&apos;t valid."
-        },
-        "reportValidity()": {
-          "deprecated": false,
-          "experimental": false,
-          "description": "Returns <code>true</code> if the element&apos;s value passes validity checks; otherwise, returns <code>false</code>."
-        },
-        "select()": {
-          "deprecated": false,
-          "experimental": false,
-          "description": "Selects the entire content of the <code>&lt;input&gt;</code> element, if the element&apos;s content is selectable. For elements with no selectable text content (such as a visual color picker or calendar date input), this method does nothing."
-        },
-        "setCustomValidity()": {
-          "deprecated": false,
-          "experimental": false,
-          "description": "Sets a custom message to display if the input element&apos;s value isn&apos;t valid."
-        },
-        "setRangeText()": {
-          "deprecated": false,
-          "experimental": false,
-          "description": "Sets the contents of the specified range of characters in the input element to a given string. A <code>selectMode</code> parameter is available to allow controlling how the existing content is affected."
-        },
-        "setSelectionRange()": {
-          "deprecated": false,
-          "experimental": false,
-          "description": "Selects the specified range of characters within a textual input element. Does nothing for inputs which aren&apos;t presented as text input fields."
-        },
-        "stepDown()": {
-          "deprecated": false,
-          "experimental": false,
-          "description": "Decrements the value of a numeric input by one, by default, or by the specified number of units."
-        },
-        "stepUp()": {
-          "deprecated": false,
-          "experimental": false,
-          "description": "Increments the value of a numeric input by one or by the specified number of units."
-        }
-      }
+      "description": "The HTML <input> element is used to create interactive controls for web-based forms in order to accept data from the user; a wide variety of types of input data and control widgets are available, depending on the device and {{Glossary(\"user agent\")}}.",
+      "attributes": {}
     },
     "ins": {
+      "reference": {
+        "name": "MDN Reference",
+        "url": "https://developer.mozilla.org//en-US/docs/Web/HTML/Element/ins"
+      },
       "selfClosing": false,
       "experimental": false,
       "deprecated": false,
+      "description": "The HTML <ins> element represents a range of text that has been added to a document.",
       "attributes": {
         "cite": {
           "deprecated": false,
@@ -1642,9 +1901,14 @@
       }
     },
     "isindex": {
+      "reference": {
+        "name": "MDN Reference",
+        "url": "https://developer.mozilla.org//en-US/docs/Web/HTML/Element/isindex"
+      },
       "selfClosing": false,
       "experimental": false,
       "deprecated": true,
+      "description": "<isindex> is an obsolete HTML element that puts a text field in a page for querying the document.",
       "attributes": {
         "prompt": {
           "deprecated": false,
@@ -1659,12 +1923,21 @@
       }
     },
     "kbd": {
+      "reference": {
+        "name": "MDN Reference",
+        "url": "https://developer.mozilla.org//en-US/docs/Web/HTML/Element/kbd"
+      },
       "selfClosing": false,
       "experimental": false,
       "deprecated": false,
+      "description": "The HTML Keyboard Input element (<kbd>) represents a span of inline text denoting textual user input from a keyboard, voice input, or any other text entry device.",
       "attributes": {}
     },
     "keygen": {
+      "reference": {
+        "name": "MDN Reference",
+        "url": "https://developer.mozilla.org//en-US/docs/Web/HTML/Element/keygen"
+      },
       "selfClosing": true,
       "experimental": false,
       "deprecated": true,
@@ -1702,6 +1975,10 @@
       }
     },
     "label": {
+      "reference": {
+        "name": "MDN Reference",
+        "url": "https://developer.mozilla.org//en-US/docs/Web/HTML/Element/label"
+      },
       "selfClosing": false,
       "experimental": false,
       "deprecated": false,
@@ -1719,15 +1996,24 @@
       }
     },
     "legend": {
+      "reference": {
+        "name": "MDN Reference",
+        "url": "https://developer.mozilla.org//en-US/docs/Web/HTML/Element/legend"
+      },
       "selfClosing": false,
       "experimental": false,
       "deprecated": false,
       "attributes": {}
     },
     "li": {
+      "reference": {
+        "name": "MDN Reference",
+        "url": "https://developer.mozilla.org//en-US/docs/Web/HTML/Element/li"
+      },
       "selfClosing": false,
       "experimental": false,
       "deprecated": false,
+      "description": "The HTML <li> element is used to represent an item in a list.",
       "attributes": {
         "value": {
           "deprecated": false,
@@ -1742,6 +2028,10 @@
       }
     },
     "link": {
+      "reference": {
+        "name": "MDN Reference",
+        "url": "https://developer.mozilla.org//en-US/docs/Web/HTML/Element/link"
+      },
       "selfClosing": true,
       "experimental": false,
       "deprecated": false,
@@ -1849,18 +2139,31 @@
       }
     },
     "listing": {
+      "reference": {
+        "name": "MDN Reference",
+        "url": "https://developer.mozilla.org//en-US/docs/Web/HTML/Element/listing"
+      },
       "selfClosing": false,
       "experimental": false,
       "deprecated": true,
       "attributes": {}
     },
     "main": {
+      "reference": {
+        "name": "MDN Reference",
+        "url": "https://developer.mozilla.org//en-US/docs/Web/HTML/Element/main"
+      },
       "selfClosing": false,
       "experimental": false,
       "deprecated": false,
+      "description": "The HTML <main> element represents the dominant content of the <body> of a document. The main content area consists of content that is directly related to or expands upon the central topic of a document, or the central functionality of an application.",
       "attributes": {}
     },
     "map": {
+      "reference": {
+        "name": "MDN Reference",
+        "url": "https://developer.mozilla.org//en-US/docs/Web/HTML/Element/map"
+      },
       "selfClosing": false,
       "experimental": false,
       "deprecated": false,
@@ -1873,12 +2176,21 @@
       }
     },
     "mark": {
+      "reference": {
+        "name": "MDN Reference",
+        "url": "https://developer.mozilla.org//en-US/docs/Web/HTML/Element/mark"
+      },
       "selfClosing": false,
       "experimental": false,
       "deprecated": false,
+      "description": "The HTML Mark Text element (<mark>) represents text which is marked or highlighted for reference or notation purposes, due to the marked passage's relevance or importance in the enclosing context.",
       "attributes": {}
     },
     "marquee": {
+      "reference": {
+        "name": "MDN Reference",
+        "url": "https://developer.mozilla.org//en-US/docs/Web/HTML/Element/marquee"
+      },
       "selfClosing": false,
       "experimental": false,
       "deprecated": true,
@@ -1966,6 +2278,10 @@
       }
     },
     "menu": {
+      "reference": {
+        "name": "MDN Reference",
+        "url": "https://developer.mozilla.org//en-US/docs/Web/HTML/Element/menu"
+      },
       "selfClosing": false,
       "experimental": true,
       "deprecated": false,
@@ -1983,6 +2299,10 @@
       }
     },
     "menuitem": {
+      "reference": {
+        "name": "MDN Reference",
+        "url": "https://developer.mozilla.org//en-US/docs/Web/HTML/Element/menuitem"
+      },
       "selfClosing": true,
       "experimental": false,
       "deprecated": true,
@@ -2030,6 +2350,10 @@
       }
     },
     "meta": {
+      "reference": {
+        "name": "MDN Reference",
+        "url": "https://developer.mozilla.org//en-US/docs/Web/HTML/Element/meta"
+      },
       "selfClosing": true,
       "experimental": false,
       "deprecated": false,
@@ -2077,6 +2401,10 @@
       }
     },
     "meter": {
+      "reference": {
+        "name": "MDN Reference",
+        "url": "https://developer.mozilla.org//en-US/docs/Web/HTML/Element/meter"
+      },
       "selfClosing": false,
       "experimental": false,
       "deprecated": false,
@@ -2119,21 +2447,36 @@
       }
     },
     "multicol": {
+      "reference": {
+        "name": "MDN Reference",
+        "url": "https://developer.mozilla.org//en-US/docs/Web/HTML/Element/multicol"
+      },
       "selfClosing": false,
       "experimental": false,
       "deprecated": true,
+      "description": "The HTML Multi-Column Layout element (<multicol>) was an experimental element designed to allow multi-column layouts and must not be used.",
       "attributes": {}
     },
     "nav": {
+      "reference": {
+        "name": "MDN Reference",
+        "url": "https://developer.mozilla.org//en-US/docs/Web/HTML/Element/nav"
+      },
       "selfClosing": false,
       "experimental": false,
       "deprecated": false,
+      "description": "The HTML <nav> element represents a section of a page whose purpose is to provide navigation links, either within the current document or to other documents. Common examples of navigation sections are menus, tables of contents, and indexes.",
       "attributes": {}
     },
     "nextid": {
+      "reference": {
+        "name": "MDN Reference",
+        "url": "https://developer.mozilla.org//en-US/docs/Web/HTML/Element/nextid"
+      },
       "selfClosing": false,
       "experimental": false,
       "deprecated": true,
+      "description": "<nextid> is an obsolete HTML element that served to enable the NeXT web designing tool to generate automatic NAME labels for its anchors.",
       "attributes": {
         "n": {
           "deprecated": false,
@@ -2143,30 +2486,52 @@
       }
     },
     "nobr": {
+      "reference": {
+        "name": "MDN Reference",
+        "url": "https://developer.mozilla.org//en-US/docs/Web/HTML/Element/nobr"
+      },
       "selfClosing": false,
       "experimental": false,
       "deprecated": true,
       "attributes": {}
     },
     "noembed": {
+      "reference": {
+        "name": "MDN Reference",
+        "url": "https://developer.mozilla.org//en-US/docs/Web/HTML/Element/noembed"
+      },
       "selfClosing": false,
       "experimental": false,
       "deprecated": true,
+      "description": "The <noembed> element is an obsolete, non-standard way to provide alternative, or \"fallback\", content for browsers that do not support the <embed> element or do not support the type of embedded content an author wishes to use.",
       "attributes": {}
     },
     "noframes": {
+      "reference": {
+        "name": "MDN Reference",
+        "url": "https://developer.mozilla.org//en-US/docs/Web/HTML/Element/noframes"
+      },
       "selfClosing": false,
       "experimental": false,
       "deprecated": true,
+      "description": "The obsolete HTML No Frames or frame fallback element, <noframes>, provides content to be presented in browsers that don't support (or have disabled support for) the <frame> element.",
       "attributes": {}
     },
     "noscript": {
+      "reference": {
+        "name": "MDN Reference",
+        "url": "https://developer.mozilla.org//en-US/docs/Web/HTML/Element/noscript"
+      },
       "selfClosing": false,
       "experimental": false,
       "deprecated": false,
       "attributes": {}
     },
     "object": {
+      "reference": {
+        "name": "MDN Reference",
+        "url": "https://developer.mozilla.org//en-US/docs/Web/HTML/Element/object"
+      },
       "selfClosing": false,
       "experimental": false,
       "deprecated": false,
@@ -2254,6 +2619,10 @@
       }
     },
     "ol": {
+      "reference": {
+        "name": "MDN Reference",
+        "url": "https://developer.mozilla.org//en-US/docs/Web/HTML/Element/ol"
+      },
       "selfClosing": false,
       "experimental": false,
       "deprecated": false,
@@ -2281,6 +2650,10 @@
       }
     },
     "optgroup": {
+      "reference": {
+        "name": "MDN Reference",
+        "url": "https://developer.mozilla.org//en-US/docs/Web/HTML/Element/optgroup"
+      },
       "selfClosing": false,
       "experimental": false,
       "deprecated": false,
@@ -2298,9 +2671,14 @@
       }
     },
     "option": {
+      "reference": {
+        "name": "MDN Reference",
+        "url": "https://developer.mozilla.org//en-US/docs/Web/HTML/Element/option"
+      },
       "selfClosing": false,
       "experimental": false,
       "deprecated": false,
+      "description": "The HTML <option> element is used to define an item contained in a <select>, an <optgroup>, or a <datalist> element. As such, <option> can represent menu items in popups and other lists of items in an HTML document.",
       "attributes": {
         "disabled": {
           "deprecated": false,
@@ -2325,9 +2703,14 @@
       }
     },
     "output": {
+      "reference": {
+        "name": "MDN Reference",
+        "url": "https://developer.mozilla.org//en-US/docs/Web/HTML/Element/output"
+      },
       "selfClosing": false,
       "experimental": false,
       "deprecated": false,
+      "description": "The HTML Output element (<output>) is a container element into which a site or app can inject the results of a calculation or the outcome of a user action.",
       "attributes": {
         "for": {
           "deprecated": false,
@@ -2347,12 +2730,21 @@
       }
     },
     "p": {
+      "reference": {
+        "name": "MDN Reference",
+        "url": "https://developer.mozilla.org//en-US/docs/Web/HTML/Element/p"
+      },
       "selfClosing": false,
       "experimental": false,
       "deprecated": false,
+      "description": "The HTML <p> element represents a paragraph.",
       "attributes": {}
     },
     "param": {
+      "reference": {
+        "name": "MDN Reference",
+        "url": "https://developer.mozilla.org//en-US/docs/Web/HTML/Element/param"
+      },
       "selfClosing": true,
       "experimental": false,
       "deprecated": false,
@@ -2380,21 +2772,36 @@
       }
     },
     "picture": {
+      "reference": {
+        "name": "MDN Reference",
+        "url": "https://developer.mozilla.org//en-US/docs/Web/HTML/Element/picture"
+      },
       "selfClosing": false,
       "experimental": false,
       "deprecated": false,
+      "description": "The HTML <picture> element contains zero or more <source> elements and one <img> element to provide versions of an image for different display/device scenarios.",
       "attributes": {}
     },
     "plaintext": {
+      "reference": {
+        "name": "MDN Reference",
+        "url": "https://developer.mozilla.org//en-US/docs/Web/HTML/Element/plaintext"
+      },
       "selfClosing": false,
       "experimental": false,
       "deprecated": true,
+      "description": "The HTML Plaintext Element (<plaintext>) renders everything following the start tag as raw text, ignoring any following HTML.",
       "attributes": {}
     },
     "pre": {
+      "reference": {
+        "name": "MDN Reference",
+        "url": "https://developer.mozilla.org//en-US/docs/Web/HTML/Element/pre"
+      },
       "selfClosing": false,
       "experimental": false,
       "deprecated": false,
+      "description": "The HTML <pre> element represents preformatted text which is to be presented exactly as written in the HTML file.",
       "attributes": {
         "cols": {
           "deprecated": true,
@@ -2414,6 +2821,10 @@
       }
     },
     "progress": {
+      "reference": {
+        "name": "MDN Reference",
+        "url": "https://developer.mozilla.org//en-US/docs/Web/HTML/Element/progress"
+      },
       "selfClosing": false,
       "experimental": false,
       "deprecated": false,
@@ -2431,9 +2842,14 @@
       }
     },
     "q": {
+      "reference": {
+        "name": "MDN Reference",
+        "url": "https://developer.mozilla.org//en-US/docs/Web/HTML/Element/q"
+      },
       "selfClosing": false,
       "experimental": false,
       "deprecated": false,
+      "description": "The HTML <q> element indicates that the enclosed text is a short inline quotation. Most modern browsers implement this by surrounding the text in quotation marks.",
       "attributes": {
         "cite": {
           "deprecated": false,
@@ -2443,56 +2859,92 @@
       }
     },
     "rb": {
+      "reference": {
+        "name": "MDN Reference",
+        "url": "https://developer.mozilla.org//en-US/docs/Web/HTML/Element/rb"
+      },
       "selfClosing": false,
       "experimental": false,
       "deprecated": false,
+      "description": "The HTML Ruby Base (<rb>) element is used to delimit the base text component of a  <ruby> annotation, i.e. the text that is being annotated.",
       "attributes": {}
     },
     "rp": {
+      "reference": {
+        "name": "MDN Reference",
+        "url": "https://developer.mozilla.org//en-US/docs/Web/HTML/Element/rp"
+      },
       "selfClosing": false,
       "experimental": false,
       "deprecated": false,
+      "description": "The HTML Ruby Fallback Parenthesis (<rp>) element is used to provide fall-back parentheses for browsers that do not support display of ruby annotations using the <ruby> element.",
       "attributes": {}
     },
     "rt": {
+      "reference": {
+        "name": "MDN Reference",
+        "url": "https://developer.mozilla.org//en-US/docs/Web/HTML/Element/rt"
+      },
       "selfClosing": false,
       "experimental": false,
       "deprecated": false,
       "attributes": {}
     },
     "rtc": {
+      "reference": {
+        "name": "MDN Reference",
+        "url": "https://developer.mozilla.org//en-US/docs/Web/HTML/Element/rtc"
+      },
       "selfClosing": false,
       "experimental": false,
       "deprecated": false,
       "attributes": {}
     },
     "ruby": {
+      "reference": {
+        "name": "MDN Reference",
+        "url": "https://developer.mozilla.org//en-US/docs/Web/HTML/Element/ruby"
+      },
       "selfClosing": false,
       "experimental": false,
       "deprecated": false,
       "attributes": {}
     },
     "s": {
+      "reference": {
+        "name": "MDN Reference",
+        "url": "https://developer.mozilla.org//en-US/docs/Web/HTML/Element/s"
+      },
       "selfClosing": false,
       "experimental": false,
       "deprecated": false,
       "attributes": {}
     },
     "samp": {
+      "reference": {
+        "name": "MDN Reference",
+        "url": "https://developer.mozilla.org//en-US/docs/Web/HTML/Element/samp"
+      },
       "selfClosing": false,
       "experimental": false,
       "deprecated": false,
+      "description": "The HTML Sample Element (<samp>) is used to enclose inline text which represents sample (or quoted) output from a computer program.",
       "attributes": {}
     },
     "script": {
+      "reference": {
+        "name": "MDN Reference",
+        "url": "https://developer.mozilla.org//en-US/docs/Web/HTML/Element/script"
+      },
       "selfClosing": false,
       "experimental": false,
       "deprecated": false,
+      "description": "The HTML <script> element is used to embed or reference executable code; this is typically used to embed or refer to JavaScript code.",
       "attributes": {
         "async": {
           "deprecated": false,
           "experimental": false,
-          "description": "\n <p>This is a Boolean attribute indicating that the browser should, if possible, load the script asynchronously and then execute it as soon as it&#x2019;s downloaded.</p>\n\n <div class=\"warning\">\n <p>This attribute must not be used if the <code>src</code> attribute is absent (i.e. for inline scripts). If it is included in this case it will have no effect.</p>\n </div>\n\n <p>Browsers usually assume the worst case scenario and load scripts synchronously, (i.e. <code>async=&quot;false&quot;</code>) during HTML parsing.</p>\n\n <p>Dynamically inserted scripts (using <a href=\"https://developer.mozilla.org/en-US/docs/Web/API/Document/createElement\" title=\"In an HTML document, the document.createElement() method creates the HTML element specified by tagName, or an HTMLUnknownElement if tagName isn&apos;t recognized.\"><code>document.createElement()</code></a>) load asynchronously by default, so to turn on synchronous loading (i.e. scripts load in the order they were inserted) set <code>async=&quot;false&quot;</code>.</p>\n\n <p>This attribute allows the elimination of <strong>render-blocking JavaScript</strong> where the page would have to load and execute scripts before finishing to render the page. <code>defer</code> has a similar effect in this case.</p>\n\n <p>See <a href=\"#Browser_compatibility\">Browser compatibility</a> for notes on browser support. See also <a href=\"https://developer.mozilla.org/en-US/docs/Games/Techniques/Async_scripts\">Async scripts for asm.js</a>.</p>\n "
+          "description": "\n\t<p>This is a Boolean attribute indicating that the browser should, if possible, load the script asynchronously and then execute it as soon as it&#x2019;s downloaded.</p>\n\n\t<div class=\"warning\">\n\t<p>This attribute must not be used if the <code>src</code> attribute is absent (i.e. for inline scripts). If it is included in this case it will have no effect.</p>\n\t</div>\n\n\t<p>Browsers usually assume the worst case scenario and load scripts synchronously, (i.e. <code>async=&quot;false&quot;</code>) during HTML parsing.</p>\n\n\t<p>Dynamically inserted scripts (using <a href=\"https://developer.mozilla.org/en-US/docs/Web/API/Document/createElement\" title=\"In an HTML document, the document.createElement() method creates the HTML element specified by tagName, or an HTMLUnknownElement if tagName isn&apos;t recognized.\"><code>document.createElement()</code></a>) load asynchronously by default, so to turn on synchronous loading (i.e. scripts load in the order they were inserted) set <code>async=&quot;false&quot;</code>.</p>\n\n\t<p>This attribute allows the elimination of <strong>render-blocking JavaScript</strong> where the page would have to load and execute scripts before finishing to render the page. <code>defer</code> has a similar effect in this case.</p>\n\n\t<p>See <a href=\"#Browser_compatibility\">Browser compatibility</a> for notes on browser support. See also <a href=\"https://developer.mozilla.org/en-US/docs/Games/Techniques/Async_scripts\">Async scripts for asm.js</a>.</p>\n\t"
         },
         "crossorigin": {
           "deprecated": false,
@@ -2502,7 +2954,7 @@
         "defer": {
           "deprecated": false,
           "experimental": false,
-          "description": "\n <p>This Boolean attribute is set to indicate to a browser that the script is meant to be executed after the document has been parsed, but before firing <code><a href=\"https://developer.mozilla.org/en-US/docs/Web/Events/DOMContentLoaded\" title=\"/en-US/docs/Web/Events/DOMContentLoaded\">DOMContentLoaded</a></code>.</p>\n\n <p>Scripts with the <code>defer</code> attribute will prevent the <code>DOMContentLoaded</code> event from firing until the script has loaded and finished evaluating.</p>\n\n <div class=\"warning\">\n <p>This attribute must not be used if the <code>src</code> attribute is absent (i.e. for inline scripts), in this case it would have no effect.</p>\n </div>\n\n <p>To achieve a similar effect for dynamically inserted scripts use <code>async=&quot;false&quot;</code> instead. Scripts with the <code>defer</code> attribute will execute in the order in which they appear in the document.</p>\n\n <p>This attribute allows the elimination of <strong>render-blocking JavaScript</strong> where the page would have to load and execute scripts before finishing to render the page. <code>async</code> has a similar effect in this case.</p>\n "
+          "description": "\n\t<p>This Boolean attribute is set to indicate to a browser that the script is meant to be executed after the document has been parsed, but before firing <code><a href=\"https://developer.mozilla.org/en-US/docs/Web/Events/DOMContentLoaded\" title=\"/en-US/docs/Web/Events/DOMContentLoaded\">DOMContentLoaded</a></code>.</p>\n\n\t<p>Scripts with the <code>defer</code> attribute will prevent the <code>DOMContentLoaded</code> event from firing until the script has loaded and finished evaluating.</p>\n\n\t<div class=\"warning\">\n\t<p>This attribute must not be used if the <code>src</code> attribute is absent (i.e. for inline scripts), in this case it would have no effect.</p>\n\t</div>\n\n\t<p>To achieve a similar effect for dynamically inserted scripts use <code>async=&quot;false&quot;</code> instead. Scripts with the <code>defer</code> attribute will execute in the order in which they appear in the document.</p>\n\n\t<p>This attribute allows the elimination of <strong>render-blocking JavaScript</strong> where the page would have to load and execute scripts before finishing to render the page. <code>async</code> has a similar effect in this case.</p>\n\t"
         },
         "integrity": {
           "deprecated": false,
@@ -2522,17 +2974,17 @@
         "referrerpolicy": {
           "deprecated": false,
           "experimental": false,
-          "description": "Indicates which <a href=\"https://developer.mozilla.org/en-US/docs/Web/API/Document/referrer\">referrer</a> to send when fetching the script, or resources fetched by the script:\n <ul>\n  <li><code>no-referrer</code>: The <a href=\"https://developer.mozilla.org/en-US/docs/Web/HTTP/Headers/Referer\" title=\"The Referer request header contains the address of the previous web page from which a link to the currently requested page was followed. The Referer header allows servers to identify where people are visiting them from and may use that data for analytics, logging, or optimized caching, for example.\"><code>Referer</code></a> header will not be sent.</li>\n  <li><code>no-referrer-when-downgrade</code> (default): The <a href=\"https://developer.mozilla.org/en-US/docs/Web/HTTP/Headers/Referer\" title=\"The Referer request header contains the address of the previous web page from which a link to the currently requested page was followed. The Referer header allows servers to identify where people are visiting them from and may use that data for analytics, logging, or optimized caching, for example.\"><code>Referer</code></a> header will not be sent to <a class=\"glossaryLink\" href=\"/en-US/docs/Glossary/origin\" title=\"origin: Web content&apos;s origin is defined by the scheme (protocol), host (domain), and port of the URL used to access it. Two objects have the same origin only when the scheme, host, and port all match.\">origin</a>s without <a class=\"glossaryLink\" href=\"/en-US/docs/Glossary/TLS\" title=\"TLS: Transport Layer Security (TLS), formerly known as Secure Sockets Layer (SSL), is a protocol used by applications to communicate securely across a network, preventing tampering with and eavesdropping on email, web browsing, messaging, and other protocols. Both SSL and TLS are client / server protocols that ensure communication privacy by using cryptographic protocols to provide security over a network. When a server and client communicate using TLS, it ensures that no third party can eavesdrop or tamper with any message.\">TLS</a> (<a class=\"glossaryLink\" href=\"/en-US/docs/Glossary/HTTPS\" title=\"HTTPS: HTTPS (HTTP Secure) is an encrypted version of the HTTP protocol. It usually uses SSL or TLS to encrypt all communication between a client and a server. This secure connection allows clients to safely exchange sensitive data with a server, for example for banking activities or online shopping.\">HTTPS</a>).</li>\n  <li><code>origin</code>: The sent referrer will be limited to the origin of the referring page: its <a href=\"https://developer.mozilla.org/en-US/docs/Archive/Mozilla/URIScheme\">scheme</a>, <a class=\"glossaryLink\" href=\"/en-US/docs/Glossary/host\" title=\"host: A host is a device connected to the Internet (or a local network). Some hosts called servers offer additional services like serving webpages or storing files and emails.\">host</a>, and <a class=\"glossaryLink\" href=\"/en-US/docs/Glossary/port\" title=\"port: For a computer connected to a network with an IP address, a port is a communication endpoint. Ports are designated by numbers, and below 1024 each port is associated by default with a specific protocol.\">port</a>.</li>\n  <li><code>origin-when-cross-origin</code>: The referrer sent to other origins will be limited to the scheme, the host, and the port. Navigations on the same origin will still include the path.</li>\n  <li><code>same-origin</code>: A referrer will be sent for <a class=\"glossaryLink\" href=\"/en-US/docs/Glossary/Same-origin_policy\" title=\"same origin: The same-origin policy is a critical security mechanism that restricts how a document or script loaded from one origin can interact with a resource from another origin.\">same origin</a>, but cross-origin requests will contain no referrer information.</li>\n  <li><code>strict-origin</code>: Only send the origin of the document as the referrer when the protocol security level stays the same (e.g. HTTPS&#x2192;HTTPS), but don&apos;t send it to a less secure destination (e.g. HTTPS&#x2192;HTTP).</li>\n  <li><code>strict-origin-when-cross-origin</code>: Send a full URL when performing a same-origin request, but only send the origin when the protocol security level stays the same (e.g.HTTPS&#x2192;HTTPS), and send no header to a less secure destination (e.g. HTTPS&#x2192;HTTP).</li>\n  <li><code>unsafe-url</code>: The referrer will include the origin <em>and</em> the path (but not the <a href=\"https://developer.mozilla.org/en-US/docs/Web/API/HTMLHyperlinkElementUtils/hash\">fragment</a>, <a href=\"https://developer.mozilla.org/en-US/docs/Web/API/HTMLHyperlinkElementUtils/password\">password</a>, or <a href=\"https://developer.mozilla.org/en-US/docs/Web/API/HTMLHyperlinkElementUtils/username\">username</a>). <strong>This value is unsafe</strong>, because it leaks origins and paths from TLS-protected resources to insecure origins.</li>\n </ul>\n\n <div class=\"blockIndicator note\">\n <p><strong>Note</strong>: An empty string value (<code>&quot;&quot;</code>) is both the default value, and a fallback value if <code>referrerpolicy</code> is not supported. If <code>referrerpolicy</code> is not explicitly specified on the <code>&lt;script&gt;</code> element, it will adopt a higher-level referrer policy, i.e. one set on the whole document or domain. If a higher-level policy is not available, the empty string is treated as being equivalent to <code>no-referrer-when-downgrade</code>.</p>\n </div>\n "
+          "description": "Indicates which <a href=\"https://developer.mozilla.org/en-US/docs/Web/API/Document/referrer\">referrer</a> to send when fetching the script, or resources fetched by the script:\n\t<ul>\n\t\t<li><code>no-referrer</code>: The <a href=\"https://developer.mozilla.org/en-US/docs/Web/HTTP/Headers/Referer\" title=\"The Referer request header contains the address of the previous web page from which a link to the currently requested page was followed. The Referer header allows servers to identify where people are visiting them from and may use that data for analytics, logging, or optimized caching, for example.\"><code>Referer</code></a> header will not be sent.</li>\n\t\t<li><code>no-referrer-when-downgrade</code> (default): The <a href=\"https://developer.mozilla.org/en-US/docs/Web/HTTP/Headers/Referer\" title=\"The Referer request header contains the address of the previous web page from which a link to the currently requested page was followed. The Referer header allows servers to identify where people are visiting them from and may use that data for analytics, logging, or optimized caching, for example.\"><code>Referer</code></a> header will not be sent to <a class=\"glossaryLink\" href=\"/en-US/docs/Glossary/origin\" title=\"origin: Web content&apos;s origin is defined by the scheme (protocol), host (domain), and port of the URL used to access it. Two objects have the same origin only when the scheme, host, and port all match.\">origin</a>s without <a class=\"glossaryLink\" href=\"/en-US/docs/Glossary/TLS\" title=\"TLS: Transport Layer Security (TLS), formerly known as Secure Sockets Layer (SSL), is a protocol used by applications to communicate securely across a network, preventing tampering with and eavesdropping on email, web browsing, messaging, and other protocols. Both SSL and TLS are client / server protocols that ensure communication privacy by using cryptographic protocols to provide security over a network. When a server and client communicate using TLS, it ensures that no third party can eavesdrop or tamper with any message.\">TLS</a> (<a class=\"glossaryLink\" href=\"/en-US/docs/Glossary/HTTPS\" title=\"HTTPS: HTTPS (HTTP Secure) is an encrypted version of the HTTP protocol. It usually uses SSL or TLS to encrypt all communication between a client and a server. This secure connection allows clients to safely exchange sensitive data with a server, for example for banking activities or online shopping.\">HTTPS</a>).</li>\n\t\t<li><code>origin</code>: The sent referrer will be limited to the origin of the referring page: its <a href=\"https://developer.mozilla.org/en-US/docs/Archive/Mozilla/URIScheme\">scheme</a>, <a class=\"glossaryLink\" href=\"/en-US/docs/Glossary/host\" title=\"host: A host is a device connected to the Internet (or a local network). Some hosts called servers offer additional services like serving webpages or storing files and emails.\">host</a>, and <a class=\"glossaryLink\" href=\"/en-US/docs/Glossary/port\" title=\"port: For a computer connected to a network with an IP address, a port is a communication endpoint. Ports are designated by numbers, and below 1024 each port is associated by default with a specific protocol.\">port</a>.</li>\n\t\t<li><code>origin-when-cross-origin</code>: The referrer sent to other origins will be limited to the scheme, the host, and the port. Navigations on the same origin will still include the path.</li>\n\t\t<li><code>same-origin</code>: A referrer will be sent for <a class=\"glossaryLink\" href=\"/en-US/docs/Glossary/Same-origin_policy\" title=\"same origin: The same-origin policy is a critical security mechanism that restricts how a document or script loaded from one origin can interact with a resource from another origin.\">same origin</a>, but cross-origin requests will contain no referrer information.</li>\n\t\t<li><code>strict-origin</code>: Only send the origin of the document as the referrer when the protocol security level stays the same (e.g. HTTPS&#x2192;HTTPS), but don&apos;t send it to a less secure destination (e.g. HTTPS&#x2192;HTTP).</li>\n\t\t<li><code>strict-origin-when-cross-origin</code>: Send a full URL when performing a same-origin request, but only send the origin when the protocol security level stays the same (e.g.HTTPS&#x2192;HTTPS), and send no header to a less secure destination (e.g. HTTPS&#x2192;HTTP).</li>\n\t\t<li><code>unsafe-url</code>: The referrer will include the origin <em>and</em> the path (but not the <a href=\"https://developer.mozilla.org/en-US/docs/Web/API/HTMLHyperlinkElementUtils/hash\">fragment</a>, <a href=\"https://developer.mozilla.org/en-US/docs/Web/API/HTMLHyperlinkElementUtils/password\">password</a>, or <a href=\"https://developer.mozilla.org/en-US/docs/Web/API/HTMLHyperlinkElementUtils/username\">username</a>). <strong>This value is unsafe</strong>, because it leaks origins and paths from TLS-protected resources to insecure origins.</li>\n\t</ul>\n\n\t<div class=\"blockIndicator note\">\n\t<p><strong>Note</strong>: An empty string value (<code>&quot;&quot;</code>) is both the default value, and a fallback value if <code>referrerpolicy</code> is not supported. If <code>referrerpolicy</code> is not explicitly specified on the <code>&lt;script&gt;</code> element, it will adopt a higher-level referrer policy, i.e. one set on the whole document or domain. If a higher-level policy is not available, the empty string is treated as being equivalent to <code>no-referrer-when-downgrade</code>.</p>\n\t</div>\n\t"
         },
         "src": {
           "deprecated": false,
           "experimental": false,
-          "description": "\n <p>This attribute specifies the <abbr>URI</abbr> of an external script; this can be used as an alternative to embedding a script directly within a document.</p>\n\n <div class=\"warning\">\n <p>If a <code>script</code> element has a <code>src</code> attribute specified, it should not have a script embedded inside its tags since it can lead to unexpected behavior. The unexpected behavior is because it is only the JavaScript in the file referenced in the <code>src</code> attribute that will be added to the HTML page.</p>\n </div>\n "
+          "description": "\n\t<p>This attribute specifies the <abbr>URI</abbr> of an external script; this can be used as an alternative to embedding a script directly within a document.</p>\n\n\t<div class=\"warning\">\n\t<p>If a <code>script</code> element has a <code>src</code> attribute specified, it should not have a script embedded inside its tags since it can lead to unexpected behavior. The unexpected behavior is because it is only the JavaScript in the file referenced in the <code>src</code> attribute that will be added to the HTML page.</p>\n\t</div>\n\t"
         },
         "type": {
           "deprecated": false,
           "experimental": false,
-          "description": "\n <p>This attribute indicates the type of script represented. The value of this attribute will be in one of the following categories:</p>\n\n <ul>\n  <li><strong>Omitted or a JavaScript MIME type:</strong> This indicates the script is JavaScript. The HTML5 specification urges authors to omit the attribute rather than provide a redundant MIME type. In earlier browsers, this identified the scripting language of the embedded or imported (via the <code>src</code> attribute) code. JavaScript MIME types are <a href=\"https://developer.mozilla.org/en-US/docs/Web/HTTP/Basics_of_HTTP/MIME_types#JavaScript_types\">listed in the specification</a>.</li>\n  <li><strong><code>module</code>:</strong> Causes the code to be treated as a JavaScript module. The processing of the script contents is not affected by the <code>charset</code> and <code>defer</code> attributes. For information on using <code>module</code>, see our <a href=\"https://developer.mozilla.org/en-US/docs/Web/JavaScript/Guide/Modules\">JavaScript modules</a> guide.</li>\n  <li><strong>Any other value:</strong> The embedded content is treated as a data block which won&apos;t be processed by the browser. Developers must use a valid MIME type that is not a JavaScript MIME type to denote data blocks. The <code>src</code> attribute will be ignored.</li>\n </ul>\n\n <div class=\"note\">\n <p><strong>Note: </strong>in Firefox you could specify the version of JavaScript contained in a <code>&lt;script&gt;</code> element by including a non-standard <code>version</code> parameter inside the <code>type</code> attribute &#x2014; for example <code>type=&quot;text/javascript;version=1.8&quot;</code>. This has been removed in Firefox 59 (see <a class=\"external\" href=\"https://bugzilla.mozilla.org/show_bug.cgi?id=1428745\" rel=\"noopener\" title=\"FIXED: Remove support for version parameter from script loader\">bug&#xA0;1428745</a>).</p>\n </div>\n "
+          "description": "\n\t<p>This attribute indicates the type of script represented. The value of this attribute will be in one of the following categories:</p>\n\n\t<ul>\n\t\t<li><strong>Omitted or a JavaScript MIME type:</strong> This indicates the script is JavaScript. The HTML5 specification urges authors to omit the attribute rather than provide a redundant MIME type. In earlier browsers, this identified the scripting language of the embedded or imported (via the <code>src</code> attribute) code. JavaScript MIME types are <a href=\"https://developer.mozilla.org/en-US/docs/Web/HTTP/Basics_of_HTTP/MIME_types#JavaScript_types\">listed in the specification</a>.</li>\n\t\t<li><strong><code>module</code>:</strong> Causes the code to be treated as a JavaScript module. The processing of the script contents is not affected by the <code>charset</code> and <code>defer</code> attributes. For information on using <code>module</code>, see our <a href=\"https://developer.mozilla.org/en-US/docs/Web/JavaScript/Guide/Modules\">JavaScript modules</a> guide.</li>\n\t\t<li><strong>Any other value:</strong> The embedded content is treated as a data block which won&apos;t be processed by the browser. Developers must use a valid MIME type that is not a JavaScript MIME type to denote data blocks. The <code>src</code> attribute will be ignored.</li>\n\t</ul>\n\n\t<div class=\"note\">\n\t<p><strong>Note: </strong>in Firefox you could specify the version of JavaScript contained in a <code>&lt;script&gt;</code> element by including a non-standard <code>version</code> parameter inside the <code>type</code> attribute &#x2014; for example <code>type=&quot;text/javascript;version=1.8&quot;</code>. This has been removed in Firefox 59 (see <a class=\"external\" href=\"https://bugzilla.mozilla.org/show_bug.cgi?id=1428745\" rel=\"noopener\" title=\"FIXED: Remove support for version parameter from script loader\">bug&#xA0;1428745</a>).</p>\n\t</div>\n\t"
         },
         "charset": {
           "deprecated": false,
@@ -2547,15 +2999,25 @@
       }
     },
     "section": {
+      "reference": {
+        "name": "MDN Reference",
+        "url": "https://developer.mozilla.org//en-US/docs/Web/HTML/Element/section"
+      },
       "selfClosing": false,
       "experimental": false,
       "deprecated": false,
+      "description": "The HTML <section> element represents a standalone section — which doesn't have a more specific semantic element to represent it — contained within an HTML document.",
       "attributes": {}
     },
     "select": {
+      "reference": {
+        "name": "MDN Reference",
+        "url": "https://developer.mozilla.org//en-US/docs/Web/HTML/Element/select"
+      },
       "selfClosing": false,
       "experimental": false,
       "deprecated": false,
+      "description": "The HTML <select> element represents a control that provides a menu of options",
       "attributes": {
         "autocomplete": {
           "deprecated": false,
@@ -2600,15 +3062,25 @@
       }
     },
     "shadow": {
+      "reference": {
+        "name": "MDN Reference",
+        "url": "https://developer.mozilla.org//en-US/docs/Web/HTML/Element/shadow"
+      },
       "selfClosing": false,
       "experimental": false,
       "deprecated": true,
+      "description": "The HTML <shadow> element—an obsolete part of the Web Components technology suite—was intended to be used as a shadow DOM insertion point.",
       "attributes": {}
     },
     "slot": {
+      "reference": {
+        "name": "MDN Reference",
+        "url": "https://developer.mozilla.org//en-US/docs/Web/HTML/Element/slot"
+      },
       "selfClosing": false,
       "experimental": false,
       "deprecated": false,
+      "description": "The HTML <slot> element—part of the Web Components technology suite—is a placeholder inside a web component that you can fill with your own markup, which lets you create separate DOM trees and present them together.",
       "attributes": {
         "name": {
           "deprecated": false,
@@ -2618,15 +3090,24 @@
       }
     },
     "small": {
+      "reference": {
+        "name": "MDN Reference",
+        "url": "https://developer.mozilla.org//en-US/docs/Web/HTML/Element/small"
+      },
       "selfClosing": false,
       "experimental": false,
       "deprecated": false,
       "attributes": {}
     },
     "source": {
+      "reference": {
+        "name": "MDN Reference",
+        "url": "https://developer.mozilla.org//en-US/docs/Web/HTML/Element/source"
+      },
       "selfClosing": true,
       "experimental": false,
       "deprecated": false,
+      "description": "The HTML <source> element specifies multiple media resources for the <picture>, the <audio> element, or the <video> element.",
       "attributes": {
         "media": {
           "deprecated": false,
@@ -2656,9 +3137,14 @@
       }
     },
     "spacer": {
+      "reference": {
+        "name": "MDN Reference",
+        "url": "https://developer.mozilla.org//en-US/docs/Web/HTML/Element/spacer"
+      },
       "selfClosing": false,
       "experimental": false,
       "deprecated": true,
+      "description": "<spacer> is an obsolete HTML element which allowed insertion of empty spaces on pages. It was devised by Netscape to accomplish the same effect as a single-pixel layout image, which was something web designers used to use to add white spaces to web pages without actually using an image. However, <spacer> no longer supported by any major browser and the same effects can now be achieved using simple CSS.",
       "attributes": {
         "type": {
           "deprecated": false,
@@ -2688,27 +3174,46 @@
       }
     },
     "span": {
+      "reference": {
+        "name": "MDN Reference",
+        "url": "https://developer.mozilla.org//en-US/docs/Web/HTML/Element/span"
+      },
       "selfClosing": false,
       "experimental": false,
       "deprecated": false,
+      "description": "The HTML <span> element is a generic inline container for phrasing content, which does not inherently represent anything. It can be used to group elements for styling purposes (using the class or id attributes), or because they share attribute values, such as lang.",
       "attributes": {}
     },
     "strike": {
+      "reference": {
+        "name": "MDN Reference",
+        "url": "https://developer.mozilla.org//en-US/docs/Web/HTML/Element/strike"
+      },
       "selfClosing": false,
       "experimental": false,
       "deprecated": true,
       "attributes": {}
     },
     "strong": {
+      "reference": {
+        "name": "MDN Reference",
+        "url": "https://developer.mozilla.org//en-US/docs/Web/HTML/Element/strong"
+      },
       "selfClosing": false,
       "experimental": false,
       "deprecated": false,
+      "description": "The HTML Strong Importance Element (<strong>) indicates that its contents have strong importance, seriousness, or urgency. Browsers typically render the contents in bold type.",
       "attributes": {}
     },
     "style": {
+      "reference": {
+        "name": "MDN Reference",
+        "url": "https://developer.mozilla.org//en-US/docs/Web/HTML/Element/style"
+      },
       "selfClosing": false,
       "experimental": false,
       "deprecated": false,
+      "description": "The HTML <style> element contains style information for a document, or part of a document.",
       "attributes": {
         "type": {
           "deprecated": false,
@@ -2738,27 +3243,47 @@
       }
     },
     "sub": {
+      "reference": {
+        "name": "MDN Reference",
+        "url": "https://developer.mozilla.org//en-US/docs/Web/HTML/Element/sub"
+      },
       "selfClosing": false,
       "experimental": false,
       "deprecated": false,
+      "description": "The HTML Subscript element (<sub>) specifies inline text which should be displayed as subscript for solely typographical reasons.",
       "attributes": {}
     },
     "summary": {
+      "reference": {
+        "name": "MDN Reference",
+        "url": "https://developer.mozilla.org//en-US/docs/Web/HTML/Element/summary"
+      },
       "selfClosing": false,
       "experimental": false,
       "deprecated": false,
+      "description": "The HTML Disclosure Summary element (<summary>) element specifies a summary, caption, or legend for a <details> element's disclosure box.",
       "attributes": {}
     },
     "sup": {
+      "reference": {
+        "name": "MDN Reference",
+        "url": "https://developer.mozilla.org//en-US/docs/Web/HTML/Element/sup"
+      },
       "selfClosing": false,
       "experimental": false,
       "deprecated": false,
+      "description": "The HTML Superscript element (<sup>) specifies inline text which is to be displayed as superscript for solely typographical reasons.",
       "attributes": {}
     },
     "table": {
+      "reference": {
+        "name": "MDN Reference",
+        "url": "https://developer.mozilla.org//en-US/docs/Web/HTML/Element/table"
+      },
       "selfClosing": false,
       "experimental": false,
       "deprecated": false,
+      "description": "The HTML <table> element represents tabular data — that is, information presented in a two-dimensional table comprised of rows and columns of cells containing data.",
       "attributes": {
         "align": {
           "deprecated": false,
@@ -2808,9 +3333,14 @@
       }
     },
     "tbody": {
+      "reference": {
+        "name": "MDN Reference",
+        "url": "https://developer.mozilla.org//en-US/docs/Web/HTML/Element/tbody"
+      },
       "selfClosing": false,
       "experimental": false,
       "deprecated": false,
+      "description": "The HTML Table Body element (<tbody>) encapsulates a set of table rows (<tr> elements), indicating that they comprise the body of the table (<table>).",
       "attributes": {
         "align": {
           "deprecated": true,
@@ -2840,9 +3370,14 @@
       }
     },
     "td": {
+      "reference": {
+        "name": "MDN Reference",
+        "url": "https://developer.mozilla.org//en-US/docs/Web/HTML/Element/td"
+      },
       "selfClosing": false,
       "experimental": false,
       "deprecated": false,
+      "description": "The HTML <td> element defines a cell of a table that contains data. It participates in the table model.",
       "attributes": {
         "abbr": {
           "deprecated": true,
@@ -2912,12 +3447,21 @@
       }
     },
     "template": {
+      "reference": {
+        "name": "MDN Reference",
+        "url": "https://developer.mozilla.org//en-US/docs/Web/HTML/Element/template"
+      },
       "selfClosing": false,
       "experimental": false,
       "deprecated": false,
+      "description": "The HTML Content Template (<template>) element is a mechanism for holding HTML that is not to be rendered immediately when a page is loaded but may be instantiated subsequently during runtime using JavaScript.",
       "attributes": {}
     },
     "textarea": {
+      "reference": {
+        "name": "MDN Reference",
+        "url": "https://developer.mozilla.org//en-US/docs/Web/HTML/Element/textarea"
+      },
       "selfClosing": false,
       "experimental": false,
       "deprecated": false,
@@ -3000,6 +3544,10 @@
       }
     },
     "tfoot": {
+      "reference": {
+        "name": "MDN Reference",
+        "url": "https://developer.mozilla.org//en-US/docs/Web/HTML/Element/tfoot"
+      },
       "selfClosing": false,
       "experimental": false,
       "deprecated": false,
@@ -3032,9 +3580,14 @@
       }
     },
     "th": {
+      "reference": {
+        "name": "MDN Reference",
+        "url": "https://developer.mozilla.org//en-US/docs/Web/HTML/Element/th"
+      },
       "selfClosing": false,
       "experimental": false,
       "deprecated": false,
+      "description": "The HTML <th> element defines a cell as header of a group of table cells. The exact nature of this group is defined by the scope and headers attributes.",
       "attributes": {
         "abbr": {
           "deprecated": false,
@@ -3104,6 +3657,10 @@
       }
     },
     "thead": {
+      "reference": {
+        "name": "MDN Reference",
+        "url": "https://developer.mozilla.org//en-US/docs/Web/HTML/Element/thead"
+      },
       "selfClosing": false,
       "experimental": false,
       "deprecated": false,
@@ -3136,9 +3693,14 @@
       }
     },
     "time": {
+      "reference": {
+        "name": "MDN Reference",
+        "url": "https://developer.mozilla.org//en-US/docs/Web/HTML/Element/time"
+      },
       "selfClosing": false,
       "experimental": false,
       "deprecated": false,
+      "description": "The HTML <time> element represents a specific period in time.",
       "attributes": {
         "datetime": {
           "deprecated": false,
@@ -3148,15 +3710,25 @@
       }
     },
     "title": {
+      "reference": {
+        "name": "MDN Reference",
+        "url": "https://developer.mozilla.org//en-US/docs/Web/HTML/Element/title"
+      },
       "selfClosing": false,
       "experimental": false,
       "deprecated": false,
+      "description": "The HTML Title element (<title>) defines the document's title that is shown in a browser's title bar or a page's tab.",
       "attributes": {}
     },
     "tr": {
+      "reference": {
+        "name": "MDN Reference",
+        "url": "https://developer.mozilla.org//en-US/docs/Web/HTML/Element/tr"
+      },
       "selfClosing": false,
       "experimental": false,
       "deprecated": false,
+      "description": "The HTML <tr> element defines a row of cells in a table. The row's cells can then be established using a mix of <td> (data cell) and <th> (header cell) elements.",
       "attributes": {
         "align": {
           "deprecated": true,
@@ -3226,6 +3798,10 @@
       }
     },
     "track": {
+      "reference": {
+        "name": "MDN Reference",
+        "url": "https://developer.mozilla.org//en-US/docs/Web/HTML/Element/track"
+      },
       "selfClosing": true,
       "experimental": false,
       "deprecated": false,
@@ -3258,18 +3834,32 @@
       }
     },
     "tt": {
+      "reference": {
+        "name": "MDN Reference",
+        "url": "https://developer.mozilla.org//en-US/docs/Web/HTML/Element/tt"
+      },
       "selfClosing": false,
       "experimental": false,
       "deprecated": true,
+      "description": "The obsolete HTML Teletype Text element (<tt>) creates inline text which is presented using the user agent's default monospace font face.",
       "attributes": {}
     },
     "u": {
+      "reference": {
+        "name": "MDN Reference",
+        "url": "https://developer.mozilla.org//en-US/docs/Web/HTML/Element/u"
+      },
       "selfClosing": false,
       "experimental": false,
       "deprecated": false,
+      "description": "The HTML Unarticulated Annotation Element (<u>) represents a span of inline text which should be rendered in a way that indicates that it has a non-textual annotation.",
       "attributes": {}
     },
     "ul": {
+      "reference": {
+        "name": "MDN Reference",
+        "url": "https://developer.mozilla.org//en-US/docs/Web/HTML/Element/ul"
+      },
       "selfClosing": false,
       "experimental": false,
       "deprecated": false,
@@ -3287,12 +3877,21 @@
       }
     },
     "var": {
+      "reference": {
+        "name": "MDN Reference",
+        "url": "https://developer.mozilla.org//en-US/docs/Web/HTML/Element/var"
+      },
       "selfClosing": false,
       "experimental": false,
       "deprecated": false,
+      "description": "The HTML Variable element (<var>) represents the name of a variable in a mathematical expression or a programming context.",
       "attributes": {}
     },
     "video": {
+      "reference": {
+        "name": "MDN Reference",
+        "url": "https://developer.mozilla.org//en-US/docs/Web/HTML/Element/video"
+      },
       "selfClosing": false,
       "experimental": false,
       "deprecated": false,
@@ -3420,12 +4019,20 @@
       }
     },
     "wbr": {
+      "reference": {
+        "name": "MDN Reference",
+        "url": "https://developer.mozilla.org//en-US/docs/Web/HTML/Element/wbr"
+      },
       "selfClosing": true,
       "experimental": false,
       "deprecated": false,
       "attributes": {}
     },
     "xmp": {
+      "reference": {
+        "name": "MDN Reference",
+        "url": "https://developer.mozilla.org//en-US/docs/Web/HTML/Element/xmp"
+      },
       "selfClosing": false,
       "experimental": false,
       "deprecated": true,

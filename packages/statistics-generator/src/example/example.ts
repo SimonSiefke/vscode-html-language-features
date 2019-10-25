@@ -1,8 +1,15 @@
-import { analyzeDirectory } from '../analyze'
+import { analyzeDirectoryForTags } from '../analyzeTags'
 import * as path from 'path'
+import { analyzeDirectoryForAttributes } from '../analyzeAttributes'
 
-analyzeDirectory(
+analyzeDirectoryForTags(
   path.join(__dirname, 'htmlFiles'),
-  path.join(__dirname, 'generated'),
-  'example'
+  path.join(__dirname, '../generated'),
+  'tags'
+)
+
+analyzeDirectoryForAttributes(
+  path.join(__dirname, 'htmlFiles'),
+  path.join(__dirname, '../generated'),
+  'attributes'
 )

@@ -107,16 +107,10 @@ export const getPreviousOpeningTagName: (
   }
 }
 
-const text = `<select>
-  <option></option>
-  <option></option>
-  <option></option>
-  <option></option>
-  <option></option>
-  <option></option>
-  op`
-const offset = text.length //?
-getPreviousOpeningTagName(createScanner(text), offset) //?
+// const text = `<select>
+//   <`
+// const offset = text.length //?
+// getPreviousOpeningTagName(createScanner(text), offset-1) //?
 
 export const getNextClosingTag: (
   scanner: Scanner,

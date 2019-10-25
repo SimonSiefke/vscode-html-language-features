@@ -1,5 +1,6 @@
 import { validate } from 'jsonschema'
 import * as _ from 'lodash'
+// @ts-ignore
 import * as schema from './schema/schema.json'
 import * as path from 'path'
 import * as fs from 'fs'
@@ -9,6 +10,10 @@ interface Element {
   markdownDescription?: string
   selfClosing?: boolean
   newline?: boolean
+  reference?: {
+    name: string
+    url: string
+  }
 }
 
 interface ConfigWithExtend {

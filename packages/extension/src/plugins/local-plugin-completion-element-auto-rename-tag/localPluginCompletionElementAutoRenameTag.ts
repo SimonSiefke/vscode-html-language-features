@@ -27,11 +27,7 @@ const askServerForCompletionElementAutoRenameTag: (
     position
   )
 
-  console.log('before request')
-
   const result = await api.languageClient.sendRequest(requestType, params)
-  console.log('after request')
-  console.log(result && result.startOffset)
   if (!result) {
     return
   }
@@ -82,7 +78,6 @@ export const localPluginCompletionElementAutoRenameTag: LocalPlugin = api => {
       rangeStart.line,
       rangeStart.character + lastChange.text.length
     )
-    console.log('rename tag')
     await askServerForCompletionElementAutoRenameTag(
       api,
       event.document,

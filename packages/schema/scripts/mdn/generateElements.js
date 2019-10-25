@@ -2,8 +2,18 @@ const fetch = require('node-fetch')
 const cheerio = require('cheerio')
 const fs = require('fs')
 const path = require('path')
+var TurndownService = require('turndown')
+var turndownService = new TurndownService({})
 
-const referenceUrl = 'https://developer.mozilla.org/en-US/docs/Web/HTML/Element'
+turndownService.addRule('remove', {
+  filter: ['a', 'h1', 'code', 'pre', 'strong', 'i', 'em'],
+  replacement: function(content, x) {
+    return content
+    // return 'blob' + content
+  },
+})
+
+const reference = 'https://developer.mozilla.org/en-US/docs/Web/HTML/Element'
 
 /** @typedef {{href:string, deprecated:boolean, name:string , experimental:boolean} } PreElement */
 
@@ -12,7 +22,7 @@ const referenceUrl = 'https://developer.mozilla.org/en-US/docs/Web/HTML/Element'
  */
 const getHtmlElementsAndLinks = async () => {
   // @ts-ignore
-  const html = await fetch(referenceUrl).then(res => res.text())
+  const html = await fetch(reference).then(res => res.text())
   const $ = cheerio.load(html)
 
   const elements = $('summary')
@@ -80,7 +90,7 @@ const getHtmlElementsAndLinks = async () => {
 /**
  *
  * @param {PreElement} element
- * @return {Promise<{selfClosing: boolean, attributes:{deprecated:boolean,name:string, experimental:boolean, description: string}[]}>}
+ * @return {Promise<{selfClosing: boolean, reference:{ url:string,name:string}, description:string, attributes:{deprecated:boolean,name:string, experimental:boolean, description: string}[]}>}
  */
 const getInfoForElement = async element => {
   const fullUrl = 'https://developer.mozilla.org/' + element.href
@@ -150,6 +160,11 @@ const getInfoForElement = async element => {
 
   return {
     selfClosing,
+    description,
+    reference: {
+      name: 'MDN Reference',
+      url: fullUrl,
+    },
     attributes: attributeNames.map((_, index) => ({
       name: attributeNames[index],
       description: attributeDescriptions[index],
@@ -165,7 +180,9 @@ const all = async () => {
     elementsAndLinks.map(async element => {
       const elementInfo = await getInfoForElement(element)
       return {
+        reference: elementInfo.reference,
         name: element.name,
+        description: elementInfo.description,
         deprecated: element.deprecated,
         experimental: element.experimental,
         selfClosing: elementInfo.selfClosing,
@@ -199,13 +216,22 @@ const all = async () => {
       }),
       {}
     )
+
+  const fixDescriptionMarkdown = description => {
+    if (!description) {
+      return undefined
+    }
+    return turndownService.turndown(description)
+  }
   const elements = fullElementInfo.reduce(
     (total, current) => ({
       ...total,
       [current.name]: {
+        reference: current.reference,
         selfClosing: current.selfClosing,
         experimental: current.experimental,
         deprecated: current.deprecated,
+        description: fixDescriptionMarkdown(current.description),
         attributes: fixAttributes(current.attributes),
       },
     }),

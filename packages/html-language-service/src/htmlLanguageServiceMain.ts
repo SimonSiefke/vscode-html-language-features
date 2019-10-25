@@ -1,4 +1,10 @@
 export {
+  doSuggestionAttributeKey,
+} from './services/suggestion-attribute-key/suggestionAttributeKey'
+export {
+  doSuggestionElementStartTag,
+} from './services/suggestion-element-start-tag/suggestionElementStartTag'
+export {
   doCompletionElementAutoClose,
 } from './services/completion-element-auto-close/completionElementAutoClose'
 export {
@@ -13,4 +19,9 @@ export {
 export {
   doCompletionElementSelfClosing,
 } from './services/completion-element-self-closing/completionElementSelfClosing'
-export { addConfig } from './data/HTMLManager'
+export {
+  addConfig,
+  getInfoForHtmlTag,
+  getInfoDescriptionForHtmlTag,
+  getInfoReference,
+} from './data/HTMLManager'

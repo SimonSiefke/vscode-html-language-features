@@ -10,7 +10,7 @@ let statisticsWithProbabilities = {}
 let numberOfFiles = -1
 let sourceUrl
 
-export const analyzeDirectory = async (
+export const analyzeDirectoryForTags = async (
   inputDirectory,
   outputDirectory,
   outputFileName,

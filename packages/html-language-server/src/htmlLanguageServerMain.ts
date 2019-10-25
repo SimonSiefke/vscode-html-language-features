@@ -13,6 +13,8 @@ import { remotePluginCompletionElementExpand } from './plugins/remote-plugin-com
 import { addConfig } from 'html-language-service'
 import { remotePluginCompletionElementSelfClosing } from './plugins/remote-plugin-completion-element-self-closing/remotePluginCompletionElementSelfClosing'
 import { remotePluginCompletionElementAutoRenameTag } from './plugins/remote-plugin-completion-element-auto-rename-tag/remotePluginCompletionElementAutoRenameTag'
+import { remotePluginSuggestionElementStartTag } from './plugins/remote-plugin-suggestion-element-start-tag/remotePluginSuggestionElementStartTag'
+import { remotePluginSuggestAttributeKey } from './plugins/remote-plugin-suggestion-attribute-key/remotePluginSuggestionAttributeKey'
 
 // Create a connection for the server
 const connection: IConnection = createConnection()
@@ -33,10 +35,10 @@ documents.listen(connection)
 connection.onInitialize(() => {
   const capabilities: ServerCapabilities = {
     textDocumentSync: documents.syncKind,
-    // completionProvider: {
-    //   resolveProvider: false,
-    //   triggerCharacters: [],
-    // },
+    completionProvider: {
+      // resolveProvider: false,
+      triggerCharacters: ['<'],
+    },
     // hoverProvider: true,
   }
   return { capabilities }
@@ -55,6 +57,9 @@ connection.onInitialized(async () => {
   remotePluginCompletionElementExpand(api)
   remotePluginCompletionElementSelfClosing(api)
   remotePluginCompletionElementAutoRenameTag(api)
+
+  remotePluginSuggestionElementStartTag(api)
+  remotePluginSuggestAttributeKey(api)
 })
 
 // connectionProxy.onCompletion(({ textDocument, position }) => {

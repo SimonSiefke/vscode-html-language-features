@@ -4,7 +4,8 @@
   "description": "",
   "main": "dist/htmlIntellicodeMain.js",
   "dependencies": {
-    "html-parser": "^1.0.0"
+    "html-parser": "^1.0.0",
+    "statistics-generator": "^1.0.0"
   },
   "scripts": {
     "fetch-sites": "ts-node src/scripts/fetchSites.ts",

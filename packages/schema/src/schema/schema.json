@@ -32,6 +32,19 @@
           "type": "object",
           "additionalProperties": false,
           "properties": {
+            "reference": {
+              "type": "object",
+              "required": ["url", "name"],
+              "additionalProperties": false,
+              "properties": {
+                "url": {
+                  "type": "string"
+                },
+                "name": {
+                  "type": "string"
+                }
+              }
+            },
             "experimental": {
               "type": "boolean"
             },

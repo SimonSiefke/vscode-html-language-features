@@ -1,4 +1,4 @@
-import { statistics } from 'html-intellicode'
+import { statisticsForTags } from 'html-intellicode'
 import {
   getHTMLTags,
   isSelfClosingTag,
@@ -47,11 +47,11 @@ const fallback = (abbreviation: string) => {
  * @param abbreviation - the partial tag name
  * @param parentTagName - the name of the parent tag (or root if there is no parent tag)
  */
-const expandAbbreviation = (
+export const expandAbbreviation = (
   abbreviation: string,
   parentTagName: string
 ): string | undefined => {
-  const suggestions = statistics[parentTagName]
+  const suggestions = statisticsForTags[parentTagName]
   if (!suggestions) {
     return fallback(abbreviation)
   }
