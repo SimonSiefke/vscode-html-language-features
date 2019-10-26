@@ -7,8 +7,13 @@ import {
   TextDocument,
 } from 'vscode-languageserver-types'
 import { isSelfClosingTag } from '../../data/HTMLManager'
-import { Scanner, ScannerState, createScanner, TokenType } from 'html-parser'
-import { statisticsForTags } from 'html-intellicode'
+import {
+  Scanner,
+  ScannerState,
+  createScanner,
+  TokenType,
+} from '@html-language-features/html-parser'
+import { statisticsForTags } from '@html-language-features/html-intellicode'
 
 export const enum CompletionItemType {
   tagName,

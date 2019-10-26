@@ -1,6 +1,6 @@
 {
-  "name": "statistics-generator",
-  "version": "1.0.0",
+  "name": "@html-language-features/statistics-generator",
+  "version": "1.0.0-dev",
   "description": "",
   "main": "dist/statisticsGeneratorMain.js",
   "scripts": {
@@ -8,11 +8,11 @@
   },
   "keywords": [],
   "author": "",
-  "license": "ISC",
+  "license": "MIT",
   "dependencies": {
     "fs-extra": "^8.1.0",
-    "glob": "^7.1.4",
-    "html-parser": "^1.0.0"
+    "glob": "^7.1.5",
+    "@html-language-features/html-parser": "^1.0.0-dev"
   },
   "devDependencies": {
     "@types/fs-extra": "^8.0.1",

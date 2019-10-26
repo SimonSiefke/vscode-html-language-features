@@ -1,4 +1,8 @@
-import { ScannerState, TokenType, createScanner } from 'html-parser'
+import {
+  ScannerState,
+  TokenType,
+  createScanner,
+} from '@html-language-features/html-parser'
 
 /**
  * Completion for self-closing elements

@@ -1,10 +1,13 @@
-import { statisticsForTags } from 'html-intellicode'
+import { statisticsForTags } from '@html-language-features/html-intellicode'
 import {
   getHTMLTags,
   isSelfClosingTag,
   shouldHaveNewline,
 } from '../../data/HTMLManager'
-import { ScannerState, createScanner } from 'html-parser'
+import {
+  ScannerState,
+  createScanner,
+} from '@html-language-features/html-parser'
 import { getPreviousOpeningTagName } from '../util/getParentTagName'
 
 const fuzzySearch = (tagName: string, abbreviation: string) => {

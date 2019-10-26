@@ -1,5 +1,5 @@
-import { createScanner } from 'html-parser'
-import { statisticsForTags } from 'html-intellicode'
+import { createScanner } from '@html-language-features/html-parser'
+import { statisticsForTags } from '@html-language-features/html-intellicode'
 
 import { getPreviousOpeningTagName } from '../util/getParentTagName'
 

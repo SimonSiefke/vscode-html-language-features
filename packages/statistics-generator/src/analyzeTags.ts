@@ -1,4 +1,4 @@
-import { parse, Node } from 'html-parser'
+import { parse, Node } from '@html-language-features/html-parser'
 import * as fs from 'fs-extra'
 import * as path from 'path'
 import * as glob from 'glob'

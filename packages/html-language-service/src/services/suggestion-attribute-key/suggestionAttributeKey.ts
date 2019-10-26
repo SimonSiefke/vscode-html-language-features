@@ -1,5 +1,8 @@
-import { createScanner, ScannerState } from 'html-parser'
-import { statisticsForAttributes } from 'html-intellicode'
+import {
+  createScanner,
+  ScannerState,
+} from '@html-language-features/html-parser'
+import { statisticsForAttributes } from '@html-language-features/html-intellicode'
 
 /**
  * Completion for expanding tag

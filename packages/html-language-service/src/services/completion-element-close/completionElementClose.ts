@@ -2,7 +2,7 @@ import {
   getPreviousOpeningTagName,
   getNextClosingTag,
 } from '../util/getParentTagName'
-import { createScanner } from 'html-parser'
+import { createScanner } from '@html-language-features/html-parser'
 
 /**
  * Completion for closing end-tag

@@ -1,5 +1,5 @@
 import * as _ from 'lodash'
-import { getConfig, Config } from 'schema'
+import { getConfig, Config } from '@html-language-features/schema'
 
 interface Element {
   description?: string

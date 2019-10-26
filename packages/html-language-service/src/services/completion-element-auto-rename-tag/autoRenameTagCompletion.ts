@@ -1,4 +1,7 @@
-import { createScanner, ScannerState } from 'html-parser'
+import {
+  createScanner,
+  ScannerState,
+} from '@html-language-features/html-parser'
 
 import {
   getPreviousOpeningTagName,

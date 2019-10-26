@@ -1,6 +1,6 @@
 {
-  "name": "schema",
-  "version": "0.0.1",
+  "name": "@html-language-features/schema",
+  "version": "1.0.0-dev",
   "description": "",
   "main": "dist/schemaMain.js",
   "scripts": {

@@ -1,5 +1,9 @@
 import { shouldHaveNewline, isSelfClosingTag } from '../../data/HTMLManager'
-import { ScannerState, TokenType, createScanner } from 'html-parser'
+import {
+  ScannerState,
+  TokenType,
+  createScanner,
+} from '@html-language-features/html-parser'
 
 /**
  * Completion for automatically closing elements.
