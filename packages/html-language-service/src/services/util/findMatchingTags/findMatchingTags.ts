@@ -17,11 +17,9 @@ export const findMatchingTags: (
     } = (text, offset) => {
   const scanner = createScanner(text)
   scanner.stream.goTo(offset)
-  console.log('peek', scanner.stream.peekRight())
   scanner.stream.goBackToUntilEitherChar('<', '>')
   const char = scanner.stream.peekLeft(1) //?
   if (char === '<') {
-    console.log('char is' + char)
     if (scanner.stream.nextChars(2) === '--') {
       return undefined
     }
@@ -47,15 +45,12 @@ export const findMatchingTags: (
       }
     }
   } else if (char === '>') {
-    if (offset - scanner.stream.position === 0) {
+    if (offset >= scanner.stream.position) {
       return undefined
     }
-    console.log('off' + offset + 'sc' + scanner.stream.position)
-    console.log('else')
     scanner.stream.goBack(2)
     scanner.stream.goBackToUntilEitherChar('<', '>')
     const char = scanner.stream.peekLeft(1) //?
-    console.log('char is ' + char)
     if (char === '>') {
       return undefined
     }
@@ -64,4 +59,4 @@ export const findMatchingTags: (
   return undefined
 }
 
-findMatchingTags('<a>a</a>', 7) //?
+// findMatchingTags('<a>a</a>\na', 8) //?

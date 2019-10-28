@@ -37,9 +37,7 @@ export const doCompletionElementClose: (
       return undefined
     }
     const previousOpeningTagName = getPreviousOpeningTagName(scanner, before)
-    console.log('prev' + JSON.stringify(previousOpeningTagName))
     const nextClosingTagName = getNextClosingTag(scanner, after)
-    console.log('next' + JSON.stringify(nextClosingTagName))
     if (!previousOpeningTagName) {
       return undefined
     }

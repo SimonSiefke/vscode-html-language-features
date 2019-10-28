@@ -1,7 +1,7 @@
 import { findMatchingTags } from './findMatchingTags'
 
 test('can match from opening and closing tag', () => {
-  const data = '<a>a</a>'
+  const data = '<a>a</a>\na'
   const expected = {
     type: 'startAndEndTag',
     tagName: 'a',
@@ -17,6 +17,8 @@ test('can match from opening and closing tag', () => {
   expect(findMatchingTags(data, 6)).toEqual(expected)
   expect(findMatchingTags(data, 7)).toEqual(expected)
   expect(findMatchingTags(data, 8)).toEqual(undefined)
+  // expect(findMatchingTags(data, 9)).toEqual(undefined)
+  expect(findMatchingTags(data, 10)).toEqual(undefined)
 })
 
 test.skip('can match nested with invalid tags', () => {

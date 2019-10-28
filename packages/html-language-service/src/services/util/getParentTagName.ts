@@ -26,15 +26,9 @@ export const getPreviousOpeningTagName: (
       throw new Error('infinite loop')
     }
     scanner.stream.goTo(offset - 2)
-    scanner.stream.position //?
     scanner.stream.goBackToUntilEitherChar('<', '>')
-    // scanner.stream.goBack(1)
-    scanner.stream.position //?
     const char = scanner.stream.peekLeft(1) //?
-    console.log('char' + char)
     if (!['<', '>'].includes(char)) {
-      console.log('retun 1' + char)
-      char //?
       return undefined
     }
     if (char === '>') {
@@ -45,7 +39,6 @@ export const getPreviousOpeningTagName: (
         continue
       } else {
         seenRightAngleBracket = true
-        console.log('go all back')
         scanner.stream.goBack(1)
         scanner.stream.goBackToUntilChar('<')
         offset = scanner.stream.position
@@ -76,18 +69,15 @@ export const getPreviousOpeningTagName: (
     offset = scanner.stream.position
     scanner.state = ScannerState.AfterOpeningStartTag
     // scanner.stream.advance(1)
-    console.log('oo' + offset)
     const token = scanner.scan()
     // if (!seenRightAngleBracket) {
     //   console.log('no see')
     // }
     if (token !== TokenType.StartTag) {
-      console.log('no start tag')
       return undefined
     }
     const tokenText = scanner.getTokenText()
     if (isSelfClosingTag(tokenText)) {
-      console.log('self closing')
       continue
     }
     // pop closing tags from the tags
@@ -98,13 +88,11 @@ export const getPreviousOpeningTagName: (
       continue
     }
     parentTagName = tokenText
-    console.log('parent is' + parentTagName)
     if (parentTagName !== undefined) {
       break
     }
   } while (true)
 
-  console.log('retunin')
   return {
     tagName: parentTagName,
     offset,
