@@ -7,6 +7,8 @@ Features:
 - Context aware HTML Completions
 - Auto rename tags
 - Auto close tags
+- Attribute key completions
+- Highlight Matching Tags
 
 <!-- TODO image -->
 
@@ -17,7 +19,6 @@ Note: for this to work, you need to disable:
 
 TODO:
 
-- attribute key completions
 - attribute value completions
 - snippets
 - support for emmet abbreviations
