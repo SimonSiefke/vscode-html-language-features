@@ -20,20 +20,25 @@ const askServerForCompletionElementClose: (
   api: LocalPluginApi,
   document: vscode.TextDocument,
   position: vscode.Position
-) => Promise<void> = async (api, document, position) => {
+) => Promise<Result> = async (api, document, position) => {
   const params = api.languageClient.code2ProtocolConverter.asTextDocumentPositionParams(
     document,
     position
   )
   const result = await api.languageClient.sendRequest(requestType, params)
-  if (!result) {
-    return
-  }
+  // TODO duplicate code below
   if (
     !vscode.window.activeTextEditor ||
     vscode.window.activeTextEditor.document.version !== document.version
   ) {
     throw new Error('too slow')
+  }
+  return result
+}
+
+const applyResult: (result: Result) => void = result => {
+  if (!result) {
+    return
   }
   vscode.window.activeTextEditor.insertSnippet(
     new vscode.SnippetString(result.completionString)
@@ -77,7 +82,12 @@ export const localPluginCompletionElementClose: LocalPlugin = api => {
         )
       )
       if (secondToLastCharacter === '<') {
-        await askServerForCompletionElementClose(api, event.document, position)
+        const result = await askServerForCompletionElementClose(
+          api,
+          event.document,
+          position
+        )
+        applyResult(result)
       }
     }
   })

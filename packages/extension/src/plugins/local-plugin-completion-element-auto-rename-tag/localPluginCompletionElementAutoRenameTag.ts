@@ -15,39 +15,35 @@ const requestType = new vsl.RequestType<
   any
 >('html/completion-element-auto-rename-tag')
 
-// let i = 0
 const askServerForCompletionElementAutoRenameTag: (
   api: LocalPluginApi,
   document: vscode.TextDocument,
   position: vscode.Position
-) => Promise<void> = async (api, document, position) => {
-  // i++
+) => Promise<Result> = async (api, document, position) => {
   const params = api.languageClient.code2ProtocolConverter.asTextDocumentPositionParams(
     document,
     position
   )
-
   const result = await api.languageClient.sendRequest(requestType, params)
-  if (!result) {
-    return
-  }
   if (
     !vscode.window.activeTextEditor ||
     vscode.window.activeTextEditor.document.version !== document.version
   ) {
     throw new Error('too slow')
   }
+  return result
+}
 
+const applyResult: (result: Result) => void = result => {
+  if (!result) {
+    return
+  }
   const startPosition = vscode.window.activeTextEditor.document.positionAt(
     result.startOffset
   )
   const endPosition = vscode.window.activeTextEditor.document.positionAt(
     result.endOffset
   )
-  // if (i > 100) {
-  //   vscode.window.showErrorMessage('endless loop detected')
-  //   return
-  // }
   vscode.window.activeTextEditor.edit(
     editBuilder => {
       editBuilder.replace(
@@ -78,10 +74,11 @@ export const localPluginCompletionElementAutoRenameTag: LocalPlugin = api => {
       rangeStart.line,
       rangeStart.character + lastChange.text.length
     )
-    await askServerForCompletionElementAutoRenameTag(
+    const result = await askServerForCompletionElementAutoRenameTag(
       api,
       event.document,
       position
     )
+    applyResult(result)
   })
 }

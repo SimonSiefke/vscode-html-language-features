@@ -68,8 +68,9 @@ const applyResults = (results: Result[]) => {
       return [
         [startTagOffset + 1, startTagOffset + result.tagName.length + 1],
       ] as [number, number][]
+    } else {
+      throw new Error(`unknown result type ${result.type}`)
     }
-    return []
   })
   setDecorations(decorations)
 }
