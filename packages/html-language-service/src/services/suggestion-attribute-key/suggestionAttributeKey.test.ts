@@ -1,6 +1,6 @@
 import { doSuggestionAttributeKey } from './suggestionAttributeKey'
 
-jest.mock('html-intellicode', () => ({
+jest.mock('@html-language-features/html-intellicode', () => ({
   statisticsForAttributes: {
     h1: [
       {
