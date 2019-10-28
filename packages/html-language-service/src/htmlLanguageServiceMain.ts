@@ -1,3 +1,4 @@
+export { doHoverElement } from './services/hover-element/hoverElement'
 export {
   findMatchingTags,
 } from './services/util/findMatchingTags/findMatchingTags'

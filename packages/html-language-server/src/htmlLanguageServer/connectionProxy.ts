@@ -129,7 +129,7 @@ export const createConnectionProxy: (
   const onSignatureHelpHandlers: any[] = []
   const onRequestHandlers: any[] = []
   return {
-    onHover(handler) {
+    onHover: handler => {
       onHoverHandlers.push(handler)
       if (onHoverHandlers.length === 1) {
         connection.onHover(
@@ -149,7 +149,7 @@ export const createConnectionProxy: (
         )
       }
     },
-    onCompletion(handler) {
+    onCompletion: handler => {
       onCompletionHandlers.push(handler)
       if (onCompletionHandlers.length === 1) {
         connection.onCompletion(
@@ -172,7 +172,7 @@ export const createConnectionProxy: (
         )
       }
     },
-    onCompletionResolve(handler) {
+    onCompletionResolve: handler => {
       connection.onCompletionResolve(
         runSafe(
           handler,
@@ -181,12 +181,12 @@ export const createConnectionProxy: (
         )
       )
     },
-    onSignatureHelp(handler) {
+    onSignatureHelp: handler => {
       connection.onSignatureHelp(
         runSafe(handler, ErrorMessages.onSignatureHelpError, 'onSignatureHelp')
       )
     },
-    onRequest(requestType, handler) {
+    onRequest: (requestType, handler) => {
       connection.onRequest(
         requestType,
         runSafe(

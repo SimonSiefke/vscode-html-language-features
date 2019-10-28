@@ -62,7 +62,7 @@ const createCompletionItems: (
   ]
 }
 
-export const remotePluginSuggestAttributeKey: RemotePlugin = api => {
+export const remotePluginSuggestionAttributeKey: RemotePlugin = api => {
   api.languageServer.onCompletion(({ textDocument, position }) => {
     const document = api.documents.get(textDocument.uri) as TextDocument
     const text = document.getText(Range.create(Position.create(0, 0), position))

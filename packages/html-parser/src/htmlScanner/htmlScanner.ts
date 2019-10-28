@@ -160,7 +160,7 @@ export function createScanner(
   }
 }
 
-const scanner = createScanner('<style>css</style>') // ?
+const scanner = createScanner('<style/>css<style/>') // ?
 
 scanner.scan() // ?
 scanner.getTokenText() // ?

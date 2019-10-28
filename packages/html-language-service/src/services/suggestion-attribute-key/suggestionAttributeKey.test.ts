@@ -57,10 +57,6 @@ test('suggestion-attribute-key', () => {
       expected: undefined,
     },
     {
-      input: '<h1>|',
-      expected: undefined,
-    },
-    {
       input: '<h1></|',
       expected: undefined,
     },

@@ -5,6 +5,7 @@ export interface RemotePluginApi {
   languageServer: {
     onRequest: ConnectionProxy['onRequest']
     onCompletion: ConnectionProxy['onCompletion']
+    onHover: ConnectionProxy['onHover']
   }
   documents: {
     get: TextDocuments['get']

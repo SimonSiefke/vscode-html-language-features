@@ -14,33 +14,36 @@ import { addConfig } from '@html-language-features/html-language-service'
 import { remotePluginCompletionElementSelfClosing } from './plugins/remote-plugin-completion-element-self-closing/remotePluginCompletionElementSelfClosing'
 import { remotePluginCompletionElementAutoRenameTag } from './plugins/remote-plugin-completion-element-auto-rename-tag/remotePluginCompletionElementAutoRenameTag'
 import { remotePluginSuggestionElementStartTag } from './plugins/remote-plugin-suggestion-element-start-tag/remotePluginSuggestionElementStartTag'
-import { remotePluginSuggestAttributeKey } from './plugins/remote-plugin-suggestion-attribute-key/remotePluginSuggestionAttributeKey'
+import { remotePluginSuggestionAttributeKey } from './plugins/remote-plugin-suggestion-attribute-key/remotePluginSuggestionAttributeKey'
 import { remotePluginHighlightElementMatchingTag } from './plugins/remote-plugin-highlight-element-matching-tag/remotePluginHighlightElementMatchingTag'
+import { remotePluginHoverElement } from './plugins/remote-plugin-hover-element/remotePluginHoverElement'
 
-// Create a connection for the server
 const connection: IConnection = createConnection()
 
 console.log = connection.console.log.bind(connection.console)
 console.error = connection.console.error.bind(connection.console)
 
-// Create a text document manager.
 const documents: TextDocuments = new TextDocuments(
   TextDocumentSyncKind.Incremental
 )
-// Make the text document manager listen on the connection
-// for open, change and close text document events
+
 documents.listen(connection)
 
-// After the server has started the client sends an initialize request. The server receives
-// in the passed params the rootPath of the workspace plus the client capabilities
+connection.onCompletion(event => {
+  return new Promise(() => {})
+})
+
 connection.onInitialize(() => {
   const capabilities: ServerCapabilities = {
     textDocumentSync: documents.syncKind,
     completionProvider: {
-      // resolveProvider: false,
+      // resolveProvider: false, // TODO would this be more efficient?
       triggerCharacters: ['<'],
     },
-    // hoverProvider: true,
+    // hoverProvider: {
+    //   workDoneProgress: true,
+    // },
+    hoverProvider: true, // TODO progress ?
   }
   return { capabilities }
 })
@@ -61,36 +64,12 @@ connection.onInitialized(async () => {
   remotePluginCompletionElementSelfClosing(api)
   remotePluginCompletionElementAutoRenameTag(api)
 
-  remotePluginSuggestionElementStartTag(api)
-  remotePluginSuggestAttributeKey(api)
-
   remotePluginHighlightElementMatchingTag(api)
+
+  remotePluginHoverElement(api)
+
+  remotePluginSuggestionElementStartTag(api)
+  remotePluginSuggestionAttributeKey(api)
 })
 
-// connectionProxy.onCompletion(({ textDocument, position }) => {
-//   const document = documents.get(textDocument.uri) as TextDocument
-//   const regions = parseRegions(document.getText())
-//   const offset = document.offsetAt(position)
-//   if (regions.find(region => region.start <= offset && offset <= region.end)) {
-//     return undefined
-//   }
-//   // return doComplete(document, position)
-// })
-
-// connectionProxy.onRequest(
-//   new RequestType<
-//     TextDocumentPositionParams,
-//     { startOffset: number; endOffset: number; word: string },
-//     any,
-//     any
-//   >('html/auto-rename-tag'),
-//   async ({ textDocument, position }) => {
-//     const document = documents.get(textDocument.uri) as TextDocument
-//     const text = document.getText()
-//     const offset = document.offsetAt(position)
-//     return doAutoRenameTagCompletion(text, offset)
-//   }
-// )
-
-// Listen on the connection
 connection.listen()
