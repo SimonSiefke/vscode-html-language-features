@@ -5,6 +5,9 @@ import {
   createScanner,
 } from '@html-language-features/html-parser'
 
+const isComment: (tagName: string) => boolean = tagName =>
+  tagName.startsWith('!--')
+
 /**
  * Completion for automatically closing elements.
  *
@@ -38,7 +41,7 @@ export const doCompletionElementAutoClose: (
     return undefined
   }
   const tagName = scanner.getTokenText()
-  if (isSelfClosingTag(tagName)) {
+  if (isSelfClosingTag(tagName) || isComment(tagName)) {
     return undefined
   }
   let completionString: string

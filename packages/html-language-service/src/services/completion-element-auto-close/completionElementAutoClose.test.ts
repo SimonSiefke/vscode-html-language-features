@@ -50,6 +50,10 @@ test('completion-element-auto-close', () => {
       expected: undefined,
     },
     {
+      input: '<!---->|',
+      expected: undefined,
+    },
+    {
       input: '<button />|',
       expected: undefined,
     },
