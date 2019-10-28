@@ -17,7 +17,11 @@ export const doSuggestionAttributeKey: (
   if (!scanner.stream.currentlyEndsWithRegex(/<[\S]+\s+[\s\S]*$/)) {
     return undefined
   }
-  scanner.stream.goBackToUntilChar('<')
+  scanner.stream.goBackToUntilEitherChar('<', '>')
+  const char = scanner.stream.peekLeft()
+  if (char === '>') {
+    return undefined
+  }
   scanner.state = ScannerState.AfterOpeningStartTag
   scanner.scan()
   const tagName = scanner.getTokenText()
@@ -32,4 +36,4 @@ export const doSuggestionAttributeKey: (
   return statisticsForAttributes[tagName]
 }
 
-doSuggestionAttributeKey('<h1 ', '<h1'.length) //?
+doSuggestionAttributeKey('<h1 > ', 4) //?

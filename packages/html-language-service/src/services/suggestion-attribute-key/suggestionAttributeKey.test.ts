@@ -37,12 +37,15 @@ test('suggestion-attribute-key', () => {
       expected: [{ name: 'class', probability: 1 }],
     },
     {
-      input: `<h1 class="big"
-                  |`,
+      input: `<h1 class="big"\n  |`,
       expected: [{ name: 'class', probability: 1 }],
     },
     {
       input: '<h1>|',
+      expected: undefined,
+    },
+    {
+      input: `<h1>\n|`,
       expected: undefined,
     },
     {
@@ -60,6 +63,14 @@ test('suggestion-attribute-key', () => {
     {
       input: '<h1></|',
       expected: undefined,
+    },
+    {
+      input: '<h1></h1>|',
+      expected: undefined,
+    },
+    {
+      input: '<h1></h1><h1 |',
+      expected: [{ name: 'class', probability: 1 }],
     },
     {
       input: '<Daten/|',
