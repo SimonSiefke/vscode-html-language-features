@@ -24,6 +24,25 @@ const highlightElementMatchingTagDecorationType = vscode.window.createTextEditor
   }
 )
 
+const askServerForHighlightElementMatchingTag: (
+  api: LocalPluginApi,
+  document: vscode.TextDocument,
+  position: vscode.Position
+) => Promise<Result> = async (api, document, position) => {
+  const params = api.languageClient.code2ProtocolConverter.asTextDocumentPositionParams(
+    document,
+    position
+  )
+  const result = await api.languageClient.sendRequest(requestType, params)
+  if (
+    !vscode.window.activeTextEditor ||
+    vscode.window.activeTextEditor.document.version !== document.version
+  ) {
+    throw new Error('too slow')
+  }
+  return result
+}
+
 const setDecorations: (
   decorationOffsets: [number, number][]
 ) => void = decorationOffsets => {
@@ -41,52 +60,40 @@ const setDecorations: (
   )
 }
 
-const askServerForHighlightElementMatchingTag: (
-  api: LocalPluginApi,
-  document: vscode.TextDocument,
-  position: vscode.Position
-) => Promise<void> = async (api, document, position) => {
-  const params = api.languageClient.code2ProtocolConverter.asTextDocumentPositionParams(
-    document,
-    position
-  )
-
-  const result = await api.languageClient.sendRequest(requestType, params)
-  if (!result) {
-    setDecorations([])
-    return
-  }
-  if (
-    !vscode.window.activeTextEditor ||
-    vscode.window.activeTextEditor.document.version !== document.version
-  ) {
-    throw new Error('too slow')
-  }
-  console.log(result)
-
-  if (result.type === 'startAndEndTag') {
-    const startTagOffset = result.startTagOffset
-    setDecorations([
-      [startTagOffset + 1, startTagOffset + result.tagName.length + 1],
-    ])
-  }
+const applyResults = (results: Result[]) => {
+  const decorations = results.filter(Boolean).flatMap(result => {
+    if (result.type === 'startAndEndTag') {
+      const startTagOffset = result.startTagOffset
+      // TODO also highlight end tag
+      return [
+        [startTagOffset + 1, startTagOffset + result.tagName.length + 1],
+      ] as [number, number][]
+    }
+    return []
+  })
+  setDecorations(decorations)
 }
 
 export const localPluginHighlightElementMatchingTag: LocalPlugin = async api => {
   api.vscode.window.onDidChangeTextEditorSelection(async event => {
-    await askServerForHighlightElementMatchingTag(
-      api,
-      event.textEditor.document,
-      event.selections[0].active
+    const document = vscode.window.activeTextEditor.document
+    const results = await Promise.all(
+      event.selections.map(selection =>
+        askServerForHighlightElementMatchingTag(api, document, selection.active)
+      )
     )
+    applyResults(results)
   })
   if (vscode.window.activeTextEditor) {
-    await askServerForHighlightElementMatchingTag(
-      api,
-      vscode.window.activeTextEditor.document,
-      vscode.window.activeTextEditor.selection.active
+    const results = await Promise.all(
+      vscode.window.activeTextEditor.selections.map(selection =>
+        askServerForHighlightElementMatchingTag(
+          api,
+          vscode.window.activeTextEditor.document,
+          selection.active
+        )
+      )
     )
+    applyResults(results)
   }
-  // api.vscode.workspace.onDidChangeTextDocument
-  // api.
 }
