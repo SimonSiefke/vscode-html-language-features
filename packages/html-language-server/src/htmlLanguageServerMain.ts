@@ -15,6 +15,7 @@ import { remotePluginCompletionElementSelfClosing } from './plugins/remote-plugi
 import { remotePluginCompletionElementAutoRenameTag } from './plugins/remote-plugin-completion-element-auto-rename-tag/remotePluginCompletionElementAutoRenameTag'
 import { remotePluginSuggestionElementStartTag } from './plugins/remote-plugin-suggestion-element-start-tag/remotePluginSuggestionElementStartTag'
 import { remotePluginSuggestAttributeKey } from './plugins/remote-plugin-suggestion-attribute-key/remotePluginSuggestionAttributeKey'
+import { remotePluginHighlightElementMatchingTag } from './plugins/remote-plugin-highlight-element-matching-tag/remotePluginHighlightElementMatchingTag'
 
 // Create a connection for the server
 const connection: IConnection = createConnection()
@@ -60,6 +61,8 @@ connection.onInitialized(async () => {
 
   remotePluginSuggestionElementStartTag(api)
   remotePluginSuggestAttributeKey(api)
+
+  remotePluginHighlightElementMatchingTag(api)
 })
 
 // connectionProxy.onCompletion(({ textDocument, position }) => {

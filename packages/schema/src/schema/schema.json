@@ -46,10 +46,12 @@
               }
             },
             "experimental": {
-              "type": "boolean"
+              "type": "boolean",
+              "description": "Whether or not the element is experimental"
             },
             "deprecated": {
-              "type": "boolean"
+              "type": "boolean",
+              "description": "Whether or not the element is deprecated"
             },
             "description": {
               "type": "string",

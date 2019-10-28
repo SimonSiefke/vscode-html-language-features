@@ -26,6 +26,11 @@ export interface LocalPluginApi {
         typeof vscode.workspace.onDidChangeTextDocument
       >
     }
+    window: {
+      onDidChangeTextEditorSelection: AutoDispose<
+        typeof vscode.window.onDidChangeTextEditorSelection
+      >
+    }
   }
   languageClient: {
     code2ProtocolConverter: vsl.Code2ProtocolConverter

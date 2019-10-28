@@ -1,7 +1,7 @@
 {
   "elements": {
     "a": {
-      "self-closing": true,
+      "selfClosing": true,
       "attributes": {
         "download": {
           "type": "string"

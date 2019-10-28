@@ -112,10 +112,9 @@ export const getPreviousOpeningTagName: (
   }
 }
 
-// const text = `<select>
-//   <`
-// const offset = text.length //?
-// getPreviousOpeningTagName(createScanner(text), offset-1) //?
+const text = `<div>hello world`
+const offset = text.length //?
+getPreviousOpeningTagName(createScanner(text), offset - 1) //?
 
 export const getNextClosingTag: (
   scanner: Scanner,

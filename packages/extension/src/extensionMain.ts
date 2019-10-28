@@ -6,6 +6,7 @@ import { localPluginCompletionElementAutoClose } from './plugins/local-plugin-co
 import { localPluginCompletionElementClose } from './plugins/local-plugin-completion-element-close/localPluginCompletionElementClose'
 import { localPluginCompletionElementSelfClosing } from './plugins/local-plugin-completion-element-self-closing/localPluginCompletionElementSelfClosing'
 import { localPluginCompletionElementAutoRenameTag } from './plugins/local-plugin-completion-element-auto-rename-tag/localPluginCompletionElementAutoRenameTag'
+import { localPluginHighlightElementMatchingTag } from './plugins/local-plugin-highlight-element-matching-tag/localPluginHighlightElementMatchingTag'
 
 export const activate: (
   context: vscode.ExtensionContext
@@ -17,4 +18,7 @@ export const activate: (
   languageClient.registerLocalPlugin(localPluginCompletionElementClose)
   languageClient.registerLocalPlugin(localPluginCompletionElementSelfClosing)
   languageClient.registerLocalPlugin(localPluginCompletionElementAutoRenameTag)
+  languageClient.registerLocalPlugin(localPluginHighlightElementMatchingTag)
+
+  // import('./services/Decoration')
 }

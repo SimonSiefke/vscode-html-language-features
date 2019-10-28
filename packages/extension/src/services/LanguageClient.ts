@@ -4,9 +4,9 @@ import { LocalPlugin, LocalPluginApi } from '../plugins/localPluginApi'
 
 // const defaultTimeout = 3 // for self closing tag
 // const defaultTimeout = 40 // for expand abbreviation
-// const defaultTimeout = 45
-const defaultTimeout = 100
-// const defaultTimeout = 350 // very large files
+// const defaultTimeout = 45 // normal files
+// const defaultTimeout = 100 // large files
+const defaultTimeout = 350 // very large files
 // const defaultTimeout = 1000 // for html spec
 
 class TimeoutError extends Error {}
@@ -150,6 +150,10 @@ export const createLanguageClient = async (
 
   const api: LocalPluginApi = {
     vscode: {
+      window: {
+        onDidChangeTextEditorSelection:
+          vscode.window.onDidChangeTextEditorSelection,
+      },
       workspace: {
         onDidChangeTextDocument: autoDispose(
           vscode.workspace.onDidChangeTextDocument
@@ -176,7 +180,7 @@ export const createLanguageClient = async (
         } catch (error) {
           if (error instanceof TimeoutError) {
             cancellationTokenSource.cancel()
-            vscode.window.showErrorMessage(
+            vscode.window.showWarningMessage(
               `Performance Violation: Request for ${type.method} took longer than ${defaultTimeout}ms`
             )
           } else {

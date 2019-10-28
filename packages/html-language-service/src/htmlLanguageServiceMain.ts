@@ -1,4 +1,7 @@
 export {
+  findMatchingTags,
+} from './services/util/findMatchingTags/findMatchingTags'
+export {
   doSuggestionAttributeKey,
 } from './services/suggestion-attribute-key/suggestionAttributeKey'
 export {

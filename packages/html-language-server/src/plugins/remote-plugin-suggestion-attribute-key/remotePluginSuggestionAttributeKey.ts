@@ -6,14 +6,11 @@ import {
   Range,
   Position,
 } from 'vscode-languageserver'
-import {
-  doSuggestionElementStartTag,
-  doSuggestionAttributeKey,
-} from 'html-language-service'
+import { doSuggestionAttributeKey } from 'html-language-service'
 
 const thinSpace = `\u2009`
 const weirdCharAtTheEndOfTheAlphabet = `\uE83A`
-const blueishIcon = CompletionItemKind.Variable
+const orangeIcon = CompletionItemKind.Value
 
 const createCompletionItems: (
   items: {
@@ -36,7 +33,7 @@ const createCompletionItems: (
   return [
     ...recommendedItems.map(item => ({
       label: `★${thinSpace}${item.name}`,
-      kind: blueishIcon,
+      kind: orangeIcon,
       filterText: item.name,
       sortText: item.name,
       // detail: `${(item.probability * 100).toFixed(2)}% Match`,
@@ -50,7 +47,7 @@ const createCompletionItems: (
     })),
     ...otherItems.map(item => ({
       label: item.name,
-      kind: blueishIcon,
+      kind: orangeIcon,
       filterText: `${weirdCharAtTheEndOfTheAlphabet} ${item.name}`,
       sortText: `${weirdCharAtTheEndOfTheAlphabet} ${item.name}`,
       // detail: `${(item.probability * 100).toFixed(2)}% Match`,

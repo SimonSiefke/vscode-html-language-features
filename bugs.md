@@ -92,3 +92,5 @@ cannot expand after last li
 ```
 
 <!-- analyze error (statistics): https://github.com/lyons194/Intellident-Website-Python-Flask -->
+
+<!-- rename tag not working when typing fast -->
