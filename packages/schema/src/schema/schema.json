@@ -4,6 +4,83 @@
   "type": "object",
   "default": {},
   "additionalProperties": false,
+  "definitions": {
+    "attributes": {
+      "type": "object",
+      "description": "Attributes of the element",
+      "patternProperties": {
+        ".*": {
+          "oneOf": [
+            {
+              "type": "object",
+              "required": ["$ref"],
+              "properties": {
+                "$ref": {
+                  "type": "string",
+                  "description": "Reference to a definition"
+                }
+              },
+              "additionalProperties": false
+            },
+            {
+              "type": "object",
+              "additionalProperties": false,
+              "properties": {
+                "required": {
+                  "type": "boolean",
+                  "description": "Whether or not the attribute is required"
+                },
+                "experimental": {
+                  "type": "boolean",
+                  "description": "Whether or not the attribute is experimental"
+                },
+                "deprecated": {
+                  "type": "boolean",
+                  "description": "Whether or not the attribute is deprecated"
+                },
+                "description": {
+                  "type": "string",
+                  "description": "Description for the attribute"
+                },
+                "options": {
+                  "type": "object",
+                  "description": "Options for the enum value",
+                  "patternProperties": {
+                    ".*": {
+                      "type": "object",
+                      "properties": {
+                        "description": {
+                          "type": "string",
+                          "description": "description for the option"
+                        }
+                      }
+                    }
+                  }
+                },
+                "suggest": {
+                  "type": "string",
+                  "description": "suggested value of the attribute"
+                },
+                "type": {
+                  "description": "type of the attribute",
+                  "type": "string",
+                  "enum": [
+                    "string",
+                    "integer",
+                    "url",
+                    "lang",
+                    "enum",
+                    "boolean",
+                    "number"
+                  ]
+                }
+              }
+            }
+          ]
+        }
+      }
+    }
+  },
   "properties": {
     "$comment": {
       "type": "string",
@@ -14,6 +91,17 @@
       "description": "Extend other configurations",
       "items": {
         "type": "string"
+      }
+    },
+    "definitions": {
+      "description": "Custom definitions",
+      "type": "object",
+      "required": ["attributes"],
+      "additionalProperties": false,
+      "properties": {
+        "attributes": {
+          "$ref": "#/definitions/attributes"
+        }
       }
     },
     "elements": {
@@ -92,63 +180,7 @@
               }
             },
             "attributes": {
-              "type": "object",
-              "patternProperties": {
-                ".*": {
-                  "type": "object",
-                  "additionalProperties": false,
-                  "properties": {
-                    "required": {
-                      "type": "boolean",
-                      "description": "Whether or not the attribute is required"
-                    },
-                    "experimental": {
-                      "type": "boolean",
-                      "description": "Whether or not the attribute is experimental"
-                    },
-                    "deprecated": {
-                      "type": "boolean",
-                      "description": "Whether or not the attribute is deprecated"
-                    },
-                    "description": {
-                      "type": "string",
-                      "description": "Description for the attribute"
-                    },
-                    "options": {
-                      "type": "object",
-                      "description": "Options for the enum value",
-                      "patternProperties": {
-                        ".*": {
-                          "type": "object",
-                          "properties": {
-                            "description": {
-                              "type": "string",
-                              "description": "description for the option"
-                            }
-                          }
-                        }
-                      }
-                    },
-                    "suggest": {
-                      "type": "string",
-                      "description": "suggested value of the attribute"
-                    },
-                    "type": {
-                      "description": "type of the attribute",
-                      "type": "string",
-                      "enum": [
-                        "string",
-                        "integer",
-                        "url",
-                        "lang",
-                        "enum",
-                        "boolean",
-                        "number"
-                      ]
-                    }
-                  }
-                }
-              }
+              "$ref": "#/definitions/attributes"
             }
           }
         }
