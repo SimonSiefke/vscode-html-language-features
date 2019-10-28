@@ -6,7 +6,7 @@ import {
   Position,
   TextDocument,
 } from 'vscode-languageserver'
-import { doCompletionElementExpand } from 'html-language-service'
+import { doCompletionElementExpand } from '@html-language-features/html-language-service'
 
 type Result = {
   completionString: string

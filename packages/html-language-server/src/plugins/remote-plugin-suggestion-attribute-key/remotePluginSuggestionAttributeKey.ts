@@ -6,7 +6,7 @@ import {
   Range,
   Position,
 } from 'vscode-languageserver'
-import { doSuggestionAttributeKey } from 'html-language-service'
+import { doSuggestionAttributeKey } from '@html-language-features/html-language-service'
 
 const thinSpace = `\u2009`
 const weirdCharAtTheEndOfTheAlphabet = `\uE83A`

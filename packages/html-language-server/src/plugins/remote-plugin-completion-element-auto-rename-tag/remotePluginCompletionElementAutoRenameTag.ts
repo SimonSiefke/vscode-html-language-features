@@ -6,7 +6,7 @@ import {
   Position,
   TextDocument,
 } from 'vscode-languageserver'
-import { doCompletionElementAutoRenameTag } from 'html-language-service'
+import { doCompletionElementAutoRenameTag } from '@html-language-features/html-language-service'
 
 type Result = {
   startOffset: number

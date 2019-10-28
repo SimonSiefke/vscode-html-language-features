@@ -4,7 +4,7 @@ import {
   TextDocumentPositionParams,
   TextDocument,
 } from 'vscode-languageserver'
-import { findMatchingTags } from 'html-language-service'
+import { findMatchingTags } from '@html-language-features/html-language-service'
 
 type Result = {
   type: 'startAndEndTag'

@@ -4,7 +4,7 @@ import {
   TextDocumentPositionParams,
   TextDocument,
 } from 'vscode-languageserver'
-import { doCompletionElementClose } from 'html-language-service'
+import { doCompletionElementClose } from '@html-language-features/html-language-service'
 
 type Result = {
   completionString: string

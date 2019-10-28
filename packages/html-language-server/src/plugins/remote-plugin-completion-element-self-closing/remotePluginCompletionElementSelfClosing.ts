@@ -6,7 +6,7 @@ import {
   Range,
   Position,
 } from 'vscode-languageserver'
-import { doCompletionElementSelfClosing } from 'html-language-service'
+import { doCompletionElementSelfClosing } from '@html-language-features/html-language-service'
 
 type Result = {
   completionString: string

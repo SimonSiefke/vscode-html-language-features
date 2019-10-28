@@ -10,7 +10,7 @@ import { RemotePluginApi } from './plugins/remotePluginApi'
 import { remotePluginCompletionElementAutoClose } from './plugins/remote-plugin-completion-element-auto-close/remotePluginCompletionElementAutoClose'
 import { remotePluginCompletionElementClose } from './plugins/remote-plugin-completion-element-close/remotePluginCompletionElementClose'
 import { remotePluginCompletionElementExpand } from './plugins/remote-plugin-completion-element-expand/remotePluginCompletionElementExpand'
-import { addConfig } from 'html-language-service'
+import { addConfig } from '@html-language-features/html-language-service'
 import { remotePluginCompletionElementSelfClosing } from './plugins/remote-plugin-completion-element-self-closing/remotePluginCompletionElementSelfClosing'
 import { remotePluginCompletionElementAutoRenameTag } from './plugins/remote-plugin-completion-element-auto-rename-tag/remotePluginCompletionElementAutoRenameTag'
 import { remotePluginSuggestionElementStartTag } from './plugins/remote-plugin-suggestion-element-start-tag/remotePluginSuggestionElementStartTag'
@@ -46,7 +46,9 @@ connection.onInitialize(() => {
 })
 
 connection.onInitialized(async () => {
-  const { essentialConfig } = await import('schema/dist/configs')
+  const { essentialConfig } = await import(
+    '@html-language-features/schema/dist/configs'
+  )
   addConfig(essentialConfig)
   const connectionProxy = createConnectionProxy(connection)
   const api: RemotePluginApi = {
