@@ -99,13 +99,16 @@
                   "additionalProperties": false,
                   "properties": {
                     "required": {
-                      "type": "boolean"
+                      "type": "boolean",
+                      "description": "Whether or not the attribute is required"
                     },
                     "experimental": {
-                      "type": "boolean"
+                      "type": "boolean",
+                      "description": "Whether or not the attribute is experimental"
                     },
                     "deprecated": {
-                      "type": "boolean"
+                      "type": "boolean",
+                      "description": "Whether or not the attribute is deprecated"
                     },
                     "description": {
                       "type": "string",
@@ -113,6 +116,7 @@
                     },
                     "options": {
                       "type": "object",
+                      "description": "Options for the enum value",
                       "patternProperties": {
                         ".*": {
                           "type": "object",
@@ -127,10 +131,10 @@
                     },
                     "suggest": {
                       "type": "string",
-                      "description": "suggested value"
+                      "description": "suggested value of the attribute"
                     },
                     "type": {
-                      "description": "type",
+                      "description": "type of the attribute",
                       "type": "string",
                       "enum": [
                         "string",
