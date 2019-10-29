@@ -1,7 +1,6 @@
 import { createScanner } from '@html-language-features/html-parser'
-import { statisticsForTags } from '@html-language-features/html-intellicode'
-
 import { getPreviousOpeningTagName } from '../util/getParentTagName'
+import { getSuggestedTags } from '../../data/Data'
 
 /**
  * Suggestion for start tag
@@ -10,7 +9,7 @@ import { getPreviousOpeningTagName } from '../util/getParentTagName'
 export const doSuggestionElementStartTag: (
   text: string,
   offset: number
-) => { probability: number; name: string }[] | undefined = (text, offset) => {
+) => { probability?: number; name: string }[] | undefined = (text, offset) => {
   const scanner = createScanner(text)
   scanner.stream.goTo(offset)
   if (!scanner.stream.currentlyEndsWithRegex(/<[\S]*$/)) {
@@ -42,7 +41,7 @@ export const doSuggestionElementStartTag: (
 
   console.log('parent is' + parent)
   const parentTagName = (parent && parent.tagName) || 'root'
-  const suggestions = statisticsForTags[parentTagName]
+  const suggestions = getSuggestedTags(parentTagName)
 
   console.log(JSON.stringify(suggestions))
   return suggestions

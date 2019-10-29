@@ -8,6 +8,7 @@ let reversedStatistics = {}
 let statisticsWithProbabilities = {}
 let sourceUrl: string
 let numberOfFiles: number
+let meta = {}
 
 export const analyzeDirectoryForAttributes = async (
   inputDirectory,
@@ -20,6 +21,7 @@ export const analyzeDirectoryForAttributes = async (
   reversedStatistics = {}
   statisticsWithProbabilities = {}
   numberOfFiles = -1
+  meta = {}
   const htmlFiles: string[] = await new Promise((resolve, reject) => {
     glob(`${inputDirectory}/**/*.html`, function(er, files) {
       if (er) {
@@ -45,8 +47,12 @@ export const analyzeDirectoryForAttributes = async (
     computeStatisticsWithProbabilities()
     fs.ensureDirSync(outputDirectory)
     fs.writeFileSync(
-      path.join(outputDirectory, `${outputFileName}.statistics.json`),
-      JSON.stringify(statisticsWithProbabilities, null, 2) + '\n'
+      path.join(outputDirectory, `${outputFileName}.htmlData.json`),
+      JSON.stringify(
+        { __meta__: meta, elements: statisticsWithProbabilities },
+        null,
+        2
+      ) + '\n'
     )
   } catch (error) {
     console.error('failed to process')
@@ -136,13 +142,13 @@ const isIgnoredAttribute = (attribute: string) =>
   attribute.startsWith('xml:')
 
 const computeStatisticsWithProbabilities = () => {
-  statisticsWithProbabilities['__meta__'] = {
+  meta = {
     numberOfFiles,
     sourceUrl,
   }
   statistics
   for (const tag in statistics) {
-    statisticsWithProbabilities[tag] = []
+    statisticsWithProbabilities[tag] = {}
     statistics[tag] //?
     console.log('stats')
 
@@ -152,6 +158,9 @@ const computeStatisticsWithProbabilities = () => {
 
     const occurrences = statistics[tag].___occurrences
     delete statistics[tag]['___occurrences']
+    statisticsWithProbabilities[tag] = {
+      attributes: {},
+    }
     for (const attribute in statistics[tag]) {
       const max = Object.values(statistics[tag][attribute]).reduce(
         // @ts-ignore
@@ -161,22 +170,28 @@ const computeStatisticsWithProbabilities = () => {
 
       statistics[tag][attribute] //?
 
-      let values = []
+      let values = {}
       if (isIgnoredAttribute(attribute)) {
         continue
       }
       if (!isIgnoredAttributeValue(attribute)) {
-        values = Object.entries(statistics[tag][attribute]).map(
+        for (const [key, value] of Object.entries(statistics[tag][attribute])) {
           // @ts-ignore
-          ([key, value]) => ({ name: key, probability: value / max })
-        )
+          values[key] = { probability: value / max }
+        }
+        // values = Object.entries(statistics[tag][attribute]).map(
+        //   ([key, value]) => ({
+        //     name: key,
+        //     probability: value / max,
+        //   })
+        // )
       }
-      statisticsWithProbabilities[tag].push({
-        name: attribute,
+
+      statisticsWithProbabilities[tag].attributes[attribute] = {
         // @ts-ignore
         probability: max / occurrences,
-        values,
-      })
+        options: Object.keys(values).length > 0 ? values : undefined,
+      }
       console.log('max is' + max)
       console.log('maxmax is' + maxMax)
       // reversedStatistics[tag][attribute] = Object.values(
@@ -203,9 +218,7 @@ const computeStatisticsWithProbabilities = () => {
 //   }
 // }
 
-analyze(
-  '<h1 class="big" width="10px"><button>hello world</button></h1><h1 class="red"></h1>'
-)
+analyze('<option value=""></option>')
 computeStatisticsWithProbabilities()
 
-statisticsWithProbabilities['h1'] //?
+statisticsWithProbabilities['option'] //?

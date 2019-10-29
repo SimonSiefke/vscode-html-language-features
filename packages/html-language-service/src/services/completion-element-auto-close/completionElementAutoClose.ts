@@ -1,9 +1,9 @@
-import { shouldHaveNewline, isSelfClosingTag } from '../../data/HTMLManager'
 import {
   ScannerState,
   TokenType,
   createScanner,
 } from '@html-language-features/html-parser'
+import { isSelfClosingTag, shouldHaveNewline } from '../../data/Data'
 
 const isComment: (tagName: string) => boolean = tagName =>
   tagName.startsWith('!--')

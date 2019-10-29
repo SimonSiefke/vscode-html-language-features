@@ -1,4 +1,3 @@
-import { getHTMLTags } from '../../data/HTMLManager'
 import {
   createScanner,
   ScannerState,

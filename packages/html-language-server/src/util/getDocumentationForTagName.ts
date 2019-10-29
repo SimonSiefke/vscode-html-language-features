@@ -1,7 +1,7 @@
 import { MarkupKind } from 'vscode-languageserver'
 import {
-  getInfoDescriptionForHtmlTag,
-  getInfoReference,
+  getDescriptionForTag,
+  getReferenceForTag,
 } from '@html-language-features/html-language-service'
 
 export const getDocumentationForTagName: (
@@ -9,12 +9,12 @@ export const getDocumentationForTagName: (
 ) =>
   | { kind: typeof MarkupKind.Markdown; value: string }
   | undefined = tagName => {
-  const description = getInfoDescriptionForHtmlTag(tagName)
+  const description = getDescriptionForTag(tagName)
   if (!description) {
     return undefined
   }
   let finalDescription = description
-  const reference = getInfoReference(tagName)
+  const reference = getReferenceForTag(tagName)
   if (reference) {
     finalDescription = `${finalDescription}\n\n[${reference.name}](${reference.url})`
   }

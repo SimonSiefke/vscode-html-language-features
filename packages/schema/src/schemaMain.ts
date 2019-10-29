@@ -1,3 +1,3 @@
-import schema from './schema/schema.json'
-export { schema }
-export { Config, getConfig } from './getConfig.js'
+export { ValidationError } from 'jsonschema'
+export { mergeConfigs } from './mergeConfig/mergeConfigs'
+export * from './Config'

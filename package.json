@@ -7,12 +7,12 @@
     "build": "tsc -b",
     "postinstall": "lerna bootstrap && tsc -b",
     "clean": "",
-    "test": "cd packages/html-language-service && npm run test",
+    "test": "cd packages/html-language-service && npm run test && cd ../../ && cd packages/schema && npm run test",
     "bundle": "npm run clean && npm run bundle:client && npm run bundle:server",
     "bundle:client": "webpack --mode production --config ./client.webpack.config.js",
     "bundle:server": "webpack --mode production --config ./server.webpack.config.js",
     "bundlesize": "bundlesize",
-    "package": "npm run bundle && node scripts/package.js && cd dist && vsce package"
+    "package": "rimraf dist && npm run bundle && node scripts/package.js && cd dist && vsce package"
   },
   "devDependencies": {
     "@types/jest": "^24.0.20",
@@ -21,12 +21,13 @@
     "fs-extra": "^8.1.0",
     "lerna": "^3.18.3",
     "merge-options": "^2.0.0",
+    "rimraf": "^3.0.0",
     "semantic-release": "^15.13.28",
     "semantic-release-vsce": "^2.2.8",
     "ts-loader": "^6.2.1",
     "ts-node": "^8.4.1",
-    "typescript": "^3.7.0-dev.20191013",
-    "webpack": "^4.41.2",
+    "typescript": "^3.8.0-dev.20191029",
+    "webpack": "^5.0.0-beta.1",
     "webpack-bundle-analyzer": "^3.6.0",
     "webpack-cli": "^3.3.9"
   },

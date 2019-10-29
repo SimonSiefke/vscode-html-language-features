@@ -1,5 +1,5 @@
-import { analyzeDirectoryForTags } from '../analyzeTags'
 import * as path from 'path'
+import { analyzeDirectoryForTags } from '../analyzeTags'
 import { analyzeDirectoryForAttributes } from '../analyzeAttributes'
 
 analyzeDirectoryForTags(

@@ -16,11 +16,13 @@ const blueishIcon = CompletionItemKind.Variable
 const createCompletionItems: (
   items: {
     name: string
-    probability: number
+    probability?: number
     // documentation?: string | undefined
   }[]
 ) => CompletionItem[] | undefined = items => {
-  const sortedItems = items.sort((a, b) => b.probability - a.probability)
+  const sortedItems = items.sort(
+    (a, b) => (b.probability || 0) - (a.probability || 0)
+  )
   const recommendedItems =
     sortedItems[0] && sortedItems[0].probability === 1 ? [sortedItems[0]] : []
   const otherItems =

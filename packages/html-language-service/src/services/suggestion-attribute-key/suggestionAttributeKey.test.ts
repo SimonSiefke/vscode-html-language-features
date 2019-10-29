@@ -1,15 +1,17 @@
 import { doSuggestionAttributeKey } from './suggestionAttributeKey'
+import { setConfig } from '../../data/Data'
 
-jest.mock('../../data/HTMLManager.ts', () => ({
-  getAttributes: (tagName: string) => {
-    if (tagName === 'h1') {
-      return {
-        class: {},
-      }
-    }
-    return undefined
-  },
-}))
+beforeEach(() => {
+  setConfig({
+    elements: {
+      h1: {
+        attributes: {
+          class: {},
+        },
+      },
+    },
+  })
+})
 
 test('suggestion-attribute-key', () => {
   const testCases: { input: string; expected: any | undefined }[] = [

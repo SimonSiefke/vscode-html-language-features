@@ -1,15 +1,14 @@
-import { statisticsForTags } from '@html-language-features/html-intellicode'
-import {
-  getHTMLTags,
-  isSelfClosingTag,
-  shouldHaveNewline,
-  addConfig,
-} from '../../data/HTMLManager'
 import {
   ScannerState,
   createScanner,
 } from '@html-language-features/html-parser'
 import { getPreviousOpeningTagName } from '../util/getParentTagName'
+import {
+  isTagName,
+  isSelfClosingTag,
+  shouldHaveNewline,
+  getSuggestedTags,
+} from '../../data/Data'
 
 const fuzzySearch = (tagName: string, abbreviation: string) => {
   // If the string is equal to the word, perfect match.
@@ -37,8 +36,8 @@ const fuzzySearch = (tagName: string, abbreviation: string) => {
  * Expands `div` into `div` but doesn't handle partial matches like `di`
  */
 const fallback = (abbreviation: string) => {
-  const htmlTagMap = getHTMLTags()
-  if (htmlTagMap[abbreviation]) {
+  console.log('fallback')
+  if (isTagName(abbreviation)) {
     return abbreviation
   }
   return undefined
@@ -55,7 +54,7 @@ export const expandAbbreviation = (
   abbreviation: string,
   parentTagName: string
 ): string | undefined => {
-  const suggestions = statisticsForTags[parentTagName]
+  const suggestions = getSuggestedTags(parentTagName)
   if (!suggestions) {
     return fallback(abbreviation)
   }
@@ -70,12 +69,11 @@ export const expandAbbreviation = (
     return fallback(abbreviation)
   }
   const sorted = relevantSuggestions.sort((a, b) => {
-    return b.score - a.score || b.probability - a.probability
+    return b.score - a.score || (b.probability || 0) - (a.probability || 0)
   })
   if (sorted[0].score === 1 || sorted[0].score >= 0.6) {
     return sorted[0].name
   }
-  // getHTMLTagNames()
   return fallback(abbreviation)
 }
 
@@ -93,11 +91,11 @@ export const doCompletionElementExpand: (
     })
   | undefined = (text, offset) => {
   const scanner = createScanner(text, { initialOffset: offset })
-  const prevChar = scanner.stream.peekLeft(1) //?
-  const currentChar = scanner.stream.peekRight(0) //?
-  const nextChar = scanner.stream.peekRight(1) //?
-  if (prevChar.trim() || !currentChar.trim()) {
-  }
+  // const prevChar = scanner.stream.peekLeft(1) //?
+  // const currentChar = scanner.stream.peekRight(0) //?
+  // const nextChar = scanner.stream.peekRight(1) //?
+  // if (prevChar.trim() || !currentChar.trim()) {
+  // }
   if (!scanner.stream.currentlyEndsWithRegex(/[\S]+$/)) {
     return undefined
   }

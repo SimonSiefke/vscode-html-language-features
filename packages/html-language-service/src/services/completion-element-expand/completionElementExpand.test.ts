@@ -1,10 +1,10 @@
 import { doCompletionElementExpand } from './completionElementExpand'
-import { addConfig } from '../../data/HTMLManager'
+import { setConfig } from '../../data/Data'
 
 // TODO
 
 beforeAll(() => {
-  addConfig({
+  setConfig({
     elements: {
       div: {
         newline: true,
@@ -19,7 +19,13 @@ beforeAll(() => {
       Daten: {},
       DatenSätze: {},
       option: {},
-      select: {},
+      select: {
+        allowedChildren: {
+          option: {
+            probability: 1,
+          },
+        },
+      },
     },
   })
 })

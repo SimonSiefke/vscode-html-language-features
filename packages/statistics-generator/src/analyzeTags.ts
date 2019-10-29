@@ -9,6 +9,7 @@ let finalStatistics = {}
 let statisticsWithProbabilities = {}
 let numberOfFiles = -1
 let sourceUrl
+let meta = {}
 
 export const analyzeDirectoryForTags = async (
   inputDirectory,
@@ -22,6 +23,7 @@ export const analyzeDirectoryForTags = async (
   finalStatistics = {}
   statisticsWithProbabilities = {}
   numberOfFiles = -1
+  meta = {}
   const htmlFiles: string[] = await new Promise((resolve, reject) => {
     glob(`${inputDirectory}/**/*.html`, function(er, files) {
       if (er) {
@@ -51,11 +53,20 @@ export const analyzeDirectoryForTags = async (
     computeStatisticsWithProbabilities()
     fs.ensureDirSync(outputDirectory)
     fs.writeFileSync(
-      path.join(outputDirectory, `${outputFileName}.statistics.json`),
-      JSON.stringify(statisticsWithProbabilities, null, 2) + '\n'
+      path.join(outputDirectory, `${outputFileName}.htmlData.json`),
+      JSON.stringify(
+        {
+          __meta__: meta,
+          elements: statisticsWithProbabilities,
+        },
+        null,
+        2
+      ) + '\n'
     )
   } catch (error) {
     console.error('failed to process')
+    console.error(error)
+    process.exit(1)
   }
 }
 
@@ -152,7 +163,7 @@ const finalizeStatistics = () => {
 }
 
 const computeStatisticsWithProbabilities = () => {
-  statisticsWithProbabilities['__meta__'] = {
+  meta = {
     numberOfFiles,
     sourceUrl,
   }
@@ -161,12 +172,16 @@ const computeStatisticsWithProbabilities = () => {
       (total, current) => total + current.frequency,
       0
     )
-    statisticsWithProbabilities[tag] = []
+    statisticsWithProbabilities[tag] = {
+      allowedChildren: {},
+    }
     for (const suggestion of finalStatistics[tag]) {
-      statisticsWithProbabilities[tag].push({
-        name: suggestion.name,
+      statisticsWithProbabilities[tag].allowedChildren[suggestion.name] = {
         probability: suggestion.frequency / max,
-      })
+      }
+      // statisticsWithProbabilities[tag].push({
+      //   name: suggestion.name,
+      // })
     }
   }
 

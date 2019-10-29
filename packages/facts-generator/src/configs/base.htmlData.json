@@ -19,7 +19,12 @@
       "newline": true
     },
     "div": {
-      "newline": true
+      "newline": true,
+      "allowedChildren": {
+        "div": {
+          "probability": 1
+        }
+      }
     },
     "dl": {
       "newline": true

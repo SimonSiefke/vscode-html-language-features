@@ -50,7 +50,7 @@ const createCompletionItems: (
     description?: string
   }[] = items.map(item => ({
     ...item,
-    recommended: item.probability !== undefined && item.probability > 0.95,
+    recommended: item.probability !== undefined && item.probability > 0.8,
   }))
 
   // const c: CompletionItem = {

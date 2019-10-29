@@ -2,24 +2,8 @@ import {
   createScanner,
   ScannerState,
 } from '@html-language-features/html-parser'
-import { statisticsForAttributes } from '@html-language-features/html-intellicode'
-import { getAttributes } from '../../data/HTMLManager'
+import { getSuggestedAttributes } from '../../data/Data'
 
-const mostLikelyAttributeName: (
-  tagName: string
-) =>
-  | { name: string; probability?: number; description?: string }[]
-  | undefined = tagName => {
-  const attributes = getAttributes(tagName)
-  if (!attributes) {
-    return undefined
-  }
-  return Object.entries(attributes).map(([key, value]) => ({
-    name: key,
-    ...value,
-  }))
-  // statisticsForAttributes[tagName]
-}
 /**
  * Completion for expanding tag
  *`sp` -> `<span></span>`.
@@ -56,7 +40,7 @@ export const doSuggestionAttributeKey: (
   // 1. import statistics
   // 2. fuzzy search in statistics[tagName][inCompleteAttributeName]
 
-  return mostLikelyAttributeName(tagName)
+  return getSuggestedAttributes(tagName)
 }
 
-doSuggestionAttributeKey('<h1 > ', 4) //?
+// doSuggestionAttributeKey('<h1 > ', 4) //?

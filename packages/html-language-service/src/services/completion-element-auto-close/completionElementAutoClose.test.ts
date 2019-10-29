@@ -1,8 +1,8 @@
 import { doCompletionElementAutoClose } from './completionElementAutoClose'
-import { addConfig } from '../../data/HTMLManager'
+import { setConfig } from '../../data/Data'
 
 beforeAll(() => {
-  addConfig({
+  setConfig({
     elements: {
       input: {
         selfClosing: true,

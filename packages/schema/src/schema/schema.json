@@ -10,6 +10,7 @@
       "description": "Attributes of the element",
       "patternProperties": {
         ".*": {
+          "description": "Attribute name",
           "oneOf": [
             {
               "type": "object",
@@ -26,6 +27,12 @@
               "type": "object",
               "additionalProperties": false,
               "properties": {
+                "probability": {
+                  "type": "number",
+                  "minimum": 0,
+                  "maximum": 1,
+                  "description": "The probability of this attribute"
+                },
                 "required": {
                   "type": "boolean",
                   "description": "Whether or not the attribute is required"
@@ -82,9 +89,8 @@
     }
   },
   "properties": {
-    "$comment": {
-      "type": "string",
-      "description": "Optional comment about this file"
+    "__meta__": {
+      "description": "Optional meta data about this file (comments etc.)"
     },
     "extends": {
       "type": "array",
@@ -109,7 +115,7 @@
       "default": {},
       "description": "HTML Elements",
       "patternProperties": {
-        "-.*": {
+        "^-.*": {
           "description": "Removed tag name",
           "type": "object",
           "properties": {},
@@ -121,15 +127,19 @@
           "additionalProperties": false,
           "properties": {
             "reference": {
+              "description": "Reference for additional information",
               "type": "object",
               "required": ["url", "name"],
               "additionalProperties": false,
               "properties": {
                 "url": {
-                  "type": "string"
+                  "type": "string",
+                  "format": "uri",
+                  "description": "Url of the reference"
                 },
                 "name": {
-                  "type": "string"
+                  "type": "string",
+                  "description": "Name of the reference"
                 }
               }
             },
@@ -160,14 +170,20 @@
               "description": "Whether or not there should be a new line when this tag is inserted"
             },
             "allowedChildren": {
-              "type": "array",
-              "items": {
-                "type": "object",
-                "additionalProperties": false,
-                "properties": {
-                  "category": {
-                    "type": "string",
-                    "enum": ["flow content"]
+              "description": "Allowed child elements",
+              "type": "object",
+              "additionalProperties": false,
+              "patternProperties": {
+                ".*": {
+                  "description": "Name of the child element",
+                  "type": "object",
+                  "properties": {
+                    "probability": {
+                      "description": "The probability that this element is a child element of the element",
+                      "type": "number",
+                      "minimum": 0,
+                      "maximum": 1
+                    }
                   }
                 }
               }

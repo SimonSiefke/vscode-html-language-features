@@ -59,7 +59,7 @@ export const createLanguageClient = async (
   // // //        Begin Debug         \\ \\ \\
   // //                                  \\ \\
   //                                        \\
-  if (true) {
+  if (false) {
     const streamLogs = true
     if (streamLogs) {
       // eslint-disable-next-line global-require

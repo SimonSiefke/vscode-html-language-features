@@ -1,3 +1,9 @@
+export {
+  addConfigs,
+  setConfig,
+  getDescriptionForTag,
+  getReferenceForTag,
+} from './data/Data'
 export { doHoverElement } from './services/hover-element/hoverElement'
 export {
   findMatchingTags,
@@ -23,9 +29,3 @@ export {
 export {
   doCompletionElementSelfClosing,
 } from './services/completion-element-self-closing/completionElementSelfClosing'
-export {
-  addConfig,
-  getInfoForHtmlTag,
-  getInfoDescriptionForHtmlTag,
-  getInfoReference,
-} from './data/HTMLManager'
