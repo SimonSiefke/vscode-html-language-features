@@ -8,6 +8,13 @@ import {
   getNextClosingTag,
 } from '../util/getParentTagName'
 
+// TODO: bug inside comment
+//
+//  <h1>
+//         hello world
+
+//         <!-- <h1 -->
+//       </h1>
 export const doCompletionElementAutoRenameTag: (
   text: string,
   offset: number
@@ -87,5 +94,5 @@ export const doCompletionElementAutoRenameTag: (
   }
 }
 
-// doAutoRenameTagCompletion('<div></dov>', 7) //?
+doCompletionElementAutoRenameTag('<input></dov>', 10) //?
 // createDoAutoRenameTagCompletion('', 5) //?

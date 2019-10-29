@@ -1,11 +1,20 @@
 import * as _ from 'lodash'
 import { getConfig, Config } from '@html-language-features/schema'
 
+interface Attribute {
+  description?: string
+  experimental?: boolean
+  deprecated?: boolean
+}
+
 interface Element {
   description?: string
   markdownDescription?: string
   selfClosing?: boolean
   newline?: boolean
+  attributes?: {
+    [key: string]: Attribute
+  }
   reference?: {
     url: string
     name: string
@@ -52,6 +61,11 @@ export const shouldHaveNewline = (tagName: string): boolean => {
 export const getInfoForHtmlTag = (tagName: string): Element | undefined => {
   return htmlTags[tagName]
 }
+
+export const getAttributes: (
+  tagName: string
+) => { [key: string]: Attribute } | undefined = tagName =>
+  htmlTags[tagName] && htmlTags[tagName].attributes
 
 export const getInfoDescriptionForHtmlTag = (
   tagName: string

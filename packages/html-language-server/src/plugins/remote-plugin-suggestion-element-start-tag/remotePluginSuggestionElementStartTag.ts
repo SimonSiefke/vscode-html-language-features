@@ -62,6 +62,7 @@ const createCompletionItems: (
       // detail: `${(item.probability * 100).toFixed(2)}% Match`,
       insertText: item.name,
       documentation: getDocumentationForTagName(item.name),
+      // tags: [CompletionItemTag.Deprecated] as CompletionItemTag[],
     })),
     ...otherItems.map(item => ({
       label: item.name,
@@ -70,6 +71,7 @@ const createCompletionItems: (
       sortText: `${weirdCharAtTheEndOfTheAlphabet} ${item.name}`,
       // detail: `${(item.probability * 100).toFixed(2)}% Match`,
       insertText: item.name,
+      // tags: [CompletionItemTag.Deprecated] as CompletionItemTag[],
       documentation: getDocumentationForTagName(item.name),
     })),
   ]
