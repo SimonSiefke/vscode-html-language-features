@@ -3,6 +3,7 @@ import {
   getHTMLTags,
   isSelfClosingTag,
   shouldHaveNewline,
+  addConfig,
 } from '../../data/HTMLManager'
 import {
   ScannerState,
@@ -91,16 +92,20 @@ export const doCompletionElementExpand: (
       completionOffset: number
     })
   | undefined = (text, offset) => {
-  const scanner = createScanner(text)
-  scanner.stream.goTo(offset)
+  const scanner = createScanner(text, { initialOffset: offset })
+  const prevChar = scanner.stream.peekLeft(1) //?
+  const currentChar = scanner.stream.peekRight(0) //?
+  const nextChar = scanner.stream.peekRight(1) //?
+  if (prevChar.trim() || !currentChar.trim()) {
+  }
   if (!scanner.stream.currentlyEndsWithRegex(/[\S]+$/)) {
     return undefined
   }
   const currentPosition = scanner.stream.position
   scanner.stream.goBackToUntilChar('\n')
-  const startOfLine = scanner.stream.position
+  const startOfLine = scanner.stream.position //?
   scanner.stream.goTo(currentPosition)
-  const tagNameRE = /[\S]/
+  const tagNameRE = /(?![>\/])[\S]/
   while (
     scanner.stream.position >= startOfLine &&
     tagNameRE.test(scanner.stream.peekLeft())
@@ -111,7 +116,8 @@ export const doCompletionElementExpand: (
   const completionOffset = scanner.stream.position
   scanner.state = ScannerState.WithinContent
   scanner.scan()
-  const incompleteTagName = scanner.getTokenText()
+  const incompleteTagName = scanner.getTokenText().trim()
+
   const parent = getPreviousOpeningTagName(scanner, completionOffset)
   let tagName: string | undefined
 
@@ -140,3 +146,25 @@ export const doCompletionElementExpand: (
     completionOffset,
   }
 }
+
+addConfig({
+  elements: {
+    div: {
+      newline: true,
+    },
+    h1: {},
+    ul: {
+      newline: true,
+    },
+    input: {
+      selfClosing: true,
+    },
+    Daten: {},
+    DatenSätze: {},
+    option: {},
+    select: {},
+  },
+})
+
+doCompletionElementExpand('<!-- -->div<!-- -->', 11) //?
+// doCompletionElementExpand('h1', 2) //?

@@ -6,6 +6,9 @@ import { addConfig } from '../../data/HTMLManager'
 beforeAll(() => {
   addConfig({
     elements: {
+      div: {
+        newline: true,
+      },
       h1: {},
       ul: {
         newline: true,
@@ -23,6 +26,39 @@ beforeAll(() => {
 
 test('completion-element-expand', () => {
   const testCases: { input: string; expected: string | undefined }[] = [
+    {
+      input: 'div |',
+      expected: undefined,
+    },
+    {
+      input: 'div div|',
+      expected: 'div <div>\n\t$0\n</div>',
+    },
+    {
+      input: '<!-- -->|',
+      expected: undefined,
+    },
+    {
+      input: '<!-- -->div|',
+      expected: '<!-- --><div>\n\t$0\n</div>',
+    },
+    {
+      input: '<!-- -->div|<!-- -->',
+      expected: '<!-- --><div>\n\t$0\n</div><!-- -->',
+    },
+    {
+      input: '<!-- --> div|',
+      expected: '<!-- --> <div>\n\t$0\n</div>',
+    },
+    // TODO
+    // {
+    //   input: '<!--  --> di|v <!--  -->',
+    //   expected: undefined,
+    // },
+    {
+      input: 'div|',
+      expected: '<div>\n\t$0\n</div>',
+    },
     {
       input: 'h1|',
       expected: '<h1>$0</h1>',
@@ -77,11 +113,11 @@ test('completion-element-expand', () => {
     if (testCase.expected === undefined) {
       expect(result).toBe(undefined)
     } else {
-      expect(result).toBeDefined()
-      expect(
+      const finalResult =
         text.slice(0, result && result.completionOffset) +
-          (result && result.completionString)
-      ).toBe(testCase.expected)
+        (result && result.completionString) +
+        text.slice(offset)
+      expect(finalResult).toBe(testCase.expected)
     }
   }
 })
