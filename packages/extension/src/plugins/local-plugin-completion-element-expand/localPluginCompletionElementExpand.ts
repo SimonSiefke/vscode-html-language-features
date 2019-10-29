@@ -37,21 +37,49 @@ const askServerForCompletionElementExpand: (
   return result
 }
 
-const applyResult: (
+const applyResults: (
   api: LocalPluginApi,
   document: vscode.TextDocument,
-  position: vscode.Position,
-  result: Result
-) => Promise<void> = async (api, document, position, result) => {
-  if (!result) {
+  positions: vscode.Position[],
+  results: Result[]
+) => Promise<void> = async (api, document, positions, results) => {
+  if (results.length === 1) {
+    const result = results[0]
+    if (!result) {
+      await vscode.commands.executeCommand('tab')
+      return
+    }
+    const position = positions[0]
+    vscode.window.activeTextEditor.insertSnippet(
+      new vscode.SnippetString(result.completionString),
+      new vscode.Range(document.positionAt(result.completionOffset), position)
+    )
+    return
+  }
+  const firstResult = results[0]
+  if (!firstResult) {
     await vscode.commands.executeCommand('tab')
     return
   }
-  const { completionString, completionOffset } = result
-  const completionPosition = document.positionAt(completionOffset)
+  const firstCompletionString = firstResult.completionString
+  if (
+    !results.every(
+      result => result && result.completionString === firstCompletionString
+    )
+  ) {
+    await vscode.commands.executeCommand('tab')
+    return
+  }
+  const allRanges = results.map(
+    (result, index) =>
+      new vscode.Range(
+        document.positionAt(result.completionOffset),
+        positions[index]
+      )
+  )
   vscode.window.activeTextEditor.insertSnippet(
-    new vscode.SnippetString(completionString),
-    new vscode.Range(completionPosition, position)
+    new vscode.SnippetString(firstResult.completionString),
+    allRanges
   )
 }
 
@@ -60,7 +88,9 @@ export const localPluginCompletionElementExpand: LocalPlugin = api => {
     'html-expand-abbreviation',
     async textEditor => {
       const document = textEditor.document
-      const position = textEditor.selection.active
+      const positions = textEditor.selections.map(selection => selection.active)
+
+      // const position = textEditor.selection.active
       // const rangeUntilPosition = new vscode.Range(
       //   new vscode.Position(position.line, 0),
       //   position
@@ -68,12 +98,13 @@ export const localPluginCompletionElementExpand: LocalPlugin = api => {
       // const textUntilPosition = textEditor.document.getText(
       //   rangeUntilPosition
       // )
-      const result = await askServerForCompletionElementExpand(
-        api,
-        document,
-        position
+
+      const results = await Promise.all(
+        positions.map(position =>
+          askServerForCompletionElementExpand(api, document, position)
+        )
       )
-      await applyResult(api, document, position, result)
+      await applyResults(api, document, positions, results)
     }
   )
 
