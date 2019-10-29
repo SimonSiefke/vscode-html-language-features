@@ -6,6 +6,8 @@ import {
   Range,
   Position,
   CompletionItemTag,
+  MarkupKind,
+  MarkupContent,
 } from 'vscode-languageserver'
 import { doSuggestionAttributeKey } from '@html-language-features/html-language-service'
 
@@ -18,6 +20,7 @@ const createCompletionItems: (
     name: string
     probability?: number
     deprecated?: boolean
+    description: string | undefined
     // documentation?: string | undefined
   }[]
 ) => CompletionItem[] = items => {
@@ -44,38 +47,57 @@ const createCompletionItems: (
     name: string
     deprecated?: boolean
     recommended: boolean
+    description: string | undefined
   }[] = items.map(item => ({
     ...item,
     recommended: item.probability !== undefined && item.probability > 0.95,
   }))
+
+  // const c: CompletionItem = {
+  //   documentation: {
+  //     kind: 'markdown',
+  //     value: '',
+  //   },
+  // }
   return normalizedItems.map(item => {
     const tags: CompletionItemTag[] = []
     if (item.deprecated) {
       tags.push(CompletionItemTag.Deprecated)
     }
+    let documentation: MarkupContent | undefined
+    if (item.description) {
+      documentation = {
+        kind: MarkupKind.Markdown,
+        value: item.description,
+      }
+    }
     const kind = orangeIcon
     const insertText = item.name
+    let completionItem: CompletionItem
     if (item.recommended) {
-      return {
+      completionItem = {
         label: `★${thinSpace}${item.name}`,
         kind,
         filterText: item.name,
         sortText: item.name,
+        documentation,
         // detail: `${(item.probability * 100).toFixed(2)}% Match`,
         insertText,
         tags,
       }
     } else {
-      return {
+      completionItem = {
         label: item.name,
         kind,
         tags,
+        documentation,
         filterText: `${weirdCharAtTheEndOfTheAlphabet} ${item.name}`,
         sortText: `${weirdCharAtTheEndOfTheAlphabet} ${item.name}`,
         // detail: `${(item.probability * 100).toFixed(2)}% Match`,
         insertText,
       }
     }
+    return completionItem
   })
   // return [
   //   ...recommendedItems.map(item => {
