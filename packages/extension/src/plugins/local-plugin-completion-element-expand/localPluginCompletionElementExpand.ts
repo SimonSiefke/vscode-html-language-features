@@ -19,18 +19,13 @@ const askServerForCompletionElementExpand: (
   api: LocalPluginApi,
   document: vscode.TextDocument,
   position: vscode.Position
-) => Promise<void> = async (api, document, position) => {
+) => Promise<Result> = async (api, document, position) => {
   const params = api.languageClient.code2ProtocolConverter.asTextDocumentPositionParams(
     document,
     position
   )
-
   const result = await api.languageClient.sendRequest(requestType, params)
-  if (!result) {
-    console.error('no completion')
-    await vscode.commands.executeCommand('tab')
-    return
-  }
+  // TODO duplicate code
   if (
     !vscode.window.activeTextEditor ||
     vscode.window.activeTextEditor.document.version !== document.version
@@ -39,15 +34,24 @@ const askServerForCompletionElementExpand: (
     console.log(vscode.window.activeTextEditor.document.uri.fsPath)
     throw new Error('too slow')
   }
+  return result
+}
+
+const applyResult: (
+  api: LocalPluginApi,
+  document: vscode.TextDocument,
+  position: vscode.Position,
+  result: Result
+) => Promise<void> = async (api, document, position, result) => {
+  if (!result) {
+    await vscode.commands.executeCommand('tab')
+    return
+  }
   const { completionString, completionOffset } = result
   const completionPosition = document.positionAt(completionOffset)
   vscode.window.activeTextEditor.insertSnippet(
     new vscode.SnippetString(completionString),
-    new vscode.Range(completionPosition, position),
-    {
-      undoStopAfter: false,
-      undoStopBefore: false,
-    }
+    new vscode.Range(completionPosition, position)
   )
 }
 
@@ -64,7 +68,12 @@ export const localPluginCompletionElementExpand: LocalPlugin = api => {
       // const textUntilPosition = textEditor.document.getText(
       //   rangeUntilPosition
       // )
-      await askServerForCompletionElementExpand(api, document, position)
+      const result = await askServerForCompletionElementExpand(
+        api,
+        document,
+        position
+      )
+      await applyResult(api, document, position, result)
     }
   )
 

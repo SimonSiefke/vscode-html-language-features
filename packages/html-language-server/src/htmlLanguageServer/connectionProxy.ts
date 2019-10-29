@@ -10,6 +10,7 @@ import {
   Hover,
   CancellationToken,
   RequestType,
+  DocumentSymbol,
   // @ts-ignore
 } from 'vscode-languageserver'
 
@@ -24,6 +25,7 @@ const enum ErrorMessages {
   onCompletionResolveError = 'onCompletionResolve Error',
   onSignatureHelpError = 'onSignatureHelp Error',
   onRequest = 'onRequest Error',
+  onDocumentSymbolError = 'onDocumentSymbol Error',
 }
 
 type RequestHandler<Params, Result> = (
@@ -60,6 +62,15 @@ export interface ConnectionProxy {
   onSignatureHelp: RequestHandler<
     TextDocumentPositionParams,
     SignatureHelp | undefined
+  >
+  /**
+   * Installs a handler for the `onDocumentSymbol` request.
+   *
+   * @param handler The corresponding handler.
+   */
+  onDocumentSymbol: RequestHandler<
+    TextDocumentPositionParams,
+    DocumentSymbol[] | undefined
   >
   /**
    * Installs a request handler described by the given [RequestType](#RequestType).
@@ -129,6 +140,15 @@ export const createConnectionProxy: (
   const onSignatureHelpHandlers: any[] = []
   const onRequestHandlers: any[] = []
   return {
+    onDocumentSymbol: handler => {
+      connection.onDocumentSymbol(
+        runSafe(
+          handler,
+          ErrorMessages.onDocumentSymbolError,
+          'onDocumentSymbol'
+        )
+      )
+    },
     onHover: handler => {
       onHoverHandlers.push(handler)
       if (onHoverHandlers.length === 1) {

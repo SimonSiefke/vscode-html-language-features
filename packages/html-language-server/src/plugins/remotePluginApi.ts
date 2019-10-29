@@ -6,6 +6,7 @@ export interface RemotePluginApi {
     onRequest: ConnectionProxy['onRequest']
     onCompletion: ConnectionProxy['onCompletion']
     onHover: ConnectionProxy['onHover']
+    onDocumentSymbol: ConnectionProxy['onDocumentSymbol']
   }
   documents: {
     get: TextDocuments['get']

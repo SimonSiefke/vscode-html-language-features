@@ -4,6 +4,9 @@ import {
   TextDocuments,
   ServerCapabilities,
   TextDocumentSyncKind,
+  DocumentSymbol,
+  SymbolKind,
+  TextDocument,
 } from 'vscode-languageserver'
 import { createConnectionProxy } from './htmlLanguageServer/connectionProxy'
 import { RemotePluginApi } from './plugins/remotePluginApi'
@@ -17,6 +20,7 @@ import { remotePluginSuggestionElementStartTag } from './plugins/remote-plugin-s
 import { remotePluginSuggestionAttributeKey } from './plugins/remote-plugin-suggestion-attribute-key/remotePluginSuggestionAttributeKey'
 import { remotePluginHighlightElementMatchingTag } from './plugins/remote-plugin-highlight-element-matching-tag/remotePluginHighlightElementMatchingTag'
 import { remotePluginHoverElement } from './plugins/remote-plugin-hover-element/remotePluginHoverElement'
+import { remotePluginSymbol } from './plugins/remote-plugin-symbol/remotePluginSymbol'
 
 const connection: IConnection = createConnection()
 
@@ -44,6 +48,10 @@ connection.onInitialize(() => {
     //   workDoneProgress: true,
     // },
     hoverProvider: true, // TODO progress ?
+    documentSymbolProvider: true,
+    // documentSymbolProvider: {
+    //   workDoneProgress: true,
+    // },
   }
   return { capabilities }
 })
@@ -70,6 +78,8 @@ connection.onInitialized(async () => {
 
   remotePluginSuggestionElementStartTag(api)
   remotePluginSuggestionAttributeKey(api)
+
+  remotePluginSymbol(api)
 })
 
 connection.listen()
