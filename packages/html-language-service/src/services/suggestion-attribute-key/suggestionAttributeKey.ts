@@ -8,7 +8,7 @@ import { getAttributes } from '../../data/HTMLManager'
 const mostLikelyAttributeName: (
   tagName: string
 ) =>
-  | { name: string; probability?: number; description: string | undefined }[]
+  | { name: string; probability?: number; description?: string }[]
   | undefined = tagName => {
   const attributes = getAttributes(tagName)
   if (!attributes) {
@@ -16,8 +16,7 @@ const mostLikelyAttributeName: (
   }
   return Object.entries(attributes).map(([key, value]) => ({
     name: key,
-    deprecated: value.deprecated,
-    description: value.description,
+    ...value,
   }))
   // statisticsForAttributes[tagName]
 }
@@ -30,10 +29,10 @@ export const doSuggestionAttributeKey: (
   offset: number
 ) =>
   | {
-      probability?: number
       name: string
+      probability?: number
       deprecated?: boolean
-      description: string | undefined
+      description?: string
     }[]
   | undefined = (text, offset) => {
   const scanner = createScanner(text)

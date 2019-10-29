@@ -5,15 +5,9 @@ import { doHoverElement } from './hoverElement'
 jest.mock('../../data/HTMLManager.ts', () => ({
   getHTMLTags: () => {
     return {
-      h1: {
-        description: 'top level heading',
-      },
-      Daten: {
-        description: 'Daten',
-      },
-      DatenSätze: {
-        description: 'DatenSätze',
-      },
+      h1: {},
+      Daten: {},
+      DatenSätze: {},
     }
   },
 }))
@@ -30,7 +24,7 @@ test('hover-element', () => {
     },
     {
       input: '<h1|',
-      expected: { content: 'top level heading', startOffset: 1, endOffset: 3 },
+      expected: { tagName: 'h1', startOffset: 1, endOffset: 3 },
     },
     {
       input: '<h1 |',
@@ -71,7 +65,7 @@ test('hover-element', () => {
     {
       input: '<h2></h2><h1|',
       expected: {
-        content: 'top level heading',
+        tagName: 'h1',
         startOffset: 10,
         endOffset: 12,
       },
@@ -79,7 +73,7 @@ test('hover-element', () => {
     {
       input: '<Dat|en/>',
       expected: {
-        content: 'Daten',
+        tagName: 'Daten',
         startOffset: 1,
         endOffset: 6,
       },
@@ -87,7 +81,7 @@ test('hover-element', () => {
     {
       input: '<DatenSä|tze/>',
       expected: {
-        content: 'DatenSätze',
+        tagName: 'DatenSätze',
         startOffset: 1,
         endOffset: 11,
       },

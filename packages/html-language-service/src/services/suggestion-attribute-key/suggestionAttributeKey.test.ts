@@ -1,13 +1,13 @@
 import { doSuggestionAttributeKey } from './suggestionAttributeKey'
 
-jest.mock('@html-language-features/html-intellicode', () => ({
-  statisticsForAttributes: {
-    h1: [
-      {
-        name: 'class',
-        probability: 1,
-      },
-    ],
+jest.mock('../../data/HTMLManager.ts', () => ({
+  getAttributes: (tagName: string) => {
+    if (tagName === 'h1') {
+      return {
+        class: {},
+      }
+    }
+    return undefined
   },
 }))
 
@@ -30,15 +30,15 @@ test('suggestion-attribute-key', () => {
     },
     {
       input: '<h1 |',
-      expected: [{ name: 'class', probability: 1 }],
+      expected: [{ name: 'class' }],
     },
     {
       input: '<h1 class="big" |',
-      expected: [{ name: 'class', probability: 1 }],
+      expected: [{ name: 'class' }],
     },
     {
       input: `<h1 class="big"\n  |`,
-      expected: [{ name: 'class', probability: 1 }],
+      expected: [{ name: 'class' }],
     },
     {
       input: '<h1>|',
@@ -66,7 +66,7 @@ test('suggestion-attribute-key', () => {
     },
     {
       input: '<h1></h1><h1 |',
-      expected: [{ name: 'class', probability: 1 }],
+      expected: [{ name: 'class' }],
     },
     {
       input: '<Daten/|',

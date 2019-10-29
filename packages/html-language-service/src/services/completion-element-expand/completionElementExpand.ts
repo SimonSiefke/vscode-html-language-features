@@ -147,24 +147,24 @@ export const doCompletionElementExpand: (
   }
 }
 
-addConfig({
-  elements: {
-    div: {
-      newline: true,
-    },
-    h1: {},
-    ul: {
-      newline: true,
-    },
-    input: {
-      selfClosing: true,
-    },
-    Daten: {},
-    DatenSätze: {},
-    option: {},
-    select: {},
-  },
-})
+// addConfig({
+//   elements: {
+//     div: {
+//       newline: true,
+//     },
+//     h1: {},
+//     ul: {
+//       newline: true,
+//     },
+//     input: {
+//       selfClosing: true,
+//     },
+//     Daten: {},
+//     DatenSätze: {},
+//     option: {},
+//     select: {},
+//   },
+// })
 
-doCompletionElementExpand('<!-- -->div<!-- -->', 11) //?
-// doCompletionElementExpand('h1', 2) //?
+// doCompletionElementExpand('<!-- -->div<!-- -->', 11) //?
+// // doCompletionElementExpand('h1', 2) //?
