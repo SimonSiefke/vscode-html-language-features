@@ -36,7 +36,6 @@ const fuzzySearch = (tagName: string, abbreviation: string) => {
  * Expands `div` into `div` but doesn't handle partial matches like `di`
  */
 const fallback = (abbreviation: string) => {
-  console.log('fallback')
   if (isTagName(abbreviation)) {
     return abbreviation
   }
