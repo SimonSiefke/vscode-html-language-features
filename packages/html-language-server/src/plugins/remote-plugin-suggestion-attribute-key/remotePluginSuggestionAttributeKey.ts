@@ -20,7 +20,7 @@ const createCompletionItems: (
     name: string
     probability?: number
     deprecated?: boolean
-    description: string | undefined
+    description?: string
     // documentation?: string | undefined
   }[]
 ) => CompletionItem[] = items => {
@@ -47,7 +47,7 @@ const createCompletionItems: (
     name: string
     deprecated?: boolean
     recommended: boolean
-    description: string | undefined
+    description?: string
   }[] = items.map(item => ({
     ...item,
     recommended: item.probability !== undefined && item.probability > 0.95,
