@@ -26,8 +26,8 @@ console.error = connection.console.error.bind(connection.console)
 process.on('uncaughtException', error =>
   console.error(JSON.stringify(error.message))
 )
-
 process.on('unhandledRejection', error => console.error(JSON.stringify(error)))
+
 const documents: TextDocuments = new TextDocuments(
   TextDocumentSyncKind.Incremental
 )
