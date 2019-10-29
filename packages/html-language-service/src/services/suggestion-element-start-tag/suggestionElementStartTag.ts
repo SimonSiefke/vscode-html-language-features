@@ -4,8 +4,8 @@ import { statisticsForTags } from '@html-language-features/html-intellicode'
 import { getPreviousOpeningTagName } from '../util/getParentTagName'
 
 /**
- * Completion for expanding tag
- *`sp` -> `<span></span>`.
+ * Suggestion for start tag
+ *`<` -> suggest `<div`, `<button` etc.
  */
 export const doSuggestionElementStartTag: (
   text: string,

@@ -1,11 +1,7 @@
 import { RemotePlugin } from '../remotePluginApi'
-import {
-  TextDocument,
-  Range,
-  Position,
-  MarkupKind,
-} from 'vscode-languageserver'
+import { TextDocument } from 'vscode-languageserver'
 import { doHoverElement } from '@html-language-features/html-language-service'
+import { getDocumentationForTagName } from '../../util/getDocumentationForTagName'
 
 export const remotePluginHoverElement: RemotePlugin = api => {
   api.languageServer.onHover(({ textDocument, position }) => {
@@ -16,13 +12,14 @@ export const remotePluginHoverElement: RemotePlugin = api => {
     if (!result) {
       return undefined
     }
+    const documentation = getDocumentationForTagName(result.tagName)
+    if (!documentation) {
+      return undefined
+    }
     const startPosition = document.positionAt(result.startOffset)
     const endPosition = document.positionAt(result.endOffset)
     return {
-      contents: {
-        kind: MarkupKind.Markdown,
-        value: result.content,
-      },
+      contents: documentation,
       range: {
         start: startPosition,
         end: endPosition,

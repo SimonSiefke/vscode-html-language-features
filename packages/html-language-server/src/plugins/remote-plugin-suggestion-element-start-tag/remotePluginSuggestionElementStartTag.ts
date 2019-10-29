@@ -1,42 +1,18 @@
 import { RemotePlugin } from '../remotePluginApi'
 import {
-  TextDocumentPositionParams,
   CompletionItem,
   CompletionItemKind,
   TextDocument,
   Range,
   Position,
-  CompletionList,
-  CompletionItemTag,
-  TextEdit,
-  MarkupKind,
 } from 'vscode-languageserver'
 import { doSuggestionElementStartTag } from '@html-language-features/html-language-service'
-import {
-  getInfoForHtmlTag,
-  getInfoDescriptionForHtmlTag,
-  getInfoReference,
-} from '@html-language-features/html-language-service'
+import { getDocumentationForTagName } from '../../util/getDocumentationForTagName'
 
 const thinSpace = `\u2009`
 const weirdCharAtTheEndOfTheAlphabet = `\uE83A`
 const blueishIcon = CompletionItemKind.Variable
 
-const getDocumentationForTagName = (tagName: string) => {
-  const description = getInfoDescriptionForHtmlTag(tagName)
-  if (!description) {
-    return undefined
-  }
-  let finalDescription = description
-  const reference = getInfoReference(tagName)
-  if (reference) {
-    finalDescription = `${finalDescription}\n\n[${reference.name}](${reference.url})`
-  }
-  return {
-    kind: MarkupKind.Markdown,
-    value: finalDescription,
-  }
-}
 const createCompletionItems: (
   items: {
     name: string

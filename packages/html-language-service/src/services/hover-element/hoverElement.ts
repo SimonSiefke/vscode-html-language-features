@@ -7,21 +7,21 @@ import {
 
 // TODO merge all those "get tag at offset" functions
 
-const getTagInfo: (tagName: string) => string | undefined = tagName => {
-  console.log(tagName)
-  const htmlTags = getHTMLTags()
-  htmlTags['h2'] = { description: 'h2 tag' }
-  const match = htmlTags[tagName]
-  if (!match) {
-    return undefined
-  }
-  return match.description
-}
+// const getTagInfo: (tagName: string) => string | undefined = tagName => {
+//   console.log(tagName)
+//   const htmlTags = getHTMLTags()
+//   htmlTags['h2'] = { description: 'h2 tag' }
+//   const match = htmlTags[tagName]
+//   if (!match) {
+//     return undefined
+//   }
+//   return match.description
+// }
 
 export const doHoverElement: (
   text: string,
   offset: number
-) => { startOffset: number; endOffset: number; content: string } | undefined = (
+) => { startOffset: number; endOffset: number; tagName: string } | undefined = (
   text,
   offset
 ) => {
@@ -61,14 +61,10 @@ export const doHoverElement: (
   const tagNameStart = scanner.getTokenOffset()
   const tagNameEnd = scanner.getTokenEnd()
 
-  const tagInfo = getTagInfo(tagName)
-  if (!tagInfo) {
-    return undefined
-  }
   return {
     startOffset: tagNameStart,
     endOffset: tagNameEnd,
-    content: tagInfo,
+    tagName,
   }
   // const r: Hover = {
   //   contents: {
