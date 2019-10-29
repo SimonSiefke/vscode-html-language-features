@@ -77,6 +77,9 @@ const applyResults = (results: Result[]) => {
 
 export const localPluginHighlightElementMatchingTag: LocalPlugin = async api => {
   api.vscode.window.onDidChangeTextEditorSelection(async event => {
+    if (event.textEditor.document.languageId !== 'html') {
+      return
+    }
     const document = vscode.window.activeTextEditor.document
     const results = await Promise.all(
       event.selections.map(selection =>

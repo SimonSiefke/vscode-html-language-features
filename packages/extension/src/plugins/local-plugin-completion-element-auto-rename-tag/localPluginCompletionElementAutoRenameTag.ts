@@ -60,6 +60,9 @@ const applyResult: (result: Result) => void = result => {
 
 export const localPluginCompletionElementAutoRenameTag: LocalPlugin = api => {
   api.vscode.workspace.onDidChangeTextDocument(async event => {
+    if (event.document.languageId !== 'html') {
+      return
+    }
     const activeDocument =
       vscode.window.activeTextEditor && vscode.window.activeTextEditor.document
     if (event.contentChanges.length === 0) {
