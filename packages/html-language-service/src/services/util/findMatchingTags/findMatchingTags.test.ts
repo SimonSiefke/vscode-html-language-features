@@ -1,8 +1,8 @@
-import { findMatchingTags } from './findMatchingTags'
+import { findMatchingTags, MatchingTagResult } from './findMatchingTags'
 
 test('can match from opening and closing tag', () => {
   const data = '<a>a</a>\na'
-  const expected = {
+  const expected: MatchingTagResult = {
     type: 'startAndEndTag',
     tagName: 'a',
     startTagOffset: 0,
@@ -36,7 +36,7 @@ test.skip('can match nested with invalid tags', () => {
 
 test('unclosed start tags', () => {
   const data = '<a>a'
-  const expected = {
+  const expected: MatchingTagResult = {
     type: 'onlyStartTag',
     tagName: 'a',
     startTagOffset: 0,
@@ -50,7 +50,7 @@ test('unclosed start tags', () => {
 
 test('with comments', () => {
   const data = `<div><!-- </div> --></div>`
-  const expected = {
+  const expected: MatchingTagResult = {
     type: 'startAndEndTag',
     tagName: 'div',
     startTagOffset: 0,
@@ -63,7 +63,7 @@ test('with comments', () => {
 
 test('unfinished opening tags', () => {
   const data = '<a</a>'
-  const expected = {
+  const expected: MatchingTagResult = {
     type: 'onlyStartTag',
     tagName: 'a<',
     startTagOffset: 0,
@@ -82,13 +82,13 @@ test('bug 1', () => {
   const data = `<body >
     <div >  </div>
   </body>`
-  const expectedBody = {
+  const expectedBody: MatchingTagResult = {
     type: 'startAndEndTag',
     tagName: 'body',
     startTagOffset: 0,
     endTagOffset: 29,
   }
-  const expectedDiv = {
+  const expectedDiv: MatchingTagResult = {
     type: 'startAndEndTag',
     tagName: 'div',
     startTagOffset: 12,
@@ -151,17 +151,18 @@ test.skip('can match tag from content', () => {
   expect(findMatchingTags(data, 8)).toEqual(undefined)
 })
 
-test.skip('matches self closing tag when flag is true', () => {
-  const data = 'a<a/>a'
-  const expected = {
-    opening: { name: 'a', start: 1, end: 5 },
-    closing: { name: 'a', start: 1, end: 5 },
+test('matches self closing tag when flag is true', () => {
+  const data = `<div/>`
+  const expected: MatchingTagResult = {
+    type: 'onlyStartTag',
+    tagName: 'div',
+    startTagOffset: 0,
   }
-  expect(findMatchingTags(data, 0)).toEqual(undefined)
-  expect(findMatchingTags(data, 1)).toEqual(undefined)
+  expect(findMatchingTags(data, 0)).toEqual(expected)
+  expect(findMatchingTags(data, 1)).toEqual(expected)
   expect(findMatchingTags(data, 2)).toEqual(expected)
   expect(findMatchingTags(data, 3)).toEqual(expected)
   expect(findMatchingTags(data, 4)).toEqual(expected)
-  expect(findMatchingTags(data, 5)).toEqual(undefined)
+  // expect(findMatchingTags(data, 5)).toEqual(expected) // TODO
   expect(findMatchingTags(data, 6)).toEqual(undefined)
 })
