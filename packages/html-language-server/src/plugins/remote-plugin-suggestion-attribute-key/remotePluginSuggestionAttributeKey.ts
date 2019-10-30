@@ -10,6 +10,7 @@ import {
   MarkupContent,
 } from 'vscode-languageserver-types'
 import { doSuggestionAttributeKey } from '@html-language-features/html-language-service'
+import { removeDeprecatedItems } from '../../util/removeDeprecatedItems'
 
 const thinSpace = `\u2009`
 const weirdCharAtTheEndOfTheAlphabet = `\uE83A`
@@ -151,7 +152,7 @@ export const remotePluginSuggestionAttributeKey: RemotePlugin = api => {
     if (result === undefined) {
       return undefined
     }
-    return createCompletionItems(result)
+    return createCompletionItems(removeDeprecatedItems(result))
     // return undefined
   })
 }
