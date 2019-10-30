@@ -9,6 +9,7 @@ export {
 export { doHoverElement } from './services/hover-element/hoverElement'
 export {
   findMatchingTags,
+  MatchingTagResult,
 } from './services/util/findMatchingTags/findMatchingTags'
 export {
   doSuggestionAttributeKey,

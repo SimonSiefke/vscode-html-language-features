@@ -8,16 +8,16 @@ test('can match from opening and closing tag', () => {
     startTagOffset: 0,
     endTagOffset: 4,
   }
-  // expect(findMatchingTag(data, 0)).toEqual(expected)
-  // expect(findMatchingTag(data, 1)).toEqual(expected)
-  // expect(findMatchingTag(data, 2)).toEqual(expected)
+  expect(findMatchingTags(data, 0)).toEqual(expected)
+  expect(findMatchingTags(data, 1)).toEqual(expected)
+  expect(findMatchingTags(data, 2)).toEqual(expected)
   expect(findMatchingTags(data, 3)).toEqual(undefined)
   expect(findMatchingTags(data, 4)).toEqual(expected)
   expect(findMatchingTags(data, 5)).toEqual(expected)
   expect(findMatchingTags(data, 6)).toEqual(expected)
   expect(findMatchingTags(data, 7)).toEqual(expected)
   expect(findMatchingTags(data, 8)).toEqual(undefined)
-  // expect(findMatchingTags(data, 9)).toEqual(undefined)
+  expect(findMatchingTags(data, 9)).toEqual(undefined)
   expect(findMatchingTags(data, 10)).toEqual(undefined)
 })
 
@@ -34,19 +34,29 @@ test.skip('can match nested with invalid tags', () => {
   expect(findMatchingTags(data, 8)).toEqual(undefined)
 })
 
-test('does not match unclosed tags', () => {
+test('unclosed start tags', () => {
   const data = '<a>a'
-  expect(findMatchingTags(data, 0)).toEqual(undefined)
-  expect(findMatchingTags(data, 1)).toEqual(undefined)
-  expect(findMatchingTags(data, 2)).toEqual(undefined)
+  const expected = {
+    type: 'onlyStartTag',
+    tagName: 'a',
+    startTagOffset: 0,
+  }
+  expect(findMatchingTags(data, 0)).toEqual(expected)
+  expect(findMatchingTags(data, 1)).toEqual(expected)
+  expect(findMatchingTags(data, 2)).toEqual(expected)
   expect(findMatchingTags(data, 3)).toEqual(undefined)
   expect(findMatchingTags(data, 4)).toEqual(undefined)
 })
 
-test('does not match unfinished opening tags', () => {
+test('unfinished opening tags', () => {
   const data = '<a</a>'
-  expect(findMatchingTags(data, 0)).toEqual(undefined)
-  expect(findMatchingTags(data, 1)).toEqual(undefined)
+  const expected = {
+    type: 'onlyStartTag',
+    tagName: 'a<',
+    startTagOffset: 0,
+  }
+  expect(findMatchingTags(data, 0)).toEqual(expected)
+  expect(findMatchingTags(data, 1)).toEqual(expected)
   expect(findMatchingTags(data, 2)).toEqual(undefined)
   expect(findMatchingTags(data, 3)).toEqual(undefined)
   expect(findMatchingTags(data, 4)).toEqual(undefined)

@@ -68,7 +68,7 @@ const createCompletionItems: ({
     let completionItem: CompletionItem & { data: Data }
     let itemLabel = item.name
 
-    const data = { attributeName: item.name, tagName: tagName }
+    const data: Data = { attributeName: item.name, tagName: tagName }
     // TODO wait for experimental completion tags from lsp
     // if (item.experimental) {
     //   itemLabel = itemLabel + ' (experimental)'
@@ -83,6 +83,7 @@ const createCompletionItems: ({
         // detail: `${(item.probability * 100).toFixed(2)}% Match`,
         insertText,
         tags,
+        documentation: 'hello world',
       }
     } else {
       completionItem = {
@@ -92,6 +93,7 @@ const createCompletionItems: ({
         data,
         filterText: `${weirdCharAtTheEndOfTheAlphabet} ${item.name}`,
         sortText: `${weirdCharAtTheEndOfTheAlphabet} ${item.name}`,
+        documentation: 'hello world',
         // detail: `${(item.probability * 100).toFixed(2)}% Match`,
         insertText,
       }

@@ -1,5 +1,8 @@
 const exec = require('execa')
-const { analyzeDirectory } = require('statistics-generator')
+const {
+  analyzeDirectoryForTags,
+  analyzeDirectoryForAttributes,
+} = require('@html-language-features/statistics-generator')
 const path = require('path')
 const rimraf = require('rimraf')
 // todo use degit for caching and speed
@@ -27,17 +30,23 @@ const undownloadRepo = async () => {
 }
 
 const inputDirectory = path.join(__dirname, '../tmp-repo')
-const outputDirectory = path.join(__dirname, '../generated')
+const outputDirectory = path.join(__dirname, '../tmp-generated')
 
 const friendlyName = url =>
   url.slice('https://github.com/'.length).replace('/', '__')
 
 exports.processRepository = async repositoryUrl => {
   await downloadRepo(repositoryUrl)
-  await analyzeDirectory(
+  await analyzeDirectoryForTags(
     inputDirectory,
     outputDirectory,
-    friendlyName(repositoryUrl),
+    `${friendlyName(repositoryUrl)}__tags`,
+    repositoryUrl
+  )
+  await analyzeDirectoryForAttributes(
+    inputDirectory,
+    outputDirectory,
+    `${friendlyName(repositoryUrl)}__attributes`,
     repositoryUrl
   )
   await undownloadRepo()

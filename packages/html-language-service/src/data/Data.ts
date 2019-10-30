@@ -85,7 +85,7 @@ export const getDescriptionForAttributeName: (
   tagName: string | undefined,
   attributeName: string
 ) => string | undefined = (tagName, attributeName) => {
-  if (!tagName) {
+  if (tagName === undefined) {
     // TODO global attributes
     return undefined
   }

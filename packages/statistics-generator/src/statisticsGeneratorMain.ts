@@ -1,1 +1,2 @@
-export { analyzeDirectoryForTags as analyzeDirectory } from './analyzeTags'
+export { analyzeDirectoryForAttributes } from './analyzeAttributes'
+export { analyzeDirectoryForTags } from './analyzeTags'

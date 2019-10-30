@@ -4,7 +4,7 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "dev": "ts-node scripts/downloadRepo"
+    "dev": "node scripts/githubScraperMain"
   },
   "keywords": [],
   "author": "",

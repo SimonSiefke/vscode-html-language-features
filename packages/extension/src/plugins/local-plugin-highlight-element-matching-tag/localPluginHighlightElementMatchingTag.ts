@@ -2,12 +2,23 @@ import { LocalPlugin, LocalPluginApi } from '../localPluginApi'
 import * as vsl from 'vscode-languageclient'
 import * as vscode from 'vscode'
 
-type Result = {
-  type: 'startAndEndTag'
-  tagName: string
-  startTagOffset: number
-  endTagOffset: number
-}
+type Result =
+  | {
+      type: 'startAndEndTag'
+      tagName: string
+      startTagOffset: number
+      endTagOffset: number
+    }
+  | {
+      type: 'onlyStartTag'
+      tagName: string
+      startTagOffset: number
+    }
+  | {
+      type: 'onlyEndTag'
+      tagname: string
+      endTagOffset: number
+    }
 
 const requestType = new vsl.RequestType<
   vsl.TextDocumentPositionParams,
@@ -63,13 +74,20 @@ const setDecorations: (
 const applyResults = (results: Result[]) => {
   const decorations = results.filter(Boolean).flatMap(result => {
     if (result.type === 'startAndEndTag') {
-      const startTagOffset = result.startTagOffset
-      // TODO also highlight end tag
+      const { startTagOffset, endTagOffset, tagName } = result
       return [
-        [startTagOffset + 1, startTagOffset + result.tagName.length + 1],
+        [startTagOffset + 1, startTagOffset + tagName.length + 1],
+        [endTagOffset + 2, endTagOffset + tagName.length + 2],
       ] as [number, number][]
-    } else {
-      throw new Error(`unknown result type ${result.type}`)
+    } else if (result.type === 'onlyStartTag') {
+      const { startTagOffset, tagName } = result
+      return [[startTagOffset + 1, startTagOffset + tagName.length + 1]] as [
+        number,
+        number
+      ][]
+    } else if (result.type === 'onlyEndTag') {
+      // TODO
+      return [] as [number, number][]
     }
   })
   setDecorations(decorations)

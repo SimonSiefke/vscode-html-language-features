@@ -33,7 +33,6 @@ const createCompletionItems: (
     sortedItems[0] && sortedItems[0].probability === 1
       ? sortedItems.slice(1)
       : sortedItems.slice(0)
-  // console.log('recommended' + JSON.stringify(recommendedItems))
 
   return [
     ...recommendedItems.map(item => ({
@@ -77,10 +76,8 @@ export const remotePluginSuggestionElementStartTag: RemotePlugin = api => {
       const result = doSuggestionElementStartTag(text, offset)
 
       if (result === undefined) {
-        console.log('first return undefined')
         return undefined
       }
-      console.log('second returb')
       return createCompletionItems(result)
     }
   )

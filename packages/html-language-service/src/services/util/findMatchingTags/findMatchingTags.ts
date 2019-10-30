@@ -1,22 +1,37 @@
 import {
   createScanner,
   ScannerState,
+  TokenType,
 } from '@html-language-features/html-parser'
-import { getPreviousOpeningTagName } from '../getParentTagName'
+import {
+  getPreviousOpeningTagName,
+  getNextClosingTag,
+} from '../getParentTagName'
+import { isSelfClosingTag } from '../../../data/Data'
 
-export const findMatchingTags: (
-  text: string,
-  offset: number
-) =>
-  | undefined
+export type MatchingTagResult =
   | {
       type: 'startAndEndTag'
       tagName: string
       startTagOffset: number
       endTagOffset: number
-    } = (text, offset) => {
-  const scanner = createScanner(text)
-  scanner.stream.goTo(offset)
+    }
+  | {
+      type: 'onlyStartTag'
+      tagName: string
+      startTagOffset: number
+    }
+  | {
+      type: 'onlyEndTag'
+      tagname: string
+      endTagOffset: number
+    }
+
+export const findMatchingTags: (
+  text: string,
+  offset: number
+) => MatchingTagResult | undefined = (text, offset) => {
+  const scanner = createScanner(text, { initialOffset: offset })
   scanner.stream.goBackToUntilEitherChar('<', '>')
   const char = scanner.stream.peekLeft(1) //?
   if (char === '<') {
@@ -43,6 +58,37 @@ export const findMatchingTags: (
         startTagOffset: previousOpenTagName.offset - 1,
         endTagOffset: endTagOffset - 1,
       }
+    } else {
+      const startTagOffset = scanner.stream.position - 1
+      scanner.state = ScannerState.AfterOpeningStartTag
+      const token = scanner.scan()
+      if (token !== TokenType.StartTag) {
+        return undefined
+      }
+      const tagName = scanner.getTokenText()
+      if (isSelfClosingTag(tagName)) {
+        return {
+          type: 'onlyStartTag',
+          tagName,
+          startTagOffset,
+        }
+      }
+      scanner.stream.advanceUntilChar('>')
+      scanner.stream.advance(1)
+      const nextClosingTag = getNextClosingTag(scanner, scanner.stream.position)
+      if (!nextClosingTag || nextClosingTag.tagName !== tagName) {
+        return {
+          type: 'onlyStartTag',
+          tagName,
+          startTagOffset,
+        }
+      }
+      return {
+        type: 'startAndEndTag',
+        tagName,
+        startTagOffset,
+        endTagOffset: nextClosingTag.offset - 2,
+      }
     }
   } else if (char === '>') {
     if (offset >= scanner.stream.position) {
@@ -59,4 +105,4 @@ export const findMatchingTags: (
   return undefined
 }
 
-// findMatchingTags('<a>a</a>\na', 8) //?
+findMatchingTags('<a>a</a>', 0) //?

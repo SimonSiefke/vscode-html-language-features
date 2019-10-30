@@ -94,3 +94,20 @@ and deleting, let's say <test2 or </test2>, it should automatically remove the p
 <!-- multi cursor support for auto rename tag and others -->
 
 <!-- TODO caching for get documentation or make it faster because currently its slow -->
+
+<!-- TODO parsing error
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+    <Header class=""></Header>
+
+</body>
+</html>
+ -->

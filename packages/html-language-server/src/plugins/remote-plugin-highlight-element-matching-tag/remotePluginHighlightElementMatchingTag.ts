@@ -1,14 +1,12 @@
 import { RemotePlugin } from '../remotePluginApi'
 import { TextDocument } from 'vscode-languageserver-types'
-import { findMatchingTags } from '@html-language-features/html-language-service'
+import {
+  findMatchingTags,
+  MatchingTagResult,
+} from '@html-language-features/html-language-service'
 import { RequestType, TextDocumentPositionParams } from 'vscode-languageserver'
 
-type Result = {
-  type: 'startAndEndTag'
-  tagName: string
-  startTagOffset: number
-  endTagOffset: number
-}
+type Result = MatchingTagResult
 
 const requestType = new RequestType<
   TextDocumentPositionParams,
