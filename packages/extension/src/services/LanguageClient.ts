@@ -59,20 +59,23 @@ export const createLanguageClient = async (
   // // //        Begin Debug         \\ \\ \\
   // //                                  \\ \\
   //                                        \\
-  if (false) {
+  if (true) {
     const streamLogs = true
     if (streamLogs) {
       // eslint-disable-next-line global-require
 
       const WebSocket = require('ws')
       let socket: import('ws') | undefined
+      const port = vscode.workspace
+        .getConfiguration('htmlLanguageClient')
+        .get('port', 7000)
 
       context.subscriptions.push(
         vscode.commands.registerCommand(
           'htmlLanguageClient.startStreaming',
           () => {
             // Establish websocket connection
-            socket = new WebSocket('ws://localhost:7000')
+            socket = new WebSocket(`ws://localhost:${port}`)
           }
         )
       )

@@ -43,18 +43,40 @@ export interface ConnectionProxy {
   /**
    * Installs a handler for the `Completion` request.
    *
-   * @param handler The corresponding handler.
+   * @param id - Unique identifier of the corresponding handler
+   * @param handler - The corresponding handler.
    */
-  onCompletion: RequestHandler<
-    CompletionParams,
-    CompletionItem[] | CompletionList | undefined
-  >
+  onCompletion: (
+    id: string,
+    handler: (params: CompletionParams) => CompletionItem[] | undefined
+  ) => void
+
   /**
    * Installs a handler for the `CompletionResolve` request.
    *
    * @param handler The corresponding handler.
    */
-  onCompletionResolve: RequestHandler<CompletionItem, CompletionItem>
+  onCompletionResolve: (
+    id: string,
+    handler: (
+      params: CompletionItem & {
+        readonly label: CompletionItem['label']
+        readonly kind?: CompletionItem['kind']
+        readonly tags?: CompletionItem['tags']
+        readonly detail?: CompletionItem['detail']
+        documentation?: CompletionItem['documentation']
+        readonly sortText?: CompletionItem['sortText']
+        readonly filterText?: CompletionItem['filterText']
+        readonly insertText?: CompletionItem['insertText']
+        readonly insertTextFormat?: CompletionItem['insertTextFormat']
+        readonly textEdit?: CompletionItem['textEdit']
+        readonly additionalTextEdits?: CompletionItem['additionalTextEdits']
+        readonly commitCharacters?: CompletionItem['commitCharacters']
+        readonly command?: CompletionItem['command']
+        readonly data?: CompletionItem['data']
+      }
+    ) => CompletionItem
+  ) => void
   /**
    * Installs a handler for the `SignatureHelp` request.
    *
@@ -134,10 +156,12 @@ export const createConnectionProxy: (
   connection: Connection
 ) => ConnectionProxy = connection => {
   const onHoverHandlers: any[] = []
-  const onCompletionHandlers: ((
-    params: CompletionParams
-  ) => CompletionItem[] | CompletionList | undefined)[] = []
-  const onCompletionResolverHandlers: any[] = []
+  const onCompletionHandlers: {
+    [id: string]: (params: CompletionParams) => CompletionItem[] | undefined
+  } = {}
+  const onCompletionResolverHandlers: {
+    [id: string]: (params: CompletionItem) => CompletionItem
+  } = {}
   const onSignatureHelpHandlers: any[] = []
   const onRequestHandlers: any[] = []
   return {
@@ -170,16 +194,22 @@ export const createConnectionProxy: (
         )
       }
     },
-    onCompletion: handler => {
-      onCompletionHandlers.push(handler)
-      if (onCompletionHandlers.length === 1) {
+    onCompletion: (id, handler) => {
+      if (Object.keys(onCompletionHandlers).length === 0) {
         connection.onCompletion(
           runSafe(
             params => {
-              let i = 0
-              for (const onCompletionHandler of onCompletionHandlers) {
+              for (const [id, onCompletionHandler] of Object.entries(
+                onCompletionHandlers
+              )) {
                 const result = onCompletionHandler(params)
                 if (result) {
+                  for (const item of result) {
+                    item.data = {
+                      id,
+                      data: item.data,
+                    }
+                  }
                   return result
                 }
               }
@@ -190,15 +220,26 @@ export const createConnectionProxy: (
           )
         )
       }
+      onCompletionHandlers[id] = handler
     },
-    onCompletionResolve: handler => {
-      connection.onCompletionResolve(
-        runSafe(
-          handler,
-          ErrorMessages.onCompletionResolveError,
-          'onCompletionResolve'
+    onCompletionResolve: (id, handler) => {
+      if (Object.keys(onCompletionResolverHandlers).length === 0) {
+        connection.onCompletionResolve(
+          runSafe(
+            params => {
+              const handler = onCompletionResolverHandlers[params.data.id]
+              if (!handler) {
+                throw new Error('no handler registered')
+              }
+              params.data = params.data.data
+              return handler(params)
+            },
+            ErrorMessages.onCompletionResolveError,
+            'onCompletionResolve'
+          )
         )
-      )
+      }
+      onCompletionResolverHandlers[id] = handler
     },
     onSignatureHelp: handler => {
       connection.onSignatureHelp(

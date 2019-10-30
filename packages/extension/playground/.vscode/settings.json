@@ -1,0 +1,6 @@
+{
+  "htmlLanguageClient.trace.server": {
+    "format": "json", // or "text"
+    "verbosity": "verbose" // or "off" | "messages"
+  }
+}

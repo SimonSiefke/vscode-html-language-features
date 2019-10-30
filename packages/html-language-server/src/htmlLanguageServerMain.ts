@@ -39,13 +39,14 @@ connection.onInitialize(() => {
   const capabilities: ServerCapabilities = {
     textDocumentSync: documents.syncKind,
     completionProvider: {
+      resolveProvider: true,
       // resolveProvider: false, // TODO would this be more efficient?
       triggerCharacters: ['<'],
     },
     // hoverProvider: {
     //   workDoneProgress: true,
     // },
-    hoverProvider: true, // TODO progress ?
+    // hoverProvider: true, // TODO progress ?
     documentSymbolProvider: true,
     // documentSymbolProvider: {
     //   workDoneProgress: true,

@@ -35,6 +35,10 @@
       {
         "command": "html-expand-abbreviation",
         "title": "expand abbreviation"
+      },
+      {
+        "command": "htmlLanguageClient.startStreaming",
+        "title": "Start Stream Logs into htmlLanguageClient.port"
       }
     ]
   },

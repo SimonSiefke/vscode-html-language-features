@@ -13,13 +13,17 @@ const thinSpace = `\u2009`
 const weirdCharAtTheEndOfTheAlphabet = `\uE83A`
 const blueishIcon = CompletionItemKind.Variable
 
+interface Data {
+  tagName: string
+}
+
 const createCompletionItems: (
   items: {
     name: string
     probability?: number
     // documentation?: string | undefined
   }[]
-) => CompletionItem[] | undefined = items => {
+) => (CompletionItem & { data: Data })[] | undefined = items => {
   const sortedItems = items.sort(
     (a, b) => (b.probability || 0) - (a.probability || 0)
   )
@@ -39,7 +43,10 @@ const createCompletionItems: (
       sortText: item.name,
       // detail: `${(item.probability * 100).toFixed(2)}% Match`,
       insertText: item.name,
-      documentation: getDocumentationForTagName(item.name),
+      data: {
+        tagName: item.name,
+      },
+      // documentation: getDocumentationForTagName(item.name),
       // tags: [CompletionItemTag.Deprecated] as CompletionItemTag[],
     })),
     ...otherItems.map(item => ({
@@ -50,23 +57,41 @@ const createCompletionItems: (
       // detail: `${(item.probability * 100).toFixed(2)}% Match`,
       insertText: item.name,
       // tags: [CompletionItemTag.Deprecated] as CompletionItemTag[],
-      documentation: getDocumentationForTagName(item.name),
+      // documentation: getDocumentationForTagName(item.name),
+      data: {
+        tagName: item.name,
+      },
     })),
   ]
 }
 
 export const remotePluginSuggestionElementStartTag: RemotePlugin = api => {
-  api.languageServer.onCompletion(({ textDocument, position }) => {
-    const document = api.documents.get(textDocument.uri) as TextDocument
-    const text = document.getText(Range.create(Position.create(0, 0), position))
-    const offset = document.offsetAt(position)
-    const result = doSuggestionElementStartTag(text, offset)
+  api.languageServer.onCompletion(
+    'suggestion-element-start-tag',
+    ({ textDocument, position }) => {
+      const document = api.documents.get(textDocument.uri) as TextDocument
+      const text = document.getText(
+        Range.create(Position.create(0, 0), position)
+      )
+      const offset = document.offsetAt(position)
+      const result = doSuggestionElementStartTag(text, offset)
 
-    if (result === undefined) {
-      console.log('first return undefined')
-      return undefined
+      if (result === undefined) {
+        console.log('first return undefined')
+        return undefined
+      }
+      console.log('second returb')
+      return createCompletionItems(result)
     }
-    console.log('second returb')
-    return createCompletionItems(result)
-  })
+  )
+
+  api.languageServer.onCompletionResolve(
+    'suggestion-element-start-tag',
+    params => {
+      const { tagName } = params.data as Data
+      const documentation = getDocumentationForTagName(tagName)
+      params.documentation = documentation
+      return params
+    }
+  )
 }
