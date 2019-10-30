@@ -49,6 +49,7 @@ const createCompletionItems: (
     deprecated?: boolean
     recommended: boolean
     description?: string
+    experimental?: boolean
   }[] = items.map(item => ({
     ...item,
     recommended: item.probability !== undefined && item.probability > 0.8,
@@ -75,9 +76,14 @@ const createCompletionItems: (
     const kind = orangeIcon
     const insertText = item.name
     let completionItem: CompletionItem
+    let itemLabel = item.name
+    // TODO wait for experimental completion tags from lsp
+    // if (item.experimental) {
+    //   itemLabel = itemLabel + ' (experimental)'
+    // }
     if (item.recommended) {
       completionItem = {
-        label: `★${thinSpace}${item.name}`,
+        label: `★${thinSpace}${itemLabel}`,
         kind,
         filterText: item.name,
         sortText: item.name,
@@ -88,7 +94,7 @@ const createCompletionItems: (
       }
     } else {
       completionItem = {
-        label: item.name,
+        label: itemLabel,
         kind,
         tags,
         documentation,
