@@ -84,7 +84,6 @@ export const doCompletionElementAutoRenameTag: (
     const startOffset = nextClosingTag.offset
     const endOffset = nextClosingTag.offset + nextClosingTag.tagName.length
     const word = tagName
-    console.log(scanner.stream.getSource())
 
     return {
       startOffset,

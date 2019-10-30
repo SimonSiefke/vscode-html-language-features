@@ -1,6 +1,6 @@
 import * as vscode from 'vscode'
-import * as htmlLanguageConfigurationService from './services/LanguageConfiguration/htmlLanguageConfigurationService'
-import { createLanguageClient } from './services/LanguageClient'
+import * as htmlLanguageConfigurationService from './LanguageConfiguration/htmlLanguageConfigurationService'
+import { createLanguageClient } from './LanguageClient/LanguageClient'
 import { localPluginCompletionElementExpand } from './plugins/local-plugin-completion-element-expand/localPluginCompletionElementExpand'
 import { localPluginCompletionElementAutoClose } from './plugins/local-plugin-completion-element-auto-close/localPluginCompletionElementAutoClose'
 import { localPluginCompletionElementClose } from './plugins/local-plugin-completion-element-close/localPluginCompletionElementClose'
@@ -19,6 +19,4 @@ export const activate: (
   languageClient.registerLocalPlugin(localPluginCompletionElementSelfClosing)
   languageClient.registerLocalPlugin(localPluginCompletionElementAutoRenameTag)
   languageClient.registerLocalPlugin(localPluginHighlightElementMatchingTag)
-
-  // import('./services/Decoration')
 }

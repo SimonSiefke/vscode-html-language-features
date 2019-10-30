@@ -32,7 +32,6 @@ const createCompletionItems: ({
   }[]
 }) => (CompletionItem & { data: Data })[] = ({ tagName, attributes }) => {
   const nonDeprecatedAttributes = removeDeprecatedItems(attributes)
-  console.log(JSON.stringify(attributes))
   const normalizedItems: {
     name: string
     deprecated?: boolean

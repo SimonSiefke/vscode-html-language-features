@@ -149,13 +149,18 @@ export const createLanguageClient = async (
   context.subscriptions.push(languageClient.start())
   await languageClient.onReady()
 
-  const autoDispose = fn => fn
+  const autoDispose: <Fn extends (...args: any[]) => vscode.Disposable>(
+    fn: Fn
+  ) => (...args: Parameters<Fn>) => void = fn => (...args) => {
+    context.subscriptions.push(fn(...args))
+  }
 
   const api: LocalPluginApi = {
     vscode: {
       window: {
-        onDidChangeTextEditorSelection:
-          vscode.window.onDidChangeTextEditorSelection,
+        onDidChangeTextEditorSelection: autoDispose(
+          vscode.window.onDidChangeTextEditorSelection
+        ),
       },
       workspace: {
         onDidChangeTextDocument: autoDispose(
@@ -172,7 +177,6 @@ export const createLanguageClient = async (
       code2ProtocolConverter: languageClient.code2ProtocolConverter,
       sendRequest: async (type, params) => {
         const cancellationTokenSource = new vsl.CancellationTokenSource()
-
         const promise = languageClient.sendRequest(
           type,
           params,

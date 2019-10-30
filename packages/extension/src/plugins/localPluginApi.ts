@@ -1,12 +1,10 @@
 import * as vscode from 'vscode'
 import * as vsl from 'vscode-languageclient'
-import {
-  RequestType0,
-  RequestType,
-  CancellationToken,
-} from 'vscode-languageclient'
+import { RequestType, CancellationToken } from 'vscode-languageclient'
 
-type AutoDispose<T> = T
+type AutoDispose<Fn extends (...args: any) => vscode.Disposable> = (
+  ...args: Parameters<Fn>
+) => void
 
 type VslSendRequest = <P, R, E, RO>(
   type: RequestType<P, R, E, RO>,

@@ -93,29 +93,48 @@ const applyResults = (results: Result[]) => {
   setDecorations(decorations)
 }
 
+// TODO very slight delay when renaming tag (because of duplicate requests?)
+
+// TODO different highlight color for different users
+const doHighlightElementMatchingTag: (
+  api: LocalPluginApi
+) => Promise<void> = async api => {
+  if (!vscode.window.activeTextEditor) {
+    return
+  }
+  const results = await Promise.all(
+    vscode.window.activeTextEditor.selections.map(selection =>
+      askServerForHighlightElementMatchingTag(
+        api,
+        vscode.window.activeTextEditor.document,
+        selection.active
+      )
+    )
+  )
+  applyResults(results)
+}
+
 export const localPluginHighlightElementMatchingTag: LocalPlugin = async api => {
+  api.vscode.workspace.onDidChangeTextDocument(event => {
+    if (event.document.languageId !== 'html') {
+      return
+    }
+    if (
+      !vscode.window.activeTextEditor ||
+      vscode.window.activeTextEditor.document !== event.document
+    ) {
+      return
+    }
+    if (event.contentChanges.length === 0) {
+      return
+    }
+    doHighlightElementMatchingTag(api)
+  })
   api.vscode.window.onDidChangeTextEditorSelection(async event => {
     if (event.textEditor.document.languageId !== 'html') {
       return
     }
-    const document = vscode.window.activeTextEditor.document
-    const results = await Promise.all(
-      event.selections.map(selection =>
-        askServerForHighlightElementMatchingTag(api, document, selection.active)
-      )
-    )
-    applyResults(results)
+    doHighlightElementMatchingTag(api)
   })
-  if (vscode.window.activeTextEditor) {
-    const results = await Promise.all(
-      vscode.window.activeTextEditor.selections.map(selection =>
-        askServerForHighlightElementMatchingTag(
-          api,
-          vscode.window.activeTextEditor.document,
-          selection.active
-        )
-      )
-    )
-    applyResults(results)
-  }
+  doHighlightElementMatchingTag(api)
 }

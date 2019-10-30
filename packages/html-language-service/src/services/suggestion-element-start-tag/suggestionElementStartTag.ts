@@ -39,10 +39,8 @@ export const doSuggestionElementStartTag: (
     return undefined
   }
 
-  console.log('parent is' + parent)
   const parentTagName = (parent && parent.tagName) || 'root'
   const suggestions = getSuggestedTags(parentTagName)
 
-  console.log(JSON.stringify(suggestions))
   return suggestions
 }

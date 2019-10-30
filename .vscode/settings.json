@@ -29,6 +29,7 @@
     ".gitignore": true,
     "fixtures": true,
     "scripts": true,
-    "**/*.d.ts": true
+    "**/*.d.ts": true,
+    "**/tsconfig.tsbuildinfo": true
   }
 }
