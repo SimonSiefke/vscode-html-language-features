@@ -92,3 +92,5 @@ and deleting, let's say <test2 or </test2>, it should automatically remove the p
  -->
 
 <!-- multi cursor support for auto rename tag and others -->
+
+<!-- TODO caching for get documentation or make it faster because currently its slow -->
