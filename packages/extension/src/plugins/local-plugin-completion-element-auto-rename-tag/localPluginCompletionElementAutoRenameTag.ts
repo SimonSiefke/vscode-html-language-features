@@ -34,22 +34,27 @@ const askServerForCompletionElementAutoRenameTag: (
   return result
 }
 
-const applyResult: (result: Result) => void = result => {
-  if (!result) {
+const applyResults: (results: Result[]) => Promise<void> = async results => {
+  const relevantResults = results.filter(Boolean).map(result => {
+    const startPosition = vscode.window.activeTextEditor.document.positionAt(
+      result.startOffset
+    )
+    const endPosition = vscode.window.activeTextEditor.document.positionAt(
+      result.endOffset
+    )
+    return {
+      range: new vscode.Range(startPosition, endPosition),
+      word: result.word,
+    }
+  })
+  if (relevantResults.length === 0) {
     return
   }
-  const startPosition = vscode.window.activeTextEditor.document.positionAt(
-    result.startOffset
-  )
-  const endPosition = vscode.window.activeTextEditor.document.positionAt(
-    result.endOffset
-  )
-  vscode.window.activeTextEditor.edit(
+  await vscode.window.activeTextEditor.edit(
     editBuilder => {
-      editBuilder.replace(
-        new vscode.Range(startPosition, endPosition),
-        result.word
-      )
+      for (const result of relevantResults) {
+        editBuilder.replace(result.range, result.word)
+      }
     },
     {
       undoStopBefore: false,
@@ -63,25 +68,31 @@ export const localPluginCompletionElementAutoRenameTag: LocalPlugin = api => {
     if (event.document.languageId !== 'html') {
       return
     }
-    const activeDocument =
-      vscode.window.activeTextEditor && vscode.window.activeTextEditor.document
+    if (
+      !vscode.window.activeTextEditor ||
+      vscode.window.activeTextEditor.document !== event.document
+    ) {
+      return
+    }
     if (event.contentChanges.length === 0) {
       return
     }
-    if (event.document !== activeDocument) {
-      return
-    }
-    const lastChange = event.contentChanges[event.contentChanges.length - 1]
-    const rangeStart = lastChange.range.start
-    const position = new vscode.Position(
-      rangeStart.line,
-      rangeStart.character + lastChange.text.length
+    const positions = event.contentChanges.map(
+      ({ range, text }) =>
+        new vscode.Position(
+          range.start.line,
+          range.start.character + text.length
+        )
     )
-    const result = await askServerForCompletionElementAutoRenameTag(
-      api,
-      event.document,
-      position
+    const results = await Promise.all(
+      positions.map(position =>
+        askServerForCompletionElementAutoRenameTag(
+          api,
+          event.document,
+          position
+        )
+      )
     )
-    applyResult(result)
+    applyResults(results)
   })
 }
