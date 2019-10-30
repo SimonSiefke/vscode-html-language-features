@@ -13,9 +13,14 @@ module.exports = withDefaults({
       minSize: 0,
       cacheGroups: {
         'vscode-dependencies': {
-          test: /node_modules\/vscode/,
+          test: /node_modules\/(vscode|semver)/,
           chunks: 'all',
           name: 'vscode-dependencies',
+        },
+        'debug-dependencies': {
+          test: /node_modules\/ws/,
+          chunks: 'all',
+          name: 'debug-dependencies',
         },
       },
     },

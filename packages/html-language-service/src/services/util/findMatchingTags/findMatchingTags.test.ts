@@ -48,6 +48,19 @@ test('unclosed start tags', () => {
   expect(findMatchingTags(data, 4)).toEqual(undefined)
 })
 
+test('with comments', () => {
+  const data = `<div><!-- </div> --></div>`
+  const expected = {
+    type: 'startAndEndTag',
+    tagName: 'div',
+    startTagOffset: 0,
+    endTagOffset: 20,
+  }
+  expect(findMatchingTags(data, 0)).toEqual(expected)
+  expect(findMatchingTags(data, 10)).toEqual(undefined)
+  expect(findMatchingTags(data, 20)).toEqual(expected)
+})
+
 test('unfinished opening tags', () => {
   const data = '<a</a>'
   const expected = {
