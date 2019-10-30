@@ -5,7 +5,7 @@ import {
   getDescriptionForAttributeName,
   getReferenceForAttributeName,
 } from '@html-language-features/html-language-service'
-import { Reference } from '../../../schema/src/Config'
+import { Reference } from '@html-language-features/schema'
 
 interface Documentation {
   kind: typeof MarkupKind.Markdown
