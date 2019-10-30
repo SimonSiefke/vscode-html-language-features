@@ -1,12 +1,7 @@
-import { RemotePlugin } from '../remotePluginApi'
-import {
-  RequestType,
-  TextDocumentPositionParams,
-  Range,
-  Position,
-  TextDocument,
-} from 'vscode-languageserver'
 import { doCompletionElementAutoRenameTag } from '@html-language-features/html-language-service'
+import { RequestType, TextDocumentPositionParams } from 'vscode-languageserver'
+import { TextDocument } from 'vscode-languageserver-types'
+import { RemotePlugin } from '../remotePluginApi'
 
 type Result = {
   startOffset: number

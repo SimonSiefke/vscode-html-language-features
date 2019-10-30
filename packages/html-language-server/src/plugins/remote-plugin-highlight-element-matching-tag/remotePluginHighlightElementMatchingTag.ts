@@ -1,10 +1,7 @@
 import { RemotePlugin } from '../remotePluginApi'
-import {
-  RequestType,
-  TextDocumentPositionParams,
-  TextDocument,
-} from 'vscode-languageserver'
+import { TextDocument } from 'vscode-languageserver-types'
 import { findMatchingTags } from '@html-language-features/html-language-service'
+import { RequestType, TextDocumentPositionParams } from 'vscode-languageserver'
 
 type Result = {
   type: 'startAndEndTag'

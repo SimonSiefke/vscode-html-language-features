@@ -37,12 +37,28 @@
   "bundlesize": [
     {
       "path": "./dist/packages/extension/dist/extensionMain.js",
-      "maxSize": "500 kB",
+      "maxSize": "40 kB",
+      "compression": "none"
+    },
+    {
+      "path": "./dist/packages/extension/dist/vscode-dependencies.js",
+      "maxSize": "160 kB",
+      "compression": "none"
+    },
+    {
+      "path": "./dist/packages/html-language-server/dist/vscode-dependencies.js",
+      "maxSize": "120 kB",
+      "compression": "none"
+    },
+    {
+      "path": "./dist/packages/html-language-server/dist/json-stats.js",
+      "maxSize": "530 kB",
       "compression": "none"
     },
     {
       "path": "./dist/packages/html-language-server/dist/htmlLanguageServerMain.js",
-      "maxSize": "500 kB"
+      "maxSize": "100 kB",
+      "compression": "none"
     }
   ]
 }

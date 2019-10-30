@@ -8,7 +8,7 @@ import {
   CompletionItemTag,
   MarkupKind,
   MarkupContent,
-} from 'vscode-languageserver'
+} from 'vscode-languageserver-types'
 import { doSuggestionAttributeKey } from '@html-language-features/html-language-service'
 
 const thinSpace = `\u2009`

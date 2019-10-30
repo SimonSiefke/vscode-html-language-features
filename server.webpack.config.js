@@ -9,29 +9,19 @@ module.exports = withDefaults({
     htmlLanguageServerMain: './src/htmlLanguageServerMain.ts',
   },
   optimization: {
-    minimize: false,
-    runtimeChunk: 'multiple',
     splitChunks: {
-      chunks: 'all',
-      maxInitialRequests: Infinity,
       minSize: 0,
       cacheGroups: {
-        vendor: {
-          test: /[\\/]node_modules[\\/]/,
-          name(module) {
-            // get the name. E.g. node_modules/packageName/not/this/part.js
-            // or node_modules/packageName
-            const packageName = module.context.match(
-              /[\\/]node_modules[\\/](.*?)([\\/]|$)/
-            )[1]
-
-            if (packageName.includes('@html-language-features')) {
-              return `core.${packageName.replace('@', '')}`
-            }
-
-            // npm package names are URL-safe, but some servers don't like @ symbols
-            return `npm.${packageName.replace('@', '')}`
-          },
+        json: {
+          test: /\.json$/,
+          chunks: 'all',
+          priority: -10,
+          name: 'json-stats',
+        },
+        'vscode-dependencies': {
+          test: /node_modules\/vscode/,
+          chunks: 'all',
+          name: 'vscode-dependencies',
         },
       },
     },

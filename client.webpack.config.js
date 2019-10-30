@@ -6,10 +6,22 @@ const BundleAnalyzerPlugin = require('webpack-bundle-analyzer')
 module.exports = withDefaults({
   context: path.join(__dirname, 'packages/extension'),
   entry: {
-    extension: './src/extensionMain.ts',
+    extensionMain: './src/extensionMain.ts',
+  },
+  optimization: {
+    splitChunks: {
+      minSize: 0,
+      cacheGroups: {
+        'vscode-dependencies': {
+          test: /node_modules\/vscode/,
+          chunks: 'all',
+          name: 'vscode-dependencies',
+        },
+      },
+    },
   },
   output: {
-    filename: 'extensionMain.js',
+    filename: '[name].js',
     path: path.join(__dirname, 'dist', 'packages/extension/dist'),
   },
   // plugins: [new BundleAnalyzerPlugin()],

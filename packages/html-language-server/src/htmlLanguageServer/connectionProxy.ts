@@ -1,20 +1,21 @@
 import {
   CompletionList,
-  Connection,
-  ResponseError,
-  ErrorCodes,
-  CompletionParams,
   CompletionItem,
-  TextDocumentPositionParams,
   SignatureHelp,
   Hover,
-  CancellationToken,
-  RequestType,
   DocumentSymbol,
-  // @ts-ignore
+} from 'vscode-languageserver-types'
+import {
+  ResponseError,
+  ErrorCodes,
+  TextDocumentPositionParams,
+  CompletionParams,
+  RequestType,
+  CancellationToken,
+  Connection,
 } from 'vscode-languageserver'
 
-const cancelValue = new ResponseError<any>(
+const cancelValue = new ResponseError<undefined>(
   ErrorCodes.RequestCancelled,
   'Request cancelled'
 )
@@ -178,8 +179,6 @@ export const createConnectionProxy: (
               let i = 0
               for (const onCompletionHandler of onCompletionHandlers) {
                 const result = onCompletionHandler(params)
-                console.log('i' + i)
-                console.log(typeof result)
                 if (result) {
                   return result
                 }

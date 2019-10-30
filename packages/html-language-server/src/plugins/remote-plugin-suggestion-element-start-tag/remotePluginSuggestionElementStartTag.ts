@@ -5,7 +5,7 @@ import {
   TextDocument,
   Range,
   Position,
-} from 'vscode-languageserver'
+} from 'vscode-languageserver-types'
 import { doSuggestionElementStartTag } from '@html-language-features/html-language-service'
 import { getDocumentationForTagName } from '../../util/getDocumentationForTagName'
 

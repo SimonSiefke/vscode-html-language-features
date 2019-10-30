@@ -5,6 +5,7 @@ import {
   ServerCapabilities,
   TextDocumentSyncKind,
 } from 'vscode-languageserver'
+import { addConfigs } from '@html-language-features/html-language-service'
 import { createConnectionProxy } from './htmlLanguageServer/connectionProxy'
 import { RemotePluginApi } from './plugins/remotePluginApi'
 import { remotePluginCompletionElementAutoClose } from './plugins/remote-plugin-completion-element-auto-close/remotePluginCompletionElementAutoClose'
@@ -17,7 +18,7 @@ import { remotePluginSuggestionAttributeKey } from './plugins/remote-plugin-sugg
 import { remotePluginHighlightElementMatchingTag } from './plugins/remote-plugin-highlight-element-matching-tag/remotePluginHighlightElementMatchingTag'
 import { remotePluginHoverElement } from './plugins/remote-plugin-hover-element/remotePluginHoverElement'
 import { remotePluginSymbol } from './plugins/remote-plugin-symbol/remotePluginSymbol'
-import { addConfigs } from '@html-language-features/html-language-service'
+
 const connection: IConnection = createConnection()
 
 console.log = connection.console.log.bind(connection.console)

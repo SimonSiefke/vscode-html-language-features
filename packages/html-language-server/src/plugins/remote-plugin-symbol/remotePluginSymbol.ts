@@ -1,5 +1,9 @@
 import { RemotePlugin } from '../remotePluginApi'
-import { TextDocument, DocumentSymbol, SymbolKind } from 'vscode-languageserver'
+import {
+  TextDocument,
+  DocumentSymbol,
+  SymbolKind,
+} from 'vscode-languageserver-types'
 
 export const remotePluginSymbol: RemotePlugin = api => {
   api.languageServer.onDocumentSymbol(({ textDocument, position }) => {

@@ -1,5 +1,5 @@
 import { RemotePlugin } from '../remotePluginApi'
-import { TextDocument } from 'vscode-languageserver'
+import { TextDocument } from 'vscode-languageserver-types'
 import { doHoverElement } from '@html-language-features/html-language-service'
 import { getDocumentationForTagName } from '../../util/getDocumentationForTagName'
 
