@@ -3,7 +3,8 @@
   "version": "1.0.0-dev",
   "description": "",
   "scripts": {
-    "generate:mdn": "node scripts/mdn/generateElements"
+    "generate:mdn": "node scripts/mdn/generateMdn",
+    "generate:w3schools": "node scripts/w3schools/generateW3schools"
   },
   "keywords": [],
   "author": "",

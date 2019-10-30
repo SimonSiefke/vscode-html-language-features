@@ -1,6 +1,6 @@
 const fs = require('fs')
 const path = require('path')
-const { getConfig } = require('../dist/getConfig')
+const { getConfig } = require('../../dist/getConfig')
 
 const root = path.join(__dirname, '..')
 const configs = fs.readdirSync(path.join(root, 'src/configs'))

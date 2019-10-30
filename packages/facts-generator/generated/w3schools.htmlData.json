@@ -1,0 +1,781 @@
+{
+  "elements": {
+    "!DOCTYPE": {
+      "description": "Defines the document type",
+      "reference": {
+        "url": "https://www.w3schools.com/tags/tag_!DOCTYPE.asp",
+        "name": "W3Schools Reference"
+      }
+    },
+    "a": {
+      "description": "Defines a hyperlink",
+      "reference": {
+        "url": "https://www.w3schools.com/tags/tag_a.asp",
+        "name": "W3Schools Reference"
+      }
+    },
+    "abbr": {
+      "description": "Defines an abbreviation or an acronym",
+      "reference": {
+        "url": "https://www.w3schools.com/tags/tag_abbr.asp",
+        "name": "W3Schools Reference"
+      }
+    },
+    "address": {
+      "description": "Defines contact information for the author/owner of a document",
+      "reference": {
+        "url": "https://www.w3schools.com/tags/tag_address.asp",
+        "name": "W3Schools Reference"
+      }
+    },
+    "area": {
+      "description": "Defines an area inside an image-map",
+      "reference": {
+        "url": "https://www.w3schools.com/tags/tag_area.asp",
+        "name": "W3Schools Reference"
+      }
+    },
+    "article": {
+      "description": "Defines an article",
+      "reference": {
+        "url": "https://www.w3schools.com/tags/tag_article.asp",
+        "name": "W3Schools Reference"
+      }
+    },
+    "aside": {
+      "description": "Defines content aside from the page content",
+      "reference": {
+        "url": "https://www.w3schools.com/tags/tag_aside.asp",
+        "name": "W3Schools Reference"
+      }
+    },
+    "audio": {
+      "description": "Defines sound content",
+      "reference": {
+        "url": "https://www.w3schools.com/tags/tag_audio.asp",
+        "name": "W3Schools Reference"
+      }
+    },
+    "b": {
+      "description": "Defines bold text",
+      "reference": {
+        "url": "https://www.w3schools.com/tags/tag_b.asp",
+        "name": "W3Schools Reference"
+      }
+    },
+    "base": {
+      "description": "Specifies the base URL/target for all relative URLs in a document",
+      "reference": {
+        "url": "https://www.w3schools.com/tags/tag_base.asp",
+        "name": "W3Schools Reference"
+      }
+    },
+    "bdi": {
+      "description": "Isolates a part of text that might be formatted in a different direction  from other text outside it",
+      "reference": {
+        "url": "https://www.w3schools.com/tags/tag_bdi.asp",
+        "name": "W3Schools Reference"
+      }
+    },
+    "bdo": {
+      "description": "Overrides the current text direction",
+      "reference": {
+        "url": "https://www.w3schools.com/tags/tag_bdo.asp",
+        "name": "W3Schools Reference"
+      }
+    },
+    "blockquote": {
+      "description": "Defines a section that is quoted from another source",
+      "reference": {
+        "url": "https://www.w3schools.com/tags/tag_blockquote.asp",
+        "name": "W3Schools Reference"
+      }
+    },
+    "body": {
+      "description": "Defines the document's body",
+      "reference": {
+        "url": "https://www.w3schools.com/tags/tag_body.asp",
+        "name": "W3Schools Reference"
+      }
+    },
+    "br": {
+      "description": "Defines a single line break",
+      "reference": {
+        "url": "https://www.w3schools.com/tags/tag_br.asp",
+        "name": "W3Schools Reference"
+      }
+    },
+    "button": {
+      "description": "Defines a clickable button",
+      "reference": {
+        "url": "https://www.w3schools.com/tags/tag_button.asp",
+        "name": "W3Schools Reference"
+      }
+    },
+    "canvas": {
+      "description": "Used to draw graphics, on the fly, via scripting (usually JavaScript)",
+      "reference": {
+        "url": "https://www.w3schools.com/tags/tag_canvas.asp",
+        "name": "W3Schools Reference"
+      }
+    },
+    "caption": {
+      "description": "Defines a table caption",
+      "reference": {
+        "url": "https://www.w3schools.com/tags/tag_caption.asp",
+        "name": "W3Schools Reference"
+      }
+    },
+    "cite": {
+      "description": "Defines the title of a work",
+      "reference": {
+        "url": "https://www.w3schools.com/tags/tag_cite.asp",
+        "name": "W3Schools Reference"
+      }
+    },
+    "code": {
+      "description": "Defines a piece of computer code",
+      "reference": {
+        "url": "https://www.w3schools.com/tags/tag_code.asp",
+        "name": "W3Schools Reference"
+      }
+    },
+    "col": {
+      "description": "Specifies column properties for each column within a <colgroup> element",
+      "reference": {
+        "url": "https://www.w3schools.com/tags/tag_col.asp",
+        "name": "W3Schools Reference"
+      }
+    },
+    "colgroup": {
+      "description": "Specifies a group of one or more columns in a table for formatting",
+      "reference": {
+        "url": "https://www.w3schools.com/tags/tag_colgroup.asp",
+        "name": "W3Schools Reference"
+      }
+    },
+    "data": {
+      "description": "Links the given content with a machine-readable translation",
+      "reference": {
+        "url": "https://www.w3schools.com/tags/tag_data.asp",
+        "name": "W3Schools Reference"
+      }
+    },
+    "datalist": {
+      "description": "Specifies a list of pre-defined options for input controls",
+      "reference": {
+        "url": "https://www.w3schools.com/tags/tag_datalist.asp",
+        "name": "W3Schools Reference"
+      }
+    },
+    "dd": {
+      "description": "Defines a description/value of a term in a description list",
+      "reference": {
+        "url": "https://www.w3schools.com/tags/tag_dd.asp",
+        "name": "W3Schools Reference"
+      }
+    },
+    "del": {
+      "description": "Defines text that has been deleted from a document",
+      "reference": {
+        "url": "https://www.w3schools.com/tags/tag_del.asp",
+        "name": "W3Schools Reference"
+      }
+    },
+    "details": {
+      "description": "Defines additional details that the user can view or hide",
+      "reference": {
+        "url": "https://www.w3schools.com/tags/tag_details.asp",
+        "name": "W3Schools Reference"
+      }
+    },
+    "dfn": {
+      "description": "Represents the defining instance of a term",
+      "reference": {
+        "url": "https://www.w3schools.com/tags/tag_dfn.asp",
+        "name": "W3Schools Reference"
+      }
+    },
+    "dialog": {
+      "description": "Defines a dialog box or window",
+      "reference": {
+        "url": "https://www.w3schools.com/tags/tag_dialog.asp",
+        "name": "W3Schools Reference"
+      }
+    },
+    "div": {
+      "description": "Defines a section in a document",
+      "reference": {
+        "url": "https://www.w3schools.com/tags/tag_div.asp",
+        "name": "W3Schools Reference"
+      }
+    },
+    "dl": {
+      "description": "Defines a description list",
+      "reference": {
+        "url": "https://www.w3schools.com/tags/tag_dl.asp",
+        "name": "W3Schools Reference"
+      }
+    },
+    "dt": {
+      "description": "Defines a term/name in a description list",
+      "reference": {
+        "url": "https://www.w3schools.com/tags/tag_dt.asp",
+        "name": "W3Schools Reference"
+      }
+    },
+    "em": {
+      "description": "Defines emphasized text",
+      "reference": {
+        "url": "https://www.w3schools.com/tags/tag_em.asp",
+        "name": "W3Schools Reference"
+      }
+    },
+    "embed": {
+      "description": "Defines a container for an external (non-HTML) application",
+      "reference": {
+        "url": "https://www.w3schools.com/tags/tag_embed.asp",
+        "name": "W3Schools Reference"
+      }
+    },
+    "fieldset": {
+      "description": "Groups related elements in a form",
+      "reference": {
+        "url": "https://www.w3schools.com/tags/tag_fieldset.asp",
+        "name": "W3Schools Reference"
+      }
+    },
+    "figcaption": {
+      "description": "Defines a caption for a <figure> element",
+      "reference": {
+        "url": "https://www.w3schools.com/tags/tag_figcaption.asp",
+        "name": "W3Schools Reference"
+      }
+    },
+    "figure": {
+      "description": "Specifies self-contained content",
+      "reference": {
+        "url": "https://www.w3schools.com/tags/tag_figure.asp",
+        "name": "W3Schools Reference"
+      }
+    },
+    "footer": {
+      "description": "Defines a footer for a document or section",
+      "reference": {
+        "url": "https://www.w3schools.com/tags/tag_footer.asp",
+        "name": "W3Schools Reference"
+      }
+    },
+    "form": {
+      "description": "Defines an HTML form for user input",
+      "reference": {
+        "url": "https://www.w3schools.com/tags/tag_form.asp",
+        "name": "W3Schools Reference"
+      }
+    },
+    "h1": {
+      "description": "Defines HTML headings",
+      "reference": {
+        "name": "W3Schools Reference",
+        "url": "https://www.w3schools.com/tags/tag_hn.asp"
+      }
+    },
+    "h2": {
+      "description": "Defines HTML headings",
+      "reference": {
+        "name": "W3Schools Reference",
+        "url": "https://www.w3schools.com/tags/tag_hn.asp"
+      }
+    },
+    "h3": {
+      "description": "Defines HTML headings",
+      "reference": {
+        "name": "W3Schools Reference",
+        "url": "https://www.w3schools.com/tags/tag_hn.asp"
+      }
+    },
+    "h4": {
+      "description": "Defines HTML headings",
+      "reference": {
+        "name": "W3Schools Reference",
+        "url": "https://www.w3schools.com/tags/tag_hn.asp"
+      }
+    },
+    "h5": {
+      "description": "Defines HTML headings",
+      "reference": {
+        "name": "W3Schools Reference",
+        "url": "https://www.w3schools.com/tags/tag_hn.asp"
+      }
+    },
+    "h6": {
+      "description": "Defines HTML headings",
+      "reference": {
+        "name": "W3Schools Reference",
+        "url": "https://www.w3schools.com/tags/tag_hn.asp"
+      }
+    },
+    "head": {
+      "description": "Defines information about the document",
+      "reference": {
+        "url": "https://www.w3schools.com/tags/tag_head.asp",
+        "name": "W3Schools Reference"
+      }
+    },
+    "header": {
+      "description": "Defines a header for a document or section",
+      "reference": {
+        "url": "https://www.w3schools.com/tags/tag_header.asp",
+        "name": "W3Schools Reference"
+      }
+    },
+    "hr": {
+      "description": "Defines a thematic change in the content",
+      "reference": {
+        "url": "https://www.w3schools.com/tags/tag_hr.asp",
+        "name": "W3Schools Reference"
+      }
+    },
+    "html": {
+      "description": "Defines the root of an HTML document",
+      "reference": {
+        "url": "https://www.w3schools.com/tags/tag_html.asp",
+        "name": "W3Schools Reference"
+      }
+    },
+    "i": {
+      "description": "Defines a part of text in an alternate voice or mood",
+      "reference": {
+        "url": "https://www.w3schools.com/tags/tag_i.asp",
+        "name": "W3Schools Reference"
+      }
+    },
+    "iframe": {
+      "description": "Defines an inline frame",
+      "reference": {
+        "url": "https://www.w3schools.com/tags/tag_iframe.asp",
+        "name": "W3Schools Reference"
+      }
+    },
+    "img": {
+      "description": "Defines an image",
+      "reference": {
+        "url": "https://www.w3schools.com/tags/tag_img.asp",
+        "name": "W3Schools Reference"
+      }
+    },
+    "input": {
+      "description": "Defines an input control",
+      "reference": {
+        "url": "https://www.w3schools.com/tags/tag_input.asp",
+        "name": "W3Schools Reference"
+      }
+    },
+    "ins": {
+      "description": "Defines a text that has been inserted into a document",
+      "reference": {
+        "url": "https://www.w3schools.com/tags/tag_ins.asp",
+        "name": "W3Schools Reference"
+      }
+    },
+    "kbd": {
+      "description": "Defines keyboard input",
+      "reference": {
+        "url": "https://www.w3schools.com/tags/tag_kbd.asp",
+        "name": "W3Schools Reference"
+      }
+    },
+    "label": {
+      "description": "Defines a label for an <input> element",
+      "reference": {
+        "url": "https://www.w3schools.com/tags/tag_label.asp",
+        "name": "W3Schools Reference"
+      }
+    },
+    "legend": {
+      "description": "Defines a caption for a <fieldset> element",
+      "reference": {
+        "url": "https://www.w3schools.com/tags/tag_legend.asp",
+        "name": "W3Schools Reference"
+      }
+    },
+    "li": {
+      "description": "Defines a list item",
+      "reference": {
+        "url": "https://www.w3schools.com/tags/tag_li.asp",
+        "name": "W3Schools Reference"
+      }
+    },
+    "link": {
+      "description": "Defines the relationship between a document and an external resource (most  used to link to style sheets)",
+      "reference": {
+        "url": "https://www.w3schools.com/tags/tag_link.asp",
+        "name": "W3Schools Reference"
+      }
+    },
+    "main": {
+      "description": "Specifies the main content of a document",
+      "reference": {
+        "url": "https://www.w3schools.com/tags/tag_main.asp",
+        "name": "W3Schools Reference"
+      }
+    },
+    "map": {
+      "description": "Defines a client-side image-map",
+      "reference": {
+        "url": "https://www.w3schools.com/tags/tag_map.asp",
+        "name": "W3Schools Reference"
+      }
+    },
+    "mark": {
+      "description": "Defines marked/highlighted text",
+      "reference": {
+        "url": "https://www.w3schools.com/tags/tag_mark.asp",
+        "name": "W3Schools Reference"
+      }
+    },
+    "meta": {
+      "description": "Defines metadata about an HTML document",
+      "reference": {
+        "url": "https://www.w3schools.com/tags/tag_meta.asp",
+        "name": "W3Schools Reference"
+      }
+    },
+    "meter": {
+      "description": "Defines a scalar measurement within a known range (a gauge)",
+      "reference": {
+        "url": "https://www.w3schools.com/tags/tag_meter.asp",
+        "name": "W3Schools Reference"
+      }
+    },
+    "nav": {
+      "description": "Defines navigation links",
+      "reference": {
+        "url": "https://www.w3schools.com/tags/tag_nav.asp",
+        "name": "W3Schools Reference"
+      }
+    },
+    "noscript": {
+      "description": "Defines an alternate content for users that do not support  client-side scripts",
+      "reference": {
+        "url": "https://www.w3schools.com/tags/tag_noscript.asp",
+        "name": "W3Schools Reference"
+      }
+    },
+    "object": {
+      "description": "Defines an embedded object",
+      "reference": {
+        "url": "https://www.w3schools.com/tags/tag_object.asp",
+        "name": "W3Schools Reference"
+      }
+    },
+    "ol": {
+      "description": "Defines an ordered list",
+      "reference": {
+        "url": "https://www.w3schools.com/tags/tag_ol.asp",
+        "name": "W3Schools Reference"
+      }
+    },
+    "optgroup": {
+      "description": "Defines a group of related options in a drop-down list",
+      "reference": {
+        "url": "https://www.w3schools.com/tags/tag_optgroup.asp",
+        "name": "W3Schools Reference"
+      }
+    },
+    "option": {
+      "description": "Defines an option in a drop-down list",
+      "reference": {
+        "url": "https://www.w3schools.com/tags/tag_option.asp",
+        "name": "W3Schools Reference"
+      }
+    },
+    "output": {
+      "description": "Defines the result of a calculation",
+      "reference": {
+        "url": "https://www.w3schools.com/tags/tag_output.asp",
+        "name": "W3Schools Reference"
+      }
+    },
+    "p": {
+      "description": "Defines a paragraph",
+      "reference": {
+        "url": "https://www.w3schools.com/tags/tag_p.asp",
+        "name": "W3Schools Reference"
+      }
+    },
+    "param": {
+      "description": "Defines a parameter for an object",
+      "reference": {
+        "url": "https://www.w3schools.com/tags/tag_param.asp",
+        "name": "W3Schools Reference"
+      }
+    },
+    "picture": {
+      "description": "Defines a container for multiple image resources",
+      "reference": {
+        "url": "https://www.w3schools.com/tags/tag_picture.asp",
+        "name": "W3Schools Reference"
+      }
+    },
+    "pre": {
+      "description": "Defines preformatted text",
+      "reference": {
+        "url": "https://www.w3schools.com/tags/tag_pre.asp",
+        "name": "W3Schools Reference"
+      }
+    },
+    "progress": {
+      "description": "Represents the progress of a task",
+      "reference": {
+        "url": "https://www.w3schools.com/tags/tag_progress.asp",
+        "name": "W3Schools Reference"
+      }
+    },
+    "q": {
+      "description": "Defines a short quotation",
+      "reference": {
+        "url": "https://www.w3schools.com/tags/tag_q.asp",
+        "name": "W3Schools Reference"
+      }
+    },
+    "rp": {
+      "description": "Defines what to show in browsers that do not support ruby annotations",
+      "reference": {
+        "url": "https://www.w3schools.com/tags/tag_rp.asp",
+        "name": "W3Schools Reference"
+      }
+    },
+    "rt": {
+      "description": "Defines an explanation/pronunciation of characters (for East Asian  typography)",
+      "reference": {
+        "url": "https://www.w3schools.com/tags/tag_rt.asp",
+        "name": "W3Schools Reference"
+      }
+    },
+    "ruby": {
+      "description": "Defines a ruby annotation (for East Asian typography)",
+      "reference": {
+        "url": "https://www.w3schools.com/tags/tag_ruby.asp",
+        "name": "W3Schools Reference"
+      }
+    },
+    "s": {
+      "description": "Defines text that is no longer correct",
+      "reference": {
+        "url": "https://www.w3schools.com/tags/tag_s.asp",
+        "name": "W3Schools Reference"
+      }
+    },
+    "samp": {
+      "description": "Defines sample output from a computer program",
+      "reference": {
+        "url": "https://www.w3schools.com/tags/tag_samp.asp",
+        "name": "W3Schools Reference"
+      }
+    },
+    "script": {
+      "description": "Defines a client-side script",
+      "reference": {
+        "url": "https://www.w3schools.com/tags/tag_script.asp",
+        "name": "W3Schools Reference"
+      }
+    },
+    "section": {
+      "description": "Defines a section in a document",
+      "reference": {
+        "url": "https://www.w3schools.com/tags/tag_section.asp",
+        "name": "W3Schools Reference"
+      }
+    },
+    "select": {
+      "description": "Defines a drop-down list",
+      "reference": {
+        "url": "https://www.w3schools.com/tags/tag_select.asp",
+        "name": "W3Schools Reference"
+      }
+    },
+    "small": {
+      "description": "Defines smaller text",
+      "reference": {
+        "url": "https://www.w3schools.com/tags/tag_small.asp",
+        "name": "W3Schools Reference"
+      }
+    },
+    "source": {
+      "description": "Defines multiple media resources for media elements (<video> and <audio>)",
+      "reference": {
+        "url": "https://www.w3schools.com/tags/tag_source.asp",
+        "name": "W3Schools Reference"
+      }
+    },
+    "span": {
+      "description": "Defines a section in a document",
+      "reference": {
+        "url": "https://www.w3schools.com/tags/tag_span.asp",
+        "name": "W3Schools Reference"
+      }
+    },
+    "strong": {
+      "description": "Defines important text",
+      "reference": {
+        "url": "https://www.w3schools.com/tags/tag_strong.asp",
+        "name": "W3Schools Reference"
+      }
+    },
+    "style": {
+      "description": "Defines style information for a document",
+      "reference": {
+        "url": "https://www.w3schools.com/tags/tag_style.asp",
+        "name": "W3Schools Reference"
+      }
+    },
+    "sub": {
+      "description": "Defines subscripted text",
+      "reference": {
+        "url": "https://www.w3schools.com/tags/tag_sub.asp",
+        "name": "W3Schools Reference"
+      }
+    },
+    "summary": {
+      "description": "Defines a visible heading for a <details> element",
+      "reference": {
+        "url": "https://www.w3schools.com/tags/tag_summary.asp",
+        "name": "W3Schools Reference"
+      }
+    },
+    "sup": {
+      "description": "Defines superscripted text",
+      "reference": {
+        "url": "https://www.w3schools.com/tags/tag_sup.asp",
+        "name": "W3Schools Reference"
+      }
+    },
+    "svg": {
+      "description": "Defines a container for SVG graphics",
+      "reference": {
+        "url": "https://www.w3schools.com/tags/tag_svg.asp",
+        "name": "W3Schools Reference"
+      }
+    },
+    "table": {
+      "description": "Defines a table",
+      "reference": {
+        "url": "https://www.w3schools.com/tags/tag_table.asp",
+        "name": "W3Schools Reference"
+      }
+    },
+    "tbody": {
+      "description": "Groups the body content in a table",
+      "reference": {
+        "url": "https://www.w3schools.com/tags/tag_tbody.asp",
+        "name": "W3Schools Reference"
+      }
+    },
+    "td": {
+      "description": "Defines a cell in a table",
+      "reference": {
+        "url": "https://www.w3schools.com/tags/tag_td.asp",
+        "name": "W3Schools Reference"
+      }
+    },
+    "template": {
+      "description": "Defines a template",
+      "reference": {
+        "url": "https://www.w3schools.com/tags/tag_template.asp",
+        "name": "W3Schools Reference"
+      }
+    },
+    "textarea": {
+      "description": "Defines a multiline input control (text area)",
+      "reference": {
+        "url": "https://www.w3schools.com/tags/tag_textarea.asp",
+        "name": "W3Schools Reference"
+      }
+    },
+    "tfoot": {
+      "description": "Groups the footer content in a table",
+      "reference": {
+        "url": "https://www.w3schools.com/tags/tag_tfoot.asp",
+        "name": "W3Schools Reference"
+      }
+    },
+    "th": {
+      "description": "Defines a header cell in a table",
+      "reference": {
+        "url": "https://www.w3schools.com/tags/tag_th.asp",
+        "name": "W3Schools Reference"
+      }
+    },
+    "thead": {
+      "description": "Groups the header content in a table",
+      "reference": {
+        "url": "https://www.w3schools.com/tags/tag_thead.asp",
+        "name": "W3Schools Reference"
+      }
+    },
+    "time": {
+      "description": "Defines a date/time",
+      "reference": {
+        "url": "https://www.w3schools.com/tags/tag_time.asp",
+        "name": "W3Schools Reference"
+      }
+    },
+    "title": {
+      "description": "Defines a title for the document",
+      "reference": {
+        "url": "https://www.w3schools.com/tags/tag_title.asp",
+        "name": "W3Schools Reference"
+      }
+    },
+    "tr": {
+      "description": "Defines a row in a table",
+      "reference": {
+        "url": "https://www.w3schools.com/tags/tag_tr.asp",
+        "name": "W3Schools Reference"
+      }
+    },
+    "track": {
+      "description": "Defines text tracks for media elements (<video> and <audio>)",
+      "reference": {
+        "url": "https://www.w3schools.com/tags/tag_track.asp",
+        "name": "W3Schools Reference"
+      }
+    },
+    "u": {
+      "description": "Defines text that should be stylistically different from normal text",
+      "reference": {
+        "url": "https://www.w3schools.com/tags/tag_u.asp",
+        "name": "W3Schools Reference"
+      }
+    },
+    "ul": {
+      "description": "Defines an unordered list",
+      "reference": {
+        "url": "https://www.w3schools.com/tags/tag_ul.asp",
+        "name": "W3Schools Reference"
+      }
+    },
+    "var": {
+      "description": "Defines a variable",
+      "reference": {
+        "url": "https://www.w3schools.com/tags/tag_var.asp",
+        "name": "W3Schools Reference"
+      }
+    },
+    "video": {
+      "description": "Defines a video or movie",
+      "reference": {
+        "url": "https://www.w3schools.com/tags/tag_video.asp",
+        "name": "W3Schools Reference"
+      }
+    },
+    "wbr": {
+      "description": "Defines a possible line-break",
+      "reference": {
+        "url": "https://www.w3schools.com/tags/tag_wbr.asp",
+        "name": "W3Schools Reference"
+      }
+    }
+  }
+}
