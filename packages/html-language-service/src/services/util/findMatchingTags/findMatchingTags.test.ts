@@ -77,6 +77,23 @@ test('unfinished opening tags', () => {
   expect(findMatchingTags(data, 6)).toEqual(undefined)
 })
 
+test.skip('empty tags', () => {
+  // TODO stackoverflow error
+  const data = '<></>'
+  const expected: MatchingTagResult = {
+    type: 'startAndEndTag',
+    tagName: '',
+    startTagOffset: 0,
+    endTagOffset: 2,
+  }
+  expect(findMatchingTags(data, 0)).toEqual(expected)
+  expect(findMatchingTags(data, 1)).toEqual(expected)
+  expect(findMatchingTags(data, 2)).toEqual(expected)
+  expect(findMatchingTags(data, 3)).toEqual(expected)
+  expect(findMatchingTags(data, 4)).toEqual(expected)
+  expect(findMatchingTags(data, 5)).toEqual(expected)
+})
+
 test('bug 1', () => {
   // TODO find next closing tag not working correctly
   const data = `<body >
