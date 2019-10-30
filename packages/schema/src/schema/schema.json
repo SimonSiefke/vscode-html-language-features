@@ -5,6 +5,22 @@
   "default": {},
   "additionalProperties": false,
   "definitions": {
+    "reference": {
+      "description": "Reference for additional information",
+      "type": "object",
+      "required": ["url", "name"],
+      "additionalProperties": false,
+      "properties": {
+        "url": {
+          "type": "string",
+          "description": "Url of the reference"
+        },
+        "name": {
+          "type": "string",
+          "description": "Name of the reference"
+        }
+      }
+    },
     "attributes": {
       "type": "object",
       "description": "Attributes of the element",
@@ -27,6 +43,9 @@
               "type": "object",
               "additionalProperties": false,
               "properties": {
+                "reference": {
+                  "$ref": "#/definitions/reference"
+                },
                 "probability": {
                   "type": "number",
                   "minimum": 0,
@@ -127,21 +146,7 @@
           "additionalProperties": false,
           "properties": {
             "reference": {
-              "description": "Reference for additional information",
-              "type": "object",
-              "required": ["url", "name"],
-              "additionalProperties": false,
-              "properties": {
-                "url": {
-                  "type": "string",
-                  "format": "uri",
-                  "description": "Url of the reference"
-                },
-                "name": {
-                  "type": "string",
-                  "description": "Name of the reference"
-                }
-              }
+              "$ref": "#/definitions/reference"
             },
             "experimental": {
               "type": "boolean",

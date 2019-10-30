@@ -8,7 +8,9 @@ const validateConfig: (
 ) => { errors: ValidationError[] } = config => {
   const { errors } = validate(config, schema)
   if (errors.length > 0) {
-    console.error(`invalid schema: ${errors[0].message}`)
+    for (const error of errors) {
+      console.error(`invalid schema: ${error.message}`)
+    }
     return {
       errors,
     }

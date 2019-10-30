@@ -7,7 +7,7 @@ import {
   Position,
 } from 'vscode-languageserver-types'
 import { doSuggestionElementStartTag } from '@html-language-features/html-language-service'
-import { getDocumentationForTagName } from '../../util/getDocumentationForTagName'
+import { getDocumentationForTagName } from '../../util/getDocumentation'
 
 const thinSpace = `\u2009`
 const weirdCharAtTheEndOfTheAlphabet = `\uE83A`

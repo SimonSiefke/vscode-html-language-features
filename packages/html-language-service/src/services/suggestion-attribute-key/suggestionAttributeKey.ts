@@ -13,11 +13,14 @@ export const doSuggestionAttributeKey: (
   offset: number
 ) =>
   | {
-      name: string
-      probability?: number
-      deprecated?: boolean
-      description?: string
-    }[]
+      tagName?: string
+      attributes: {
+        name: string
+        probability?: number
+        deprecated?: boolean
+        description?: string
+      }[]
+    }
   | undefined = (text, offset) => {
   const scanner = createScanner(text)
   scanner.stream.goTo(offset)
@@ -40,7 +43,14 @@ export const doSuggestionAttributeKey: (
   // 1. import statistics
   // 2. fuzzy search in statistics[tagName][inCompleteAttributeName]
 
-  return getSuggestedAttributes(tagName)
+  const suggestedAttributes = getSuggestedAttributes(tagName)
+  if (!suggestedAttributes) {
+    return undefined
+  }
+  return {
+    tagName,
+    attributes: suggestedAttributes,
+  }
 }
 
 // doSuggestionAttributeKey('<h1 > ', 4) //?

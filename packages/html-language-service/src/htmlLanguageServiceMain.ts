@@ -2,6 +2,8 @@ export {
   addConfigs,
   setConfig,
   getDescriptionForTag,
+  getDescriptionForAttributeName,
+  getReferenceForAttributeName,
   getReferenceForTag,
 } from './data/Data'
 export { doHoverElement } from './services/hover-element/hoverElement'

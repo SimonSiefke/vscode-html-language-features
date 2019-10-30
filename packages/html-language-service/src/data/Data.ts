@@ -37,7 +37,7 @@ export const addConfigs: (
     return result
   }
   _config = result
-  // debugConfig()
+  // DEBUGConfig()
   return { errors: [] }
 }
 
@@ -64,6 +64,40 @@ export const getDescriptionForTag: (
   _config.elements &&
   _config.elements[tagName] &&
   _config.elements[tagName].description
+
+export const getReferenceForAttributeName: (
+  tagName: string | undefined,
+  attributeName: string
+) => Reference | undefined = (tagName, attributeName) => {
+  if (!tagName) {
+    return undefined
+  }
+  return (
+    _config.elements &&
+    _config.elements[tagName] &&
+    _config.elements[tagName].attributes &&
+    _config.elements[tagName].attributes![attributeName] &&
+    _config.elements[tagName].attributes![attributeName].reference
+  )
+}
+
+export const getDescriptionForAttributeName: (
+  tagName: string | undefined,
+  attributeName: string
+) => string | undefined = (tagName, attributeName) => {
+  if (!tagName) {
+    // TODO global attributes
+    return undefined
+  }
+  return (
+    _config.elements &&
+    _config.elements[tagName] &&
+    _config.elements[tagName].attributes &&
+    // TODO typescript bug?
+    _config.elements[tagName].attributes![attributeName] &&
+    _config.elements[tagName].attributes![attributeName].description
+  )
+}
 
 export const isTagName: (tagName: string) => boolean = tagName =>
   _config.elements !== undefined && _config.elements[tagName] !== undefined

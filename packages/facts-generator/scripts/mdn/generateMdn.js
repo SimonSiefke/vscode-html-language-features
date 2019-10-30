@@ -23,6 +23,7 @@ const reference = 'https://developer.mozilla.org/en-US/docs/Web/HTML/Element'
 const getHtmlElementsAndLinks = async () => {
   // @ts-ignore
   const html = await fetch(reference).then(res => res.text())
+  // @ts-ignore
   const $ = cheerio.load(html)
 
   const elements = $('summary')
@@ -96,6 +97,7 @@ const getInfoForElement = async element => {
   const fullUrl = 'https://developer.mozilla.org/' + element.href
   // @ts-ignore
   const html = await fetch(fullUrl).then(res => res.text())
+  // @ts-ignore
   const $ = cheerio.load(html)
   const description = $('#wikiArticle .seoSummary').html() //?
 
@@ -200,33 +202,43 @@ const all = async () => {
     const baseUrl = 'https://developer.mozilla.org/'
     return description.replace(/a href="\//g, `a href="${baseUrl}`)
   }
-  /**
-   *
-   * @param {{name:string,deprecated:boolean,experimental:boolean, description:string}[]} attributes
-   */
-  const fixAttributes = attributes => {
-    if (Object.keys(attributes).length === 0) {
-      return undefined
-    }
-    return attributes.reduce(
-      (total, current) => ({
-        ...total,
-        [current.name]: {
-          deprecated: current.deprecated || undefined,
-          experimental: current.experimental || undefined,
-          description: fixDescription(current.description),
-        },
-      }),
-      {}
-    )
-  }
 
   const fixDescriptionMarkdown = description => {
     if (!description) {
       return undefined
     }
+    // @ts-ignore
     return turndownService.turndown(description)
   }
+  /**
+   *
+   * @param {{name:string,deprecated:boolean,experimental:boolean, description:string}[]} attributes
+   * @param {{url:string, name:string|undefined}} reference
+   */
+  const fixAttributes = (reference, attributes) => {
+    if (Object.keys(attributes).length === 0) {
+      return undefined
+    }
+    return attributes.reduce((total, current) => {
+      let attributeReference = reference
+      if (attributeReference !== undefined) {
+        attributeReference = {
+          ...reference,
+          url: reference.url + `#attr-${current.name}`,
+        }
+      }
+      return {
+        ...total,
+        [current.name]: {
+          deprecated: current.deprecated || undefined,
+          experimental: current.experimental || undefined,
+          description: fixDescriptionMarkdown(current.description),
+          reference: attributeReference,
+        },
+      }
+    }, {})
+  }
+
   const elements = fullElementInfo.reduce(
     (total, current) => ({
       ...total,
@@ -236,7 +248,7 @@ const all = async () => {
         deprecated: current.deprecated || undefined,
         selfClosing: current.selfClosing || undefined,
         description: fixDescriptionMarkdown(current.description),
-        attributes: fixAttributes(current.attributes),
+        attributes: fixAttributes(current.reference, current.attributes),
       },
     }),
     {}
