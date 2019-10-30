@@ -32,15 +32,15 @@ test('suggestion-attribute-key', () => {
     },
     {
       input: '<h1 |',
-      expected: [{ name: 'class' }],
+      expected: { tagName: 'h1', attributes: [{ name: 'class' }] },
     },
     {
       input: '<h1 class="big" |',
-      expected: [{ name: 'class' }],
+      expected: { tagName: 'h1', attributes: [{ name: 'class' }] },
     },
     {
       input: `<h1 class="big"\n  |`,
-      expected: [{ name: 'class' }],
+      expected: { tagName: 'h1', attributes: [{ name: 'class' }] },
     },
     {
       input: '<h1>|',
@@ -68,7 +68,7 @@ test('suggestion-attribute-key', () => {
     },
     {
       input: '<h1></h1><h1 |',
-      expected: [{ name: 'class' }],
+      expected: { tagName: 'h1', attributes: [{ name: 'class' }] },
     },
     {
       input: '<Daten/|',
