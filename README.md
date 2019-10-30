@@ -2,6 +2,8 @@
 
 # HTML Language Features for VSCode
 
+![Demo](./demo.png)
+
 Features:
 
 - Context aware HTML Completions
@@ -10,7 +12,7 @@ Features:
 - Attribute key completions
 - Highlight Matching Tags
 
-<!-- TODO image -->
+<!-- TODO better image -->
 
 Note: for this to work, you need to disable:
 
