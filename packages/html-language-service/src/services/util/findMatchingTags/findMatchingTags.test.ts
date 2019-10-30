@@ -64,6 +64,62 @@ test('unfinished opening tags', () => {
   expect(findMatchingTags(data, 6)).toEqual(undefined)
 })
 
+test('bug 1', () => {
+  // TODO find next closing tag not working correctly
+  const data = `<body >
+    <div >  </div>
+  </body>`
+  const expectedBody = {
+    type: 'startAndEndTag',
+    tagName: 'body',
+    startTagOffset: 0,
+    endTagOffset: 29,
+  }
+  const expectedDiv = {
+    type: 'startAndEndTag',
+    tagName: 'div',
+    startTagOffset: 12,
+    endTagOffset: 20,
+  }
+  // expect(findMatchingTags(data, 0)).toEqual(expectedBody) // '<'
+  // expect(findMatchingTags(data, 1)).toEqual(expectedBody) // 'b'
+  // expect(findMatchingTags(data, 2)).toEqual(expectedBody) // 'o'
+  // expect(findMatchingTags(data, 3)).toEqual(expectedBody) // 'd'
+  // expect(findMatchingTags(data, 4)).toEqual(expectedBody) // 'y'
+  // expect(findMatchingTags(data, 5)).toEqual(expectedBody) // ' '
+  // expect(findMatchingTags(data, 6)).toEqual(expectedBody) // '>'
+  expect(findMatchingTags(data, 7)).toEqual(undefined) // '\n'
+  expect(findMatchingTags(data, 8)).toEqual(undefined) // ' '
+  expect(findMatchingTags(data, 9)).toEqual(undefined) // ' '
+  expect(findMatchingTags(data, 10)).toEqual(undefined) // ' '
+  expect(findMatchingTags(data, 11)).toEqual(undefined) // ' '
+  expect(findMatchingTags(data, 12)).toEqual(expectedDiv) // '<'
+  expect(findMatchingTags(data, 13)).toEqual(expectedDiv) // 'd'
+  expect(findMatchingTags(data, 14)).toEqual(expectedDiv) // 'i'
+  expect(findMatchingTags(data, 15)).toEqual(expectedDiv) // 'v'
+  expect(findMatchingTags(data, 16)).toEqual(expectedDiv) // ' '
+  expect(findMatchingTags(data, 17)).toEqual(expectedDiv) // '>'
+  expect(findMatchingTags(data, 18)).toEqual(undefined) // ' '
+  expect(findMatchingTags(data, 19)).toEqual(undefined) // ' '
+  expect(findMatchingTags(data, 20)).toEqual(expectedDiv) // '<'
+  expect(findMatchingTags(data, 21)).toEqual(expectedDiv) // '/'
+  expect(findMatchingTags(data, 22)).toEqual(expectedDiv) // 'd'
+  expect(findMatchingTags(data, 23)).toEqual(expectedDiv) // 'i'
+  expect(findMatchingTags(data, 24)).toEqual(expectedDiv) // 'v'
+  expect(findMatchingTags(data, 25)).toEqual(expectedDiv) // '>'
+  expect(findMatchingTags(data, 26)).toEqual(undefined) // '\n'
+  expect(findMatchingTags(data, 27)).toEqual(undefined) // ' '
+  expect(findMatchingTags(data, 28)).toEqual(undefined) // ' '
+  expect(findMatchingTags(data, 29)).toEqual(expectedBody) // '<'
+  expect(findMatchingTags(data, 30)).toEqual(expectedBody) // '/'
+  expect(findMatchingTags(data, 31)).toEqual(expectedBody) // 'b'
+  expect(findMatchingTags(data, 32)).toEqual(expectedBody) // 'o'
+  expect(findMatchingTags(data, 33)).toEqual(expectedBody) // 'd'
+  expect(findMatchingTags(data, 34)).toEqual(expectedBody) // 'y'
+  expect(findMatchingTags(data, 35)).toEqual(expectedBody) // '>'
+  expect(findMatchingTags(data, 36)).toEqual(undefined) //''
+})
+
 test.skip('can match tag from content', () => {
   const data = '<a>a</a>'
   const expected = {
