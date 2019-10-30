@@ -12,7 +12,7 @@ type VslSendRequest = <P, R, E, RO>(
   token?: CancellationToken
 ) => Thenable<R>
 
-export interface LocalPluginApi {
+export type LocalPluginApi = Readonly<{
   vscode: {
     commands: {
       registerTextEditorCommand: AutoDispose<
@@ -34,6 +34,6 @@ export interface LocalPluginApi {
     code2ProtocolConverter: vsl.Code2ProtocolConverter
     sendRequest: VslSendRequest
   }
-}
+}>
 
 export type LocalPlugin = (api: LocalPluginApi) => void

@@ -27,6 +27,41 @@ const timeout: <T>(promise: Promise<T>, timeout: number) => Promise<T> = (
   })
 }
 
+// const withTimeout: (
+//   sendRequest: LocalPluginApi['languageClient']['sendRequest']
+// ) => LocalPluginApi['languageClient']['sendRequest'] = sendRequest => {
+//   return (type, params, token) => {
+//     const combinedTokenSource = new vsl.CancellationTokenSource()
+//     if (token) {
+//       token.onCancellationRequested(() => {
+//         combinedTokenSource.cancel()
+//       })
+//     }
+//     const timeoutTokenSource = new vsl.CancellationTokenSource()
+//     timeoutTokenSource.token.onCancellationRequested(() => {
+//       combinedTokenSource.cancel()
+//     })
+//     const promise = languageClient.sendRequest(
+//       type,
+//       params,
+//       combinedTokenSource.token
+//     ) as Promise<any>
+//     try {
+//       return await timeout(promise, defaultTimeout)
+//     } catch (error) {
+//       if (error instanceof TimeoutError) {
+//         timeoutTokenSource.cancel()
+//         vscode.window.showWarningMessage(
+//           `Performance Violation: Request for ${type.method} took longer than ${defaultTimeout}ms`
+//         )
+//       } else {
+//         vscode.window.showWarningMessage(JSON.stringify(error))
+//       }
+//       return undefined
+//     }
+//   }
+// }
+
 const clientOptions: vsl.LanguageClientOptions = {
   documentSelector: [
     {
@@ -157,6 +192,7 @@ export const createLanguageClient = async (
 
   const api: LocalPluginApi = {
     vscode: {
+      // context,
       window: {
         onDidChangeTextEditorSelection: autoDispose(
           vscode.window.onDidChangeTextEditorSelection
@@ -175,24 +211,19 @@ export const createLanguageClient = async (
     },
     languageClient: {
       code2ProtocolConverter: languageClient.code2ProtocolConverter,
-      sendRequest: async (type, params) => {
-        const cancellationTokenSource = new vsl.CancellationTokenSource()
-        const promise = languageClient.sendRequest(
-          type,
-          params,
-          cancellationTokenSource.token
-        ) as Promise<any>
+      sendRequest: async (
+        type,
+        params,
+        token = new vsl.CancellationTokenSource().token
+      ) => {
         try {
-          return await timeout(promise, defaultTimeout)
+          return await languageClient.sendRequest(type, params, token)
         } catch (error) {
-          if (error instanceof TimeoutError) {
-            cancellationTokenSource.cancel()
-            vscode.window.showWarningMessage(
-              `Performance Violation: Request for ${type.method} took longer than ${defaultTimeout}ms`
-            )
-          } else {
-            vscode.window.showWarningMessage(JSON.stringify(error))
+          if (error.code && error.code === vsl.ErrorCodes.RequestCancelled) {
+            // console.log('request cancelled')
+            return undefined
           }
+          console.error(error)
           return undefined
         }
       },

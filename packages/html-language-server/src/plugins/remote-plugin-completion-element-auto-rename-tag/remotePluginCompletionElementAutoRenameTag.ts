@@ -23,6 +23,10 @@ export const remotePluginCompletionElementAutoRenameTag: RemotePlugin = api => {
       const document = api.documents.get(textDocument.uri) as TextDocument
       const text = document.getText()
       const offset = document.offsetAt(position)
+      // TODO figure out a better way so that auto rename tag works reliably
+      // when the requests are not throttled, a completion for e request can change the document
+      // bug the next completion has still the old document and makes the wrong edits
+      await new Promise(resolve => setTimeout(resolve, 100))
       return doCompletionElementAutoRenameTag(text, offset)
     }
   )

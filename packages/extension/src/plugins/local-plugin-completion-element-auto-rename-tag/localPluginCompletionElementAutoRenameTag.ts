@@ -18,13 +18,23 @@ const requestType = new vsl.RequestType<
 const askServerForCompletionElementAutoRenameTag: (
   api: LocalPluginApi,
   document: vscode.TextDocument,
-  position: vscode.Position
-) => Promise<Result> = async (api, document, position) => {
+  position: vscode.Position,
+  cancellationToken: vscode.CancellationToken
+) => Promise<Result | undefined> = async (
+  api,
+  document,
+  position,
+  cancellationToken
+) => {
   const params = api.languageClient.code2ProtocolConverter.asTextDocumentPositionParams(
     document,
     position
   )
-  const result = await api.languageClient.sendRequest(requestType, params)
+  const result = await api.languageClient.sendRequest(
+    requestType,
+    params,
+    cancellationToken
+  )
   if (
     !vscode.window.activeTextEditor ||
     vscode.window.activeTextEditor.document.version !== document.version
@@ -63,6 +73,8 @@ const applyResults: (results: Result[]) => Promise<void> = async results => {
   )
 }
 
+let cancellationTokenSource: vscode.CancellationTokenSource | undefined
+
 export const localPluginCompletionElementAutoRenameTag: LocalPlugin = api => {
   api.vscode.workspace.onDidChangeTextDocument(async event => {
     if (event.document.languageId !== 'html') {
@@ -84,15 +96,21 @@ export const localPluginCompletionElementAutoRenameTag: LocalPlugin = api => {
           range.start.character + text.length
         )
     )
-    const results = await Promise.all(
+    if (cancellationTokenSource) {
+      cancellationTokenSource.cancel()
+    }
+    cancellationTokenSource = new vscode.CancellationTokenSource()
+    const requests = Promise.all(
       positions.map(position =>
         askServerForCompletionElementAutoRenameTag(
           api,
           event.document,
-          position
+          position,
+          cancellationTokenSource.token
         )
       )
     )
+    const results = await requests
     applyResults(results)
   })
 }

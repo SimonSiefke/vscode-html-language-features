@@ -141,7 +141,7 @@ const runSafe: <Handler extends (...args: any) => any>(
       console.error(`${handlerName} took: ${elapsedTimeMs}ms`)
     }
     if (token.isCancellationRequested) {
-      console.error('canceled')
+      // console.log('canceled')
       return cancelValue
     }
     return result
