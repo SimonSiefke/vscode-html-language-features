@@ -2,6 +2,11 @@ import { doCompletionElementSelfClosing } from './completionElementSelfClosing'
 
 test('completion-element-self-closing', () => {
   const testCases: { input: string; expected: string | undefined }[] = [
+    // TODO bug
+    // {
+    //   input: '<a href="/|"',
+    //   expected: undefined,
+    // },
     {
       input: '<|',
       expected: undefined,

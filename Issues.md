@@ -196,3 +196,9 @@ amp-carousel! ->
   </amp-carousel>
 
  -->
+
+<!-- TODO bug
+type '/' as href, auto closing tag does its weird part
+
+ <a href="/>"
+ -->

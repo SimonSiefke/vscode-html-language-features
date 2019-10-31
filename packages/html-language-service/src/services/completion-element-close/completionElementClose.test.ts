@@ -4,6 +4,10 @@ import { doCompletionElementClose } from './completionElementClose'
 
 const testCases: { input: string; expected: string | undefined }[] = [
   {
+    input: '<a href="/|"',
+    expected: undefined,
+  },
+  {
     input: '<h1></|',
     expected: '<h1></h1>',
   },
