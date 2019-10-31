@@ -1,4 +1,5 @@
-const mdnData = require('../src/configs/generated/mdn.htmlData.json')
+// @ts-ignore
+const mdnData = require('../src/configs/generated/mdnElements.htmlData.json')
 
 const testEmptyElements = () => {
   const emptyElements = [

@@ -3,8 +3,11 @@
   "version": "1.0.0-dev",
   "description": "",
   "scripts": {
-    "generate:mdn": "node scripts/mdn/generateMdn",
-    "generate:w3schools": "node scripts/w3schools/generateW3schools"
+    "generate:mdnElements": "node scripts/mdn/generateMdnElements",
+    "generate:mdnGlobalAttributes": "node scripts/mdn/generateMdnGlobalAttributes",
+    "generate:w3schools": "node scripts/w3schools/generateW3schools",
+    "generate:all": "npm run generate:mdnElements && npm run generate:mdnGlobalAttributes && npm run generate:w3schools",
+    "dev": "npm run generate:all"
   },
   "keywords": [],
   "author": "",
