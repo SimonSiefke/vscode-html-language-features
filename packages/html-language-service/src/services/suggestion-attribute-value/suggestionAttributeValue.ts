@@ -1,10 +1,12 @@
 import {
   createScanner,
   ScannerState,
+  TokenType,
 } from '@html-language-features/html-parser'
 import {
   NamedAttributeValue,
   getSuggestedAttributeValues,
+  setConfig,
 } from '../../data/Data'
 
 /**
@@ -21,55 +23,87 @@ export const doSuggestionAttributeValue: (
       attributeValues: NamedAttributeValue[]
     }
   | undefined = (text, offset) => {
-  let tagName = 'a'
-  let attributeName = 'target'
-  // const scanner = createScanner(text)
-  // scanner.stream.goTo(offset)
+  const scanner = createScanner(text, { initialOffset: offset })
 
-  // const endsWithAttributeValue = scanner.stream.currentlyEndsWithRegex(
-  //   /\S+=\S+$/
-  // )
-  // if (endsWithAttributeValue) {
-  //   return undefined
-  // }
-  // const isSomewhereInStartingTag = scanner.stream.currentlyEndsWithRegex(
-  //   /<[\S]+\s+[\s\S]*$/
-  // )
-  // if (!isSomewhereInStartingTag) {
-  //   return undefined
-  // }
-  // scanner.stream.goBackToUntilEitherChar('<', '>')
-  // const char = scanner.stream.peekLeft()
-  // if (char === '>') {
-  //   return undefined
-  // }
-  // scanner.state = ScannerState.AfterOpeningStartTag
-  // scanner.scan()
-  // const tagName = scanner.getTokenText()
+  const endsWithAttributeValue = scanner.stream.currentlyEndsWithRegex(
+    /\S+=\S+$/
+  )
+  if (!endsWithAttributeValue) {
+    return undefined
+  }
+  const isSomewhereInStartingTag = scanner.stream.currentlyEndsWithRegex(
+    /<[\S]+\s+[\s\S]*$/
+  )
+  if (!isSomewhereInStartingTag) {
+    return undefined
+  }
+  scanner.stream.goBackToUntilEitherChar('<', '>')
+  const char = scanner.stream.peekLeft()
+  if (char === '>') {
+    return undefined
+  }
+  scanner.state = ScannerState.AfterOpeningStartTag
+  scanner.scan()
+  const tagName = scanner.getTokenText()
 
-  // if (!tagName) {
-  //   return undefined
-  // }
-  const attributeValues = getSuggestedAttributeValues(tagName, attributeName)
+  if (!tagName) {
+    return undefined
+  }
+  let lastSeenAttributeName: string | undefined
+  while (scanner.stream.position < offset) {
+    const token = scanner.scan()
+    const text = scanner.getTokenText()
+    if (token === TokenType.AttributeName) {
+      lastSeenAttributeName = text
+      // console.log(text)
+    } else if (token === TokenType.DelimiterAssign) {
+      // nothing
+    } else if (token === TokenType.AttributeValue) {
+      if (scanner.stream.position >= offset) {
+        // console.log('break')
+        break
+      }
+      lastSeenAttributeName = undefined
+    } else {
+      return undefined
+    }
+  }
+  if (!lastSeenAttributeName) {
+    console.log('undefned 1')
+    return undefined
+  }
+  const attributeValues = getSuggestedAttributeValues(
+    tagName,
+    lastSeenAttributeName
+  )
   if (!attributeValues) {
+    console.log('no attributes')
     return undefined
   }
   return {
     attributeValues,
-    attributeName,
+    attributeName: lastSeenAttributeName,
     tagName,
   }
 }
 
 // setConfig({
 //   elements: {
-//     h1: {
+//     a: {
 //       attributes: {
-//         class: {},
+//         rel: {
+//           options: {
+//             'noopener noreferrer': {},
+//           },
+//         },
+//         target: {
+//           options: {
+//             _blank: {},
+//           },
+//         },
 //       },
 //     },
 //   },
 // })
 
-// console.log('ok')
-// doSuggestionAttributeKey('<h1 > ', 3) //?
+// doSuggestionAttributeValue('<a target="_blank" rel=""> ', 24) //?

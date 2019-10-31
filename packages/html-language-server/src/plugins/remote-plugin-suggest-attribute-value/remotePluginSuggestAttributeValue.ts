@@ -58,15 +58,7 @@ const createCompletionItems: ({
     if (item.deprecated) {
       tags.push(CompletionItemTag.Deprecated)
     }
-    // const documentation = getDocumentationForAttributeName(tagName, item.name)
-    // let documentation: MarkupContent | undefined
-    // // const documentation = getDocumentationForAttributeName(item.)
-    // if (item.description) {
-    //   documentation = {
-    //     kind: MarkupKind.Markdown,
-    //     value: item.description,
-    //   }
-    // }
+
     const kind = orangeIcon
     const insertText = item.name
     let completionItem: CompletionItem & { data: Data }
@@ -78,17 +70,18 @@ const createCompletionItems: ({
       tagName: tagName,
       attributeValue: item.name,
     }
-    // TODO wait for experimental completion tags from lsp
-    // if (item.experimental) {
-    //   itemLabel = itemLabel + ' (experimental)'
-    // }
+    let detail: string | undefined
+    if (item.probability !== undefined) {
+      detail = `${(item.probability * 100).toFixed(2)}% Probability`
+    }
     const partialItem: Partial<CompletionItem> & { data: Data } = {
       kind,
       data,
       insertText,
       tags,
       insertTextFormat,
-      // commitCharacters: [],
+      detail,
+      // commitCharacters: [], // maybe quotes?
     }
     if (item.recommended) {
       completionItem = {
@@ -103,7 +96,6 @@ const createCompletionItems: ({
         filterText: `${weirdCharAtTheEndOfTheAlphabet} ${item.name}`,
         sortText: `${weirdCharAtTheEndOfTheAlphabet} ${item.name}`,
         ...partialItem,
-        // detail: `${(item.probability * 100).toFixed(2)}% Match`,
       }
     }
     return completionItem

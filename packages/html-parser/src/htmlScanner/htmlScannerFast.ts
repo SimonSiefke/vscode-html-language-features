@@ -70,6 +70,7 @@ export const enum TokenTypeFast {
   EOS, // end of stream
   DelimiterAssign, // "=" part of "<div class="center">
   Unknown, // anything that doesn't make sense, e.g. ";" in "i <length;"
+  WhiteSpace,
 }
 
 export interface ScannerFast {

@@ -6,12 +6,14 @@ beforeEach(() => {
     elements: {
       a: {
         attributes: {
+          rel: {
+            options: {
+              'noopener noreferrer': {},
+            },
+          },
           target: {
             options: {
               _blank: {},
-              _self: {},
-              _parent: {},
-              _top: {},
             },
           },
         },
@@ -31,14 +33,17 @@ test('suggestion-attribute-value', () => {
           {
             name: '_blank',
           },
+        ],
+      },
+    },
+    {
+      input: '<a target="_blank" rel="|"',
+      expected: {
+        tagName: 'a',
+        attributeName: 'rel',
+        attributeValues: [
           {
-            name: '_self',
-          },
-          {
-            name: '_parent',
-          },
-          {
-            name: '_top',
+            name: 'noopener noreferrer',
           },
         ],
       },

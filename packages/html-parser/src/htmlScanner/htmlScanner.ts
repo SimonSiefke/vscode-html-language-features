@@ -32,6 +32,7 @@ export enum TokenType {
   Content = 'content',
   EOS = 'eos',
   DelimiterAssign = 'delimiter-assign',
+  WhiteSpace = 'whitespace',
   Unknown = 'unknown',
 }
 
@@ -123,6 +124,8 @@ export function toTokenTypeReadable(tokenType: TokenTypeFast): TokenType {
       return TokenType.StartTagSelfClose
     case TokenTypeFast.DelimiterAssign:
       return TokenType.DelimiterAssign
+    case TokenTypeFast.WhiteSpace:
+      return TokenType.WhiteSpace
     default:
       throw new Error(`unknown tokenType "${tokenType}"`)
   }

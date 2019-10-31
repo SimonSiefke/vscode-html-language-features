@@ -18,7 +18,7 @@ import { removeDeprecatedItems } from '../../util/removeDeprecatedItems'
 const thinSpace = `\u2009`
 const weirdCharAtTheEndOfTheAlphabet = `\uE83A`
 const orangeIcon = CompletionItemKind.Value
-const recommendationThreshold = 0.8
+const recommendationThreshold = 0.3
 
 interface Data {
   tagName: string | undefined
@@ -33,12 +33,7 @@ const createCompletionItems: ({
   tagName: string
 }) => (CompletionItem & { data: Data })[] = ({ attributes, tagName }) => {
   const nonDeprecatedAttributes = removeDeprecatedItems(attributes)
-  const normalizedItems: {
-    name: string
-    deprecated?: boolean
-    recommended: boolean
-    experimental?: boolean
-  }[] = nonDeprecatedAttributes.map(item => ({
+  const normalizedItems = nonDeprecatedAttributes.map(item => ({
     ...item,
     recommended:
       item.probability !== undefined &&
@@ -76,12 +71,17 @@ const createCompletionItems: ({
     // if (item.experimental) {
     //   itemLabel = itemLabel + ' (experimental)'
     // }
+    let detail: string | undefined
+    if (item.probability !== undefined) {
+      detail = `${(item.probability * 100).toFixed(2)}% Probability`
+    }
     const partialItem: Partial<CompletionItem> & { data: Data } = {
       kind,
       data,
       insertText,
       tags,
       insertTextFormat,
+      detail,
       // commitCharacters: [],
     }
     if (item.recommended) {
