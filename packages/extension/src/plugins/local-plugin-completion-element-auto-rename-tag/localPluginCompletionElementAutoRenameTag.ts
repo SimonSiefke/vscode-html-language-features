@@ -70,6 +70,12 @@ const applyResults: (results: Result[]) => Promise<void> = async results => {
   if (relevantResults.length === 0) {
     return
   }
+  // const t: vscode.TextEdit = {
+  //   newText: '',
+  //   range: null,
+  // }
+  // console.log('before version', vscode.window.activeTextEditor.document.version)
+  // vscode.window.activeTextEditor.document
   await vscode.window.activeTextEditor.edit(
     editBuilder => {
       for (const result of relevantResults) {
@@ -81,6 +87,10 @@ const applyResults: (results: Result[]) => Promise<void> = async results => {
       undoStopAfter: false,
     }
   )
+  // console.log(
+  //   'created version',
+  //   vscode.window.activeTextEditor.document.version
+  // )
 }
 
 export const localPluginCompletionElementAutoRenameTag: LocalPlugin = api => {
@@ -97,6 +107,7 @@ export const localPluginCompletionElementAutoRenameTag: LocalPlugin = api => {
     if (event.contentChanges.length === 0) {
       return
     }
+    // console.log('is version', vscode.window.activeTextEditor.document.version)
     const positions = event.contentChanges.map(
       ({ range, text }) =>
         new vscode.Position(
@@ -107,6 +118,6 @@ export const localPluginCompletionElementAutoRenameTag: LocalPlugin = api => {
     const results = positions.map(position =>
       askServiceForCompletionElementAutoRenameTag(event.document, position)
     )
-    applyResults(results)
+    await applyResults(results)
   })
 }
