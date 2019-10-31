@@ -18,7 +18,7 @@ import { removeDeprecatedItems } from '../../util/removeDeprecatedItems'
 const thinSpace = `\u2009`
 const weirdCharAtTheEndOfTheAlphabet = `\uE83A`
 const orangeIcon = CompletionItemKind.Value
-const recommendationThreshold = 0.5
+const recommendationThreshold = 0.07
 
 interface Data {
   tagName: string
@@ -47,12 +47,6 @@ const createCompletionItems: ({
       item.probability >= recommendationThreshold,
   }))
 
-  // const c: CompletionItem = {
-  //   documentation: {
-  //     kind: 'markdown',
-  //     value: '',
-  //   },
-  // }
   return normalizedItems.map(item => {
     const tags: CompletionItemTag[] = []
     if (item.deprecated) {
@@ -62,7 +56,7 @@ const createCompletionItems: ({
     const kind = orangeIcon
     const insertText = item.name
     let completionItem: CompletionItem & { data: Data }
-    let itemLabel = item.name
+    const itemLabel = item.name
     const insertTextFormat = InsertTextFormat.Snippet
 
     const data: Data = {

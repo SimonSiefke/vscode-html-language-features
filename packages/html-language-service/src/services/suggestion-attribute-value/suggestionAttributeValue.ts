@@ -69,7 +69,6 @@ export const doSuggestionAttributeValue: (
     }
   }
   if (!lastSeenAttributeName) {
-    console.log('undefned 1')
     return undefined
   }
   const attributeValues = getSuggestedAttributeValues(
@@ -77,7 +76,6 @@ export const doSuggestionAttributeValue: (
     lastSeenAttributeName
   )
   if (!attributeValues) {
-    console.log('no attributes')
     return undefined
   }
   return {
