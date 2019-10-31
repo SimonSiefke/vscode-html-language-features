@@ -3,6 +3,7 @@ packages/html-intellicode/files
 packages/github-scraper/generated
 tmp
 tmp-config.json
+tmp-generated
 
 # Logs
 logs

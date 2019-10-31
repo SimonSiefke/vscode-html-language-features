@@ -11,6 +11,7 @@
   "license": "MIT",
   "dependencies": {
     "@html-language-features/facts-generator": "^1.0.0-dev",
+    "@html-language-features/github-scraper": "^1.0.0-dev",
     "@html-language-features/html-language-service": "^1.0.0-dev",
     "@html-language-features/html-parser": "^1.0.0-dev",
     "@html-language-features/schema": "^1.0.0-dev",

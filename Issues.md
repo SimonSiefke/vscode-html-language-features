@@ -120,3 +120,11 @@ Auto rename tag: enter space after "div", end tag is not renamed
 
 
   -->
+
+<!-- TODO bug
+parsing error
+ <p>
+
+    </
+    p>
+ -->

@@ -1,6 +1,6 @@
 import { createScanner } from '@html-language-features/html-parser'
 import { getPreviousOpeningTagName } from '../util/getParentTagName'
-import { getSuggestedTags } from '../../data/Data'
+import { getSuggestedTags, NamedSubTag } from '../../data/Data'
 
 /**
  * Suggestion for start tag
@@ -9,7 +9,7 @@ import { getSuggestedTags } from '../../data/Data'
 export const doSuggestionElementStartTag: (
   text: string,
   offset: number
-) => { probability?: number; name: string }[] | undefined = (text, offset) => {
+) => NamedSubTag[] | undefined = (text, offset) => {
   const scanner = createScanner(text)
   scanner.stream.goTo(offset)
   if (!scanner.stream.currentlyEndsWithRegex(/<[\S]*$/)) {

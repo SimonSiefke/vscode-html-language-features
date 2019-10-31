@@ -66,7 +66,7 @@ export const analyzeDirectoryForTags = async (
   } catch (error) {
     console.error('failed to process')
     console.error(error)
-    process.exit(1)
+    // process.exit(1)
   }
 }
 

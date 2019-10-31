@@ -37,18 +37,22 @@ const friendlyName = url =>
 
 exports.processRepository = async repositoryUrl => {
   await downloadRepo(repositoryUrl)
-  await analyzeDirectoryForTags(
-    inputDirectory,
-    outputDirectory,
-    `${friendlyName(repositoryUrl)}__tags`,
-    repositoryUrl
-  )
-  await analyzeDirectoryForAttributes(
-    inputDirectory,
-    outputDirectory,
-    `${friendlyName(repositoryUrl)}__attributes`,
-    repositoryUrl
-  )
+  try {
+    await analyzeDirectoryForTags(
+      inputDirectory,
+      outputDirectory,
+      `${friendlyName(repositoryUrl)}__tags`,
+      repositoryUrl
+    )
+    await analyzeDirectoryForAttributes(
+      inputDirectory,
+      outputDirectory,
+      `${friendlyName(repositoryUrl)}__attributes`,
+      repositoryUrl
+    )
+  } catch (error) {
+    console.error(error)
+  }
   await undownloadRepo()
 }
 

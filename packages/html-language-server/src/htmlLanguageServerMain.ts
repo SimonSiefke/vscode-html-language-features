@@ -56,17 +56,21 @@ connection.onInitialized(async () => {
   const w3schoolsConfig = await import(
     '@html-language-features/facts-generator/generated/w3schools.htmlData.json'
   )
-  const attributeStatisticsConfig = await import(
-    '@html-language-features/statistics-generator/dist/generated/attributes.htmlData.json'
-  )
-  const tagStatisticsConfig = await import(
-    '@html-language-features/statistics-generator/dist/generated/tags.htmlData.json'
+  // const attributeStatisticsConfig = await import(
+  //   '@html-language-features/statistics-generator/dist/generated/attributes.htmlData.json'
+  // )
+  // const tagStatisticsConfig = await import(
+  //   '@html-language-features/statistics-generator/dist/generated/tags.htmlData.json'
+  // )
+  const githubStatisticsConfig = await import(
+    '@html-language-features/github-scraper/generated/generated.htmlData.json'
   )
   const { errors } = addConfigs(
     mdnConfig,
     w3schoolsConfig,
-    tagStatisticsConfig,
-    attributeStatisticsConfig
+    githubStatisticsConfig
+    // tagStatisticsConfig,
+    // attributeStatisticsConfig
   )
   if (errors.length > 0) {
     console.error('an error occurred')

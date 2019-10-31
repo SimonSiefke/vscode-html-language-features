@@ -12,7 +12,7 @@ export {
   getReferenceForTag,
   NamedAttribute,
   NamedAttributeValue,
-  NamedTag,
+  NamedSubTag as NamedTag,
 } from './data/Data'
 export { doHoverElement } from './services/hover-element/hoverElement'
 export {

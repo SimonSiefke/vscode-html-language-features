@@ -18,7 +18,7 @@ import { removeDeprecatedItems } from '../../util/removeDeprecatedItems'
 const thinSpace = `\u2009`
 const weirdCharAtTheEndOfTheAlphabet = `\uE83A`
 const orangeIcon = CompletionItemKind.Value
-const recommendationThreshold = 0.3
+const recommendationThreshold = 0.1
 
 interface Data {
   tagName: string | undefined

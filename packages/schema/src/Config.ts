@@ -21,6 +21,10 @@ export type Attribute = Readonly<{
   }
 }>
 
+export type SubTag = Readonly<{
+  probability?: number
+}>
+
 export type Element = Readonly<{
   description?: string
   reference?: Reference
@@ -30,9 +34,7 @@ export type Element = Readonly<{
     [key: string]: Attribute
   }
   allowedChildren?: {
-    [tagName: string]: {
-      probability?: number
-    }
+    [tagName: string]: SubTag
   }
 }>
 

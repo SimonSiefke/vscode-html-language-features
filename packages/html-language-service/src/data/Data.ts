@@ -6,8 +6,8 @@ import {
 import {
   Reference,
   Attribute,
-  Element,
   AttributeValue,
+  SubTag,
 } from '@html-language-features/schema/src/Config'
 import * as fs from 'fs'
 import * as path from 'path'
@@ -107,7 +107,7 @@ export const getDescriptionForAttributeName: (
 export const getDescriptionForAttributeValue: (
   tagName: string,
   attributeName: string,
-  attributeValue:string
+  attributeValue: string
 ) => string | undefined = (tagName, attributeName, attributeValue) => {
   if (tagName === undefined) {
     // TODO global attributes
@@ -120,15 +120,19 @@ export const getDescriptionForAttributeValue: (
     // TODO typescript bug?
     _config.elements[tagName].attributes![attributeName] &&
     _config.elements[tagName].attributes![attributeName].options &&
-    _config.elements[tagName].attributes![attributeName].options![attributeValue] &&
-    _config.elements[tagName].attributes![attributeName].options![attributeValue].description
+    _config.elements[tagName].attributes![attributeName].options![
+      attributeValue
+    ] &&
+    _config.elements[tagName].attributes![attributeName].options![
+      attributeValue
+    ].description
   )
 }
 
 export const isTagName: (tagName: string) => boolean = tagName =>
   _config.elements !== undefined && _config.elements[tagName] !== undefined
 
-export type NamedTag = Element & { readonly name: string }
+export type NamedSubTag = SubTag & { readonly name: string }
 
 export type NamedAttribute = Attribute & { readonly name: string }
 
@@ -167,7 +171,7 @@ export const getSuggestedAttributeValues: (
  */
 export const getSuggestedTags: (
   parentTagName: string
-) => NamedTag[] | undefined = parentTagName => {
+) => NamedSubTag[] | undefined = parentTagName => {
   const allowedChildren =
     _config.elements &&
     _config.elements[parentTagName] &&

@@ -87,7 +87,7 @@ test('values are overridden and merged', () => {
   })
 })
 
-test('merge different properties', () => {
+test('merge different properties without merging probabilities', () => {
   expect(
     mergeConfigs(
       {
@@ -124,6 +124,110 @@ test('merge different properties', () => {
         allowedChildren: {
           option: {
             probability: 1,
+          },
+        },
+      },
+    },
+  })
+})
+
+test('merge probabilities 1', () => {
+  expect(
+    mergeConfigs(
+      {
+        elements: {
+          html: {
+            attributes: {
+              lang: {
+                probability: 0.5,
+                options: {
+                  en: {
+                    probability: 1,
+                  },
+                },
+              },
+            },
+          },
+        },
+      },
+      {
+        elements: {
+          html: {
+            attributes: {
+              lang: {
+                probability: 1,
+                options: {
+                  fr: {
+                    probability: 1,
+                  },
+                },
+              },
+            },
+          },
+        },
+      }
+    )
+  ).toEqual({
+    elements: {
+      html: {
+        attributes: {
+          lang: {
+            probability: 0.75,
+            options: {
+              fr: {
+                probability: 0.5,
+              },
+              en: {
+                probability: 0.5,
+              },
+            },
+          },
+        },
+      },
+    },
+  })
+})
+
+test('merge probabilities with empty object probabilities', () => {
+  expect(
+    mergeConfigs(
+      {
+        elements: {
+          html: {
+            attributes: {
+              lang: {
+                options: {},
+              },
+            },
+          },
+        },
+      },
+      {
+        elements: {
+          html: {
+            attributes: {
+              lang: {
+                options: {
+                  fr: {
+                    probability: 1,
+                  },
+                },
+              },
+            },
+          },
+        },
+      }
+    )
+  ).toEqual({
+    elements: {
+      html: {
+        attributes: {
+          lang: {
+            options: {
+              fr: {
+                probability: 0.5,
+              },
+            },
           },
         },
       },
