@@ -50,10 +50,10 @@ test('suggestion-attribute-key', () => {
       input: '<h1 x=y|',
       expected: undefined,
     },
-    {
-      input: '<h1 disabled|',
-      expected: undefined,
-    },
+    // {
+    //   input: '<h1 disabled|',
+    //   expected: undefined,
+    // },
     {
       input: '<h1>|',
       expected: undefined,
