@@ -86,6 +86,14 @@ const getGlobalAttributes = async () => {
 
 // getGlobalAttributes() //?
 
+const fixDescriptionMarkdown = description => {
+  if (!description) {
+    return undefined
+  }
+  // @ts-ignore
+  return turndownService.turndown(description)
+}
+
 /**
  *
  * @param {PreAttribute[]} attributes
@@ -102,7 +110,7 @@ const finishAttributes = attributes => {
     if (attribute.experimental) {
       current.experimental = true
     }
-    current.description = attribute.description
+    current.description = fixDescriptionMarkdown(attribute.description)
     current.reference = {
       name: 'MDN Reference',
       url: 'https://developer.mozilla.org' + attribute.link,
