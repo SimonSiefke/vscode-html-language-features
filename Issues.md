@@ -136,3 +136,63 @@ parsing error when cursor is at start tag
         <
       </dl>
  -->
+
+<!-- TODO idea
+writing tag with ! gives example:
+h1! -> <h1>hello world</h1>
+body! -> <body><h1>hello world</h1>
+select! -> <select><option>option 1</option><option>option 2</option></select>
+ul! -> <ul><li>list item 1</li><li>list item 2</li></ul>
+a! -> <a href="https://google.de" rel="noopener noreferrer">link to a website</a>
+img! -> <img src="https://source.unsplash.com/random">
+noscript! -> <noscript><p>Please enable Javascript to continue</p></noscript>
+address! ->  <address>Written by <a href="mailto:webmaster@example.com">Jon Doe</a>.<br>Visit us at:<br></address>
+article! ->  <article><h1>Google Chrome</h1><p>Google Chrome is a free, open-source web browser developed by Google, released in 2008.</p></article>
+picture! ->  <picture><source media="(min-width: 650px)" srcset="img_pink_flowers.jpg"></picture>
+progress! ->  <progress value="22" max="100"></progress>
+script! ->  <script>console.log('hello world')</script>
+table! ->  <table>
+  <tr>
+    <th>Month</th>
+    <th>Savings</th>
+  </tr>
+  <tr>
+    <td>January</td>
+    <td>$100</td>
+  </tr>
+</table>
+
+also for custom tags:
+amp-carousel! ->
+<amp-carousel type="slides"
+                width="400"
+                height="300"
+                layout="responsive"
+                lightbox>
+    <amp-img src="https://unsplash.it/400/300?image=10"
+             width="400"
+             height="300"
+             layout="responsive"
+             alt="a sample image">
+    </amp-img>
+    <amp-img src="https://unsplash.it/400/300?image=11"
+             width="400"
+             height="300"
+             layout="responsive"
+             alt="a sample image">
+    </amp-img>
+    <amp-img src="https://unsplash.it/400/300?image=12"
+             width="400"
+             height="300"
+             layout="responsive"
+             alt="a sample image">
+    </amp-img>
+    <amp-img src="https://unsplash.it/400/300?image=13"
+             width="400"
+             height="300"
+             layout="responsive"
+             alt="a sample image">
+    </amp-img>
+  </amp-carousel>
+
+ -->
