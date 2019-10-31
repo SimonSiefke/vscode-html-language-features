@@ -6,6 +6,7 @@ import {
   Range,
   Position,
   CompletionItemTag,
+  InsertTextFormat,
 } from 'vscode-languageserver-types'
 import { doSuggestionAttributeKey } from '@html-language-features/html-language-service'
 import { getDocumentationForAttributeName } from '../../util/getDocumentation'
@@ -63,38 +64,37 @@ const createCompletionItems: ({
     //   }
     // }
     const kind = orangeIcon
-    const insertText = item.name
+    const insertText = item.name + '="$1"'
     let completionItem: CompletionItem & { data: Data }
     let itemLabel = item.name
+    const insertTextFormat = InsertTextFormat.Snippet
 
     const data: Data = { attributeName: item.name, tagName: tagName }
     // TODO wait for experimental completion tags from lsp
     // if (item.experimental) {
     //   itemLabel = itemLabel + ' (experimental)'
     // }
+    const partialItem: Partial<CompletionItem> & { data: Data } = {
+      kind,
+      data,
+      insertText,
+      tags,
+      insertTextFormat,
+    }
     if (item.recommended) {
       completionItem = {
         label: `★${thinSpace}${itemLabel}`,
-        kind,
         filterText: item.name,
         sortText: item.name,
-        data,
-        // detail: `${(item.probability * 100).toFixed(2)}% Match`,
-        insertText,
-        tags,
-        documentation: 'hello world',
+        ...partialItem,
       }
     } else {
       completionItem = {
         label: itemLabel,
-        kind,
-        tags,
-        data,
         filterText: `${weirdCharAtTheEndOfTheAlphabet} ${item.name}`,
         sortText: `${weirdCharAtTheEndOfTheAlphabet} ${item.name}`,
-        documentation: 'hello world',
+        ...partialItem,
         // detail: `${(item.probability * 100).toFixed(2)}% Match`,
-        insertText,
       }
     }
     return completionItem

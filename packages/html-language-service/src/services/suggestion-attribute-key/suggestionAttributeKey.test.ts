@@ -43,6 +43,18 @@ test('suggestion-attribute-key', () => {
       expected: { tagName: 'h1', attributes: [{ name: 'class' }] },
     },
     {
+      input: '<h1 x="y"|',
+      expected: undefined,
+    },
+    {
+      input: '<h1 x=y|',
+      expected: undefined,
+    },
+    {
+      input: '<h1 disabled|',
+      expected: undefined,
+    },
+    {
       input: '<h1>|',
       expected: undefined,
     },

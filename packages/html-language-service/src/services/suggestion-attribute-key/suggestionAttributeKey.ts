@@ -2,7 +2,7 @@ import {
   createScanner,
   ScannerState,
 } from '@html-language-features/html-parser'
-import { getSuggestedAttributes } from '../../data/Data'
+import { getSuggestedAttributes, setConfig } from '../../data/Data'
 
 /**
  * Completion for expanding tag
@@ -24,7 +24,17 @@ export const doSuggestionAttributeKey: (
   | undefined = (text, offset) => {
   const scanner = createScanner(text)
   scanner.stream.goTo(offset)
-  if (!scanner.stream.currentlyEndsWithRegex(/<[\S]+\s+[\s\S]*$/)) {
+
+  const endsWithAttributeValue = scanner.stream.currentlyEndsWithRegex(
+    /\S+=\S+$/
+  )
+  if (endsWithAttributeValue) {
+    return undefined
+  }
+  const isSomewhereInStartingTag = scanner.stream.currentlyEndsWithRegex(
+    /<[\S]+\s+[\s\S]*$/
+  )
+  if (!isSomewhereInStartingTag) {
     return undefined
   }
   scanner.stream.goBackToUntilEitherChar('<', '>')
@@ -53,4 +63,15 @@ export const doSuggestionAttributeKey: (
   }
 }
 
-// doSuggestionAttributeKey('<h1 > ', 4) //?
+// setConfig({
+//   elements: {
+//     h1: {
+//       attributes: {
+//         class: {},
+//       },
+//     },
+//   },
+// })
+
+// console.log('ok')
+// doSuggestionAttributeKey('<h1 > ', 3) //?

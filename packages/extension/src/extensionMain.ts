@@ -1,5 +1,4 @@
 import * as vscode from 'vscode'
-import * as htmlLanguageConfigurationService from './LanguageConfiguration/htmlLanguageConfigurationService'
 import { createLanguageClient } from './LanguageClient/LanguageClient'
 import { localPluginCompletionElementExpand } from './plugins/local-plugin-completion-element-expand/localPluginCompletionElementExpand'
 import { localPluginCompletionElementAutoClose } from './plugins/local-plugin-completion-element-auto-close/localPluginCompletionElementAutoClose'
@@ -11,7 +10,7 @@ import { localPluginHighlightElementMatchingTag } from './plugins/local-plugin-h
 export const activate: (
   context: vscode.ExtensionContext
 ) => Promise<void> = async context => {
-  htmlLanguageConfigurationService.activate(context)
+  import('./LanguageConfiguration/htmlLanguageConfigurationFromVscode')
   const languageClient = await createLanguageClient(context)
   languageClient.registerLocalPlugin(localPluginCompletionElementExpand)
   languageClient.registerLocalPlugin(localPluginCompletionElementAutoClose)
