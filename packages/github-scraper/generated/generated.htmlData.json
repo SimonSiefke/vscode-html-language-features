@@ -1,0 +1,1351 @@
+{
+  "elements": {
+    "root": {
+      "attributes": {},
+      "allowedChildren": {
+        "html": {
+          "probability": 0.4886561954624782
+        },
+        "!DOCTYPE": {
+          "probability": 0.4869109947643979
+        },
+        "undefined": {
+          "probability": 0.020942408376963352
+        },
+        "div": {
+          "probability": 0.003490401396160558
+        }
+      }
+    },
+    "!DOCTYPE": {
+      "attributes": {
+        "html": {
+          "probability": 1,
+          "options": {
+            "undefined": {
+              "probability": 1
+            }
+          }
+        }
+      }
+    },
+    "html": {
+      "attributes": {
+        "lang": {
+          "probability": 0.6242690058479532,
+          "options": {
+            "en": {
+              "probability": 0.3333333333333333
+            },
+            "fr": {
+              "probability": 0.5
+            },
+            "sv": {
+              "probability": 0.16666666666666666
+            }
+          }
+        }
+      },
+      "allowedChildren": {
+        "body": {
+          "probability": 0.5029239766081871
+        },
+        "head": {
+          "probability": 0.4941520467836258
+        },
+        "style": {
+          "probability": 0.0029239766081871343
+        }
+      }
+    },
+    "head": {
+      "attributes": {},
+      "allowedChildren": {
+        "link": {
+          "probability": 0.12546117939623716
+        },
+        "title": {
+          "probability": 0.32679528730712
+        },
+        "div": {
+          "probability": 0.037037037037037035
+        },
+        "meta": {
+          "probability": 0.38249352820073784
+        },
+        "style": {
+          "probability": 0.06541103569171813
+        },
+        "script": {
+          "probability": 0.06280193236714976
+        }
+      }
+    },
+    "div": {
+      "attributes": {
+        "class": {
+          "probability": 0.506234793187348
+        },
+        "id": {
+          "probability": 0.27835708492642797
+        },
+        "style": {
+          "probability": 0.0706609894566099
+        },
+        "clas": {
+          "probability": 0.0012165450121654502,
+          "options": {
+            "row": {
+              "probability": 1
+            }
+          }
+        },
+        "role": {
+          "probability": 0.023809523809523808,
+          "options": {
+            "status": {
+              "probability": 1
+            }
+          }
+        }
+      },
+      "allowedChildren": {
+        "h2": {
+          "probability": 0.05722222222222222
+        },
+        "p": {
+          "probability": 0.11416666666666668
+        },
+        "div": {
+          "probability": 0.29194444444444445
+        },
+        "button": {
+          "probability": 0.16749999999999998
+        },
+        "span": {
+          "probability": 0.22962962962962963
+        },
+        "input": {
+          "probability": 0.021851851851851848
+        },
+        "h1": {
+          "probability": 0.014259259259259258
+        },
+        "ul": {
+          "probability": 0.010092592592592592
+        },
+        "undefined": {
+          "probability": 0.0375
+        },
+        "section": {
+          "probability": 0.02
+        },
+        "a": {
+          "probability": 0.0075
+        },
+        "img": {
+          "probability": 0.005833333333333334
+        },
+        "h5": {
+          "probability": 0.005833333333333334
+        },
+        "h6": {
+          "probability": 0.005
+        },
+        "h3": {
+          "probability": 0.005
+        },
+        "label": {
+          "probability": 0.0025
+        },
+        "nav": {
+          "probability": 0.0016666666666666668
+        },
+        "form": {
+          "probability": 0.0016666666666666668
+        },
+        "header": {
+          "probability": 0.0008333333333333334
+        }
+      }
+    },
+    "title": {
+      "attributes": {}
+    },
+    "link": {
+      "attributes": {
+        "rel": {
+          "probability": 1,
+          "options": {
+            "stylesheet": {
+              "probability": 0.8
+            },
+            "css/stylesheet": {
+              "probability": 0.2
+            }
+          }
+        },
+        "href": {
+          "probability": 1
+        },
+        "integrity": {
+          "probability": 0.2
+        },
+        "crossorigin": {
+          "probability": 0.2,
+          "options": {
+            "anonymous": {
+              "probability": 1
+            }
+          }
+        }
+      }
+    },
+    "body": {
+      "attributes": {
+        "onload": {
+          "probability": 0.016666666666666666,
+          "options": {
+            "init()": {
+              "probability": 1
+            }
+          }
+        },
+        "class": {
+          "probability": 0.001443001443001443
+        }
+      },
+      "allowedChildren": {
+        "p": {
+          "probability": 0.44230271304739394
+        },
+        "h1": {
+          "probability": 0.042113854375892455
+        },
+        "nav": {
+          "probability": 0.02330264194765875
+        },
+        "select": {
+          "probability": 0.011111111111111112
+        },
+        "details": {
+          "probability": 0.011111111111111112
+        },
+        "button": {
+          "probability": 0.04334373166959953
+        },
+        "div": {
+          "probability": 0.12558612844167155
+        },
+        "section": {
+          "probability": 0.05
+        },
+        "hr": {
+          "probability": 0.045035460992907804
+        },
+        "footer": {
+          "probability": 0.005752561071710008
+        },
+        "h2": {
+          "probability": 0.0167989417989418
+        },
+        "script": {
+          "probability": 0.027777777777777776
+        },
+        "svg": {
+          "probability": 0.027777777777777776
+        },
+        "input": {
+          "probability": 0.00992063492063492
+        },
+        "br": {
+          "probability": 0.04728206449930974
+        },
+        "canvas": {
+          "probability": 0.003968253968253968
+        },
+        "font": {
+          "probability": 0.003968253968253968
+        },
+        "table": {
+          "probability": 0.01001321270078269
+        },
+        "ul": {
+          "probability": 0.012439491162895418
+        },
+        "ol": {
+          "probability": 0.013559311991562831
+        },
+        "h3": {
+          "probability": 0.014409546324439939
+        },
+        "center": {
+          "probability": 0.001984126984126984
+        },
+        "img": {
+          "probability": 0.005713159968479117
+        },
+        "form": {
+          "probability": 0.002955082742316785
+        },
+        "h5": {
+          "probability": 0.000591016548463357
+        },
+        "main": {
+          "probability": 0.0001970055161544523
+        },
+        "header": {
+          "probability": 0.0001970055161544523
+        },
+        "undefined": {
+          "probability": 0.0001970055161544523
+        },
+        "h6": {
+          "probability": 0.0001970055161544523
+        },
+        "h4": {
+          "probability": 0.0001970055161544523
+        },
+        "body": {
+          "probability": 0.0001970055161544523
+        }
+      }
+    },
+    "h1": {
+      "attributes": {
+        "id": {
+          "probability": 0.05
+        },
+        "class": {
+          "probability": 0.01
+        }
+      },
+      "allowedChildren": {
+        "header": {
+          "probability": 0.5
+        },
+        "span": {
+          "probability": 0.375
+        },
+        "a": {
+          "probability": 0.125
+        }
+      }
+    },
+    "p": {
+      "attributes": {
+        "id": {
+          "probability": 0.07810978578383643
+        },
+        "style": {
+          "probability": 0.1233974358974359
+        },
+        "class": {
+          "probability": 0.013449367088607595
+        }
+      },
+      "allowedChildren": {
+        "br": {
+          "probability": 0.3489136091595108
+        },
+        "a": {
+          "probability": 0.0661592505854801
+        },
+        "address": {
+          "probability": 0.011904761904761904
+        },
+        "pre": {
+          "probability": 0.011904761904761904
+        },
+        "span": {
+          "probability": 0.29004033307312
+        },
+        "b": {
+          "probability": 0.1284153005464481
+        },
+        "i": {
+          "probability": 0.012295081967213115
+        },
+        "img": {
+          "probability": 0.0047814207650273225
+        },
+        "sup": {
+          "probability": 0.0047814207650273225
+        },
+        "p": {
+          "probability": 0.027907884465261514
+        },
+        "h2": {
+          "probability": 0.0034153005464480873
+        },
+        "sub": {
+          "probability": 0.0020491803278688526
+        },
+        "ul": {
+          "probability": 0.0020491803278688526
+        },
+        "ol": {
+          "probability": 0.001366120218579235
+        },
+        "strong": {
+          "probability": 0.04234972677595628
+        },
+        "em": {
+          "probability": 0.041666666666666664
+        }
+      }
+    },
+    "button": {
+      "attributes": {
+        "type": {
+          "probability": 0.5888888888888889,
+          "options": {
+            "button": {
+              "probability": 0.6666666666666666
+            },
+            "submit": {
+              "probability": 0.29411764705882354
+            },
+            "reset": {
+              "probability": 0.0392156862745098
+            }
+          }
+        },
+        "class": {
+          "probability": 0.4111111111111111
+        },
+        "onclick": {
+          "probability": 0.16923076923076924
+        },
+        "name": {
+          "probability": 0.01111111111111111
+        }
+      }
+    },
+    "details": {
+      "attributes": {},
+      "allowedChildren": {
+        "summary": {
+          "probability": 1
+        }
+      }
+    },
+    "summary": {
+      "attributes": {}
+    },
+    "select": {
+      "attributes": {
+        "name": {
+          "probability": 0.4444444444444444
+        },
+        "id": {
+          "probability": 0.1111111111111111
+        }
+      },
+      "allowedChildren": {
+        "option": {
+          "probability": 1
+        }
+      }
+    },
+    "option": {
+      "attributes": {
+        "value": {
+          "probability": 1
+        }
+      }
+    },
+    "nav": {
+      "attributes": {
+        "class": {
+          "probability": 0.4411764705882353
+        }
+      },
+      "allowedChildren": {
+        "a": {
+          "probability": 0.56
+        },
+        "ul": {
+          "probability": 0.4
+        },
+        "h5": {
+          "probability": 0.04
+        }
+      }
+    },
+    "a": {
+      "attributes": {
+        "href": {
+          "probability": 1
+        },
+        "style": {
+          "probability": 0.08
+        },
+        "target": {
+          "probability": 0.2235294117647059,
+          "options": {
+            "_blank": {
+              "probability": 1
+            }
+          }
+        },
+        "title": {
+          "probability": 0.12549019607843137
+        },
+        "class": {
+          "probability": 0.01019607843137255
+        }
+      },
+      "allowedChildren": {
+        "www": {
+          "probability": 0.3333333333333333
+        },
+        "svg": {
+          "probability": 0.3333333333333333
+        },
+        "span": {
+          "probability": 0.16666666666666666
+        },
+        "img": {
+          "probability": 0.16666666666666666
+        }
+      }
+    },
+    "www": {
+      "attributes": {
+        "class": {
+          "probability": 1
+        }
+      }
+    },
+    "h2": {
+      "attributes": {
+        "class": {
+          "probability": 0.00909090909090909
+        }
+      },
+      "allowedChildren": {
+        "b": {
+          "probability": 0.8
+        },
+        "a": {
+          "probability": 0.2
+        }
+      }
+    },
+    "header": {
+      "attributes": {
+        "class": {
+          "probability": 0.3333333333333333
+        },
+        "id": {
+          "probability": 0.08333333333333333
+        }
+      },
+      "allowedChildren": {
+        "h2": {
+          "probability": 0.375
+        },
+        "h3": {
+          "probability": 0.125
+        },
+        "div": {
+          "probability": 0.2
+        },
+        "h1": {
+          "probability": 0.2
+        },
+        "p": {
+          "probability": 0.1
+        }
+      }
+    },
+    "meta": {
+      "attributes": {
+        "charset": {
+          "probability": 0.6531976744186047,
+          "options": {
+            "UTF-8": {
+              "probability": 0.5
+            },
+            "utf-8": {
+              "probability": 0.5
+            }
+          }
+        },
+        "name": {
+          "probability": 0.2186046511627907
+        },
+        "content": {
+          "probability": 0.28430232558139534,
+          "options": {
+            "html and css": {
+              "probability": 0.08333333333333333
+            },
+            "hala moh": {
+              "probability": 0.08333333333333333
+            },
+            "width=device-width, initial-scale=1.0": {
+              "probability": 0.3390804597701149
+            },
+            "ie=edge": {
+              "probability": 0.24425287356321843
+            },
+            "Praktisk tentamen i HTML, CSS.": {
+              "probability": 0.08333333333333333
+            },
+            "HTML, Test": {
+              "probability": 0.08333333333333333
+            },
+            "Magnus Quist": {
+              "probability": 0.08333333333333333
+            }
+          }
+        },
+        "http-equiv": {
+          "probability": 0.06569767441860466,
+          "options": {
+            "X-UA-Compatible": {
+              "probability": 1
+            }
+          }
+        },
+        "chraset": {
+          "probability": 0.0625,
+          "options": {
+            "utf-8": {
+              "probability": 1
+            }
+          }
+        }
+      }
+    },
+    "ul": {
+      "attributes": {
+        "id": {
+          "probability": 0.25
+        },
+        "class": {
+          "probability": 0.06868131868131869
+        }
+      },
+      "allowedChildren": {
+        "li": {
+          "probability": 1
+        }
+      }
+    },
+    "li": {
+      "attributes": {
+        "class": {
+          "probability": 0.14151898734177215
+        }
+      },
+      "allowedChildren": {
+        "a": {
+          "probability": 0.5564005069708492
+        },
+        "label": {
+          "probability": 0.3523447401774398
+        },
+        "i": {
+          "probability": 0.03168567807351077
+        },
+        "ul": {
+          "probability": 0.020278833967046894
+        },
+        "input": {
+          "probability": 0.019011406844106463
+        },
+        "b": {
+          "probability": 0.011406844106463879
+        },
+        "img": {
+          "probability": 0.008871989860583017
+        }
+      }
+    },
+    "section": {
+      "attributes": {
+        "class": {
+          "probability": 0.4142857142857143
+        }
+      },
+      "allowedChildren": {
+        "div": {
+          "probability": 0.16544117647058826
+        },
+        "h2": {
+          "probability": 0.14583333333333334
+        },
+        "p": {
+          "probability": 0.2696078431372549
+        },
+        "header": {
+          "probability": 0.08333333333333333
+        },
+        "ol": {
+          "probability": 0.020833333333333332
+        },
+        "table": {
+          "probability": 0.020833333333333332
+        },
+        "nav": {
+          "probability": 0.10784313725490197
+        },
+        "article": {
+          "probability": 0.058823529411764705
+        },
+        "section": {
+          "probability": 0.058823529411764705
+        },
+        "ul": {
+          "probability": 0.058823529411764705
+        },
+        "form": {
+          "probability": 0.00980392156862745
+        }
+      }
+    },
+    "h3": {
+      "attributes": {
+        "class": {
+          "probability": 0.04545454545454545
+        }
+      }
+    },
+    "table": {
+      "attributes": {
+        "border": {
+          "probability": 0.25,
+          "options": {
+            "1": {
+              "probability": 1
+            }
+          }
+        },
+        "id": {
+          "probability": 0.25
+        }
+      },
+      "allowedChildren": {
+        "tr": {
+          "probability": 1
+        }
+      }
+    },
+    "tr": {
+      "attributes": {},
+      "allowedChildren": {
+        "td": {
+          "probability": 0.75
+        },
+        "th": {
+          "probability": 0.25
+        }
+      }
+    },
+    "th": {
+      "attributes": {}
+    },
+    "td": {
+      "attributes": {
+        "class": {
+          "probability": 0.1125
+        },
+        "onclick": {
+          "probability": 0.0125
+        },
+        "id": {
+          "probability": 0.0125
+        }
+      }
+    },
+    "hr": {
+      "attributes": {}
+    },
+    "ol": {
+      "attributes": {
+        "id": {
+          "probability": 0.125
+        },
+        "class": {
+          "probability": 0.03571428571428571
+        },
+        "type": {
+          "probability": 0.25,
+          "options": {
+            "I": {
+              "probability": 1
+            }
+          }
+        }
+      },
+      "allowedChildren": {
+        "li": {
+          "probability": 1
+        }
+      }
+    },
+    "br": {
+      "attributes": {}
+    },
+    "pre": {
+      "attributes": {},
+      "allowedChildren": {
+        "!DOCTYPE": {
+          "probability": 1
+        }
+      }
+    },
+    "footer": {
+      "attributes": {
+        "class": {
+          "probability": 0.5
+        }
+      },
+      "allowedChildren": {
+        "p": {
+          "probability": 0.5
+        },
+        "section": {
+          "probability": 0.25
+        },
+        "ul": {
+          "probability": 0.125
+        },
+        "h1": {
+          "probability": 0.125
+        }
+      }
+    },
+    "address": {
+      "attributes": {}
+    },
+    "style": {
+      "attributes": {
+        "type": {
+          "probability": 0.3333333333333333,
+          "options": {
+            "text/css": {
+              "probability": 1
+            }
+          }
+        }
+      }
+    },
+    "svg": {
+      "attributes": {
+        "xmlns": {
+          "probability": 0.3333333333333333,
+          "options": {
+            "http://www.w3.org/2000/svg": {
+              "probability": 1
+            }
+          }
+        },
+        "style": {
+          "probability": 0.3333333333333333
+        },
+        "class": {
+          "probability": 0.6666666666666666
+        }
+      },
+      "allowedChildren": {
+        "symbol": {
+          "probability": 0.8888888888888888
+        },
+        "use": {
+          "probability": 0.1111111111111111
+        }
+      }
+    },
+    "symbol": {
+      "attributes": {
+        "id": {
+          "probability": 1
+        },
+        "viewBox": {
+          "probability": 1
+        }
+      },
+      "allowedChildren": {
+        "path": {
+          "probability": 1
+        }
+      }
+    },
+    "path": {
+      "attributes": {
+        "d": {
+          "probability": 1
+        },
+        "fill": {
+          "probability": 0.4838709677419355,
+          "options": {
+            "none": {
+              "probability": 1
+            }
+          }
+        }
+      }
+    },
+    "input": {
+      "attributes": {
+        "type": {
+          "probability": 0.7378531073446327,
+          "options": {
+            "file": {
+              "probability": 0.1111111111111111
+            },
+            "search": {
+              "probability": 0.1111111111111111
+            },
+            "checkbox": {
+              "probability": 0.20833333333333334
+            },
+            "range": {
+              "probability": 0.3333333333333333
+            },
+            "email": {
+              "probability": 0.034722222222222224
+            },
+            "text": {
+              "probability": 0.08333333333333333
+            },
+            "tel": {
+              "probability": 0.006944444444444444
+            },
+            "password": {
+              "probability": 0.013888888888888888
+            },
+            "radio": {
+              "probability": 0.09722222222222222
+            }
+          }
+        },
+        "id": {
+          "probability": 0.8870056497175142
+        },
+        "name": {
+          "probability": 0.3766478342749529
+        },
+        "accept": {
+          "probability": 0.1111111111111111,
+          "options": {
+            ".csv, .json, .tsv": {
+              "probability": 1
+            }
+          }
+        },
+        "placeholder": {
+          "probability": 0.22975517890772126
+        },
+        "checked": {
+          "probability": 0.1111111111111111,
+          "options": {
+            "checked": {
+              "probability": 1
+            }
+          }
+        },
+        "min": {
+          "probability": 0.13333333333333333,
+          "options": {
+            "0": {
+              "probability": 1
+            }
+          }
+        },
+        "max": {
+          "probability": 0.13333333333333333,
+          "options": {
+            "10": {
+              "probability": 0.5
+            },
+            "100": {
+              "probability": 0.5
+            }
+          }
+        },
+        "onchange": {
+          "probability": 0.06666666666666667,
+          "options": {
+            "convert()": {
+              "probability": 1
+            }
+          }
+        },
+        "maxlenght": {
+          "probability": 0.011299435028248588,
+          "options": {
+            "30": {
+              "probability": 1
+            }
+          }
+        },
+        "minlength": {
+          "probability": 0.02824858757062147,
+          "options": {
+            "2": {
+              "probability": 0.4
+            },
+            "3": {
+              "probability": 0.2
+            },
+            "5": {
+              "probability": 0.2
+            },
+            "6": {
+              "probability": 0.2
+            }
+          }
+        },
+        "value": {
+          "probability": 0.096045197740113
+        },
+        "required": {
+          "probability": 0.0847457627118644,
+          "options": {
+            "undefined": {
+              "probability": 1
+            }
+          }
+        },
+        "maxlength": {
+          "probability": 0.01694915254237288,
+          "options": {
+            "7": {
+              "probability": 0.6666666666666666
+            },
+            "30": {
+              "probability": 0.3333333333333333
+            }
+          }
+        }
+      }
+    },
+    "span": {
+      "attributes": {
+        "id": {
+          "probability": 0.125
+        },
+        "class": {
+          "probability": 0.29229797979797983
+        },
+        "style": {
+          "probability": 0.5
+        }
+      },
+      "allowedChildren": {
+        "a": {
+          "probability": 0.16666666666666666
+        },
+        "span": {
+          "probability": 0.5
+        },
+        "br": {
+          "probability": 0.3333333333333333
+        }
+      }
+    },
+    "label": {
+      "attributes": {
+        "for": {
+          "probability": 0.4880952380952381
+        }
+      },
+      "allowedChildren": {
+        "span": {
+          "probability": 0.25
+        },
+        "input": {
+          "probability": 0.25
+        },
+        "em": {
+          "probability": 0.5
+        }
+      }
+    },
+    "use": {
+      "attributes": {
+        "xlink:href": {
+          "probability": 1
+        }
+      }
+    },
+    "script": {
+      "attributes": {
+        "type": {
+          "probability": 0.5,
+          "options": {
+            "text/javascript": {
+              "probability": 1
+            }
+          }
+        }
+      }
+    },
+    "b": {
+      "attributes": {}
+    },
+    "center": {
+      "attributes": {}
+    },
+    "font": {
+      "attributes": {
+        "color": {
+          "probability": 0.5,
+          "options": {
+            "red": {
+              "probability": 1
+            }
+          }
+        },
+        "size": {
+          "probability": 0.5,
+          "options": {
+            "6": {
+              "probability": 1
+            }
+          }
+        }
+      }
+    },
+    "undefined": {
+      "attributes": {}
+    },
+    "canvas": {
+      "attributes": {
+        "id": {
+          "probability": 1
+        },
+        "width": {
+          "probability": 1,
+          "options": {
+            "600": {
+              "probability": 1
+            }
+          }
+        },
+        "height": {
+          "probability": 1
+        }
+      }
+    },
+    "h4": {
+      "attributes": {}
+    },
+    "h5": {
+      "attributes": {
+        "class": {
+          "probability": 0.4
+        }
+      },
+      "allowedChildren": {
+        "span": {
+          "probability": 1
+        }
+      }
+    },
+    "h6": {
+      "attributes": {
+        "class": {
+          "probability": 0.8571428571428571
+        }
+      }
+    },
+    "sup": {
+      "attributes": {}
+    },
+    "sub": {
+      "attributes": {}
+    },
+    "img": {
+      "attributes": {
+        "src": {
+          "probability": 1
+        },
+        "alt": {
+          "probability": 0.7058823529411765
+        },
+        "title": {
+          "probability": 0.2549019607843137
+        },
+        "class": {
+          "probability": 0.0196078431372549
+        }
+      }
+    },
+    "form": {
+      "attributes": {
+        "action": {
+          "probability": 0.05555555555555555,
+          "options": {
+            "": {
+              "probability": 1
+            }
+          }
+        },
+        "class": {
+          "probability": 0.05555555555555555
+        }
+      },
+      "allowedChildren": {
+        "input": {
+          "probability": 0.2755102040816326
+        },
+        "button": {
+          "probability": 0.1326530612244898
+        },
+        "br": {
+          "probability": 0.12244897959183673
+        },
+        "label": {
+          "probability": 0.09183673469387756
+        },
+        "div": {
+          "probability": 0.07142857142857142
+        },
+        "h3": {
+          "probability": 0.07142857142857142
+        },
+        "ul": {
+          "probability": 0.061224489795918366
+        },
+        "fieldset": {
+          "probability": 0.05102040816326531
+        },
+        "select": {
+          "probability": 0.05102040816326531
+        },
+        "hr": {
+          "probability": 0.04081632653061224
+        },
+        "textarea": {
+          "probability": 0.01020408163265306
+        },
+        "h5": {
+          "probability": 0.01020408163265306
+        },
+        "h2": {
+          "probability": 0.01020408163265306
+        }
+      }
+    },
+    "textarea": {
+      "attributes": {
+        "name": {
+          "probability": 1
+        },
+        "id": {
+          "probability": 1
+        },
+        "row": {
+          "probability": 1,
+          "options": {
+            "4": {
+              "probability": 1
+            }
+          }
+        },
+        "cols": {
+          "probability": 1,
+          "options": {
+            "30": {
+              "probability": 1
+            }
+          }
+        },
+        "required": {
+          "probability": 1,
+          "options": {
+            "undefined": {
+              "probability": 1
+            }
+          }
+        }
+      }
+    },
+    "fieldset": {
+      "attributes": {},
+      "allowedChildren": {
+        "label": {
+          "probability": 0.30612244897959184
+        },
+        "input": {
+          "probability": 0.2653061224489796
+        },
+        "br": {
+          "probability": 0.22448979591836735
+        },
+        "legend": {
+          "probability": 0.10204081632653061
+        },
+        "select": {
+          "probability": 0.08163265306122448
+        },
+        "button": {
+          "probability": 0.02040816326530612
+        }
+      }
+    },
+    "legend": {
+      "attributes": {}
+    },
+    "strong": {
+      "attributes": {}
+    },
+    "em": {
+      "attributes": {}
+    },
+    "i": {
+      "attributes": {}
+    },
+    "main": {
+      "attributes": {
+        "class": {
+          "probability": 1
+        }
+      },
+      "allowedChildren": {
+        "section": {
+          "probability": 0.42857142857142855
+        },
+        "header": {
+          "probability": 0.2857142857142857
+        },
+        "footer": {
+          "probability": 0.14285714285714285
+        },
+        "main": {
+          "probability": 0.14285714285714285
+        }
+      }
+    },
+    "article": {
+      "attributes": {
+        "class": {
+          "probability": 1
+        }
+      },
+      "allowedChildren": {
+        "div": {
+          "probability": 1
+        }
+      }
+    },
+    "!doctype": {
+      "attributes": {
+        "html": {
+          "probability": 1,
+          "options": {
+            "undefined": {
+              "probability": 1
+            }
+          }
+        }
+      }
+    }
+  }
+}
