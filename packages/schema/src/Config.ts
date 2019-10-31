@@ -1,17 +1,27 @@
-export interface Reference {
+export type Reference = Readonly<{
   url: string
   name: string
-}
+}>
 
-export interface Attribute {
+export type AttributeValue = Readonly<{
+  description?: string
+  probability?: number
+  deprecated?: boolean
+}>
+
+export type Attribute = Readonly<{
   description?: string
   experimental?: boolean
   deprecated?: boolean
   reference?: Reference
   probability?: number
-}
+  type?: 'string' | 'enum'
+  options?: {
+    [key: string]: AttributeValue
+  }
+}>
 
-export interface Element {
+export type Element = Readonly<{
   description?: string
   reference?: Reference
   selfClosing?: boolean
@@ -24,7 +34,7 @@ export interface Element {
       probability?: number
     }
   }
-}
+}>
 
 export interface Config {
   __meta__?: unknown

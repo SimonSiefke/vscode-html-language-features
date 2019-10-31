@@ -1,4 +1,4 @@
-import { doSuggestionAttributeKey } from './suggestionAttributeKey'
+import { doSuggestionAttributeName } from './suggestionAttributeName'
 import { setConfig } from '../../data/Data'
 
 beforeEach(() => {
@@ -13,7 +13,7 @@ beforeEach(() => {
   })
 })
 
-test('suggestion-attribute-key', () => {
+test('suggestion-attribute-name', () => {
   const testCases: { input: string; expected: any | undefined }[] = [
     {
       input: '<|',
@@ -99,7 +99,7 @@ test('suggestion-attribute-key', () => {
     const offset = testCase.input.indexOf('|')
     expect(offset).toBeGreaterThan(-1)
     const text = testCase.input.replace('|', '')
-    const result = doSuggestionAttributeKey(text, offset)
+    const result = doSuggestionAttributeName(text, offset)
     expect(result).toEqual(testCase.expected)
   }
 })

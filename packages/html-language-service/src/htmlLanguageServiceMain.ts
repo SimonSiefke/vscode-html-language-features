@@ -1,10 +1,18 @@
 export {
+  doSuggestionAttributeValue,
+} from './services/suggestion-attribute-value/suggestionAttributeValue'
+
+export {
   addConfigs,
   setConfig,
   getDescriptionForTag,
   getDescriptionForAttributeName,
   getReferenceForAttributeName,
+  getDescriptionForAttributeValue,
   getReferenceForTag,
+  NamedAttribute,
+  NamedAttributeValue,
+  NamedTag,
 } from './data/Data'
 export { doHoverElement } from './services/hover-element/hoverElement'
 export {
@@ -12,8 +20,8 @@ export {
   MatchingTagResult,
 } from './services/util/findMatchingTags/findMatchingTags'
 export {
-  doSuggestionAttributeKey,
-} from './services/suggestion-attribute-key/suggestionAttributeKey'
+  doSuggestionAttributeName,
+} from './services/suggestion-attribute-name/suggestionAttributeName'
 export {
   doSuggestionElementStartTag,
 } from './services/suggestion-element-start-tag/suggestionElementStartTag'

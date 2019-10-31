@@ -68,6 +68,22 @@ function walk(tree, fn = tree => {}) {
   } //?
 }
 
+const unquote: (str: string | null | undefined) => string = str => {
+  if (str === null) {
+    return null
+  }
+  if (str === undefined) {
+    return undefined
+  }
+
+  if (str.startsWith("'") && str.endsWith("'")) {
+    return str.slice(1, -1)
+  }
+  if (str.startsWith('"') && str.endsWith('"')) {
+    return str.slice(1, -1)
+  }
+  return str
+}
 function analyze(text) {
   const rawTree = parse(text).roots
   const root = new Node(0, 0, rawTree)
@@ -88,10 +104,15 @@ function analyze(text) {
       statistics[leaf.tagName][attributeName] =
         statistics[leaf.tagName][attributeName] || {}
 
-      if (statistics[leaf.tagName][attributeName][attributeValue]) {
-        statistics[leaf.tagName][attributeName][attributeValue]++
+      const unquotedAttributeValue = unquote(attributeValue as
+        | string
+        | null
+        | undefined)
+
+      if (statistics[leaf.tagName][attributeName][unquotedAttributeValue]) {
+        statistics[leaf.tagName][attributeName][unquotedAttributeValue]++
       } else {
-        statistics[leaf.tagName][attributeName][attributeValue] = 1
+        statistics[leaf.tagName][attributeName][unquotedAttributeValue] = 1
       }
     }
     let parentName = leaf.parent && leaf.parent.tagName

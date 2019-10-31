@@ -2,29 +2,21 @@ import {
   createScanner,
   ScannerState,
 } from '@html-language-features/html-parser'
-import { getSuggestedAttributes, setConfig } from '../../data/Data'
+import { getSuggestedAttributes, NamedAttribute } from '../../data/Data'
 
 /**
- * Completion for expanding tag
- *`sp` -> `<span></span>`.
+ * Suggestions for attribute names
+ * @example
+ * doSuggestionAttributeName(`<option `, 8) // { tagName:'option', attributes: [{ name: 'value', probability: 0.92}]}
  */
-export const doSuggestionAttributeKey: (
+export const doSuggestionAttributeName: (
   text: string,
   offset: number
-) =>
-  | {
-      tagName?: string
-      attributes: {
-        name: string
-        probability?: number
-        deprecated?: boolean
-        description?: string
-      }[]
-    }
-  | undefined = (text, offset) => {
-  const scanner = createScanner(text)
-  scanner.stream.goTo(offset)
-
+) => { tagName: string; attributes: NamedAttribute[] } | undefined = (
+  text,
+  offset
+) => {
+  const scanner = createScanner(text, { initialOffset: offset })
   const endsWithAttributeValue = scanner.stream.currentlyEndsWithRegex(
     /\S+=\S+$/
   )
@@ -53,13 +45,13 @@ export const doSuggestionAttributeKey: (
   // 1. import statistics
   // 2. fuzzy search in statistics[tagName][inCompleteAttributeName]
 
-  const suggestedAttributes = getSuggestedAttributes(tagName)
-  if (!suggestedAttributes) {
+  const attributes = getSuggestedAttributes(tagName)
+  if (!attributes) {
     return undefined
   }
   return {
+    attributes,
     tagName,
-    attributes: suggestedAttributes,
   }
 }
 

@@ -3,7 +3,12 @@ import {
   mergeConfigs,
   ValidationError,
 } from '@html-language-features/schema'
-import { Reference } from '@html-language-features/schema/src/Config'
+import {
+  Reference,
+  Attribute,
+  Element,
+  AttributeValue,
+} from '@html-language-features/schema/src/Config'
 import * as fs from 'fs'
 import * as path from 'path'
 
@@ -99,17 +104,60 @@ export const getDescriptionForAttributeName: (
   )
 }
 
+export const getDescriptionForAttributeValue: (
+  tagName: string,
+  attributeName: string,
+  attributeValue:string
+) => string | undefined = (tagName, attributeName, attributeValue) => {
+  if (tagName === undefined) {
+    // TODO global attributes
+    return undefined
+  }
+  return (
+    _config.elements &&
+    _config.elements[tagName] &&
+    _config.elements[tagName].attributes &&
+    // TODO typescript bug?
+    _config.elements[tagName].attributes![attributeName] &&
+    _config.elements[tagName].attributes![attributeName].options &&
+    _config.elements[tagName].attributes![attributeName].options![attributeValue] &&
+    _config.elements[tagName].attributes![attributeName].options![attributeValue].description
+  )
+}
+
 export const isTagName: (tagName: string) => boolean = tagName =>
   _config.elements !== undefined && _config.elements[tagName] !== undefined
 
-export type SuggestedTag = {
-  probability?: number
-  name: string
-}
+export type NamedTag = Element & { readonly name: string }
 
-export interface SuggestedAttribute {
-  probability?: number
-  name: string
+export type NamedAttribute = Attribute & { readonly name: string }
+
+export type NamedAttributeValue = AttributeValue & { readonly name: string }
+
+/**
+ * Get the most likely attribute values for a given tag and attribute
+ * @param tagName
+ * @param attributeName
+ * @example
+ * getSuggestedAttributeValues('a', 'target') // [{ name: '_blank', probability: 0.2 }, { name: '_self' }, ...]
+ */
+export const getSuggestedAttributeValues: (
+  tagName: string,
+  attributeName: string
+) => NamedAttributeValue[] | undefined = (tagName, attributeName) => {
+  const options =
+    _config.elements &&
+    _config.elements[tagName] &&
+    _config.elements[tagName].attributes &&
+    _config.elements[tagName].attributes![attributeName] &&
+    _config.elements[tagName].attributes![attributeName].options
+  if (!options) {
+    return undefined
+  }
+  return Object.entries(options).map(([key, value]) => ({
+    name: key,
+    ...value,
+  }))
 }
 
 /**
@@ -119,15 +167,15 @@ export interface SuggestedAttribute {
  */
 export const getSuggestedTags: (
   parentTagName: string
-) => SuggestedTag[] | undefined = parentTagName => {
-  const elements =
+) => NamedTag[] | undefined = parentTagName => {
+  const allowedChildren =
     _config.elements &&
     _config.elements[parentTagName] &&
     _config.elements[parentTagName].allowedChildren
-  if (!elements) {
+  if (!allowedChildren) {
     return undefined
   }
-  return Object.entries(elements).map(([key, value]) => ({
+  return Object.entries(allowedChildren).map(([key, value]) => ({
     name: key,
     ...value,
   }))
@@ -140,7 +188,7 @@ export const getSuggestedTags: (
  */
 export const getSuggestedAttributes: (
   tagName: string
-) => SuggestedAttribute[] | undefined = tagName => {
+) => NamedAttribute[] | undefined = tagName => {
   const attributes =
     _config.elements &&
     _config.elements[tagName] &&

@@ -24,13 +24,10 @@
         "lang": {
           "probability": 0.8125,
           "options": {
-            "\"en\"": {
-              "probability": 0.8461538461538461
-            },
             "en": {
-              "probability": 0.07692307692307693
+              "probability": 0.9230769230769231
             },
-            "\"en-US\"": {
+            "en-US": {
               "probability": 0.07692307692307693
             }
           }
@@ -38,7 +35,7 @@
         "dir": {
           "probability": 0.0625,
           "options": {
-            "\"ltr\"": {
+            "ltr": {
               "probability": 1
             }
           }
@@ -49,7 +46,7 @@
         "xmlns": {
           "probability": 0.0625,
           "options": {
-            "\"http://www.w3.org/1999/xhtml\"": {
+            "http://www.w3.org/1999/xhtml": {
               "probability": 1
             }
           }
@@ -61,7 +58,7 @@
         "prefix": {
           "probability": 0.0625,
           "options": {
-            "\"og: http://ogp.me/ns#\"": {
+            "og: http://ogp.me/ns#": {
               "probability": 1
             }
           }
@@ -73,14 +70,11 @@
         "charset": {
           "probability": 0.06086956521739131,
           "options": {
-            "\"utf-8\"": {
-              "probability": 0.7142857142857143
-            },
-            "\"UTF-8\"": {
-              "probability": 0.21428571428571427
-            },
             "utf-8": {
-              "probability": 0.07142857142857142
+              "probability": 0.7857142857142857
+            },
+            "UTF-8": {
+              "probability": 0.21428571428571427
             }
           }
         },
@@ -90,316 +84,313 @@
         "content": {
           "probability": 0.9391304347826087,
           "options": {
-            "\"width=device-width\"": {
+            "1": {
+              "probability": 0.004629629629629629
+            },
+            "2": {
+              "probability": 0.004629629629629629
+            },
+            "3": {
+              "probability": 0.004629629629629629
+            },
+            "4": {
+              "probability": 0.004629629629629629
+            },
+            "483": {
+              "probability": 0.004629629629629629
+            },
+            "512": {
+              "probability": 0.009259259259259259
+            },
+            "630": {
+              "probability": 0.004629629629629629
+            },
+            "1200": {
+              "probability": 0.004629629629629629
+            },
+            "1597": {
+              "probability": 0.004629629629629629
+            },
+            "width=device-width": {
               "probability": 0.013888888888888888
             },
-            "\"#00aba9\"": {
+            "#00aba9": {
               "probability": 0.004629629629629629
             },
-            "\"/mstile-144x144.png\"": {
+            "/mstile-144x144.png": {
               "probability": 0.004629629629629629
             },
-            "\"124436167285\"": {
+            "124436167285": {
               "probability": 0.004629629629629629
             },
-            "\"$pay.stronghold.co/1a1b91b23306ab547228c43af27ac0f2411\"": {
+            "$pay.stronghold.co/1a1b91b23306ab547228c43af27ac0f2411": {
               "probability": 0.004629629629629629
             },
-            "\"The next generation of Zen Coding. Essentially it gives you shortcuts you can type that expand into full HTML or CSS. Like nav&gt;a*8 will expand into a tag\"": {
+            "The next generation of Zen Coding. Essentially it gives you shortcuts you can type that expand into full HTML or CSS. Like nav&gt;a*8 will expand into a tag": {
               "probability": 0.013888888888888888
             },
-            "\"en_US\"": {
+            "en_US": {
               "probability": 0.018518518518518517
             },
-            "\"article\"": {
+            "article": {
               "probability": 0.023148148148148147
             },
-            "\"Emmet | CSS-Tricks\"": {
+            "Emmet | CSS-Tricks": {
               "probability": 0.009259259259259259
             },
-            "\"https://css-tricks.com/emmet/\"": {
+            "https://css-tricks.com/emmet/": {
               "probability": 0.004629629629629629
             },
-            "\"CSS-Tricks\"": {
+            "CSS-Tricks": {
               "probability": 0.004629629629629629
             },
-            "\"https://www.facebook.com/CSSTricks\"": {
+            "https://www.facebook.com/CSSTricks": {
               "probability": 0.004629629629629629
             },
-            "\"emmet\"": {
+            "emmet": {
               "probability": 0.004629629629629629
             },
-            "\"Link\"": {
+            "Link": {
               "probability": 0.004629629629629629
             },
-            "\"2012-11-01T14:26:05+00:00\"": {
+            "2012-11-01T14:26:05+00:00": {
               "probability": 0.004629629629629629
             },
-            "\"2017-03-26T19:05:00+00:00\"": {
+            "2017-03-26T19:05:00+00:00": {
               "probability": 0.009259259259259259
             },
-            "\"https://css-tricks.com/wp-content/uploads/2014/03/css-tricks-star.png\"": {
+            "https://css-tricks.com/wp-content/uploads/2014/03/css-tricks-star.png": {
               "probability": 0.013888888888888888
             },
-            "\"512\"": {
-              "probability": 0.009259259259259259
-            },
-            "\"summary\"": {
+            "summary": {
               "probability": 0.023148148148148147
             },
-            "\"@CSS\"": {
+            "@CSS": {
               "probability": 0.004629629629629629
             },
-            "\"@chriscoyier\"": {
+            "@chriscoyier": {
               "probability": 0.004629629629629629
             },
-            "\"IE=Edge\"": {
+            "IE=Edge": {
               "probability": 0.004629629629629629
             },
-            "\"width=device-width, initial-scale=1\"": {
+            "width=device-width, initial-scale=1": {
               "probability": 0.018518518518518517
             },
-            "\"index, follow\"": {
+            "index, follow": {
               "probability": 0.004629629629629629
             },
-            "\"website\"": {
+            "website": {
               "probability": 0.018518518518518517
             },
-            "\"https://developer.mozilla.org/static/img/opengraph-logo.72382e605ce3.png\"": {
+            "https://developer.mozilla.org/static/img/opengraph-logo.72382e605ce3.png": {
               "probability": 0.009259259259259259
             },
-            "\"MDN Web Docs\"": {
+            "MDN Web Docs": {
               "probability": 0.004629629629629629
             },
-            "\"@MozDevNet\"": {
+            "@MozDevNet": {
               "probability": 0.009259259259259259
             },
-            "\"&lt;input&gt;: The Input (Form Input) element\"": {
+            "&lt;input&gt;: The Input (Form Input) element": {
               "probability": 0.009259259259259259
             },
-            "\"https://developer.mozilla.org/en-US/docs/Web/HTML/Element/input\"": {
+            "https://developer.mozilla.org/en-US/docs/Web/HTML/Element/input": {
               "probability": 0.009259259259259259
             },
-            "\"The HTML input element is used to create interactive controls for web-based forms in order to accept data from the user; a wide variety of types of input data and control widgets are available, depending on the device and user agent.\"": {
+            "The HTML input element is used to create interactive controls for web-based forms in order to accept data from the user; a wide variety of types of input data and control widgets are available, depending on the device and user agent.": {
               "probability": 0.013888888888888888
             },
-            "\"1\"": {
-              "probability": 0.004629629629629629
-            },
-            "\"2\"": {
-              "probability": 0.004629629629629629
-            },
-            "\"3\"": {
-              "probability": 0.004629629629629629
-            },
-            "\"4\"": {
-              "probability": 0.004629629629629629
-            },
-            "\"IE=edge\"": {
+            "IE=edge": {
               "probability": 0.013888888888888888
             },
-            "\"width=device-width, initial-scale=1.0\"": {
+            "width=device-width, initial-scale=1.0": {
               "probability": 0.023148148148148147
             },
-            "\"jYS9fhGe-9EVLKH2MfZLmwryFQ6Yc0hWzPuA\"": {
+            "jYS9fhGe-9EVLKH2MfZLmwryFQ6Yc0hWzPuA": {
               "probability": 0.004629629629629629
             },
-            "\"Learn to code with free online courses, programming projects, and interview preparation for developer jobs.\"": {
+            "Learn to code with free online courses, programming projects, and interview preparation for developer jobs.": {
               "probability": 0.018518518518518517
             },
-            "\"freeCodeCamp\"": {
+            "freeCodeCamp": {
               "probability": 0.004629629629629629
             },
-            "\"on\"": {
+            "on": {
               "probability": 0.004629629629629629
             },
-            "\"d0bc047a482c03c24f1168004c2a216a\"": {
+            "d0bc047a482c03c24f1168004c2a216a": {
               "probability": 0.004629629629629629
             },
-            "\"https://www.freecodecamp.org\"": {
+            "https://www.freecodecamp.org": {
               "probability": 0.004629629629629629
             },
-            "\"https://s3.amazonaws.com/freecodecamp/curriculum-diagram-full.jpg\"": {
+            "https://s3.amazonaws.com/freecodecamp/curriculum-diagram-full.jpg": {
               "probability": 0.009259259259259259
             },
-            "\"https://www.facebook.com/freecodecamp\"": {
+            "https://www.facebook.com/freecodecamp": {
               "probability": 0.004629629629629629
             },
-            "\"Responsive\"": {
+            "Responsive": {
               "probability": 0.004629629629629629
             },
-            "\"@freecodecamp\"": {
+            "@freecodecamp": {
               "probability": 0.009259259259259259
             },
-            "\"http://www.freecodecamp.org\"": {
-              "probability": 0.004629629629629629
-            },
-            "\"summary_large_image\"": {
-              "probability": 0.023148148148148147
-            },
-            "\"Learn to code for free\"": {
-              "probability": 0.004629629629629629
-            },
-            "\"a40ee5d5dba3bb091ad783ebd2b1383f\"": {
-              "probability": 0.004629629629629629
-            },
-            "\"#FFFFFF\"": {
-              "probability": 0.004629629629629629
-            },
-            "\"/\"": {
-              "probability": 0.004629629629629629
-            },
-            "\"width=device-width, initial-scale=1, shrink-to-fit=no\"": {
-              "probability": 0.004629629629629629
-            },
-            "\"The most popular HTML, CSS, and JS library in the world.\"": {
-              "probability": 0.013888888888888888
-            },
-            "\"Mark Otto, Jacob Thornton, and Bootstrap contributors\"": {
-              "probability": 0.004629629629629629
-            },
-            "\"Jekyll v3.8.5\"": {
-              "probability": 0.004629629629629629
-            },
-            "\"en\"": {
-              "probability": 0.004629629629629629
-            },
-            "\"4.3\"": {
-              "probability": 0.004629629629629629
-            },
-            "\"/docs/4.3/assets/img/favicons/browserconfig.xml\"": {
-              "probability": 0.004629629629629629
-            },
-            "\"#563d7c\"": {
-              "probability": 0.004629629629629629
-            },
-            "\"@getbootstrap\"": {
-              "probability": 0.009259259259259259
-            },
-            "\"Bootstrap\"": {
-              "probability": 0.009259259259259259
-            },
-            "\"https://getbootstrap.com/docs/4.3/assets/brand/bootstrap-social.png\"": {
-              "probability": 0.009259259259259259
-            },
-            "\"https://getbootstrap.com/\"": {
-              "probability": 0.004629629629629629
-            },
-            "\"http://getbootstrap.com/docs/4.3/assets/brand/bootstrap-social.png\"": {
-              "probability": 0.004629629629629629
-            },
-            "\"image/png\"": {
-              "probability": 0.004629629629629629
-            },
-            "\"1200\"": {
-              "probability": 0.004629629629629629
-            },
-            "\"630\"": {
-              "probability": 0.004629629629629629
-            },
-            "\"True\"": {
-              "probability": 0.004629629629629629
-            },
-            "\"Hi, I&#x27;m John Papa. I author this blog, create courses for Pluralsight, and work in Developer Relations. I speak at events, contribute to OSS, and I train technology thought leaders\"": {
-              "probability": 0.013888888888888888
-            },
-            "\"no-referrer-when-downgrade\"": {
-              "probability": 0.004629629629629629
-            },
-            "\"John Papa\"": {
-              "probability": 0.013888888888888888
-            },
-            "\"https://johnpapa.net/\"": {
-              "probability": 0.009259259259259259
-            },
-            "\"https://johnpapa.net/content/images/2019/10/header.jpg\"": {
-              "probability": 0.009259259259259259
-            },
-            "\"1597\"": {
-              "probability": 0.004629629629629629
-            },
-            "\"483\"": {
-              "probability": 0.004629629629629629
-            },
-            "\"Ghost 2.36\"": {
-              "probability": 0.004629629629629629
-            },
-            "\"ie=edge\"": {
-              "probability": 0.004629629629629629
-            },
-            "\"My name is Kevin and I teach people how to make the web and how to make it look good while they are at it.\"": {
-              "probability": 0.009259259259259259
-            },
-            "\"Home | Kevin Powell\"": {
-              "probability": 0.004629629629629629
-            },
-            "\"https://kevinpowell.co/\"": {
-              "probability": 0.004629629629629629
-            },
-            "\"\"": {
-              "probability": 0.018518518518518517
-            },
-            "\"WordPress.com\"": {
-              "probability": 0.004629629629629629
-            },
-            "\"Easy ARIA Tip #7: Use &#8220;listbox&#8221; and &#8220;option&#8221; roles when constructing AutoComplete lists\"": {
-              "probability": 0.004629629629629629
-            },
-            "\"https://marcozehe.wordpress.com/2014/03/11/easy-aria-tip-7-use-listbox-and-option-roles-when-constructing-autocomplete-lists/\"": {
-              "probability": 0.004629629629629629
-            },
-            "\"One question that comes up quite frequently is the one of which roles to use for an auto-complete widget, or more precisely, for the container and the individual auto-complete items. Here&#8217;s m…\"": {
-              "probability": 0.004629629629629629
-            },
-            "\"2014-03-11T10:03:51+00:00\"": {
-              "probability": 0.009259259259259259
-            },
-            "\"Marco&#039;s Accessibility Blog\"": {
-              "probability": 0.009259259259259259
-            },
-            "\"https://s0.wp.com/i/blank.jpg\"": {
-              "probability": 0.009259259259259259
-            },
-            "\"@MarcoInEnglish\"": {
-              "probability": 0.009259259259259259
-            },
-            "\"Easy ARIA Tip #7: Use &#8220;listbox&#8221; and &#8220;option&#8221; roles when constructing AutoComplete&nbsp;lists\"": {
-              "probability": 0.004629629629629629
-            },
-            "\"249643311490\"": {
-              "probability": 0.004629629629629629
-            },
-            "\"https://www.facebook.com/WordPresscom\"": {
-              "probability": 0.004629629629629629
-            },
-            "\"width=device-width;height=device-height\"": {
-              "probability": 0.004629629629629629
-            },
-            "\"Helping to make accessibility accessible\"": {
-              "probability": 0.004629629629629629
-            },
-            "\"name=Subscribe;action-uri=https://marcozehe.wordpress.com/feed/;icon-uri=https://s1.wp.com/i/favicon.ico\"": {
-              "probability": 0.004629629629629629
-            },
-            "\"name=Sign up for a free blog;action-uri=http://wordpress.com/signup/;icon-uri=https://s1.wp.com/i/favicon.ico\"": {
-              "probability": 0.004629629629629629
-            },
-            "\"name=WordPress.com Support;action-uri=http://support.wordpress.com/;icon-uri=https://s1.wp.com/i/favicon.ico\"": {
-              "probability": 0.004629629629629629
-            },
-            "\"name=WordPress.com Forums;action-uri=http://forums.wordpress.com/;icon-uri=https://s1.wp.com/i/favicon.ico\"": {
-              "probability": 0.004629629629629629
-            },
-            "\"One question that comes up quite frequently is the one of which roles to use for an auto-complete widget, or more precisely, for the container and the individual auto-complete items. Here&#039;s my take on it: Let&#039;s assume the following rough scenario (note that the auto-complete you have developed may or may not work in the&hellip;\"": {
-              "probability": 0.004629629629629629
-            },
-            "\"width=device-width,initial-scale=1\"": {
-              "probability": 0.004629629629629629
-            },
-            "#ff3e00": {
+            "http://www.freecodecamp.org": {
               "probability": 0.004629629629629629
             },
             "summary_large_image": {
+              "probability": 0.027777777777777776
+            },
+            "Learn to code for free": {
+              "probability": 0.004629629629629629
+            },
+            "a40ee5d5dba3bb091ad783ebd2b1383f": {
+              "probability": 0.004629629629629629
+            },
+            "#FFFFFF": {
+              "probability": 0.004629629629629629
+            },
+            "/": {
+              "probability": 0.004629629629629629
+            },
+            "width=device-width, initial-scale=1, shrink-to-fit=no": {
+              "probability": 0.004629629629629629
+            },
+            "The most popular HTML, CSS, and JS library in the world.": {
+              "probability": 0.013888888888888888
+            },
+            "Mark Otto, Jacob Thornton, and Bootstrap contributors": {
+              "probability": 0.004629629629629629
+            },
+            "Jekyll v3.8.5": {
+              "probability": 0.004629629629629629
+            },
+            "en": {
+              "probability": 0.004629629629629629
+            },
+            "4.3": {
+              "probability": 0.004629629629629629
+            },
+            "/docs/4.3/assets/img/favicons/browserconfig.xml": {
+              "probability": 0.004629629629629629
+            },
+            "#563d7c": {
+              "probability": 0.004629629629629629
+            },
+            "@getbootstrap": {
+              "probability": 0.009259259259259259
+            },
+            "Bootstrap": {
+              "probability": 0.009259259259259259
+            },
+            "https://getbootstrap.com/docs/4.3/assets/brand/bootstrap-social.png": {
+              "probability": 0.009259259259259259
+            },
+            "https://getbootstrap.com/": {
+              "probability": 0.004629629629629629
+            },
+            "http://getbootstrap.com/docs/4.3/assets/brand/bootstrap-social.png": {
+              "probability": 0.004629629629629629
+            },
+            "image/png": {
+              "probability": 0.004629629629629629
+            },
+            "True": {
+              "probability": 0.004629629629629629
+            },
+            "Hi, I&#x27;m John Papa. I author this blog, create courses for Pluralsight, and work in Developer Relations. I speak at events, contribute to OSS, and I train technology thought leaders": {
+              "probability": 0.013888888888888888
+            },
+            "no-referrer-when-downgrade": {
+              "probability": 0.004629629629629629
+            },
+            "John Papa": {
+              "probability": 0.013888888888888888
+            },
+            "https://johnpapa.net/": {
+              "probability": 0.009259259259259259
+            },
+            "https://johnpapa.net/content/images/2019/10/header.jpg": {
+              "probability": 0.009259259259259259
+            },
+            "Ghost 2.36": {
+              "probability": 0.004629629629629629
+            },
+            "ie=edge": {
+              "probability": 0.004629629629629629
+            },
+            "My name is Kevin and I teach people how to make the web and how to make it look good while they are at it.": {
+              "probability": 0.009259259259259259
+            },
+            "Home | Kevin Powell": {
+              "probability": 0.004629629629629629
+            },
+            "https://kevinpowell.co/": {
+              "probability": 0.004629629629629629
+            },
+            "": {
+              "probability": 0.018518518518518517
+            },
+            "WordPress.com": {
+              "probability": 0.004629629629629629
+            },
+            "Easy ARIA Tip #7: Use &#8220;listbox&#8221; and &#8220;option&#8221; roles when constructing AutoComplete lists": {
+              "probability": 0.004629629629629629
+            },
+            "https://marcozehe.wordpress.com/2014/03/11/easy-aria-tip-7-use-listbox-and-option-roles-when-constructing-autocomplete-lists/": {
+              "probability": 0.004629629629629629
+            },
+            "One question that comes up quite frequently is the one of which roles to use for an auto-complete widget, or more precisely, for the container and the individual auto-complete items. Here&#8217;s m…": {
+              "probability": 0.004629629629629629
+            },
+            "2014-03-11T10:03:51+00:00": {
+              "probability": 0.009259259259259259
+            },
+            "Marco&#039;s Accessibility Blog": {
+              "probability": 0.009259259259259259
+            },
+            "https://s0.wp.com/i/blank.jpg": {
+              "probability": 0.009259259259259259
+            },
+            "@MarcoInEnglish": {
+              "probability": 0.009259259259259259
+            },
+            "Easy ARIA Tip #7: Use &#8220;listbox&#8221; and &#8220;option&#8221; roles when constructing AutoComplete&nbsp;lists": {
+              "probability": 0.004629629629629629
+            },
+            "249643311490": {
+              "probability": 0.004629629629629629
+            },
+            "https://www.facebook.com/WordPresscom": {
+              "probability": 0.004629629629629629
+            },
+            "width=device-width;height=device-height": {
+              "probability": 0.004629629629629629
+            },
+            "Helping to make accessibility accessible": {
+              "probability": 0.004629629629629629
+            },
+            "name=Subscribe;action-uri=https://marcozehe.wordpress.com/feed/;icon-uri=https://s1.wp.com/i/favicon.ico": {
+              "probability": 0.004629629629629629
+            },
+            "name=Sign up for a free blog;action-uri=http://wordpress.com/signup/;icon-uri=https://s1.wp.com/i/favicon.ico": {
+              "probability": 0.004629629629629629
+            },
+            "name=WordPress.com Support;action-uri=http://support.wordpress.com/;icon-uri=https://s1.wp.com/i/favicon.ico": {
+              "probability": 0.004629629629629629
+            },
+            "name=WordPress.com Forums;action-uri=http://forums.wordpress.com/;icon-uri=https://s1.wp.com/i/favicon.ico": {
+              "probability": 0.004629629629629629
+            },
+            "One question that comes up quite frequently is the one of which roles to use for an auto-complete widget, or more precisely, for the container and the individual auto-complete items. Here&#039;s my take on it: Let&#039;s assume the following rough scenario (note that the auto-complete you have developed may or may not work in the&hellip;": {
+              "probability": 0.004629629629629629
+            },
+            "width=device-width,initial-scale=1": {
+              "probability": 0.004629629629629629
+            },
+            "#ff3e00": {
               "probability": 0.004629629629629629
             },
             "@sveltejs": {
@@ -408,94 +399,94 @@
             "https:": {
               "probability": 0.004629629629629629
             },
-            "\"Svelte API docs\"": {
+            "Svelte API docs": {
               "probability": 0.004629629629629629
             },
-            "\"Cybernetically enhanced web apps\"": {
+            "Cybernetically enhanced web apps": {
               "probability": 0.009259259259259259
             },
-            "\"width=device-width, initial-scale=1, maximum-scale=1, minimum-scale=1, user-scalable=no\"": {
+            "width=device-width, initial-scale=1, maximum-scale=1, minimum-scale=1, user-scalable=no": {
               "probability": 0.004629629629629629
             },
-            "\"A complete set of icons for use in web design and apps, consisting of 320+ pixel-perfect, hand-crafted icons that draw inspiration from Apple iOS 7.\"": {
+            "A complete set of icons for use in web design and apps, consisting of 320+ pixel-perfect, hand-crafted icons that draw inspiration from Apple iOS 7.": {
               "probability": 0.013888888888888888
             },
-            "\"Themify Icons - 320+ Free Icons For Web Design &amp; Apps\"": {
+            "Themify Icons - 320+ Free Icons For Web Design &amp; Apps": {
               "probability": 0.009259259259259259
             },
-            "\"https://themify.me/themify-icons\"": {
+            "https://themify.me/themify-icons": {
               "probability": 0.004629629629629629
             },
-            "\"Themify\"": {
+            "Themify": {
               "probability": 0.004629629629629629
             },
-            "\"@themify\"": {
+            "@themify": {
               "probability": 0.009259259259259259
             },
-            "\"WordPress 4.9.6\"": {
+            "WordPress 4.9.6": {
               "probability": 0.004629629629629629
             },
-            "\"FV Code Highlighter\"": {
+            "FV Code Highlighter": {
               "probability": 0.004629629629629629
             },
-            "\"Welcome to the wide weird world of Tim Holman, this is the stuff he's made, and a little about how it was done.\"": {
+            "Welcome to the wide weird world of Tim Holman, this is the stuff he's made, and a little about how it was done.": {
               "probability": 0.004629629629629629
             },
-            "\"Hexo 3.8.0\"": {
+            "Hexo 3.8.0": {
               "probability": 0.004629629629629629
             },
-            "\"Vue.js - The Progressive JavaScript Framework\"": {
+            "Vue.js - The Progressive JavaScript Framework": {
               "probability": 0.013888888888888888
             },
-            "\"Introduction — Vue.js\"": {
+            "Introduction — Vue.js": {
               "probability": 0.009259259259259259
             },
-            "\"https://vuejs.org//images/logo.png\"": {
+            "https://vuejs.org//images/logo.png": {
               "probability": 0.004629629629629629
             },
-            "\"https://vuejs.org/images/logo.png\"": {
+            "https://vuejs.org/images/logo.png": {
               "probability": 0.004629629629629629
             },
-            "\"/images/icons/ms-icon-144x144.png\"": {
+            "/images/icons/ms-icon-144x144.png": {
               "probability": 0.004629629629629629
             },
-            "\"#4fc08d\"": {
+            "#4fc08d": {
               "probability": 0.009259259259259259
             },
-            "\"browserconfig.xml\"": {
+            "browserconfig.xml": {
               "probability": 0.004629629629629629
             },
-            "\"text/html; charset=utf-8\"": {
+            "text/html; charset=utf-8": {
               "probability": 0.004629629629629629
             },
-            "\"The World Wide Web Consortium (W3C) is an international community where Member organizations, a full-time staff, and the public work together to develop Web standards.\"": {
+            "The World Wide Web Consortium (W3C) is an international community where Member organizations, a full-time staff, and the public work together to develop Web standards.": {
               "probability": 0.004629629629629629
             },
-            "\"HTML,CSS,JavaScript,SQL,PHP,jQuery,XML,DOM,Bootstrap,Python,Java,Web development,W3C,tutorials,programming,training,learning,quiz,primer,lessons,references,examples,exercises,source code,colors,demos,tips\"": {
+            "HTML,CSS,JavaScript,SQL,PHP,jQuery,XML,DOM,Bootstrap,Python,Java,Web development,W3C,tutorials,programming,training,learning,quiz,primer,lessons,references,examples,exercises,source code,colors,demos,tips": {
               "probability": 0.004629629629629629
             },
-            "\"Well organized and easy to understand Web building tutorials with lots of examples of how to use HTML, CSS, JavaScript, SQL, PHP, Python, Bootstrap, Java and XML.\"": {
+            "Well organized and easy to understand Web building tutorials with lots of examples of how to use HTML, CSS, JavaScript, SQL, PHP, Python, Bootstrap, Java and XML.": {
               "probability": 0.004629629629629629
             },
-            "\"Designer, Developer &amp; Entrepreneur making the web an awesome place.\"": {
+            "Designer, Developer &amp; Entrepreneur making the web an awesome place.": {
               "probability": 0.009259259259259259
             },
-            "\"jQuery, javascript, API, PHP, wordpress\"": {
+            "jQuery, javascript, API, PHP, wordpress": {
               "probability": 0.004629629629629629
             },
-            "\"WordPress 4.9.11\"": {
+            "WordPress 4.9.11": {
               "probability": 0.004629629629629629
             },
-            "\"@wesbos\"": {
+            "@wesbos": {
               "probability": 0.009259259259259259
             },
-            "\"https://wesbos.com/\"": {
+            "https://wesbos.com/": {
               "probability": 0.009259259259259259
             },
-            "\"home\"": {
+            "home": {
               "probability": 0.004629629629629629
             },
-            "\"Wes Bos\"": {
+            "Wes Bos": {
               "probability": 0.009259259259259259
             }
           }
@@ -503,64 +494,64 @@
         "property": {
           "probability": 0.3652173913043478,
           "options": {
-            "\"fb:pages\"": {
+            "fb:pages": {
               "probability": 0.011904761904761904
             },
-            "\"og:locale\"": {
+            "og:locale": {
               "probability": 0.047619047619047616
             },
-            "\"og:type\"": {
+            "og:type": {
               "probability": 0.10714285714285714
             },
-            "\"og:title\"": {
+            "og:title": {
               "probability": 0.11904761904761904
             },
-            "\"og:description\"": {
+            "og:description": {
               "probability": 0.11904761904761904
             },
-            "\"og:url\"": {
+            "og:url": {
               "probability": 0.10714285714285714
             },
-            "\"og:site_name\"": {
+            "og:site_name": {
               "probability": 0.08333333333333333
             },
-            "\"article:publisher\"": {
+            "article:publisher": {
               "probability": 0.03571428571428571
             },
-            "\"article:tag\"": {
+            "article:tag": {
               "probability": 0.011904761904761904
             },
-            "\"article:section\"": {
+            "article:section": {
               "probability": 0.023809523809523808
             },
-            "\"article:published_time\"": {
+            "article:published_time": {
               "probability": 0.023809523809523808
             },
-            "\"article:modified_time\"": {
+            "article:modified_time": {
               "probability": 0.023809523809523808
             },
-            "\"og:updated_time\"": {
+            "og:updated_time": {
               "probability": 0.011904761904761904
             },
-            "\"og:image\"": {
+            "og:image": {
               "probability": 0.10714285714285714
             },
-            "\"og:image:secure_url\"": {
+            "og:image:secure_url": {
               "probability": 0.023809523809523808
             },
-            "\"og:image:width\"": {
+            "og:image:width": {
               "probability": 0.03571428571428571
             },
-            "\"og:image:height\"": {
+            "og:image:height": {
               "probability": 0.03571428571428571
             },
-            "\"position\"": {
+            "position": {
               "probability": 0.047619047619047616
             },
-            "\"og:image:type\"": {
+            "og:image:type": {
               "probability": 0.011904761904761904
             },
-            "\"fb:app_id\"": {
+            "fb:app_id": {
               "probability": 0.011904761904761904
             }
           }
@@ -568,10 +559,10 @@
         "http-equiv": {
           "probability": 0.02608695652173913,
           "options": {
-            "\"X-UA-Compatible\"": {
+            "X-UA-Compatible": {
               "probability": 0.8333333333333334
             },
-            "\"Content-Type\"": {
+            "Content-Type": {
               "probability": 0.16666666666666666
             }
           }
@@ -586,115 +577,97 @@
         "rel": {
           "probability": 1,
           "options": {
-            "\"apple-touch-icon\"": {
+            "apple-touch-icon": {
               "probability": 0.08108108108108109
             },
-            "\"search\"": {
+            "search": {
               "probability": 0.015444015444015444
             },
-            "\"alternate\"": {
+            "alternate": {
               "probability": 0.16988416988416988
             },
-            "\"preload\"": {
+            "preload": {
               "probability": 0.015444015444015444
-            },
-            "\"stylesheet\"": {
-              "probability": 0.11196911196911197
-            },
-            "\"preconnect\"": {
-              "probability": 0.03088803088803089
-            },
-            "\"dns-prefetch\"": {
-              "probability": 0.015444015444015444
-            },
-            "\"canonical\"": {
-              "probability": 0.03474903474903475
-            },
-            "'dns-prefetch'": {
-              "probability": 0.12355212355212356
-            },
-            "'stylesheet'": {
-              "probability": 0.1274131274131274
-            },
-            "'https://api.w.org/'": {
-              "probability": 0.011583011583011582
-            },
-            "'shortlink'": {
-              "probability": 0.015444015444015444
-            },
-            "\"home\"": {
-              "probability": 0.003861003861003861
-            },
-            "\"license\"": {
-              "probability": 0.003861003861003861
-            },
-            "\"apple-touch-icon-precomposed\"": {
-              "probability": 0.023166023166023165
-            },
-            "\"shortcut icon\"": {
-              "probability": 0.02702702702702703
-            },
-            "\"publisher\"": {
-              "probability": 0.007722007722007722
-            },
-            "\"author\"": {
-              "probability": 0.003861003861003861
-            },
-            "\"android-chrome\"": {
-              "probability": 0.023166023166023165
-            },
-            "\"android-chrome-manifest\"": {
-              "probability": 0.003861003861003861
-            },
-            "\"favicon\"": {
-              "probability": 0.015444015444015444
-            },
-            "\"mstile\"": {
-              "probability": 0.019305019305019305
-            },
-            "\"icon\"": {
-              "probability": 0.03861003861003861
-            },
-            "\"manifest\"": {
-              "probability": 0.007722007722007722
-            },
-            "\"mask-icon\"": {
-              "probability": 0.003861003861003861
-            },
-            "\"next\"": {
-              "probability": 0.003861003861003861
-            },
-            "\"profile\"": {
-              "probability": 0.003861003861003861
-            },
-            "\"EditURI\"": {
-              "probability": 0.011583011583011582
-            },
-            "\"wlwmanifest\"": {
-              "probability": 0.011583011583011582
-            },
-            "'prev'": {
-              "probability": 0.003861003861003861
-            },
-            "'next'": {
-              "probability": 0.003861003861003861
-            },
-            "\"pingback\"": {
-              "probability": 0.007722007722007722
-            },
-            "\"amphtml\"": {
-              "probability": 0.003861003861003861
             },
             "stylesheet": {
+              "probability": 0.24324324324324326
+            },
+            "preconnect": {
+              "probability": 0.03088803088803089
+            },
+            "dns-prefetch": {
+              "probability": 0.138996138996139
+            },
+            "canonical": {
+              "probability": 0.03474903474903475
+            },
+            "https://api.w.org/": {
+              "probability": 0.011583011583011582
+            },
+            "shortlink": {
+              "probability": 0.015444015444015444
+            },
+            "home": {
               "probability": 0.003861003861003861
             },
-            "manifest": {
+            "license": {
               "probability": 0.003861003861003861
+            },
+            "apple-touch-icon-precomposed": {
+              "probability": 0.023166023166023165
+            },
+            "shortcut icon": {
+              "probability": 0.02702702702702703
+            },
+            "publisher": {
+              "probability": 0.007722007722007722
+            },
+            "author": {
+              "probability": 0.003861003861003861
+            },
+            "android-chrome": {
+              "probability": 0.023166023166023165
+            },
+            "android-chrome-manifest": {
+              "probability": 0.003861003861003861
+            },
+            "favicon": {
+              "probability": 0.015444015444015444
+            },
+            "mstile": {
+              "probability": 0.019305019305019305
             },
             "icon": {
+              "probability": 0.04247104247104247
+            },
+            "manifest": {
+              "probability": 0.011583011583011582
+            },
+            "mask-icon": {
               "probability": 0.003861003861003861
             },
-            "\"Help\"": {
+            "next": {
+              "probability": 0.007722007722007722
+            },
+            "profile": {
+              "probability": 0.003861003861003861
+            },
+            "EditURI": {
+              "probability": 0.011583011583011582
+            },
+            "wlwmanifest": {
+              "probability": 0.011583011583011582
+            },
+            "prev": {
+              "probability": 0.003861003861003861
+            },
+            "pingback": {
+              "probability": 0.007722007722007722
+            },
+            "amphtml": {
+              "probability": 0.003861003861003861
+            },
+            "Help": {
               "probability": 0.003861003861003861
             }
           }
@@ -705,46 +678,43 @@
         "type": {
           "probability": 0.3667953667953668,
           "options": {
-            "\"application/opensearchdescription+xml\"": {
+            "application/opensearchdescription+xml": {
               "probability": 0.042105263157894736
             },
-            "\"application/rss+xml\"": {
+            "application/rss+xml": {
               "probability": 0.10526315789473684
             },
-            "\"font/woff2\"": {
+            "font/woff2": {
               "probability": 0.042105263157894736
             },
-            "'text/css'": {
-              "probability": 0.3368421052631579
+            "text/css": {
+              "probability": 0.5052631578947369
             },
-            "\"application/json+oembed\"": {
+            "application/json+oembed": {
               "probability": 0.042105263157894736
             },
-            "\"text/xml+oembed\"": {
+            "text/xml+oembed": {
               "probability": 0.031578947368421054
             },
-            "\"text/css\"": {
-              "probability": 0.16842105263157894
-            },
-            "\"image/png\"": {
+            "image/png": {
               "probability": 0.07368421052631578
             },
-            "\"image/x-icon\"": {
+            "image/x-icon": {
               "probability": 0.06315789473684211
             },
-            "\"application/rsd+xml\"": {
+            "application/rsd+xml": {
               "probability": 0.031578947368421054
             },
-            "\"application/wlwmanifest+xml\"": {
+            "application/wlwmanifest+xml": {
               "probability": 0.031578947368421054
             },
-            "\"application/xml+oembed\"": {
+            "application/xml+oembed": {
               "probability": 0.010526315789473684
             },
             "image": {
               "probability": 0.010526315789473684
             },
-            "\"application/atom+xml\"": {
+            "application/atom+xml": {
               "probability": 0.010526315789473684
             }
           }
@@ -755,7 +725,7 @@
         "as": {
           "probability": 0.015444015444015444,
           "options": {
-            "\"font\"": {
+            "font": {
               "probability": 1
             }
           }
@@ -766,10 +736,10 @@
             "undefined": {
               "probability": 0.5
             },
-            "\"anonymous\"": {
+            "anonymous": {
               "probability": 0.125
             },
-            "\"\"": {
+            "": {
               "probability": 0.375
             }
           }
@@ -780,22 +750,16 @@
         "media": {
           "probability": 0.13513513513513514,
           "options": {
-            "'all'": {
-              "probability": 0.8285714285714286
+            "all": {
+              "probability": 0.8571428571428571
             },
-            "\"print\"": {
-              "probability": 0.05714285714285714
+            "print": {
+              "probability": 0.08571428571428572
             },
-            "'print'": {
+            "screen": {
               "probability": 0.02857142857142857
             },
-            "'screen'": {
-              "probability": 0.02857142857142857
-            },
-            "\"all\"": {
-              "probability": 0.02857142857142857
-            },
-            "\"only screen and (max-width: 480px)\"": {
+            "only screen and (max-width: 480px)": {
               "probability": 0.02857142857142857
             }
           }
@@ -803,64 +767,64 @@
         "sizes": {
           "probability": 0.16988416988416988,
           "options": {
-            "\"144x144\"": {
+            "144x144": {
               "probability": 0.11363636363636363
             },
-            "\"114x114\"": {
+            "114x114": {
               "probability": 0.06818181818181818
             },
-            "\"72x72\"": {
+            "72x72": {
               "probability": 0.09090909090909091
             },
-            "\"192x192\"": {
+            "192x192": {
               "probability": 0.045454545454545456
             },
-            "\"36x36\"": {
+            "36x36": {
               "probability": 0.022727272727272728
             },
-            "\"48x48\"": {
+            "48x48": {
               "probability": 0.022727272727272728
             },
-            "\"96x96\"": {
+            "96x96": {
               "probability": 0.06818181818181818
             },
-            "\"120x120\"": {
+            "120x120": {
               "probability": 0.045454545454545456
             },
-            "\"152x152\"": {
+            "152x152": {
               "probability": 0.045454545454545456
             },
-            "\"180x180\"": {
+            "180x180": {
               "probability": 0.06818181818181818
             },
-            "\"57x57\"": {
+            "57x57": {
               "probability": 0.045454545454545456
             },
-            "\"60x60\"": {
+            "60x60": {
               "probability": 0.045454545454545456
             },
-            "\"76x76\"": {
+            "76x76": {
               "probability": 0.045454545454545456
             },
-            "\"16x16\"": {
+            "16x16": {
               "probability": 0.06818181818181818
             },
-            "\"32x32\"": {
+            "32x32": {
               "probability": 0.06818181818181818
             },
-            "\"150x150\"": {
+            "150x150": {
               "probability": 0.022727272727272728
             },
-            "\"310x310\"": {
+            "310x310": {
               "probability": 0.022727272727272728
             },
-            "\"310x150\"": {
+            "310x150": {
               "probability": 0.022727272727272728
             },
-            "\"70x70\"": {
+            "70x70": {
               "probability": 0.022727272727272728
             },
-            "\"16x16 24x24 32x32 48x48\"": {
+            "16x16 24x24 32x32 48x48": {
               "probability": 0.045454545454545456
             }
           }
@@ -868,7 +832,7 @@
         "pr": {
           "probability": 0.003861003861003861,
           "options": {
-            "\"0.75\"": {
+            "0.75": {
               "probability": 1
             }
           }
@@ -876,61 +840,61 @@
         "hreflang": {
           "probability": 0.09652509652509653,
           "options": {
-            "\"en\"": {
+            "en": {
               "probability": 0.04
             },
-            "\"bn\"": {
+            "bn": {
               "probability": 0.04
             },
-            "\"ca\"": {
+            "ca": {
               "probability": 0.04
             },
-            "\"de\"": {
+            "de": {
               "probability": 0.04
             },
-            "\"es\"": {
+            "es": {
               "probability": 0.04
             },
-            "\"fa\"": {
+            "fa": {
               "probability": 0.04
             },
-            "\"fr\"": {
+            "fr": {
               "probability": 0.08
             },
-            "\"id\"": {
+            "id": {
               "probability": 0.04
             },
-            "\"it\"": {
+            "it": {
               "probability": 0.04
             },
-            "\"ja\"": {
+            "ja": {
               "probability": 0.08
             },
-            "\"ko\"": {
+            "ko": {
               "probability": 0.08
             },
-            "\"pl\"": {
+            "pl": {
               "probability": 0.04
             },
-            "\"pt-BR\"": {
+            "pt-BR": {
               "probability": 0.08
             },
-            "\"pt\"": {
+            "pt": {
               "probability": 0.04
             },
-            "\"ru\"": {
+            "ru": {
               "probability": 0.08
             },
-            "\"uk\"": {
+            "uk": {
               "probability": 0.04
             },
-            "\"zh\"": {
+            "zh": {
               "probability": 0.08
             },
-            "\"zh-TW\"": {
+            "zh-TW": {
               "probability": 0.04
             },
-            "\"x-default\"": {
+            "x-default": {
               "probability": 0.04
             }
           }
@@ -941,7 +905,7 @@
         "color": {
           "probability": 0.003861003861003861,
           "options": {
-            "\"#563d7c\"": {
+            "#563d7c": {
               "probability": 1
             }
           }
@@ -959,18 +923,15 @@
         "type": {
           "probability": 0.6111111111111112,
           "options": {
-            "'text/css'": {
-              "probability": 0.2727272727272727
-            },
-            "\"text/css\"": {
-              "probability": 0.7272727272727273
+            "text/css": {
+              "probability": 1
             }
           }
         },
         "media": {
           "probability": 0.05555555555555555,
           "options": {
-            "\"print, screen and (min-width: 481px)\"": {
+            "print, screen and (min-width: 481px)": {
               "probability": 1
             }
           }
@@ -982,20 +943,14 @@
         "type": {
           "probability": 0.5775401069518716,
           "options": {
-            "\"4fae359be31756446b75d5a3-text/javascript\"": {
+            "4fae359be31756446b75d5a3-text/javascript": {
               "probability": 0.18518518518518517
             },
-            "'application/ld+json'": {
-              "probability": 0.009259259259259259
+            "application/ld+json": {
+              "probability": 0.018518518518518517
             },
-            "\"text/javascript\"": {
-              "probability": 0.25
-            },
-            "\"application/ld+json\"": {
-              "probability": 0.009259259259259259
-            },
-            "'text/javascript'": {
-              "probability": 0.5462962962962963
+            "text/javascript": {
+              "probability": 0.7962962962962963
             }
           }
         },
@@ -1011,7 +966,7 @@
             "undefined": {
               "probability": 0.8571428571428571
             },
-            "'async'": {
+            "async": {
               "probability": 0.14285714285714285
             }
           }
@@ -1019,24 +974,21 @@
         "defer": {
           "probability": 0.058823529411764705,
           "options": {
-            "'defer'": {
-              "probability": 0.18181818181818182
+            "defer": {
+              "probability": 0.2727272727272727
             },
-            "\"\"": {
+            "": {
               "probability": 0.09090909090909091
             },
             "undefined": {
               "probability": 0.6363636363636364
-            },
-            "\"defer\"": {
-              "probability": 0.09090909090909091
             }
           }
         },
         "crossorigin": {
           "probability": 0.03208556149732621,
           "options": {
-            "\"anonymous\"": {
+            "anonymous": {
               "probability": 1
             }
           }
@@ -1044,7 +996,7 @@
         "charset": {
           "probability": 0.0106951871657754,
           "options": {
-            "\"utf-8\"": {
+            "utf-8": {
               "probability": 1
             }
           }
@@ -1088,61 +1040,58 @@
         "rel": {
           "probability": 0.10766721044045677,
           "options": {
-            "\"tag\"": {
+            "tag": {
               "probability": 0.015151515151515152
             },
-            "\"noopener noreferrer\"": {
+            "noopener noreferrer": {
               "probability": 0.045454545454545456
             },
-            "\"nofollow\"": {
-              "probability": 0.14646464646464646
+            "nofollow": {
+              "probability": 0.1919191919191919
             },
-            "\"internal\"": {
+            "internal": {
               "probability": 0.06060606060606061
             },
-            "\"noopener\"": {
+            "noopener": {
               "probability": 0.4696969696969697
             },
-            "\"license noopener\"": {
+            "license noopener": {
               "probability": 0.010101010101010102
             },
-            "\"license\"": {
+            "license": {
               "probability": 0.005050505050505051
             },
-            "\"home\"": {
+            "home": {
               "probability": 0.010101010101010102
             },
-            "\"bookmark\"": {
+            "bookmark": {
               "probability": 0.020202020202020204
             },
-            "\"nofollow noopener noreferrer\"": {
+            "nofollow noopener noreferrer": {
               "probability": 0.010101010101010102
             },
-            "\"category tag\"": {
+            "category tag": {
               "probability": 0.010101010101010102
             },
-            "'external nofollow'": {
+            "external nofollow": {
               "probability": 0.020202020202020204
             },
-            "'nofollow'": {
-              "probability": 0.045454545454545456
-            },
-            "\"nofollow noopener\"": {
+            "nofollow noopener": {
               "probability": 0.005050505050505051
             },
-            "\"author\"": {
+            "author": {
               "probability": 0.005050505050505051
             },
-            "\"prev\"": {
+            "prev": {
               "probability": 0.005050505050505051
             },
-            "\"next\"": {
+            "next": {
               "probability": 0.005050505050505051
             },
-            "\"prefetch\"": {
+            "prefetch": {
               "probability": 0.04040404040404041
             },
-            "\"sponsored noopener\"": {
+            "sponsored noopener": {
               "probability": 0.0707070707070707
             }
           }
@@ -1153,21 +1102,18 @@
         "target": {
           "probability": 0.10929853181076672,
           "options": {
-            "\"_blank\"": {
+            "_blank": {
               "probability": 0.5074626865671642
             },
-            "'_top'": {
-              "probability": 0.03980099502487562
-            },
-            "\"_top\"": {
-              "probability": 0.4527363184079602
+            "_top": {
+              "probability": 0.4925373134328358
             }
           }
         },
         "property": {
           "probability": 0.002175095160413268,
           "options": {
-            "\"item\"": {
+            "item": {
               "probability": 1
             }
           }
@@ -1175,7 +1121,7 @@
         "typeof": {
           "probability": 0.002175095160413268,
           "options": {
-            "\"WebPage\"": {
+            "WebPage": {
               "probability": 1
             }
           }
@@ -1186,7 +1132,7 @@
         "hreflang": {
           "probability": 0.002175095160413268,
           "options": {
-            "\"en\"": {
+            "en": {
               "probability": 1
             }
           }
@@ -1194,7 +1140,7 @@
         "lang": {
           "probability": 0.002175095160413268,
           "options": {
-            "\"en\"": {
+            "en": {
               "probability": 1
             }
           }
@@ -1205,7 +1151,7 @@
         "aria-haspopup": {
           "probability": 0.000543773790103317,
           "options": {
-            "\"true\"": {
+            "true": {
               "probability": 1
             }
           }
@@ -1213,7 +1159,7 @@
         "aria-expanded": {
           "probability": 0.000543773790103317,
           "options": {
-            "\"false\"": {
+            "false": {
               "probability": 1
             }
           }
@@ -1227,7 +1173,7 @@
             "undefined": {
               "probability": 0.053763440860215055
             },
-            "\"true\"": {
+            "true": {
               "probability": 0.946236559139785
             }
           }
@@ -1235,7 +1181,7 @@
         "download": {
           "probability": 0.000543773790103317,
           "options": {
-            "\"index.html\"": {
+            "index.html": {
               "probability": 1
             }
           }
@@ -1243,10 +1189,10 @@
         "tabindex": {
           "probability": 0.001087547580206634,
           "options": {
-            "\"2\"": {
+            "1": {
               "probability": 0.5
             },
-            "\"1\"": {
+            "2": {
               "probability": 0.5
             }
           }
@@ -1254,13 +1200,13 @@
         "accesskey": {
           "probability": 0.0016313213703099511,
           "options": {
-            "\"1\"": {
+            "0": {
               "probability": 0.3333333333333333
             },
-            "\"2\"": {
+            "1": {
               "probability": 0.3333333333333333
             },
-            "\"0\"": {
+            "2": {
               "probability": 0.3333333333333333
             }
           }
@@ -1278,10 +1224,10 @@
         "role": {
           "probability": 0.0012285012285012285,
           "options": {
-            "\"search\"": {
+            "search": {
               "probability": 0.5
             },
-            "\"complementary\"": {
+            "complementary": {
               "probability": 0.5
             }
           }
@@ -1289,7 +1235,7 @@
         "aria-hidden": {
           "probability": 0.0012285012285012285,
           "options": {
-            "\"true\"": {
+            "true": {
               "probability": 1
             }
           }
@@ -1313,7 +1259,7 @@
         "role": {
           "probability": 0.05,
           "options": {
-            "\"banner\"": {
+            "banner": {
               "probability": 1
             }
           }
@@ -1328,53 +1274,53 @@
         "width": {
           "probability": 0.5945945945945946,
           "options": {
-            "\"35px\"": {
+            "0": {
+              "probability": 0.045454545454545456
+            },
+            "20": {
+              "probability": 0.18181818181818182
+            },
+            "24": {
+              "probability": 0.06818181818181818
+            },
+            "26": {
+              "probability": 0.045454545454545456
+            },
+            "32": {
+              "probability": 0.06818181818181818
+            },
+            "36": {
               "probability": 0.022727272727272728
             },
-            "\"214px\"": {
+            "512": {
               "probability": 0.022727272727272728
             },
-            "\"26px\"": {
+            "35px": {
+              "probability": 0.022727272727272728
+            },
+            "214px": {
+              "probability": 0.022727272727272728
+            },
+            "26px": {
               "probability": 0.25
             },
-            "\"20px\"": {
+            "20px": {
               "probability": 0.11363636363636363
             },
-            "\"28px\"": {
+            "28px": {
               "probability": 0.045454545454545456
             },
-            "\"80px\"": {
+            "80px": {
               "probability": 0.022727272727272728
             },
-            "\"24\"": {
-              "probability": 0.06818181818181818
-            },
-            "\"100%\"": {
+            "100%": {
               "probability": 0.022727272727272728
             },
-            "\"0\"": {
-              "probability": 0.045454545454545456
-            },
-            "\"26\"": {
-              "probability": 0.045454545454545456
-            },
-            "\"36\"": {
+            "24px": {
               "probability": 0.022727272727272728
             },
-            "\"512\"": {
+            "14px": {
               "probability": 0.022727272727272728
-            },
-            "\"32\"": {
-              "probability": 0.06818181818181818
-            },
-            "\"24px\"": {
-              "probability": 0.022727272727272728
-            },
-            "\"14px\"": {
-              "probability": 0.022727272727272728
-            },
-            "\"20\"": {
-              "probability": 0.18181818181818182
             }
           }
         },
@@ -1387,10 +1333,10 @@
         "fill": {
           "probability": 0.06756756756756757,
           "options": {
-            "\"none\"": {
+            "none": {
               "probability": 0.8
             },
-            "\"currentColor\"": {
+            "currentColor": {
               "probability": 0.2
             }
           }
@@ -1398,7 +1344,7 @@
         "xmlns": {
           "probability": 0.5405405405405406,
           "options": {
-            "\"http://www.w3.org/2000/svg\"": {
+            "http://www.w3.org/2000/svg": {
               "probability": 1
             }
           }
@@ -1406,7 +1352,7 @@
         "display": {
           "probability": 0.013513513513513514,
           "options": {
-            "\"none\"": {
+            "none": {
               "probability": 1
             }
           }
@@ -1414,13 +1360,13 @@
         "role": {
           "probability": 0.4189189189189189,
           "options": {
-            "\"image\"": {
+            "image": {
               "probability": 0.03225806451612903
             },
-            "\"presentation\"": {
+            "presentation": {
               "probability": 0.25806451612903225
             },
-            "\"img\"": {
+            "img": {
               "probability": 0.7096774193548387
             }
           }
@@ -1428,7 +1374,7 @@
         "aria-hidden": {
           "probability": 0.10810810810810811,
           "options": {
-            "\"true\"": {
+            "true": {
               "probability": 1
             }
           }
@@ -1439,7 +1385,7 @@
         "focusable": {
           "probability": 0.17567567567567569,
           "options": {
-            "\"false\"": {
+            "false": {
               "probability": 1
             }
           }
@@ -1447,7 +1393,7 @@
         "fill-rule": {
           "probability": 0.013513513513513514,
           "options": {
-            "\"evenodd\"": {
+            "evenodd": {
               "probability": 1
             }
           }
@@ -1455,7 +1401,7 @@
         "xmlns:xlink": {
           "probability": 0.06756756756756757,
           "options": {
-            "\"http://www.w3.org/1999/xlink\"": {
+            "http://www.w3.org/1999/xlink": {
               "probability": 1
             }
           }
@@ -1463,7 +1409,7 @@
         "stroke": {
           "probability": 0.04054054054054054,
           "options": {
-            "\"currentcolor\"": {
+            "currentcolor": {
               "probability": 1
             }
           }
@@ -1471,7 +1417,7 @@
         "stroke-linecap": {
           "probability": 0.04054054054054054,
           "options": {
-            "\"round\"": {
+            "round": {
               "probability": 1
             }
           }
@@ -1479,7 +1425,7 @@
         "stroke-linejoin": {
           "probability": 0.04054054054054054,
           "options": {
-            "\"round\"": {
+            "round": {
               "probability": 1
             }
           }
@@ -1487,7 +1433,7 @@
         "stroke-width": {
           "probability": 0.04054054054054054,
           "options": {
-            "\"2\"": {
+            "2": {
               "probability": 1
             }
           }
@@ -1495,7 +1441,7 @@
         "version": {
           "probability": 0.05405405405405406,
           "options": {
-            "\"1.1\"": {
+            "1.1": {
               "probability": 1
             }
           }
@@ -1503,7 +1449,7 @@
         "x": {
           "probability": 0.013513513513513514,
           "options": {
-            "\"0px\"": {
+            "0px": {
               "probability": 1
             }
           }
@@ -1511,7 +1457,7 @@
         "y": {
           "probability": 0.013513513513513514,
           "options": {
-            "\"0px\"": {
+            "0px": {
               "probability": 1
             }
           }
@@ -1532,16 +1478,16 @@
         "fill": {
           "probability": 0.16216216216216217,
           "options": {
-            "\"#000\"": {
+            "#000": {
               "probability": 0.5
             },
-            "\"url(#c)\"": {
+            "url(#c)": {
               "probability": 0.16666666666666666
             },
-            "\"url(#f)\"": {
+            "url(#f)": {
               "probability": 0.16666666666666666
             },
-            "\"url(#i)\"": {
+            "url(#i)": {
               "probability": 0.16666666666666666
             }
           }
@@ -1549,13 +1495,13 @@
         "filter": {
           "probability": 0.08108108108108109,
           "options": {
-            "\"url(#a)\"": {
+            "url(#a)": {
               "probability": 0.3333333333333333
             },
-            "\"url(#d)\"": {
+            "url(#d)": {
               "probability": 0.3333333333333333
             },
-            "\"url(#g)\"": {
+            "url(#g)": {
               "probability": 0.3333333333333333
             }
           }
@@ -1576,7 +1522,7 @@
         "role": {
           "probability": 0.42857142857142855,
           "options": {
-            "\"navigation\"": {
+            "navigation": {
               "probability": 1
             }
           }
@@ -1600,7 +1546,7 @@
         "role": {
           "probability": 0.01904761904761905,
           "options": {
-            "\"menu\"": {
+            "menu": {
               "probability": 1
             }
           }
@@ -1615,7 +1561,7 @@
         "role": {
           "probability": 0.057766367137355584,
           "options": {
-            "\"menuitem\"": {
+            "menuitem": {
               "probability": 1
             }
           }
@@ -1623,7 +1569,7 @@
         "property": {
           "probability": 0.005134788189987163,
           "options": {
-            "\"itemListElement\"": {
+            "itemListElement": {
               "probability": 1
             }
           }
@@ -1631,7 +1577,7 @@
         "typeof": {
           "probability": 0.005134788189987163,
           "options": {
-            "\"ListItem\"": {
+            "ListItem": {
               "probability": 1
             }
           }
@@ -1639,55 +1585,55 @@
         "lang": {
           "probability": 0.021822849807445442,
           "options": {
-            "\"bn\"": {
+            "bn": {
               "probability": 0.058823529411764705
             },
-            "\"ca\"": {
+            "ca": {
               "probability": 0.058823529411764705
             },
-            "\"de\"": {
+            "de": {
               "probability": 0.058823529411764705
             },
-            "\"es\"": {
+            "es": {
               "probability": 0.058823529411764705
             },
-            "\"fa\"": {
+            "fa": {
               "probability": 0.058823529411764705
             },
-            "\"fr\"": {
+            "fr": {
               "probability": 0.058823529411764705
             },
-            "\"id\"": {
+            "id": {
               "probability": 0.058823529411764705
             },
-            "\"it\"": {
+            "it": {
               "probability": 0.058823529411764705
             },
-            "\"ja\"": {
+            "ja": {
               "probability": 0.058823529411764705
             },
-            "\"ko\"": {
+            "ko": {
               "probability": 0.058823529411764705
             },
-            "\"pl\"": {
+            "pl": {
               "probability": 0.058823529411764705
             },
-            "\"pt-BR\"": {
+            "pt-BR": {
               "probability": 0.058823529411764705
             },
-            "\"pt-PT\"": {
+            "pt-PT": {
               "probability": 0.058823529411764705
             },
-            "\"ru\"": {
+            "ru": {
               "probability": 0.058823529411764705
             },
-            "\"uk\"": {
+            "uk": {
               "probability": 0.058823529411764705
             },
-            "\"zh-CN\"": {
+            "zh-CN": {
               "probability": 0.058823529411764705
             },
-            "\"zh-TW\"": {
+            "zh-TW": {
               "probability": 0.058823529411764705
             }
           }
@@ -1708,7 +1654,7 @@
         "aria-hidden": {
           "probability": 0.0005604595768530195,
           "options": {
-            "\"true\"": {
+            "true": {
               "probability": 1
             }
           }
@@ -1716,7 +1662,7 @@
         "property": {
           "probability": 0.0005604595768530195,
           "options": {
-            "\"name\"": {
+            "name": {
               "probability": 1
             }
           }
@@ -1724,7 +1670,7 @@
         "aria-current": {
           "probability": 0.00014011489421325487,
           "options": {
-            "\"page\"": {
+            "page": {
               "probability": 1
             }
           }
@@ -1758,7 +1704,7 @@
         "role": {
           "probability": 0.23076923076923078,
           "options": {
-            "\"search\"": {
+            "search": {
               "probability": 1
             }
           }
@@ -1766,10 +1712,10 @@
         "method": {
           "probability": 0.7692307692307693,
           "options": {
-            "\"get\"": {
+            "get": {
               "probability": 0.4
             },
-            "\"post\"": {
+            "post": {
               "probability": 0.6
             }
           }
@@ -1783,37 +1729,37 @@
         "action": {
           "probability": 0.8461538461538461,
           "options": {
-            "\"https://css-tricks.com/\"": {
+            "https://css-tricks.com/": {
               "probability": 0.09090909090909091
             },
-            "\"https://chriscoyier.us2.list-manage.com/subscribe/post?u=155f5a9ccc4e24c318130cace&amp;id=197f127a68\"": {
+            "https://chriscoyier.us2.list-manage.com/subscribe/post?u=155f5a9ccc4e24c318130cace&amp;id=197f127a68": {
               "probability": 0.09090909090909091
             },
-            "\"/en-US/search\"": {
+            "/en-US/search": {
               "probability": 0.09090909090909091
             },
-            "\"https://www.mozilla.org/en-US/newsletter/\"": {
+            "https://www.mozilla.org/en-US/newsletter/": {
               "probability": 0.09090909090909091
             },
-            "\"https://marcozehe.wordpress.com/\"": {
+            "https://marcozehe.wordpress.com/": {
               "probability": 0.09090909090909091
             },
-            "\"https://marcozehe.wordpress.com/wp-comments-post.php\"": {
+            "https://marcozehe.wordpress.com/wp-comments-post.php": {
               "probability": 0.09090909090909091
             },
-            "\"https://subscribe.wordpress.com\"": {
+            "https://subscribe.wordpress.com": {
               "probability": 0.09090909090909091
             },
-            "\"//themify.us2.list-manage.com/subscribe/post?u=03462cf158e86ea00590274ab&amp;id=0f2a95e5de\"": {
+            "//themify.us2.list-manage.com/subscribe/post?u=03462cf158e86ea00590274ab&amp;id=0f2a95e5de": {
               "probability": 0.09090909090909091
             },
-            "\"https://www.w3.org/Consortium/contact\"": {
+            "https://www.w3.org/Consortium/contact": {
               "probability": 0.09090909090909091
             },
-            "\"https://www.w3.org/Help/search\"": {
+            "https://www.w3.org/Help/search": {
               "probability": 0.09090909090909091
             },
-            "\"exercise.asp?filename=exercise_html_attributes1\"": {
+            "exercise.asp?filename=exercise_html_attributes1": {
               "probability": 0.09090909090909091
             }
           }
@@ -1832,7 +1778,7 @@
         "accept-charset": {
           "probability": 0.07692307692307693,
           "options": {
-            "\"utf-8\"": {
+            "utf-8": {
               "probability": 1
             }
           }
@@ -1840,7 +1786,7 @@
         "target": {
           "probability": 0.15384615384615385,
           "options": {
-            "\"_blank\"": {
+            "_blank": {
               "probability": 1
             }
           }
@@ -1848,7 +1794,7 @@
         "enctype": {
           "probability": 0.07692307692307693,
           "options": {
-            "\"application/x-www-form-urlencoded\"": {
+            "application/x-www-form-urlencoded": {
               "probability": 1
             }
           }
@@ -1856,7 +1802,7 @@
         "autocomplete": {
           "probability": 0.07692307692307693,
           "options": {
-            "\"off\"": {
+            "off": {
               "probability": 1
             }
           }
@@ -1884,31 +1830,28 @@
         "type": {
           "probability": 0.9491525423728814,
           "options": {
-            "\"search\"": {
+            "search": {
               "probability": 0.05357142857142857
             },
-            "\"hidden\"": {
-              "probability": 0.5
+            "hidden": {
+              "probability": 0.5357142857142857
             },
-            "\"email\"": {
+            "email": {
               "probability": 0.07142857142857142
             },
-            "\"submit\"": {
+            "submit": {
               "probability": 0.08928571428571429
             },
-            "\"checkbox\"": {
+            "checkbox": {
               "probability": 0.10714285714285714
             },
-            "\"text\"": {
+            "text": {
               "probability": 0.10714285714285714
             },
-            "\"url\"": {
+            "url": {
               "probability": 0.017857142857142856
             },
-            "'hidden'": {
-              "probability": 0.03571428571428571
-            },
-            "\"number\"": {
+            "number": {
               "probability": 0.017857142857142856
             }
           }
@@ -1919,7 +1862,7 @@
             "undefined": {
               "probability": 0.2
             },
-            "\"\"": {
+            "": {
               "probability": 0.8
             }
           }
@@ -1942,7 +1885,7 @@
         "pattern": {
           "probability": 0.01694915254237288,
           "options": {
-            "\"(.|\\s)*\\S(.|\\s)*\"": {
+            "(.|\\s)*\\S(.|\\s)*": {
               "probability": 1
             }
           }
@@ -1953,7 +1896,7 @@
         "min": {
           "probability": 0.01694915254237288,
           "options": {
-            "\"1\"": {
+            "1": {
               "probability": 1
             }
           }
@@ -1961,10 +1904,10 @@
         "tabindex": {
           "probability": 0.03389830508474576,
           "options": {
-            "\"-1\"": {
+            "3": {
               "probability": 0.5
             },
-            "\"3\"": {
+            "-1": {
               "probability": 0.5
             }
           }
@@ -1986,7 +1929,7 @@
         "maxlength": {
           "probability": 0.01694915254237288,
           "options": {
-            "\"5\"": {
+            "5": {
               "probability": 1
             }
           }
@@ -1994,7 +1937,7 @@
         "disabled": {
           "probability": 0.01694915254237288,
           "options": {
-            "\"disabled\"": {
+            "disabled": {
               "probability": 1
             }
           }
@@ -2006,10 +1949,10 @@
         "type": {
           "probability": 0.7727272727272727,
           "options": {
-            "\"submit\"": {
+            "submit": {
               "probability": 0.29411764705882354
             },
-            "\"button\"": {
+            "button": {
               "probability": 0.7058823529411765
             }
           }
@@ -2023,7 +1966,7 @@
         "aria-haspopup": {
           "probability": 0.18181818181818182,
           "options": {
-            "\"true\"": {
+            "true": {
               "probability": 1
             }
           }
@@ -2031,7 +1974,7 @@
         "aria-owns": {
           "probability": 0.045454545454545456,
           "options": {
-            "\"language-menu\"": {
+            "language-menu": {
               "probability": 1
             }
           }
@@ -2042,7 +1985,7 @@
         "aria-controls": {
           "probability": 0.045454545454545456,
           "options": {
-            "\"newsletter-form-container\"": {
+            "newsletter-form-container": {
               "probability": 1
             }
           }
@@ -2066,7 +2009,7 @@
         "role": {
           "probability": 0.5,
           "options": {
-            "\"main\"": {
+            "main": {
               "probability": 1
             }
           }
@@ -2110,56 +2053,56 @@
         "width": {
           "probability": 0.37267080745341613,
           "options": {
-            "'80'": {
-              "probability": 0.016666666666666666
-            },
-            "\"500\"": {
-              "probability": 0.016666666666666666
-            },
-            "\"250\"": {
-              "probability": 0.03333333333333333
-            },
-            "\"301\"": {
-              "probability": 0.03333333333333333
-            },
-            "'48'": {
-              "probability": 0.08333333333333333
-            },
-            "'75'": {
-              "probability": 0.15
-            },
-            "\"25\"": {
-              "probability": 0.08333333333333333
-            },
-            "'140'": {
-              "probability": 0.016666666666666666
-            },
-            "\"90\"": {
-              "probability": 0.016666666666666666
-            },
-            "\"21\"": {
-              "probability": 0.016666666666666666
-            },
-            "\"13\"": {
+            "13": {
               "probability": 0.21666666666666667
             },
-            "\"150\"": {
+            "21": {
               "probability": 0.016666666666666666
             },
-            "\"100\"": {
+            "25": {
+              "probability": 0.08333333333333333
+            },
+            "30": {
               "probability": 0.03333333333333333
             },
-            "\"30\"": {
+            "48": {
+              "probability": 0.08333333333333333
+            },
+            "75": {
+              "probability": 0.15
+            },
+            "80": {
+              "probability": 0.016666666666666666
+            },
+            "90": {
+              "probability": 0.016666666666666666
+            },
+            "100": {
               "probability": 0.03333333333333333
             },
-            "\"120\"": {
+            "120": {
               "probability": 0.016666666666666666
             },
-            "\"233\"": {
+            "140": {
               "probability": 0.016666666666666666
             },
-            "\"450\"": {
+            "150": {
+              "probability": 0.016666666666666666
+            },
+            "233": {
+              "probability": 0.016666666666666666
+            },
+            "250": {
+              "probability": 0.03333333333333333
+            },
+            "301": {
+              "probability": 0.03333333333333333
+            },
+            "450": {
               "probability": 0.2
+            },
+            "500": {
+              "probability": 0.016666666666666666
             }
           }
         },
@@ -2172,7 +2115,7 @@
         "sizes": {
           "probability": 0.031055900621118012,
           "options": {
-            "\"(max-width: 450px) 100vw, 450px\"": {
+            "(max-width: 450px) 100vw, 450px": {
               "probability": 1
             }
           }
@@ -2187,16 +2130,16 @@
         "stroke": {
           "probability": 0.025806451612903226,
           "options": {
-            "\"url(#paint0_linear)\"": {
+            "url(#paint0_linear)": {
               "probability": 0.25
             },
-            "\"url(#paint1_linear)\"": {
+            "url(#paint1_linear)": {
               "probability": 0.25
             },
-            "\"url(#paint2_linear)\"": {
+            "url(#paint2_linear)": {
               "probability": 0.25
             },
-            "\"none\"": {
+            "none": {
               "probability": 0.25
             }
           }
@@ -2204,7 +2147,7 @@
         "stroke-width": {
           "probability": 0.01935483870967742,
           "options": {
-            "\"2\"": {
+            "2": {
               "probability": 1
             }
           }
@@ -2212,7 +2155,7 @@
         "stroke-linecap": {
           "probability": 0.01935483870967742,
           "options": {
-            "\"round\"": {
+            "round": {
               "probability": 1
             }
           }
@@ -2220,7 +2163,7 @@
         "stroke-linejoin": {
           "probability": 0.01935483870967742,
           "options": {
-            "\"round\"": {
+            "round": {
               "probability": 1
             }
           }
@@ -2231,34 +2174,34 @@
         "fill": {
           "probability": 0.14838709677419354,
           "options": {
-            "\"#fff\"": {
+            "#fff": {
               "probability": 0.21739130434782608
             },
-            "\"currentColor\"": {
+            "currentColor": {
               "probability": 0.2608695652173913
             },
-            "\"#FFF\"": {
+            "#FFF": {
               "probability": 0.043478260869565216
             },
-            "\"#0087be\"": {
+            "#0087be": {
               "probability": 0.08695652173913043
             },
-            "\"#1DA1F2\"": {
+            "#1DA1F2": {
               "probability": 0.08695652173913043
             },
-            "\"#3B5998\"": {
+            "#3B5998": {
               "probability": 0.08695652173913043
             },
-            "\"#519bf7\"": {
+            "#519bf7": {
               "probability": 0.043478260869565216
             },
-            "\"#3db366\"": {
+            "#3db366": {
               "probability": 0.043478260869565216
             },
-            "\"#fdc600\"": {
+            "#fdc600": {
               "probability": 0.043478260869565216
             },
-            "\"#f15b44\"": {
+            "#f15b44": {
               "probability": 0.043478260869565216
             },
             "“currentColor”": {
@@ -2269,7 +2212,7 @@
         "fill-rule": {
           "probability": 0.01935483870967742,
           "options": {
-            "\"evenodd\"": {
+            "evenodd": {
               "probability": 1
             }
           }
@@ -2277,7 +2220,7 @@
         "clip-rule": {
           "probability": 0.012903225806451613,
           "options": {
-            "\"evenodd\"": {
+            "evenodd": {
               "probability": 1
             }
           }
@@ -2285,7 +2228,7 @@
         "fill-opacity": {
           "probability": 0.0064516129032258064,
           "options": {
-            "\".4\"": {
+            ".4": {
               "probability": 1
             }
           }
@@ -2318,7 +2261,7 @@
         "gradientUnits": {
           "probability": 0.42857142857142855,
           "options": {
-            "\"userSpaceOnUse\"": {
+            "userSpaceOnUse": {
               "probability": 1
             }
           }
@@ -2330,31 +2273,31 @@
         "stop-color": {
           "probability": 1,
           "options": {
-            "\"#FF8A00\"": {
+            "#FF8A00": {
               "probability": 0.21428571428571427
             },
-            "\"#DA1B60\"": {
+            "#DA1B60": {
               "probability": 0.2857142857142857
             },
-            "\"#ff8a00\"": {
+            "#ff8a00": {
               "probability": 0.07142857142857142
             },
-            "\"#5C24AE\"": {
+            "#5C24AE": {
               "probability": 0.07142857142857142
             },
-            "\"#30135A\"": {
+            "#30135A": {
               "probability": 0.07142857142857142
             },
-            "\"#7331D4\"": {
+            "#7331D4": {
               "probability": 0.07142857142857142
             },
-            "\"#461B84\"": {
+            "#461B84": {
               "probability": 0.07142857142857142
             },
-            "\"#905BDD\"": {
+            "#905BDD": {
               "probability": 0.07142857142857142
             },
-            "\"#5521A0\"": {
+            "#5521A0": {
               "probability": 0.07142857142857142
             }
           }
@@ -2362,13 +2305,13 @@
         "offset": {
           "probability": 0.7857142857142857,
           "options": {
-            "\"1\"": {
+            "1": {
               "probability": 0.2727272727272727
             },
-            "\"0%\"": {
+            "0%": {
               "probability": 0.36363636363636365
             },
-            "\"100%\"": {
+            "100%": {
               "probability": 0.36363636363636365
             }
           }
@@ -2380,49 +2323,49 @@
         "datetime": {
           "probability": 0.9444444444444444,
           "options": {
-            "\"\"": {
+            "": {
               "probability": 0.11764705882352941
             },
-            "\"2019-10-13\"": {
+            "2019-10-13": {
               "probability": 0.058823529411764705
             },
-            "\"2019-09-17\"": {
+            "2019-09-17": {
               "probability": 0.058823529411764705
             },
-            "\"2019-06-03\"": {
+            "2019-06-03": {
               "probability": 0.058823529411764705
             },
-            "\"2019-05-31\"": {
+            "2019-05-31": {
               "probability": 0.11764705882352941
             },
-            "\"2014-03-11T11:03:51+02:00\"": {
+            "2014-03-11T11:03:51+02:00": {
               "probability": 0.058823529411764705
             },
-            "\"2014-03-11T11:48:05+02:00\"": {
+            "2014-03-11T11:48:05+02:00": {
               "probability": 0.058823529411764705
             },
-            "\"2014-03-11T12:09:36+02:00\"": {
+            "2014-03-11T12:09:36+02:00": {
               "probability": 0.058823529411764705
             },
-            "\"2014-03-13T05:50:03+02:00\"": {
+            "2014-03-13T05:50:03+02:00": {
               "probability": 0.058823529411764705
             },
-            "\"2014-03-13T06:01:01+02:00\"": {
+            "2014-03-13T06:01:01+02:00": {
               "probability": 0.058823529411764705
             },
-            "\"2014-05-07T19:38:48+02:00\"": {
+            "2014-05-07T19:38:48+02:00": {
               "probability": 0.058823529411764705
             },
-            "\"2014-05-07T19:43:10+02:00\"": {
+            "2014-05-07T19:43:10+02:00": {
               "probability": 0.058823529411764705
             },
-            "\"2014-05-08T09:23:11+02:00\"": {
+            "2014-05-08T09:23:11+02:00": {
               "probability": 0.058823529411764705
             },
-            "\"2015-03-25T17:38:41+02:00\"": {
+            "2015-03-25T17:38:41+02:00": {
               "probability": 0.058823529411764705
             },
-            "\"2015-03-25T17:55:50+02:00\"": {
+            "2015-03-25T17:55:50+02:00": {
               "probability": 0.058823529411764705
             }
           }
@@ -2430,7 +2373,7 @@
         "dateTime": {
           "probability": 0.05555555555555555,
           "options": {
-            "\"2019-09-27T13:28:44.050910\"": {
+            "2019-09-27T13:28:44.050910": {
               "probability": 1
             }
           }
@@ -2448,7 +2391,7 @@
         "aria-hidden": {
           "probability": 0.0011074197120708748,
           "options": {
-            "\"true\"": {
+            "true": {
               "probability": 1
             }
           }
@@ -2512,7 +2455,7 @@
         "role": {
           "probability": 0.047619047619047616,
           "options": {
-            "\"contentinfo\"": {
+            "contentinfo": {
               "probability": 1
             }
           }
@@ -2558,7 +2501,7 @@
         "lang": {
           "probability": 0.36363636363636365,
           "options": {
-            "\"en-US\"": {
+            "en-US": {
               "probability": 1
             }
           }
@@ -2576,7 +2519,7 @@
         "clip-path": {
           "probability": 0.2,
           "options": {
-            "\"url(#a)\"": {
+            "url(#a)": {
               "probability": 1
             }
           }
@@ -2584,10 +2527,10 @@
         "fill": {
           "probability": 0.24,
           "options": {
-            "\"none\"": {
+            "none": {
               "probability": 0.6666666666666666
             },
-            "\"#FFFFFF\"": {
+            "#FFFFFF": {
               "probability": 0.3333333333333333
             }
           }
@@ -2595,19 +2538,19 @@
         "transform": {
           "probability": 0.28,
           "options": {
-            "\"translate(75 23)\"": {
+            "translate(75 23)": {
               "probability": 0.42857142857142855
             },
-            "\"translate(-335.000000, -13.000000)\"": {
+            "translate(-335.000000, -13.000000)": {
               "probability": 0.14285714285714285
             },
-            "\"translate(335.000000, 13.000000)\"": {
+            "translate(335.000000, 13.000000)": {
               "probability": 0.14285714285714285
             },
-            "\"translate(-334.000000, -14.000000)\"": {
+            "translate(-334.000000, -14.000000)": {
               "probability": 0.14285714285714285
             },
-            "\"translate(334.000000, 14.000000)\"": {
+            "translate(334.000000, 14.000000)": {
               "probability": 0.14285714285714285
             }
           }
@@ -2615,10 +2558,10 @@
         "stroke": {
           "probability": 0.12,
           "options": {
-            "\"none\"": {
+            "none": {
               "probability": 0.6666666666666666
             },
-            "\"#fff\"": {
+            "#fff": {
               "probability": 0.3333333333333333
             }
           }
@@ -2626,7 +2569,7 @@
         "stroke-width": {
           "probability": 0.08,
           "options": {
-            "\"1\"": {
+            "1": {
               "probability": 1
             }
           }
@@ -2634,7 +2577,7 @@
         "fill-rule": {
           "probability": 0.12,
           "options": {
-            "\"evenodd\"": {
+            "evenodd": {
               "probability": 1
             }
           }
@@ -2642,7 +2585,7 @@
         "stroke-linecap": {
           "probability": 0.04,
           "options": {
-            "\"square\"": {
+            "square": {
               "probability": 1
             }
           }
@@ -2674,40 +2617,40 @@
         "y": {
           "probability": 0.6,
           "options": {
-            "\"2\"": {
+            "0": {
               "probability": 0.1111111111111111
             },
-            "\"20\"": {
+            "2": {
+              "probability": 0.1111111111111111
+            },
+            "8": {
+              "probability": 0.1111111111111111
+            },
+            "10": {
+              "probability": 0.1111111111111111
+            },
+            "11": {
               "probability": 0.2222222222222222
             },
-            "\"8\"": {
+            "14": {
               "probability": 0.1111111111111111
             },
-            "\"14\"": {
-              "probability": 0.1111111111111111
-            },
-            "\"11\"": {
+            "20": {
               "probability": 0.2222222222222222
-            },
-            "\"0\"": {
-              "probability": 0.1111111111111111
-            },
-            "\"10\"": {
-              "probability": 0.1111111111111111
             }
           }
         },
         "width": {
           "probability": 1,
           "options": {
-            "\"24\"": {
+            "24": {
               "probability": 0.6666666666666666
             },
-            "\"30\"": {
-              "probability": 0.13333333333333333
-            },
-            "\"26\"": {
+            "26": {
               "probability": 0.2
+            },
+            "30": {
+              "probability": 0.13333333333333333
             }
           }
         },
@@ -2717,7 +2660,7 @@
         "rx": {
           "probability": 0.26666666666666666,
           "options": {
-            "\"1\"": {
+            "1": {
               "probability": 1
             }
           }
@@ -2728,10 +2671,10 @@
         "transform": {
           "probability": 0.13333333333333333,
           "options": {
-            "\"translate(12.000000, 12.500000) rotate(45.000000) translate(-12.000000, -12.500000) \"": {
+            "translate(12.000000, 12.500000) rotate(45.000000) translate(-12.000000, -12.500000) ": {
               "probability": 0.5
             },
-            "\"translate(12.000000, 12.500000) scale(-1, 1) rotate(45.000000) translate(-12.000000, -12.500000) \"": {
+            "translate(12.000000, 12.500000) scale(-1, 1) rotate(45.000000) translate(-12.000000, -12.500000) ": {
               "probability": 0.5
             }
           }
@@ -2739,18 +2682,18 @@
         "x": {
           "probability": 0.7333333333333333,
           "options": {
-            "\"-3\"": {
-              "probability": 0.18181818181818182
-            },
-            "\"0\"": {
+            "0": {
               "probability": 0.8181818181818182
+            },
+            "-3": {
+              "probability": 0.18181818181818182
             }
           }
         },
         "fill": {
           "probability": 0.4,
           "options": {
-            "\"none\"": {
+            "none": {
               "probability": 1
             }
           }
@@ -2765,7 +2708,7 @@
         "width": {
           "probability": 0.75,
           "options": {
-            "\"108%\"": {
+            "108%": {
               "probability": 1
             }
           }
@@ -2776,7 +2719,7 @@
         "x": {
           "probability": 0.75,
           "options": {
-            "\"-4%\"": {
+            "-4%": {
               "probability": 1
             }
           }
@@ -2784,7 +2727,7 @@
         "y": {
           "probability": 0.75,
           "options": {
-            "\"-4.3%\"": {
+            "-4.3%": {
               "probability": 1
             }
           }
@@ -2792,7 +2735,7 @@
         "filterUnits": {
           "probability": 0.75,
           "options": {
-            "\"objectBoundingBox\"": {
+            "objectBoundingBox": {
               "probability": 1
             }
           }
@@ -2804,7 +2747,7 @@
         "type": {
           "probability": 0.25,
           "options": {
-            "\"matrix\"": {
+            "matrix": {
               "probability": 1
             }
           }
@@ -2812,7 +2755,7 @@
         "result": {
           "probability": 0.25,
           "options": {
-            "\"grayscale\"": {
+            "grayscale": {
               "probability": 1
             }
           }
@@ -2820,10 +2763,10 @@
         "values": {
           "probability": 1,
           "options": {
-            "\"1 0 0 0 0\n                  1 0 0 0 0\n                  1 0 0 0 0\n                  0 0 0 1 0\"": {
+            "1 0 0 0 0\n                  1 0 0 0 0\n                  1 0 0 0 0\n                  0 0 0 1 0": {
               "probability": 0.25
             },
-            "\"0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0.25 0\"": {
+            "0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0.25 0": {
               "probability": 0.75
             }
           }
@@ -2831,7 +2774,7 @@
         "in": {
           "probability": 0.75,
           "options": {
-            "\"shadowBlurOuter1\"": {
+            "shadowBlurOuter1": {
               "probability": 1
             }
           }
@@ -2843,7 +2786,7 @@
         "color-interpolation-filters": {
           "probability": 1,
           "options": {
-            "\"sRGB\"": {
+            "sRGB": {
               "probability": 1
             }
           }
@@ -2851,7 +2794,7 @@
         "result": {
           "probability": 1,
           "options": {
-            "\"duotone\"": {
+            "duotone": {
               "probability": 1
             }
           }
@@ -2863,7 +2806,7 @@
         "type": {
           "probability": 1,
           "options": {
-            "\"table\"": {
+            "table": {
               "probability": 1
             }
           }
@@ -2871,7 +2814,7 @@
         "tableValues": {
           "probability": 1,
           "options": {
-            "\"0.7411764706 0.9882352941\"": {
+            "0.7411764706 0.9882352941": {
               "probability": 1
             }
           }
@@ -2883,7 +2826,7 @@
         "type": {
           "probability": 1,
           "options": {
-            "\"table\"": {
+            "table": {
               "probability": 1
             }
           }
@@ -2891,7 +2834,7 @@
         "tableValues": {
           "probability": 1,
           "options": {
-            "\"0.0431372549 0.7333333333\"": {
+            "0.0431372549 0.7333333333": {
               "probability": 1
             }
           }
@@ -2903,7 +2846,7 @@
         "type": {
           "probability": 1,
           "options": {
-            "\"table\"": {
+            "table": {
               "probability": 1
             }
           }
@@ -2911,7 +2854,7 @@
         "tableValues": {
           "probability": 1,
           "options": {
-            "\"0.568627451 0.05098039216\"": {
+            "0.568627451 0.05098039216": {
               "probability": 1
             }
           }
@@ -2923,7 +2866,7 @@
         "type": {
           "probability": 1,
           "options": {
-            "\"table\"": {
+            "table": {
               "probability": 1
             }
           }
@@ -2931,7 +2874,7 @@
         "tableValues": {
           "probability": 1,
           "options": {
-            "\"0 1\"": {
+            "0 1": {
               "probability": 1
             }
           }
@@ -3003,7 +2946,7 @@
         "typeof": {
           "probability": 0.02857142857142857,
           "options": {
-            "\"BreadcrumbList\"": {
+            "BreadcrumbList": {
               "probability": 1
             }
           }
@@ -3011,7 +2954,7 @@
         "vocab": {
           "probability": 0.02857142857142857,
           "options": {
-            "\"https://schema.org/\"": {
+            "https://schema.org/": {
               "probability": 1
             }
           }
@@ -3035,10 +2978,10 @@
         "frameborder": {
           "probability": 0.8571428571428571,
           "options": {
-            "\"0\"": {
+            "0": {
               "probability": 0.9166666666666666
             },
-            "\"no\"": {
+            "no": {
               "probability": 0.08333333333333333
             }
           }
@@ -3055,17 +2998,17 @@
         "width": {
           "probability": 0.7857142857142857,
           "options": {
-            "\"100%\"": {
+            "0": {
+              "probability": 0.09090909090909091
+            },
+            "24": {
+              "probability": 0.09090909090909091
+            },
+            "500": {
+              "probability": 0.09090909090909091
+            },
+            "100%": {
               "probability": 0.7272727272727273
-            },
-            "\"500\"": {
-              "probability": 0.09090909090909091
-            },
-            "\"0\"": {
-              "probability": 0.09090909090909091
-            },
-            "\"24\"": {
-              "probability": 0.09090909090909091
             }
           }
         },
@@ -3081,13 +3024,10 @@
         "scrolling": {
           "probability": 0.21428571428571427,
           "options": {
-            "\"no\"": {
-              "probability": 0.3333333333333333
+            "no": {
+              "probability": 0.6666666666666666
             },
-            "'no'": {
-              "probability": 0.3333333333333333
-            },
-            "\"yes\"": {
+            "yes": {
               "probability": 0.3333333333333333
             }
           }
@@ -3095,7 +3035,7 @@
         "allowtransparency": {
           "probability": 0.07142857142857142,
           "options": {
-            "\"true\"": {
+            "true": {
               "probability": 1
             }
           }
@@ -3103,7 +3043,7 @@
         "seamless": {
           "probability": 0.07142857142857142,
           "options": {
-            "\"seamless\"": {
+            "seamless": {
               "probability": 1
             }
           }
@@ -3111,7 +3051,7 @@
         "allowfullscreen": {
           "probability": 0.42857142857142855,
           "options": {
-            "\"\"": {
+            "": {
               "probability": 0.8333333333333334
             },
             "undefined": {
@@ -3122,7 +3062,7 @@
         "webkitallowfullscreen": {
           "probability": 0.07142857142857142,
           "options": {
-            "\"\"": {
+            "": {
               "probability": 1
             }
           }
@@ -3130,7 +3070,7 @@
         "mozallowfullscreen": {
           "probability": 0.07142857142857142,
           "options": {
-            "\"\"": {
+            "": {
               "probability": 1
             }
           }
@@ -3155,7 +3095,7 @@
         "cellspacing": {
           "probability": 0.125,
           "options": {
-            "\"0\"": {
+            "0": {
               "probability": 1
             }
           }
@@ -3163,7 +3103,7 @@
         "cellpadding": {
           "probability": 0.125,
           "options": {
-            "\"0\"": {
+            "0": {
               "probability": 1
             }
           }
@@ -3171,7 +3111,7 @@
         "border": {
           "probability": 0.125,
           "options": {
-            "\"0\"": {
+            "0": {
               "probability": 1
             }
           }
@@ -3193,10 +3133,10 @@
         "scope": {
           "probability": 0.5932203389830508,
           "options": {
-            "\"col\"": {
+            "col": {
               "probability": 0.14285714285714285
             },
-            "\"row\"": {
+            "row": {
               "probability": 0.8571428571428571
             }
           }
@@ -3207,7 +3147,7 @@
         "colspan": {
           "probability": 0.03389830508474576,
           "options": {
-            "\"6\"": {
+            "6": {
               "probability": 1
             }
           }
@@ -3304,7 +3244,7 @@
         "dy": {
           "probability": 1,
           "options": {
-            "\"10\"": {
+            "10": {
               "probability": 1
             }
           }
@@ -3312,7 +3252,7 @@
         "in": {
           "probability": 1,
           "options": {
-            "\"SourceAlpha\"": {
+            "SourceAlpha": {
               "probability": 1
             }
           }
@@ -3320,7 +3260,7 @@
         "result": {
           "probability": 1,
           "options": {
-            "\"shadowOffsetOuter1\"": {
+            "shadowOffsetOuter1": {
               "probability": 1
             }
           }
@@ -3332,7 +3272,7 @@
         "in": {
           "probability": 1,
           "options": {
-            "\"shadowOffsetOuter1\"": {
+            "shadowOffsetOuter1": {
               "probability": 1
             }
           }
@@ -3340,7 +3280,7 @@
         "result": {
           "probability": 1,
           "options": {
-            "\"shadowBlurOuter1\"": {
+            "shadowBlurOuter1": {
               "probability": 1
             }
           }
@@ -3348,7 +3288,7 @@
         "stdDeviation": {
           "probability": 1,
           "options": {
-            "\"10\"": {
+            "10": {
               "probability": 1
             }
           }
@@ -3396,7 +3336,7 @@
         "rows": {
           "probability": 0.5,
           "options": {
-            "\"10\"": {
+            "10": {
               "probability": 1
             }
           }
@@ -3444,37 +3384,37 @@
         "points": {
           "probability": 1,
           "options": {
-            "\"12 19 5 12 12 5\"": {
+            "12 19 5 12 12 5": {
               "probability": 0.09090909090909091
             },
-            "\"12 5 19 12 12 19\"": {
+            "12 5 19 12 12 19": {
               "probability": 0.09090909090909091
             },
-            "\"5 12 12 5 19 12\"": {
+            "5 12 12 5 19 12": {
               "probability": 0.09090909090909091
             },
-            "\"19 12 12 19 5 12\"": {
+            "19 12 12 19 5 12": {
               "probability": 0.09090909090909091
             },
-            "\"20 6 9 17 4 12\"": {
+            "20 6 9 17 4 12": {
               "probability": 0.09090909090909091
             },
-            "\"7 10 12 15 17 10\"": {
+            "7 10 12 15 17 10": {
               "probability": 0.09090909090909091
             },
-            "\"10 17 15 12 10 7\"": {
+            "10 17 15 12 10 7": {
               "probability": 0.09090909090909091
             },
-            "\"15 3 21 3 21 9\"": {
+            "15 3 21 3 21 9": {
               "probability": 0.09090909090909091
             },
-            "\"9 21 3 21 3 15\"": {
+            "9 21 3 21 3 15": {
               "probability": 0.09090909090909091
             },
-            "\"17 21 17 13 7 13 7 21\"": {
+            "17 21 17 13 7 13 7 21": {
               "probability": 0.09090909090909091
             },
-            "\"7 3 7 8 15 8\"": {
+            "7 3 7 8 15 8": {
               "probability": 0.09090909090909091
             }
           }
@@ -3486,7 +3426,7 @@
         "points": {
           "probability": 1,
           "options": {
-            "\"18 2 22 6 12 16 8 16 8 12 18 2\"": {
+            "18 2 22 6 12 16 8 16 8 12 18 2": {
               "probability": 1
             }
           }
@@ -3498,10 +3438,10 @@
         "cx": {
           "probability": 1,
           "options": {
-            "\"18\"": {
+            "6": {
               "probability": 0.5
             },
-            "\"6\"": {
+            "18": {
               "probability": 0.5
             }
           }
@@ -3509,10 +3449,10 @@
         "cy": {
           "probability": 1,
           "options": {
-            "\"6\"": {
+            "6": {
               "probability": 0.5
             },
-            "\"18\"": {
+            "18": {
               "probability": 0.5
             }
           }
@@ -3520,7 +3460,7 @@
         "r": {
           "probability": 1,
           "options": {
-            "\"3\"": {
+            "3": {
               "probability": 1
             }
           }
@@ -3586,7 +3526,7 @@
             "undefined": {
               "probability": 0.5
             },
-            "\"selected\"": {
+            "selected": {
               "probability": 0.5
             }
           }
@@ -3597,61 +3537,61 @@
         "lang": {
           "probability": 0.6363636363636364,
           "options": {
-            "\"de\"": {
+            "de": {
               "probability": 0.09523809523809523
             },
-            "\"nl\"": {
+            "nl": {
               "probability": 0.09523809523809523
             },
-            "\"pt-br\"": {
+            "pt-br": {
               "probability": 0.047619047619047616
             },
-            "\"zh-hans\"": {
+            "zh-hans": {
               "probability": 0.047619047619047616
             },
-            "\"fi\"": {
+            "fi": {
               "probability": 0.047619047619047616
             },
-            "\"el\"": {
+            "el": {
               "probability": 0.047619047619047616
             },
-            "\"fr\"": {
+            "fr": {
               "probability": 0.047619047619047616
             },
-            "\"hu\"": {
+            "hu": {
               "probability": 0.047619047619047616
             },
-            "\"hi\"": {
+            "hi": {
               "probability": 0.047619047619047616
             },
-            "\"ga\"": {
+            "ga": {
               "probability": 0.047619047619047616
             },
-            "\"it\"": {
+            "it": {
               "probability": 0.047619047619047616
             },
-            "\"ja\"": {
+            "ja": {
               "probability": 0.047619047619047616
             },
-            "\"ko\"": {
+            "ko": {
               "probability": 0.047619047619047616
             },
-            "\"lb\"": {
+            "lb": {
               "probability": 0.047619047619047616
             },
-            "\"ar\"": {
+            "ar": {
               "probability": 0.047619047619047616
             },
-            "\"ru\"": {
+            "ru": {
               "probability": 0.047619047619047616
             },
-            "\"es\"": {
+            "es": {
               "probability": 0.047619047619047616
             },
-            "\"ss\"": {
+            "ss": {
               "probability": 0.047619047619047616
             },
-            "\"sv\"": {
+            "sv": {
               "probability": 0.047619047619047616
             }
           }
@@ -3663,7 +3603,7 @@
         ":key": {
           "probability": 1,
           "options": {
-            "\"item.id\"": {
+            "item.id": {
               "probability": 1
             }
           }

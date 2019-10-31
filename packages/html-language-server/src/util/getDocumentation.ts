@@ -4,6 +4,7 @@ import {
   getReferenceForTag,
   getDescriptionForAttributeName,
   getReferenceForAttributeName,
+  getDescriptionForAttributeValue,
 } from '@html-language-features/html-language-service'
 import { Reference } from '@html-language-features/schema'
 
@@ -41,6 +42,23 @@ export const getDocumentationForAttributeName: (
   attributeName: string
 ) => Documentation | undefined = (tagName, attributeName) => {
   const description = getDescriptionForAttributeName(tagName, attributeName)
+  if (!description) {
+    return undefined
+  }
+  const reference = getReferenceForAttributeName(tagName, attributeName)
+  return withReference(description, reference)
+}
+
+export const getDocumentationForAttributeValue: (
+  tagName: string,
+  attributeName: string,
+  attributeValue: string
+) => Documentation | undefined = (tagName, attributeName, attributeValue) => {
+  const description = getDescriptionForAttributeValue(
+    tagName,
+    attributeName,
+    attributeValue
+  )
   if (!description) {
     return undefined
   }

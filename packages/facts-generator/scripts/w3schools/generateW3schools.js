@@ -44,7 +44,30 @@ async function getTagsAndDescriptions() {
   return { tags, tagDescriptions }
 }
 
-;(async () => {
+// const getAttributeValues = async url => {
+//   // @ts-ignore
+//   const html = await fetch(url).then(res => res.text()) //?
+//   const $ = cheerio.load(html)
+//   const $table = $('.w3-table-all')
+//   const tds = $table
+//     .find('td')
+//     .map((index, $td) => $($td).text())
+//     .get()
+//   const attributeValues = {}
+//   for (let i = 0; i < tds.length; i += 2) {
+//     const name = tds[i]
+//     const description = tds[i + 1]
+//     attributeValues[name] = {
+//       description,
+//     }
+//   }
+//   return attributeValues
+// }
+
+// getAttributeValues('https://www.w3schools.com/tags/tag_abbr.asp') //?
+// getAttributeValues('https://www.w3schools.com/tags/att_a_target.asp') //?
+
+const all = async () => {
   const { tags, tagDescriptions } = await getTagsAndDescriptions()
   const elements = {}
   const baseReferenceUrl = 'https://www.w3schools.com/tags/tag_'
@@ -77,4 +100,6 @@ async function getTagsAndDescriptions() {
     path.join(__dirname, '../../generated/w3schools.htmlData.json'),
     `${JSON.stringify({ elements }, null, 2)}\n`
   )
-})()
+}
+
+// all()

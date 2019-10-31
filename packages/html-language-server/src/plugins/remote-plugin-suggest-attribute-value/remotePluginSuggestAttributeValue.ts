@@ -8,39 +8,43 @@ import {
   CompletionItemTag,
   InsertTextFormat,
 } from 'vscode-languageserver-types'
-import { doSuggestionAttributeKey } from '@html-language-features/html-language-service'
-import { getDocumentationForAttributeName } from '../../util/getDocumentation'
+import {
+  NamedAttributeValue,
+  doSuggestionAttributeValue,
+} from '@html-language-features/html-language-service'
+import { getDocumentationForAttributeValue } from '../../util/getDocumentation'
 import { removeDeprecatedItems } from '../../util/removeDeprecatedItems'
 
 const thinSpace = `\u2009`
 const weirdCharAtTheEndOfTheAlphabet = `\uE83A`
 const orangeIcon = CompletionItemKind.Value
+const recommendationThreshold = 0.5
 
 interface Data {
-  tagName: string | undefined
+  tagName: string
   attributeName: string
+  attributeValue: string
 }
 
 const createCompletionItems: ({
   tagName,
-  attributes,
+  attributeName,
+  attributeValues,
 }: {
-  tagName?: string
-  attributes: {
-    name: string
-    probability?: number
-    deprecated?: boolean
-  }[]
-}) => (CompletionItem & { data: Data })[] = ({ tagName, attributes }) => {
-  const nonDeprecatedAttributes = removeDeprecatedItems(attributes)
-  const normalizedItems: {
-    name: string
-    deprecated?: boolean
-    recommended: boolean
-    experimental?: boolean
-  }[] = nonDeprecatedAttributes.map(item => ({
+  tagName: string
+  attributeName: string
+  attributeValues: NamedAttributeValue[]
+}) => (CompletionItem & { data: Data })[] = ({
+  tagName,
+  attributeName,
+  attributeValues,
+}) => {
+  const nonDeprecatedAttributes = removeDeprecatedItems(attributeValues)
+  const normalizedItems = nonDeprecatedAttributes.map(item => ({
     ...item,
-    recommended: item.probability !== undefined && item.probability > 0.8,
+    recommended:
+      item.probability !== undefined &&
+      item.probability >= recommendationThreshold,
   }))
 
   // const c: CompletionItem = {
@@ -64,12 +68,16 @@ const createCompletionItems: ({
     //   }
     // }
     const kind = orangeIcon
-    const insertText = item.name + '="$1"'
+    const insertText = item.name
     let completionItem: CompletionItem & { data: Data }
     let itemLabel = item.name
     const insertTextFormat = InsertTextFormat.Snippet
 
-    const data: Data = { attributeName: item.name, tagName: tagName }
+    const data: Data = {
+      attributeName,
+      tagName: tagName,
+      attributeValue: item.name,
+    }
     // TODO wait for experimental completion tags from lsp
     // if (item.experimental) {
     //   itemLabel = itemLabel + ' (experimental)'
@@ -80,6 +88,7 @@ const createCompletionItems: ({
       insertText,
       tags,
       insertTextFormat,
+      // commitCharacters: [],
     }
     if (item.recommended) {
       completionItem = {
@@ -101,16 +110,16 @@ const createCompletionItems: ({
   })
 }
 
-export const remotePluginSuggestionAttributeKey: RemotePlugin = api => {
+export const remotePluginSuggestionAttributeValue: RemotePlugin = api => {
   api.languageServer.onCompletion(
-    'suggestion-attribute-key',
+    'suggestion-attribute-value',
     ({ textDocument, position }) => {
       const document = api.documents.get(textDocument.uri) as TextDocument
       const text = document.getText(
         Range.create(Position.create(0, 0), position)
       )
       const offset = document.offsetAt(position)
-      const result = doSuggestionAttributeKey(text, offset)
+      const result = doSuggestionAttributeValue(text, offset)
       if (result === undefined) {
         return undefined
       }
@@ -118,13 +127,17 @@ export const remotePluginSuggestionAttributeKey: RemotePlugin = api => {
     }
   )
 
-  api.languageServer.onCompletionResolve('suggestion-attribute-key', params => {
-    const { tagName, attributeName } = params.data as Data
-    const documentation = getDocumentationForAttributeName(
-      tagName,
-      attributeName
-    )
-    params.documentation = documentation
-    return params
-  })
+  api.languageServer.onCompletionResolve(
+    'suggestion-attribute-value',
+    params => {
+      const { tagName, attributeName, attributeValue } = params.data as Data
+      const documentation = getDocumentationForAttributeValue(
+        tagName,
+        attributeName,
+        attributeValue
+      )
+      params.documentation = documentation
+      return params
+    }
+  )
 }

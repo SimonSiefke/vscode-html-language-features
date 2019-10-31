@@ -68,7 +68,7 @@ export const expandAbbreviation = (
     return fallback(abbreviation)
   }
   const sorted = relevantSuggestions.sort((a, b) => {
-    return b.score - a.score || (b.probability || 0) - (a.probability || 0)
+    return b.score - a.score
   })
   if (sorted[0].score === 1 || sorted[0].score >= 0.6) {
     return sorted[0].name

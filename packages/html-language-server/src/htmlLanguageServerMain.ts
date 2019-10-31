@@ -14,10 +14,11 @@ import { remotePluginCompletionElementExpand } from './plugins/remote-plugin-com
 import { remotePluginCompletionElementSelfClosing } from './plugins/remote-plugin-completion-element-self-closing/remotePluginCompletionElementSelfClosing'
 import { remotePluginCompletionElementAutoRenameTag } from './plugins/remote-plugin-completion-element-auto-rename-tag/remotePluginCompletionElementAutoRenameTag'
 import { remotePluginSuggestionElementStartTag } from './plugins/remote-plugin-suggestion-element-start-tag/remotePluginSuggestionElementStartTag'
-import { remotePluginSuggestionAttributeKey } from './plugins/remote-plugin-suggestion-attribute-key/remotePluginSuggestionAttributeKey'
+import { remotePluginSuggestionAttributeName } from './plugins/remote-plugin-suggestion-attribute-name/remotePluginSuggestionAttributeName'
 import { remotePluginHighlightElementMatchingTag } from './plugins/remote-plugin-highlight-element-matching-tag/remotePluginHighlightElementMatchingTag'
 import { remotePluginHoverElement } from './plugins/remote-plugin-hover-element/remotePluginHoverElement'
 import { remotePluginSymbol } from './plugins/remote-plugin-symbol/remotePluginSymbol'
+import { remotePluginSuggestionAttributeValue } from './plugins/remote-plugin-suggest-attribute-value/remotePluginSuggestAttributeValue'
 
 const connection: IConnection = createConnection()
 
@@ -87,7 +88,8 @@ connection.onInitialized(async () => {
   remotePluginHoverElement(api)
 
   remotePluginSuggestionElementStartTag(api)
-  remotePluginSuggestionAttributeKey(api)
+  remotePluginSuggestionAttributeName(api)
+  remotePluginSuggestionAttributeValue(api)
 
   remotePluginSymbol(api)
 })

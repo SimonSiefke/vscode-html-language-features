@@ -71,13 +71,22 @@
                 "options": {
                   "type": "object",
                   "description": "Options for the enum value",
+                  "additionalProperties": false,
                   "patternProperties": {
                     ".*": {
                       "type": "object",
+                      "additionalProperties": false,
+                      "description": "The option",
                       "properties": {
                         "description": {
                           "type": "string",
-                          "description": "description for the option"
+                          "description": "Description for the option"
+                        },
+                        "probability": {
+                          "type": "number",
+                          "minimum": 0,
+                          "maximum": 1,
+                          "description": "Probability of the option"
                         }
                       }
                     }
