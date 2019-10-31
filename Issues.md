@@ -111,3 +111,12 @@ and deleting, let's say <test2 or </test2>, it should automatically remove the p
 </body>
 </html>
  -->
+
+ <!-- TODO bug
+Auto rename tag: enter space after "div", end tag is not renamed
+  <divvvvvvvvvvv>
+
+    </divvvvvvvvvvv>
+
+
+  -->

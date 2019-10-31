@@ -1,6 +1,7 @@
 import { LocalPlugin, LocalPluginApi } from '../localPluginApi'
 import * as vsl from 'vscode-languageclient'
 import * as vscode from 'vscode'
+import { doCompletionElementAutoRenameTag } from '@html-language-features/html-language-service'
 
 type Result = {
   startOffset: number
@@ -8,40 +9,49 @@ type Result = {
   word: string
 }
 
-const requestType = new vsl.RequestType<
-  vsl.TextDocumentPositionParams,
-  Result,
-  any,
-  any
->('html/completion-element-auto-rename-tag')
+// const requestType = new vsl.RequestType<
+//   vsl.TextDocumentPositionParams,
+//   Result,
+//   any,
+//   any
+// >('html/completion-element-auto-rename-tag')
 
-const askServerForCompletionElementAutoRenameTag: (
-  api: LocalPluginApi,
+// const askServerForCompletionElementAutoRenameTag: (
+//   api: LocalPluginApi,
+//   document: vscode.TextDocument,
+//   position: vscode.Position,
+//   cancellationToken: vscode.CancellationToken
+// ) => Promise<Result | undefined> = async (
+//   api,
+//   document,
+//   position,
+//   cancellationToken
+// ) => {
+//   const params = api.languageClient.code2ProtocolConverter.asTextDocumentPositionParams(
+//     document,
+//     position
+//   )
+//   const result = await api.languageClient.sendRequest(
+//     requestType,
+//     params,
+//     cancellationToken
+//   )
+//   if (
+//     !vscode.window.activeTextEditor ||
+//     vscode.window.activeTextEditor.document.version !== document.version
+//   ) {
+//     throw new Error('too slow')
+//   }
+//   return result
+// }
+
+const askServiceForCompletionElementAutoRenameTag: (
   document: vscode.TextDocument,
-  position: vscode.Position,
-  cancellationToken: vscode.CancellationToken
-) => Promise<Result | undefined> = async (
-  api,
-  document,
-  position,
-  cancellationToken
-) => {
-  const params = api.languageClient.code2ProtocolConverter.asTextDocumentPositionParams(
-    document,
-    position
-  )
-  const result = await api.languageClient.sendRequest(
-    requestType,
-    params,
-    cancellationToken
-  )
-  if (
-    !vscode.window.activeTextEditor ||
-    vscode.window.activeTextEditor.document.version !== document.version
-  ) {
-    throw new Error('too slow')
-  }
-  return result
+  position: vscode.Position
+) => Result | undefined = (document, position) => {
+  const text = document.getText()
+  const offset = document.offsetAt(position)
+  return doCompletionElementAutoRenameTag(text, offset)
 }
 
 const applyResults: (results: Result[]) => Promise<void> = async results => {
@@ -73,8 +83,6 @@ const applyResults: (results: Result[]) => Promise<void> = async results => {
   )
 }
 
-let cancellationTokenSource: vscode.CancellationTokenSource | undefined
-
 export const localPluginCompletionElementAutoRenameTag: LocalPlugin = api => {
   api.vscode.workspace.onDidChangeTextDocument(async event => {
     if (event.document.languageId !== 'html') {
@@ -96,21 +104,9 @@ export const localPluginCompletionElementAutoRenameTag: LocalPlugin = api => {
           range.start.character + text.length
         )
     )
-    if (cancellationTokenSource) {
-      cancellationTokenSource.cancel()
-    }
-    cancellationTokenSource = new vscode.CancellationTokenSource()
-    const requests = Promise.all(
-      positions.map(position =>
-        askServerForCompletionElementAutoRenameTag(
-          api,
-          event.document,
-          position,
-          cancellationTokenSource.token
-        )
-      )
+    const results = positions.map(position =>
+      askServiceForCompletionElementAutoRenameTag(event.document, position)
     )
-    const results = await requests
     applyResults(results)
   })
 }
