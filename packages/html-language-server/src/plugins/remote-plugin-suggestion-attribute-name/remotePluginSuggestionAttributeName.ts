@@ -21,7 +21,7 @@ const orangeIcon = CompletionItemKind.Value
 const recommendationThreshold = 0.1
 
 interface Data {
-  tagName: string | undefined
+  tagName: string
   attributeName: string
 }
 

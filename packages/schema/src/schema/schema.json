@@ -138,6 +138,9 @@
         }
       }
     },
+    "globalAttributes": {
+      "$ref": "#/definitions/attributes"
+    },
     "elements": {
       "type": "object",
       "default": {},

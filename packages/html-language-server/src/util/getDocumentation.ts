@@ -38,7 +38,7 @@ export const getDocumentationForTagName: (
 }
 
 export const getDocumentationForAttributeName: (
-  tagName: string | undefined,
+  tagName: string,
   attributeName: string
 ) => Documentation | undefined = (tagName, attributeName) => {
   const description = getDescriptionForAttributeName(tagName, attributeName)

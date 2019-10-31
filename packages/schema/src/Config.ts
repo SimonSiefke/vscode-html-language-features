@@ -38,9 +38,12 @@ export type Element = Readonly<{
   }
 }>
 
-export interface Config {
+export type Config = {
   __meta__?: unknown
-  elements?: {
+  readonly globalAttributes?: {
+    [key: string]: Attribute
+  }
+  readonly elements?: {
     [key: string]: Element
   }
 }

@@ -71,36 +71,43 @@ export const getDescriptionForTag: (
   _config.elements[tagName].description
 
 export const getReferenceForAttributeName: (
-  tagName: string | undefined,
+  tagName: string,
   attributeName: string
 ) => Reference | undefined = (tagName, attributeName) => {
-  if (!tagName) {
-    return undefined
-  }
-  return (
+  const elementAttributeReference =
     _config.elements &&
     _config.elements[tagName] &&
     _config.elements[tagName].attributes &&
     _config.elements[tagName].attributes![attributeName] &&
     _config.elements[tagName].attributes![attributeName].reference
+  if (elementAttributeReference) {
+    return elementAttributeReference
+  }
+  return (
+    _config.globalAttributes &&
+    _config.globalAttributes[attributeName] &&
+    _config.globalAttributes[attributeName].reference
   )
 }
 
 export const getDescriptionForAttributeName: (
-  tagName: string | undefined,
+  tagName: string,
   attributeName: string
 ) => string | undefined = (tagName, attributeName) => {
-  if (tagName === undefined) {
-    // TODO global attributes
-    return undefined
-  }
-  return (
+  const elementAttributeDescription =
     _config.elements &&
     _config.elements[tagName] &&
     _config.elements[tagName].attributes &&
     // TODO typescript bug?
     _config.elements[tagName].attributes![attributeName] &&
     _config.elements[tagName].attributes![attributeName].description
+  if (elementAttributeDescription) {
+    return elementAttributeDescription
+  }
+  return (
+    _config.globalAttributes &&
+    _config.globalAttributes[attributeName] &&
+    _config.globalAttributes[attributeName].description
   )
 }
 
@@ -193,14 +200,19 @@ export const getSuggestedTags: (
 export const getSuggestedAttributes: (
   tagName: string
 ) => NamedAttribute[] | undefined = tagName => {
-  const attributes =
+  const elementAttributes =
     _config.elements &&
     _config.elements[tagName] &&
     _config.elements[tagName].attributes
-  if (!attributes) {
+  const globalAttributes = _config && _config.globalAttributes
+  if (!elementAttributes && !globalAttributes) {
     return undefined
   }
-  return Object.entries(attributes).map(([key, value]) => ({
+  const mergedAttributes = {
+    ...(elementAttributes || {}),
+    ...(globalAttributes || {}),
+  }
+  return Object.entries(mergedAttributes).map(([key, value]) => ({
     name: key,
     ...value,
   }))

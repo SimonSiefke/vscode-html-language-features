@@ -53,6 +53,9 @@ connection.onInitialized(async () => {
   const mdnConfig = await import(
     '@html-language-features/facts-generator/generated/mdn.htmlData.json'
   )
+  const mdnGlobalAttributeConfig = await import(
+    '@html-language-features/facts-generator/generated/mdnGlobalAttributes.htmlData.json'
+  )
   const w3schoolsConfig = await import(
     '@html-language-features/facts-generator/generated/w3schools.htmlData.json'
   )
@@ -67,6 +70,7 @@ connection.onInitialized(async () => {
   )
   const { errors } = addConfigs(
     mdnConfig,
+    mdnGlobalAttributeConfig,
     w3schoolsConfig,
     githubStatisticsConfig
     // tagStatisticsConfig,
