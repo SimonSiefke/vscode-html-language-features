@@ -12,7 +12,7 @@ test('merges first into second', () => {
   expect(
     mergeConfigs(
       {
-        elements: {
+        tags: {
           h1: {
             description: 'top level heading',
           },
@@ -21,7 +21,7 @@ test('merges first into second', () => {
       {}
     )
   ).toEqual({
-    elements: {
+    tags: {
       h1: {
         description: 'top level heading',
       },
@@ -34,7 +34,7 @@ test('merges second into first', () => {
     mergeConfigs(
       {},
       {
-        elements: {
+        tags: {
           h1: {
             description: 'top level heading',
           },
@@ -42,7 +42,7 @@ test('merges second into first', () => {
       }
     )
   ).toEqual({
-    elements: {
+    tags: {
       h1: {
         description: 'top level heading',
       },
@@ -54,19 +54,17 @@ test('values are overridden and merged', () => {
   expect(
     mergeConfigs(
       {
-        elements: {
+        tags: {
           h1: {
             description: 'heading',
             attributes: {
-              class: {
-                probability: 0.6,
-              },
+              class: {},
             },
           },
         },
       },
       {
-        elements: {
+        tags: {
           h1: {
             description: 'top level heading',
           },
@@ -74,13 +72,11 @@ test('values are overridden and merged', () => {
       }
     )
   ).toEqual({
-    elements: {
+    tags: {
       h1: {
         description: 'top level heading',
         attributes: {
-          class: {
-            probability: 0.6,
-          },
+          class: {},
         },
       },
     },
@@ -91,41 +87,29 @@ test('merge different properties without merging probabilities', () => {
   expect(
     mergeConfigs(
       {
-        elements: {
+        tags: {
           select: {
             attributes: {
-              name: {
-                probability: 0.5,
-              },
+              name: {},
             },
           },
         },
       },
       {
-        elements: {
+        tags: {
           select: {
-            allowedChildren: {
-              option: {
-                probability: 1,
-              },
-            },
+            allowedSubTags: ['option'],
           },
         },
       }
     )
   ).toEqual({
-    elements: {
+    tags: {
       select: {
         attributes: {
-          name: {
-            probability: 0.5,
-          },
+          name: {},
         },
-        allowedChildren: {
-          option: {
-            probability: 1,
-          },
-        },
+        allowedSubTags: ['option'],
       },
     },
   })
@@ -135,15 +119,12 @@ test('merge probabilities 1', () => {
   expect(
     mergeConfigs(
       {
-        elements: {
+        tags: {
           html: {
             attributes: {
               lang: {
-                probability: 0.5,
                 options: {
-                  en: {
-                    probability: 1,
-                  },
+                  en: {},
                 },
               },
             },
@@ -151,15 +132,12 @@ test('merge probabilities 1', () => {
         },
       },
       {
-        elements: {
+        tags: {
           html: {
             attributes: {
               lang: {
-                probability: 1,
                 options: {
-                  fr: {
-                    probability: 1,
-                  },
+                  fr: {},
                 },
               },
             },
@@ -168,18 +146,13 @@ test('merge probabilities 1', () => {
       }
     )
   ).toEqual({
-    elements: {
+    tags: {
       html: {
         attributes: {
           lang: {
-            probability: 0.75,
             options: {
-              fr: {
-                probability: 0.5,
-              },
-              en: {
-                probability: 0.5,
-              },
+              fr: {},
+              en: {},
             },
           },
         },
@@ -192,7 +165,7 @@ test('merge probabilities with empty object probabilities', () => {
   expect(
     mergeConfigs(
       {
-        elements: {
+        tags: {
           html: {
             attributes: {
               lang: {
@@ -203,14 +176,12 @@ test('merge probabilities with empty object probabilities', () => {
         },
       },
       {
-        elements: {
+        tags: {
           html: {
             attributes: {
               lang: {
                 options: {
-                  fr: {
-                    probability: 1,
-                  },
+                  fr: {},
                 },
               },
             },
@@ -219,14 +190,12 @@ test('merge probabilities with empty object probabilities', () => {
       }
     )
   ).toEqual({
-    elements: {
+    tags: {
       html: {
         attributes: {
           lang: {
             options: {
-              fr: {
-                probability: 0.5,
-              },
+              fr: {},
             },
           },
         },

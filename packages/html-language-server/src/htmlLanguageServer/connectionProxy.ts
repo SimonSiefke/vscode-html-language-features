@@ -48,7 +48,7 @@ export interface ConnectionProxy {
    */
   onCompletion: (
     id: string,
-    handler: (params: CompletionParams) => CompletionItem[] | undefined
+    handler: (params: CompletionParams) => CompletionList | undefined
   ) => void
 
   /**
@@ -157,7 +157,7 @@ export const createConnectionProxy: (
 ) => ConnectionProxy = connection => {
   const onHoverHandlers: any[] = []
   const onCompletionHandlers: {
-    [id: string]: (params: CompletionParams) => CompletionItem[] | undefined
+    [id: string]: (params: CompletionParams) => CompletionList | undefined
   } = {}
   const onCompletionResolverHandlers: {
     [id: string]: (params: CompletionItem) => CompletionItem
@@ -203,15 +203,16 @@ export const createConnectionProxy: (
                 onCompletionHandlers
               )) {
                 const result = onCompletionHandler(params)
-                if (result) {
-                  for (const item of result) {
-                    item.data = {
-                      id,
-                      data: item.data,
-                    }
-                  }
-                  return result
+                if (!result) {
+                  continue
                 }
+                for (const item of result.items) {
+                  item.data = {
+                    id,
+                    data: item.data,
+                  }
+                }
+                return result
               }
               return undefined
             },

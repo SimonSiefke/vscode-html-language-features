@@ -1,7 +1,7 @@
 // @ts-ignore
 const mdnData = require('../src/configs/generated/mdnElements.htmlData.json')
 
-const testEmptyElements = () => {
+const testEmptyTags = () => {
   const emptyElements = [
     'area',
     'base',
@@ -32,7 +32,7 @@ const testEmptyElements = () => {
     }
   }
 }
-testEmptyElements()
+testEmptyTags()
 
 // TODO
 const testInputElement = () => {

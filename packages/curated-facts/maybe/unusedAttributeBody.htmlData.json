@@ -1,0 +1,26 @@
+{
+  "tags": {
+    "body": {
+      "attributes": {
+        "-onbeforeunload": {},
+        "-onbeforeprint": {},
+        "-onafterprint": {},
+        "-onblur": {},
+        "-onerror": {},
+        "-onhashchange": {},
+        "-onlanguagechange": {},
+        "-onfocus": {},
+        "-onload": {},
+        "-onoffline": {},
+        "-onpopstate": {},
+        "-onredo": {},
+        "-onmessage": {},
+        "-ononline": {},
+        "-onresize": {},
+        "-onstorage": {},
+        "-onundo": {},
+        "-onunload": {}
+      }
+    }
+  }
+}

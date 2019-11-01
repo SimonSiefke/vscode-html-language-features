@@ -1,441 +1,441 @@
 {
   "elements": {
     "main": {
-      "allowedChildren": [
+      "subElements": [
         {
           "category": "flow content"
         }
       ]
     },
     "body": {
-      "allowedChildren": [
+      "subElements": [
         {
           "category": "flow content"
         }
       ]
     },
     "address": {
-      "allowedChildren": [
+      "subElements": [
         {
           "category": "flow content"
         }
       ]
     },
     "article": {
-      "allowedChildren": [
+      "subElements": [
         {
           "category": "flow content"
         }
       ]
     },
     "aside": {
-      "allowedChildren": [
+      "subElements": [
         {
           "category": "flow content"
         }
       ]
     },
     "footer": {
-      "allowedChildren": [
+      "subElements": [
         {
           "category": "flow content"
         }
       ]
     },
     "header": {
-      "allowedChildren": [
+      "subElements": [
         {
           "category": "flow content"
         }
       ]
     },
     "h1": {
-      "allowedChildren": [
+      "subElements": [
         {
           "category": "phrasing content"
         }
       ]
     },
     "h2": {
-      "allowedChildren": [
+      "subElements": [
         {
           "category": "phrasing content"
         }
       ]
     },
     "h3": {
-      "allowedChildren": [
+      "subElements": [
         {
           "category": "phrasing content"
         }
       ]
     },
     "h4": {
-      "allowedChildren": [
+      "subElements": [
         {
           "category": "phrasing content"
         }
       ]
     },
     "h5": {
-      "allowedChildren": [
+      "subElements": [
         {
           "category": "phrasing content"
         }
       ]
     },
     "h6": {
-      "allowedChildren": [
+      "subElements": [
         {
           "category": "phrasing content"
         }
       ]
     },
     "nav": {
-      "allowedChildren": [
+      "subElements": [
         {
           "category": "flow content"
         }
       ]
     },
     "section": {
-      "allowedChildren": [
+      "subElements": [
         {
           "category": "flow content"
         }
       ]
     },
     "blockquote": {
-      "allowedChildren": [
+      "subElements": [
         {
           "category": "flow content"
         }
       ]
     },
     "dd": {
-      "allowedChildren": [
+      "subElements": [
         {
           "category": "flow content"
         }
       ]
     },
     "div": {
-      "allowedChildren": [
+      "subElements": [
         {
           "category": "flow content"
         }
       ]
     },
     "dt": {
-      "allowedChildren": [
+      "subElements": [
         {
           "category": "flow content"
         }
       ]
     },
     "figcaption": {
-      "allowedChildren": [
+      "subElements": [
         {
           "category": "flow content"
         }
       ]
     },
     "li": {
-      "allowedChildren": [
+      "subElements": [
         {
           "category": "flow content"
         }
       ]
     },
     "p": {
-      "allowedChildren": [
+      "subElements": [
         {
           "category": "phrasing content"
         }
       ]
     },
     "pre": {
-      "allowedChildren": [
+      "subElements": [
         {
           "category": "phrasing content"
         }
       ]
     },
     "abbr": {
-      "allowedChildren": [
+      "subElements": [
         {
           "category": "phrasing content"
         }
       ]
     },
     "b": {
-      "allowedChildren": [
+      "subElements": [
         {
           "category": "phrasing content"
         }
       ]
     },
     "bdi": {
-      "allowedChildren": [
+      "subElements": [
         {
           "category": "phrasing content"
         }
       ]
     },
     "bdo": {
-      "allowedChildren": [
+      "subElements": [
         {
           "category": "phrasing content"
         }
       ]
     },
     "cite": {
-      "allowedChildren": [
+      "subElements": [
         {
           "category": "phrasing content"
         }
       ]
     },
     "code": {
-      "allowedChildren": [
+      "subElements": [
         {
           "category": "phrasing content"
         }
       ]
     },
     "data": {
-      "allowedChildren": [
+      "subElements": [
         {
           "category": "phrasing content"
         }
       ]
     },
     "dfn": {
-      "allowedChildren": [
+      "subElements": [
         {
           "category": "phrasing content"
         }
       ]
     },
     "em": {
-      "allowedChildren": [
+      "subElements": [
         {
           "category": "phrasing content"
         }
       ]
     },
     "i": {
-      "allowedChildren": [
+      "subElements": [
         {
           "category": "phrasing content"
         }
       ]
     },
     "kbd": {
-      "allowedChildren": [
+      "subElements": [
         {
           "category": "phrasing content"
         }
       ]
     },
     "mark": {
-      "allowedChildren": [
+      "subElements": [
         {
           "category": "phrasing content"
         }
       ]
     },
     "q": {
-      "allowedChildren": [
+      "subElements": [
         {
           "category": "phrasing content"
         }
       ]
     },
     "rt": {
-      "allowedChildren": [
+      "subElements": [
         {
           "category": "phrasing content"
         }
       ]
     },
     "rtc": {
-      "allowedChildren": [
+      "subElements": [
         {
           "category": "phrasing content"
         }
       ]
     },
     "ruby": {
-      "allowedChildren": [
+      "subElements": [
         {
           "category": "phrasing content"
         }
       ]
     },
     "s": {
-      "allowedChildren": [
+      "subElements": [
         {
           "category": "phrasing content"
         }
       ]
     },
     "samp": {
-      "allowedChildren": [
+      "subElements": [
         {
           "category": "phrasing content"
         }
       ]
     },
     "small": {
-      "allowedChildren": [
+      "subElements": [
         {
           "category": "phrasing content"
         }
       ]
     },
     "span": {
-      "allowedChildren": [
+      "subElements": [
         {
           "category": "phrasing content"
         }
       ]
     },
     "strong": {
-      "allowedChildren": [
+      "subElements": [
         {
           "category": "phrasing content"
         }
       ]
     },
     "sub": {
-      "allowedChildren": [
+      "subElements": [
         {
           "category": "phrasing content"
         }
       ]
     },
     "sup": {
-      "allowedChildren": [
+      "subElements": [
         {
           "category": "phrasing content"
         }
       ]
     },
     "time": {
-      "allowedChildren": [
+      "subElements": [
         {
           "category": "phrasing content"
         }
       ]
     },
     "tt": {
-      "allowedChildren": [
+      "subElements": [
         {
           "category": "phrasing content"
         }
       ]
     },
     "u": {
-      "allowedChildren": [
+      "subElements": [
         {
           "category": "phrasing content"
         }
       ]
     },
     "var": {
-      "allowedChildren": [
+      "subElements": [
         {
           "category": "phrasing content"
         }
       ]
     },
     "caption": {
-      "allowedChildren": [
+      "subElements": [
         {
           "category": "flow content"
         }
       ]
     },
     "td": {
-      "allowedChildren": [
+      "subElements": [
         {
           "category": "flow content"
         }
       ]
     },
     "th": {
-      "allowedChildren": [
+      "subElements": [
         {
           "category": "flow content"
         }
       ]
     },
     "button": {
-      "allowedChildren": [
+      "subElements": [
         {
           "category": "phrasing content"
         }
       ]
     },
     "form": {
-      "allowedChildren": [
+      "subElements": [
         {
           "category": "flow content"
         }
       ]
     },
     "label": {
-      "allowedChildren": [
+      "subElements": [
         {
           "category": "phrasing content"
         }
       ]
     },
     "legend": {
-      "allowedChildren": [
+      "subElements": [
         {
           "category": "phrasing content"
         }
       ]
     },
     "meter": {
-      "allowedChildren": [
+      "subElements": [
         {
           "category": "phrasing content"
         }
       ]
     },
     "output": {
-      "allowedChildren": [
+      "subElements": [
         {
           "category": "phrasing content"
         }
       ]
     },
     "progress": {
-      "allowedChildren": [
+      "subElements": [
         {
           "category": "phrasing content"
         }
       ]
     },
     "dialog": {
-      "allowedChildren": [
+      "subElements": [
         {
           "category": "flow content"
         }
       ]
     },
     "figure": {
-      "allowedChildren": [
+      "subElements": [
         {
           "category": "flow content"
         }
       ]
     },
     "a": {
-      "allowedChildren": [
+      "subElements": [
         {
           "category": "flow content"
         },
@@ -445,7 +445,7 @@
       ]
     },
     "noscript": {
-      "allowedChildren": [
+      "subElements": [
         {
           "category": "flow content"
         },

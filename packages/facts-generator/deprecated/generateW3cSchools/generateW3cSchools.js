@@ -46,16 +46,16 @@ async function getTagsAndDescriptions() {
 
 ;(async () => {
   const { tags, tagDescriptions } = await getTagsAndDescriptions()
-  const elements = {}
+  const processedTags = {}
   for (const [i, tag] of tags.entries()) {
     const tagDescription = tagDescriptions[i]
-    elements[tag] = {
+    processedTags[tag] = {
       description: tagDescription,
     }
   }
-  elements
+  processedTags
   fs.writeFileSync(
     path.join(__dirname, '../../generated/w3cSchools.htmlData.json'),
-    `${JSON.stringify({ elements }, null, 2)}\n`
+    `${JSON.stringify({ elements: processedTags }, null, 2)}\n`
   )
 })()

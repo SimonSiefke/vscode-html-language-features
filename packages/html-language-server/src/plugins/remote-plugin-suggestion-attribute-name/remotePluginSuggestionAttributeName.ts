@@ -33,12 +33,7 @@ const createCompletionItems: ({
   tagName: string
 }) => (CompletionItem & { data: Data })[] = ({ attributes, tagName }) => {
   const nonDeprecatedAttributes = removeDeprecatedItems(attributes)
-  const normalizedItems = nonDeprecatedAttributes.map(item => ({
-    ...item,
-    recommended:
-      item.probability !== undefined &&
-      item.probability >= recommendationThreshold,
-  }))
+  const normalizedItems = nonDeprecatedAttributes
 
   // const c: CompletionItem = {
   //   documentation: {
@@ -72,9 +67,9 @@ const createCompletionItems: ({
     //   itemLabel = itemLabel + ' (experimental)'
     // }
     let detail: string | undefined
-    if (item.probability !== undefined) {
-      detail = `${(item.probability * 100).toFixed(2)}% Probability`
-    }
+    // if (item.probability !== undefined) {
+    //   detail = `${(item.probability * 100).toFixed(2)}% Probability`
+    // }
     const partialItem: Partial<CompletionItem> & { data: Data } = {
       kind,
       data,
@@ -84,22 +79,26 @@ const createCompletionItems: ({
       detail,
       // commitCharacters: [],
     }
-    if (item.recommended) {
-      completionItem = {
-        label: `★${thinSpace}${itemLabel}`,
-        filterText: item.name,
-        sortText: item.name,
-        ...partialItem,
-      }
-    } else {
-      completionItem = {
-        label: itemLabel,
-        filterText: `${weirdCharAtTheEndOfTheAlphabet} ${item.name}`,
-        sortText: `${weirdCharAtTheEndOfTheAlphabet} ${item.name}`,
-        ...partialItem,
-        // detail: `${(item.probability * 100).toFixed(2)}% Match`,
-      }
+    return {
+      label: itemLabel,
+      ...partialItem,
     }
+    // if (item.recommended) {
+    //   completionItem = {
+    //     label: `★${thinSpace}${itemLabel}`,
+    //     filterText: item.name,
+    //     sortText: item.name,
+    //     ...partialItem,
+    //   }
+    // } else {
+    //   completionItem = {
+    //     label: itemLabel,
+    //     filterText: `${weirdCharAtTheEndOfTheAlphabet} ${item.name}`,
+    //     sortText: `${weirdCharAtTheEndOfTheAlphabet} ${item.name}`,
+    //     ...partialItem,
+    //     // detail: `${(item.probability * 100).toFixed(2)}% Match`,
+    //   }
+    // }
     return completionItem
   })
 }
@@ -117,7 +116,10 @@ export const remotePluginSuggestionAttributeName: RemotePlugin = api => {
       if (result === undefined) {
         return undefined
       }
-      return createCompletionItems(result)
+      return {
+        isIncomplete: true,
+        items: createCompletionItems(result),
+      }
     }
   )
 

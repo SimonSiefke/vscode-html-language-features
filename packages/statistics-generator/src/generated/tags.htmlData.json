@@ -5,7 +5,7 @@
   },
   "elements": {
     "root": {
-      "allowedChildren": {
+      "subElements": {
         "html": {
           "probability": 0.5161290322580645
         },
@@ -15,7 +15,7 @@
       }
     },
     "html": {
-      "allowedChildren": {
+      "subElements": {
         "head": {
           "probability": 0.5161290322580645
         },
@@ -25,7 +25,7 @@
       }
     },
     "head": {
-      "allowedChildren": {
+      "subElements": {
         "link": {
           "probability": 0.45878136200716846
         },
@@ -53,7 +53,7 @@
       }
     },
     "li": {
-      "allowedChildren": {
+      "subElements": {
         "a": {
           "probability": 0.5916030534351145
         },
@@ -120,7 +120,7 @@
       }
     },
     "header": {
-      "allowedChildren": {
+      "subElements": {
         "div": {
           "probability": 0.2972972972972973
         },
@@ -163,7 +163,7 @@
       }
     },
     "svg": {
-      "allowedChildren": {
+      "subElements": {
         "symbol": {
           "probability": 0.2922077922077922
         },
@@ -191,7 +191,7 @@
       }
     },
     "symbol": {
-      "allowedChildren": {
+      "subElements": {
         "path": {
           "probability": 0.6341463414634146
         },
@@ -219,7 +219,7 @@
       }
     },
     "body": {
-      "allowedChildren": {
+      "subElements": {
         "script": {
           "probability": 0.6271186440677966
         },
@@ -271,7 +271,7 @@
       }
     },
     "noscript": {
-      "allowedChildren": {
+      "subElements": {
         "iframe": {
           "probability": 0.3333333333333333
         },
@@ -284,7 +284,7 @@
       }
     },
     "div": {
-      "allowedChildren": {
+      "subElements": {
         "div": {
           "probability": 0.3188129594337054
         },
@@ -414,7 +414,7 @@
       }
     },
     "defs": {
-      "allowedChildren": {
+      "subElements": {
         "symbol": {
           "probability": 0.6825396825396826
         },
@@ -436,7 +436,7 @@
       }
     },
     "span": {
-      "allowedChildren": {
+      "subElements": {
         "span": {
           "probability": 0.9755661501787842
         },
@@ -464,7 +464,7 @@
       }
     },
     "form": {
-      "allowedChildren": {
+      "subElements": {
         "div": {
           "probability": 0.3
         },
@@ -504,7 +504,7 @@
       }
     },
     "nav": {
-      "allowedChildren": {
+      "subElements": {
         "a": {
           "probability": 0.3142857142857143
         },
@@ -535,7 +535,7 @@
       }
     },
     "label": {
-      "allowedChildren": {
+      "subElements": {
         "span": {
           "probability": 0.6666666666666666
         },
@@ -548,7 +548,7 @@
       }
     },
     "h1": {
-      "allowedChildren": {
+      "subElements": {
         "a": {
           "probability": 0.9454545454545454
         },
@@ -561,7 +561,7 @@
       }
     },
     "p": {
-      "allowedChildren": {
+      "subElements": {
         "code": {
           "probability": 0.4070265638389032
         },
@@ -613,7 +613,7 @@
       }
     },
     "code": {
-      "allowedChildren": {
+      "subElements": {
         "span": {
           "probability": 0.9670818505338078
         },
@@ -623,7 +623,7 @@
       }
     },
     "section": {
-      "allowedChildren": {
+      "subElements": {
         "div": {
           "probability": 0.5487528344671202
         },
@@ -678,7 +678,7 @@
       }
     },
     "h3": {
-      "allowedChildren": {
+      "subElements": {
         "span": {
           "probability": 0.45045045045045046
         },
@@ -697,7 +697,7 @@
       }
     },
     "em": {
-      "allowedChildren": {
+      "subElements": {
         "code": {
           "probability": 0.5
         },
@@ -707,7 +707,7 @@
       }
     },
     "footer": {
-      "allowedChildren": {
+      "subElements": {
         "div": {
           "probability": 0.9
         },
@@ -723,7 +723,7 @@
       }
     },
     "h2": {
-      "allowedChildren": {
+      "subElements": {
         "a": {
           "probability": 0.47619047619047616
         },
@@ -742,7 +742,7 @@
       }
     },
     "b": {
-      "allowedChildren": {
+      "subElements": {
         "a": {
           "probability": 0.75
         },
@@ -752,7 +752,7 @@
       }
     },
     "strong": {
-      "allowedChildren": {
+      "subElements": {
         "code": {
           "probability": 0.8571428571428571
         },
@@ -762,7 +762,7 @@
       }
     },
     "h4": {
-      "allowedChildren": {
+      "subElements": {
         "a": {
           "probability": 0.2905405405405405
         },
@@ -784,7 +784,7 @@
       }
     },
     "small": {
-      "allowedChildren": {
+      "subElements": {
         "a": {
           "probability": 0.8571428571428571
         },
@@ -794,7 +794,7 @@
       }
     },
     "th": {
-      "allowedChildren": {
+      "subElements": {
         "a": {
           "probability": 0.575
         },
@@ -810,7 +810,7 @@
       }
     },
     "td": {
-      "allowedChildren": {
+      "subElements": {
         "span": {
           "probability": 0.3738796414852753
         },
@@ -844,7 +844,7 @@
       }
     },
     "dt": {
-      "allowedChildren": {
+      "subElements": {
         "abbr": {
           "probability": 0.42857142857142855
         },
@@ -860,7 +860,7 @@
       }
     },
     "dd": {
-      "allowedChildren": {
+      "subElements": {
         "code": {
           "probability": 0.36538461538461536
         },
@@ -873,14 +873,14 @@
       }
     },
     "s": {
-      "allowedChildren": {
+      "subElements": {
         "a": {
           "probability": 1
         }
       }
     },
     "h5": {
-      "allowedChildren": {
+      "subElements": {
         "span": {
           "probability": 0.42857142857142855
         },
@@ -893,21 +893,21 @@
       }
     },
     "h6": {
-      "allowedChildren": {
+      "subElements": {
         "a": {
           "probability": 1
         }
       }
     },
     "address": {
-      "allowedChildren": {
+      "subElements": {
         "a": {
           "probability": 1
         }
       }
     },
     "a": {
-      "allowedChildren": {
+      "subElements": {
         "code": {
           "probability": 0.5078431372549019
         },
@@ -956,7 +956,7 @@
       }
     },
     "button": {
-      "allowedChildren": {
+      "subElements": {
         "span": {
           "probability": 0.5217391304347826
         },
@@ -972,7 +972,7 @@
       }
     },
     "main": {
-      "allowedChildren": {
+      "subElements": {
         "div": {
           "probability": 0.6666666666666666
         },
@@ -988,7 +988,7 @@
       }
     },
     "article": {
-      "allowedChildren": {
+      "subElements": {
         "p": {
           "probability": 0.685251798561151
         },
@@ -1037,7 +1037,7 @@
       }
     },
     "aside": {
-      "allowedChildren": {
+      "subElements": {
         "h1": {
           "probability": 0.375
         },
@@ -1062,7 +1062,7 @@
       }
     },
     "fieldset": {
-      "allowedChildren": {
+      "subElements": {
         "div": {
           "probability": 0.6
         },
@@ -1072,7 +1072,7 @@
       }
     },
     "g": {
-      "allowedChildren": {
+      "subElements": {
         "path": {
           "probability": 0.6346153846153846
         },
@@ -1088,14 +1088,14 @@
       }
     },
     "ul": {
-      "allowedChildren": {
+      "subElements": {
         "li": {
           "probability": 1
         }
       }
     },
     "ol": {
-      "allowedChildren": {
+      "subElements": {
         "li": {
           "probability": 0.9956331877729258
         },
@@ -1105,7 +1105,7 @@
       }
     },
     "abbr": {
-      "allowedChildren": {
+      "subElements": {
         "span": {
           "probability": 0.8552971576227391
         },
@@ -1115,14 +1115,14 @@
       }
     },
     "template": {
-      "allowedChildren": {
+      "subElements": {
         "article": {
           "probability": 1
         }
       }
     },
     "picture": {
-      "allowedChildren": {
+      "subElements": {
         "source": {
           "probability": 0.5
         },
@@ -1132,49 +1132,49 @@
       }
     },
     "clipPath": {
-      "allowedChildren": {
+      "subElements": {
         "path": {
           "probability": 1
         }
       }
     },
     "linearGradient": {
-      "allowedChildren": {
+      "subElements": {
         "stop": {
           "probability": 1
         }
       }
     },
     "blockquote": {
-      "allowedChildren": {
+      "subElements": {
         "p": {
           "probability": 1
         }
       }
     },
     "pre": {
-      "allowedChildren": {
+      "subElements": {
         "code": {
           "probability": 1
         }
       }
     },
     "summary": {
-      "allowedChildren": {
+      "subElements": {
         "code": {
           "probability": 1
         }
       }
     },
     "!??": {
-      "allowedChildren": {
+      "subElements": {
         "section": {
           "probability": 1
         }
       }
     },
     "filter": {
-      "allowedChildren": {
+      "subElements": {
         "feColorMatrix": {
           "probability": 0.36363636363636365
         },
@@ -1190,7 +1190,7 @@
       }
     },
     "feComponentTransfer": {
-      "allowedChildren": {
+      "subElements": {
         "feFuncA": {
           "probability": 0.25
         },
@@ -1206,7 +1206,7 @@
       }
     },
     "details": {
-      "allowedChildren": {
+      "subElements": {
         "summary": {
           "probability": 0.5
         },
@@ -1216,7 +1216,7 @@
       }
     },
     "table": {
-      "allowedChildren": {
+      "subElements": {
         "tbody": {
           "probability": 0.3888888888888889
         },
@@ -1229,21 +1229,21 @@
       }
     },
     "thead": {
-      "allowedChildren": {
+      "subElements": {
         "tr": {
           "probability": 1
         }
       }
     },
     "tbody": {
-      "allowedChildren": {
+      "subElements": {
         "tr": {
           "probability": 1
         }
       }
     },
     "tr": {
-      "allowedChildren": {
+      "subElements": {
         "td": {
           "probability": 0.8831683168316832
         },
@@ -1253,14 +1253,14 @@
       }
     },
     "figure": {
-      "allowedChildren": {
+      "subElements": {
         "pre": {
           "probability": 1
         }
       }
     },
     "dl": {
-      "allowedChildren": {
+      "subElements": {
         "dd": {
           "probability": 0.5151515151515151
         },
@@ -1270,7 +1270,7 @@
       }
     },
     "select": {
-      "allowedChildren": {
+      "subElements": {
         "option": {
           "probability": 1
         }

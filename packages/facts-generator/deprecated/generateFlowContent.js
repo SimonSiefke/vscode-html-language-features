@@ -22,7 +22,7 @@ async function getFlowContentElements() {
 
 ;(async () => {
   const tags = await getFlowContentElements()
-  const elements = tags.reduce(
+  const processedTags = tags.reduce(
     (total, current) => ({
       ...total,
       [current]: { categories: ['flow content'] },
@@ -32,6 +32,6 @@ async function getFlowContentElements() {
 
   fs.writeFileSync(
     path.join(__dirname, '../src/configs/generated/flowContent.htmlData.json'),
-    `${JSON.stringify({ elements }, null, 2)}\n`
+    `${JSON.stringify({ tags: processedTags }, null, 2)}\n`
   )
 })()

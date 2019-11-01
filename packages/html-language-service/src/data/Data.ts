@@ -5,10 +5,9 @@ import {
 } from '@html-language-features/schema'
 import {
   Reference,
-  Attribute,
-  AttributeValue,
-  SubTag,
-} from '@html-language-features/schema/src/Config'
+  AttributeInfo,
+  AttributeValueInfo,
+} from '@html-language-features/schema'
 import * as fs from 'fs'
 import * as path from 'path'
 
@@ -47,39 +46,35 @@ export const addConfigs: (
 }
 
 export const isSelfClosingTag: (tagName: string) => boolean = tagName =>
-  _config.elements !== undefined &&
-  _config.elements[tagName] !== undefined &&
-  _config.elements[tagName].selfClosing === true
+  _config.tags !== undefined &&
+  _config.tags[tagName] !== undefined &&
+  _config.tags[tagName].selfClosing === true
 
 export const shouldHaveNewline: (tagName: string) => boolean = tagName =>
-  _config.elements !== undefined &&
-  _config.elements[tagName] !== undefined &&
-  _config.elements[tagName].newline === true
+  _config.tags !== undefined &&
+  _config.tags[tagName] !== undefined &&
+  _config.tags[tagName].newline === true
 
 export const getReferenceForTag: (
   tagName: string
 ) => Reference | undefined = tagName =>
-  _config.elements &&
-  _config.elements[tagName] &&
-  _config.elements[tagName].reference
+  _config.tags && _config.tags[tagName] && _config.tags[tagName].reference
 
 export const getDescriptionForTag: (
   tagName: string
 ) => string | undefined = tagName =>
-  _config.elements &&
-  _config.elements[tagName] &&
-  _config.elements[tagName].description
+  _config.tags && _config.tags[tagName] && _config.tags[tagName].description
 
 export const getReferenceForAttributeName: (
   tagName: string,
   attributeName: string
 ) => Reference | undefined = (tagName, attributeName) => {
   const elementAttributeReference =
-    _config.elements &&
-    _config.elements[tagName] &&
-    _config.elements[tagName].attributes &&
-    _config.elements[tagName].attributes![attributeName] &&
-    _config.elements[tagName].attributes![attributeName].reference
+    _config.tags &&
+    _config.tags[tagName] &&
+    _config.tags[tagName].attributes &&
+    _config.tags[tagName].attributes![attributeName] &&
+    _config.tags[tagName].attributes![attributeName].reference
   if (elementAttributeReference) {
     return elementAttributeReference
   }
@@ -95,12 +90,12 @@ export const getDescriptionForAttributeName: (
   attributeName: string
 ) => string | undefined = (tagName, attributeName) => {
   const elementAttributeDescription =
-    _config.elements &&
-    _config.elements[tagName] &&
-    _config.elements[tagName].attributes &&
+    _config.tags &&
+    _config.tags[tagName] &&
+    _config.tags[tagName].attributes &&
     // TODO typescript bug?
-    _config.elements[tagName].attributes![attributeName] &&
-    _config.elements[tagName].attributes![attributeName].description
+    _config.tags[tagName].attributes![attributeName] &&
+    _config.tags[tagName].attributes![attributeName].description
   if (elementAttributeDescription) {
     return elementAttributeDescription
   }
@@ -121,30 +116,28 @@ export const getDescriptionForAttributeValue: (
     return undefined
   }
   return (
-    _config.elements &&
-    _config.elements[tagName] &&
-    _config.elements[tagName].attributes &&
+    _config.tags &&
+    _config.tags[tagName] &&
+    _config.tags[tagName].attributes &&
     // TODO typescript bug?
-    _config.elements[tagName].attributes![attributeName] &&
-    _config.elements[tagName].attributes![attributeName].options &&
-    _config.elements[tagName].attributes![attributeName].options![
-      attributeValue
-    ] &&
-    _config.elements[tagName].attributes![attributeName].options![
-      attributeValue
-    ].description
+    _config.tags[tagName].attributes![attributeName] &&
+    _config.tags[tagName].attributes![attributeName].options &&
+    _config.tags[tagName].attributes![attributeName].options![attributeValue] &&
+    _config.tags[tagName].attributes![attributeName].options![attributeValue]
+      .description
   )
 }
 
 export const isTagName: (tagName: string) => boolean = tagName =>
-  _config.elements !== undefined && _config.elements[tagName] !== undefined
+  _config.tags !== undefined && _config.tags[tagName] !== undefined
 
-export type NamedSubTag = SubTag & { readonly name: string }
+export type NamedTag = { readonly name: string }
 
-export type NamedAttribute = Attribute & { readonly name: string }
+export type NamedAttribute = AttributeInfo & { readonly name: string }
 
-export type NamedAttributeValue = AttributeValue & { readonly name: string }
+export type NamedAttributeValue = AttributeValueInfo & { readonly name: string }
 
+export type NamedSnippet = { readonly name: string; value: string }
 /**
  * Get the most likely attribute values for a given tag and attribute
  * @param tagName
@@ -157,11 +150,11 @@ export const getSuggestedAttributeValues: (
   attributeName: string
 ) => NamedAttributeValue[] | undefined = (tagName, attributeName) => {
   const options =
-    _config.elements &&
-    _config.elements[tagName] &&
-    _config.elements[tagName].attributes &&
-    _config.elements[tagName].attributes![attributeName] &&
-    _config.elements[tagName].attributes![attributeName].options
+    _config.tags &&
+    _config.tags[tagName] &&
+    _config.tags[tagName].attributes &&
+    _config.tags[tagName].attributes![attributeName] &&
+    _config.tags[tagName].attributes![attributeName].options
   if (!options) {
     return undefined
   }
@@ -178,17 +171,53 @@ export const getSuggestedAttributeValues: (
  */
 export const getSuggestedTags: (
   parentTagName: string
-) => NamedSubTag[] | undefined = parentTagName => {
-  const allowedChildren =
-    _config.elements &&
-    _config.elements[parentTagName] &&
-    _config.elements[parentTagName].allowedChildren
-  if (!allowedChildren) {
+) => NamedTag[] | undefined = parentTagName => {
+  const subTags =
+    _config.tags &&
+    _config.tags[parentTagName] &&
+    _config.tags[parentTagName].allowedSubTags
+  if (subTags !== undefined) {
+    return subTags.map(subTag => ({
+      name: subTag,
+    }))
+  }
+  const globalTags = _config.tags
+  if (globalTags === undefined) {
     return undefined
   }
-  return Object.entries(allowedChildren).map(([key, value]) => ({
+  const filteredGlobalTags = Object.entries(globalTags).filter(
+    ([key, value]) => {
+      if (value.deprecated) {
+        return false
+      }
+      if (key.startsWith('-')) {
+        return false
+      }
+      if (value.permittedParentTags) {
+        return value.permittedParentTags.includes(parentTagName)
+      }
+      return true
+    }
+  )
+
+  if (filteredGlobalTags.length === 0) {
+    return undefined
+  }
+  return filteredGlobalTags.map(([key]) => ({
     name: key,
-    ...value,
+  }))
+}
+
+export const getSuggestedSnippets: (
+  parentTagName: string
+) => NamedSnippet[] | undefined = parentTagName => {
+  const snippets = _config.snippets
+  if (snippets === undefined) {
+    return undefined
+  }
+  return Object.entries(snippets).map(([key, value]) => ({
+    name: key,
+    value,
   }))
 }
 
@@ -201,9 +230,7 @@ export const getSuggestedAttributes: (
   tagName: string
 ) => NamedAttribute[] | undefined = tagName => {
   const elementAttributes =
-    _config.elements &&
-    _config.elements[tagName] &&
-    _config.elements[tagName].attributes
+    _config.tags && _config.tags[tagName] && _config.tags[tagName].attributes
   const globalAttributes = _config && _config.globalAttributes
   if (!elementAttributes && !globalAttributes) {
     return undefined
@@ -212,8 +239,11 @@ export const getSuggestedAttributes: (
     ...(elementAttributes || {}),
     ...(globalAttributes || {}),
   }
-  return Object.entries(mergedAttributes).map(([key, value]) => ({
-    name: key,
-    ...value,
-  }))
+
+  return Object.entries(mergedAttributes)
+    .filter(([key]) => !key.startsWith('-'))
+    .map(([key, value]) => ({
+      name: key,
+      ...value,
+    }))
 }

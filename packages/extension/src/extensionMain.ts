@@ -12,7 +12,7 @@ export const activate: (
 ) => Promise<void> = async context => {
   import('./LanguageConfiguration/htmlLanguageConfigurationFromVscode')
   const languageClient = await createLanguageClient(context)
-  languageClient.registerLocalPlugin(localPluginCompletionElementExpand)
+  // languageClient.registerLocalPlugin(localPluginCompletionElementExpand)
   languageClient.registerLocalPlugin(localPluginCompletionElementAutoClose)
   languageClient.registerLocalPlugin(localPluginCompletionElementClose)
   languageClient.registerLocalPlugin(localPluginCompletionElementSelfClosing)

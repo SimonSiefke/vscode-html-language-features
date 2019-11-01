@@ -1,0 +1,14 @@
+{
+  "snippets": {
+    "a": "<a href=\"\"></a>",
+    "a:external": "<a href=\"https://google.com\" target=\"_blank\" rel=\"noopener noreferrer\"></a>",
+    "button:disabled": "<button disabled>${0}</button>",
+    "link:stylesheet": "<link rel=\"stylesheet\" href=\"${0}\">",
+    "link:preload": "<link rel=\"preload\" as=\"${0}\"",
+    "meta:charset": "<meta charset=\"utf-8\">",
+    "script:src": "<script src\"${0}\"></script>",
+    "img": "<img src=\"${0}\" alt=\"${0}\">",
+    "iframe": "<iframe src=\"${0}\" frameborder=\"0\">",
+    "input": "<input type=\"text\">"
+  }
+}

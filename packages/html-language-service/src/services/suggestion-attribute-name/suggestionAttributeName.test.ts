@@ -3,7 +3,7 @@ import { setConfig } from '../../data/Data'
 
 beforeEach(() => {
   setConfig({
-    elements: {
+    tags: {
       h1: {
         attributes: {
           class: {},

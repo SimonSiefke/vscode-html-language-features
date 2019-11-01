@@ -3,7 +3,7 @@ import { setConfig } from '../../data/Data'
 
 beforeAll(() => {
   setConfig({
-    elements: {
+    tags: {
       input: {
         selfClosing: true,
       },

@@ -1,0 +1,22 @@
+{
+  "tags": {
+    "dl": {
+      "allowedSubTags": ["dt", "dd", "div"]
+    },
+    "dd": {
+      "permittedParentTags": ["dl"]
+    },
+    "dt": {
+      "permittedParentTags": ["dl"]
+    },
+    "ul": {
+      "allowedSubTags": ["li"]
+    },
+    "ol": {
+      "allowedSubTags": ["li"]
+    },
+    "li": {
+      "permittedParentTags": ["ul", "ol"]
+    }
+  }
+}

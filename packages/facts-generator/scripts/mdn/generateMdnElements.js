@@ -26,14 +26,14 @@ const getHtmlElementsAndLinks = async () => {
   // @ts-ignore
   const $ = cheerio.load(html)
 
-  const elements = $('summary')
+  const tags = $('summary')
     .filter((index, x) => x.firstChild.data === 'HTML elements')
     .parent()
     .find('ol li')
     .map((index, element) => element)
 
-  elements //?
-  const elementCodes = elements
+  tags //?
+  const elementCodes = tags
     .map((index, element) =>
       $(element)
         .find('a')
@@ -41,14 +41,14 @@ const getHtmlElementsAndLinks = async () => {
     )
     .get() //?
   const elementNames = elementCodes.map(code => code.slice(10, -11)) //?
-  const elementLinks = elements
+  const elementLinks = tags
     .map((index, element) =>
       $(element)
         .find('a')
         .attr('href')
     )
     .get() //?
-  const deprecatedElements = elements
+  const deprecatedElements = tags
     .map(
       (index, element) =>
         $(element)
@@ -57,7 +57,7 @@ const getHtmlElementsAndLinks = async () => {
     )
     .get()
     .map(element => element !== 'no')
-  const obsoleteElements = elements
+  const obsoleteElements = tags
     .map(
       (index, element) =>
         $(element)
@@ -66,7 +66,7 @@ const getHtmlElementsAndLinks = async () => {
     )
     .get()
     .map(element => element !== 'no')
-  const experimentalElements = elements
+  const experimentalElements = tags
     .map(
       (index, element) =>
         $(element)
@@ -239,7 +239,7 @@ const all = async () => {
     }, {})
   }
 
-  const elements = fullElementInfo.reduce(
+  const tags = fullElementInfo.reduce(
     (total, current) => ({
       ...total,
       [current.name]: {
@@ -257,7 +257,7 @@ const all = async () => {
   fs.ensureDirSync(path.join(__dirname, '../../generated'))
   fs.writeFileSync(
     path.join(__dirname, '../../generated/mdn.htmlData.json'),
-    `${JSON.stringify({ elements }, null, 2)}\n`
+    `${JSON.stringify({ tags }, null, 2)}\n`
   )
 }
 

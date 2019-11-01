@@ -1,0 +1,19 @@
+{
+  "name": "@html-language-features/curated-facts",
+  "version": "1.0.0-dev",
+  "description": "",
+  "scripts": {
+    "dev": "nodemon -e json --watch src --exec \"npm run generate\"",
+    "generate": "node scripts/generate"
+  },
+  "keywords": [],
+  "author": "",
+  "dependencies": {
+    "@html-language-features/schema": "^1.0.0-dev",
+    "fs-extra": "^8.1.0"
+  },
+  "devDependencies": {
+    "@types/fs-extra": "^8.0.1",
+    "nodemon": "^1.19.4"
+  }
+}

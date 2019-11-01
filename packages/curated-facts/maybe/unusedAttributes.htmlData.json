@@ -1,0 +1,26 @@
+{
+  "globalAttributes": {
+    "-inputmode": {},
+    "-itemid": {},
+    "-itemprop": {},
+    "-itemref": {},
+    "-itemscope": {},
+    "-itemtype": {},
+    "-autocapitalize": {},
+    "-draggable": {},
+    "-dropzone": {},
+    "-exportparts": {},
+    "-hidden": {},
+    "-lang": {},
+    "-translate": {},
+    "-contenteditable": {},
+    "-title": {},
+    "-spellcheck": {},
+    "-part": {},
+    "-slot": {},
+    "-is": {},
+    "-data-*": {},
+    "-accesskey": {},
+    "-dir": {}
+  }
+}

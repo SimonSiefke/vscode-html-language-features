@@ -1,7 +1,7 @@
 {
   "elements": {
     "base": {
-      "allowedChildren": [],
+      "subElements": [],
       "attributes": {
         "href": {
           "type": "url"

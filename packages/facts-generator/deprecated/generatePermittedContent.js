@@ -204,23 +204,23 @@ async function getPermittedContent(tagName) {
     'textarea',
     'summary',
   ]
-  const elements = {}
+  const precessedTags = {}
 
   for (const tag of tags.filter(x => !tagsWithoutInfo.includes(x))) {
     const content = await getPermittedContent(tag)
     if (content !== 'empty') {
-      elements[tag] = { allowedChildren: [{ category: content }] }
+      precessedTags[tag] = { allowedChildren: [{ category: content }] }
     }
   }
   // manual overrides
-  elements.figure = { allowedChildren: [{ category: 'flow content' }] }
-  elements.a = {
+  precessedTags.figure = { allowedChildren: [{ category: 'flow content' }] }
+  precessedTags.a = {
     allowedChildren: [
       { category: 'flow content' },
       { category: 'phrasing content' },
     ],
   }
-  elements.noscript = {
+  precessedTags.noscript = {
     allowedChildren: [
       { category: 'flow content' },
       { category: 'phrasing content' },
@@ -232,6 +232,6 @@ async function getPermittedContent(tagName) {
       __dirname,
       '../src/configs/generated/permittedContent.htmlData.json'
     ),
-    `${JSON.stringify({ elements }, null, 2)}\n`
+    `${JSON.stringify({ tags: precessedTags }, null, 2)}\n`
   )
 })()

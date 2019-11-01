@@ -1,4 +1,14 @@
 export {
+  getSuggestedTags,
+  isSelfClosingTag,
+  shouldHaveNewline,
+  getSuggestedSnippets,
+} from './data/Data'
+export {
+  doSuggestionElementExpand,
+} from './services/suggestion-element-expand/suggestionElementExpand'
+
+export {
   doSuggestionAttributeValue,
 } from './services/suggestion-attribute-value/suggestionAttributeValue'
 
@@ -12,7 +22,7 @@ export {
   getReferenceForTag,
   NamedAttribute,
   NamedAttributeValue,
-  NamedSubTag as NamedTag,
+  NamedTag,
 } from './data/Data'
 export { doHoverElement } from './services/hover-element/hoverElement'
 export {
@@ -34,9 +44,9 @@ export {
 export {
   doCompletionElementClose,
 } from './services/completion-element-close/completionElementClose'
-export {
-  doCompletionElementExpand,
-} from './services/completion-element-expand/completionElementExpand'
+// export {
+//   doCompletionElementExpand,
+// } from './services/completion-element-expand/completionElementExpand'
 export {
   doCompletionElementSelfClosing,
 } from './services/completion-element-self-closing/completionElementSelfClosing'

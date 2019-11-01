@@ -1,12 +1,12 @@
-const mdnData = require('./mdnData.json')
+// const mdnData = require('./mdnData.json')
 
-const elements = {}
+// const elements = {}
 
-for (const element of mdnData) {
-  elements[element.name] = {
-    description: element.description,
-  }
-}
-mdnData
+// for (const element of mdnData) {
+//   elements[element.name] = {
+//     description: element.description,
+//   }
+// }
+// mdnData
 
-elements
+// elements

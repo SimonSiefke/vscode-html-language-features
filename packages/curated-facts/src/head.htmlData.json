@@ -1,0 +1,19 @@
+{
+  "tags": {
+    "head": {
+      "allowedSubTags": ["link", "title", "style", "base", "meta"]
+    },
+    "link": {
+      "permittedParentTags": ["head"]
+    },
+    "title": {
+      "permittedParentTags": ["head"]
+    },
+    "base": {
+      "permittedParentTags": ["head"]
+    },
+    "meta": {
+      "permittedParentTags": ["head"]
+    }
+  }
+}

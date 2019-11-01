@@ -41,16 +41,7 @@
         "url": "https://raw.githubusercontent.com/SimonSiefke/vscode-html-language-features/master/packages/schema/src/schema/schema.json"
       }
     ],
-    "keybindings": {
-      "command": "html-expand-abbreviation",
-      "key": "tab",
-      "when": "editorTextFocus && resourceLangId == html && !editorReadonly"
-    },
     "commands": [
-      {
-        "command": "html-expand-abbreviation",
-        "title": "expand abbreviation"
-      },
       {
         "command": "htmlLanguageClient.startStreaming",
         "title": "Start Stream Logs into htmlLanguageClient.port"

@@ -2,7 +2,7 @@
   "elements": {
     "root": {
       "attributes": {},
-      "allowedChildren": {
+      "subElements": {
         "html": {
           "probability": 0.4886561954624782
         },
@@ -46,7 +46,7 @@
           }
         }
       },
-      "allowedChildren": {
+      "subElements": {
         "body": {
           "probability": 0.5029239766081871
         },
@@ -60,7 +60,7 @@
     },
     "head": {
       "attributes": {},
-      "allowedChildren": {
+      "subElements": {
         "link": {
           "probability": 0.12546117939623716
         },
@@ -109,7 +109,7 @@
           }
         }
       },
-      "allowedChildren": {
+      "subElements": {
         "h2": {
           "probability": 0.05722222222222222
         },
@@ -215,7 +215,7 @@
           "probability": 0.001443001443001443
         }
       },
-      "allowedChildren": {
+      "subElements": {
         "p": {
           "probability": 0.44230271304739394
         },
@@ -320,7 +320,7 @@
           "probability": 0.01
         }
       },
-      "allowedChildren": {
+      "subElements": {
         "header": {
           "probability": 0.5
         },
@@ -344,7 +344,7 @@
           "probability": 0.013449367088607595
         }
       },
-      "allowedChildren": {
+      "subElements": {
         "br": {
           "probability": 0.3489136091595108
         },
@@ -424,7 +424,7 @@
     },
     "details": {
       "attributes": {},
-      "allowedChildren": {
+      "subElements": {
         "summary": {
           "probability": 1
         }
@@ -442,7 +442,7 @@
           "probability": 0.1111111111111111
         }
       },
-      "allowedChildren": {
+      "subElements": {
         "option": {
           "probability": 1
         }
@@ -461,7 +461,7 @@
           "probability": 0.4411764705882353
         }
       },
-      "allowedChildren": {
+      "subElements": {
         "a": {
           "probability": 0.56
         },
@@ -496,7 +496,7 @@
           "probability": 0.01019607843137255
         }
       },
-      "allowedChildren": {
+      "subElements": {
         "www": {
           "probability": 0.3333333333333333
         },
@@ -524,7 +524,7 @@
           "probability": 0.00909090909090909
         }
       },
-      "allowedChildren": {
+      "subElements": {
         "b": {
           "probability": 0.8
         },
@@ -542,7 +542,7 @@
           "probability": 0.08333333333333333
         }
       },
-      "allowedChildren": {
+      "subElements": {
         "h2": {
           "probability": 0.375
         },
@@ -629,7 +629,7 @@
           "probability": 0.06868131868131869
         }
       },
-      "allowedChildren": {
+      "subElements": {
         "li": {
           "probability": 1
         }
@@ -641,7 +641,7 @@
           "probability": 0.14151898734177215
         }
       },
-      "allowedChildren": {
+      "subElements": {
         "a": {
           "probability": 0.5564005069708492
         },
@@ -671,7 +671,7 @@
           "probability": 0.4142857142857143
         }
       },
-      "allowedChildren": {
+      "subElements": {
         "div": {
           "probability": 0.16544117647058826
         },
@@ -728,7 +728,7 @@
           "probability": 0.25
         }
       },
-      "allowedChildren": {
+      "subElements": {
         "tr": {
           "probability": 1
         }
@@ -736,7 +736,7 @@
     },
     "tr": {
       "attributes": {},
-      "allowedChildren": {
+      "subElements": {
         "td": {
           "probability": 0.75
         },
@@ -781,7 +781,7 @@
           }
         }
       },
-      "allowedChildren": {
+      "subElements": {
         "li": {
           "probability": 1
         }
@@ -792,7 +792,7 @@
     },
     "pre": {
       "attributes": {},
-      "allowedChildren": {
+      "subElements": {
         "!DOCTYPE": {
           "probability": 1
         }
@@ -804,7 +804,7 @@
           "probability": 0.5
         }
       },
-      "allowedChildren": {
+      "subElements": {
         "p": {
           "probability": 0.5
         },
@@ -851,7 +851,7 @@
           "probability": 0.6666666666666666
         }
       },
-      "allowedChildren": {
+      "subElements": {
         "symbol": {
           "probability": 0.8888888888888888
         },
@@ -869,7 +869,7 @@
           "probability": 1
         }
       },
-      "allowedChildren": {
+      "subElements": {
         "path": {
           "probability": 1
         }
@@ -1037,7 +1037,7 @@
           "probability": 0.5
         }
       },
-      "allowedChildren": {
+      "subElements": {
         "a": {
           "probability": 0.16666666666666666
         },
@@ -1055,7 +1055,7 @@
           "probability": 0.4880952380952381
         }
       },
-      "allowedChildren": {
+      "subElements": {
         "span": {
           "probability": 0.25
         },
@@ -1142,7 +1142,7 @@
           "probability": 0.4
         }
       },
-      "allowedChildren": {
+      "subElements": {
         "span": {
           "probability": 1
         }
@@ -1191,7 +1191,7 @@
           "probability": 0.05555555555555555
         }
       },
-      "allowedChildren": {
+      "subElements": {
         "input": {
           "probability": 0.2755102040816326
         },
@@ -1269,7 +1269,7 @@
     },
     "fieldset": {
       "attributes": {},
-      "allowedChildren": {
+      "subElements": {
         "label": {
           "probability": 0.30612244897959184
         },
@@ -1308,7 +1308,7 @@
           "probability": 1
         }
       },
-      "allowedChildren": {
+      "subElements": {
         "section": {
           "probability": 0.42857142857142855
         },
@@ -1329,7 +1329,7 @@
           "probability": 1
         }
       },
-      "allowedChildren": {
+      "subElements": {
         "div": {
           "probability": 1
         }

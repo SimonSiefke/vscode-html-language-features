@@ -1,5 +1,5 @@
 {
-  "elements": {
+  "tags": {
     "!DOCTYPE": {
       "description": "Defines the document type",
       "reference": {

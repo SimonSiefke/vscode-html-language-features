@@ -1,0 +1,7 @@
+{
+  "tags": {
+    "html": {
+      "allowedSubTags": ["head", "body"]
+    }
+  }
+}

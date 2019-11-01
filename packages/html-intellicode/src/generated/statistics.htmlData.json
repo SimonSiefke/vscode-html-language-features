@@ -10,7 +10,7 @@
     }
   ],
   "html": {
-    "allowedChildren": {
+    "subElements": {
       "head": { "probability": 0.5161290322580645 },
       "body": { "probability": 0.4838709677419355 }
     }

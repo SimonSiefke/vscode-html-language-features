@@ -1,7 +1,7 @@
 {
   "elements": {
     "abbr": {
-      "allowedChildren": [],
+      "subElements": [],
       "attributes": {
         "title": {
           "type": "string",

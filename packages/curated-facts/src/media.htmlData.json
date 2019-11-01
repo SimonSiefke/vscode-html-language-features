@@ -1,0 +1,10 @@
+{
+  "tags": {
+    "audio": {
+      "allowedSubTags": ["track", "source"]
+    },
+    "track": {
+      "permittedParentTags": ["audio", "video"]
+    }
+  }
+}

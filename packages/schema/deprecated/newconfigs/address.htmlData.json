@@ -1,7 +1,7 @@
 {
   "elements": {
     "address": {
-      "allowedChildren": []
+      "subElements": []
     }
   }
 }

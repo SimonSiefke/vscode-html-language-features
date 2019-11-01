@@ -29,45 +29,34 @@ const mergeProperty: (
   objects: (object | undefined)[],
   key: string
 ) => object = (resultObject, objects, key) => {
-  if (key === 'probability') {
-    let totalProbability = 0
-    for (const object of objects) {
-      if (object && object[key]) {
-        totalProbability += object[key]
-      }
-    }
-    // console.log(key, objects)
-    const probability =
-      totalProbability / objects.filter(object => object !== undefined).length
-    resultObject[key] = probability
-  } else {
-    const isValueObject = objects.find(
-      object => object && typeof object[key] === 'object'
+  const isValueArray = objects.find(
+    object => object && Array.isArray(object[key])
+  )
+  const isValueObject = objects.find(
+    object => object && typeof object[key] === 'object'
+  )
+  if (isValueArray) {
+    resultObject[key] = uniq(
+      objects.filter(Boolean).flatMap(object => (object && object[key]) || [])
     )
-    if (isValueObject) {
-      const nestedKeys = allKeys(
-        objects
-          .filter(object => object !== undefined)
-          .map(object => object![key])
-          .filter(nestedObject => nestedObject !== undefined)
-      )
-      // console.log('here')
-      // objects.map(object => object[key]).filter(Boolean) //?
-      resultObject[key] = {}
+  } else if (isValueObject) {
+    const nestedKeys = allKeys(
       objects
+        .filter(object => object !== undefined)
+        .map(object => object![key])
+        .filter(nestedObject => nestedObject !== undefined)
+    )
+    if (key.startsWith('-')) {
+      delete resultObject[key.slice(1)]
+      resultObject[key] = {}
+    } else {
+      resultObject[key] = {}
       for (const nestedKey of nestedKeys) {
         const nestedObjects = objects.map(object => {
           if (object === undefined) {
-            // console.log('other key is' + key)
-            // console.log('other nested key is ' + nestedKey)
             return undefined
           }
           if (object[key] === undefined) {
-            // console.log('key is', key)
-            // console.log('nested key is ' + nestedKey)
-            if (nestedKey === 'probability') {
-              return {}
-            }
             return undefined
           }
           return object[key]
@@ -84,12 +73,13 @@ const mergeProperty: (
           nestedKey
         )
       }
-    } else {
-      // console.log('else')
-      resultObject[key] = objects
-        .reverse()
-        .find(object => object && object[key] !== undefined)![key]
     }
+    objects
+  } else {
+    // console.log('else')
+    resultObject[key] = objects
+      .reverse()
+      .find(object => object && object[key] !== undefined)![key]
   }
   return resultObject
 }

@@ -173,10 +173,10 @@ const computeStatisticsWithProbabilities = () => {
       0
     )
     statisticsWithProbabilities[tag] = {
-      allowedChildren: {},
+      subTags: {},
     }
     for (const suggestion of finalStatistics[tag]) {
-      statisticsWithProbabilities[tag].allowedChildren[suggestion.name] = {
+      statisticsWithProbabilities[tag].subTags[suggestion.name] = {
         probability: suggestion.frequency / max,
       }
       // statisticsWithProbabilities[tag].push({

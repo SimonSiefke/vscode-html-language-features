@@ -10,7 +10,7 @@ import { createConnectionProxy } from './htmlLanguageServer/connectionProxy'
 import { RemotePluginApi } from './plugins/remotePluginApi'
 import { remotePluginCompletionElementAutoClose } from './plugins/remote-plugin-completion-element-auto-close/remotePluginCompletionElementAutoClose'
 import { remotePluginCompletionElementClose } from './plugins/remote-plugin-completion-element-close/remotePluginCompletionElementClose'
-import { remotePluginCompletionElementExpand } from './plugins/remote-plugin-completion-element-expand/remotePluginCompletionElementExpand'
+// import { remotePluginCompletionElementExpand } from './plugins/remote-plugin-completion-element-expand/remotePluginCompletionElementExpand'
 import { remotePluginCompletionElementSelfClosing } from './plugins/remote-plugin-completion-element-self-closing/remotePluginCompletionElementSelfClosing'
 import { remotePluginCompletionElementAutoRenameTag } from './plugins/remote-plugin-completion-element-auto-rename-tag/remotePluginCompletionElementAutoRenameTag'
 import { remotePluginSuggestionElementStartTag } from './plugins/remote-plugin-suggestion-element-start-tag/remotePluginSuggestionElementStartTag'
@@ -19,6 +19,8 @@ import { remotePluginHighlightElementMatchingTag } from './plugins/remote-plugin
 import { remotePluginHoverElement } from './plugins/remote-plugin-hover-element/remotePluginHoverElement'
 import { remotePluginSymbol } from './plugins/remote-plugin-symbol/remotePluginSymbol'
 import { remotePluginSuggestionAttributeValue } from './plugins/remote-plugin-suggest-attribute-value/remotePluginSuggestAttributeValue'
+import { remotePluginSuggestionElementExpand } from './plugins/remote-plugin-suggestion-element-expand/remotePluginSuggestionElementExpand'
+import { Config } from '@html-language-features/schema'
 
 const connection: IConnection = createConnection()
 
@@ -50,32 +52,40 @@ connection.onInitialize(() => {
 })
 
 connection.onInitialized(async () => {
-  const mdnConfig = await import(
+  const mdnConfig: Config = await import(
     '@html-language-features/facts-generator/generated/mdn.htmlData.json'
   )
-  const mdnGlobalAttributeConfig = await import(
+  const mdnGlobalAttributeConfig: Config = await import(
     '@html-language-features/facts-generator/generated/mdnGlobalAttributes.htmlData.json'
   )
-  const w3schoolsConfig = await import(
+  const w3schoolsConfig: Config = await import(
     '@html-language-features/facts-generator/generated/w3schools.htmlData.json'
   )
-  // const attributeStatisticsConfig = await import(
-  //   '@html-language-features/statistics-generator/dist/generated/attributes.htmlData.json'
-  // )
-  // const tagStatisticsConfig = await import(
-  //   '@html-language-features/statistics-generator/dist/generated/tags.htmlData.json'
-  // )
-  const githubStatisticsConfig = await import(
-    '@html-language-features/github-scraper/generated/generated.htmlData.json'
+  const attributeStatisticsConfig: Config = await import(
+    '@html-language-features/statistics-generator/dist/generated/attributes.htmlData.json'
   )
+  const tagStatisticsConfig: Config = await import(
+    '@html-language-features/statistics-generator/dist/generated/tags.htmlData.json'
+  )
+  const curatedFactsConfig: Config = await import(
+    '@html-language-features/curated-facts/generated/curated.htmlData.json'
+  )
+  // const githubStatisticsConfig = await import(
+  //   '@html-language-features/github-scraper/generated/generated.htmlData.json'
+  // )
+  // const snippetsConfig = await import(
+  //   '@html-language-features/snippets/src/snippets.htmlData.json'
+  // )
   const { errors } = addConfigs(
     mdnConfig,
     mdnGlobalAttributeConfig,
-    w3schoolsConfig,
-    githubStatisticsConfig
-    // tagStatisticsConfig,
-    // attributeStatisticsConfig
+    curatedFactsConfig
   )
+  // snippetsConfig
+  // w3schoolsConfig,
+  // githubStatisticsConfig
+  // tagStatisticsConfig,
+  // attributeStatisticsConfig
   if (errors.length > 0) {
     console.error('an error occurred')
     // TODO send to client and client shows error message
@@ -87,7 +97,7 @@ connection.onInitialized(async () => {
   }
   remotePluginCompletionElementAutoClose(api)
   remotePluginCompletionElementClose(api)
-  remotePluginCompletionElementExpand(api)
+  // remotePluginCompletionElementExpand(api)
   remotePluginCompletionElementSelfClosing(api)
   remotePluginCompletionElementAutoRenameTag(api)
 
@@ -96,19 +106,20 @@ connection.onInitialized(async () => {
   remotePluginHoverElement(api)
 
   remotePluginSuggestionElementStartTag(api)
+  // remotePluginSuggestionElementExpand(api)
   remotePluginSuggestionAttributeName(api)
   remotePluginSuggestionAttributeValue(api)
 
   remotePluginSymbol(api)
 
-  try {
-    const config = await connection.workspace.getConfiguration(
-      'html.customData'
-    )
-    addConfigs(config)
-  } catch (error) {
-    console.error(error)
-  }
+  // try {
+  //   const config = await connection.workspace.getConfiguration(
+  //     'html.customData'
+  //   )
+  //   addConfigs(config)
+  // } catch (error) {
+  //   console.error(error)
+  // }
 })
 
 connection.listen()

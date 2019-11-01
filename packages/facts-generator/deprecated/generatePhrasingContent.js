@@ -24,7 +24,7 @@ async function getPhrasingContentElements() {
 
 ;(async () => {
   const tags = await getPhrasingContentElements()
-  const elements = tags.reduce(
+  const processedTags = tags.reduce(
     (total, current) => ({
       ...total,
       [current]: { categories: ['phrasing content'] },
@@ -37,6 +37,6 @@ async function getPhrasingContentElements() {
       __dirname,
       '../src/configs/generated/phrasingContent.htmlData.json'
     ),
-    `${JSON.stringify({ elements }, null, 2)}\n`
+    `${JSON.stringify({ elements: processedTags }, null, 2)}\n`
   )
 })()

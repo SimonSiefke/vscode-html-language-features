@@ -1,0 +1,42 @@
+{
+  "tags": {
+    "table": {
+      "allowedSubTags": ["caption", "colgroup", "thead", "tbody", "tfoot", "tr"]
+    },
+    "thead": {
+      "permittedParentTags": ["table"],
+      "allowedSubTags": ["tr"]
+    },
+    "title": {
+      "permittedParentTags": ["head"]
+    },
+    "caption": {
+      "permittedParentTags": ["table"]
+    },
+    "tbody": {
+      "permittedParentTags": ["table"],
+      "allowedSubTags": ["tr"]
+    },
+    "tfoot": {
+      "permittedParentTags": ["table"],
+      "allowedSubTags": ["tr"]
+    },
+    "tr": {
+      "permittedParentTags": ["table", "thead", "tbody", "tfoot"],
+      "allowedSubTags": ["td", "th"]
+    },
+    "td": {
+      "permittedParentTags": ["tr"]
+    },
+    "th": {
+      "permittedParentTags": ["tr"]
+    },
+    "colgroup": {
+      "permittedParentTags": ["table"],
+      "allowedSubTags": ["col"]
+    },
+    "col": {
+      "permittedParentTags": ["colgroup"]
+    }
+  }
+}

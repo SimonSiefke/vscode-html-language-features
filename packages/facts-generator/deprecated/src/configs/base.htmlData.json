@@ -20,7 +20,7 @@
     },
     "div": {
       "newline": true,
-      "allowedChildren": {
+      "subElements": {
         "div": {
           "probability": 1
         }

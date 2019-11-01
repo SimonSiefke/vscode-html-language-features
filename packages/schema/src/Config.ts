@@ -3,47 +3,59 @@ export type Reference = Readonly<{
   name: string
 }>
 
-export type AttributeValue = Readonly<{
+export type AttributeValueInfo = Readonly<{
   description?: string
-  probability?: number
   deprecated?: boolean
 }>
 
-export type Attribute = Readonly<{
+export type Snippet = string
+
+export type AttributeInfo = Readonly<{
   description?: string
   experimental?: boolean
   deprecated?: boolean
+  tags?: string[]
   reference?: Reference
-  probability?: number
   type?: 'string' | 'enum'
   options?: {
-    [key: string]: AttributeValue
+    [attributeValue: string]: AttributeValueInfo
   }
 }>
 
-export type SubTag = Readonly<{
-  probability?: number
-}>
+export type SubTag =
+  // | Readonly<{
+  //     tag: string
+  //   }>
+  string
 
-export type Element = Readonly<{
+export type ParentTag =
+  // | Readonly<{
+  //     tag: string
+  //   }>
+  string
+
+export type Tag = Readonly<{
   description?: string
+  deprecated?: boolean
   reference?: Reference
   selfClosing?: boolean
   newline?: boolean
   attributes?: {
-    [key: string]: Attribute
+    [attributeName: string]: AttributeInfo
   }
-  allowedChildren?: {
-    [tagName: string]: SubTag
-  }
+  allowedSubTags?: SubTag[]
+  permittedParentTags?: ParentTag[]
 }>
 
 export type Config = {
   __meta__?: unknown
   readonly globalAttributes?: {
-    [key: string]: Attribute
+    readonly [key: string]: AttributeInfo
   }
-  readonly elements?: {
-    [key: string]: Element
+  readonly tags?: {
+    readonly [key: string]: Tag
+  }
+  readonly snippets?: {
+    readonly [key: string]: Snippet
   }
 }
