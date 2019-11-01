@@ -100,6 +100,15 @@ connection.onInitialized(async () => {
   remotePluginSuggestionAttributeValue(api)
 
   remotePluginSymbol(api)
+
+  try {
+    const config = await connection.workspace.getConfiguration(
+      'html.customData'
+    )
+    addConfigs(config)
+  } catch (error) {
+    console.error(error)
+  }
 })
 
 connection.listen()

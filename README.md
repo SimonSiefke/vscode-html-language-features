@@ -21,9 +21,24 @@ Note: for this to work, you need to disable:
 
 TODO:
 
-- attribute value completions
 - snippets
 - support for emmet abbreviations
+
+## Settings
+
+You can specify custom data inside your `settings.json` file that will be used for intellisense suggestions. After changing the configuration, you need to reload vscode.
+
+```json
+{
+  "html.customData": {
+    "elements": {
+      "my-button": {
+        "description": "Custom button element"
+      }
+    }
+  }
+}
+```
 
 <!-- TODO:  [html] Automatically delete HTML closing tag when converting to self-closing tag #58315  -->
 

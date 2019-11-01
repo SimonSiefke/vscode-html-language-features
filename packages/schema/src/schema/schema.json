@@ -118,7 +118,7 @@
   },
   "properties": {
     "__meta__": {
-      "description": "Optional meta data about this file (comments etc.)"
+      "description": "Optional meta data about this configuration (comments etc.)"
     },
     "extends": {
       "type": "array",

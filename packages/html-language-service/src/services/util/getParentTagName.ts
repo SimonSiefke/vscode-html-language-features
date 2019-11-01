@@ -123,7 +123,6 @@ export const getNextClosingTag: (
     // console.log('before: ' + scanner.stream.previousChars(5))
     // console.log('|')
     if (i++ > 3) {
-      console.log('iun')
       return undefined
     }
     scanner.stream.advanceUntilEitherChar('<', '>')

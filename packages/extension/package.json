@@ -26,6 +26,21 @@
     "update-proposed": "vscode-dts dev"
   },
   "contributes": {
+    "configuration": {
+      "title": "Html Language Features configuration",
+      "properties": {
+        "html.customData": {
+          "$ref": "https://raw.githubusercontent.com/SimonSiefke/vscode-html-language-features/master/packages/schema/src/schema/schema.json",
+          "default": {}
+        }
+      }
+    },
+    "jsonValidation": [
+      {
+        "fileMatch": "*.htmlData.json",
+        "url": "https://raw.githubusercontent.com/SimonSiefke/vscode-html-language-features/master/packages/schema/src/schema/schema.json"
+      }
+    ],
     "keybindings": {
       "command": "html-expand-abbreviation",
       "key": "tab",

@@ -2,5 +2,12 @@
   "htmlLanguageClient.trace.server": {
     "format": "json", // or "text"
     "verbosity": "verbose" // or "off" | "messages"
+  },
+  "html.customData": {
+    "elements": {
+      "my-button": {
+        "description": "Custom button element"
+      }
+    }
   }
 }
