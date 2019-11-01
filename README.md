@@ -26,7 +26,7 @@ TODO:
 
 ## Settings
 
-You can specify custom data inside your `settings.json` file that will be used for intellisense suggestions. After changing the configuration, you need to reload vscode.
+You can specify custom data inside your vscode settings. After changing the configuration, you need to reload vscode.
 
 ```json
 {
