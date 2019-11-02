@@ -6,10 +6,9 @@
 
 Features:
 
-- Context aware HTML Completions
+- Html intellisense
 - Auto rename tags
 - Auto close tags
-- Attribute key completions
 - Highlight Matching Tags
 
 <!-- TODO better image -->
