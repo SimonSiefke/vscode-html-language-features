@@ -1,0 +1,1761 @@
+{
+  "tags": {
+    "a": {
+      "categories": [
+        "flow content",
+        "phrasing content",
+        "interactive content",
+        "palpable content"
+      ],
+      "attributes": {
+        "href": {},
+        "target": {},
+        "download": {},
+        "ping": {},
+        "rel": {},
+        "hreflang": {},
+        "type": {},
+        "referrerpolicy": {}
+      },
+      "permittedParentTags": [
+        {
+          "category": "phrasing content"
+        }
+      ],
+      "allowedSubTags": [
+        {
+          "category": "phrasing content"
+        }
+      ]
+    },
+    "abbr": {
+      "categories": ["flow content", "phrasing content", "palpable content"],
+      "attributes": {},
+      "permittedParentTags": [
+        {
+          "category": "phrasing content"
+        }
+      ],
+      "allowedSubTags": [
+        {
+          "category": "phrasing content"
+        }
+      ]
+    },
+    "address": {
+      "categories": ["flow content", "palpable content"],
+      "attributes": {},
+      "permittedParentTags": [
+        {
+          "category": "flow content"
+        }
+      ],
+      "allowedSubTags": [
+        {
+          "category": "flow content"
+        }
+      ]
+    },
+    "area": {
+      "categories": ["flow content", "phrasing content"],
+      "attributes": {
+        "alt": {},
+        "coords": {},
+        "shape": {},
+        "href": {},
+        "target": {},
+        "download": {},
+        "ping": {},
+        "rel": {},
+        "referrerpolicy": {}
+      },
+      "permittedParentTags": [
+        {
+          "category": "phrasing content"
+        }
+      ],
+      "allowedSubTags": []
+    },
+    "article": {
+      "categories": ["flow content", "sectioning content", "palpable content"],
+      "attributes": {},
+      "permittedParentTags": [
+        {
+          "category": "flow content"
+        }
+      ],
+      "allowedSubTags": [
+        {
+          "category": "flow content"
+        }
+      ]
+    },
+    "aside": {
+      "categories": ["flow content", "sectioning content", "palpable content"],
+      "attributes": {},
+      "permittedParentTags": [
+        {
+          "category": "flow content"
+        }
+      ],
+      "allowedSubTags": [
+        {
+          "category": "flow content"
+        }
+      ]
+    },
+    "audio": {
+      "categories": [
+        "flow content",
+        "phrasing content",
+        "embedded content",
+        "interactive content",
+        "palpable content"
+      ],
+      "attributes": {
+        "src": {},
+        "crossorigin": {},
+        "preload": {},
+        "autoplay": {},
+        "loop": {},
+        "muted": {},
+        "controls": {}
+      },
+      "permittedParentTags": [
+        {
+          "category": "phrasing content"
+        }
+      ],
+      "allowedSubTags": ["source", "track"]
+    },
+    "b": {
+      "categories": ["flow content", "phrasing content", "palpable content"],
+      "attributes": {},
+      "permittedParentTags": [
+        {
+          "category": "phrasing content"
+        }
+      ],
+      "allowedSubTags": [
+        {
+          "category": "phrasing content"
+        }
+      ]
+    },
+    "base": {
+      "categories": ["metadata"],
+      "attributes": {
+        "href": {},
+        "target": {}
+      },
+      "permittedParentTags": ["head"],
+      "allowedSubTags": []
+    },
+    "bdi": {
+      "categories": ["flow content", "phrasing content", "palpable content"],
+      "attributes": {},
+      "permittedParentTags": [
+        {
+          "category": "phrasing content"
+        }
+      ],
+      "allowedSubTags": [
+        {
+          "category": "phrasing content"
+        }
+      ]
+    },
+    "bdo": {
+      "categories": ["flow content", "phrasing content", "palpable content"],
+      "attributes": {},
+      "permittedParentTags": [
+        {
+          "category": "phrasing content"
+        }
+      ],
+      "allowedSubTags": [
+        {
+          "category": "phrasing content"
+        }
+      ]
+    },
+    "blockquote": {
+      "categories": [
+        "flow content",
+        "sectioning root content",
+        "palpable content"
+      ],
+      "attributes": {
+        "cite": {}
+      },
+      "permittedParentTags": [
+        {
+          "category": "flow content"
+        }
+      ],
+      "allowedSubTags": [
+        {
+          "category": "flow content"
+        }
+      ]
+    },
+    "body": {
+      "categories": ["sectioning root content"],
+      "attributes": {
+        "onafterprint": {},
+        "onbeforeprint": {},
+        "onbeforeunload": {},
+        "onhashchange": {},
+        "onlanguagechange": {},
+        "onmessage": {},
+        "onmessageerror": {},
+        "onoffline": {},
+        "ononline": {},
+        "onpagehide": {},
+        "onpageshow": {},
+        "onpopstate": {},
+        "onrejectionhandled": {},
+        "onstorage": {},
+        "onunhandledrejection": {},
+        "onunload": {}
+      },
+      "permittedParentTags": ["html"],
+      "allowedSubTags": [
+        {
+          "category": "flow content"
+        }
+      ]
+    },
+    "br": {
+      "categories": ["flow content", "phrasing content"],
+      "attributes": {},
+      "permittedParentTags": [
+        {
+          "category": "phrasing content"
+        }
+      ],
+      "allowedSubTags": []
+    },
+    "button": {
+      "categories": [
+        "flow content",
+        "phrasing content",
+        "interactive content",
+        "listed content",
+        "labelable",
+        "submittable content",
+        "form-associated content",
+        "palpable content"
+      ],
+      "attributes": {
+        "disabled": {},
+        "form": {},
+        "formaction": {},
+        "formenctype": {},
+        "formmethod": {},
+        "formnovalidate": {},
+        "formtarget": {},
+        "name": {},
+        "type": {},
+        "value": {}
+      },
+      "permittedParentTags": [
+        {
+          "category": "phrasing content"
+        }
+      ],
+      "allowedSubTags": [
+        {
+          "category": "phrasing content"
+        }
+      ]
+    },
+    "canvas": {
+      "categories": [
+        "flow content",
+        "phrasing content",
+        "embedded content",
+        "palpable content"
+      ],
+      "attributes": {
+        "width": {},
+        "height": {}
+      },
+      "permittedParentTags": [
+        {
+          "category": "phrasing content"
+        }
+      ]
+    },
+    "caption": {
+      "categories": [],
+      "attributes": {},
+      "permittedParentTags": ["table"],
+      "allowedSubTags": [
+        {
+          "category": "flow content"
+        }
+      ]
+    },
+    "cite": {
+      "categories": ["flow content", "phrasing content", "palpable content"],
+      "attributes": {},
+      "permittedParentTags": [
+        {
+          "category": "phrasing content"
+        }
+      ],
+      "allowedSubTags": [
+        {
+          "category": "phrasing content"
+        }
+      ]
+    },
+    "code": {
+      "categories": ["flow content", "phrasing content", "palpable content"],
+      "attributes": {},
+      "permittedParentTags": [
+        {
+          "category": "phrasing content"
+        }
+      ],
+      "allowedSubTags": [
+        {
+          "category": "phrasing content"
+        }
+      ]
+    },
+    "col": {
+      "categories": [],
+      "attributes": {
+        "span": {}
+      },
+      "permittedParentTags": ["colgroup"],
+      "allowedSubTags": []
+    },
+    "colgroup": {
+      "categories": [],
+      "attributes": {
+        "span": {}
+      },
+      "permittedParentTags": ["table"],
+      "allowedSubTags": ["col", "template"]
+    },
+    "data": {
+      "categories": ["flow content", "phrasing content", "palpable content"],
+      "attributes": {
+        "value": {}
+      },
+      "permittedParentTags": [
+        {
+          "category": "phrasing content"
+        }
+      ],
+      "allowedSubTags": [
+        {
+          "category": "phrasing content"
+        }
+      ]
+    },
+    "datalist": {
+      "categories": ["flow content", "phrasing content"],
+      "attributes": {},
+      "permittedParentTags": [
+        {
+          "category": "phrasing content"
+        }
+      ],
+      "allowedSubTags": [
+        {
+          "category": "phrasing content"
+        },
+        "option",
+        {
+          "category": "script-supporting"
+        }
+      ]
+    },
+    "dd": {
+      "categories": [],
+      "attributes": {},
+      "permittedParentTags": ["dl", "div"],
+      "allowedSubTags": [
+        {
+          "category": "flow content"
+        }
+      ]
+    },
+    "del": {
+      "categories": ["flow content", "phrasing content"],
+      "attributes": {
+        "cite": {},
+        "datetime": {}
+      },
+      "permittedParentTags": [
+        {
+          "category": "phrasing content"
+        }
+      ]
+    },
+    "details": {
+      "categories": [
+        "flow content",
+        "sectioning root content",
+        "interactive content",
+        "palpable content"
+      ],
+      "attributes": {
+        "open": {}
+      },
+      "permittedParentTags": [
+        {
+          "category": "flow content"
+        }
+      ],
+      "allowedSubTags": [
+        "summary",
+        {
+          "category": "flow content"
+        }
+      ]
+    },
+    "dfn": {
+      "categories": ["flow content", "phrasing content", "palpable content"],
+      "attributes": {},
+      "permittedParentTags": [
+        {
+          "category": "phrasing content"
+        }
+      ],
+      "allowedSubTags": [
+        {
+          "category": "phrasing content"
+        }
+      ]
+    },
+    "dialog": {
+      "categories": ["flow content", "sectioning root content"],
+      "attributes": {
+        "open": {}
+      },
+      "permittedParentTags": [
+        {
+          "category": "flow content"
+        }
+      ],
+      "allowedSubTags": [
+        {
+          "category": "flow content"
+        }
+      ]
+    },
+    "div": {
+      "categories": ["flow content", "palpable content"],
+      "attributes": {},
+      "permittedParentTags": [
+        {
+          "category": "flow content"
+        },
+        "dl"
+      ],
+      "allowedSubTags": [
+        {
+          "category": "flow content"
+        }
+      ]
+    },
+    "dl": {
+      "categories": ["flow content", "palpable content"],
+      "attributes": {},
+      "permittedParentTags": [
+        {
+          "category": "flow content"
+        }
+      ],
+      "allowedSubTags": [
+        "dt",
+        "dd",
+        "div",
+        {
+          "category": "script-supporting"
+        }
+      ]
+    },
+    "dt": {
+      "categories": [],
+      "attributes": {},
+      "permittedParentTags": ["dl", "div"],
+      "allowedSubTags": [
+        {
+          "category": "flow content"
+        }
+      ]
+    },
+    "em": {
+      "categories": ["flow content", "phrasing content", "palpable content"],
+      "attributes": {},
+      "permittedParentTags": [
+        {
+          "category": "phrasing content"
+        }
+      ],
+      "allowedSubTags": [
+        {
+          "category": "phrasing content"
+        }
+      ]
+    },
+    "embed": {
+      "categories": [
+        "flow content",
+        "phrasing content",
+        "embedded content",
+        "interactive content",
+        "palpable content"
+      ],
+      "attributes": {
+        "src": {},
+        "type": {},
+        "width": {},
+        "height": {}
+      },
+      "permittedParentTags": [
+        {
+          "category": "phrasing content"
+        }
+      ],
+      "allowedSubTags": []
+    },
+    "fieldset": {
+      "categories": [
+        "flow content",
+        "sectioning root content",
+        "listed content",
+        "form-associated content",
+        "palpable content"
+      ],
+      "attributes": {
+        "disabled": {},
+        "form": {},
+        "name": {}
+      },
+      "permittedParentTags": [
+        {
+          "category": "flow content"
+        }
+      ],
+      "allowedSubTags": [
+        "legend",
+        {
+          "category": "flow content"
+        }
+      ]
+    },
+    "figcaption": {
+      "categories": [],
+      "attributes": {},
+      "permittedParentTags": ["figure"],
+      "allowedSubTags": [
+        {
+          "category": "flow content"
+        }
+      ]
+    },
+    "figure": {
+      "categories": [
+        "flow content",
+        "sectioning root content",
+        "palpable content"
+      ],
+      "attributes": {},
+      "permittedParentTags": [
+        {
+          "category": "flow content"
+        }
+      ],
+      "allowedSubTags": [
+        "figcaption",
+        {
+          "category": "flow content"
+        }
+      ]
+    },
+    "footer": {
+      "categories": ["flow content", "palpable content"],
+      "attributes": {},
+      "permittedParentTags": [
+        {
+          "category": "flow content"
+        }
+      ],
+      "allowedSubTags": [
+        {
+          "category": "flow content"
+        }
+      ]
+    },
+    "form": {
+      "categories": ["flow content", "palpable content"],
+      "attributes": {
+        "accept-charset": {},
+        "action": {},
+        "autocomplete": {},
+        "enctype": {},
+        "method": {},
+        "name": {},
+        "novalidate": {},
+        "target": {}
+      },
+      "permittedParentTags": [
+        {
+          "category": "flow content"
+        }
+      ],
+      "allowedSubTags": [
+        {
+          "category": "flow content"
+        }
+      ]
+    },
+    "h1": {
+      "categories": ["flow content", "heading", "palpable content"],
+      "attributes": {},
+      "permittedParentTags": [
+        "hgroup",
+        {
+          "category": "flow content"
+        }
+      ],
+      "allowedSubTags": [
+        {
+          "category": "phrasing content"
+        }
+      ]
+    },
+    "head": {
+      "categories": [],
+      "attributes": {},
+      "permittedParentTags": ["html"],
+      "allowedSubTags": ["metadata content"]
+    },
+    "header": {
+      "categories": ["flow content", "palpable content"],
+      "attributes": {},
+      "permittedParentTags": [
+        {
+          "category": "flow content"
+        }
+      ],
+      "allowedSubTags": [
+        {
+          "category": "flow content"
+        }
+      ]
+    },
+    "hgroup": {
+      "categories": ["flow content", "heading", "palpable content"],
+      "attributes": {},
+      "permittedParentTags": [
+        {
+          "category": "flow content"
+        }
+      ],
+      "allowedSubTags": [
+        "h1",
+        "h2",
+        "h3",
+        "h4",
+        "h5",
+        "h6",
+        {
+          "category": "script-supporting"
+        }
+      ]
+    },
+    "hr": {
+      "categories": ["flow content"],
+      "attributes": {},
+      "permittedParentTags": [
+        {
+          "category": "flow content"
+        }
+      ],
+      "allowedSubTags": []
+    },
+    "html": {
+      "categories": [],
+      "attributes": {
+        "manifest": {}
+      },
+      "permittedParentTags": [],
+      "allowedSubTags": ["head", "body"]
+    },
+    "i": {
+      "categories": ["flow content", "phrasing content", "palpable content"],
+      "attributes": {},
+      "permittedParentTags": [
+        {
+          "category": "phrasing content"
+        }
+      ],
+      "allowedSubTags": [
+        {
+          "category": "phrasing content"
+        }
+      ]
+    },
+    "iframe": {
+      "categories": [
+        "flow content",
+        "phrasing content",
+        "embedded content",
+        "interactive content",
+        "palpable content"
+      ],
+      "attributes": {
+        "src": {},
+        "srcdoc": {},
+        "name": {},
+        "sandbox": {},
+        "allow": {},
+        "allowfullscreen": {},
+        "allowpaymentrequest": {},
+        "width": {},
+        "height": {},
+        "referrerpolicy": {}
+      },
+      "permittedParentTags": [
+        {
+          "category": "phrasing content"
+        }
+      ],
+      "allowedSubTags": []
+    },
+    "img": {
+      "categories": [
+        "flow content",
+        "phrasing content",
+        "embedded content",
+        "interactive content",
+        "form-associated content",
+        "palpable content"
+      ],
+      "attributes": {
+        "alt": {},
+        "src": {},
+        "srcset": {},
+        "crossorigin": {},
+        "usemap": {},
+        "ismap": {},
+        "width": {},
+        "height": {},
+        "decoding": {},
+        "referrerpolicy": {}
+      },
+      "permittedParentTags": [
+        {
+          "category": "phrasing content"
+        },
+        "picture"
+      ],
+      "allowedSubTags": []
+    },
+    "input": {
+      "categories": [
+        "flow content",
+        "phrasing content",
+        "interactive content",
+        "listed content",
+        "labelable",
+        "submittable content",
+        "resettable",
+        "form-associated content",
+        "palpable content"
+      ],
+      "attributes": {
+        "accept": {},
+        "alt": {},
+        "autocomplete": {},
+        "checked": {},
+        "dirname": {},
+        "disabled": {},
+        "form": {},
+        "formaction": {},
+        "formenctype": {},
+        "formmethod": {},
+        "formnovalidate": {},
+        "formtarget": {},
+        "height": {},
+        "list": {},
+        "max": {},
+        "maxlength": {},
+        "min": {},
+        "minlength": {},
+        "multiple": {},
+        "name": {},
+        "pattern": {},
+        "placeholder": {},
+        "readonly": {},
+        "required": {},
+        "size": {},
+        "src": {},
+        "step": {},
+        "type": {},
+        "value": {},
+        "width": {}
+      },
+      "permittedParentTags": [
+        {
+          "category": "phrasing content"
+        }
+      ],
+      "allowedSubTags": []
+    },
+    "ins": {
+      "categories": ["flow content", "phrasing content", "palpable content"],
+      "attributes": {
+        "cite": {},
+        "datetime": {}
+      },
+      "permittedParentTags": [
+        {
+          "category": "phrasing content"
+        }
+      ]
+    },
+    "kbd": {
+      "categories": ["flow content", "phrasing content", "palpable content"],
+      "attributes": {},
+      "permittedParentTags": [
+        {
+          "category": "phrasing content"
+        }
+      ],
+      "allowedSubTags": [
+        {
+          "category": "phrasing content"
+        }
+      ]
+    },
+    "label": {
+      "categories": [
+        "flow content",
+        "phrasing content",
+        "interactive content",
+        "palpable content"
+      ],
+      "attributes": {
+        "for": {}
+      },
+      "permittedParentTags": [
+        {
+          "category": "phrasing content"
+        }
+      ],
+      "allowedSubTags": [
+        {
+          "category": "phrasing content"
+        }
+      ]
+    },
+    "legend": {
+      "categories": [],
+      "attributes": {},
+      "permittedParentTags": ["fieldset"],
+      "allowedSubTags": [
+        {
+          "category": "phrasing content"
+        }
+      ]
+    },
+    "li": {
+      "categories": [],
+      "attributes": {
+        "value": {}
+      },
+      "permittedParentTags": ["ol", "ul", "menu"],
+      "allowedSubTags": [
+        {
+          "category": "flow content"
+        }
+      ]
+    },
+    "link": {
+      "categories": ["metadata", "flow content", "phrasing content"],
+      "attributes": {
+        "href": {},
+        "crossorigin": {},
+        "rel": {},
+        "as": {},
+        "media": {},
+        "hreflang": {},
+        "type": {},
+        "sizes": {},
+        "imagesrcset": {},
+        "imagesizes": {},
+        "referrerpolicy": {},
+        "integrity": {}
+      },
+      "permittedParentTags": [
+        "head",
+        "noscript",
+        {
+          "category": "phrasing content"
+        }
+      ],
+      "allowedSubTags": []
+    },
+    "main": {
+      "categories": ["flow content", "palpable content"],
+      "attributes": {},
+      "permittedParentTags": [
+        {
+          "category": "flow content"
+        }
+      ],
+      "allowedSubTags": [
+        {
+          "category": "flow content"
+        }
+      ]
+    },
+    "map": {
+      "categories": ["flow content", "phrasing content", "palpable content"],
+      "attributes": {
+        "name": {}
+      },
+      "permittedParentTags": [
+        {
+          "category": "phrasing content"
+        }
+      ],
+      "allowedSubTags": ["area"]
+    },
+    "mark": {
+      "categories": ["flow content", "phrasing content", "palpable content"],
+      "attributes": {},
+      "permittedParentTags": [
+        {
+          "category": "phrasing content"
+        }
+      ],
+      "allowedSubTags": [
+        {
+          "category": "phrasing content"
+        }
+      ]
+    },
+    "math": {
+      "categories": [
+        "flow content",
+        "phrasing content",
+        "embedded content",
+        "palpable content"
+      ],
+      "attributes": {},
+      "permittedParentTags": [
+        {
+          "category": "phrasing content"
+        }
+      ],
+      "allowedSubTags": []
+    },
+    "menu": {
+      "categories": ["flow content", "palpable content"],
+      "attributes": {},
+      "permittedParentTags": [
+        {
+          "category": "flow content"
+        }
+      ],
+      "allowedSubTags": [
+        "li",
+        {
+          "category": "script-supporting"
+        }
+      ]
+    },
+    "meta": {
+      "categories": ["metadata", "flow content", "phrasing content"],
+      "attributes": {
+        "name": {},
+        "http-equiv": {},
+        "content": {},
+        "charset": {}
+      },
+      "permittedParentTags": [
+        "head",
+        "noscript",
+        {
+          "category": "phrasing content"
+        }
+      ],
+      "allowedSubTags": []
+    },
+    "meter": {
+      "categories": [
+        "flow content",
+        "phrasing content",
+        "labelable",
+        "palpable content"
+      ],
+      "attributes": {
+        "value": {},
+        "min": {},
+        "max": {},
+        "low": {},
+        "high": {},
+        "optimum": {}
+      },
+      "permittedParentTags": [
+        {
+          "category": "phrasing content"
+        }
+      ],
+      "allowedSubTags": [
+        {
+          "category": "phrasing content"
+        }
+      ]
+    },
+    "nav": {
+      "categories": ["flow content", "sectioning content", "palpable content"],
+      "attributes": {},
+      "permittedParentTags": [
+        {
+          "category": "flow content"
+        }
+      ],
+      "allowedSubTags": [
+        {
+          "category": "flow content"
+        }
+      ]
+    },
+    "noscript": {
+      "categories": ["metadata", "flow content", "phrasing content"],
+      "attributes": {},
+      "permittedParentTags": [
+        "head",
+        {
+          "category": "phrasing content"
+        }
+      ],
+      "allowedSubTags": []
+    },
+    "object": {
+      "categories": [
+        "flow content",
+        "phrasing content",
+        "embedded content",
+        "interactive content",
+        "listed content",
+        "submittable content",
+        "form-associated content",
+        "palpable content"
+      ],
+      "attributes": {
+        "data": {},
+        "type": {},
+        "name": {},
+        "usemap": {},
+        "form": {},
+        "width": {},
+        "height": {}
+      },
+      "permittedParentTags": [
+        {
+          "category": "phrasing content"
+        }
+      ],
+      "allowedSubTags": ["param"]
+    },
+    "ol": {
+      "categories": ["flow content", "palpable content"],
+      "attributes": {
+        "reversed": {},
+        "start": {},
+        "type": {}
+      },
+      "permittedParentTags": [
+        {
+          "category": "flow content"
+        }
+      ],
+      "allowedSubTags": [
+        "li",
+        {
+          "category": "script-supporting"
+        }
+      ]
+    },
+    "optgroup": {
+      "categories": [],
+      "attributes": {
+        "disabled": {},
+        "label": {}
+      },
+      "permittedParentTags": ["select"],
+      "allowedSubTags": [
+        "option",
+        {
+          "category": "script-supporting"
+        }
+      ]
+    },
+    "option": {
+      "categories": [],
+      "attributes": {
+        "disabled": {},
+        "label": {},
+        "selected": {},
+        "value": {}
+      },
+      "permittedParentTags": ["select", "datalist", "optgroup"],
+      "allowedSubTags": ["text"]
+    },
+    "output": {
+      "categories": [
+        "flow content",
+        "phrasing content",
+        "listed content",
+        "labelable",
+        "resettable",
+        "form-associated content",
+        "palpable content"
+      ],
+      "attributes": {
+        "for": {},
+        "form": {},
+        "name": {}
+      },
+      "permittedParentTags": [
+        {
+          "category": "phrasing content"
+        }
+      ],
+      "allowedSubTags": [
+        {
+          "category": "phrasing content"
+        }
+      ]
+    },
+    "p": {
+      "categories": ["flow content", "palpable content"],
+      "attributes": {},
+      "permittedParentTags": [
+        {
+          "category": "flow content"
+        }
+      ],
+      "allowedSubTags": [
+        {
+          "category": "phrasing content"
+        }
+      ]
+    },
+    "param": {
+      "categories": [],
+      "attributes": {
+        "name": {},
+        "value": {}
+      },
+      "permittedParentTags": ["object"],
+      "allowedSubTags": []
+    },
+    "picture": {
+      "categories": ["flow content", "phrasing content", "embedded content"],
+      "attributes": {},
+      "permittedParentTags": [
+        {
+          "category": "phrasing content"
+        }
+      ],
+      "allowedSubTags": [
+        "source",
+        "img",
+        {
+          "category": "script-supporting"
+        }
+      ]
+    },
+    "pre": {
+      "categories": ["flow content", "palpable content"],
+      "attributes": {},
+      "permittedParentTags": [
+        {
+          "category": "flow content"
+        }
+      ],
+      "allowedSubTags": [
+        {
+          "category": "phrasing content"
+        }
+      ]
+    },
+    "progress": {
+      "categories": [
+        "flow content",
+        "phrasing content",
+        "labelable",
+        "palpable content"
+      ],
+      "attributes": {
+        "value": {},
+        "max": {}
+      },
+      "permittedParentTags": [
+        {
+          "category": "phrasing content"
+        }
+      ],
+      "allowedSubTags": [
+        {
+          "category": "phrasing content"
+        }
+      ]
+    },
+    "q": {
+      "categories": ["flow content", "phrasing content", "palpable content"],
+      "attributes": {
+        "cite": {}
+      },
+      "permittedParentTags": [
+        {
+          "category": "phrasing content"
+        }
+      ],
+      "allowedSubTags": [
+        {
+          "category": "phrasing content"
+        }
+      ]
+    },
+    "rp": {
+      "categories": [],
+      "attributes": {},
+      "permittedParentTags": ["ruby"],
+      "allowedSubTags": ["text"]
+    },
+    "rt": {
+      "categories": [],
+      "attributes": {},
+      "permittedParentTags": ["ruby"],
+      "allowedSubTags": [
+        {
+          "category": "phrasing content"
+        }
+      ]
+    },
+    "ruby": {
+      "categories": ["flow content", "phrasing content", "palpable content"],
+      "attributes": {},
+      "permittedParentTags": [
+        {
+          "category": "phrasing content"
+        }
+      ],
+      "allowedSubTags": [
+        {
+          "category": "phrasing content"
+        },
+        "rt",
+        "rp"
+      ]
+    },
+    "s": {
+      "categories": ["flow content", "phrasing content", "palpable content"],
+      "attributes": {},
+      "permittedParentTags": [
+        {
+          "category": "phrasing content"
+        }
+      ],
+      "allowedSubTags": [
+        {
+          "category": "phrasing content"
+        }
+      ]
+    },
+    "samp": {
+      "categories": ["flow content", "phrasing content", "palpable content"],
+      "attributes": {},
+      "permittedParentTags": [
+        {
+          "category": "phrasing content"
+        }
+      ],
+      "allowedSubTags": [
+        {
+          "category": "phrasing content"
+        }
+      ]
+    },
+    "script": {
+      "categories": [
+        "metadata",
+        "flow content",
+        "phrasing content",
+        "script-supporting"
+      ],
+      "attributes": {
+        "src": {},
+        "type": {},
+        "async": {},
+        "defer": {},
+        "crossorigin": {},
+        "integrity": {},
+        "referrerpolicy": {}
+      },
+      "permittedParentTags": [
+        "head",
+        {
+          "category": "phrasing content"
+        },
+        {
+          "category": "script-supporting"
+        }
+      ],
+      "allowedSubTags": []
+    },
+    "section": {
+      "categories": ["flow content", "sectioning content", "palpable content"],
+      "attributes": {},
+      "permittedParentTags": [
+        {
+          "category": "flow content"
+        }
+      ],
+      "allowedSubTags": [
+        {
+          "category": "flow content"
+        }
+      ]
+    },
+    "select": {
+      "categories": [
+        "flow content",
+        "phrasing content",
+        "interactive content",
+        "listed content",
+        "labelable",
+        "submittable content",
+        "resettable",
+        "form-associated content",
+        "palpable content"
+      ],
+      "attributes": {
+        "autocomplete": {},
+        "disabled": {},
+        "form": {},
+        "multiple": {},
+        "name": {},
+        "required": {},
+        "size": {}
+      },
+      "permittedParentTags": [
+        {
+          "category": "phrasing content"
+        }
+      ],
+      "allowedSubTags": [
+        "option",
+        "optgroup",
+        {
+          "category": "script-supporting"
+        }
+      ]
+    },
+    "slot": {
+      "categories": ["flow content", "phrasing content"],
+      "attributes": {
+        "name": {}
+      },
+      "permittedParentTags": [
+        {
+          "category": "phrasing content"
+        }
+      ]
+    },
+    "small": {
+      "categories": ["flow content", "phrasing content", "palpable content"],
+      "attributes": {},
+      "permittedParentTags": [
+        {
+          "category": "phrasing content"
+        }
+      ],
+      "allowedSubTags": [
+        {
+          "category": "phrasing content"
+        }
+      ]
+    },
+    "source": {
+      "categories": [],
+      "attributes": {
+        "src": {},
+        "type": {},
+        "srcset": {},
+        "sizes": {},
+        "media": {}
+      },
+      "permittedParentTags": ["picture", "video", "audio"],
+      "allowedSubTags": []
+    },
+    "span": {
+      "categories": ["flow content", "phrasing content", "palpable content"],
+      "attributes": {},
+      "permittedParentTags": [
+        {
+          "category": "phrasing content"
+        }
+      ],
+      "allowedSubTags": [
+        {
+          "category": "phrasing content"
+        }
+      ]
+    },
+    "strong": {
+      "categories": ["flow content", "phrasing content", "palpable content"],
+      "attributes": {},
+      "permittedParentTags": [
+        {
+          "category": "phrasing content"
+        }
+      ],
+      "allowedSubTags": [
+        {
+          "category": "phrasing content"
+        }
+      ]
+    },
+    "style": {
+      "categories": ["metadata"],
+      "attributes": {
+        "media": {}
+      },
+      "permittedParentTags": ["head", "noscript"],
+      "allowedSubTags": []
+    },
+    "sub": {
+      "categories": ["flow content", "phrasing content", "palpable content"],
+      "attributes": {},
+      "permittedParentTags": [
+        {
+          "category": "phrasing content"
+        }
+      ],
+      "allowedSubTags": [
+        {
+          "category": "phrasing content"
+        }
+      ]
+    },
+    "summary": {
+      "categories": [],
+      "attributes": {},
+      "permittedParentTags": ["details"],
+      "allowedSubTags": [
+        {
+          "category": "phrasing content"
+        }
+      ]
+    },
+    "sup": {
+      "categories": ["flow content", "phrasing content", "palpable content"],
+      "attributes": {},
+      "permittedParentTags": [
+        {
+          "category": "phrasing content"
+        }
+      ],
+      "allowedSubTags": [
+        {
+          "category": "phrasing content"
+        }
+      ]
+    },
+    "svg": {
+      "categories": [
+        "flow content",
+        "phrasing content",
+        "embedded content",
+        "palpable content"
+      ],
+      "attributes": {},
+      "permittedParentTags": [
+        {
+          "category": "phrasing content"
+        }
+      ],
+      "allowedSubTags": []
+    },
+    "table": {
+      "categories": ["flow content", "palpable content"],
+      "attributes": {},
+      "permittedParentTags": [
+        {
+          "category": "flow content"
+        }
+      ],
+      "allowedSubTags": [
+        "caption",
+        "colgroup",
+        "thead",
+        "tbody",
+        "tfoot",
+        "tr",
+        {
+          "category": "script-supporting"
+        }
+      ]
+    },
+    "tbody": {
+      "categories": [],
+      "attributes": {},
+      "permittedParentTags": ["table"],
+      "allowedSubTags": [
+        "tr",
+        {
+          "category": "script-supporting"
+        }
+      ]
+    },
+    "td": {
+      "categories": ["sectioning root content"],
+      "attributes": {
+        "colspan": {},
+        "rowspan": {},
+        "headers": {}
+      },
+      "permittedParentTags": ["tr"],
+      "allowedSubTags": [
+        {
+          "category": "flow content"
+        }
+      ]
+    },
+    "template": {
+      "categories": [
+        "metadata",
+        "flow content",
+        "phrasing content",
+        "script-supporting"
+      ],
+      "attributes": {},
+      "permittedParentTags": [
+        {
+          "category": "metadata"
+        },
+        {
+          "category": "phrasing content"
+        },
+        {
+          "category": "script-supporting"
+        },
+        "colgroup"
+      ],
+      "allowedSubTags": []
+    },
+    "textarea": {
+      "categories": [
+        "flow content",
+        "phrasing content",
+        "interactive content",
+        "listed content",
+        "labelable",
+        "submittable content",
+        "resettable",
+        "form-associated content",
+        "palpable content"
+      ],
+      "attributes": {
+        "cols": {},
+        "dirname": {},
+        "disabled": {},
+        "form": {},
+        "maxlength": {},
+        "minlength": {},
+        "name": {},
+        "placeholder": {},
+        "readonly": {},
+        "required": {},
+        "rows": {},
+        "wrap": {}
+      },
+      "permittedParentTags": [
+        {
+          "category": "phrasing content"
+        }
+      ],
+      "allowedSubTags": ["text"]
+    },
+    "tfoot": {
+      "categories": [],
+      "attributes": {},
+      "permittedParentTags": ["table"],
+      "allowedSubTags": [
+        "tr",
+        {
+          "category": "script-supporting"
+        }
+      ]
+    },
+    "th": {
+      "categories": ["interactive content"],
+      "attributes": {
+        "colspan": {},
+        "rowspan": {},
+        "headers": {},
+        "scope": {},
+        "abbr": {}
+      },
+      "permittedParentTags": ["tr"],
+      "allowedSubTags": [
+        {
+          "category": "flow content"
+        }
+      ]
+    },
+    "thead": {
+      "categories": [],
+      "attributes": {},
+      "permittedParentTags": ["table"],
+      "allowedSubTags": [
+        "tr",
+        {
+          "category": "script-supporting"
+        }
+      ]
+    },
+    "time": {
+      "categories": ["flow content", "phrasing content", "palpable content"],
+      "attributes": {
+        "datetime": {}
+      },
+      "permittedParentTags": [
+        {
+          "category": "phrasing content"
+        }
+      ],
+      "allowedSubTags": [
+        {
+          "category": "phrasing content"
+        }
+      ]
+    },
+    "title": {
+      "categories": ["metadata"],
+      "attributes": {},
+      "permittedParentTags": ["head"],
+      "allowedSubTags": ["text"]
+    },
+    "tr": {
+      "categories": [],
+      "attributes": {},
+      "permittedParentTags": ["table", "thead", "tbody", "tfoot"],
+      "allowedSubTags": [
+        "th",
+        "td",
+        {
+          "category": "script-supporting"
+        }
+      ]
+    },
+    "track": {
+      "categories": [],
+      "attributes": {
+        "default": {},
+        "kind": {},
+        "label": {},
+        "src": {},
+        "srclang": {}
+      },
+      "permittedParentTags": ["audio", "video"],
+      "allowedSubTags": []
+    },
+    "u": {
+      "categories": ["flow content", "phrasing content", "palpable content"],
+      "attributes": {},
+      "permittedParentTags": [
+        {
+          "category": "phrasing content"
+        }
+      ],
+      "allowedSubTags": [
+        {
+          "category": "phrasing content"
+        }
+      ]
+    },
+    "ul": {
+      "categories": ["flow content", "palpable content"],
+      "attributes": {},
+      "permittedParentTags": [
+        {
+          "category": "flow content"
+        }
+      ],
+      "allowedSubTags": [
+        "li",
+        {
+          "category": "script-supporting"
+        }
+      ]
+    },
+    "var": {
+      "categories": ["flow content", "phrasing content", "palpable content"],
+      "attributes": {},
+      "permittedParentTags": [
+        {
+          "category": "phrasing content"
+        }
+      ],
+      "allowedSubTags": [
+        {
+          "category": "phrasing content"
+        }
+      ]
+    },
+    "video": {
+      "categories": [
+        "flow content",
+        "phrasing content",
+        "embedded content",
+        "interactive content",
+        "palpable content"
+      ],
+      "attributes": {
+        "src": {},
+        "crossorigin": {},
+        "poster": {},
+        "preload": {},
+        "autoplay": {},
+        "playsinline": {},
+        "loop": {},
+        "muted": {},
+        "controls": {},
+        "width": {},
+        "height": {}
+      },
+      "permittedParentTags": [
+        {
+          "category": "phrasing content"
+        }
+      ],
+      "allowedSubTags": ["source", "track"]
+    },
+    "wbr": {
+      "categories": ["flow content", "phrasing content"],
+      "attributes": {},
+      "permittedParentTags": [
+        {
+          "category": "phrasing content"
+        }
+      ],
+      "allowedSubTags": []
+    }
+  }
+}

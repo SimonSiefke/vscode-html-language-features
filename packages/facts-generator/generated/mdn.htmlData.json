@@ -7,11 +7,12 @@
       },
       "description": "The HTML <a> element (or anchor element), with its href attribute, creates a hyperlink to web pages, files, email addresses, locations in the same page, or anything else a URL can address.",
       "attributes": {
-        "download": {
-          "description": "Prompts the user to save the linked URL instead of navigating to it. Can be used with or without a value:",
+        "HTML5": {
+          "deprecated": true,
+          "description": "The shape of the hyperlink’s region in an image map.\n\nNote: Use the <area> element for image maps instead.",
           "reference": {
             "name": "MDN Reference",
-            "url": "https://developer.mozilla.org//en-US/docs/Web/HTML/Element/a#attr-download"
+            "url": "https://developer.mozilla.org//en-US/docs/Web/HTML/Element/a#attr-HTML5"
           }
         },
         "href": {
@@ -62,46 +63,6 @@
           "reference": {
             "name": "MDN Reference",
             "url": "https://developer.mozilla.org//en-US/docs/Web/HTML/Element/a#attr-type"
-          }
-        },
-        "charset": {
-          "deprecated": true,
-          "description": "Hinted at the character encoding of the linked URL.\n\nNote: This attribute is obsolete and should not be used by authors. Use the HTTP Content-Type: header on the linked URL.",
-          "reference": {
-            "name": "MDN Reference",
-            "url": "https://developer.mozilla.org//en-US/docs/Web/HTML/Element/a#attr-charset"
-          }
-        },
-        "coords": {
-          "deprecated": true,
-          "description": "Used with the shape attribute. A comma-separated list of coordinates.",
-          "reference": {
-            "name": "MDN Reference",
-            "url": "https://developer.mozilla.org//en-US/docs/Web/HTML/Element/a#attr-coords"
-          }
-        },
-        "name": {
-          "deprecated": true,
-          "description": "Was required to define a possible target location in a page. In HTML 4.01, id and name could both be used on <a>, as long as they had identical values.\n\nNote: Use the global attribute id instead.",
-          "reference": {
-            "name": "MDN Reference",
-            "url": "https://developer.mozilla.org//en-US/docs/Web/HTML/Element/a#attr-name"
-          }
-        },
-        "rev": {
-          "deprecated": true,
-          "description": "Specified a reverse link; the opposite of the rel attribute. Deprecated for being very confusing.",
-          "reference": {
-            "name": "MDN Reference",
-            "url": "https://developer.mozilla.org//en-US/docs/Web/HTML/Element/a#attr-rev"
-          }
-        },
-        "shape": {
-          "deprecated": true,
-          "description": "The shape of the hyperlink’s region in an image map.\n\nNote: Use the <area> element for image maps instead.",
-          "reference": {
-            "name": "MDN Reference",
-            "url": "https://developer.mozilla.org//en-US/docs/Web/HTML/Element/a#attr-shape"
           }
         }
       }
@@ -263,11 +224,11 @@
             "url": "https://developer.mozilla.org//en-US/docs/Web/HTML/Element/area#attr-coords"
           }
         },
-        "download": {
-          "description": "This attribute, if present, indicates that the author intends the hyperlink to be used for downloading a resource. See <a> for a full description of the download attribute.",
+        "HTML5": {
+          "description": "For anchors containing the href attribute, this attribute specifies the relationship of the target object to the link object. The value is a space-separated list of link types values. The values and their semantics will be registered by some authority that might have meaning to the document author. The default relationship, if no other is given, is void. Use this attribute only if the href attribute is present.",
           "reference": {
             "name": "MDN Reference",
-            "url": "https://developer.mozilla.org//en-US/docs/Web/HTML/Element/area#attr-download"
+            "url": "https://developer.mozilla.org//en-US/docs/Web/HTML/Element/area#attr-HTML5"
           }
         },
         "href": {
@@ -277,27 +238,12 @@
             "url": "https://developer.mozilla.org//en-US/docs/Web/HTML/Element/area#attr-href"
           }
         },
-        "hreflang": {
-          "description": "Indicates the language of the linked resource. Allowed values are determined by BCP47. Use this attribute only if the href attribute is present.",
-          "reference": {
-            "name": "MDN Reference",
-            "url": "https://developer.mozilla.org//en-US/docs/Web/HTML/Element/area#attr-hreflang"
-          }
-        },
-        "name": {
+        "HTML 4": {
           "deprecated": true,
-          "description": "Define a names for the clickable area so that it can be scripted by older browsers.",
+          "description": "A numeric value specifying the position of the defined area in the browser tabbing order. This attribute is global in HTML5.",
           "reference": {
             "name": "MDN Reference",
-            "url": "https://developer.mozilla.org//en-US/docs/Web/HTML/Element/area#attr-name"
-          }
-        },
-        "nohref": {
-          "deprecated": true,
-          "description": "Indicates that no hyperlink exists for the associated area. Either this attribute or the href attribute must be present in the element.\n\nUsage note: This attribute is obsolete in HTML5, instead omitting the href attribute is sufficient.",
-          "reference": {
-            "name": "MDN Reference",
-            "url": "https://developer.mozilla.org//en-US/docs/Web/HTML/Element/area#attr-nohref"
+            "url": "https://developer.mozilla.org//en-US/docs/Web/HTML/Element/area#attr-HTML 4"
           }
         },
         "ping": {
@@ -315,26 +261,11 @@
             "url": "https://developer.mozilla.org//en-US/docs/Web/HTML/Element/area#attr-referrerpolicy"
           }
         },
-        "rel": {
-          "description": "For anchors containing the href attribute, this attribute specifies the relationship of the target object to the link object. The value is a space-separated list of link types values. The values and their semantics will be registered by some authority that might have meaning to the document author. The default relationship, if no other is given, is void. Use this attribute only if the href attribute is present.",
-          "reference": {
-            "name": "MDN Reference",
-            "url": "https://developer.mozilla.org//en-US/docs/Web/HTML/Element/area#attr-rel"
-          }
-        },
         "shape": {
           "description": "The shape of the associated hot spot. The specifications for HTML 5 and HTML 4 define the values rect, which defines a rectangular region; circle, which defines a circular region; poly, which defines a polygon; and default, which indicates the entire region beyond any defined shapes. Many browsers, notably Internet Explorer 4 and higher, support circ, polygon, and rectangle as valid values for shape; these values are .",
           "reference": {
             "name": "MDN Reference",
             "url": "https://developer.mozilla.org//en-US/docs/Web/HTML/Element/area#attr-shape"
-          }
-        },
-        "tabindex": {
-          "deprecated": true,
-          "description": "A numeric value specifying the position of the defined area in the browser tabbing order. This attribute is global in HTML5.",
-          "reference": {
-            "name": "MDN Reference",
-            "url": "https://developer.mozilla.org//en-US/docs/Web/HTML/Element/area#attr-tabindex"
           }
         },
         "target": {
@@ -458,27 +389,6 @@
           "reference": {
             "name": "MDN Reference",
             "url": "https://developer.mozilla.org//en-US/docs/Web/HTML/Element/audio#attr-src"
-          }
-        },
-        "HTMLMediaElement.audioTracks": {
-          "description": "An AudioTrackList containing all of the media element's audio tracks. You can add a listener for addtrack to this object to be alerted when new audio tracks are added to the element.",
-          "reference": {
-            "name": "MDN Reference",
-            "url": "https://developer.mozilla.org//en-US/docs/Web/HTML/Element/audio#attr-HTMLMediaElement.audioTracks"
-          }
-        },
-        "HTMLMediaElement.videoTracks": {
-          "description": "Add an addtrack listener to this VideoTrackList object to be informed when video tracks are added to the element.",
-          "reference": {
-            "name": "MDN Reference",
-            "url": "https://developer.mozilla.org//en-US/docs/Web/HTML/Element/audio#attr-HTMLMediaElement.videoTracks"
-          }
-        },
-        "HTMLMediaElement.textTracks": {
-          "description": "Add an addtrack event listener to this TextTrackList to be notified when new text tracks are added to the element.",
-          "reference": {
-            "name": "MDN Reference",
-            "url": "https://developer.mozilla.org//en-US/docs/Web/HTML/Element/audio#attr-HTMLMediaElement.textTracks"
           }
         }
       }
@@ -876,11 +786,11 @@
       },
       "description": "The HTML <button> element represents a clickable button, which can be used in forms or anywhere in a document that needs simple, standard button functionality.",
       "attributes": {
-        "autofocus": {
-          "description": "This Boolean attribute specifies that the button should have input focus when the page loads. It can then be overridden by the user, for example by typing in a different control. Only one element in a document can have this attribute.",
+        "HTML5": {
+          "description": "If the button is a submit button, this attribute is a author-defined name or standardized, underscore-prefixed keyword indicating where to display the response from submitting the form. This is the name of, or keyword for, a browsing context (a tab, window, or <iframe>). If this attribute is specified, it overrides the target attribute of the button's form owner. The following keywords have special meanings:\n\n*   _self: Load the response into the same browsing context as the current one. This is the default if the attribute is not specified.\n*   _blank: Load the response into a new unnamed browsing context — usually a new tab or window, depending on the user’s browser settings.\n*   _parent: Load the response into the parent browsing context of the current one. If there is no parent, this option behaves the same way as _self.\n*   _top: Load the response into the top-level browsing context (that is, the browsing context that is an ancestor of the current one, and has no parent). If there is no parent, this option behaves the same way as _self.",
           "reference": {
             "name": "MDN Reference",
-            "url": "https://developer.mozilla.org//en-US/docs/Web/HTML/Element/button#attr-autofocus"
+            "url": "https://developer.mozilla.org//en-US/docs/Web/HTML/Element/button#attr-HTML5"
           }
         },
         "autocomplete": {
@@ -895,48 +805,6 @@
           "reference": {
             "name": "MDN Reference",
             "url": "https://developer.mozilla.org//en-US/docs/Web/HTML/Element/button#attr-disabled"
-          }
-        },
-        "form": {
-          "description": "The <form> element that the button is associated with (its form owner). The value of this attribute must be the id attribute of a <form> in the same document. If this attribute is not set, the <button> element is associated with its ancestor <form> element, if one exists. This attribute lets you associate <button> elements to <form> elements anywhere within a document, not just as descendants of <form> elements.",
-          "reference": {
-            "name": "MDN Reference",
-            "url": "https://developer.mozilla.org//en-US/docs/Web/HTML/Element/button#attr-form"
-          }
-        },
-        "formaction": {
-          "description": "The URL that processes the information submitted by the button. If specified, it overrides the action attribute of the button's form owner.",
-          "reference": {
-            "name": "MDN Reference",
-            "url": "https://developer.mozilla.org//en-US/docs/Web/HTML/Element/button#attr-formaction"
-          }
-        },
-        "formenctype": {
-          "description": "If the button is a submit button, this attribute specifies the form data encoding that is used to submit the form to the server. Possible values:\n\n*   application/x-www-form-urlencoded: The default value if the attribute is not specified.\n*   multipart/form-data: Use this value if you are using an <input> element with the type attribute set to file.\n*   text/plain: Added to the spec as a debugging aid; shouldn’t be used for real form submission.\n\nIf this attribute is specified, it overrides the enctype attribute of the button's form owner.\n\nThis attribute is also available on <input type=\"image\"> and <input type=\"submit\"> elements.",
-          "reference": {
-            "name": "MDN Reference",
-            "url": "https://developer.mozilla.org//en-US/docs/Web/HTML/Element/button#attr-formenctype"
-          }
-        },
-        "formmethod": {
-          "description": "If the button is a submit button, this attribute specifies the HTTP method that the browser uses to submit the form. Possible values:\n\n*   post: The data from the form are included in the body of the HTTP request when sent to the server. Use this method when the form contains information that shouldn’t be public, like passwords.\n*   get: The data from the form are appended to the form's action URL, with a ? as a separator, and the resulting URL is sent to the server. Use this method when the form has no side effects, like search forms.\n\nIf specified, this attribute overrides the method attribute of the button's form owner.\n\nThis attribute is also available on <input type=\"image\"> and <input type=\"submit\"> elements.",
-          "reference": {
-            "name": "MDN Reference",
-            "url": "https://developer.mozilla.org//en-US/docs/Web/HTML/Element/button#attr-formmethod"
-          }
-        },
-        "formnovalidate": {
-          "description": "If the button is a submit button, this Boolean attribute specifies that the form is not to be validated when it is submitted. If this attribute is specified, it overrides the novalidate attribute of the button's form owner.",
-          "reference": {
-            "name": "MDN Reference",
-            "url": "https://developer.mozilla.org//en-US/docs/Web/HTML/Element/button#attr-formnovalidate"
-          }
-        },
-        "formtarget": {
-          "description": "If the button is a submit button, this attribute is a author-defined name or standardized, underscore-prefixed keyword indicating where to display the response from submitting the form. This is the name of, or keyword for, a browsing context (a tab, window, or <iframe>). If this attribute is specified, it overrides the target attribute of the button's form owner. The following keywords have special meanings:\n\n*   _self: Load the response into the same browsing context as the current one. This is the default if the attribute is not specified.\n*   _blank: Load the response into a new unnamed browsing context — usually a new tab or window, depending on the user’s browser settings.\n*   _parent: Load the response into the parent browsing context of the current one. If there is no parent, this option behaves the same way as _self.\n*   _top: Load the response into the top-level browsing context (that is, the browsing context that is an ancestor of the current one, and has no parent). If there is no parent, this option behaves the same way as _self.",
-          "reference": {
-            "name": "MDN Reference",
-            "url": "https://developer.mozilla.org//en-US/docs/Web/HTML/Element/button#attr-formtarget"
           }
         },
         "name": {
@@ -1065,12 +933,12 @@
       },
       "selfClosing": true,
       "attributes": {
-        "align": {
+        "HTML4.01": {
           "deprecated": true,
-          "description": "This enumerated attribute specifies how horizontal alignment of each column cell content will be handled. Possible values are:\n\n*   left, aligning the content to the left of the cell\n*   center, centering the content in the cell\n*   right, aligning the content to the right of the cell\n*   justify, inserting spaces into the textual content so that the content is justified in the cell\n*   char, aligning the textual content on a special character with a minimal offset, defined by the char and charoff attributes Unimplemented (see bug 2212).\n\nIf this attribute is not set, its value is inherited from the align of the <colgroup> element this <col> element belongs too. If there are none, the left value is assumed.\n\nNote: Do not use this attribute as it is obsolete (not supported) in the latest standard.\n\n*   To achieve the same effect as the left, center, right or justify values:\n    *   Do not try to set the text-align property on a selector giving a <col> element. Because <td> elements are not descendant of the <col> element, they won't inherit it.\n    *   If the table doesn't use a colspan attribute, use the td:nth-child(an+b) CSS selector. Set a to zero and b to the position of the column in the table, e.g. td:nth-child(2) { text-align: right; } to right-align the second column.\n    *   If the table does use a colspan attribute, the effect can be achieved by combining adequate CSS attribute selectors like [colspan=n], though this is not trivial.\n*   To achieve the same effect as the char value, in CSS3, you can use the value of the char as the value of the text-align property Unimplemented.",
+          "description": "This attribute specifies the vertical alignment of the text within each cell of the column. Possible values for this attribute are:\n\n*   baseline, which will put the text as close to the bottom of the cell as it is possible, but align it on the baseline of the characters instead of the bottom of them. If characters are all of the size, this has the same effect as bottom.\n*   bottom, which will put the text as close to the bottom of the cell as it is possible;\n*   middle, which will center the text in the cell;\n*   and top, which will put the text as close to the top of the cell as it is possible.\n\nNote: Do not use this attribute as it is obsolete (and not supported) in the latest standard:\n\n*   Do not try to set the vertical-align property on a selector giving a <col> element. Because <td> elements are not descendant of the <col> element, they won't inherit it.\n*   If the table doesn't use a colspan attribute, use the td:nth-child(an+b) CSS selector where a is the total number of the columns in the table and b is the ordinal position of the column in the table. Only after this selector the vertical-align property can be used.\n*   If the table does use a colspan attribute, the effect can be achieved by combining adequate CSS attribute selectors like [colspan=n], though this is not trivial.",
           "reference": {
             "name": "MDN Reference",
-            "url": "https://developer.mozilla.org//en-US/docs/Web/HTML/Element/col#attr-align"
+            "url": "https://developer.mozilla.org//en-US/docs/Web/HTML/Element/col#attr-HTML4.01"
           }
         },
         "bgcolor": {
@@ -1080,22 +948,6 @@
             "url": "https://developer.mozilla.org//en-US/docs/Web/HTML/Element/col#attr-bgcolor"
           }
         },
-        "char": {
-          "deprecated": true,
-          "description": "This attribute is used to set the character to align the cells in a column on. Typical values for this include a period (.) when attempting to align numbers or monetary values. If align is not set to char, this attribute is ignored.\n\nNote: Do not use this attribute as it is obsolete (and not supported) in the latest standard. To achieve the same effect as the char, in CSS3, you can use the character set using the char attribute as the value of the text-align property Unimplemented.",
-          "reference": {
-            "name": "MDN Reference",
-            "url": "https://developer.mozilla.org//en-US/docs/Web/HTML/Element/col#attr-char"
-          }
-        },
-        "charoff": {
-          "deprecated": true,
-          "description": "This attribute is used to indicate the number of characters to offset the column data from the alignment characters specified by the char attribute.\n\nNote: Do not use this attribute as it is obsolete (and not supported) in the latest standard.",
-          "reference": {
-            "name": "MDN Reference",
-            "url": "https://developer.mozilla.org//en-US/docs/Web/HTML/Element/col#attr-charoff"
-          }
-        },
         "span": {
           "description": "This attribute contains a positive integer indicating the number of consecutive columns the <col> element spans. If not present, its default value is 1.",
           "reference": {
@@ -1103,20 +955,12 @@
             "url": "https://developer.mozilla.org//en-US/docs/Web/HTML/Element/col#attr-span"
           }
         },
-        "valign": {
-          "deprecated": true,
-          "description": "This attribute specifies the vertical alignment of the text within each cell of the column. Possible values for this attribute are:\n\n*   baseline, which will put the text as close to the bottom of the cell as it is possible, but align it on the baseline of the characters instead of the bottom of them. If characters are all of the size, this has the same effect as bottom.\n*   bottom, which will put the text as close to the bottom of the cell as it is possible;\n*   middle, which will center the text in the cell;\n*   and top, which will put the text as close to the top of the cell as it is possible.\n\nNote: Do not use this attribute as it is obsolete (and not supported) in the latest standard:\n\n*   Do not try to set the vertical-align property on a selector giving a <col> element. Because <td> elements are not descendant of the <col> element, they won't inherit it.\n*   If the table doesn't use a colspan attribute, use the td:nth-child(an+b) CSS selector where a is the total number of the columns in the table and b is the ordinal position of the column in the table. Only after this selector the vertical-align property can be used.\n*   If the table does use a colspan attribute, the effect can be achieved by combining adequate CSS attribute selectors like [colspan=n], though this is not trivial.",
-          "reference": {
-            "name": "MDN Reference",
-            "url": "https://developer.mozilla.org//en-US/docs/Web/HTML/Element/col#attr-valign"
-          }
-        },
-        "width": {
+        "HTML5": {
           "deprecated": true,
           "description": "This attribute specifies a default width for each column in the current column group. In addition to the standard pixel and percentage values, this attribute might take the special form 0*, which means that the width of each column in the group should be the minimum width necessary to hold the column's contents. Relative widths such as 0.5* also can be used.",
           "reference": {
             "name": "MDN Reference",
-            "url": "https://developer.mozilla.org//en-US/docs/Web/HTML/Element/col#attr-width"
+            "url": "https://developer.mozilla.org//en-US/docs/Web/HTML/Element/col#attr-HTML5"
           }
         }
       }
@@ -1127,12 +971,12 @@
         "url": "https://developer.mozilla.org//en-US/docs/Web/HTML/Element/colgroup"
       },
       "attributes": {
-        "align": {
+        "HTML4.01": {
           "deprecated": true,
-          "description": "This enumerated attribute specifies how horizontal alignment of each column cell content will be handled. Possible values are:\n\n*   left, aligning the content to the left of the cell\n*   center, centering the content in the cell\n*   right, aligning the content to the right of the cell\n*   justify, inserting spaces into the textual content so that the content is justified in the cell\n*   char, aligning the textual content on a special character with a minimal offset, defined by the char and charoff attributes Unimplemented (see bug 2212).\n\nIf this attribute is not set, the left value is assumed. The descendant <col> elements may override this value using their own align attribute.\n\nNote: Do not use this attribute as it is obsolete (not supported) in the latest standard.\n\n*   To achieve the same effect as the left, center, right or justify values:\n    *   Do not try to set the text-align property on a selector giving a <colgroup> element. Because <td> elements are not descendant of the <colgroup> element, they won't inherit it.\n    *   If the table doesn't use a colspan attribute, use one td:nth-child(an+b) CSS selector per column, where a is the total number of the columns in the table and b is the ordinal position of this column in the table. Only after this selector the text-align property can be used.\n    *   If the table does use a colspan attribute, the effect can be achieved by combining adequate CSS attribute selectors like [colspan=n], though this is not trivial.\n*   To achieve the same effect as the char value, in CSS3, you can use the value of the char as the value of the text-align property Unimplemented.",
+          "description": "This attribute specifies the vertical alignment of the text within each cell of the column. Possible values for this attribute are:\n\n*   baseline, which will put the text as close to the bottom of the cell as it is possible, but align it on the baseline of the characters instead of the bottom of them. If characters are all of the size, this has the same effect as bottom.\n*   bottom, which will put the text as close to the bottom of the cell as it is possible;\n*   middle, which will center the text in the cell;\n*   and top, which will put the text as close to the top of the cell as it is possible.\n\nNote: Do not use this attribute as it is obsolete (and not supported) in the latest standard:\n\n*   Do not try to set the vertical-align property on a selector giving a <colgroup> element. Because <td> elements are not descendant of the <colgroup> element, they won't inherit it.\n*   If the table doesn't use a colspan attribute, use the td:nth-child(an+b) CSS selector per column, where a is the total number of the columns in the table and b is the ordinal position of the column in the table. Only after this selector the vertical-align property can be used.\n*   If the table does use a colspan attribute, the effect can be achieved by combining adequate CSS attribute selectors like [colspan=n], though this is not trivial.",
           "reference": {
             "name": "MDN Reference",
-            "url": "https://developer.mozilla.org//en-US/docs/Web/HTML/Element/colgroup#attr-align"
+            "url": "https://developer.mozilla.org//en-US/docs/Web/HTML/Element/colgroup#attr-HTML4.01"
           }
         },
         "bgcolor": {
@@ -1142,22 +986,6 @@
             "url": "https://developer.mozilla.org//en-US/docs/Web/HTML/Element/colgroup#attr-bgcolor"
           }
         },
-        "char": {
-          "deprecated": true,
-          "description": "This attribute specifies the alignment of the content in a column group to a character. Typical values for this include a period (.) when attempting to align numbers or monetary values. If align is not set to char, this attribute is ignored, though it will still be used as the default value for the align of the <col> which are members of this column group.\n\nNote: Do not use this attribute as it is obsolete (and not supported) in the latest standard. To achieve the same effect as the char, in CSS3, you can use the character set using the char attribute as the value of the text-align property Unimplemented.",
-          "reference": {
-            "name": "MDN Reference",
-            "url": "https://developer.mozilla.org//en-US/docs/Web/HTML/Element/colgroup#attr-char"
-          }
-        },
-        "charoff": {
-          "deprecated": true,
-          "description": "This attribute is used to indicate the number of characters to offset the column data from the alignment character specified by the char attribute.\n\nNote: Do not use this attribute as it is obsolete (and not supported) in the latest standard.",
-          "reference": {
-            "name": "MDN Reference",
-            "url": "https://developer.mozilla.org//en-US/docs/Web/HTML/Element/colgroup#attr-charoff"
-          }
-        },
         "span": {
           "description": "This attribute contains a positive integer indicating the number of consecutive columns the <colgroup> element spans. If not present, its default value is 1.\n\nNote: This attribute is applied on the attributes of the column group, it has no effect on the CSS styling rules associated with it or, even more, to the cells of the column's members of the group.\n\n*   The span attribute is not permitted if there are one or more <col> elements within the <colgroup>.",
           "reference": {
@@ -1165,20 +993,12 @@
             "url": "https://developer.mozilla.org//en-US/docs/Web/HTML/Element/colgroup#attr-span"
           }
         },
-        "valign": {
-          "deprecated": true,
-          "description": "This attribute specifies the vertical alignment of the text within each cell of the column. Possible values for this attribute are:\n\n*   baseline, which will put the text as close to the bottom of the cell as it is possible, but align it on the baseline of the characters instead of the bottom of them. If characters are all of the size, this has the same effect as bottom.\n*   bottom, which will put the text as close to the bottom of the cell as it is possible;\n*   middle, which will center the text in the cell;\n*   and top, which will put the text as close to the top of the cell as it is possible.\n\nNote: Do not use this attribute as it is obsolete (and not supported) in the latest standard:\n\n*   Do not try to set the vertical-align property on a selector giving a <colgroup> element. Because <td> elements are not descendant of the <colgroup> element, they won't inherit it.\n*   If the table doesn't use a colspan attribute, use the td:nth-child(an+b) CSS selector per column, where a is the total number of the columns in the table and b is the ordinal position of the column in the table. Only after this selector the vertical-align property can be used.\n*   If the table does use a colspan attribute, the effect can be achieved by combining adequate CSS attribute selectors like [colspan=n], though this is not trivial.",
-          "reference": {
-            "name": "MDN Reference",
-            "url": "https://developer.mozilla.org//en-US/docs/Web/HTML/Element/colgroup#attr-valign"
-          }
-        },
-        "width": {
+        "HTML5": {
           "deprecated": true,
           "description": "This attribute specifies a default width for each column in the current column group. In addition to the standard pixel and percentage values, this attribute might take the special form 0*, which means that the width of each column in the group should be the minimum width necessary to hold the column's contents. Relative widths such as 0.5* also can be used.",
           "reference": {
             "name": "MDN Reference",
-            "url": "https://developer.mozilla.org//en-US/docs/Web/HTML/Element/colgroup#attr-width"
+            "url": "https://developer.mozilla.org//en-US/docs/Web/HTML/Element/colgroup#attr-HTML5"
           }
         }
       }
@@ -1446,25 +1266,11 @@
         "url": "https://developer.mozilla.org//en-US/docs/Web/HTML/Element/fieldset"
       },
       "attributes": {
-        "disabled": {
-          "description": "If this Boolean attribute is set, all form controls that are descendants of the <fieldset>, are disabled, meaning they are not editable but will be submitted along with <form> in comparison with disabled attribute on form controls. They won't receive any browsing events, like mouse clicks or focus-related events. By default browsers display such controls grayed out. Note that form elements inside the <legend> element won't be disabled.",
-          "reference": {
-            "name": "MDN Reference",
-            "url": "https://developer.mozilla.org//en-US/docs/Web/HTML/Element/fieldset#attr-disabled"
-          }
-        },
-        "form": {
-          "description": "This attribute takes the value of the id attribute of a <form> element you want the <fieldset> to be part of, even if it is not inside the form.",
-          "reference": {
-            "name": "MDN Reference",
-            "url": "https://developer.mozilla.org//en-US/docs/Web/HTML/Element/fieldset#attr-form"
-          }
-        },
-        "name": {
+        "HTML5": {
           "description": "The name associated with the group.\n\nNote: The caption for the fieldset is given by the first <legend> element nested inside it.",
           "reference": {
             "name": "MDN Reference",
-            "url": "https://developer.mozilla.org//en-US/docs/Web/HTML/Element/fieldset#attr-name"
+            "url": "https://developer.mozilla.org//en-US/docs/Web/HTML/Element/fieldset#attr-HTML5"
           }
         }
       }
@@ -1526,12 +1332,12 @@
         "url": "https://developer.mozilla.org//en-US/docs/Web/HTML/Element/form"
       },
       "attributes": {
-        "accept": {
+        "HTML 4": {
           "deprecated": true,
           "description": "A comma-separated list of content types that the server accepts.\n\nUsage note: This attribute has been removed in HTML5 and should no longer be used. Instead, use the accept attribute of the specific <input> element.",
           "reference": {
             "name": "MDN Reference",
-            "url": "https://developer.mozilla.org//en-US/docs/Web/HTML/Element/form#attr-accept"
+            "url": "https://developer.mozilla.org//en-US/docs/Web/HTML/Element/form#attr-HTML 4"
           }
         },
         "accept-charset": {
@@ -1555,11 +1361,11 @@
             "url": "https://developer.mozilla.org//en-US/docs/Web/HTML/Element/form#attr-autocapitalize"
           }
         },
-        "autocomplete": {
-          "description": "Indicates whether input elements can by default have their values automatically completed by the browser. This setting can be overridden by an autocomplete attribute on an element belonging to the form. Possible values are:\n\n*   off: The user must explicitly enter a value into each field for every use, or the document provides its own auto-completion method; the browser does not automatically complete entries.\n*   on: The browser can automatically complete values based on values that the user has previously entered in the form.\n\nFor most modern browsers (including Firefox 38+, Google Chrome 34+, IE 11+) setting the autocomplete attribute will not prevent a browser's password manager from asking the user if they want to store login fields (username and password), if the user permits the storage the browser will autofill the login the next time the user visits the page. See The autocomplete attribute and login fields.",
+        "HTML5": {
+          "description": "This Boolean attribute indicates that the form is not to be validated when submitted. If this attribute is not specified (and therefore the form is validated), this default setting can be overridden by a formnovalidate attribute on a <button>, <input type=\"submit\"> or <input type=\"image\"> element belonging to the form.",
           "reference": {
             "name": "MDN Reference",
-            "url": "https://developer.mozilla.org//en-US/docs/Web/HTML/Element/form#attr-autocomplete"
+            "url": "https://developer.mozilla.org//en-US/docs/Web/HTML/Element/form#attr-HTML5"
           }
         },
         "enctype": {
@@ -1581,13 +1387,6 @@
           "reference": {
             "name": "MDN Reference",
             "url": "https://developer.mozilla.org//en-US/docs/Web/HTML/Element/form#attr-name"
-          }
-        },
-        "novalidate": {
-          "description": "This Boolean attribute indicates that the form is not to be validated when submitted. If this attribute is not specified (and therefore the form is validated), this default setting can be overridden by a formnovalidate attribute on a <button>, <input type=\"submit\"> or <input type=\"image\"> element belonging to the form.",
-          "reference": {
-            "name": "MDN Reference",
-            "url": "https://developer.mozilla.org//en-US/docs/Web/HTML/Element/form#attr-novalidate"
           }
         },
         "target": {
@@ -1915,52 +1714,20 @@
             "url": "https://developer.mozilla.org//en-US/docs/Web/HTML/Element/iframe#attr-width"
           }
         },
-        "align": {
+        "HTML4.01": {
           "deprecated": true,
           "description": "The alignment of this element with respect to the surrounding context.",
           "reference": {
             "name": "MDN Reference",
-            "url": "https://developer.mozilla.org//en-US/docs/Web/HTML/Element/iframe#attr-align"
+            "url": "https://developer.mozilla.org//en-US/docs/Web/HTML/Element/iframe#attr-HTML4.01"
           }
         },
-        "frameborder": {
-          "deprecated": true,
-          "description": "The value 1 (the default) draws a border around this frame. The value 0 removes the border around this frame, but you should instead use the CSS property border to control <iframe> borders.",
-          "reference": {
-            "name": "MDN Reference",
-            "url": "https://developer.mozilla.org//en-US/docs/Web/HTML/Element/iframe#attr-frameborder"
-          }
-        },
-        "longdesc": {
-          "deprecated": true,
-          "description": "A URL of a long description of the frame's content. Due to widespread misuse, this is not helpful for non-visual browsers.",
-          "reference": {
-            "name": "MDN Reference",
-            "url": "https://developer.mozilla.org//en-US/docs/Web/HTML/Element/iframe#attr-longdesc"
-          }
-        },
-        "marginheight": {
-          "deprecated": true,
-          "description": "The amount of space in pixels between the frame's content and its top and bottom borders.",
-          "reference": {
-            "name": "MDN Reference",
-            "url": "https://developer.mozilla.org//en-US/docs/Web/HTML/Element/iframe#attr-marginheight"
-          }
-        },
-        "marginwidth": {
-          "deprecated": true,
-          "description": "The amount of space in pixels between the frame's content and its left and right borders.",
-          "reference": {
-            "name": "MDN Reference",
-            "url": "https://developer.mozilla.org//en-US/docs/Web/HTML/Element/iframe#attr-marginwidth"
-          }
-        },
-        "scrolling": {
+        "HTML5": {
           "deprecated": true,
           "description": "Indicates when the browser should provide a scrollbar for the frame:\n\n*   auto: Only when the frame's content is larger than its dimensions.\n*   yes: Always show a scrollbar.\n*   no: Never show a scrollbar.",
           "reference": {
             "name": "MDN Reference",
-            "url": "https://developer.mozilla.org//en-US/docs/Web/HTML/Element/iframe#attr-scrolling"
+            "url": "https://developer.mozilla.org//en-US/docs/Web/HTML/Element/iframe#attr-HTML5"
           }
         },
         "mozbrowser": {
@@ -2372,7 +2139,7 @@
           }
         },
         "name": {
-          "description": "A string specifying a name for the input control. This name is submitted along with the control's value when the form data is submitted.\n\n##### What's in a name\n\nConsider the name a required attribute (even though it's now). If an input has no name  specified, or name is empty, the input's value is not submitted with the form. (Disabled controls, unchecked radio buttons, unchecked checkboxes, and reset buttons are also not sent.)\n\nThere are two special cases:\n\n1.   _charset_ : If used as the name of an <input> element of type hidden, the input's value is automatically set by the user agent to the character encoding being used to submit the form.\n2.  isindex: For historical reasons, the name isindex is not allowed.\n\n##### name and radio buttons\n\nThe name attribute creates a unique behavior for radio buttons.\n\nOnly one radio button in a same-named group of radio buttons can be checked at a time. Selecting any radio button in that group automatically deselects any currently-selected radio button in the same group. The value of that one checked radio button is sent along with the name if the form is submitted,\n\nWhen tabbing into a series of same-named group of radio buttons, if one is checked, that one will receive focus. If they aren't grouped together in source order, if one of the group is checked, tabbing into the group starts when the first one in the group is encountered, skipping all those that aren't checked.  In other words, if one is checked, tabbing skips the unchecked radio buttons in the group. If none are checked, the radio button group receives focus when the first button in the same name group is reached.\n\nOnce one of the radio buttons in a group has focus, using the arrow keys will navigate thru all the radio buttons of the same name, even if the radio buttons are not grouped together in the source order. \n\n##### HTMLFormElement.elements\n\nWhen an input element is given a name, that name becomes a property of the owning form element's HTMLFormElement.elements property. If you have an input whose name is set to guest and another whose name is hat-size, the following code can be used:\n\nlet form = document.querySelector(\"form\");\n\nlet guestName = form.elements.guest;\nlet hatSize = form.elements\\[\"hat-size\"\\];\n\nWhen this code has run, guestName will be the HTMLInputElement for the guest field, and hatSize the object for the hat-size field.\n\nWarning: You should avoid giving form elements a name that corresponds to a built-in property of the form, since you would then override the predefined property or method with this reference to the corresponding input.",
+          "description": "A string specifying a name for the input control. This name is submitted along with the control's value when the form data is submitted.\n\n##### What's in a name\n\nConsider the name a required attribute (even though it's not). If an input has no name  specified, or name is empty, the input's value is not submitted with the form. (Disabled controls, unchecked radio buttons, unchecked checkboxes, and reset buttons are also not sent.)\n\nThere are two special cases:\n\n1.   _charset_ : If used as the name of an <input> element of type hidden, the input's value is automatically set by the user agent to the character encoding being used to submit the form.\n2.  isindex: For historical reasons, the name isindex is not allowed.\n\n##### name and radio buttons\n\nThe name attribute creates a unique behavior for radio buttons.\n\nOnly one radio button in a same-named group of radio buttons can be checked at a time. Selecting any radio button in that group automatically deselects any currently-selected radio button in the same group. The value of that one checked radio button is sent along with the name if the form is submitted,\n\nWhen tabbing into a series of same-named group of radio buttons, if one is checked, that one will receive focus. If they aren't grouped together in source order, if one of the group is checked, tabbing into the group starts when the first one in the group is encountered, skipping all those that aren't checked.  In other words, if one is checked, tabbing skips the unchecked radio buttons in the group. If none are checked, the radio button group receives focus when the first button in the same name group is reached.\n\nOnce one of the radio buttons in a group has focus, using the arrow keys will navigate thru all the radio buttons of the same name, even if the radio buttons are not grouped together in the source order. \n\n##### HTMLFormElement.elements\n\nWhen an input element is given a name, that name becomes a property of the owning form element's HTMLFormElement.elements property. If you have an input whose name is set to guest and another whose name is hat-size, the following code can be used:\n\nlet form = document.querySelector(\"form\");\n\nlet guestName = form.elements.guest;\nlet hatSize = form.elements\\[\"hat-size\"\\];\n\nWhen this code has run, guestName will be the HTMLInputElement for the guest field, and hatSize the object for the hat-size field.\n\nWarning: You should avoid giving form elements a name that corresponds to a built-in property of the form, since you would then override the predefined property or method with this reference to the corresponding input.",
           "reference": {
             "name": "MDN Reference",
             "url": "https://developer.mozilla.org//en-US/docs/Web/HTML/Element/input#attr-name"
@@ -2476,6 +2243,13 @@
             "url": "https://developer.mozilla.org//en-US/docs/Web/HTML/Element/input#attr-off"
           }
         },
+        "incremental": {
+          "description": "The Boolean attribute incremental is a WebKit and Blink extension (so supported by Safari, Opera, Chrome, etc.) which, if present, tells the user agent to process the input as a live search. As the user edits the value of the field, the user agent sends search events to the HTMLInputElement object representing the search box. This allows your code to update the search results in real time as the user edits the search.\n\nIf incremental is not specified, the search event is only sent when the user explicitly initiates a search (such as by pressing the Enter or Return key while editing the field).\n\nThe search event is rate-limited so that it is not sent more more frequently than an implementation-defined interval.",
+          "reference": {
+            "name": "MDN Reference",
+            "url": "https://developer.mozilla.org//en-US/docs/Web/HTML/Element/input#attr-incremental"
+          }
+        },
         "mozactionhint": {
           "description": "A Mozilla extension, supported by Firefox for Android, which provides a hint as to what sort of action will be taken if the user presses the Enter or Return key while editing the field. This information is used to decide what kind of label to use on the Enter key on the virtual keyboard.\n\nNote: This has been standardized as the global attribute enterkeyhint, but is not yet widely implemented. To see the status of the change being implemented in Firefox, see bug 1490661.\n\nPermitted values are: go, done, next, search, and send. The browser decides, using this hint, what label to put on the enter key.",
           "reference": {
@@ -2483,60 +2257,24 @@
             "url": "https://developer.mozilla.org//en-US/docs/Web/HTML/Element/input#attr-mozactionhint"
           }
         },
-        "checkValidity()": {
-          "description": "Immediately runs the validity check on the element, triggering the document to fire the invalid event at the element if the value isn't valid.",
+        "orient": {
           "reference": {
             "name": "MDN Reference",
-            "url": "https://developer.mozilla.org//en-US/docs/Web/HTML/Element/input#attr-checkValidity()"
+            "url": "https://developer.mozilla.org//en-US/docs/Web/HTML/Element/input#attr-orient"
           }
         },
-        "reportValidity()": {
-          "description": "Returns true if the element's value passes validity checks; otherwise, returns false.",
+        "results": {
+          "description": "The results attribute—supported only by Safari—is a numeric value that lets you override the maximum number of entries to be displayed in the <input> element's natively-provided drop-down menu of previous search queries.\n\nThe value must be a non-negative decimal number. If not provided, or an invalid value is given, the browser's default maximum number of entries is used.",
           "reference": {
             "name": "MDN Reference",
-            "url": "https://developer.mozilla.org//en-US/docs/Web/HTML/Element/input#attr-reportValidity()"
+            "url": "https://developer.mozilla.org//en-US/docs/Web/HTML/Element/input#attr-results"
           }
         },
-        "select()": {
-          "description": "Selects the entire content of the <input> element, if the element's content is selectable. For elements with no selectable text content (such as a visual color picker or calendar date input), this method does nothing.",
+        "webkitdirectory": {
+          "description": "The Boolean webkitdirectory attribute, if present, indicates that only directories should be available to be selected by the user in the file picker interface. See HTMLInputElement.webkitdirectory for additional details and examples.\n\nNote: Though originally implemented only for WebKit-based browsers, webkitdirectory is also usable in Microsoft Edge as well as Firefox 50 and later. However, even though it has relatively broad support, it is still not standard and should not be used unless you have no alternative.",
           "reference": {
             "name": "MDN Reference",
-            "url": "https://developer.mozilla.org//en-US/docs/Web/HTML/Element/input#attr-select()"
-          }
-        },
-        "setCustomValidity()": {
-          "description": "Sets a custom message to display if the input element's value isn't valid.",
-          "reference": {
-            "name": "MDN Reference",
-            "url": "https://developer.mozilla.org//en-US/docs/Web/HTML/Element/input#attr-setCustomValidity()"
-          }
-        },
-        "setRangeText()": {
-          "description": "Sets the contents of the specified range of characters in the input element to a given string. A selectMode parameter is available to allow controlling how the existing content is affected.",
-          "reference": {
-            "name": "MDN Reference",
-            "url": "https://developer.mozilla.org//en-US/docs/Web/HTML/Element/input#attr-setRangeText()"
-          }
-        },
-        "setSelectionRange()": {
-          "description": "Selects the specified range of characters within a textual input element. Does nothing for inputs which aren't presented as text input fields.",
-          "reference": {
-            "name": "MDN Reference",
-            "url": "https://developer.mozilla.org//en-US/docs/Web/HTML/Element/input#attr-setSelectionRange()"
-          }
-        },
-        "stepDown()": {
-          "description": "Decrements the value of a numeric input by one, by default, or by the specified number of units.",
-          "reference": {
-            "name": "MDN Reference",
-            "url": "https://developer.mozilla.org//en-US/docs/Web/HTML/Element/input#attr-stepDown()"
-          }
-        },
-        "stepUp()": {
-          "description": "Increments the value of a numeric input by one or by the specified number of units.",
-          "reference": {
-            "name": "MDN Reference",
-            "url": "https://developer.mozilla.org//en-US/docs/Web/HTML/Element/input#attr-stepUp()"
+            "url": "https://developer.mozilla.org//en-US/docs/Web/HTML/Element/input#attr-webkitdirectory"
           }
         }
       }
@@ -2651,22 +2389,6 @@
       "reference": {
         "name": "MDN Reference",
         "url": "https://developer.mozilla.org//en-US/docs/Web/HTML/Element/label"
-      },
-      "attributes": {
-        "for": {
-          "description": "The id of a labelable form-related element in the same document as the <label> element. The first element in the document with an id matching the value of the for attribute is the labeled control for this label element, if it is a labelable element. If it is not labelable then the for attribute has no effect. If there are other elements which also match the id value, later in the document, they are not considered.\n\nNote: A <label> element can have both a for attribute and a contained control element, as long as the for attribute points to the contained control element.",
-          "reference": {
-            "name": "MDN Reference",
-            "url": "https://developer.mozilla.org//en-US/docs/Web/HTML/Element/label#attr-for"
-          }
-        },
-        "form": {
-          "description": "The <form> element with which the label is associated (its form owner). If specified, the value of the attribute is the id of a <form> element in the same document. This lets you place label elements anywhere within a document, not just as descendants of their form elements.",
-          "reference": {
-            "name": "MDN Reference",
-            "url": "https://developer.mozilla.org//en-US/docs/Web/HTML/Element/label#attr-form"
-          }
-        }
       }
     },
     "legend": {
@@ -2992,20 +2714,6 @@
             "name": "MDN Reference",
             "url": "https://developer.mozilla.org//en-US/docs/Web/HTML/Element/marquee#attr-onstart"
           }
-        },
-        "start()": {
-          "description": "Starts scrolling of the marquee.",
-          "reference": {
-            "name": "MDN Reference",
-            "url": "https://developer.mozilla.org//en-US/docs/Web/HTML/Element/marquee#attr-start()"
-          }
-        },
-        "stop()": {
-          "description": "Stops scrolling of the marquee.",
-          "reference": {
-            "name": "MDN Reference",
-            "url": "https://developer.mozilla.org//en-US/docs/Web/HTML/Element/marquee#attr-stop()"
-          }
         }
       }
     },
@@ -3288,44 +2996,20 @@
         "url": "https://developer.mozilla.org//en-US/docs/Web/HTML/Element/object"
       },
       "attributes": {
-        "archive": {
+        "HTML 4": {
           "deprecated": true,
-          "description": "A space-separated list of URIs for archives of resources for the object.",
+          "description": "The position of the element in the tabbing navigation order for the current document.",
           "reference": {
             "name": "MDN Reference",
-            "url": "https://developer.mozilla.org//en-US/docs/Web/HTML/Element/object#attr-archive"
+            "url": "https://developer.mozilla.org//en-US/docs/Web/HTML/Element/object#attr-HTML 4"
           }
         },
-        "border": {
+        "HTML4.01": {
           "deprecated": true,
           "description": "The width of a border around the control, in pixels.",
           "reference": {
             "name": "MDN Reference",
-            "url": "https://developer.mozilla.org//en-US/docs/Web/HTML/Element/object#attr-border"
-          }
-        },
-        "classid": {
-          "deprecated": true,
-          "description": "The URI of the object's implementation. It can be used together with, or in place of, the data attribute.",
-          "reference": {
-            "name": "MDN Reference",
-            "url": "https://developer.mozilla.org//en-US/docs/Web/HTML/Element/object#attr-classid"
-          }
-        },
-        "codebase": {
-          "deprecated": true,
-          "description": "The base path used to resolve relative URIs specified by classid, data, or archive. If not specified, the default is the base URI of the current document.",
-          "reference": {
-            "name": "MDN Reference",
-            "url": "https://developer.mozilla.org//en-US/docs/Web/HTML/Element/object#attr-codebase"
-          }
-        },
-        "codetype": {
-          "deprecated": true,
-          "description": "The content type of the data specified by classid.",
-          "reference": {
-            "name": "MDN Reference",
-            "url": "https://developer.mozilla.org//en-US/docs/Web/HTML/Element/object#attr-codetype"
+            "url": "https://developer.mozilla.org//en-US/docs/Web/HTML/Element/object#attr-HTML4.01"
           }
         },
         "data": {
@@ -3335,19 +3019,11 @@
             "url": "https://developer.mozilla.org//en-US/docs/Web/HTML/Element/object#attr-data"
           }
         },
-        "declare": {
-          "deprecated": true,
-          "description": "The presence of this Boolean attribute makes this element a declaration only. The object must be instantiated by a subsequent <object> element. In HTML5, repeat the <object> element completely each that that the resource is reused.",
+        "HTML5": {
+          "description": "This Boolean attribute indicates if the type attribute and the actual content type of the resource must match to be used.",
           "reference": {
             "name": "MDN Reference",
-            "url": "https://developer.mozilla.org//en-US/docs/Web/HTML/Element/object#attr-declare"
-          }
-        },
-        "form": {
-          "description": "The form element, if any, that the object element is associated with (its form owner). The value of the attribute must be an ID of a <form> element in the same document.",
-          "reference": {
-            "name": "MDN Reference",
-            "url": "https://developer.mozilla.org//en-US/docs/Web/HTML/Element/object#attr-form"
+            "url": "https://developer.mozilla.org//en-US/docs/Web/HTML/Element/object#attr-HTML5"
           }
         },
         "height": {
@@ -3364,34 +3040,11 @@
             "url": "https://developer.mozilla.org//en-US/docs/Web/HTML/Element/object#attr-name"
           }
         },
-        "standby": {
-          "deprecated": true,
-          "description": "A message that the browser can show while loading the object's implementation and data.",
-          "reference": {
-            "name": "MDN Reference",
-            "url": "https://developer.mozilla.org//en-US/docs/Web/HTML/Element/object#attr-standby"
-          }
-        },
-        "tabindex": {
-          "deprecated": true,
-          "description": "The position of the element in the tabbing navigation order for the current document.",
-          "reference": {
-            "name": "MDN Reference",
-            "url": "https://developer.mozilla.org//en-US/docs/Web/HTML/Element/object#attr-tabindex"
-          }
-        },
         "type": {
           "description": "The content type of the resource specified by data. At least one of data and type must be defined.",
           "reference": {
             "name": "MDN Reference",
             "url": "https://developer.mozilla.org//en-US/docs/Web/HTML/Element/object#attr-type"
-          }
-        },
-        "typemustmatch": {
-          "description": "This Boolean attribute indicates if the type attribute and the actual content type of the resource must match to be used.",
-          "reference": {
-            "name": "MDN Reference",
-            "url": "https://developer.mozilla.org//en-US/docs/Web/HTML/Element/object#attr-typemustmatch"
           }
         },
         "usemap": {
@@ -3712,11 +3365,11 @@
       },
       "description": "The HTML <script> element is used to embed or reference executable code; this is typically used to embed or refer to JavaScript code.",
       "attributes": {
-        "async": {
+        "HTML5": {
           "description": "This is a Boolean attribute indicating that the browser should, if possible, load the script asynchronously and then execute it as soon as it’s downloaded.\n\nThis attribute must not be used if the src attribute is absent (i.e. for inline scripts). If it is included in this case it will have no effect.\n\nBrowsers usually assume the worst case scenario and load scripts synchronously, (i.e. async=\"false\") during HTML parsing.\n\nDynamically inserted scripts (using document.createElement()) load asynchronously by default, so to turn on synchronous loading (i.e. scripts load in the order they were inserted) set async=\"false\".\n\nThis attribute allows the elimination of render-blocking JavaScript where the page would have to load and execute scripts before finishing to render the page. defer has a similar effect in this case.\n\nSee Browser compatibility for notes on browser support. See also Async scripts for asm.js.",
           "reference": {
             "name": "MDN Reference",
-            "url": "https://developer.mozilla.org//en-US/docs/Web/HTML/Element/script#attr-async"
+            "url": "https://developer.mozilla.org//en-US/docs/Web/HTML/Element/script#attr-HTML5"
           }
         },
         "crossorigin": {
@@ -4149,12 +3802,12 @@
       },
       "description": "The HTML Table Body element (<tbody>) encapsulates a set of table rows (<tr> elements), indicating that they comprise the body of the table (<table>).",
       "attributes": {
-        "align": {
+        "HTML5": {
           "deprecated": true,
-          "description": "This enumerated attribute specifies how horizontal alignment of each cell content will be handled. Possible values are:\n\n*   left, aligning the content to the left of the cell\n*   center, centering the content in the cell\n*   right, aligning the content to the right of the cell\n*   justify, inserting spaces into the textual content so that the content is justified in the cell\n*   char, aligning the textual content on a special character with a minimal offset, defined by the char and charoff attributes.\n\nIf this attribute is not set, the left value is assumed.\n\nNote: Do not use this attribute as it is obsolete (not supported) in the latest standard.\n\n*   To achieve the same effect as the left, center, right or justify values, use the CSS text-align property on it.\n*   To achieve the same effect as the char value, in CSS3, you can use the value of the char as the value of the text-align property Unimplemented.",
+          "description": "This attribute specifies the vertical alignment of the text within each row of cells of the table header. Possible values for this attribute are:\n\n*   baseline, which will put the text as close to the bottom of the cell as it is possible, but align it on the baseline of the characters instead of the bottom of them. If characters are all of the size, this has the same effect as bottom.\n*   bottom, which will put the text as close to the bottom of the cell as it is possible;\n*   middle, which will center the text in the cell;\n*   and top, which will put the text as close to the top of the cell as it is possible.\n\nNote: Do not use this attribute as it is obsolete (and not supported) in the latest standard: instead set the CSS vertical-align property on it.",
           "reference": {
             "name": "MDN Reference",
-            "url": "https://developer.mozilla.org//en-US/docs/Web/HTML/Element/tbody#attr-align"
+            "url": "https://developer.mozilla.org//en-US/docs/Web/HTML/Element/tbody#attr-HTML5"
           }
         },
         "bgcolor": {
@@ -4162,30 +3815,6 @@
           "reference": {
             "name": "MDN Reference",
             "url": "https://developer.mozilla.org//en-US/docs/Web/HTML/Element/tbody#attr-bgcolor"
-          }
-        },
-        "char": {
-          "deprecated": true,
-          "description": "This attribute is used to set the character to align the cells in a column on. Typical values for this include a period (.) when attempting to align numbers or monetary values. If align is not set to char, this attribute is ignored.\n\nNote: Do not use this attribute as it is obsolete (and not supported) in the latest standard. To achieve the same effect as the char, in CSS3, you can use the character set using the char attribute as the value of the text-align property Unimplemented.",
-          "reference": {
-            "name": "MDN Reference",
-            "url": "https://developer.mozilla.org//en-US/docs/Web/HTML/Element/tbody#attr-char"
-          }
-        },
-        "charoff": {
-          "deprecated": true,
-          "description": "This attribute is used to indicate the number of characters to offset the column data from the alignment characters specified by the char attribute.\n\nNote: Do not use this attribute as it is obsolete (and not supported) in the latest standard.",
-          "reference": {
-            "name": "MDN Reference",
-            "url": "https://developer.mozilla.org//en-US/docs/Web/HTML/Element/tbody#attr-charoff"
-          }
-        },
-        "valign": {
-          "deprecated": true,
-          "description": "This attribute specifies the vertical alignment of the text within each row of cells of the table header. Possible values for this attribute are:\n\n*   baseline, which will put the text as close to the bottom of the cell as it is possible, but align it on the baseline of the characters instead of the bottom of them. If characters are all of the size, this has the same effect as bottom.\n*   bottom, which will put the text as close to the bottom of the cell as it is possible;\n*   middle, which will center the text in the cell;\n*   and top, which will put the text as close to the top of the cell as it is possible.\n\nNote: Do not use this attribute as it is obsolete (and not supported) in the latest standard: instead set the CSS vertical-align property on it.",
-          "reference": {
-            "name": "MDN Reference",
-            "url": "https://developer.mozilla.org//en-US/docs/Web/HTML/Element/tbody#attr-valign"
           }
         }
       }
@@ -4197,28 +3826,12 @@
       },
       "description": "The HTML <td> element defines a cell of a table that contains data. It participates in the table model.",
       "attributes": {
-        "abbr": {
+        "HTML5": {
           "deprecated": true,
-          "description": "This attribute contains a short abbreviated description of the cell's content. Some user-agents, such as speech readers, may present this description before the content itself.\n\nNote: Do not use this attribute as it is obsolete in the latest standard. Alternatively, you can put the abbreviated description inside the cell and place the long content in the title attribute.",
+          "description": "This attribute specifies how a text is vertically aligned inside a cell. Possible values for this attribute are:\n\n*   baseline: Positions the text near the bottom of the cell and aligns it with the baseline of the characters instead of the bottom. If characters don't descend below the baseline, the baseline value achieves the same effect as bottom.\n*   bottom: Positions the text near the bottom of the cell.\n*   middle: Centers the text in the cell.\n*   and top: Positions the text near the top of the cell.\n\nNote: Do not use this attribute as it is obsolete in the latest standard: use the CSS vertical-align property instead.",
           "reference": {
             "name": "MDN Reference",
-            "url": "https://developer.mozilla.org//en-US/docs/Web/HTML/Element/td#attr-abbr"
-          }
-        },
-        "align": {
-          "deprecated": true,
-          "description": "This enumerated attribute specifies how the cell content's horizontal alignment will be handled. Possible values are:\n\n*   left: The content is aligned to the left of the cell.\n*   center: The content is centered in the cell.\n*   right: The content is aligned to the right of the cell.\n*   justify (with text only): The content is stretched out inside the cell so that it covers its entire width.\n*   char (with text only): The content is aligned to a character inside the <th> element with minimal offset. This character is defined by the char and charoff attributes Unimplemented (see bug 2212).\n\nThe default value when this attribute is not specified is left.\n\nNote: Do not use this attribute as it is obsolete in the latest standard.\n\n*   To achieve the same effect as the left, center, right or justify values, apply the CSS text-align property to the element.\n*   To achieve the same effect as the char value, give the text-align property the same value you would use for the char. Unimplemented in CSS3.",
-          "reference": {
-            "name": "MDN Reference",
-            "url": "https://developer.mozilla.org//en-US/docs/Web/HTML/Element/td#attr-align"
-          }
-        },
-        "axis": {
-          "deprecated": true,
-          "description": "This attribute contains a list of space-separated strings. Each string is the id of a group of cells that this header applies to.\n\nNote: Do not use this attribute as it is obsolete in the latest standard.",
-          "reference": {
-            "name": "MDN Reference",
-            "url": "https://developer.mozilla.org//en-US/docs/Web/HTML/Element/td#attr-axis"
+            "url": "https://developer.mozilla.org//en-US/docs/Web/HTML/Element/td#attr-HTML5"
           }
         },
         "bgcolor": {
@@ -4226,22 +3839,6 @@
           "reference": {
             "name": "MDN Reference",
             "url": "https://developer.mozilla.org//en-US/docs/Web/HTML/Element/td#attr-bgcolor"
-          }
-        },
-        "char": {
-          "deprecated": true,
-          "description": "The content in the cell element is aligned to a character. Typical values include a period (.) to align numbers or monetary values. If align is not set to char, this attribute is ignored.\n\nNote: Do not use this attribute as it is obsolete in the latest standard. To achieve the same effect, you can specify the character as the first value of the text-align property, Unimplemented in CSS3.",
-          "reference": {
-            "name": "MDN Reference",
-            "url": "https://developer.mozilla.org//en-US/docs/Web/HTML/Element/td#attr-char"
-          }
-        },
-        "charoff": {
-          "deprecated": true,
-          "description": "This attribute is used to shift column data to the right of the character specified by the char attribute. Its value specifies the length of this shift.\n\nNote: Do not use this attribute as it is obsolete in the latest standard.",
-          "reference": {
-            "name": "MDN Reference",
-            "url": "https://developer.mozilla.org//en-US/docs/Web/HTML/Element/td#attr-charoff"
           }
         },
         "colspan": {
@@ -4258,12 +3855,12 @@
             "url": "https://developer.mozilla.org//en-US/docs/Web/HTML/Element/td#attr-headers"
           }
         },
-        "height": {
+        "HTML4": {
           "deprecated": true,
-          "description": "This attribute is used to define a recommended cell height.\n\nNote: Do not use this attribute as it is obsolete in the latest standard: use the CSS height property instead.",
+          "description": "This attribute is used to define a recommended cell width. Additional space can be added with the cellspacing and cellpadding properties and the width of the <col> element can also create extra width. But, if a column's width is too narrow to show a particular cell properly, it will be widened when displayed.\n\nNote: Do not use this attribute as it is obsolete in the latest standard: use the CSS width property instead.",
           "reference": {
             "name": "MDN Reference",
-            "url": "https://developer.mozilla.org//en-US/docs/Web/HTML/Element/td#attr-height"
+            "url": "https://developer.mozilla.org//en-US/docs/Web/HTML/Element/td#attr-HTML4"
           }
         },
         "rowspan": {
@@ -4271,30 +3868,6 @@
           "reference": {
             "name": "MDN Reference",
             "url": "https://developer.mozilla.org//en-US/docs/Web/HTML/Element/td#attr-rowspan"
-          }
-        },
-        "scope": {
-          "deprecated": true,
-          "description": "This enumerated attribute defines the cells that the header (defined in the <th>) element relates to.\n\nNote: Using this attribute with a table cell element is obsolete in the latest standard. Use this attribute only with the <th> element to define the row or column for which it is a header.",
-          "reference": {
-            "name": "MDN Reference",
-            "url": "https://developer.mozilla.org//en-US/docs/Web/HTML/Element/td#attr-scope"
-          }
-        },
-        "valign": {
-          "deprecated": true,
-          "description": "This attribute specifies how a text is vertically aligned inside a cell. Possible values for this attribute are:\n\n*   baseline: Positions the text near the bottom of the cell and aligns it with the baseline of the characters instead of the bottom. If characters don't descend below the baseline, the baseline value achieves the same effect as bottom.\n*   bottom: Positions the text near the bottom of the cell.\n*   middle: Centers the text in the cell.\n*   and top: Positions the text near the top of the cell.\n\nNote: Do not use this attribute as it is obsolete in the latest standard: use the CSS vertical-align property instead.",
-          "reference": {
-            "name": "MDN Reference",
-            "url": "https://developer.mozilla.org//en-US/docs/Web/HTML/Element/td#attr-valign"
-          }
-        },
-        "width": {
-          "deprecated": true,
-          "description": "This attribute is used to define a recommended cell width. Additional space can be added with the cellspacing and cellpadding properties and the width of the <col> element can also create extra width. But, if a column's width is too narrow to show a particular cell properly, it will be widened when displayed.\n\nNote: Do not use this attribute as it is obsolete in the latest standard: use the CSS width property instead.",
-          "reference": {
-            "name": "MDN Reference",
-            "url": "https://developer.mozilla.org//en-US/docs/Web/HTML/Element/td#attr-width"
           }
         }
       }
@@ -4425,12 +3998,12 @@
         "url": "https://developer.mozilla.org//en-US/docs/Web/HTML/Element/tfoot"
       },
       "attributes": {
-        "align": {
+        "HTML 4": {
           "deprecated": true,
-          "description": "This enumerated attribute specifies how horizontal alignment of each cell content will be handled. Possible values are:\n\n*   left, aligning the content to the left of the cell\n*   center, centering the content in the cell\n*   right, aligning the content to the right of the cell\n*   justify, inserting spaces into the textual content so that the content is justified in the cell\n*   char, aligning the textual content on a special character with a minimal offset, defined by the char and charoff attributes Unimplemented (see bug 2212).\n\nIf this attribute is not set, the left value is assumed.\n\nNote: Do not use this attribute as it is obsolete (not supported) in the latest standard.\n\n*   To achieve the same effect as the left, center, right or justify values, use the CSS text-align property on it.\n*   To achieve the same effect as the char value, in CSS3, you can use the value of the char as the value of the text-align property Unimplemented.",
+          "description": "This attribute specifies the vertical alignment of the text within each row of cells of the table header. Possible values for this attribute are:\n\n*   baseline, which will put the text as close to the bottom of the cell as it is possible, but align it on the baseline of the characters instead of the bottom of them. If characters are all of the size, this has the same effect as bottom.\n*   bottom, which will put the text as close to the bottom of the cell as it is possible;\n*   middle, which will center the text in the cell;\n*   and top, which will put the text as close to the top of the cell as it is possible.\n\nNote: Do not use this attribute as it is obsolete (and not supported) in the latest standard: instead set the CSS vertical-align property on it.",
           "reference": {
             "name": "MDN Reference",
-            "url": "https://developer.mozilla.org//en-US/docs/Web/HTML/Element/tfoot#attr-align"
+            "url": "https://developer.mozilla.org//en-US/docs/Web/HTML/Element/tfoot#attr-HTML 4"
           }
         },
         "bgcolor": {
@@ -4438,30 +4011,6 @@
           "reference": {
             "name": "MDN Reference",
             "url": "https://developer.mozilla.org//en-US/docs/Web/HTML/Element/tfoot#attr-bgcolor"
-          }
-        },
-        "char": {
-          "deprecated": true,
-          "description": "This attribute is used to set the character to align the cells in a column on. Typical values for this include a period (.) when attempting to align numbers or monetary values. If align is not set to char, this attribute is ignored.\n\nNote: Do not use this attribute as it is obsolete (and not supported) in the latest standard. To achieve the same effect as the char, in CSS3, you can use the character set using the char attribute as the value of the text-align property Unimplemented.",
-          "reference": {
-            "name": "MDN Reference",
-            "url": "https://developer.mozilla.org//en-US/docs/Web/HTML/Element/tfoot#attr-char"
-          }
-        },
-        "charoff": {
-          "deprecated": true,
-          "description": "This attribute is used to indicate the number of characters to offset the column data from the alignment characters specified by the char attribute.\n\nNote: Do not use this attribute as it is obsolete (and not supported) in the latest standard.",
-          "reference": {
-            "name": "MDN Reference",
-            "url": "https://developer.mozilla.org//en-US/docs/Web/HTML/Element/tfoot#attr-charoff"
-          }
-        },
-        "valign": {
-          "deprecated": true,
-          "description": "This attribute specifies the vertical alignment of the text within each row of cells of the table header. Possible values for this attribute are:\n\n*   baseline, which will put the text as close to the bottom of the cell as it is possible, but align it on the baseline of the characters instead of the bottom of them. If characters are all of the size, this has the same effect as bottom.\n*   bottom, which will put the text as close to the bottom of the cell as it is possible;\n*   middle, which will center the text in the cell;\n*   and top, which will put the text as close to the top of the cell as it is possible.\n\nNote: Do not use this attribute as it is obsolete (and not supported) in the latest standard: instead set the CSS vertical-align property on it.",
-          "reference": {
-            "name": "MDN Reference",
-            "url": "https://developer.mozilla.org//en-US/docs/Web/HTML/Element/tfoot#attr-valign"
           }
         }
       }
@@ -4480,20 +4029,12 @@
             "url": "https://developer.mozilla.org//en-US/docs/Web/HTML/Element/th#attr-abbr"
           }
         },
-        "align": {
+        "HTML5": {
           "deprecated": true,
-          "description": "This enumerated attribute specifies how the cell content's horizontal alignment will be handled. Possible values are:\n\n*   left: The content is aligned to the left of the cell.\n*   center: The content is centered in the cell.\n*   right: The content is aligned to the right of the cell.\n*   justify (with text only): The content is stretched out inside the cell so that it covers its entire width.\n*   char (with text only): The content is aligned to a character inside the <th> element with minimal offset. This character is defined by the char and charoff attributes.\n\nThe default value when this attribute is not specified is left.\n\nNote: Do not use this attribute as it is obsolete in the latest standard.\n\n*   To achieve the same effect as the left, center, right or justify values, apply the CSS text-align property to the element.\n*   To achieve the same effect as the char value, give the text-align property the same value you would use for the char. Unimplemented in CSS3.",
+          "description": "This attribute specifies how a text is vertically aligned inside a cell. Possible values for this attribute are:\n\n*   baseline: Positions the text near the bottom of the cell and aligns it with the baseline of the characters instead of the bottom. If characters don't descend below the baseline, the baseline value achieves the same effect as bottom.\n*   bottom: Positions the text near the bottom of the cell.\n*   middle: Centers the text in the cell.\n*   and top: Positions the text near the top of the cell.\n\nNote: Do not use this attribute as it is obsolete in the latest standard: use the CSS vertical-align property instead.",
           "reference": {
             "name": "MDN Reference",
-            "url": "https://developer.mozilla.org//en-US/docs/Web/HTML/Element/th#attr-align"
-          }
-        },
-        "axis": {
-          "deprecated": true,
-          "description": "This attribute contains a list of space-separated strings. Each string is the id of a group of cells that this header applies to.\n\nNote: Do not use this attribute as it is obsolete in the latest standard: use the scope attribute instead.",
-          "reference": {
-            "name": "MDN Reference",
-            "url": "https://developer.mozilla.org//en-US/docs/Web/HTML/Element/th#attr-axis"
+            "url": "https://developer.mozilla.org//en-US/docs/Web/HTML/Element/th#attr-HTML5"
           }
         },
         "bgcolor": {
@@ -4501,22 +4042,6 @@
           "reference": {
             "name": "MDN Reference",
             "url": "https://developer.mozilla.org//en-US/docs/Web/HTML/Element/th#attr-bgcolor"
-          }
-        },
-        "char": {
-          "deprecated": true,
-          "description": "The content in the cell element is aligned to a character. Typical values include a period (.) to align numbers or monetary values. If align is not set to char, this attribute is ignored.\n\nNote: Do not use this attribute as it is obsolete in the latest standard. To achieve the same effect, you can specify the character as the first value of the text-align property, Unimplemented in CSS3.",
-          "reference": {
-            "name": "MDN Reference",
-            "url": "https://developer.mozilla.org//en-US/docs/Web/HTML/Element/th#attr-char"
-          }
-        },
-        "charoff": {
-          "deprecated": true,
-          "description": "This attribute is used to shift column data to the right of the character specified by the char attribute. Its value specifies the length of this shift.\n\nNote: Do not use this attribute as it is obsolete in the latest standard.",
-          "reference": {
-            "name": "MDN Reference",
-            "url": "https://developer.mozilla.org//en-US/docs/Web/HTML/Element/th#attr-charoff"
           }
         },
         "colspan": {
@@ -4533,12 +4058,12 @@
             "url": "https://developer.mozilla.org//en-US/docs/Web/HTML/Element/th#attr-headers"
           }
         },
-        "height": {
+        "HTML4": {
           "deprecated": true,
-          "description": "This attribute is used to define a recommended cell height.\n\nNote: Do not use this attribute as it is obsolete in the latest standard: use the CSS height property instead.",
+          "description": "This attribute is used to define a recommended cell width. Additional space can be added with the cellspacing and cellpadding properties and the width of the <col> element can also create extra width. But, if a column's width is too narrow to show a particular cell properly, it will be widened when displayed.\n\nNote: Do not use this attribute as it is obsolete in the latest standard: use the CSS width property instead.",
           "reference": {
             "name": "MDN Reference",
-            "url": "https://developer.mozilla.org//en-US/docs/Web/HTML/Element/th#attr-height"
+            "url": "https://developer.mozilla.org//en-US/docs/Web/HTML/Element/th#attr-HTML4"
           }
         },
         "rowspan": {
@@ -4554,22 +4079,6 @@
             "name": "MDN Reference",
             "url": "https://developer.mozilla.org//en-US/docs/Web/HTML/Element/th#attr-scope"
           }
-        },
-        "valign": {
-          "deprecated": true,
-          "description": "This attribute specifies how a text is vertically aligned inside a cell. Possible values for this attribute are:\n\n*   baseline: Positions the text near the bottom of the cell and aligns it with the baseline of the characters instead of the bottom. If characters don't descend below the baseline, the baseline value achieves the same effect as bottom.\n*   bottom: Positions the text near the bottom of the cell.\n*   middle: Centers the text in the cell.\n*   and top: Positions the text near the top of the cell.\n\nNote: Do not use this attribute as it is obsolete in the latest standard: use the CSS vertical-align property instead.",
-          "reference": {
-            "name": "MDN Reference",
-            "url": "https://developer.mozilla.org//en-US/docs/Web/HTML/Element/th#attr-valign"
-          }
-        },
-        "width": {
-          "deprecated": true,
-          "description": "This attribute is used to define a recommended cell width. Additional space can be added with the cellspacing and cellpadding properties and the width of the <col> element can also create extra width. But, if a column's width is too narrow to show a particular cell properly, it will be widened when displayed.\n\nNote: Do not use this attribute as it is obsolete in the latest standard: use the CSS width property instead.",
-          "reference": {
-            "name": "MDN Reference",
-            "url": "https://developer.mozilla.org//en-US/docs/Web/HTML/Element/th#attr-width"
-          }
         }
       }
     },
@@ -4579,12 +4088,12 @@
         "url": "https://developer.mozilla.org//en-US/docs/Web/HTML/Element/thead"
       },
       "attributes": {
-        "align": {
+        "HTML 4": {
           "deprecated": true,
-          "description": "This enumerated attribute specifies how horizontal alignment of each cell content will be handled. Possible values are:\n\n*   left, aligning the content to the left of the cell\n*   center, centering the content in the cell\n*   right, aligning the content to the right of the cell\n*   justify, inserting spaces into the textual content so that the content is justified in the cell\n*   char, aligning the textual content on a special character with a minimal offset, defined by the char and charoff attributes Unimplemented (see bug 2212).\n\nIf this attribute is not set, the left value is assumed.\n\nNote: Do not use this attribute as it is obsolete (not supported) in the latest standard.\n\n*   To achieve the same effect as the left, center, right or justify values, use the CSS text-align property on it.\n*   To achieve the same effect as the char value, in CSS3, you can use the value of the char as the value of the text-align property Unimplemented.",
+          "description": "This attribute specifies the vertical alignment of the text within each row of cells of the table header. Possible values for this attribute are:\n\n*   baseline, which will put the text as close to the bottom of the cell as it is possible, but align it on the baseline of the characters instead of the bottom of them. If characters are all of the size, this has the same effect as bottom.\n*   bottom, which will put the text as close to the bottom of the cell as it is possible;\n*   middle, which will center the text in the cell;\n*   top, which will put the text as close to the top of the cell as it is possible.\n\nNote: Do not use this attribute as it is obsolete (and not supported) in the latest standard: instead set the CSS vertical-align property on it.",
           "reference": {
             "name": "MDN Reference",
-            "url": "https://developer.mozilla.org//en-US/docs/Web/HTML/Element/thead#attr-align"
+            "url": "https://developer.mozilla.org//en-US/docs/Web/HTML/Element/thead#attr-HTML 4"
           }
         },
         "bgcolor": {
@@ -4592,30 +4101,6 @@
           "reference": {
             "name": "MDN Reference",
             "url": "https://developer.mozilla.org//en-US/docs/Web/HTML/Element/thead#attr-bgcolor"
-          }
-        },
-        "char": {
-          "deprecated": true,
-          "description": "This attribute is used to set the character to align the cells in a column on. Typical values for this include a period (.) when attempting to align numbers or monetary values. If align is not set to char, this attribute is ignored.\n\nNote: Do not use this attribute as it is obsolete (and not supported) in the latest standard. To achieve the same effect as the char, in CSS3, you can use the character set using the char attribute as the value of the text-align property Unimplemented.",
-          "reference": {
-            "name": "MDN Reference",
-            "url": "https://developer.mozilla.org//en-US/docs/Web/HTML/Element/thead#attr-char"
-          }
-        },
-        "charoff": {
-          "deprecated": true,
-          "description": "This attribute is used to indicate the number of characters to offset the column data from the alignment characters specified by the char attribute.\n\nNote: Do not use this attribute as it is obsolete (and not supported) in the latest standard.",
-          "reference": {
-            "name": "MDN Reference",
-            "url": "https://developer.mozilla.org//en-US/docs/Web/HTML/Element/thead#attr-charoff"
-          }
-        },
-        "valign": {
-          "deprecated": true,
-          "description": "This attribute specifies the vertical alignment of the text within each row of cells of the table header. Possible values for this attribute are:\n\n*   baseline, which will put the text as close to the bottom of the cell as it is possible, but align it on the baseline of the characters instead of the bottom of them. If characters are all of the size, this has the same effect as bottom.\n*   bottom, which will put the text as close to the bottom of the cell as it is possible;\n*   middle, which will center the text in the cell;\n*   top, which will put the text as close to the top of the cell as it is possible.\n\nNote: Do not use this attribute as it is obsolete (and not supported) in the latest standard: instead set the CSS vertical-align property on it.",
-          "reference": {
-            "name": "MDN Reference",
-            "url": "https://developer.mozilla.org//en-US/docs/Web/HTML/Element/thead#attr-valign"
           }
         }
       }
@@ -4650,12 +4135,12 @@
       },
       "description": "The HTML <tr> element defines a row of cells in a table. The row's cells can then be established using a mix of <td> (data cell) and <th> (header cell) elements.",
       "attributes": {
-        "align": {
+        "HTML5": {
           "deprecated": true,
-          "description": "A DOMString which specifies how the cell's context should be aligned horizontally within the cells in the row; this is shorthand for using align on every cell in the row individually. Possible values are:\n\nleft\n\nAlign the content of each cell at its left edge.\n\ncenter\n\nCenter the contents of each cell between their left and right edges.\n\nright\n\nAlign the content of each cell at its right edge.\n\njustify\n\nWiden whitespaces within the text of each cell so that the text fills the full width of each cell (full justification).\n\nchar\n\nAlign each cell in the row on a specific character (such that each row in the column that is configured this way will horizontally align its cells on that character). This uses the char and charoff to establish the alignment character (typically \".\" or \",\" when aligning numerical data) and the number of characters that should follow the alignment character. This alignment type was never widely supported.\n\nIf no value is expressly set for align, the parent node's value is inherited.\n\nInstead of using the obsolete align attribute, you should instead use the CSS text-align property to establish left, center, right, or justify alignment for the row's cells. To apply character-based alignment, set the CSS text-align property to the alignment character (such as \".\" or \",\").",
+          "description": "A DOMString specifying the vertical alignment of the text within each cell in the row. Possible values for this attribute are:\n\nbaseline\n\nAligns each cell's content text as closely as possible to the bottom of the cell, handling alignment of different fonts and font sizes by aligning the characters along the baseline of the font(s) used in the row. If all of the characters in the row are the same size, the effect is the same as bottom.\n\nbottom,\n\nDraws the text in each of the row's cells as closely as possible to the bottom edge of those cells.\n\nmiddle\n\nEach cell's text is vertically centered.\n\ntop\n\nEach cell's text is drawn as closely as possible to the top edge of the containing cell.\n\nDon't use the obsolete valign attribute. Instead, add the CSS vertical-align property to the row.",
           "reference": {
             "name": "MDN Reference",
-            "url": "https://developer.mozilla.org//en-US/docs/Web/HTML/Element/tr#attr-align"
+            "url": "https://developer.mozilla.org//en-US/docs/Web/HTML/Element/tr#attr-HTML5"
           }
         },
         "left": {
@@ -4687,35 +4172,10 @@
           }
         },
         "char": {
-          "deprecated": true,
-          "description": "A DOMString which sets the character to align the cells in each of the row's columns on (each row's centering that uses the same character gets aligned with others using the same character . Typical values for this include a period (\".\") or comma (\",\") when attempting to align numbers or monetary values. If align is not set to char, this attribute is ignored.\n\nThis attribute is not only obsolete, but was rarely implemented anyway. To achieve the same effect as the char attribute, set the CSS text-align property to the same string you would specify for the char property, such as text-align: \".\".",
+          "description": "Align each cell in the row on a specific character (such that each row in the column that is configured this way will horizontally align its cells on that character). This uses the char and charoff to establish the alignment character (typically \".\" or \",\" when aligning numerical data) and the number of characters that should follow the alignment character. This alignment type was never widely supported.",
           "reference": {
             "name": "MDN Reference",
             "url": "https://developer.mozilla.org//en-US/docs/Web/HTML/Element/tr#attr-char"
-          }
-        },
-        "bgcolor": {
-          "deprecated": true,
-          "description": "A DOMString specifying a color to apply to the backgrounds of each of the row's cells. This can be either an hexadecimal #RRGGBB or #RGB value or a color keyword. Omitting the attribute or setting it to null in JavaScript causes the row's cells to inherit the row's parent element's background color.\n\nThe <tr> element should be styled using CSS. To give a similar effect as the bgcolor attribute, use the CSS property background-color.",
-          "reference": {
-            "name": "MDN Reference",
-            "url": "https://developer.mozilla.org//en-US/docs/Web/HTML/Element/tr#attr-bgcolor"
-          }
-        },
-        "charoff": {
-          "deprecated": true,
-          "description": "A DOMString indicating the number of characters on the tail end of the column's data should be displayed after the alignment character specified by the char attribute. For example, when displaying money values for currencies that use hundredths of a unit (such as the dollar, which is divided into 100 cents), you would typically specify a value of 2, so that in tandem with char being set to \".\", the values in a column would be cleanly aligned on the decimal points, with the number of cents properly displayed to the right of the decimal point.\n\nThis attribute is obsolete, and was never widely supported anyway.",
-          "reference": {
-            "name": "MDN Reference",
-            "url": "https://developer.mozilla.org//en-US/docs/Web/HTML/Element/tr#attr-charoff"
-          }
-        },
-        "valign": {
-          "deprecated": true,
-          "description": "A DOMString specifying the vertical alignment of the text within each cell in the row. Possible values for this attribute are:\n\nbaseline\n\nAligns each cell's content text as closely as possible to the bottom of the cell, handling alignment of different fonts and font sizes by aligning the characters along the baseline of the font(s) used in the row. If all of the characters in the row are the same size, the effect is the same as bottom.\n\nbottom,\n\nDraws the text in each of the row's cells as closely as possible to the bottom edge of those cells.\n\nmiddle\n\nEach cell's text is vertically centered.\n\ntop\n\nEach cell's text is drawn as closely as possible to the top edge of the containing cell.\n\nDon't use the obsolete valign attribute. Instead, add the CSS vertical-align property to the row.",
-          "reference": {
-            "name": "MDN Reference",
-            "url": "https://developer.mozilla.org//en-US/docs/Web/HTML/Element/tr#attr-valign"
           }
         },
         "baseline": {
@@ -4907,12 +4367,12 @@
             "url": "https://developer.mozilla.org//en-US/docs/Web/HTML/Element/video#attr-currentTime"
           }
         },
-        "<a class=\"external\" href=\"https://wicg.github.io/picture-in-picture/#disable-pip\" rel=\"noopener\">disablePictureInPicture</a>": {
+        "disablePictureInPicture": {
           "experimental": true,
           "description": "Prevents the browser from suggesting a Picture-in-Picture context menu or to request Picture-in-Picture automatically in some cases.",
           "reference": {
             "name": "MDN Reference",
-            "url": "https://developer.mozilla.org//en-US/docs/Web/HTML/Element/video#attr-<a class=\"external\" href=\"https://wicg.github.io/picture-in-picture/#disable-pip\" rel=\"noopener\">disablePictureInPicture</a>"
+            "url": "https://developer.mozilla.org//en-US/docs/Web/HTML/Element/video#attr-disablePictureInPicture"
           }
         },
         "disableRemotePlayback": {
@@ -4992,27 +4452,6 @@
           "reference": {
             "name": "MDN Reference",
             "url": "https://developer.mozilla.org//en-US/docs/Web/HTML/Element/video#attr-width"
-          }
-        },
-        "HTMLMediaElement.audioTracks": {
-          "description": "An AudioTrackList containing all of the media element's audio tracks. You can add a listener for addtrack to this object to be alerted when new audio tracks are added to the element.",
-          "reference": {
-            "name": "MDN Reference",
-            "url": "https://developer.mozilla.org//en-US/docs/Web/HTML/Element/video#attr-HTMLMediaElement.audioTracks"
-          }
-        },
-        "HTMLMediaElement.videoTracks": {
-          "description": "Add an addtrack listener to this VideoTrackList object to be informed when video tracks are added to the element.",
-          "reference": {
-            "name": "MDN Reference",
-            "url": "https://developer.mozilla.org//en-US/docs/Web/HTML/Element/video#attr-HTMLMediaElement.videoTracks"
-          }
-        },
-        "HTMLMediaElement.textTracks": {
-          "description": "Add an addtrack event listener to this TextTrackList to be notified when new text tracks are added to the element.",
-          "reference": {
-            "name": "MDN Reference",
-            "url": "https://developer.mozilla.org//en-US/docs/Web/HTML/Element/video#attr-HTMLMediaElement.textTracks"
           }
         }
       }

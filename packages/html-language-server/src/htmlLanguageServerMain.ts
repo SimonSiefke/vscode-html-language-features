@@ -52,24 +52,36 @@ connection.onInitialize(() => {
 })
 
 connection.onInitialized(async () => {
-  const mdnConfig: Config = await import(
-    '@html-language-features/facts-generator/generated/mdn.htmlData.json'
+  // const mdnConfig: Config = await import(
+  //   '@html-language-features/facts-generator/generated/mdn.htmlData.json'
+  // )
+  // const mdnGlobalAttributeConfig: Config = await import(
+  //   '@html-language-features/facts-generator/generated/mdnGlobalAttributes.htmlData.json'
+  // )
+  // const w3schoolsConfig: Config = await import(
+  //   '@html-language-features/facts-generator/generated/w3schools.htmlData.json'
+  // )
+  const whatwgConfig: Config = await import(
+    '@html-language-features/facts-generator/generated/whatwg.htmlData.json'
   )
-  const mdnGlobalAttributeConfig: Config = await import(
-    '@html-language-features/facts-generator/generated/mdnGlobalAttributes.htmlData.json'
-  )
-  const w3schoolsConfig: Config = await import(
-    '@html-language-features/facts-generator/generated/w3schools.htmlData.json'
-  )
-  const attributeStatisticsConfig: Config = await import(
-    '@html-language-features/statistics-generator/dist/generated/attributes.htmlData.json'
-  )
-  const tagStatisticsConfig: Config = await import(
-    '@html-language-features/statistics-generator/dist/generated/tags.htmlData.json'
-  )
-  const curatedFactsConfig: Config = await import(
-    '@html-language-features/curated-facts/generated/curated.htmlData.json'
-  )
+  // const attributeStatisticsConfig: Config = await import(
+  //   '@html-language-features/statistics-generator/dist/generated/attributes.htmlData.json'
+  // )
+  // const tagStatisticsConfig: Config = await import(
+  //   '@html-language-features/statistics-generator/dist/generated/tags.htmlData.json'
+  // )
+  // const curatedFactsConfig: Config = await import(
+  //   '@html-language-features/curated-facts/generated/curated.htmlData.json'
+  // )
+  // const mdnFlowContentConfig: Config = await import(
+  //   '@html-language-features/facts-generator/generated/mdnFlowContent.htmlData.json'
+  // )
+  // const mdnPhrasingContentConfig: Config = await import(
+  //   '@html-language-features/facts-generator/generated/mdnPhrasingContent.htmlData.json'
+  // )
+  // const mdnPermittedContentConfig: Config = await import(
+  //   '@html-language-features/facts-generator/generated/mdnPermittedContent.htmlData.json'
+  // )
   // const githubStatisticsConfig = await import(
   //   '@html-language-features/github-scraper/generated/generated.htmlData.json'
   // )
@@ -77,9 +89,9 @@ connection.onInitialized(async () => {
   //   '@html-language-features/snippets/src/snippets.htmlData.json'
   // )
   const { errors } = addConfigs(
-    mdnConfig,
-    mdnGlobalAttributeConfig,
-    curatedFactsConfig
+    // mdnConfig,
+    // mdnGlobalAttributeConfig,
+    whatwgConfig
   )
   // snippetsConfig
   // w3schoolsConfig,

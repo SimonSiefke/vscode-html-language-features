@@ -86,6 +86,8 @@ const getHtmlElementsAndLinks = async () => {
   }))
 }
 
+exports.getHtmlElementsAndLinks = getHtmlElementsAndLinks
+
 // getHtmlElementsAndLinks() //?
 
 /**
@@ -104,13 +106,52 @@ const getInfoForElement = async element => {
   /**
    * @type{string[]}
    */
-  const attributeNames = $('#wikiArticle > dl')
+  const attributeNames = $('#Attributes ~ dl')
+    .not('#Usage_notes ~ dl, #Methods ~ dl')
     .find('dt')
-    .map((index, element) =>
-      $(element)
+    .map((index, element) => {
+      const link = $(element)
+        .find('a')
+        .html()
+      outer: if (link) {
+        if (link.includes('<')) {
+          const codeInsideLink = $(link)
+            .find('code')
+            .html()
+          if (codeInsideLink) {
+            if (codeInsideLink.includes('<')) {
+              throw new Error('invalid code 1' + link)
+            }
+            return codeInsideLink
+          }
+          console.error(fullUrl)
+
+          throw new Error('invalid code 2' + link)
+        }
+        return link
+      }
+      const code = $(element)
         .find('code')
         .html()
-    )
+      if (code) {
+        if (code.includes('<')) {
+          console.error(code)
+          throw new Error('invalid code 3' + code)
+        }
+        return code
+      }
+      if (
+        $(element).html() &&
+        $(element)
+          .html()
+          .trim()
+      ) {
+        console.error('error in ' + element.name)
+        console.error($(element).html())
+        console.error(fullUrl)
+        throw new Error('nothing found')
+      }
+    })
     .get() //?
 
   const obsoleteAttributeNames = $('#wikiArticle > dl')

@@ -69,14 +69,14 @@ async function getTagsAndDescriptions() {
 
 const all = async () => {
   const { tags, tagDescriptions } = await getTagsAndDescriptions()
-  const tags = {}
+  const processedTags = {}
   const baseReferenceUrl = 'https://www.w3schools.com/tags/tag_'
 
   outer: for (const [i, tag] of tags.entries()) {
     if (tag === 'h1> to <h6') {
       for (let j = 1; j <= 6; j++) {
         const tagDescription = tagDescriptions[i]
-        tags[`h${j}`] = {
+        processedTags[`h${j}`] = {
           description: tagDescription.trim(),
           reference: {
             name: referenceName,
@@ -87,7 +87,7 @@ const all = async () => {
       continue outer
     }
     const tagDescription = tagDescriptions[i]
-    tags[tag] = {
+    processedTags[tag] = {
       description: tagDescription.trim(),
       reference: {
         url: baseReferenceUrl + tag + '.asp',
@@ -95,11 +95,11 @@ const all = async () => {
       },
     }
   }
-  tags
+  processedTags
   fs.writeFileSync(
     path.join(__dirname, '../../generated/w3schools.htmlData.json'),
-    `${JSON.stringify({ elements: tags }, null, 2)}\n`
+    `${JSON.stringify({ tags: processedTags }, null, 2)}\n`
   )
 }
 
-// all()
+all()

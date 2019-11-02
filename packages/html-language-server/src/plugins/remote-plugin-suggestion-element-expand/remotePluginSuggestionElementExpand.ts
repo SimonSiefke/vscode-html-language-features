@@ -106,7 +106,8 @@ export const remotePluginSuggestionElementExpand: RemotePlugin = api => {
       if (suggestedTags === undefined) {
         return undefined
       }
-      const snippets = getSuggestedSnippets(result.tagName) || []
+      // const snippets = getSuggestedSnippets(result.tagName) || []
+      const snippets: any[] = []
 
       const createCompletionItemsForSnippets = (
         snippets: { name: string; value: string }[]

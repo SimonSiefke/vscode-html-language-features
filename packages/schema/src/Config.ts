@@ -23,16 +23,16 @@ export type AttributeInfo = Readonly<{
 }>
 
 export type SubTag =
-  // | Readonly<{
-  //     tag: string
-  //   }>
-  string
+  | Readonly<{
+      category: string
+    }>
+  | string
 
 export type ParentTag =
-  // | Readonly<{
-  //     tag: string
-  //   }>
-  string
+  | Readonly<{
+      category: string
+    }>
+  | string
 
 export type Tag = Readonly<{
   description?: string
@@ -40,6 +40,7 @@ export type Tag = Readonly<{
   reference?: Reference
   selfClosing?: boolean
   newline?: boolean
+  categories?: string[]
   attributes?: {
     [attributeName: string]: AttributeInfo
   }

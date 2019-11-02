@@ -6,7 +6,8 @@
     "generate:mdnElements": "node scripts/mdn/generateMdnElements",
     "generate:mdnGlobalAttributes": "node scripts/mdn/generateMdnGlobalAttributes",
     "generate:w3schools": "node scripts/w3schools/generateW3schools",
-    "generate:all": "npm run generate:mdnElements && npm run generate:mdnGlobalAttributes && npm run generate:w3schools",
+    "generate:whatwg": "node scripts/whatwg/generateWhatwg",
+    "generate:all": "npm run generate:mdnElements && npm run generate:mdnGlobalAttributes && npm run generate:w3schools && npm run generate:whatwg",
     "dev": "npm run generate:all"
   },
   "keywords": [],

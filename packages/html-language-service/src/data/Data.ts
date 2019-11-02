@@ -2,6 +2,7 @@ import {
   Config,
   mergeConfigs,
   ValidationError,
+  Tag,
 } from '@html-language-features/schema'
 import {
   Reference,
@@ -11,7 +12,10 @@ import {
 import * as fs from 'fs'
 import * as path from 'path'
 
+// TODO probably better to return empty array instead of undefined
+
 const DEBUGConfig = () => {
+  console.log('debug')
   fs.writeFileSync(
     path.join(__dirname, '../../tmp-config.json'),
     JSON.stringify(_config, null, 2)
@@ -41,7 +45,7 @@ export const addConfigs: (
     return result
   }
   _config = result
-  // DEBUGConfig()
+  DEBUGConfig()
   return { errors: [] }
 }
 
@@ -164,6 +168,44 @@ export const getSuggestedAttributeValues: (
   }))
 }
 
+const getTagsByCategory: (category: string) => string[] = category => {
+  const globalTags = _config.tags
+  if (globalTags === undefined) {
+    return []
+  }
+  return Object.entries(globalTags)
+    .filter(([key, value]) => {
+      if (!value.categories) {
+        return false
+      }
+      return value.categories.includes(category)
+    })
+    .map(([key, value]) => key)
+}
+
+const isAllowedParentTag: (
+  parentTagName: string,
+  permittedParentTags: NonNullable<Tag['permittedParentTags']>
+) => boolean = (parentTagName, permittedParentTags) => {
+  const categories =
+    (_config.tags &&
+      _config.tags[parentTagName] &&
+      _config.tags[parentTagName].categories) ||
+    []
+  for (const categoryOrName of permittedParentTags) {
+    if (typeof categoryOrName === 'string') {
+      if (categoryOrName === parentTagName) {
+        return true
+      }
+    } else {
+      if (categories.includes(categoryOrName.category)) {
+        return true
+      }
+    }
+  }
+  return false
+}
+
 /**
  * Get the most likely tags for a given parent tag.
  * @example
@@ -172,12 +214,21 @@ export const getSuggestedAttributeValues: (
 export const getSuggestedTags: (
   parentTagName: string
 ) => NamedTag[] | undefined = parentTagName => {
-  const subTags =
+  const subTagsOrCategories =
     _config.tags &&
     _config.tags[parentTagName] &&
     _config.tags[parentTagName].allowedSubTags
-  if (subTags !== undefined) {
-    return subTags.map(subTag => ({
+  if (subTagsOrCategories !== undefined) {
+    const allSubTags = subTagsOrCategories.flatMap(subTagOrCategory => {
+      if (typeof subTagOrCategory === 'string') {
+        return [subTagOrCategory]
+      }
+      return getTagsByCategory(subTagOrCategory.category)
+    })
+    if (allSubTags.length === 0) {
+      return undefined
+    }
+    return allSubTags.map(subTag => ({
       name: subTag,
     }))
   }
@@ -194,7 +245,7 @@ export const getSuggestedTags: (
         return false
       }
       if (value.permittedParentTags) {
-        return value.permittedParentTags.includes(parentTagName)
+        return isAllowedParentTag(parentTagName, value.permittedParentTags)
       }
       return true
     }
