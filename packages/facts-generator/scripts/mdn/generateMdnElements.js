@@ -90,6 +90,48 @@ exports.getHtmlElementsAndLinks = getHtmlElementsAndLinks
 
 // getHtmlElementsAndLinks() //?
 
+const getAttributeName = ($, $dt, fullUrl) => {
+  const linkInsideCode = $dt.find('code a').html()
+  if (linkInsideCode) {
+    if (linkInsideCode.includes('<')) {
+      throw new Error('invalid code 4')
+    }
+    return linkInsideCode
+  }
+  const code = $dt.find('code').html()
+  if (code) {
+    if (code.includes('<')) {
+      console.error(code)
+      throw new Error('invalid code 3' + code)
+    }
+    return code
+  }
+  const link = $dt.find('a').html()
+  outer: if (link) {
+    if (link.includes('<')) {
+      const codeInsideLink = $(link)
+        .find('code')
+        .html()
+      if (codeInsideLink) {
+        if (codeInsideLink.includes('<')) {
+          throw new Error('invalid code 1' + link)
+        }
+        return codeInsideLink
+      }
+      console.error(fullUrl)
+
+      throw new Error('invalid code 2' + link)
+    }
+    return link
+  }
+
+  if ($dt.html() && $dt.html().trim()) {
+    // console.error('error in ' + element.name)
+    console.error($dt.html())
+    console.error(fullUrl)
+    throw new Error('nothing found')
+  }
+}
 /**
  *
  * @param {PreElement} element
@@ -101,89 +143,51 @@ const getInfoForElement = async element => {
   const html = await fetch(fullUrl).then(res => res.text())
   // @ts-ignore
   const $ = cheerio.load(html)
-  const description = $('#wikiArticle .seoSummary').html() //?
+  const description = $('#wikiArticle .seoSummary').html() //
 
+  const dl = $('#Attributes ~ dl').not('#Usage_notes ~ dl, #Methods ~ dl')
+
+  const children = dl.children().get()
+
+  const attributes = []
   /**
-   * @type{string[]}
+   * @type {any}
    */
-  const attributeNames = $('#Attributes ~ dl')
-    .not('#Usage_notes ~ dl, #Methods ~ dl')
-    .find('dt')
-    .map((index, element) => {
-      const link = $(element)
-        .find('a')
-        .html()
-      outer: if (link) {
-        if (link.includes('<')) {
-          const codeInsideLink = $(link)
-            .find('code')
-            .html()
-          if (codeInsideLink) {
-            if (codeInsideLink.includes('<')) {
-              throw new Error('invalid code 1' + link)
-            }
-            return codeInsideLink
-          }
-          console.error(fullUrl)
+  let currentTag
 
-          throw new Error('invalid code 2' + link)
-        }
-        return link
-      }
-      const code = $(element)
-        .find('code')
-        .html()
-      if (code) {
-        if (code.includes('<')) {
-          console.error(code)
-          throw new Error('invalid code 3' + code)
-        }
-        return code
-      }
-      if (
-        $(element).html() &&
-        $(element)
-          .html()
-          .trim()
-      ) {
-        console.error('error in ' + element.name)
-        console.error($(element).html())
-        console.error(fullUrl)
-        throw new Error('nothing found')
-      }
-    })
-    .get() //?
-
-  const obsoleteAttributeNames = $('#wikiArticle > dl')
-    .find('dt')
-    .map(
-      (index, element) =>
-        $(element)
+  const finishTag = () => {
+    if (currentTag) {
+      attributes.push(currentTag)
+      currentTag = {}
+    } else {
+      currentTag = {}
+    }
+  }
+  for (let i = 0; i < children.length; i++) {
+    const child = children[i]
+    if (child.type === 'tag' && child.name === 'dt') {
+      finishTag()
+      const attributeName = getAttributeName($, $(child), fullUrl)
+      const isObsolete =
+        $(child)
           .find('.obsolete, .icon-trash')
-          .html() || 'no'
-    )
-    .get()
-    .map(element => element !== 'no') //?
-  const experimentalAttributeNames = $('#wikiArticle > dl')
-    .find('dt')
-    .map(
-      (index, element) =>
-        $(element)
-          .find('.icon-beaker')
-          .html() || 'no'
-    )
-    .get()
-    .map(element => element !== 'no') //?
+          .html() !== null //?
 
-  const attributeDescriptions = $('#wikiArticle > dl')
-    .find('dt+dd')
-    .get()
-    .map(element => $(element).html())
-  // .map((index, element) => {
-  //   console.log('000' + index + $(element).html()) //?
-  //   return $(element).html()
-  // })
-  // .get() //?
+      const isExperimental =
+        $(child)
+          .find('.icon-beaker')
+          .html() !== null
+      currentTag.name = attributeName
+      currentTag.experimental = isExperimental
+      currentTag.deprecated = isObsolete
+    } else if (child.type === 'tag' && child.name === 'dd') {
+      const description = $(child).html()
+      currentTag.description = currentTag.description || description
+    }
+  }
+  finishTag()
+
+  console.log(attributes) //?
 
   const selfClosing =
     $('td').filter((index, element) =>
@@ -208,14 +212,11 @@ const getInfoForElement = async element => {
       name: 'MDN Reference',
       url: fullUrl,
     },
-    attributes: attributeNames.map((_, index) => ({
-      name: attributeNames[index],
-      description: attributeDescriptions[index],
-      deprecated: obsoleteAttributeNames[index],
-      experimental: experimentalAttributeNames[index],
-    })),
+    attributes,
   }
 }
+
+// getInfoForElement('a') //?
 
 const all = async () => {
   const elementsAndLinks = await getHtmlElementsAndLinks()
@@ -304,7 +305,7 @@ const all = async () => {
 
 all()
 // getInfoForElement({
-//   href: '/en-US/docs/Web/HTML/Element/body',
+// href: '/en-US/docs/Web/HTML/Element/a',
 // }) //?
 
 // TODO handle input attributes (they are in a table and not inside a dl)
