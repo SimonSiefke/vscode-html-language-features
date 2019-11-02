@@ -202,3 +202,15 @@ type '/' as href, auto closing tag does its weird part
 
  <a href="/>"
  -->
+
+<!-- TODO
+extract attribute values from mdn for
+- img / referrerpolicy (li and code)
+- img / importance (p and code)
+
+ -->
+
+<!-- TODO
+find all attributes, deprecated attributes for img are currently not found
+
+ -->

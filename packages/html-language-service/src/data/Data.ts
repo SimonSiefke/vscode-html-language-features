@@ -45,7 +45,7 @@ export const addConfigs: (
     return result
   }
   _config = result
-  DEBUGConfig()
+  // DEBUGConfig()
   return { errors: [] }
 }
 

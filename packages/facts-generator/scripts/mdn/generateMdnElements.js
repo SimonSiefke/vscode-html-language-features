@@ -90,7 +90,7 @@ exports.getHtmlElementsAndLinks = getHtmlElementsAndLinks
 
 // getHtmlElementsAndLinks() //?
 
-const getAttributeName = ($, $dt, fullUrl) => {
+const getAttributeNameOrValue = ($, $dt, fullUrl) => {
   const linkInsideCode = $dt.find('code a').html()
   if (linkInsideCode) {
     if (linkInsideCode.includes('<')) {
@@ -153,21 +153,21 @@ const getInfoForElement = async element => {
   /**
    * @type {any}
    */
-  let currentTag
+  let currentAttribute
 
-  const finishTag = () => {
-    if (currentTag) {
-      attributes.push(currentTag)
-      currentTag = {}
+  const finishAttribute = () => {
+    if (currentAttribute) {
+      attributes.push(currentAttribute)
+      currentAttribute = {}
     } else {
-      currentTag = {}
+      currentAttribute = {}
     }
   }
   for (let i = 0; i < children.length; i++) {
     const child = children[i]
     if (child.type === 'tag' && child.name === 'dt') {
-      finishTag()
-      const attributeName = getAttributeName($, $(child), fullUrl)
+      finishAttribute()
+      const attributeName = getAttributeNameOrValue($, $(child), fullUrl)
       const isObsolete =
         $(child)
           .find('.obsolete, .icon-trash')
@@ -177,17 +177,65 @@ const getInfoForElement = async element => {
         $(child)
           .find('.icon-beaker')
           .html() !== null
-      currentTag.name = attributeName
-      currentTag.experimental = isExperimental
-      currentTag.deprecated = isObsolete
+      currentAttribute.name = attributeName
+      currentAttribute.experimental = isExperimental
+      currentAttribute.deprecated = isObsolete
     } else if (child.type === 'tag' && child.name === 'dd') {
-      const description = $(child).html()
-      currentTag.description = currentTag.description || description
+      const childHtml = $(child).html()
+      if (currentAttribute.description) {
+        if (childHtml.includes('<dl>')) {
+          const attributeValues = []
+          /**
+           * @type {any}
+           */
+          let currentAttributeValue
+          const finishAttributeValue = () => {
+            if (currentAttribute) {
+              attributeValues.push(currentAttributeValue)
+              currentAttributeValue = {}
+            } else {
+              currentAttributeValue = {}
+            }
+          }
+          const grandGrandChildren = $(child)
+            .find('dl')
+            .children()
+          for (let i = 0; i < children.length; i++) {
+            const grandGrandChild = grandGrandChildren[i]
+            if (
+              grandGrandChild &&
+              grandGrandChild.type === 'tag' &&
+              grandGrandChild.name === 'dt'
+            ) {
+              finishAttributeValue()
+              const attributeValueName = getAttributeNameOrValue(
+                $,
+                $(grandGrandChild),
+                fullUrl
+              )
+              currentAttributeValue.name = attributeValueName
+            } else if (
+              grandGrandChild &&
+              grandGrandChild.type === 'tag' &&
+              grandGrandChild.name === 'dd'
+            ) {
+              const grandGrandChildHtml = $(grandGrandChild).html()
+              currentAttributeValue.description = grandGrandChildHtml
+            }
+          }
+          finishAttributeValue()
+          currentAttribute.attributeValues = attributeValues.filter(Boolean)
+        } else {
+          // console.log(childHtml)
+        }
+      } else {
+        currentAttribute.description = childHtml
+      }
     }
   }
-  finishTag()
+  finishAttribute()
 
-  console.log(attributes) //?
+  attributes //?
 
   const selfClosing =
     $('td').filter((index, element) =>
@@ -254,7 +302,7 @@ const all = async () => {
   }
   /**
    *
-   * @param {{name:string,deprecated:boolean,experimental:boolean, description:string}[]} attributes
+   * @param {{name:string,deprecated:boolean,experimental:boolean, description:string, attributeValues:{name:string, description:string}[]}[] } attributes
    * @param {{url:string, name:string|undefined}} reference
    */
   const fixAttributes = (reference, attributes) => {
@@ -269,6 +317,18 @@ const all = async () => {
           url: reference.url + `#attr-${current.name}`,
         }
       }
+      const attributeValues = current.attributeValues
+      // console.log(attributeValues)
+      let options
+      if (attributeValues !== undefined) {
+        options = {}
+        for (const attributeValue of attributeValues) {
+          // console.log(attributeValue)
+          options[attributeValue.name] = {
+            description: fixDescriptionMarkdown(attributeValue.description),
+          }
+        }
+      }
       return {
         ...total,
         [current.name]: {
@@ -276,6 +336,7 @@ const all = async () => {
           experimental: current.experimental || undefined,
           description: fixDescriptionMarkdown(current.description),
           reference: attributeReference,
+          options,
         },
       }
     }, {})

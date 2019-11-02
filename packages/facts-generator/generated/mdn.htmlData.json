@@ -1916,6 +1916,14 @@
           "reference": {
             "name": "MDN Reference",
             "url": "https://developer.mozilla.org//en-US/docs/Web/HTML/Element/img#attr-crossorigin"
+          },
+          "options": {
+            "anonymous": {
+              "description": "A cross-origin request (i.e., with Origin HTTP header) is performed, but no credentials are sent (i.e., no cookie, X.509 certificate, or HTTP Basic authentication). If the server does not give credentials to the origin site (by not setting the Access-Control-Allow-Origin HTTP header), the image will be tainted and its usage restricted."
+            },
+            "use-credentials": {
+              "description": "A cross-origin request (i.e., with the Origin HTTP header) performed along with credentials sent (i.e., a cookie, certificate, or HTTP Basic authentication). If the server does not give credentials to the origin site (through the Access-Control-Allow-Credentials HTTP header), the image will be tainted and its usage restricted."
+            }
           }
         },
         "decoding": {
@@ -1923,6 +1931,17 @@
           "reference": {
             "name": "MDN Reference",
             "url": "https://developer.mozilla.org//en-US/docs/Web/HTML/Element/img#attr-decoding"
+          },
+          "options": {
+            "sync": {
+              "description": "Decode the image synchronously, for atomic presentation with other content."
+            },
+            "async": {
+              "description": "Decode the image asynchronously, to reduce delay in presenting other content."
+            },
+            "auto": {
+              "description": "Default: no preference for the decoding mode. The browser decides what is best for the user."
+            }
           }
         },
         "height": {
@@ -2004,6 +2023,23 @@
           "reference": {
             "name": "MDN Reference",
             "url": "https://developer.mozilla.org//en-US/docs/Web/HTML/Element/img#attr-align"
+          },
+          "options": {
+            "top": {
+              "description": "Equivalent to vertical-align: top or vertical-align: text-top"
+            },
+            "middle": {
+              "description": "Equivalent to vertical-align: -moz-middle-with-baseline"
+            },
+            "bottom": {
+              "description": "The default, equivalent to vertical-align: unset or vertical-align: initial"
+            },
+            "left": {
+              "description": "Equivalent to float: left"
+            },
+            "right": {
+              "description": "Equivalent to float: right"
+            }
           }
         },
         "border": {
