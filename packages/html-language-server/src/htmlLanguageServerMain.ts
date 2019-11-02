@@ -52,12 +52,12 @@ connection.onInitialize(() => {
 })
 
 connection.onInitialized(async () => {
-  // const mdnConfig: Config = await import(
-  //   '@html-language-features/facts-generator/generated/mdn.htmlData.json'
-  // )
-  // const mdnGlobalAttributeConfig: Config = await import(
-  //   '@html-language-features/facts-generator/generated/mdnGlobalAttributes.htmlData.json'
-  // )
+  const mdnConfig: Config = await import(
+    '@html-language-features/facts-generator/generated/mdn.htmlData.json'
+  )
+  const mdnGlobalAttributeConfig: Config = await import(
+    '@html-language-features/facts-generator/generated/mdnGlobalAttributes.htmlData.json'
+  )
   // const w3schoolsConfig: Config = await import(
   //   '@html-language-features/facts-generator/generated/w3schools.htmlData.json'
   // )
@@ -89,8 +89,8 @@ connection.onInitialized(async () => {
   //   '@html-language-features/snippets/src/snippets.htmlData.json'
   // )
   const { errors } = addConfigs(
-    // mdnConfig,
-    // mdnGlobalAttributeConfig,
+    mdnConfig,
+    mdnGlobalAttributeConfig,
     whatwgConfig
   )
   // snippetsConfig
