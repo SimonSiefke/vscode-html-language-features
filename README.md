@@ -4,12 +4,12 @@
 
 ![Demo](./demo.png)
 
-Features:
+<!-- Features:
 
 - Html intellisense
 - Auto rename tags
 - Auto close tags
-- Highlight Matching Tags
+- Highlight Matching Tags -->
 
 <!-- TODO better image -->
 
@@ -18,10 +18,10 @@ Note: for this to work, you need to disable:
 - the built in `html-language-features` extension
 - the built in `emmet` extension
 
-TODO:
+<!-- TODO:
 
 - snippets
-- support for emmet abbreviations
+- support for emmet abbreviations -->
 
 ## Settings
 
