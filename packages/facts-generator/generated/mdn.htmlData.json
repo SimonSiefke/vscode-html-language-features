@@ -1459,6 +1459,17 @@
           "reference": {
             "name": "MDN Reference",
             "url": "https://developer.mozilla.org//en-US/docs/Web/HTML/Element/command#attr-type"
+          },
+          "options": {
+            "command": {
+              "description": "or empty which is the default state and indicates that this is a normal command."
+            },
+            "checkbox": {
+              "description": "indicates that the command can be toggled using a checkbox."
+            },
+            "radio": {
+              "description": "indicates that the command can be toggled using a radio button."
+            }
           }
         }
       }
@@ -2443,6 +2454,17 @@
           "reference": {
             "name": "MDN Reference",
             "url": "https://developer.mozilla.org//en-US/docs/Web/HTML/Element/img#attr-importance"
+          },
+          "options": {
+            "auto": {
+              "description": "no preference. The browser may use its own heuristics to prioritize the image."
+            },
+            "high": {
+              "description": "the image is of high priority."
+            },
+            "low": {
+              "description": "the image is of low priority."
+            }
           }
         },
         "intrinsicsize": {

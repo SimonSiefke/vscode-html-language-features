@@ -194,6 +194,56 @@ const getInfoForElement = async element => {
       currentAttribute.deprecated = isObsolete
     } else if (child.type === 'tag' && child.name === 'dd') {
       const childHtml = $(child).html()
+      that: if (
+        $(child)
+          .find('p')
+          .first()
+          .html() &&
+        $(child)
+          .find('p')
+          .first()
+          .html()
+          .startsWith('<code>')
+      ) {
+        if (
+          /^<code>[^<]+<\/code>\s*is/.test(
+            $(child)
+              .find('p')
+              .first()
+              .html()
+          )
+        ) {
+          // console.log($(child).html())
+          break that
+        }
+        const subChildren = $(child)
+          .find('p')
+          .get()
+        const attributeValues = []
+
+        for (const child of subChildren) {
+          const attributeValueName = $(child)
+            .find('code')
+            .first()
+            .html() //?
+          const html = $(child).html()
+          let attributeValueDescription = html.slice(
+            html.indexOf('</code>') + '</code>'.length
+          ) //?
+          attributeValueDescription = attributeValueDescription.trim()
+          if (attributeValueDescription.startsWith(':')) {
+            attributeValueDescription = attributeValueDescription.slice(1)
+          }
+          attributeValues.push({
+            name: attributeValueName,
+            description: attributeValueDescription,
+          })
+        }
+        currentAttribute.attributeValues = attributeValues
+        // $(child).html() //?
+      }
+      // $(child).find('p').first().html() //?
+      // $(child).find('p').first().html().startsWith('<code>') //?
       inner: if ($(child).find('ul > li > code')) {
         const children = $(child)
           .find('ul li')
@@ -431,7 +481,7 @@ const all = async () => {
 all()
 // @ts-ignore
 // getInfoForElement({
-//   href: '/en-US/docs/Web/HTML/Element/abbr',
+//   href: '/en-US/docs/Web/HTML/Element/img',
 // }) //?
 
 // TODO handle input attributes (they are in a table and not inside a dl)
