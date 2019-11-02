@@ -8,7 +8,8 @@
     "generate:w3schools": "node scripts/w3schools/generateW3schools",
     "generate:whatwg": "node scripts/whatwg/generateWhatwg",
     "generate:all": "npm run generate:mdnElements && npm run generate:mdnGlobalAttributes && npm run generate:w3schools && npm run generate:whatwg",
-    "dev": "npm run generate:all"
+    "dev": "npm run generate:all",
+    "test": "jest"
   },
   "keywords": [],
   "author": "",
@@ -18,7 +19,14 @@
     "@types/lodash": "^4.14.144",
     "cheerio": "^1.0.0-rc.3",
     "fs-extra": "^8.1.0",
+    "jest": "^24.9.0",
     "node-fetch": "^2.6.0",
-    "turndown": "^5.0.3"
+    "ts-jest": "^24.1.0",
+    "turndown": "^5.0.3",
+    "typescript": "^3.6.4"
+  },
+  "dependencies": {
+    "@html-language-features/schema": "^1.0.0-dev",
+    "axios": "^0.19.0"
   }
 }

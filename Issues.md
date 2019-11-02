@@ -202,3 +202,8 @@ type '/' as href, auto closing tag does its weird part
 
  <a href="/>"
  -->
+
+<!-- TODO
+some descriptions missing
+- area
+ -->
