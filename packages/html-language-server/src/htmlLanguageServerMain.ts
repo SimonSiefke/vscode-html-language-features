@@ -7,7 +7,6 @@ import {
   IConnection,
   ServerCapabilities,
   TextDocuments,
-  TextDocumentSyncKind,
 } from 'vscode-languageserver'
 import { createConnectionProxy } from './htmlLanguageServer/connectionProxy'
 import { remotePluginCompletionElementAutoClose } from './plugins/remote-plugin-completion-element-auto-close/remotePluginCompletionElementAutoClose'
