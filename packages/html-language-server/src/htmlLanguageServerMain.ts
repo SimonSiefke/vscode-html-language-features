@@ -58,6 +58,9 @@ connection.onInitialized(async () => {
   const mdnGlobalAttributeConfig: Config = await import(
     '@html-language-features/facts-generator/generated/mdnGlobalAttributes.htmlData.json'
   )
+  const mdnLinkTypeConfig: Config = await import(
+    '@html-language-features/facts-generator/generated/mdnLinkTypes.htmlData.json'
+  )
   // const w3schoolsConfig: Config = await import(
   //   '@html-language-features/facts-generator/generated/w3schools.htmlData.json'
   // )
@@ -91,6 +94,7 @@ connection.onInitialized(async () => {
   const { errors } = addConfigs(
     mdnConfig,
     mdnGlobalAttributeConfig,
+    mdnLinkTypeConfig,
     whatwgConfig
   )
   // snippetsConfig

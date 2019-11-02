@@ -75,6 +75,14 @@
                         "description": {
                           "type": "string",
                           "description": "Description for the option"
+                        },
+                        "deprecated": {
+                          "type": "boolean",
+                          "description": "Whether or not the option is deprecated"
+                        },
+                        "experimental": {
+                          "type": "boolean",
+                          "description": "Whether or not the options is experimental"
                         }
                       }
                     }

@@ -203,3 +203,100 @@ test('merge probabilities with empty object probabilities', () => {
     },
   })
 })
+
+test('merges options', () => {
+  expect(
+    mergeConfigs(
+      {
+        tags: {
+          a: {
+            attributes: {
+              rel: {
+                options: {
+                  alternate: {
+                    deprecated: false,
+                    experimental: false,
+                  },
+                  archives: {
+                    deprecated: true,
+                    experimental: false,
+                  },
+                },
+              },
+            },
+          },
+        },
+      },
+      {
+        tags: {
+          a: {
+            reference: {
+              name: 'MDN Reference',
+              url:
+                'https://developer.mozilla.org//en-US/docs/Web/HTML/Element/a',
+            },
+            attributes: {
+              rel: {
+                description:
+                  'The relationship of the linked URL as space-separated link types.',
+                reference: {
+                  name: 'MDN Reference',
+                  url:
+                    'https://developer.mozilla.org//en-US/docs/Web/HTML/Element/a#attr-rel',
+                },
+              },
+              href: {
+                description:
+                  'The URL that the hyperlink points to. Links are not restricted to HTTP-based URLs — they can use any URL scheme supported by browsers:\n\n*   Sections of a page with fragment URLs\n*   Pieces of media files with media fragments\n*   Telephone numbers with tel: URLs\n*   Email addresses with mailto: URLs\n*   While web browsers may not support other URL schemes, web sites can with registerProtocolHandler()',
+                reference: {
+                  name: 'MDN Reference',
+                  url:
+                    'https://developer.mozilla.org//en-US/docs/Web/HTML/Element/a#attr-href',
+                },
+              },
+            },
+          },
+        },
+      }
+    )
+  ).toEqual({
+    tags: {
+      a: {
+        reference: {
+          name: 'MDN Reference',
+          url: 'https://developer.mozilla.org//en-US/docs/Web/HTML/Element/a',
+        },
+        attributes: {
+          href: {
+            description:
+              'The URL that the hyperlink points to. Links are not restricted to HTTP-based URLs — they can use any URL scheme supported by browsers:\n\n*   Sections of a page with fragment URLs\n*   Pieces of media files with media fragments\n*   Telephone numbers with tel: URLs\n*   Email addresses with mailto: URLs\n*   While web browsers may not support other URL schemes, web sites can with registerProtocolHandler()',
+            reference: {
+              name: 'MDN Reference',
+              url:
+                'https://developer.mozilla.org//en-US/docs/Web/HTML/Element/a#attr-href',
+            },
+          },
+          rel: {
+            description:
+              'The relationship of the linked URL as space-separated link types.',
+            reference: {
+              name: 'MDN Reference',
+              url:
+                'https://developer.mozilla.org//en-US/docs/Web/HTML/Element/a#attr-rel',
+            },
+            options: {
+              alternate: {
+                deprecated: false,
+                experimental: false,
+              },
+              archives: {
+                deprecated: true,
+                experimental: false,
+              },
+            },
+          },
+        },
+      },
+    },
+  })
+})

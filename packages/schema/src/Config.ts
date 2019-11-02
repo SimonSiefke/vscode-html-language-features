@@ -6,6 +6,7 @@ export type Reference = Readonly<{
 export type AttributeValueInfo = Readonly<{
   description?: string
   deprecated?: boolean
+  experimental?: boolean
 }>
 
 export type Snippet = string
