@@ -198,6 +198,13 @@ const getTags = async () => {
     if (allowedSubTags.length === 0 && info.children.length > 0) {
       allowedSubTags = undefined
     }
+    if (
+      allowedSubTags &&
+      allowedSubTags.length === 1 &&
+      allowedSubTags[0] === 'text'
+    ) {
+      allowedSubTags = []
+    }
 
     return {
       ...total,

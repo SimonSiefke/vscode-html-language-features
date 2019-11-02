@@ -1,10 +1,12 @@
 import axios from 'axios'
 import { Config } from '@html-language-features/schema'
 import _mdnConfig from '../generated/mdn.htmlData.json'
+import _mdnGlobalAttributesConfig from '../generated/mdnGlobalAttributes.htmlData.json'
 
 const mdnConfig = _mdnConfig as Config
+const mdnGlobalAttributesConfig = _mdnGlobalAttributesConfig as Config
 
-test('empty elements', async () => {
+test('empty elements', () => {
   const emptyTags = [
     'area',
     'base',
@@ -34,7 +36,7 @@ test('deprecated elements', () => {
   expect(mdnConfig.tags.noframes.deprecated).toBe(true)
 })
 
-test.skip('descriptions', async () => {
+test.skip('descriptions', () => {
   for (const [key, value] of Object.entries(mdnConfig.tags)) {
     expect(value).toHaveProperty('description')
   }
@@ -49,7 +51,7 @@ test.skip('reference links', async () => {
   }
 }, 100000)
 
-test('input', async () => {
+test('input', () => {
   const expectedAttributes = [
     'autocomplete',
     'autofocus',
@@ -68,17 +70,29 @@ test('input', async () => {
   }
 })
 
-test('img#importance', async () => {
+test('img#importance', () => {
   expect(Object.keys(mdnConfig.tags.img.attributes.importance.options)).toEqual(
     ['auto', 'high', 'low']
   )
 })
 
-test('a#target', async () => {
+test('a#target', () => {
   expect(Object.keys(mdnConfig.tags.a.attributes.target.options)).toEqual([
     '_self',
     '_blank',
     '_parent',
     '_top',
   ])
+})
+
+test.skip('global attributes', () => {
+  expect(mdnGlobalAttributesConfig.globalAttributes.spellcheck).toHaveProperty(
+    'description'
+  )
+  expect(
+    mdnGlobalAttributesConfig.globalAttributes.spellcheck.options
+  ).toHaveProperty('true')
+  expect(
+    mdnGlobalAttributesConfig.globalAttributes.spellcheck.options
+  ).toHaveProperty('false')
 })

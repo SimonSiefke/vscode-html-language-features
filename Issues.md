@@ -207,3 +207,8 @@ type '/' as href, auto closing tag does its weird part
 some descriptions missing
 - area
  -->
+
+<!-- TODO
+some attribute value enums missing
+spellcheck: true/false inside sentence, maybe hard to extract
+ -->

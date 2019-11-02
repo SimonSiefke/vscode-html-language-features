@@ -1041,9 +1041,7 @@
         "datalist",
         "optgroup"
       ],
-      "allowedSubTags": [
-        "text"
-      ]
+      "allowedSubTags": []
     },
     "output": {
       "categories": [
@@ -1154,9 +1152,7 @@
       "allowedParentTags": [
         "ruby"
       ],
-      "allowedSubTags": [
-        "text"
-      ]
+      "allowedSubTags": []
     },
     "rt": {
       "categories": [],
@@ -1487,9 +1483,7 @@
         "rows": {},
         "wrap": {}
       },
-      "allowedSubTags": [
-        "text"
-      ]
+      "allowedSubTags": []
     },
     "tfoot": {
       "categories": [],
@@ -1560,9 +1554,7 @@
       "allowedParentTags": [
         "head"
       ],
-      "allowedSubTags": [
-        "text"
-      ]
+      "allowedSubTags": []
     },
     "tr": {
       "categories": [],
