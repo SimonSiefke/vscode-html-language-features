@@ -82,7 +82,7 @@
                         },
                         "experimental": {
                           "type": "boolean",
-                          "description": "Whether or not the options is experimental"
+                          "description": "Whether or not the option is experimental"
                         }
                       }
                     }
