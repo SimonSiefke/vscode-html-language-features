@@ -13,12 +13,7 @@ import {
   doSuggestionAttributeValue,
 } from '@html-language-features/html-language-service'
 import { getDocumentationForAttributeValue } from '../../util/getDocumentation'
-import { removeDeprecatedItems } from '../../util/removeDeprecatedItems'
-
-// const thinSpace = `\u2009`
-// const weirdCharAtTheEndOfTheAlphabet = `\uE83A`
-const orangeIcon = CompletionItemKind.Value
-// const recommendationThreshold = 0.07
+import { settings } from '../../Settings'
 
 interface Data {
   tagName: string
@@ -26,79 +21,43 @@ interface Data {
   attributeValue: string
 }
 
-const createCompletionItems: ({
+type CompletionItemWithData = CompletionItem & { data: Data }
+
+const kind = CompletionItemKind.Value
+const insertTextFormat = InsertTextFormat.Snippet
+
+const createCompletionItem: ({
   tagName,
   attributeName,
-  attributeValues,
+  attributeValue,
 }: {
   tagName: string
   attributeName: string
-  attributeValues: NamedAttributeValue[]
-}) => (CompletionItem & { data: Data })[] = ({
+  attributeValue: NamedAttributeValue
+}) => CompletionItemWithData | undefined = ({
   tagName,
   attributeName,
-  attributeValues,
+  attributeValue,
 }) => {
-  const nonDeprecatedAttributes = removeDeprecatedItems(attributeValues)
-  const normalizedItems = nonDeprecatedAttributes
-  // const normalizedItems = nonDeprecatedAttributes.map(item => ({
-  //   ...item,
-  //   recommended:
-  //     item.probability !== undefined &&
-  //     item.probability >= recommendationThreshold,
-  // }))
-
-  return normalizedItems.map(item => {
-    const tags: CompletionItemTag[] = []
-    if (item.deprecated) {
-      tags.push(CompletionItemTag.Deprecated)
-    }
-
-    const kind = orangeIcon
-    const insertText = item.name
-    // let completionItem: CompletionItem & { data: Data }
-    const itemLabel = item.name
-    const insertTextFormat = InsertTextFormat.Snippet
-
-    const data: Data = {
+  const completionItem: CompletionItemWithData = {
+    data: {
       attributeName,
       tagName: tagName,
-      attributeValue: item.name,
+      attributeValue: attributeValue.name,
+    },
+    insertText: attributeValue.name,
+    insertTextFormat,
+    kind,
+    label: attributeValue.name,
+  }
+  if (attributeValue.deprecated) {
+    if (settings.showDeprecatedSuggestions === true) {
+      completionItem.tags = [CompletionItemTag.Deprecated]
+    } else {
+      return undefined
     }
-    let detail: string | undefined
-    // if (item.probability !== undefined) {
-    //   detail = `${(item.probability * 100).toFixed(2)}% Probability`
-    // }
-    const partialItem: Partial<CompletionItem> & { data: Data } = {
-      kind,
-      data,
-      insertText,
-      tags,
-      insertTextFormat,
-      detail,
-      // commitCharacters: [], // maybe quotes?
-    }
-    return {
-      label: itemLabel,
-      ...partialItem,
-    }
-    // if (item.recommended) {
-    //   completionItem = {
-    //     label: `★${thinSpace}${itemLabel}`,
-    //     filterText: item.name,
-    //     sortText: item.name,
-    //     ...partialItem,
-    //   }
-    // } else {
-    //   completionItem = {
-    //     label: itemLabel,
-    //     filterText: `${weirdCharAtTheEndOfTheAlphabet} ${item.name}`,
-    //     sortText: `${weirdCharAtTheEndOfTheAlphabet} ${item.name}`,
-    //     ...partialItem,
-    //   }
-    // }
-    // return completionItem
-  })
+  }
+  return completionItem
 }
 
 export const remotePluginSuggestionAttributeValue: RemotePlugin = api => {
@@ -114,9 +73,21 @@ export const remotePluginSuggestionAttributeValue: RemotePlugin = api => {
       if (result === undefined) {
         return undefined
       }
+      const items = result.attributeValues
+        .map(attributeValue =>
+          createCompletionItem({
+            tagName: result.tagName,
+            attributeName: result.attributeName,
+            attributeValue,
+          })
+        )
+        .filter(Boolean) as CompletionItemWithData[]
+      if (items.length === 0) {
+        return undefined
+      }
       return {
-        isIncomplete: true,
-        items: createCompletionItems(result),
+        isIncomplete: false,
+        items,
       }
     }
   )

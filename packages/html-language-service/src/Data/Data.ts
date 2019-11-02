@@ -57,6 +57,11 @@ export const isSelfClosingTag: (tagName: string) => boolean = tagName =>
   _config.tags[tagName] !== undefined &&
   _config.tags[tagName].selfClosing === true
 
+export const isDeprecatedTag: (tagName: string) => boolean = tagName =>
+  _config.tags !== undefined &&
+  _config.tags[tagName] !== undefined &&
+  _config.tags[tagName].deprecated === true
+
 export const shouldHaveNewline: (tagName: string) => boolean = tagName =>
   _config.tags !== undefined &&
   _config.tags[tagName] !== undefined &&

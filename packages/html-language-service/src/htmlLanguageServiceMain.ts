@@ -24,6 +24,7 @@ export {
   NamedTag,
   setConfig,
   shouldHaveNewline,
+  isDeprecatedTag,
 } from './Data/Data'
 export {
   doCompletionElementAutoClose,
