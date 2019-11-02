@@ -70,7 +70,7 @@ export const remotePluginSuggestionAttributeValue: RemotePlugin = api => {
       )
       const offset = document.offsetAt(position)
       const result = doSuggestionAttributeValue(text, offset)
-      if (result === undefined) {
+      if (!result) {
         return undefined
       }
       const items = result.attributeValues

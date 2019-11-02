@@ -57,7 +57,7 @@ export const remotePluginSuggestionElementStartTag: RemotePlugin = api => {
       )
       const offset = document.offsetAt(position)
       const result = doSuggestionElementStartTag(text, offset)
-      if (result === undefined) {
+      if (!result) {
         return undefined
       }
       const items = result

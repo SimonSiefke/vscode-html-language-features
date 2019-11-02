@@ -9,8 +9,9 @@ import {
 } from '../../Data/Data'
 
 /**
- * Suggestions for attribute names
- *`<option |` -> ``.
+ * Suggestions for attribute values
+ * @example
+ * doSuggestionAttributeValue('<a target="">', 11) // { tagName: 'a', attributeName: 'target', attributeValues: [{ name: '_blank' }] }
  */
 export const doSuggestionAttributeValue: (
   text: string,

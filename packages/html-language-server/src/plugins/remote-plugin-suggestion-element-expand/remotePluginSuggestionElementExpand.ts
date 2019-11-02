@@ -96,11 +96,11 @@ export const remotePluginSuggestionElementExpand: RemotePlugin = api => {
       )
       const offset = document.offsetAt(position)
       const result = doSuggestionElementExpand(text, offset)
-      if (result === undefined) {
+      if (!result) {
         return undefined
       }
       const suggestedTags = getSuggestedTags(result.tagName)
-      if (suggestedTags === undefined) {
+      if (!suggestedTags) {
         return undefined
       }
       // const snippets = getSuggestedSnippets(result.tagName) || []

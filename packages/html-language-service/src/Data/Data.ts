@@ -196,7 +196,7 @@ export const getSuggestedAttributeValues: (
 
 const getTagsByCategory: (category: string) => string[] = category => {
   const globalTags = _config.tags
-  if (globalTags === undefined) {
+  if (!globalTags) {
     return []
   }
   return Object.entries(globalTags)

@@ -14,9 +14,12 @@ interface Documentation {
 }
 
 const withReference: (
-  description: string,
+  description: string | undefined,
   reference: Reference | undefined
-) => Documentation = (description, reference) => {
+) => Documentation | undefined = (description, reference) => {
+  if (!description) {
+    return undefined
+  }
   let finalDescription = description
   if (reference) {
     finalDescription = `${finalDescription}\n\n[${reference.name}](${reference.url})`
@@ -26,13 +29,11 @@ const withReference: (
     value: finalDescription,
   }
 }
+
 export const getDocumentationForTagName: (
   tagName: string
 ) => Documentation | undefined = tagName => {
   const description = getDescriptionForTag(tagName)
-  if (!description) {
-    return undefined
-  }
   const reference = getReferenceForTag(tagName)
   return withReference(description, reference)
 }
@@ -42,9 +43,6 @@ export const getDocumentationForAttributeName: (
   attributeName: string
 ) => Documentation | undefined = (tagName, attributeName) => {
   const description = getDescriptionForAttributeName(tagName, attributeName)
-  if (!description) {
-    return undefined
-  }
   const reference = getReferenceForAttributeName(tagName, attributeName)
   return withReference(description, reference)
 }
@@ -59,9 +57,6 @@ export const getDocumentationForAttributeValue: (
     attributeName,
     attributeValue
   )
-  if (!description) {
-    return undefined
-  }
   const reference = getReferenceForAttributeName(tagName, attributeName)
   return withReference(description, reference)
 }
