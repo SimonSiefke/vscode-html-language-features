@@ -145,9 +145,20 @@ const getInfoForElement = async element => {
   const $ = cheerio.load(html)
   const description = $('#wikiArticle .seoSummary').html() //
 
-  const dl = $('#Attributes ~ dl').not('#Usage_notes ~ dl, #Methods ~ dl')
+  const dlAttributes = $('#Attributes ~ dl')
+    .not('#Usage_notes ~ dl, #Methods ~ dl')
+    .get()
 
-  const children = dl.children().get()
+  const dlDeprecatedAttributes = $('#Deprecated_attributes + dl').get()
+
+  const children = [
+    ...$(dlAttributes)
+      .children()
+      .get(),
+    ...$(dlDeprecatedAttributes)
+      .children()
+      .get(),
+  ]
 
   const attributes = []
   /**
@@ -165,6 +176,7 @@ const getInfoForElement = async element => {
   }
   for (let i = 0; i < children.length; i++) {
     const child = children[i]
+    console.log(child)
     if (child.type === 'tag' && child.name === 'dt') {
       finishAttribute()
       const attributeName = getAttributeNameOrValue($, $(child), fullUrl)
@@ -366,7 +378,7 @@ const all = async () => {
 
 all()
 // getInfoForElement({
-// href: '/en-US/docs/Web/HTML/Element/a',
+//   href: '/en-US/docs/Web/HTML/Element/img',
 // }) //?
 
 // TODO handle input attributes (they are in a table and not inside a dl)

@@ -14,6 +14,7 @@ import {
 } from '@html-language-features/html-language-service'
 import { getDocumentationForAttributeName } from '../../util/getDocumentation'
 import { removeDeprecatedItems } from '../../util/removeDeprecatedItems'
+import { Config } from '../../Config'
 
 const thinSpace = `\u2009`
 const weirdCharAtTheEndOfTheAlphabet = `\uE83A`
@@ -32,15 +33,10 @@ const createCompletionItems: ({
   attributes: NamedAttribute[]
   tagName: string
 }) => (CompletionItem & { data: Data })[] = ({ attributes, tagName }) => {
-  const nonDeprecatedAttributes = removeDeprecatedItems(attributes)
-  const normalizedItems = nonDeprecatedAttributes
-
-  // const c: CompletionItem = {
-  //   documentation: {
-  //     kind: 'markdown',
-  //     value: '',
-  //   },
-  // }
+  let normalizedItems = attributes
+  if (Config.showDeprecatedSuggestions === false) {
+    normalizedItems = removeDeprecatedItems(normalizedItems)
+  }
   return normalizedItems.map(item => {
     const tags: CompletionItemTag[] = []
     if (item.deprecated) {
