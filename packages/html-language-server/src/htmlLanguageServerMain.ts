@@ -113,7 +113,6 @@ connection.onInitialized(async () => {
   }
   remotePluginCompletionElementAutoClose(api)
   remotePluginCompletionElementClose(api)
-  // remotePluginCompletionElementExpand(api)
   remotePluginCompletionElementSelfClosing(api)
   remotePluginCompletionElementAutoRenameTag(api)
 
@@ -128,14 +127,14 @@ connection.onInitialized(async () => {
 
   remotePluginSymbol(api)
 
-  // try {
-  //   const config = await connection.workspace.getConfiguration(
-  //     'html.customData'
-  //   )
-  //   addConfigs(config)
-  // } catch (error) {
-  //   console.error(error)
-  // }
+  try {
+    const config = await connection.workspace.getConfiguration(
+      'html.customData'
+    )
+    addConfigs(config)
+  } catch (error) {
+    console.error(error)
+  }
 })
 
 connection.listen()

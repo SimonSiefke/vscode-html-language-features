@@ -31,9 +31,10 @@ You can specify custom data inside your vscode settings. After changing the conf
 ```json
 {
   "html.customData": {
-    "elements": {
+    "tags": {
       "my-button": {
-        "description": "Custom button element"
+        "description": "Custom button element",
+        "categories": ["flow content", "phrasing content", "palpable content"]
       }
     }
   }

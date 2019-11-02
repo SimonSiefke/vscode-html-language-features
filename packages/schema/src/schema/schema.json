@@ -206,7 +206,8 @@
                     "additionalProperties": false,
                     "properties": {
                       "category": {
-                        "description": "The parent tag must have this category"
+                        "description": "The parent tag must have this category",
+                        "type": "string"
                       }
                     }
                   }
@@ -227,7 +228,8 @@
                     "additionalProperties": false,
                     "properties": {
                       "category": {
-                        "description": "All elements with this category are allowed"
+                        "description": "All elements with this category are allowed",
+                        "type": "string"
                       }
                     }
                   }

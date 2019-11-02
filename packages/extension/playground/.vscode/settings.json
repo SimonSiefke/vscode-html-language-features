@@ -4,9 +4,15 @@
     "verbosity": "verbose" // or "off" | "messages"
   },
   "html.customData": {
-    "elements": {
+    "tags": {
       "my-button": {
-        "description": "Custom button element"
+        "description": "Custom button element",
+        "categories": [
+          "flow content",
+          "phrasing content",
+          "embedded content",
+          "palpable content"
+        ]
       }
     }
   }
