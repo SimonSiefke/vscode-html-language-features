@@ -1,9 +1,9 @@
 import {
-  ScannerState,
   createScanner,
+  ScannerState,
 } from '@html-language-features/html-parser'
+import { getSuggestedTags, isTagName } from '../../Data/Data'
 import { getPreviousOpeningTagName } from '../util/getParentTagName'
-import { isTagName, getSuggestedTags } from '../../data/Data'
 
 const fuzzySearch = (tagName: string, abbreviation: string) => {
   // If the string is equal to the word, perfect match.

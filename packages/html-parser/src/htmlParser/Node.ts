@@ -22,43 +22,44 @@ export function findFirst<T>(array: T[], p: (x: T) => boolean): number {
   return low
 }
 
-function pretty(node: Node): void {}
-function isSameTag(
-  firstTag: string | undefined,
-  secondTag: string | undefined
-): boolean {
-  return (
-    firstTag && firstTag.length === secondTag.length && firstTag === secondTag
-  )
-}
-function findNodeBeforeOffset(node: Node, offset: number): Node {
-  const idx = findFirst(node.children, c => offset <= c.start) - 1
-  if (idx >= 0) {
-    const child = node.children[idx]
-    if (offset > child.start) {
-      if (offset < child.end) {
-        return child.findNodeBefore(offset)
-      }
-      const { lastChild } = child
-      if (lastChild && lastChild.end === child.end) {
-        return child.findNodeBefore(offset)
-      }
-      return child
-    }
-  }
-  return node
-}
+// function pretty(node: Node): void {}
+// function isSameTag(
+//   firstTag: string | undefined,
+//   secondTag: string | undefined
+// ): boolean {
+//   return (
+//     firstTag && firstTag.length === secondTag.length && firstTag === secondTag
+//   )
+// }
 
-function findNodeAtOffset(node: Node, offset: number): Node {
-  const idx = findFirst(node.children, c => offset <= c.start) - 1
-  if (idx >= 0) {
-    const child = node.children[idx]
-    if (offset > child.start && offset <= child.end) {
-      return child.findNodeAt(offset)
-    }
-  }
-  return node
-}
+// function findNodeBeforeOffset(node: Node, offset: number): Node {
+//   const idx = findFirst(node.children, c => offset <= c.start) - 1
+//   if (idx >= 0) {
+//     const child = node.children[idx]
+//     if (offset > child.start) {
+//       if (offset < child.end) {
+//         return child.findNodeBefore(offset)
+//       }
+//       const { lastChild } = child
+//       if (lastChild && lastChild.end === child.end) {
+//         return child.findNodeBefore(offset)
+//       }
+//       return child
+//     }
+//   }
+//   return node
+// }
+
+// function findNodeAtOffset(node: Node, offset: number): Node {
+//   const idx = findFirst(node.children, c => offset <= c.start) - 1
+//   if (idx >= 0) {
+//     const child = node.children[idx]
+//     if (offset > child.start && offset <= child.end) {
+//       return child.findNodeAt(offset)
+//     }
+//   }
+//   return node
+// }
 
 export class Node {
   public tagName: string | undefined

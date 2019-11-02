@@ -1,12 +1,12 @@
-import { MarkupKind } from 'vscode-languageserver'
 import {
-  getDescriptionForTag,
-  getReferenceForTag,
   getDescriptionForAttributeName,
-  getReferenceForAttributeName,
   getDescriptionForAttributeValue,
+  getDescriptionForTag,
+  getReferenceForAttributeName,
+  getReferenceForTag,
+  Reference,
 } from '@html-language-features/html-language-service'
-import { Reference } from '@html-language-features/schema'
+import { MarkupKind } from 'vscode-languageserver'
 
 interface Documentation {
   kind: typeof MarkupKind.Markdown

@@ -161,16 +161,21 @@ const getTags = async () => {
         }),
         {}
       ) //?
-    const permittedParentTags = info.parents
+    let allowedParentTags = info.parents
       // .filter(parent => !isIgnoredCategory(parent))
       .map(parent => {
         if (isCategory(parent)) {
-          return {
-            category: getRefinedCategory(parent),
-          }
+          return undefined
+          // return {
+          //   category: getRefinedCategory(parent),
+          // }
         }
         return parent
       })
+      .filter(Boolean)
+    if (allowedParentTags.length === 0) {
+      allowedParentTags = undefined
+    }
     const categories = info.categories
       // .filter(category => !isIgnoredCategory(category))
       .map(getRefinedCategory)
@@ -199,7 +204,7 @@ const getTags = async () => {
       [info.elementName]: {
         categories,
         attributes,
-        permittedParentTags,
+        allowedParentTags,
         allowedSubTags,
       },
     }
@@ -215,6 +220,9 @@ const all = async () => {
     path.join(__dirname, '../../generated/whatwg.htmlData.json'),
     JSON.stringify(
       {
+        __meta__: {
+          source: referenceUrl,
+        },
         tags,
       },
       null,

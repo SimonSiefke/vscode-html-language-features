@@ -15,10 +15,10 @@ import {
 import { getDocumentationForAttributeValue } from '../../util/getDocumentation'
 import { removeDeprecatedItems } from '../../util/removeDeprecatedItems'
 
-const thinSpace = `\u2009`
-const weirdCharAtTheEndOfTheAlphabet = `\uE83A`
+// const thinSpace = `\u2009`
+// const weirdCharAtTheEndOfTheAlphabet = `\uE83A`
 const orangeIcon = CompletionItemKind.Value
-const recommendationThreshold = 0.07
+// const recommendationThreshold = 0.07
 
 interface Data {
   tagName: string
@@ -56,7 +56,7 @@ const createCompletionItems: ({
 
     const kind = orangeIcon
     const insertText = item.name
-    let completionItem: CompletionItem & { data: Data }
+    // let completionItem: CompletionItem & { data: Data }
     const itemLabel = item.name
     const insertTextFormat = InsertTextFormat.Snippet
 

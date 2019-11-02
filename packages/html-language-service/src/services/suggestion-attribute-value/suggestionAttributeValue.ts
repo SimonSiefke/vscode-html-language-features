@@ -4,10 +4,9 @@ import {
   TokenType,
 } from '@html-language-features/html-parser'
 import {
-  NamedAttributeValue,
   getSuggestedAttributeValues,
-  setConfig,
-} from '../../data/Data'
+  NamedAttributeValue,
+} from '../../Data/Data'
 
 /**
  * Suggestions for attribute names

@@ -1,8 +1,7 @@
-import * as schema from '../schema/schema.json'
 import { validate, ValidationError } from 'jsonschema'
-import mergeWith from 'lodash/mergeWith'
 import uniq from 'lodash/uniq'
 import { Config } from '../Config'
+import * as schema from '../schema/schema.json'
 
 const validateConfig: (
   config: Config

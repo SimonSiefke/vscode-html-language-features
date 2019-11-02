@@ -1,10 +1,10 @@
 import {
+  createScanner,
   Scanner,
   ScannerState,
   TokenType,
-  createScanner,
 } from '@html-language-features/html-parser'
-import { isSelfClosingTag } from '../../data/Data'
+import { isSelfClosingTag } from '../../Data/Data'
 
 export const getPreviousOpeningTagName: (
   scanner: Scanner,

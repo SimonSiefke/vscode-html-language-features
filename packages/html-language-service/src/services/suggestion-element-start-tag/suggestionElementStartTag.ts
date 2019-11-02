@@ -1,17 +1,22 @@
 import { createScanner } from '@html-language-features/html-parser'
+import { getSuggestedTags, NamedTag } from '../../Data/Data'
 import { getPreviousOpeningTagName } from '../util/getParentTagName'
-import { getSuggestedTags, NamedTag } from '../../data/Data'
 
 /**
  * Suggestion for start tag
- *`<` -> suggest `<div`, `<button` etc.
+ * @example
+ * doSuggestionElementStartTag(`<ul><`, 5) // [{ name: 'li' }]
  */
 export const doSuggestionElementStartTag: (
   text: string,
   offset: number
 ) => NamedTag[] | undefined = (text, offset) => {
-  const scanner = createScanner(text)
-  scanner.stream.goTo(offset)
+  const scanner = createScanner(text, {
+    initialOffset: offset,
+  })
+  if (!scanner.stream.currentlyEndsWith('<')) {
+    return undefined
+  }
   if (!scanner.stream.currentlyEndsWithRegex(/<[\S]*$/)) {
     return undefined
   }
@@ -31,6 +36,8 @@ export const doSuggestionElementStartTag: (
   // const completionOffset = scanner.stream.position
   // scanner.state = ScannerState.WithinContent
   // scanner.scan()
+
+  console.log('suggest start tag')
   const incompleteTagName = scanner.getTokenText()
   const parent = getPreviousOpeningTagName(scanner, completionOffset - 2)
   let tagName: string | undefined
@@ -40,6 +47,10 @@ export const doSuggestionElementStartTag: (
   }
 
   const parentTagName = (parent && parent.tagName) || 'root'
+  console.log('parent is' + parent.tagName)
+
   const suggestions = getSuggestedTags(parentTagName)
+  // console.log('sug')
+  // console.log('a' + JSON.stringify(suggestions))
   return suggestions
 }

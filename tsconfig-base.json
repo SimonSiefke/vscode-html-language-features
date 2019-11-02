@@ -13,11 +13,11 @@
     "noEmitOnError": true,
 
     "strictNullChecks": true,
-    // "noImplicitAny": true,
-    // "noImplicitThis": true,
-    // "strictPropertyInitialization": true,
-    // "noUnusedLocals": true,
-    // "noUnusedParameters": true,
+    "noImplicitAny": true,
+    "noImplicitThis": true,
+    "strictPropertyInitialization": true,
+    "noUnusedLocals": true,
+    "noUnusedParameters": true,
 
     "skipLibCheck": true,
 

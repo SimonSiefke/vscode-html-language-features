@@ -5,6 +5,28 @@
   "default": {},
   "additionalProperties": false,
   "definitions": {
+    "parentTags": {
+      "description": "The element is only allowed as a child of those parent elements",
+      "type": "array",
+      "items": {
+        "oneOf": [
+          {
+            "type": "string",
+            "description": "The name of the parent tag"
+          },
+          {
+            "type": "object",
+            "additionalProperties": false,
+            "properties": {
+              "category": {
+                "description": "The category of the parent tag",
+                "type": "string"
+              }
+            }
+          }
+        ]
+      }
+    },
     "reference": {
       "description": "Reference for additional information",
       "type": "object",
@@ -192,27 +214,13 @@
               "default": false,
               "description": "Whether or not there should be a new line when this tag is inserted"
             },
-            "permittedParentTags": {
-              "description": "The element is only allowed as a child of those parent elements",
-              "type": "array",
-              "items": {
-                "oneOf": [
-                  {
-                    "type": "string",
-                    "description": "The name of the required parent tag"
-                  },
-                  {
-                    "type": "object",
-                    "additionalProperties": false,
-                    "properties": {
-                      "category": {
-                        "description": "The parent tag must have this category",
-                        "type": "string"
-                      }
-                    }
-                  }
-                ]
-              }
+            "disallowedParentTags": {
+              "$ref": "#/definitions/parentTags",
+              "description": "Disallowed parent tags"
+            },
+            "allowedParentTags": {
+              "$ref": "#/definitions/parentTags",
+              "description": "Allowed parent tags"
             },
             "allowedSubTags": {
               "description": "Allowed child elements",

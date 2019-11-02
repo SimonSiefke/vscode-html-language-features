@@ -1,11 +1,5 @@
-import {
-  TestCase,
-  createTestFile,
-  run,
-  activateExtension,
-  closeTestFile,
-} from '../test-utils'
-import { before, after } from 'mocha'
+import { TestCase, createTestFile, run, activateExtension } from '../test-utils'
+import { before } from 'mocha'
 
 suite('Auto Close Tag', () => {
   before(async () => {

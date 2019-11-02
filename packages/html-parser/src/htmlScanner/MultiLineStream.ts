@@ -7,7 +7,7 @@ const whitespaceMap = {
 }
 
 function isWhitespace(char: string): boolean {
-  return whitespaceMap[char]
+  return char in whitespaceMap
 }
 
 export class MultiLineStream {

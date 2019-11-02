@@ -2,7 +2,7 @@ import {
   createScanner,
   ScannerState,
 } from '@html-language-features/html-parser'
-import { getSuggestedAttributes, NamedAttribute } from '../../data/Data'
+import { getSuggestedAttributes, NamedAttribute } from '../../Data/Data'
 
 /**
  * Suggestions for attribute names

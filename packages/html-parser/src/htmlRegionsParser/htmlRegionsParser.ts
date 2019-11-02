@@ -1,8 +1,4 @@
-import {
-  createScanner,
-  ScannerState,
-  TokenType,
-} from '../htmlScanner/htmlScanner'
+import { createScanner, TokenType } from '../htmlScanner/htmlScanner'
 
 function isEmbeddedContent(tagName: string): boolean {
   return ['script', 'style'].includes(tagName)
@@ -76,7 +72,7 @@ export function parseRegions(input: string): Region[] {
         break
     }
   }
-  return regions
+  return regions as Region[]
 }
 
 parseRegions('<script i>x=2<style></script><style> </style>') // ?

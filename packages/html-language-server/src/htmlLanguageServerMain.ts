@@ -1,26 +1,27 @@
 import {
+  addConfigs,
+  Config,
+} from '@html-language-features/html-language-service'
+import {
   createConnection,
   IConnection,
-  TextDocuments,
   ServerCapabilities,
+  TextDocuments,
   TextDocumentSyncKind,
 } from 'vscode-languageserver'
-import { addConfigs } from '@html-language-features/html-language-service'
 import { createConnectionProxy } from './htmlLanguageServer/connectionProxy'
-import { RemotePluginApi } from './plugins/remotePluginApi'
 import { remotePluginCompletionElementAutoClose } from './plugins/remote-plugin-completion-element-auto-close/remotePluginCompletionElementAutoClose'
-import { remotePluginCompletionElementClose } from './plugins/remote-plugin-completion-element-close/remotePluginCompletionElementClose'
-// import { remotePluginCompletionElementExpand } from './plugins/remote-plugin-completion-element-expand/remotePluginCompletionElementExpand'
-import { remotePluginCompletionElementSelfClosing } from './plugins/remote-plugin-completion-element-self-closing/remotePluginCompletionElementSelfClosing'
 import { remotePluginCompletionElementAutoRenameTag } from './plugins/remote-plugin-completion-element-auto-rename-tag/remotePluginCompletionElementAutoRenameTag'
-import { remotePluginSuggestionElementStartTag } from './plugins/remote-plugin-suggestion-element-start-tag/remotePluginSuggestionElementStartTag'
-import { remotePluginSuggestionAttributeName } from './plugins/remote-plugin-suggestion-attribute-name/remotePluginSuggestionAttributeName'
+import { remotePluginCompletionElementClose } from './plugins/remote-plugin-completion-element-close/remotePluginCompletionElementClose'
+import { remotePluginCompletionElementSelfClosing } from './plugins/remote-plugin-completion-element-self-closing/remotePluginCompletionElementSelfClosing'
 import { remotePluginHighlightElementMatchingTag } from './plugins/remote-plugin-highlight-element-matching-tag/remotePluginHighlightElementMatchingTag'
 import { remotePluginHoverElement } from './plugins/remote-plugin-hover-element/remotePluginHoverElement'
-import { remotePluginSymbol } from './plugins/remote-plugin-symbol/remotePluginSymbol'
 import { remotePluginSuggestionAttributeValue } from './plugins/remote-plugin-suggest-attribute-value/remotePluginSuggestAttributeValue'
-import { remotePluginSuggestionElementExpand } from './plugins/remote-plugin-suggestion-element-expand/remotePluginSuggestionElementExpand'
-import { Config } from '@html-language-features/schema'
+import { remotePluginSuggestionAttributeName } from './plugins/remote-plugin-suggestion-attribute-name/remotePluginSuggestionAttributeName'
+// import { remotePluginSuggestionElementExpand } from './plugins/remote-plugin-suggestion-element-expand/remotePluginSuggestionElementExpand'
+import { remotePluginSuggestionElementStartTag } from './plugins/remote-plugin-suggestion-element-start-tag/remotePluginSuggestionElementStartTag'
+import { remotePluginSymbol } from './plugins/remote-plugin-symbol/remotePluginSymbol'
+import { RemotePluginApi } from './plugins/remotePluginApi'
 
 const connection: IConnection = createConnection()
 
@@ -73,9 +74,9 @@ connection.onInitialized(async () => {
   // const tagStatisticsConfig: Config = await import(
   //   '@html-language-features/statistics-generator/dist/generated/tags.htmlData.json'
   // )
-  // const curatedFactsConfig: Config = await import(
-  //   '@html-language-features/curated-facts/generated/curated.htmlData.json'
-  // )
+  const curatedFactsConfig: Config = await import(
+    '@html-language-features/curated-facts/generated/curated.htmlData.json'
+  )
   // const mdnFlowContentConfig: Config = await import(
   //   '@html-language-features/facts-generator/generated/mdnFlowContent.htmlData.json'
   // )
@@ -95,7 +96,8 @@ connection.onInitialized(async () => {
     mdnConfig,
     mdnGlobalAttributeConfig,
     mdnLinkTypeConfig,
-    whatwgConfig
+    whatwgConfig,
+    curatedFactsConfig
   )
   // snippetsConfig
   // w3schoolsConfig,
@@ -120,8 +122,8 @@ connection.onInitialized(async () => {
 
   remotePluginHoverElement(api)
 
-  remotePluginSuggestionElementStartTag(api)
   // remotePluginSuggestionElementExpand(api)
+  remotePluginSuggestionElementStartTag(api)
   remotePluginSuggestionAttributeName(api)
   remotePluginSuggestionAttributeValue(api)
 

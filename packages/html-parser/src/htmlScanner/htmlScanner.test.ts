@@ -1,5 +1,5 @@
 /* eslint-disable sonarjs/no-duplicate-string */
-import { createScanner, TokenType, ScannerState } from './htmlScanner'
+import { createScanner, TokenType } from './htmlScanner'
 
 interface Token {
   offset: number
@@ -12,12 +12,12 @@ interface TokenTest {
   tokens: Token[]
 }
 
-function isEmbeddedContent(tagName) {
-  return ['script', 'style'].includes(tagName)
-}
+// function isEmbeddedContent(tagName) {
+//   return ['script', 'style'].includes(tagName)
+// }
 
 function assertTokens(tests: TokenTest[]): void {
-  const scannerState = ScannerState.WithinContent
+  // const scannerState = ScannerState.WithinContent
   for (const test of tests) {
     const scanner = createScanner(test.input)
     let tokenType = scanner.scan()

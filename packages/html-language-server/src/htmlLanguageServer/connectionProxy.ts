@@ -162,8 +162,8 @@ export const createConnectionProxy: (
   const onCompletionResolverHandlers: {
     [id: string]: (params: CompletionItem) => CompletionItem
   } = {}
-  const onSignatureHelpHandlers: any[] = []
-  const onRequestHandlers: any[] = []
+  // const onSignatureHelpHandlers: any[] = []
+  // const onRequestHandlers: any[] = []
   return {
     onDocumentSymbol: handler => {
       connection.onDocumentSymbol(

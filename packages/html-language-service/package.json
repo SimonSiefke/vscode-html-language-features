@@ -5,19 +5,17 @@
   "private": true,
   "main": "dist/htmlLanguageServiceMain.js",
   "scripts": {
-    "dev": "tsc --watch",
     "test": "jest"
   },
   "keywords": [],
   "author": "",
   "license": "MIT",
   "dependencies": {
-    "@html-language-features/html-intellicode": "^1.0.0-dev",
     "@html-language-features/html-parser": "^1.0.0-dev",
     "@html-language-features/schema": "^1.0.0-dev"
   },
   "devDependencies": {
-    "@types/jest": "^24.0.20",
+    "@types/jest": "^24.0.21",
     "jest": "^24.9.0",
     "ts-jest": "^24.1.0"
   }

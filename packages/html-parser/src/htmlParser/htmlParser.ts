@@ -1,8 +1,4 @@
-import {
-  createScanner,
-  TokenType,
-  ScannerState,
-} from '../htmlScanner/htmlScanner'
+import { createScanner, TokenType } from '../htmlScanner/htmlScanner'
 import { Node } from './Node'
 
 // function parse2(text:string, isSelfClosingTag:any):any{

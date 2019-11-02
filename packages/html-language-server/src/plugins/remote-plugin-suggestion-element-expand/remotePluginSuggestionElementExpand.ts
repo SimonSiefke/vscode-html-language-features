@@ -1,26 +1,24 @@
-import { RemotePlugin } from '../remotePluginApi'
+import {
+  doSuggestionElementExpand,
+  getSuggestedTags,
+  isSelfClosingTag,
+  NamedTag,
+  shouldHaveNewline,
+} from '@html-language-features/html-language-service'
 import {
   CompletionItem,
   CompletionItemKind,
-  TextDocument,
-  Range,
-  Position,
   InsertTextFormat,
+  Position,
+  Range,
+  TextDocument,
 } from 'vscode-languageserver-types'
-import {
-  NamedTag,
-  doSuggestionElementExpand,
-} from '@html-language-features/html-language-service'
-import { getDocumentationForTagName } from '../../util/getDocumentation'
-import { getSuggestedTags } from '@html-language-features/html-language-service'
-import { isSelfClosingTag } from '@html-language-features/html-language-service'
-import { shouldHaveNewline } from '@html-language-features/html-language-service'
-import { getSuggestedSnippets } from '@html-language-features/html-language-service'
+import { RemotePlugin } from '../remotePluginApi'
 
-const thinSpace = `\u2009`
-const weirdCharAtTheEndOfTheAlphabet = `\uE83A`
+// const thinSpace = `\u2009`
+// const weirdCharAtTheEndOfTheAlphabet = `\uE83A`
 const blueishIcon = CompletionItemKind.Variable
-const recommendationThreshold = 0.12
+// const recommendationThreshold = 0.12
 
 interface Data {
   tagName: string
@@ -92,7 +90,6 @@ export const remotePluginSuggestionElementExpand: RemotePlugin = api => {
   api.languageServer.onCompletion(
     'suggestion-element-expand',
     ({ textDocument, position }) => {
-      console.log('expanddd')
       const document = api.documents.get(textDocument.uri) as TextDocument
       const text = document.getText(
         Range.create(Position.create(0, 0), position)
@@ -109,15 +106,15 @@ export const remotePluginSuggestionElementExpand: RemotePlugin = api => {
       // const snippets = getSuggestedSnippets(result.tagName) || []
       const snippets: any[] = []
 
-      const createCompletionItemsForSnippets = (
-        snippets: { name: string; value: string }[]
-      ) =>
-        snippets.map(snippet => ({
-          label: snippet.name,
-          insertText: snippet.value,
-          insertTextFormat: InsertTextFormat.Snippet,
-          kind: blueishIcon,
-        }))
+      // const createCompletionItemsForSnippets = (
+      //   snippets: { name: string; value: string }[]
+      // ) =>
+      //   snippets.map(snippet => ({
+      //     label: snippet.name,
+      //     insertText: snippet.value,
+      //     insertTextFormat: InsertTextFormat.Snippet,
+      //     kind: blueishIcon,
+      //   }))
 
       const filteredTags = suggestedTags.filter(
         tag => !snippets.find(snippet => snippet.name === tag.name)

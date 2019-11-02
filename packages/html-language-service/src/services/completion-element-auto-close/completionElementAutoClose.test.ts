@@ -1,5 +1,5 @@
+import { setConfig } from '../../Data/Data'
 import { doCompletionElementAutoClose } from './completionElementAutoClose'
-import { setConfig } from '../../data/Data'
 
 beforeAll(() => {
   setConfig({

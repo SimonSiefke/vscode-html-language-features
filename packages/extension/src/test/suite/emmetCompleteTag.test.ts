@@ -1,11 +1,5 @@
-import {
-  TestCase,
-  createTestFile,
-  run,
-  activateExtension,
-  closeTestFile,
-} from '../test-utils'
-import { before, after } from 'mocha'
+import { before } from 'mocha'
+import { activateExtension, createTestFile, run, TestCase } from '../test-utils'
 
 suite('Emmet Complete Tag', () => {
   before(async () => {

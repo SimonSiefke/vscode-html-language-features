@@ -1,6 +1,5 @@
 import * as vscode from 'vscode'
 import { createLanguageClient } from './LanguageClient/LanguageClient'
-import { localPluginCompletionElementExpand } from './plugins/local-plugin-completion-element-expand/localPluginCompletionElementExpand'
 import { localPluginCompletionElementAutoClose } from './plugins/local-plugin-completion-element-auto-close/localPluginCompletionElementAutoClose'
 import { localPluginCompletionElementClose } from './plugins/local-plugin-completion-element-close/localPluginCompletionElementClose'
 import { localPluginCompletionElementSelfClosing } from './plugins/local-plugin-completion-element-self-closing/localPluginCompletionElementSelfClosing'
@@ -12,7 +11,6 @@ export const activate: (
 ) => Promise<void> = async context => {
   import('./LanguageConfiguration/htmlLanguageConfigurationFromVscode')
   const languageClient = await createLanguageClient(context)
-  // languageClient.registerLocalPlugin(localPluginCompletionElementExpand)
   languageClient.registerLocalPlugin(localPluginCompletionElementAutoClose)
   languageClient.registerLocalPlugin(localPluginCompletionElementClose)
   languageClient.registerLocalPlugin(localPluginCompletionElementSelfClosing)

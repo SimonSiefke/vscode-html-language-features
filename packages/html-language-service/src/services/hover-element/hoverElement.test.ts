@@ -2,15 +2,15 @@ import { doHoverElement } from './hoverElement'
 
 // TODO more tests
 
-jest.mock('../../data/HTMLManager.ts', () => ({
-  getHTMLTags: () => {
-    return {
-      h1: {},
-      Daten: {},
-      DatenSätze: {},
-    }
-  },
-}))
+// jest.mock('../../data/Data.ts', () => ({
+//   getHTMLTags: () => {
+//     return {
+//       h1: {},
+//       Daten: {},
+//       DatenSätze: {},
+//     }
+//   },
+// }))
 
 test('hover-element', () => {
   const testCases: { input: string; expected: any | undefined }[] = [

@@ -1,31 +1,31 @@
-import * as vsl from 'vscode-languageclient'
 import * as vscode from 'vscode'
+import * as vsl from 'vscode-languageclient'
 import { LocalPlugin, LocalPluginApi } from '../plugins/localPluginApi'
 
 // const defaultTimeout = 3 // for self closing tag
 // const defaultTimeout = 40 // for expand abbreviation
 // const defaultTimeout = 45 // normal files
 // const defaultTimeout = 100 // large files
-const defaultTimeout = 350 // very large files
+// const defaultTimeout = 350 // very large files
 // const defaultTimeout = 1000 // for html spec
 
-class TimeoutError extends Error {}
+// class TimeoutError extends Error {}
 
-/**
- * Rejects a promise after a certain amount of milliseconds
- *
- * @param promise - the promise to time out
- * @param timeout - timeout in milliseconds
- */
-const timeout: <T>(promise: Promise<T>, timeout: number) => Promise<T> = (
-  promise,
-  timeout
-) => {
-  return new Promise((resolve, reject) => {
-    setTimeout(() => reject(new TimeoutError()), timeout)
-    promise.then(resolve).catch(reject)
-  })
-}
+// /**
+//  * Rejects a promise after a certain amount of milliseconds
+//  *
+//  * @param promise - the promise to time out
+//  * @param timeout - timeout in milliseconds
+//  */
+// const timeout: <T>(promise: Promise<T>, timeout: number) => Promise<T> = (
+//   promise,
+//   timeout
+// ) => {
+//   return new Promise((resolve, reject) => {
+//     setTimeout(() => reject(new TimeoutError()), timeout)
+//     promise.then(resolve).catch(reject)
+//   })
+// }
 
 // const withTimeout: (
 //   sendRequest: LocalPluginApi['languageClient']['sendRequest']

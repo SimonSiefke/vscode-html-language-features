@@ -46,7 +46,8 @@ export type Tag = Readonly<{
     [attributeName: string]: AttributeInfo
   }
   allowedSubTags?: SubTag[]
-  permittedParentTags?: ParentTag[]
+  allowedParentTags?: ParentTag[]
+  disallowedParentTags?: ParentTag[]
 }>
 
 export type Config = {

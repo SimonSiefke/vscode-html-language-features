@@ -1,7 +1,7 @@
 import * as vscode from 'vscode'
-import { findMatchingTags } from '@html-language-features/html-language-service'
-import { LocalPlugin, LocalPluginApi } from '../localPluginApi'
 import * as vsl from 'vscode-languageclient'
+import { LocalPlugin, LocalPluginApi } from '../localPluginApi'
+
 type Result =
   | {
       type: 'startAndEndTag'
@@ -35,15 +35,15 @@ const highlightElementMatchingTagDecorationType = vscode.window.createTextEditor
   }
 )
 
-const askServiceForHighlightElementMatchingTag: (
-  api: LocalPluginApi,
-  document: vscode.TextDocument,
-  position: vscode.Position
-) => Result | undefined = (api, document, position) => {
-  const text = document.getText()
-  const offset = document.offsetAt(position)
-  return findMatchingTags(text, offset)
-}
+// const askServiceForHighlightElementMatchingTag: (
+//   api: LocalPluginApi,
+//   document: vscode.TextDocument,
+//   position: vscode.Position
+// ) => Result | undefined = (api, document, position) => {
+//   const text = document.getText()
+//   const offset = document.offsetAt(position)
+//   return findMatchingTags(text, offset)
+// }
 
 const askServerForHighlightElementMatchingTag: (
   api: LocalPluginApi,

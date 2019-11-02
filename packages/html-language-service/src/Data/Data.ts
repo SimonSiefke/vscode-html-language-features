@@ -1,13 +1,12 @@
 import {
-  Config,
-  mergeConfigs,
-  ValidationError,
-  Tag,
-} from '@html-language-features/schema'
-import {
-  Reference,
   AttributeInfo,
   AttributeValueInfo,
+  Config,
+  mergeConfigs,
+  Reference,
+  Tag,
+  ValidationError,
+  ParentTag,
 } from '@html-language-features/schema'
 import * as fs from 'fs'
 import * as path from 'path'
@@ -35,6 +34,10 @@ export const setConfig: (
   return {
     errors: [],
   }
+}
+
+export const resetConfig: () => void = () => {
+  _config = {}
 }
 
 export const addConfigs: (
@@ -97,9 +100,8 @@ export const getDescriptionForAttributeName: (
     _config.tags &&
     _config.tags[tagName] &&
     _config.tags[tagName].attributes &&
-    // TODO typescript bug?
-    _config.tags[tagName].attributes![attributeName] &&
-    _config.tags[tagName].attributes![attributeName].description
+    _config.tags[tagName].attributes[attributeName] &&
+    _config.tags[tagName].attributes[attributeName].description
   if (elementAttributeDescription) {
     return elementAttributeDescription
   }
@@ -115,20 +117,25 @@ export const getDescriptionForAttributeValue: (
   attributeName: string,
   attributeValue: string
 ) => string | undefined = (tagName, attributeName, attributeValue) => {
-  if (tagName === undefined) {
-    // TODO global attributes
-    return undefined
-  }
-  return (
+  const elementAttributeValueDescription =
     _config.tags &&
     _config.tags[tagName] &&
     _config.tags[tagName].attributes &&
-    // TODO typescript bug?
-    _config.tags[tagName].attributes![attributeName] &&
-    _config.tags[tagName].attributes![attributeName].options &&
-    _config.tags[tagName].attributes![attributeName].options![attributeValue] &&
-    _config.tags[tagName].attributes![attributeName].options![attributeValue]
+    _config.tags[tagName].attributes[attributeName] &&
+    _config.tags[tagName].attributes[attributeName].options &&
+    _config.tags[tagName].attributes[attributeName].options![attributeValue] &&
+    _config.tags[tagName].attributes[attributeName].options![attributeValue]
       .description
+
+  if (elementAttributeValueDescription) {
+    return elementAttributeValueDescription
+  }
+  return (
+    _config.globalAttributes &&
+    _config.globalAttributes[attributeName] &&
+    _config.globalAttributes[attributeName].options &&
+    _config.globalAttributes[attributeName].options[attributeValue] &&
+    _config.globalAttributes[attributeName].options[attributeValue].description
   )
 }
 
@@ -142,6 +149,16 @@ export type NamedAttribute = AttributeInfo & { readonly name: string }
 export type NamedAttributeValue = AttributeValueInfo & { readonly name: string }
 
 export type NamedSnippet = { readonly name: string; value: string }
+
+const toNamed: <T extends object>(values: {
+  [key: string]: T
+}) => (T & { name: string })[] = values => {
+  return Object.entries(values).map(([key, value]) => ({
+    name: key,
+    ...value,
+  }))
+}
+
 /**
  * Get the most likely attribute values for a given tag and attribute
  * @param tagName
@@ -153,19 +170,23 @@ export const getSuggestedAttributeValues: (
   tagName: string,
   attributeName: string
 ) => NamedAttributeValue[] | undefined = (tagName, attributeName) => {
-  const options =
+  const elementAttributeValues =
     _config.tags &&
     _config.tags[tagName] &&
     _config.tags[tagName].attributes &&
     _config.tags[tagName].attributes![attributeName] &&
     _config.tags[tagName].attributes![attributeName].options
-  if (!options) {
-    return undefined
+  if (elementAttributeValues) {
+    return toNamed(elementAttributeValues)
   }
-  return Object.entries(options).map(([key, value]) => ({
-    name: key,
-    ...value,
-  }))
+  const globalAttributeValues =
+    _config.globalAttributes &&
+    _config.globalAttributes[attributeName] &&
+    _config.globalAttributes[attributeName].options
+  if (globalAttributeValues) {
+    return toNamed(globalAttributeValues)
+  }
+  return undefined
 }
 
 const getTagsByCategory: (category: string) => string[] = category => {
@@ -184,78 +205,113 @@ const getTagsByCategory: (category: string) => string[] = category => {
 }
 
 const isAllowedParentTag: (
-  parentTagName: string,
-  permittedParentTags: NonNullable<Tag['permittedParentTags']>
-) => boolean = (parentTagName, permittedParentTags) => {
+  parentTagCandidateName: string,
+  allowedParentTags: ParentTag[],
+  disallowedParentTags: ParentTag[]
+) => boolean = (
+  parentTagCandidateName,
+  allowedParentTags,
+  disallowedParentTags
+) => {
   const categories =
     (_config.tags &&
-      _config.tags[parentTagName] &&
-      _config.tags[parentTagName].categories) ||
+      _config.tags[parentTagCandidateName] &&
+      _config.tags[parentTagCandidateName].categories) ||
     []
-  for (const categoryOrName of permittedParentTags) {
-    if (typeof categoryOrName === 'string') {
-      if (categoryOrName === parentTagName) {
-        return true
-      }
-    } else {
-      if (categories.includes(categoryOrName.category)) {
-        return true
+
+  // TODO bring into order
+
+  let allowed: boolean
+  if (allowedParentTags === undefined) {
+    allowed = true
+  } else {
+    for (const parentTag of allowedParentTags) {
+      if (typeof parentTag === 'string') {
+        if (parentTag === parentTagCandidateName) {
+          allowed = true
+          break
+        }
+      } else {
+        if (categories.includes(parentTag.category)) {
+          allowed = true
+          break
+        }
       }
     }
   }
-  return false
+  if (allowed === false) {
+    return false
+  }
+  if (disallowedParentTags === undefined) {
+    return allowed
+  }
+  for (const parentTag of disallowedParentTags) {
+    if (typeof parentTag === 'string') {
+      if (parentTagCandidateName === parentTag) {
+        return false
+      }
+    } else {
+      if (categories.includes(parentTag.category)) {
+        return false
+      }
+    }
+  }
+  return allowed
 }
 
 /**
  * Get the most likely tags for a given parent tag.
  * @example
- * getStatisticsForParentTag('ul') // { li: { probability: 1 }}
+ * getSuggestedTags('ul') // [{ name: 'li' }]
  */
 export const getSuggestedTags: (
   parentTagName: string
 ) => NamedTag[] | undefined = parentTagName => {
+  const filterTags: (tags: string[]) => string[] = tags =>
+    tags.filter(tagName => {
+      const allowedParentTags =
+        _config.tags &&
+        _config.tags[tagName] &&
+        _config.tags[tagName].allowedParentTags
+      const disAllowedParentTags =
+        _config.tags &&
+        _config.tags[tagName] &&
+        _config.tags[tagName].disallowedParentTags
+      return isAllowedParentTag(
+        parentTagName,
+        allowedParentTags,
+        disAllowedParentTags
+      )
+    })
   const subTagsOrCategories =
     _config.tags &&
     _config.tags[parentTagName] &&
     _config.tags[parentTagName].allowedSubTags
   if (subTagsOrCategories !== undefined) {
     const allSubTags = subTagsOrCategories.flatMap(subTagOrCategory => {
+      let tags: string[]
       if (typeof subTagOrCategory === 'string') {
-        return [subTagOrCategory]
+        tags = [subTagOrCategory]
+      } else {
+        tags = getTagsByCategory(subTagOrCategory.category)
       }
-      return getTagsByCategory(subTagOrCategory.category)
+      return tags
     })
-    if (allSubTags.length === 0) {
+    const filteredSubTags = filterTags(allSubTags)
+    if (filteredSubTags.length === 0) {
       return undefined
     }
-    return allSubTags.map(subTag => ({
+    return filteredSubTags.map(subTag => ({
       name: subTag,
     }))
   }
-  const globalTags = _config.tags
-  if (globalTags === undefined) {
-    return undefined
-  }
-  const filteredGlobalTags = Object.entries(globalTags).filter(
-    ([key, value]) => {
-      if (value.deprecated) {
-        return false
-      }
-      if (key.startsWith('-')) {
-        return false
-      }
-      if (value.permittedParentTags) {
-        return isAllowedParentTag(parentTagName, value.permittedParentTags)
-      }
-      return true
-    }
-  )
-
+  const globalTags = Object.keys(_config.tags || {})
+  const filteredGlobalTags = filterTags(globalTags)
   if (filteredGlobalTags.length === 0) {
     return undefined
   }
-  return filteredGlobalTags.map(([key]) => ({
-    name: key,
+  return filteredGlobalTags.map(name => ({
+    name,
   }))
 }
 

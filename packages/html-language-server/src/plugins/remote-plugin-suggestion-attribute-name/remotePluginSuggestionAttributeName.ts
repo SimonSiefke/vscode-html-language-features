@@ -16,10 +16,10 @@ import { getDocumentationForAttributeName } from '../../util/getDocumentation'
 import { removeDeprecatedItems } from '../../util/removeDeprecatedItems'
 import { Config } from '../../Config'
 
-const thinSpace = `\u2009`
-const weirdCharAtTheEndOfTheAlphabet = `\uE83A`
+// const thinSpace = `\u2009`
+// const weirdCharAtTheEndOfTheAlphabet = `\uE83A`
 const orangeIcon = CompletionItemKind.Value
-const recommendationThreshold = 0.1
+// const recommendationThreshold = 0.1
 
 interface Data {
   tagName: string

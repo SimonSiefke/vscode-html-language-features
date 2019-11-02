@@ -1,5 +1,4 @@
-import * as assert from 'assert'
-import { before, Test, test } from 'mocha'
+import { before, test } from 'mocha'
 
 // You can import and use all API from the 'vscode' module
 import { TestCase, createTestFile, run, activateExtension } from '../test-utils'

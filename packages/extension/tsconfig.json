@@ -3,7 +3,8 @@
   "compilerOptions": {
     "outDir": "dist",
     "rootDir": "src",
-    "strictNullChecks": false
+    "strictNullChecks": false,
+    "strictPropertyInitialization": false
   },
   "include": ["src", "vscode.proposed.d.ts"],
   "references": [

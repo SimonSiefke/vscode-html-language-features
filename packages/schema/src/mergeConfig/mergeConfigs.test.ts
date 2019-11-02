@@ -300,3 +300,31 @@ test('merges options', () => {
     },
   })
 })
+
+test('merge permitted parent tags', () => {
+  expect(
+    mergeConfigs(
+      {
+        tags: {
+          a: {
+            allowedParentTags: [{ category: 'phrasing content' }],
+          },
+        },
+      },
+      {
+        tags: {
+          a: {
+            disallowedParentTags: ['a'],
+          },
+        },
+      }
+    )
+  ).toEqual({
+    tags: {
+      a: {
+        allowedParentTags: [{ category: 'phrasing content' }],
+        disallowedParentTags: ['a'],
+      },
+    },
+  })
+})

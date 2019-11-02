@@ -1,5 +1,5 @@
+import { setConfig } from '../../Data/Data'
 import { doSuggestionAttributeValue } from './suggestionAttributeValue'
-import { setConfig } from '../../data/Data'
 
 beforeEach(() => {
   setConfig({

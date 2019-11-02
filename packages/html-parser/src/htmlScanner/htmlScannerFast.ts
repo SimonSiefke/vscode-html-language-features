@@ -2,7 +2,6 @@
 /* eslint-disable sonarjs/no-all-duplicated-branches */
 /* eslint-disable @typescript-eslint/no-unused-vars */
 import { MultiLineStream } from './MultiLineStream'
-import { ScannerState } from './htmlScanner'
 
 // const elementsWithEmbeddedContentMap = {
 //   style: true,
@@ -19,7 +18,7 @@ const quoteMap = {
 }
 
 function isQuote(char: string): boolean {
-  return quoteMap[char]
+  return char in quoteMap
 }
 
 /**

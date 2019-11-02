@@ -1,7 +1,6 @@
-import { LocalPlugin, LocalPluginApi } from '../localPluginApi'
-import * as vsl from 'vscode-languageclient'
-import * as vscode from 'vscode'
 import { doCompletionElementAutoRenameTag } from '@html-language-features/html-language-service'
+import * as vscode from 'vscode'
+import { LocalPlugin } from '../localPluginApi'
 
 type Result = {
   startOffset: number

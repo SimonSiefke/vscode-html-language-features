@@ -3,11 +3,11 @@ import {
   ScannerState,
   TokenType,
 } from '@html-language-features/html-parser'
+import { isSelfClosingTag } from '../../../Data/Data'
 import {
-  getPreviousOpeningTagName,
   getNextClosingTag,
+  getPreviousOpeningTagName,
 } from '../getParentTagName'
-import { isSelfClosingTag } from '../../../data/Data'
 
 export type MatchingTagResult =
   | {

@@ -2,18 +2,17 @@
   "extends": "../../tsconfig-noncomposite-base",
   "compilerOptions": {
     "outDir": "dist",
-    "rootDir": "src"
+    "rootDir": "src",
+    "strict": true,
+    "strictBindCallApply": true,
+    "strictFunctionTypes": true,
+    "strictNullChecks": true,
+    "strictPropertyInitialization": true
   },
   "include": ["src"],
   "references": [
     {
       "path": "../html-language-service"
-    },
-    {
-      "path": "../html-parser"
-    },
-    {
-      "path": "../statistics-generator"
     }
   ]
 }
