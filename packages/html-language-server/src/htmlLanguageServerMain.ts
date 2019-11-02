@@ -33,9 +33,7 @@ process.on('uncaughtException', error =>
 )
 process.on('unhandledRejection', error => console.error(JSON.stringify(error)))
 
-const documents: TextDocuments = new TextDocuments(
-  TextDocumentSyncKind.Incremental
-)
+const documents: TextDocuments = new TextDocuments()
 
 documents.listen(connection)
 
