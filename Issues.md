@@ -209,8 +209,3 @@ extract attribute values from mdn for
 - img / importance (p and code)
 
  -->
-
-<!-- TODO
-find all attributes, deprecated attributes for img are currently not found
-
- -->

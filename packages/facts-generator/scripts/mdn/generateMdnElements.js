@@ -135,7 +135,7 @@ const getAttributeNameOrValue = ($, $dt, fullUrl) => {
 /**
  *
  * @param {PreElement} element
- * @return {Promise<{selfClosing: boolean, reference:{ url:string,name:string}, description:string, attributes:{deprecated:boolean,name:string, experimental:boolean, description: string}[]}>}
+ * @return {Promise<{selfClosing: boolean, reference:{ url:string,name:string}, description:string, attributes:{deprecated:boolean,name:string, experimental:boolean, description: string, attributeValues:any}[]}>}
  */
 const getInfoForElement = async element => {
   const fullUrl = 'https://developer.mozilla.org/' + element.href
@@ -143,7 +143,7 @@ const getInfoForElement = async element => {
   const html = await fetch(fullUrl).then(res => res.text())
   // @ts-ignore
   const $ = cheerio.load(html)
-  const description = $('#wikiArticle .seoSummary').html() //
+  const description = $('#wikiArticle .seoSummary').html() //?
 
   const dlAttributes = $('#Attributes ~ dl')
     .not('#Usage_notes ~ dl, #Methods ~ dl')
@@ -176,7 +176,7 @@ const getInfoForElement = async element => {
   }
   for (let i = 0; i < children.length; i++) {
     const child = children[i]
-    console.log(child)
+    // console.log(child)
     if (child.type === 'tag' && child.name === 'dt') {
       finishAttribute()
       const attributeName = getAttributeNameOrValue($, $(child), fullUrl)
@@ -194,6 +194,57 @@ const getInfoForElement = async element => {
       currentAttribute.deprecated = isObsolete
     } else if (child.type === 'tag' && child.name === 'dd') {
       const childHtml = $(child).html()
+      inner: if ($(child).find('ul > li > code')) {
+        const children = $(child)
+          .find('ul li')
+          .get()
+        children
+
+        children[0] //?
+        children[0] && $(children[0]).html() //?
+        if (
+          !children[0] ||
+          !$(children[0])
+            .html()
+            .startsWith('<code>')
+        ) {
+          children
+          break inner
+        }
+        const attributeValues = []
+
+        for (const child of children) {
+          const attributeValueName = $(child)
+            .find('code')
+            .first()
+            .html() //?
+          const isDeprecated =
+            $(child)
+              .find('i.icon-thumbs-down-alt')
+              .html() !== null
+          let attributeValueDescription = $(child)
+            .html()
+            .slice(
+              $(child)
+                .html()
+                .indexOf('</code>') + '</code>'.length
+            ) //?
+          // attributeValueDescription = attributeValueDescription.trim()
+          if (attributeValueDescription.startsWith(':')) {
+            attributeValueDescription = attributeValueDescription.slice(1)
+          }
+          attributeValues.push({
+            name: attributeValueName,
+            description: attributeValueDescription,
+            deprecated: isDeprecated,
+          })
+        }
+        // attributeValues
+        currentAttribute.attributeValues = attributeValues
+      }
+      //  if (childHtml.includes('<ul>')) {
+      //     childHtml //?
+      //   }
       if (currentAttribute.description) {
         if (childHtml.includes('<dl>')) {
           const attributeValues = []
@@ -314,7 +365,7 @@ const all = async () => {
   }
   /**
    *
-   * @param {{name:string,deprecated:boolean,experimental:boolean, description:string, attributeValues:{name:string, description:string}[]}[] } attributes
+   * @param {{name:string,deprecated:boolean,experimental:boolean, description:string, attributeValues:{name:string, description:string, deprecated:boolean}[]}[] } attributes
    * @param {{url:string, name:string|undefined}} reference
    */
   const fixAttributes = (reference, attributes) => {
@@ -338,6 +389,7 @@ const all = async () => {
           // console.log(attributeValue)
           options[attributeValue.name] = {
             description: fixDescriptionMarkdown(attributeValue.description),
+            deprecated: attributeValue.deprecated,
           }
         }
       }
@@ -377,8 +429,9 @@ const all = async () => {
 }
 
 all()
+// @ts-ignore
 // getInfoForElement({
-//   href: '/en-US/docs/Web/HTML/Element/img',
+//   href: '/en-US/docs/Web/HTML/Element/abbr',
 // }) //?
 
 // TODO handle input attributes (they are in a table and not inside a dl)
