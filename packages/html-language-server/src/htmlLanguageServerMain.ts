@@ -74,8 +74,8 @@ connection.onInitialized(async () => {
       whatwgConfig,
       curatedFactsConfig
     )
-    console.error('an error occurred')
   } catch (error) {
+    console.error('an error occurred')
     console.error(error)
   }
   // TODO send to client and client shows error message
@@ -100,17 +100,22 @@ connection.onInitialized(async () => {
 
   remotePluginSymbol(api)
 
+  connection.onDidChangeConfiguration(event => {
+    event.settings
+  })
   try {
+    // TODO workspace folders
     // const config = await connection.workspace.getConfiguration({
     //   scopeUri: '',
     //   section: 'html.customData',
     // })
-    const config = await connection.workspace.getConfiguration(
+    const config: Config = await connection.workspace.getConfiguration(
       'html.customData'
     )
     await addConfigs(config)
   } catch (error) {
-    console.error(error)
+    console.error(JSON.stringify(error))
+    console.error(error.message)
   }
 })
 

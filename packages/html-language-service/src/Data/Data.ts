@@ -55,6 +55,7 @@ export const addConfigs: (...configs: Config[]) => Promise<void> = async (
         if ('errors' in result) {
           throw new Error('invalid config')
         }
+        return result
       }
       return config
     })
