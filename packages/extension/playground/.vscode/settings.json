@@ -1,4 +1,7 @@
 {
+  "html.customData": {
+    "extends": "https://raw.githubusercontent.com/SimonSiefke/vscode-html-language-features/master/packages/curated-facts/generated/wired-elements/curated.htmlData.json"
+  },
   "htmlLanguageClient.trace.server": {
     "format": "json", // or "text"
     "verbosity": "verbose" // or "off" | "messages"

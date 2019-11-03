@@ -1,8 +1,8 @@
-import { setConfig } from '../../Data/Data'
+import { setConfigs } from '../../Data/Data'
 import { doSuggestionAttributeName } from './suggestionAttributeName'
 
 beforeEach(() => {
-  setConfig({
+  setConfigs({
     tags: {
       h1: {
         attributes: {

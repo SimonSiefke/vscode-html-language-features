@@ -1,8 +1,8 @@
-import { setConfig } from '../../Data/Data'
+import { setConfigs } from '../../Data/Data'
 import { doCompletionElementAutoClose } from './completionElementAutoClose'
 
 beforeAll(() => {
-  setConfig({
+  setConfigs({
     tags: {
       input: {
         selfClosing: true,

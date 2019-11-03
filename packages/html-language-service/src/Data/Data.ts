@@ -7,6 +7,7 @@ import {
   ValidationError,
   SubTag,
   Category,
+  resolveConfig,
 } from '@html-language-features/schema'
 import * as fs from 'fs'
 import * as path from 'path'
@@ -22,11 +23,12 @@ const DEBUGConfig = () => {
 }
 
 let _config: Config = {}
+let _configs: Set<Config> = new Set()
 
-export const setConfig: (
-  config: Config
-) => { errors: ValidationError[] } = config => {
-  const result = mergeConfigs(config)
+export const setConfigs: (
+  ...config: Config[]
+) => { errors: ValidationError[] } = (...configs) => {
+  const result = mergeConfigs(...configs)
   if ('errors' in result) {
     return result
   }
@@ -40,16 +42,38 @@ export const resetConfig: () => void = () => {
   _config = {}
 }
 
-export const addConfigs: (
-  ...configs: Config[]
-) => { errors: ValidationError[] } = (...configs) => {
-  const result = mergeConfigs(_config, ...configs)
+class InvalidConfigError extends Error {}
+
+export const addConfigs: (...configs: Config[]) => Promise<void> = async (
+  ...configs
+) => {
+  const resolvedConfigs = await Promise.all(
+    configs.map(async config => {
+      if (config.extends) {
+        const otherConfig = await resolveConfig(config.extends)
+        const result = mergeConfigs(config, otherConfig)
+        if ('errors' in result) {
+          throw new Error('invalid config')
+        }
+      }
+      return config
+    })
+  )
+  const result = mergeConfigs(_config, ...resolvedConfigs)
   if ('errors' in result) {
-    return result
+    throw new Error('invalid config')
   }
   _config = result
-  // DEBUGConfig()
-  return { errors: [] }
+}
+
+export const removeConfigs: (...configs: Config[]) => void = (...configs) => {
+  for (const config of configs) {
+    if (!_configs.has(config)) {
+      throw new Error("config doesn't exist")
+    }
+    _configs.delete(config)
+  }
+  setConfigs(..._configs)
 }
 
 export const isSelfClosingTag: (tagName: string) => boolean = tagName =>

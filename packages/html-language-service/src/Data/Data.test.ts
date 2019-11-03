@@ -414,4 +414,6 @@ test('getSuggestedTags `wired-button` not allowed inside `wired-button`', () => 
   expect(getSuggestedTags('wired-button')).toEqual([])
 })
 
+test.skip('adding and removing configs', () => {})
+
 // test('getSuggestedAttributes', () => {})

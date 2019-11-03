@@ -20,7 +20,7 @@ export {
   NamedAttribute,
   NamedAttributeValue,
   NamedTag,
-  setConfig,
+  setConfigs as setConfig,
   shouldHaveNewline,
   isDeprecatedTag,
 } from './Data/Data'

@@ -59,57 +59,26 @@ connection.onInitialized(async () => {
   const mdnLinkTypeConfig: Config = await import(
     '@html-language-features/facts-generator/generated/mdnLinkTypes.htmlData.json'
   )
-  // const w3schoolsConfig: Config = await import(
-  //   '@html-language-features/facts-generator/generated/w3schools.htmlData.json'
-  // )
   const whatwgConfig: Config = (await import(
     '@html-language-features/facts-generator/generated/whatwg.htmlData.json'
   )) as Config
-  // const attributeStatisticsConfig: Config = await import(
-  //   '@html-language-features/statistics-generator/dist/generated/attributes.htmlData.json'
-  // )
-  // const tagStatisticsConfig: Config = await import(
-  //   '@html-language-features/statistics-generator/dist/generated/tags.htmlData.json'
-  // )
   const curatedFactsConfig: Config = await import(
     '@html-language-features/curated-facts/generated/curated.htmlData.json'
   )
 
-  // const curatedWiredElementsConfig: Config = await import(
-  //   '@html-language-features/curated-facts/generated/wired-elements/curated.htmlData.json'
-  // )
-  // const mdnFlowContentConfig: Config = await import(
-  //   '@html-language-features/facts-generator/generated/mdnFlowContent.htmlData.json'
-  // )
-  // const mdnPhrasingContentConfig: Config = await import(
-  //   '@html-language-features/facts-generator/generated/mdnPhrasingContent.htmlData.json'
-  // )
-  // const mdnPermittedContentConfig: Config = await import(
-  //   '@html-language-features/facts-generator/generated/mdnPermittedContent.htmlData.json'
-  // )
-  // const githubStatisticsConfig = await import(
-  //   '@html-language-features/github-scraper/generated/generated.htmlData.json'
-  // )
-  // const snippetsConfig = await import(
-  //   '@html-language-features/snippets/src/snippets.htmlData.json'
-  // )
-  const { errors } = addConfigs(
-    mdnConfig,
-    // curatedWiredElementsConfig,
-    mdnGlobalAttributeConfig,
-    mdnLinkTypeConfig,
-    whatwgConfig,
-    curatedFactsConfig
-  )
-  // snippetsConfig
-  // w3schoolsConfig,
-  // githubStatisticsConfig
-  // tagStatisticsConfig,
-  // attributeStatisticsConfig
-  if (errors.length > 0) {
+  try {
+    await addConfigs(
+      mdnConfig,
+      mdnGlobalAttributeConfig,
+      mdnLinkTypeConfig,
+      whatwgConfig,
+      curatedFactsConfig
+    )
     console.error('an error occurred')
-    // TODO send to client and client shows error message
+  } catch (error) {
+    console.error(error)
   }
+  // TODO send to client and client shows error message
   const connectionProxy = createConnectionProxy(connection)
   const api: RemotePluginApi = {
     languageServer: connectionProxy,
@@ -132,10 +101,14 @@ connection.onInitialized(async () => {
   remotePluginSymbol(api)
 
   try {
+    // const config = await connection.workspace.getConfiguration({
+    //   scopeUri: '',
+    //   section: 'html.customData',
+    // })
     const config = await connection.workspace.getConfiguration(
       'html.customData'
     )
-    addConfigs(config)
+    await addConfigs(config)
   } catch (error) {
     console.error(error)
   }
