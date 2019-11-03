@@ -1,0 +1,23 @@
+{
+  "tags": {
+    "wired-dialog": {
+      "categories": ["flow content", "sectioning root content"],
+      "allowedSubTags": [
+        {
+          "category": "flow content"
+        }
+      ],
+      "description": "Hand-drawn sketchy Dialog web component.",
+      "attributes": {
+        "elevation": {
+          "description": "Number between 1 and 5 (inclusive) that gives the sketchy link underline a height. Default value is 1.",
+          "type": "integer"
+        },
+        "open": {
+          "type": "boolean",
+          "description": "Boolean value telling dialog if it's showing or not."
+        }
+      }
+    }
+  }
+}

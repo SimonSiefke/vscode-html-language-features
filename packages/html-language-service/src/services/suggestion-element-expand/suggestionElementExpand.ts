@@ -54,9 +54,9 @@ export const expandAbbreviation = (
   }
   suggestions
   const relevantSuggestions = suggestions
-    .map(x => ({
-      ...x,
-      score: fuzzySearch(x.name, abbreviation),
+    .map(name => ({
+      name,
+      score: fuzzySearch(name, abbreviation),
     }))
     .filter(x => x.score > 0)
   if (relevantSuggestions.length === 0) {

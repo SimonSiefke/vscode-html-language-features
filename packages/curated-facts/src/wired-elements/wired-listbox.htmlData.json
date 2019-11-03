@@ -1,0 +1,28 @@
+{
+  "tags": {
+    "wired-listbox": {
+      "categories": [
+        "flow content",
+        "phrasing content",
+        "interactive content",
+        "listed content",
+        "labelable",
+        "submittable content",
+        "resettable",
+        "form-associated content",
+        "palpable content"
+      ],
+      "allowedSubTags": ["wired-item"],
+      "description": "A listbox control with Wired hand-drawn styling. The selected item is highlighted. Can be vertical (default) or horizontal.",
+      "attributes": {
+        "horizontal": {
+          "description": "Boolean indicated if the items are layed out horizontally. Default is false.",
+          "type": "boolean"
+        },
+        "selected": {
+          "description": "Value of the selected item."
+        }
+      }
+    }
+  }
+}

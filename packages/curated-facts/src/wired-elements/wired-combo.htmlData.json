@@ -1,0 +1,28 @@
+{
+  "tags": {
+    "wired-combo": {
+      "categories": [
+        "flow content",
+        "phrasing content",
+        "interactive content",
+        "listed content",
+        "labelable",
+        "submittable content",
+        "resettable",
+        "form-associated content",
+        "palpable content"
+      ],
+      "allowedSubTags": ["wired-item"],
+      "description": "Combobox control - similar to a native browser select element; with a hand-drawn, wireframe like, style.",
+      "attributes": {
+        "disabled": {
+          "type": "boolean",
+          "description": "disables the combo selector. Default value is false."
+        },
+        "selected": {
+          "description": "Value of the selected wired-item."
+        }
+      }
+    }
+  }
+}

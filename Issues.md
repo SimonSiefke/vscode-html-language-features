@@ -212,3 +212,8 @@ some descriptions missing
 some attribute value enums missing
 spellcheck: true/false inside sentence, maybe hard to extract
  -->
+
+<!-- TODO fill deepDisallowedSubTags with data
+button -> deepDisallowedSubTags: interactive content
+a -> deepDisallowedSubTags: interactive content
+ -->

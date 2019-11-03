@@ -1,0 +1,31 @@
+{
+  "tags": {
+    "wired-search-input": {
+      "categories": [
+        "flow content",
+        "phrasing content",
+        "interactive content",
+        "listed content",
+        "labelable",
+        "submittable content",
+        "resettable",
+        "form-associated content",
+        "palpable content"
+      ],
+      "description": "Hand-drawn sketchy search text input web component.",
+      "allowedSubTags": [],
+      "attributes": {
+        "placeholder": {
+          "description": "Placeholder text for the input."
+        },
+        "disabled": {
+          "description": "disables the control",
+          "type": "boolean"
+        },
+        "value": {
+          "description": "Value of the text."
+        }
+      }
+    }
+  }
+}

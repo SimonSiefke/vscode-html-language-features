@@ -1,0 +1,26 @@
+{
+  "tags": {
+    "wired-image": {
+      "categories": [
+        "flow content",
+        "phrasing content",
+        "embedded content",
+        "interactive content",
+        "form-associated content",
+        "palpable content"
+      ],
+      "description": "wired-image displays an image and draws a sketchy border around it.",
+      "attributes": {
+        "src": {
+          "description": "URL of the image.",
+          "type": "image-src"
+        },
+        "elevation": {
+          "description": "Numerical number between 1-5 (inclusive) - sets the elevation of the card. Default is 1.",
+          "type": "integer",
+          "suggest": "1"
+        }
+      }
+    }
+  }
+}

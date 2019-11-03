@@ -135,7 +135,7 @@ const getAttributeNameOrValue = ($, $dt, fullUrl) => {
 /**
  *
  * @param {PreElement} element
- * @return {Promise<{selfClosing: boolean, reference:{ url:string,name:string}, description:string, attributes:{deprecated:boolean,name:string, experimental:boolean, description: string, attributeValues:any}[]}>}
+ * @return {Promise<{selfClosing: boolean, reference:{ url:string,name:string}, description:string,categories:string[], attributes:{deprecated:boolean,name:string, experimental:boolean, description: string, attributeValues:any}[]}>}
  */
 const getInfoForElement = async element => {
   const fullUrl = 'https://developer.mozilla.org/' + element.href
@@ -374,6 +374,7 @@ const getInfoForElement = async element => {
       url: fullUrl,
     },
     attributes,
+    categories: ['builtin'],
   }
 }
 
@@ -392,6 +393,7 @@ const all = async () => {
         experimental: element.experimental,
         selfClosing: elementInfo.selfClosing,
         attributes: elementInfo.attributes,
+        categories: elementInfo.categories,
       }
     })
   )
@@ -466,6 +468,7 @@ const all = async () => {
         selfClosing: current.selfClosing || undefined,
         description: fixDescriptionMarkdown(current.description),
         attributes: fixAttributes(current.reference, current.attributes),
+        // categories: current.categories,
       },
     }),
     {}

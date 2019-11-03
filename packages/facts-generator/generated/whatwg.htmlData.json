@@ -22,11 +22,7 @@
       }
     },
     "abbr": {
-      "categories": [
-        "flow content",
-        "phrasing content",
-        "palpable content"
-      ],
+      "categories": ["flow content", "phrasing content", "palpable content"],
       "attributes": {},
       "allowedSubTags": [
         {
@@ -35,10 +31,7 @@
       ]
     },
     "address": {
-      "categories": [
-        "flow content",
-        "palpable content"
-      ],
+      "categories": ["flow content", "palpable content"],
       "attributes": {},
       "allowedSubTags": [
         {
@@ -47,10 +40,7 @@
       ]
     },
     "area": {
-      "categories": [
-        "flow content",
-        "phrasing content"
-      ],
+      "categories": ["flow content", "phrasing content"],
       "attributes": {
         "alt": {},
         "coords": {},
@@ -65,11 +55,7 @@
       "allowedSubTags": []
     },
     "article": {
-      "categories": [
-        "flow content",
-        "sectioning content",
-        "palpable content"
-      ],
+      "categories": ["flow content", "sectioning content", "palpable content"],
       "attributes": {},
       "allowedSubTags": [
         {
@@ -78,11 +64,7 @@
       ]
     },
     "aside": {
-      "categories": [
-        "flow content",
-        "sectioning content",
-        "palpable content"
-      ],
+      "categories": ["flow content", "sectioning content", "palpable content"],
       "attributes": {},
       "allowedSubTags": [
         {
@@ -107,17 +89,10 @@
         "muted": {},
         "controls": {}
       },
-      "allowedSubTags": [
-        "source",
-        "track"
-      ]
+      "allowedSubTags": ["source", "track"]
     },
     "b": {
-      "categories": [
-        "flow content",
-        "phrasing content",
-        "palpable content"
-      ],
+      "categories": ["flow content", "phrasing content", "palpable content"],
       "attributes": {},
       "allowedSubTags": [
         {
@@ -126,24 +101,16 @@
       ]
     },
     "base": {
-      "categories": [
-        "metadata content"
-      ],
+      "categories": ["metadata content"],
       "attributes": {
         "href": {},
         "target": {}
       },
-      "allowedParentTags": [
-        "head"
-      ],
+      "allowedParentTags": ["head"],
       "allowedSubTags": []
     },
     "bdi": {
-      "categories": [
-        "flow content",
-        "phrasing content",
-        "palpable content"
-      ],
+      "categories": ["flow content", "phrasing content", "palpable content"],
       "attributes": {},
       "allowedSubTags": [
         {
@@ -152,11 +119,7 @@
       ]
     },
     "bdo": {
-      "categories": [
-        "flow content",
-        "phrasing content",
-        "palpable content"
-      ],
+      "categories": ["flow content", "phrasing content", "palpable content"],
       "attributes": {},
       "allowedSubTags": [
         {
@@ -180,9 +143,7 @@
       ]
     },
     "body": {
-      "categories": [
-        "sectioning root content"
-      ],
+      "categories": ["sectioning root content"],
       "attributes": {
         "onafterprint": {},
         "onbeforeprint": {},
@@ -201,9 +162,7 @@
         "onunhandledrejection": {},
         "onunload": {}
       },
-      "allowedParentTags": [
-        "html"
-      ],
+      "allowedParentTags": ["html"],
       "allowedSubTags": [
         {
           "category": "flow content"
@@ -211,10 +170,7 @@
       ]
     },
     "br": {
-      "categories": [
-        "flow content",
-        "phrasing content"
-      ],
+      "categories": ["flow content", "phrasing content"],
       "attributes": {},
       "allowedSubTags": []
     },
@@ -262,9 +218,7 @@
     "caption": {
       "categories": [],
       "attributes": {},
-      "allowedParentTags": [
-        "table"
-      ],
+      "allowedParentTags": ["table"],
       "allowedSubTags": [
         {
           "category": "flow content"
@@ -272,11 +226,7 @@
       ]
     },
     "cite": {
-      "categories": [
-        "flow content",
-        "phrasing content",
-        "palpable content"
-      ],
+      "categories": ["flow content", "phrasing content", "palpable content"],
       "attributes": {},
       "allowedSubTags": [
         {
@@ -285,11 +235,7 @@
       ]
     },
     "code": {
-      "categories": [
-        "flow content",
-        "phrasing content",
-        "palpable content"
-      ],
+      "categories": ["flow content", "phrasing content", "palpable content"],
       "attributes": {},
       "allowedSubTags": [
         {
@@ -302,9 +248,7 @@
       "attributes": {
         "span": {}
       },
-      "allowedParentTags": [
-        "colgroup"
-      ],
+      "allowedParentTags": ["colgroup"],
       "allowedSubTags": []
     },
     "colgroup": {
@@ -312,20 +256,11 @@
       "attributes": {
         "span": {}
       },
-      "allowedParentTags": [
-        "table"
-      ],
-      "allowedSubTags": [
-        "col",
-        "template"
-      ]
+      "allowedParentTags": ["table"],
+      "allowedSubTags": ["col", "template"]
     },
     "data": {
-      "categories": [
-        "flow content",
-        "phrasing content",
-        "palpable content"
-      ],
+      "categories": ["flow content", "phrasing content", "palpable content"],
       "attributes": {
         "value": {}
       },
@@ -336,10 +271,7 @@
       ]
     },
     "datalist": {
-      "categories": [
-        "flow content",
-        "phrasing content"
-      ],
+      "categories": ["flow content", "phrasing content"],
       "attributes": {},
       "allowedSubTags": [
         {
@@ -354,10 +286,7 @@
     "dd": {
       "categories": [],
       "attributes": {},
-      "allowedParentTags": [
-        "dl",
-        "div"
-      ],
+      "allowedParentTags": ["dl", "div"],
       "allowedSubTags": [
         {
           "category": "flow content"
@@ -365,10 +294,7 @@
       ]
     },
     "del": {
-      "categories": [
-        "flow content",
-        "phrasing content"
-      ],
+      "categories": ["flow content", "phrasing content"],
       "attributes": {
         "cite": {},
         "datetime": {}
@@ -392,11 +318,7 @@
       ]
     },
     "dfn": {
-      "categories": [
-        "flow content",
-        "phrasing content",
-        "palpable content"
-      ],
+      "categories": ["flow content", "phrasing content", "palpable content"],
       "attributes": {},
       "allowedSubTags": [
         {
@@ -405,10 +327,7 @@
       ]
     },
     "dialog": {
-      "categories": [
-        "flow content",
-        "sectioning root content"
-      ],
+      "categories": ["flow content", "sectioning root content"],
       "attributes": {
         "open": {}
       },
@@ -419,14 +338,8 @@
       ]
     },
     "div": {
-      "categories": [
-        "flow content",
-        "palpable content"
-      ],
+      "categories": ["flow content", "palpable content"],
       "attributes": {},
-      "allowedParentTags": [
-        "dl"
-      ],
       "allowedSubTags": [
         {
           "category": "flow content"
@@ -434,10 +347,7 @@
       ]
     },
     "dl": {
-      "categories": [
-        "flow content",
-        "palpable content"
-      ],
+      "categories": ["flow content", "palpable content"],
       "attributes": {},
       "allowedSubTags": [
         "dt",
@@ -451,10 +361,7 @@
     "dt": {
       "categories": [],
       "attributes": {},
-      "allowedParentTags": [
-        "dl",
-        "div"
-      ],
+      "allowedParentTags": ["dl", "div"],
       "allowedSubTags": [
         {
           "category": "flow content"
@@ -462,11 +369,7 @@
       ]
     },
     "em": {
-      "categories": [
-        "flow content",
-        "phrasing content",
-        "palpable content"
-      ],
+      "categories": ["flow content", "phrasing content", "palpable content"],
       "attributes": {},
       "allowedSubTags": [
         {
@@ -513,9 +416,7 @@
     "figcaption": {
       "categories": [],
       "attributes": {},
-      "allowedParentTags": [
-        "figure"
-      ],
+      "allowedParentTags": ["figure"],
       "allowedSubTags": [
         {
           "category": "flow content"
@@ -537,10 +438,7 @@
       ]
     },
     "footer": {
-      "categories": [
-        "flow content",
-        "palpable content"
-      ],
+      "categories": ["flow content", "palpable content"],
       "attributes": {},
       "allowedSubTags": [
         {
@@ -549,10 +447,7 @@
       ]
     },
     "form": {
-      "categories": [
-        "flow content",
-        "palpable content"
-      ],
+      "categories": ["flow content", "palpable content"],
       "attributes": {
         "accept-charset": {},
         "action": {},
@@ -570,15 +465,9 @@
       ]
     },
     "h1": {
-      "categories": [
-        "flow content",
-        "heading",
-        "palpable content"
-      ],
+      "categories": ["flow content", "heading", "palpable content"],
       "attributes": {},
-      "allowedParentTags": [
-        "hgroup"
-      ],
+      "allowedParentTags": ["hgroup"],
       "allowedSubTags": [
         {
           "category": "phrasing content"
@@ -588,9 +477,7 @@
     "head": {
       "categories": [],
       "attributes": {},
-      "allowedParentTags": [
-        "html"
-      ],
+      "allowedParentTags": ["html"],
       "allowedSubTags": [
         {
           "category": "metadata content"
@@ -598,10 +485,7 @@
       ]
     },
     "header": {
-      "categories": [
-        "flow content",
-        "palpable content"
-      ],
+      "categories": ["flow content", "palpable content"],
       "attributes": {},
       "allowedSubTags": [
         {
@@ -610,11 +494,7 @@
       ]
     },
     "hgroup": {
-      "categories": [
-        "flow content",
-        "heading",
-        "palpable content"
-      ],
+      "categories": ["flow content", "heading", "palpable content"],
       "attributes": {},
       "allowedSubTags": [
         "h1",
@@ -629,9 +509,7 @@
       ]
     },
     "hr": {
-      "categories": [
-        "flow content"
-      ],
+      "categories": ["flow content"],
       "attributes": {},
       "allowedSubTags": []
     },
@@ -640,17 +518,10 @@
       "attributes": {
         "manifest": {}
       },
-      "allowedSubTags": [
-        "head",
-        "body"
-      ]
+      "allowedSubTags": ["head", "body"]
     },
     "i": {
-      "categories": [
-        "flow content",
-        "phrasing content",
-        "palpable content"
-      ],
+      "categories": ["flow content", "phrasing content", "palpable content"],
       "attributes": {},
       "allowedSubTags": [
         {
@@ -701,9 +572,7 @@
         "decoding": {},
         "referrerpolicy": {}
       },
-      "allowedParentTags": [
-        "picture"
-      ],
+      "allowedParentTags": ["picture"],
       "allowedSubTags": []
     },
     "input": {
@@ -753,22 +622,14 @@
       "allowedSubTags": []
     },
     "ins": {
-      "categories": [
-        "flow content",
-        "phrasing content",
-        "palpable content"
-      ],
+      "categories": ["flow content", "phrasing content", "palpable content"],
       "attributes": {
         "cite": {},
         "datetime": {}
       }
     },
     "kbd": {
-      "categories": [
-        "flow content",
-        "phrasing content",
-        "palpable content"
-      ],
+      "categories": ["flow content", "phrasing content", "palpable content"],
       "attributes": {},
       "allowedSubTags": [
         {
@@ -795,9 +656,7 @@
     "legend": {
       "categories": [],
       "attributes": {},
-      "allowedParentTags": [
-        "fieldset"
-      ],
+      "allowedParentTags": ["fieldset"],
       "allowedSubTags": [
         {
           "category": "phrasing content"
@@ -809,11 +668,7 @@
       "attributes": {
         "value": {}
       },
-      "allowedParentTags": [
-        "ol",
-        "ul",
-        "menu"
-      ],
+      "allowedParentTags": ["ol", "ul", "menu"],
       "allowedSubTags": [
         {
           "category": "flow content"
@@ -821,11 +676,7 @@
       ]
     },
     "link": {
-      "categories": [
-        "metadata content",
-        "flow content",
-        "phrasing content"
-      ],
+      "categories": ["metadata content", "flow content", "phrasing content"],
       "attributes": {
         "href": {},
         "crossorigin": {},
@@ -840,17 +691,11 @@
         "referrerpolicy": {},
         "integrity": {}
       },
-      "allowedParentTags": [
-        "head",
-        "noscript"
-      ],
+      "allowedParentTags": ["head", "noscript"],
       "allowedSubTags": []
     },
     "main": {
-      "categories": [
-        "flow content",
-        "palpable content"
-      ],
+      "categories": ["flow content", "palpable content"],
       "attributes": {},
       "allowedSubTags": [
         {
@@ -859,24 +704,14 @@
       ]
     },
     "map": {
-      "categories": [
-        "flow content",
-        "phrasing content",
-        "palpable content"
-      ],
+      "categories": ["flow content", "phrasing content", "palpable content"],
       "attributes": {
         "name": {}
       },
-      "allowedSubTags": [
-        "area"
-      ]
+      "allowedSubTags": ["area"]
     },
     "mark": {
-      "categories": [
-        "flow content",
-        "phrasing content",
-        "palpable content"
-      ],
+      "categories": ["flow content", "phrasing content", "palpable content"],
       "attributes": {},
       "allowedSubTags": [
         {
@@ -895,10 +730,7 @@
       "allowedSubTags": []
     },
     "menu": {
-      "categories": [
-        "flow content",
-        "palpable content"
-      ],
+      "categories": ["flow content", "palpable content"],
       "attributes": {},
       "allowedSubTags": [
         "li",
@@ -908,21 +740,14 @@
       ]
     },
     "meta": {
-      "categories": [
-        "metadata content",
-        "flow content",
-        "phrasing content"
-      ],
+      "categories": ["metadata content", "flow content", "phrasing content"],
       "attributes": {
         "name": {},
         "http-equiv": {},
         "content": {},
         "charset": {}
       },
-      "allowedParentTags": [
-        "head",
-        "noscript"
-      ],
+      "allowedParentTags": ["head", "noscript"],
       "allowedSubTags": []
     },
     "meter": {
@@ -947,11 +772,7 @@
       ]
     },
     "nav": {
-      "categories": [
-        "flow content",
-        "sectioning content",
-        "palpable content"
-      ],
+      "categories": ["flow content", "sectioning content", "palpable content"],
       "attributes": {},
       "allowedSubTags": [
         {
@@ -960,15 +781,9 @@
       ]
     },
     "noscript": {
-      "categories": [
-        "metadata content",
-        "flow content",
-        "phrasing content"
-      ],
+      "categories": ["metadata content", "flow content", "phrasing content"],
       "attributes": {},
-      "allowedParentTags": [
-        "head"
-      ],
+      "allowedParentTags": ["head"],
       "allowedSubTags": []
     },
     "object": {
@@ -991,15 +806,10 @@
         "width": {},
         "height": {}
       },
-      "allowedSubTags": [
-        "param"
-      ]
+      "allowedSubTags": ["param"]
     },
     "ol": {
-      "categories": [
-        "flow content",
-        "palpable content"
-      ],
+      "categories": ["flow content", "palpable content"],
       "attributes": {
         "reversed": {},
         "start": {},
@@ -1018,9 +828,7 @@
         "disabled": {},
         "label": {}
       },
-      "allowedParentTags": [
-        "select"
-      ],
+      "allowedParentTags": ["select"],
       "allowedSubTags": [
         "option",
         {
@@ -1036,11 +844,7 @@
         "selected": {},
         "value": {}
       },
-      "allowedParentTags": [
-        "select",
-        "datalist",
-        "optgroup"
-      ],
+      "allowedParentTags": ["select", "datalist", "optgroup"],
       "allowedSubTags": []
     },
     "output": {
@@ -1065,10 +869,7 @@
       ]
     },
     "p": {
-      "categories": [
-        "flow content",
-        "palpable content"
-      ],
+      "categories": ["flow content", "palpable content"],
       "attributes": {},
       "allowedSubTags": [
         {
@@ -1082,17 +883,11 @@
         "name": {},
         "value": {}
       },
-      "allowedParentTags": [
-        "object"
-      ],
+      "allowedParentTags": ["object"],
       "allowedSubTags": []
     },
     "picture": {
-      "categories": [
-        "flow content",
-        "phrasing content",
-        "embedded content"
-      ],
+      "categories": ["flow content", "phrasing content", "embedded content"],
       "attributes": {},
       "allowedSubTags": [
         "source",
@@ -1103,10 +898,7 @@
       ]
     },
     "pre": {
-      "categories": [
-        "flow content",
-        "palpable content"
-      ],
+      "categories": ["flow content", "palpable content"],
       "attributes": {},
       "allowedSubTags": [
         {
@@ -1132,11 +924,7 @@
       ]
     },
     "q": {
-      "categories": [
-        "flow content",
-        "phrasing content",
-        "palpable content"
-      ],
+      "categories": ["flow content", "phrasing content", "palpable content"],
       "attributes": {
         "cite": {}
       },
@@ -1149,17 +937,13 @@
     "rp": {
       "categories": [],
       "attributes": {},
-      "allowedParentTags": [
-        "ruby"
-      ],
+      "allowedParentTags": ["ruby"],
       "allowedSubTags": []
     },
     "rt": {
       "categories": [],
       "attributes": {},
-      "allowedParentTags": [
-        "ruby"
-      ],
+      "allowedParentTags": ["ruby"],
       "allowedSubTags": [
         {
           "category": "phrasing content"
@@ -1167,11 +951,7 @@
       ]
     },
     "ruby": {
-      "categories": [
-        "flow content",
-        "phrasing content",
-        "palpable content"
-      ],
+      "categories": ["flow content", "phrasing content", "palpable content"],
       "attributes": {},
       "allowedSubTags": [
         {
@@ -1182,11 +962,7 @@
       ]
     },
     "s": {
-      "categories": [
-        "flow content",
-        "phrasing content",
-        "palpable content"
-      ],
+      "categories": ["flow content", "phrasing content", "palpable content"],
       "attributes": {},
       "allowedSubTags": [
         {
@@ -1195,11 +971,7 @@
       ]
     },
     "samp": {
-      "categories": [
-        "flow content",
-        "phrasing content",
-        "palpable content"
-      ],
+      "categories": ["flow content", "phrasing content", "palpable content"],
       "attributes": {},
       "allowedSubTags": [
         {
@@ -1223,17 +995,11 @@
         "integrity": {},
         "referrerpolicy": {}
       },
-      "allowedParentTags": [
-        "head"
-      ],
+      "allowedParentTags": ["head"],
       "allowedSubTags": []
     },
     "section": {
-      "categories": [
-        "flow content",
-        "sectioning content",
-        "palpable content"
-      ],
+      "categories": ["flow content", "sectioning content", "palpable content"],
       "attributes": {},
       "allowedSubTags": [
         {
@@ -1271,20 +1037,13 @@
       ]
     },
     "slot": {
-      "categories": [
-        "flow content",
-        "phrasing content"
-      ],
+      "categories": ["flow content", "phrasing content"],
       "attributes": {
         "name": {}
       }
     },
     "small": {
-      "categories": [
-        "flow content",
-        "phrasing content",
-        "palpable content"
-      ],
+      "categories": ["flow content", "phrasing content", "palpable content"],
       "attributes": {},
       "allowedSubTags": [
         {
@@ -1301,19 +1060,11 @@
         "sizes": {},
         "media": {}
       },
-      "allowedParentTags": [
-        "picture",
-        "video",
-        "audio"
-      ],
+      "allowedParentTags": ["picture", "video", "audio"],
       "allowedSubTags": []
     },
     "span": {
-      "categories": [
-        "flow content",
-        "phrasing content",
-        "palpable content"
-      ],
+      "categories": ["flow content", "phrasing content", "palpable content"],
       "attributes": {},
       "allowedSubTags": [
         {
@@ -1322,11 +1073,7 @@
       ]
     },
     "strong": {
-      "categories": [
-        "flow content",
-        "phrasing content",
-        "palpable content"
-      ],
+      "categories": ["flow content", "phrasing content", "palpable content"],
       "attributes": {},
       "allowedSubTags": [
         {
@@ -1335,24 +1082,15 @@
       ]
     },
     "style": {
-      "categories": [
-        "metadata content"
-      ],
+      "categories": ["metadata content"],
       "attributes": {
         "media": {}
       },
-      "allowedParentTags": [
-        "head",
-        "noscript"
-      ],
+      "allowedParentTags": ["head", "noscript"],
       "allowedSubTags": []
     },
     "sub": {
-      "categories": [
-        "flow content",
-        "phrasing content",
-        "palpable content"
-      ],
+      "categories": ["flow content", "phrasing content", "palpable content"],
       "attributes": {},
       "allowedSubTags": [
         {
@@ -1363,9 +1101,7 @@
     "summary": {
       "categories": [],
       "attributes": {},
-      "allowedParentTags": [
-        "details"
-      ],
+      "allowedParentTags": ["details"],
       "allowedSubTags": [
         {
           "category": "phrasing content"
@@ -1373,11 +1109,7 @@
       ]
     },
     "sup": {
-      "categories": [
-        "flow content",
-        "phrasing content",
-        "palpable content"
-      ],
+      "categories": ["flow content", "phrasing content", "palpable content"],
       "attributes": {},
       "allowedSubTags": [
         {
@@ -1396,10 +1128,7 @@
       "allowedSubTags": []
     },
     "table": {
-      "categories": [
-        "flow content",
-        "palpable content"
-      ],
+      "categories": ["flow content", "palpable content"],
       "attributes": {},
       "allowedSubTags": [
         "caption",
@@ -1416,9 +1145,7 @@
     "tbody": {
       "categories": [],
       "attributes": {},
-      "allowedParentTags": [
-        "table"
-      ],
+      "allowedParentTags": ["table"],
       "allowedSubTags": [
         "tr",
         {
@@ -1427,17 +1154,13 @@
       ]
     },
     "td": {
-      "categories": [
-        "sectioning root content"
-      ],
+      "categories": ["sectioning root content"],
       "attributes": {
         "colspan": {},
         "rowspan": {},
         "headers": {}
       },
-      "allowedParentTags": [
-        "tr"
-      ],
+      "allowedParentTags": ["tr"],
       "allowedSubTags": [
         {
           "category": "flow content"
@@ -1452,9 +1175,7 @@
         "script-supporting"
       ],
       "attributes": {},
-      "allowedParentTags": [
-        "colgroup"
-      ],
+      "allowedParentTags": ["colgroup"],
       "allowedSubTags": []
     },
     "textarea": {
@@ -1488,9 +1209,7 @@
     "tfoot": {
       "categories": [],
       "attributes": {},
-      "allowedParentTags": [
-        "table"
-      ],
+      "allowedParentTags": ["table"],
       "allowedSubTags": [
         "tr",
         {
@@ -1499,9 +1218,7 @@
       ]
     },
     "th": {
-      "categories": [
-        "interactive content"
-      ],
+      "categories": ["interactive content"],
       "attributes": {
         "colspan": {},
         "rowspan": {},
@@ -1509,9 +1226,7 @@
         "scope": {},
         "abbr": {}
       },
-      "allowedParentTags": [
-        "tr"
-      ],
+      "allowedParentTags": ["tr"],
       "allowedSubTags": [
         {
           "category": "flow content"
@@ -1521,9 +1236,7 @@
     "thead": {
       "categories": [],
       "attributes": {},
-      "allowedParentTags": [
-        "table"
-      ],
+      "allowedParentTags": ["table"],
       "allowedSubTags": [
         "tr",
         {
@@ -1532,11 +1245,7 @@
       ]
     },
     "time": {
-      "categories": [
-        "flow content",
-        "phrasing content",
-        "palpable content"
-      ],
+      "categories": ["flow content", "phrasing content", "palpable content"],
       "attributes": {
         "datetime": {}
       },
@@ -1547,24 +1256,15 @@
       ]
     },
     "title": {
-      "categories": [
-        "metadata content"
-      ],
+      "categories": ["metadata content"],
       "attributes": {},
-      "allowedParentTags": [
-        "head"
-      ],
+      "allowedParentTags": ["head"],
       "allowedSubTags": []
     },
     "tr": {
       "categories": [],
       "attributes": {},
-      "allowedParentTags": [
-        "table",
-        "thead",
-        "tbody",
-        "tfoot"
-      ],
+      "allowedParentTags": ["table", "thead", "tbody", "tfoot"],
       "allowedSubTags": [
         "th",
         "td",
@@ -1582,18 +1282,11 @@
         "src": {},
         "srclang": {}
       },
-      "allowedParentTags": [
-        "audio",
-        "video"
-      ],
+      "allowedParentTags": ["audio", "video"],
       "allowedSubTags": []
     },
     "u": {
-      "categories": [
-        "flow content",
-        "phrasing content",
-        "palpable content"
-      ],
+      "categories": ["flow content", "phrasing content", "palpable content"],
       "attributes": {},
       "allowedSubTags": [
         {
@@ -1602,10 +1295,7 @@
       ]
     },
     "ul": {
-      "categories": [
-        "flow content",
-        "palpable content"
-      ],
+      "categories": ["flow content", "palpable content"],
       "attributes": {},
       "allowedSubTags": [
         "li",
@@ -1615,11 +1305,7 @@
       ]
     },
     "var": {
-      "categories": [
-        "flow content",
-        "phrasing content",
-        "palpable content"
-      ],
+      "categories": ["flow content", "phrasing content", "palpable content"],
       "attributes": {},
       "allowedSubTags": [
         {
@@ -1648,16 +1334,10 @@
         "width": {},
         "height": {}
       },
-      "allowedSubTags": [
-        "source",
-        "track"
-      ]
+      "allowedSubTags": ["source", "track"]
     },
     "wbr": {
-      "categories": [
-        "flow content",
-        "phrasing content"
-      ],
+      "categories": ["flow content", "phrasing content"],
       "attributes": {},
       "allowedSubTags": []
     }

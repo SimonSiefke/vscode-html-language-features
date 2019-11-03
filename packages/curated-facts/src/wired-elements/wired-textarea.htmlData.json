@@ -1,0 +1,39 @@
+{
+  "tags": {
+    "wired-textarea": {
+      "categories": [
+        "flow content",
+        "phrasing content",
+        "interactive content",
+        "listed content",
+        "labelable",
+        "submittable content",
+        "resettable",
+        "form-associated content",
+        "palpable content"
+      ],
+      "description": "Hand-drawn sketchy multi-line text input web component.",
+      "allowedSubTags": [],
+      "attributes": {
+        "rows": {
+          "type": "integer",
+          "description": "Initial number of rows in textarea."
+        },
+        "maxrows": {
+          "description": "Max number of rows textarea grows to. Then scrollbars appear.",
+          "type": "integer"
+        },
+        "value": {
+          "description": "Text value."
+        },
+        "disabled": {
+          "description": "Disabled the control.",
+          "type": "boolean"
+        },
+        "placeholder": {
+          "description": "Placeholder text for the input."
+        }
+      }
+    }
+  }
+}

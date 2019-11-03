@@ -1,0 +1,22 @@
+{
+  "tags": {
+    "wired-tab": {
+      "categories": ["flow content", "sectioning root content"],
+      "allowedParentTags": ["wired-tabs"],
+      "allowedSubTags": [
+        {
+          "category": "flow content"
+        }
+      ],
+      "description": "Hand-drawn sketchy Tabs web component.",
+      "attributes": {
+        "name": {
+          "description": "Unique identifier for that tab. Used for selection."
+        },
+        "label": {
+          "description": "Text to show in the tab. Defaults to the name property."
+        }
+      }
+    }
+  }
+}

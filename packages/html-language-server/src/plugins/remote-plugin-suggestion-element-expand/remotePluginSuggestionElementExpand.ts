@@ -1,90 +1,80 @@
 import {
   doSuggestionElementExpand,
   getSuggestedTags,
-  isSelfClosingTag,
-  NamedTag,
-  shouldHaveNewline,
 } from '@html-language-features/html-language-service'
-import {
-  CompletionItem,
-  CompletionItemKind,
-  InsertTextFormat,
-  Position,
-  Range,
-  TextDocument,
-} from 'vscode-languageserver-types'
+import { Position, Range, TextDocument } from 'vscode-languageserver-types'
 import { RemotePlugin } from '../remotePluginApi'
 
 // const thinSpace = `\u2009`
 // const weirdCharAtTheEndOfTheAlphabet = `\uE83A`
-const blueishIcon = CompletionItemKind.Variable
-// const recommendationThreshold = 0.12
+// const blueishIcon = CompletionItemKind.Variable
+// // const recommendationThreshold = 0.12
 
-interface Data {
-  tagName: string
-}
+// interface Data {
+//   tagName: string
+// }
 
-const createCompletionItems: (
-  items: NamedTag[]
-) => (CompletionItem & { data: Data })[] = items => {
-  const normalizedItems = items
-  // .map(item => ({
-  // ...item,
-  // recommended:
-  // item.probability !== undefined &&
-  // item.probability >= recommendationThreshold,
-  // }))
+// const createCompletionItems: (
+//   items: NamedTag[]
+// ) => (CompletionItem & { data: Data })[] = items => {
+//   const normalizedItems = items
+//   // .map(item => ({
+//   // ...item,
+//   // recommended:
+//   // item.probability !== undefined &&
+//   // item.probability >= recommendationThreshold,
+//   // }))
 
-  return normalizedItems.map(item => {
-    const kind = blueishIcon
-    let insertText: string
-    if (isSelfClosingTag(item.name)) {
-      insertText = `<${item.name}>`
-    } else if (shouldHaveNewline(item.name)) {
-      insertText = `<${item.name}>\n\t\${0}\n</${item.name}>`
-    } else {
-      insertText = `<${item.name}>\${0}</${item.name}>`
-    }
-    let completionItem: CompletionItem & { data: Data }
-    let itemLabel = item.name
+//   return normalizedItems.map(item => {
+//     const kind = blueishIcon
+//     let insertText: string
+//     if (isSelfClosingTag(item.name)) {
+//       insertText = `<${item.name}>`
+//     } else if (shouldHaveNewline(item.name)) {
+//       insertText = `<${item.name}>\n\t\${0}\n</${item.name}>`
+//     } else {
+//       insertText = `<${item.name}>\${0}</${item.name}>`
+//     }
+//     let completionItem: CompletionItem & { data: Data }
+//     let itemLabel = item.name
 
-    const data: Data = { tagName: item.name }
+//     const data: Data = { tagName: item.name }
 
-    let detail: string | undefined
-    // if (item.probability !== undefined) {
-    //   detail = `${(item.probability * 100).toFixed(2)}% Probability`
-    // }
+//     let detail: string | undefined
+//     // if (item.probability !== undefined) {
+//     //   detail = `${(item.probability * 100).toFixed(2)}% Probability`
+//     // }
 
-    const partialItem: Partial<CompletionItem> & { data: Data } = {
-      kind,
-      data,
-      insertText,
-      detail,
-      insertTextFormat: InsertTextFormat.Snippet,
-    }
+//     const partialItem: Partial<CompletionItem> & { data: Data } = {
+//       kind,
+//       data,
+//       insertText,
+//       detail,
+//       insertTextFormat: InsertTextFormat.Snippet,
+//     }
 
-    completionItem = {
-      label: itemLabel,
-      ...partialItem,
-    }
-    // if (item.recommended) {
-    //   completionItem = {
-    //     label: `★${thinSpace}${itemLabel}`,
-    //     filterText: itemLabel,
-    //     sortText: itemLabel,
-    //     ...partialItem,
-    //   }
-    // } else {
-    //   completionItem = {
-    //     label: itemLabel,
-    //     filterText: `${weirdCharAtTheEndOfTheAlphabet} ${itemLabel}`,
-    //     sortText: `${weirdCharAtTheEndOfTheAlphabet} ${itemLabel}`,
-    //     ...partialItem,
-    //   }
-    // }
-    return completionItem
-  })
-}
+//     completionItem = {
+//       label: itemLabel,
+//       ...partialItem,
+//     }
+//     // if (item.recommended) {
+//     //   completionItem = {
+//     //     label: `★${thinSpace}${itemLabel}`,
+//     //     filterText: itemLabel,
+//     //     sortText: itemLabel,
+//     //     ...partialItem,
+//     //   }
+//     // } else {
+//     //   completionItem = {
+//     //     label: itemLabel,
+//     //     filterText: `${weirdCharAtTheEndOfTheAlphabet} ${itemLabel}`,
+//     //     sortText: `${weirdCharAtTheEndOfTheAlphabet} ${itemLabel}`,
+//     //     ...partialItem,
+//     //   }
+//     // }
+//     return completionItem
+//   })
+// }
 
 export const remotePluginSuggestionElementExpand: RemotePlugin = api => {
   api.languageServer.onCompletion(
@@ -104,7 +94,7 @@ export const remotePluginSuggestionElementExpand: RemotePlugin = api => {
         return undefined
       }
       // const snippets = getSuggestedSnippets(result.tagName) || []
-      const snippets: any[] = []
+      // const snippets: any[] = []
 
       // const createCompletionItemsForSnippets = (
       //   snippets: { name: string; value: string }[]
@@ -116,16 +106,17 @@ export const remotePluginSuggestionElementExpand: RemotePlugin = api => {
       //     kind: blueishIcon,
       //   }))
 
-      const filteredTags = suggestedTags.filter(
-        tag => !snippets.find(snippet => snippet.name === tag.name)
-      )
-      const suggestedTagItems = createCompletionItems(filteredTags)
+      // const filteredTags = suggestedTags.filter(
+      //   tag => !snippets.find(snippet => snippet.name === tag.name)
+      // )
+      // const suggestedTagItems = createCompletionItems(filteredTags)
 
       // const snippetsItems = createCompletionItemsForSnippets(snippets)
-      return {
-        isIncomplete: false,
-        items: [...suggestedTagItems],
-      }
+      // return {
+      //   isIncomplete: false,
+      //   items: [...suggestedTagItems],
+      // }
+      return undefined
     }
   )
 

@@ -1,0 +1,29 @@
+{
+  "tags": {
+    "wired-toggle": {
+      "categories": [
+        "flow content",
+        "phrasing content",
+        "interactive content",
+        "listed content",
+        "labelable",
+        "submittable content",
+        "resettable",
+        "form-associated content",
+        "palpable content"
+      ],
+      "description": "Hand-drawn sketchy toggle button / switch.",
+      "allowedSubTags": [],
+      "attributes": {
+        "checked": {
+          "description": "Checked state (boolean).",
+          "type": "boolean"
+        },
+        "disabled": {
+          "description": " disables the toggle button. Default value is false.",
+          "type": "boolean"
+        }
+      }
+    }
+  }
+}

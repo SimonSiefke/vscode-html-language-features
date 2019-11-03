@@ -6,13 +6,17 @@
     "**/files*/**": true,
     "**/tsconfig.tsbuildinfo": true
   },
+  "typescript.tsdk": "node_modules/typescript/lib",
   "json.schemas": [
+    {
+      "fileMatch": ["**/*.htmlData2.json"],
+      "url": "./packages/schema/src/schema/schema.json"
+    },
     {
       "fileMatch": ["**/*.htmlData.json"],
       "url": "./packages/schema/src/schema/schema.json"
     }
   ],
-  "typescript.tsdk": "node_modules/typescript/lib",
   "files.exclude": {
     "**/.git": true,
     "**/.svn": true,

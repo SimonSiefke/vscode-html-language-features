@@ -2,7 +2,11 @@
   "__meta__": "see https://developer.mozilla.org/en-US/docs/Web/HTML/Element/a#Properties",
   "tags": {
     "a": {
-      "disallowedParentTags": ["a"]
+      "deepDisallowedSubTags": [
+        {
+          "category": "interactive content"
+        }
+      ]
     }
   }
 }

@@ -1,0 +1,14 @@
+{
+  "__meta__": {
+    "source": "https://html.spec.whatwg.org/multipage/form-elements.html#the-button-element"
+  },
+  "tags": {
+    "button": {
+      "deepDisallowedSubTags": [
+        {
+          "category": "interactive content"
+        }
+      ]
+    }
+  }
+}

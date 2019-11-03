@@ -1,0 +1,36 @@
+{
+  "tags": {
+    "wired-video": {
+      "categories": [
+        "flow content",
+        "phrasing content",
+        "embedded content",
+        "interactive content",
+        "palpable content"
+      ],
+      "description": "A hand-drawn sketchy looking video player component.",
+      "allowedSubTags": [],
+      "attributes": {
+        "src": {
+          "description": "URL of the image."
+        },
+        "autoplay": {
+          "description": "Boolean value indicating if the video should auto-play",
+          "type": "boolean"
+        },
+        "loop": {
+          "description": "Loop the video (boolean value)",
+          "type": "boolean"
+        },
+        "muted": {
+          "description": "Play the video muted (boolean value)",
+          "type": "boolean"
+        },
+        "playsinline": {
+          "description": "Play the video inline on mobile devices (boolean value)",
+          "type": "boolean"
+        }
+      }
+    }
+  }
+}

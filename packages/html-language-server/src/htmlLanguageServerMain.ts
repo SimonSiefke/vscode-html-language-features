@@ -62,9 +62,9 @@ connection.onInitialized(async () => {
   // const w3schoolsConfig: Config = await import(
   //   '@html-language-features/facts-generator/generated/w3schools.htmlData.json'
   // )
-  const whatwgConfig: Config = await import(
+  const whatwgConfig: Config = (await import(
     '@html-language-features/facts-generator/generated/whatwg.htmlData.json'
-  )
+  )) as Config
   // const attributeStatisticsConfig: Config = await import(
   //   '@html-language-features/statistics-generator/dist/generated/attributes.htmlData.json'
   // )
@@ -74,6 +74,10 @@ connection.onInitialized(async () => {
   const curatedFactsConfig: Config = await import(
     '@html-language-features/curated-facts/generated/curated.htmlData.json'
   )
+
+  // const curatedWiredElementsConfig: Config = await import(
+  //   '@html-language-features/curated-facts/generated/wired-elements/curated.htmlData.json'
+  // )
   // const mdnFlowContentConfig: Config = await import(
   //   '@html-language-features/facts-generator/generated/mdnFlowContent.htmlData.json'
   // )
@@ -91,6 +95,7 @@ connection.onInitialized(async () => {
   // )
   const { errors } = addConfigs(
     mdnConfig,
+    // curatedWiredElementsConfig,
     mdnGlobalAttributeConfig,
     mdnLinkTypeConfig,
     whatwgConfig,

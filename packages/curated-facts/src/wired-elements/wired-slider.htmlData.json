@@ -1,0 +1,38 @@
+{
+  "tags": {
+    "wired-slider": {
+      "categories": [
+        "flow content",
+        "phrasing content",
+        "interactive content",
+        "listed content",
+        "labelable",
+        "submittable content",
+        "resettable",
+        "form-associated content",
+        "palpable content"
+      ],
+      "description": "Hand-drawn sketchy slider web component which allows user to select a value from a range by moving the slider thumb. Range can be set using the min, max value. Default range is 0-100.",
+      "allowedSubTags": [],
+      "attributes": {
+        "value": {
+          "description": "Numeric value of the slider.",
+          "type": "integer"
+        },
+        "min": {
+          "description": "Minimum value of the slider. Default is 0.",
+          "type": "integer",
+          "suggest": "0"
+        },
+        "max": {
+          "description": "Maximum value of the slider. Default ia 100.",
+          "type": "integer",
+          "suggest": "100"
+        },
+        "knobradius": {
+          "description": "Radius of the knob of the slider."
+        }
+      }
+    }
+  }
+}

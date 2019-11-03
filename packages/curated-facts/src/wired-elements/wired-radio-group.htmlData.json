@@ -1,0 +1,14 @@
+{
+  "tags": {
+    "wired-radio-group": {
+      "categories": ["flow content"],
+      "allowedSubTags": ["wired-radio"],
+      "description": "Allows user to select at most one radio button from a set. Works with wired-radio.",
+      "attributes": {
+        "selected": {
+          "description": "Named of the selected radio button."
+        }
+      }
+    }
+  }
+}

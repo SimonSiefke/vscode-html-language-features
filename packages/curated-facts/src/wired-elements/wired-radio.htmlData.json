@@ -1,0 +1,36 @@
+{
+  "tags": {
+    "wired-radio": {
+      "categories": [
+        "flow content",
+        "phrasing content",
+        "interactive content",
+        "listed content",
+        "labelable",
+        "submittable content",
+        "resettable",
+        "form-associated content",
+        "palpable content"
+      ],
+      "description": "Hand-drawn sketchy radio button web component. Usually used with wired-radio-group.",
+      "allowedSubTags": [],
+      "allowedParentTags": ["wired-radio-group"],
+      "attributes": {
+        "checked": {
+          "type": "boolean",
+          "description": "Checked state (boolean) of the radio button. Default is false."
+        },
+        "disabled": {
+          "type": "boolean",
+          "description": "disables the radio button. Default value is false."
+        },
+        "text": {
+          "description": "Text associated with the radio button."
+        },
+        "name": {
+          "description": "A name associated with the radio inside a radio-group."
+        }
+      }
+    }
+  }
+}

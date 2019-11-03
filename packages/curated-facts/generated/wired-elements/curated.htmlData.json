@@ -1,0 +1,634 @@
+{
+  "tags": {
+    "wired-button": {
+      "categories": [
+        "flow content",
+        "phrasing content",
+        "interactive content",
+        "listed content",
+        "labelable",
+        "submittable content",
+        "form-associated content",
+        "palpable content"
+      ],
+      "allowedSubTags": [
+        {
+          "category": "phrasing content"
+        }
+      ],
+      "description": "Hand-drawn sketchy Button web component.",
+      "attributes": {
+        "elevation": {
+          "type": "integer",
+          "suggest": "1",
+          "description": "Number between 1 and 5 (inclusive) that gives the button a sketchy height. Default value is 1."
+        },
+        "disabled": {
+          "type": "boolean",
+          "description": "disables the button. Default value is false."
+        }
+      }
+    },
+    "wired-calendar": {
+      "categories": [
+        "flow content"
+      ],
+      "allowedSubTags": [],
+      "description": "Calendar control with a hand-drawn, wireframe like, style.",
+      "attributes": {
+        "elevation": {
+          "description": "Numerical number between 1-5 (inclusive) - sets the elevation of the card. Default is 1.",
+          "suggest": "1",
+          "type": "integer"
+        },
+        "selected": {
+          "description": "Optional string value that will be parsed as Date. Pre selects a date highlighted in the calendar"
+        },
+        "firstdate": {
+          "description": "Optional string value that will be parsed as Date. Lower limit of valid dates."
+        },
+        "lastdate": {
+          "description": "Optional string value that will be parsed as Date. Higher limit of valid dates."
+        },
+        "locale": {
+          "description": " Optional string value to set locale used ONLY FOR RENDERING headers in calendar. Default to browser locale. Note: All internal and external dates handling are not affected by locale."
+        },
+        "disabled": {
+          "description": "Boolean value that disables the calendar selector. Default value is false.",
+          "type": "boolean"
+        },
+        "initials": {
+          "description": "Boolean value to use initials in weekdays names. Default value is false.",
+          "type": "boolean"
+        },
+        "value": {
+          "description": "javascript object that contains the selected Date object and the corresponding formatted text."
+        },
+        "format": {
+          "description": "gets/sets the javascript function to format a Date object into a formatted text."
+        }
+      }
+    },
+    "wired-card": {
+      "categories": [
+        "flow content"
+      ],
+      "allowedSubTags": [
+        {
+          "category": "flow content"
+        }
+      ],
+      "deepDisallowedSubTags": [
+        "wired-card"
+      ],
+      "description": "wired-card is a container for other web elements - with a hand-drawn, wireframe like, look.",
+      "attributes": {
+        "elevation": {
+          "type": "integer",
+          "suggest": "1",
+          "description": "Numerical number between 1-5 (inclusive) - sets the elevation of the card. Default is 1."
+        },
+        "fill": {
+          "description": "A color to fill the background of the card in a sketchy format",
+          "type": "color"
+        }
+      }
+    },
+    "wired-checkbox": {
+      "categories": [
+        "flow content",
+        "phrasing content",
+        "interactive content",
+        "listed content",
+        "labelable",
+        "submittable content",
+        "resettable",
+        "form-associated content",
+        "palpable content"
+      ],
+      "allowedSubTags": [],
+      "description": "Hand-drawn sketchy checkbox web component.",
+      "deepDisallowedSubTags": [
+        "wired-checkbox"
+      ],
+      "attributes": {
+        "checked": {
+          "description": "Checked state (boolean). Default is false.",
+          "type": "boolean"
+        },
+        "disabled": {
+          "description": "Disables the checkbox. Default value is false.",
+          "type": "boolean"
+        }
+      }
+    },
+    "wired-combo": {
+      "categories": [
+        "flow content",
+        "phrasing content",
+        "interactive content",
+        "listed content",
+        "labelable",
+        "submittable content",
+        "resettable",
+        "form-associated content",
+        "palpable content"
+      ],
+      "allowedSubTags": [
+        "wired-item"
+      ],
+      "description": "Combobox control - similar to a native browser select element; with a hand-drawn, wireframe like, style.",
+      "attributes": {
+        "disabled": {
+          "type": "boolean",
+          "description": "disables the combo selector. Default value is false."
+        },
+        "selected": {
+          "description": "Value of the selected wired-item."
+        }
+      }
+    },
+    "wired-dialog": {
+      "categories": [
+        "flow content",
+        "sectioning root content"
+      ],
+      "allowedSubTags": [
+        {
+          "category": "flow content"
+        }
+      ],
+      "description": "Hand-drawn sketchy Dialog web component.",
+      "attributes": {
+        "elevation": {
+          "description": "Number between 1 and 5 (inclusive) that gives the sketchy link underline a height. Default value is 1.",
+          "type": "integer"
+        },
+        "open": {
+          "type": "boolean",
+          "description": "Boolean value telling dialog if it's showing or not."
+        }
+      }
+    },
+    "wired-divider": {
+      "categories": [
+        "flow content"
+      ],
+      "allowedSubTags": [],
+      "description": "Hand-drawn sketchy line to divide sections",
+      "attributes": {
+        "elevation": {
+          "description": " Number between 1 and 5 (inclusive) represents number of lines drawn. Default value is 1.",
+          "type": "integer",
+          "suggest": "1"
+        }
+      }
+    },
+    "wired-fab": {
+      "categories": [
+        "flow content",
+        "phrasing content",
+        "interactive content",
+        "listed content",
+        "labelable",
+        "submittable content",
+        "form-associated content",
+        "palpable content"
+      ],
+      "allowedSubTags": [
+        {
+          "category": "phrasing content"
+        }
+      ],
+      "description": "Hand-drawn sketchy Floating Action Button (FAB)",
+      "attributes": {
+        "disabled": {
+          "description": " disables the button. Default value is false.",
+          "type": "boolean"
+        }
+      }
+    },
+    "wired-icon-button": {
+      "categories": [
+        "flow content",
+        "phrasing content",
+        "interactive content",
+        "listed content",
+        "labelable",
+        "submittable content",
+        "form-associated content",
+        "palpable content"
+      ],
+      "allowedSubTags": [],
+      "description": "This is a hand-drawn sketchy round button with an image placed at the center. Image could also be in icon, more specifically an icon as as @material/mwc-icon.",
+      "attributes": {
+        "disabled": {
+          "type": "boolean",
+          "description": "disables the button. Default value is false."
+        }
+      }
+    },
+    "wired-image": {
+      "categories": [
+        "flow content",
+        "phrasing content",
+        "embedded content",
+        "interactive content",
+        "form-associated content",
+        "palpable content"
+      ],
+      "description": "wired-image displays an image and draws a sketchy border around it.",
+      "attributes": {
+        "src": {
+          "description": "URL of the image.",
+          "type": "image-src"
+        },
+        "elevation": {
+          "description": "Numerical number between 1-5 (inclusive) - sets the elevation of the card. Default is 1.",
+          "type": "integer",
+          "suggest": "1"
+        }
+      }
+    },
+    "wired-input": {
+      "categories": [
+        "flow content",
+        "phrasing content",
+        "interactive content",
+        "listed content",
+        "labelable",
+        "submittable content",
+        "resettable",
+        "form-associated content",
+        "palpable content"
+      ],
+      "allowedSubTags": [],
+      "attributes": {
+        "placeholder": {
+          "description": "Placeholder text for the input."
+        },
+        "disabled": {
+          "type": "boolean"
+        },
+        "type": {
+          "description": "Input type e.g. password",
+          "options": {
+            "password": {},
+            "text": {}
+          }
+        },
+        "value": {
+          "description": "Value of the text."
+        }
+      }
+    },
+    "wired-item": {
+      "categories": [],
+      "allowedSubTags": [
+        {
+          "category": "flow content"
+        }
+      ],
+      "deepDisallowedSubTags": [
+        "wired-item"
+      ],
+      "description": "wired-item is a list item used by Wired components like wired-combo and wired-list-box"
+    },
+    "wired-link": {
+      "categories": [
+        "flow content",
+        "phrasing content",
+        "interactive content",
+        "palpable content"
+      ],
+      "description": "Hand-drawn sketchy Anchor/Link web component.",
+      "deepDisallowedSubTags": [
+        "wired-link"
+      ],
+      "attributes": {
+        "elevation": {
+          "description": "Number between 1 and 5 (inclusive) that gives the sketchy link underline a height. Default value is 1.",
+          "type": "integer",
+          "suggest": "1"
+        },
+        "href": {
+          "description": "URL of the page to link to",
+          "type": "url"
+        },
+        "target": {
+          "description": "Similar to the target property of <a>, the target window of this link."
+        }
+      }
+    },
+    "wired-listbox": {
+      "categories": [
+        "flow content",
+        "phrasing content",
+        "interactive content",
+        "listed content",
+        "labelable",
+        "submittable content",
+        "resettable",
+        "form-associated content",
+        "palpable content"
+      ],
+      "allowedSubTags": [
+        "wired-item"
+      ],
+      "description": "A listbox control with Wired hand-drawn styling. The selected item is highlighted. Can be vertical (default) or horizontal.",
+      "attributes": {
+        "horizontal": {
+          "description": "Boolean indicated if the items are layed out horizontally. Default is false.",
+          "type": "boolean"
+        },
+        "selected": {
+          "description": "Value of the selected item."
+        }
+      }
+    },
+    "wired-progress": {
+      "categories": [
+        "flow content",
+        "phrasing content",
+        "labelable",
+        "palpable content"
+      ],
+      "description": "Hand-drawn sketchy progress bar web component.",
+      "allowedSubTags": [],
+      "attributes": {
+        "value": {
+          "description": "Numeric value of the progress."
+        },
+        "min": {
+          "description": "Minimum value",
+          "suggest": "0"
+        },
+        "max": {
+          "description": "Maximum value",
+          "suggest": "100"
+        },
+        "percentage": {
+          "description": "Boolean indicating if the label should show a % symbol.",
+          "type": "boolean"
+        }
+      }
+    },
+    "wired-radio-group": {
+      "categories": [
+        "flow content"
+      ],
+      "allowedSubTags": [
+        "wired-radio"
+      ],
+      "description": "Allows user to select at most one radio button from a set. Works with wired-radio.",
+      "attributes": {
+        "selected": {
+          "description": "Named of the selected radio button."
+        }
+      }
+    },
+    "wired-radio": {
+      "categories": [
+        "flow content",
+        "phrasing content",
+        "interactive content",
+        "listed content",
+        "labelable",
+        "submittable content",
+        "resettable",
+        "form-associated content",
+        "palpable content"
+      ],
+      "description": "Hand-drawn sketchy radio button web component. Usually used with wired-radio-group.",
+      "allowedSubTags": [],
+      "allowedParentTags": [
+        "wired-radio-group"
+      ],
+      "attributes": {
+        "checked": {
+          "type": "boolean",
+          "description": "Checked state (boolean) of the radio button. Default is false."
+        },
+        "disabled": {
+          "type": "boolean",
+          "description": "disables the radio button. Default value is false."
+        },
+        "text": {
+          "description": "Text associated with the radio button."
+        },
+        "name": {
+          "description": "A name associated with the radio inside a radio-group."
+        }
+      }
+    },
+    "wired-search-input": {
+      "categories": [
+        "flow content",
+        "phrasing content",
+        "interactive content",
+        "listed content",
+        "labelable",
+        "submittable content",
+        "resettable",
+        "form-associated content",
+        "palpable content"
+      ],
+      "description": "Hand-drawn sketchy search text input web component.",
+      "allowedSubTags": [],
+      "attributes": {
+        "placeholder": {
+          "description": "Placeholder text for the input."
+        },
+        "disabled": {
+          "description": "disables the control",
+          "type": "boolean"
+        },
+        "value": {
+          "description": "Value of the text."
+        }
+      }
+    },
+    "wired-slider": {
+      "categories": [
+        "flow content",
+        "phrasing content",
+        "interactive content",
+        "listed content",
+        "labelable",
+        "submittable content",
+        "resettable",
+        "form-associated content",
+        "palpable content"
+      ],
+      "description": "Hand-drawn sketchy slider web component which allows user to select a value from a range by moving the slider thumb. Range can be set using the min, max value. Default range is 0-100.",
+      "allowedSubTags": [],
+      "attributes": {
+        "value": {
+          "description": "Numeric value of the slider.",
+          "type": "integer"
+        },
+        "min": {
+          "description": "Minimum value of the slider. Default is 0.",
+          "type": "integer",
+          "suggest": "0"
+        },
+        "max": {
+          "description": "Maximum value of the slider. Default ia 100.",
+          "type": "integer",
+          "suggest": "100"
+        },
+        "knobradius": {
+          "description": "Radius of the knob of the slider."
+        }
+      }
+    },
+    "wired-spinner": {
+      "categories": [
+        "flow content"
+      ],
+      "description": "Hand-drawn sketchy spinner to show progress or a pending task.",
+      "allowedSubTags": [],
+      "attributes": {
+        "spinning": {
+          "description": "Is the spinner spinning. Default is false.",
+          "type": "boolean"
+        },
+        "duration": {
+          "description": "Time in milliseconds to complete one complete spin. Default is 1500",
+          "type": "integer",
+          "suggest": "1500"
+        }
+      }
+    },
+    "wired-tab": {
+      "categories": [
+        "flow content",
+        "sectioning root content"
+      ],
+      "allowedParentTags": [
+        "wired-tabs"
+      ],
+      "allowedSubTags": [
+        {
+          "category": "flow content"
+        }
+      ],
+      "description": "Hand-drawn sketchy Tabs web component.",
+      "attributes": {
+        "name": {
+          "description": "Unique identifier for that tab. Used for selection."
+        },
+        "label": {
+          "description": "Text to show in the tab. Defaults to the name property."
+        }
+      }
+    },
+    "wired-tabs": {
+      "categories": [
+        "flow content",
+        "palpable content"
+      ],
+      "allowedSubTags": [
+        "wired-tab"
+      ],
+      "description": "Hand-drawn sketchy Tabs web component.",
+      "attributes": {
+        "selected": {
+          "description": "Name of the currently selected tab"
+        }
+      }
+    },
+    "wired-textarea": {
+      "categories": [
+        "flow content",
+        "phrasing content",
+        "interactive content",
+        "listed content",
+        "labelable",
+        "submittable content",
+        "resettable",
+        "form-associated content",
+        "palpable content"
+      ],
+      "description": "Hand-drawn sketchy multi-line text input web component.",
+      "allowedSubTags": [],
+      "attributes": {
+        "rows": {
+          "type": "integer",
+          "description": "Initial number of rows in textarea."
+        },
+        "maxrows": {
+          "description": "Max number of rows textarea grows to. Then scrollbars appear.",
+          "type": "integer"
+        },
+        "value": {
+          "description": "Text value."
+        },
+        "disabled": {
+          "description": "Disabled the control.",
+          "type": "boolean"
+        },
+        "placeholder": {
+          "description": "Placeholder text for the input."
+        }
+      }
+    },
+    "wired-toggle": {
+      "categories": [
+        "flow content",
+        "phrasing content",
+        "interactive content",
+        "listed content",
+        "labelable",
+        "submittable content",
+        "resettable",
+        "form-associated content",
+        "palpable content"
+      ],
+      "description": "Hand-drawn sketchy toggle button / switch.",
+      "allowedSubTags": [],
+      "attributes": {
+        "checked": {
+          "description": "Checked state (boolean).",
+          "type": "boolean"
+        },
+        "disabled": {
+          "description": " disables the toggle button. Default value is false.",
+          "type": "boolean"
+        }
+      }
+    },
+    "wired-video": {
+      "categories": [
+        "flow content",
+        "phrasing content",
+        "embedded content",
+        "interactive content",
+        "palpable content"
+      ],
+      "description": "A hand-drawn sketchy looking video player component.",
+      "allowedSubTags": [],
+      "attributes": {
+        "src": {
+          "description": "URL of the image."
+        },
+        "autoplay": {
+          "description": "Boolean value indicating if the video should auto-play",
+          "type": "boolean"
+        },
+        "loop": {
+          "description": "Loop the video (boolean value)",
+          "type": "boolean"
+        },
+        "muted": {
+          "description": "Play the video muted (boolean value)",
+          "type": "boolean"
+        },
+        "playsinline": {
+          "description": "Play the video inline on mobile devices (boolean value)",
+          "type": "boolean"
+        }
+      }
+    }
+  }
+}

@@ -1,0 +1,28 @@
+{
+  "tags": {
+    "wired-link": {
+      "categories": [
+        "flow content",
+        "phrasing content",
+        "interactive content",
+        "palpable content"
+      ],
+      "description": "Hand-drawn sketchy Anchor/Link web component.",
+      "deepDisallowedSubTags": ["wired-link"],
+      "attributes": {
+        "elevation": {
+          "description": "Number between 1 and 5 (inclusive) that gives the sketchy link underline a height. Default value is 1.",
+          "type": "integer",
+          "suggest": "1"
+        },
+        "href": {
+          "description": "URL of the page to link to",
+          "type": "url"
+        },
+        "target": {
+          "description": "Similar to the target property of <a>, the target window of this link."
+        }
+      }
+    }
+  }
+}

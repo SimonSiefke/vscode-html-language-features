@@ -1,0 +1,8 @@
+{
+  "tags": {
+    "wired-tabs": {
+      "is": "div",
+      "allowedSubTags": ["wired-tab"]
+    }
+  }
+}

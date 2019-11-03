@@ -1,0 +1,24 @@
+{
+  "tags": {
+    "wired-icon-button": {
+      "categories": [
+        "flow content",
+        "phrasing content",
+        "interactive content",
+        "listed content",
+        "labelable",
+        "submittable content",
+        "form-associated content",
+        "palpable content"
+      ],
+      "allowedSubTags": [],
+      "description": "This is a hand-drawn sketchy round button with an image placed at the center. Image could also be in icon, more specifically an icon as as @material/mwc-icon.",
+      "attributes": {
+        "disabled": {
+          "type": "boolean",
+          "description": "disables the button. Default value is false."
+        }
+      }
+    }
+  }
+}

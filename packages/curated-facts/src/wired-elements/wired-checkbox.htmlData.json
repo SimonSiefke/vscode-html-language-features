@@ -1,0 +1,30 @@
+{
+  "tags": {
+    "wired-checkbox": {
+      "categories": [
+        "flow content",
+        "phrasing content",
+        "interactive content",
+        "listed content",
+        "labelable",
+        "submittable content",
+        "resettable",
+        "form-associated content",
+        "palpable content"
+      ],
+      "allowedSubTags": [],
+      "description": "Hand-drawn sketchy checkbox web component.",
+      "deepDisallowedSubTags": ["wired-checkbox"],
+      "attributes": {
+        "checked": {
+          "description": "Checked state (boolean). Default is false.",
+          "type": "boolean"
+        },
+        "disabled": {
+          "description": "Disables the checkbox. Default value is false.",
+          "type": "boolean"
+        }
+      }
+    }
+  }
+}

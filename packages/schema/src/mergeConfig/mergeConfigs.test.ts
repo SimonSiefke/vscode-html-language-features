@@ -301,20 +301,20 @@ test('merges options', () => {
   })
 })
 
-test('merge permitted parent tags', () => {
+test('merge allowedSubTags and deepDisallowedSubTags', () => {
   expect(
     mergeConfigs(
       {
         tags: {
           a: {
-            allowedParentTags: [{ category: 'phrasing content' }],
+            allowedSubTags: [{ category: 'phrasing content' }],
           },
         },
       },
       {
         tags: {
           a: {
-            disallowedParentTags: ['a'],
+            deepDisallowedSubTags: ['a'],
           },
         },
       }
@@ -322,8 +322,8 @@ test('merge permitted parent tags', () => {
   ).toEqual({
     tags: {
       a: {
-        allowedParentTags: [{ category: 'phrasing content' }],
-        disallowedParentTags: ['a'],
+        allowedSubTags: [{ category: 'phrasing content' }],
+        deepDisallowedSubTags: ['a'],
       },
     },
   })

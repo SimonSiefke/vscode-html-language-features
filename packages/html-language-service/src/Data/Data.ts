@@ -4,9 +4,9 @@ import {
   Config,
   mergeConfigs,
   Reference,
-  Tag,
   ValidationError,
-  ParentTag,
+  SubTag,
+  Category,
 } from '@html-language-features/schema'
 import * as fs from 'fs'
 import * as path from 'path'
@@ -194,12 +194,8 @@ export const getSuggestedAttributeValues: (
   return undefined
 }
 
-const getTagsByCategory: (category: string) => string[] = category => {
-  const globalTags = _config.tags
-  if (!globalTags) {
-    return []
-  }
-  return Object.entries(globalTags)
+const getTagsByCategory: (category: Category) => string[] = category => {
+  return Object.entries(_config.tags || {})
     .filter(([key, value]) => {
       if (!value.categories) {
         return false
@@ -209,59 +205,75 @@ const getTagsByCategory: (category: string) => string[] = category => {
     .map(([key, value]) => key)
 }
 
-const isAllowedParentTag: (
-  parentTagCandidateName: string,
-  allowedParentTags: ParentTag[],
-  disallowedParentTags: ParentTag[]
-) => boolean = (
-  parentTagCandidateName,
-  allowedParentTags,
-  disallowedParentTags
-) => {
-  const categories =
-    (_config.tags &&
-      _config.tags[parentTagCandidateName] &&
-      _config.tags[parentTagCandidateName].categories) ||
-    []
-
-  // TODO bring into order
-
-  let allowed: boolean
-  if (allowedParentTags === undefined) {
-    allowed = true
-  } else {
-    for (const parentTag of allowedParentTags) {
-      if (typeof parentTag === 'string') {
-        if (parentTag === parentTagCandidateName) {
-          allowed = true
-          break
-        }
-      } else {
-        if (categories.includes(parentTag.category)) {
-          allowed = true
-          break
-        }
-      }
-    }
+const matchesTagOrCategory: (
+  tagName: string,
+  tagOrCategory: SubTag
+) => boolean = (tagName, tagOrCategory) => {
+  if (typeof tagOrCategory === 'string') {
+    return tagName === tagOrCategory
   }
-  if (allowed === false) {
+  return getTagsByCategory(tagOrCategory.category).includes(tagName)
+}
+
+/**
+ * Whether or not a parent tag is allowed for a sub tag
+ * @example
+ * isAllowedParentTag('html', 'body') // true
+ */
+const isAllowedParentTag: (
+  parentTagName: string,
+  subTagName: string
+) => boolean = (parentTagName, subTagName) => {
+  const allowedParentTags =
+    _config.tags &&
+    _config.tags[subTagName] &&
+    _config.tags[subTagName].allowedParentTags
+  if (!allowedParentTags) {
+    return true
+  }
+  return allowedParentTags.includes(parentTagName)
+}
+
+/**
+ * Whether or not a sub tag is a allowed sub tag
+ * @example
+ * isAllowedSubTag('ul', 'li') // true
+ */
+const isAllowedSubTag: (
+  parentTagName: string,
+  subTagName: string
+) => boolean = (parentTagName, subTagName) => {
+  const allowedSubTags =
+    _config.tags &&
+    _config.tags[parentTagName] &&
+    _config.tags[parentTagName].allowedSubTags
+  if (!allowedSubTags) {
+    return true
+  }
+  return allowedSubTags.some(subTagOrCategory =>
+    matchesTagOrCategory(subTagName, subTagOrCategory)
+  )
+}
+
+/**
+ * Whether or not a sub tag is a deep disallowed sub tag
+ * @example
+ * isDeepDisallowedSubTag('a', 'a') // true
+ */
+const isDeepDisallowedSubTag: (
+  parentTagName: string,
+  subTagName: string
+) => boolean = (parentTagName, subTagName) => {
+  const deepDisallowedSubTags =
+    _config.tags &&
+    _config.tags[parentTagName] &&
+    _config.tags[parentTagName].deepDisallowedSubTags
+  if (!deepDisallowedSubTags) {
     return false
   }
-  if (disallowedParentTags === undefined) {
-    return allowed
-  }
-  for (const parentTag of disallowedParentTags) {
-    if (typeof parentTag === 'string') {
-      if (parentTagCandidateName === parentTag) {
-        return false
-      }
-    } else {
-      if (categories.includes(parentTag.category)) {
-        return false
-      }
-    }
-  }
-  return allowed
+  return deepDisallowedSubTags.some(subTagOrCategory =>
+    matchesTagOrCategory(subTagName, subTagOrCategory)
+  )
 }
 
 /**
@@ -271,66 +283,13 @@ const isAllowedParentTag: (
  */
 export const getSuggestedTags: (
   parentTagName: string
-) => NamedTag[] | undefined = parentTagName => {
-  const filterTags: (tags: string[]) => string[] = tags =>
-    tags.filter(tagName => {
-      const allowedParentTags =
-        _config.tags &&
-        _config.tags[tagName] &&
-        _config.tags[tagName].allowedParentTags
-      const disAllowedParentTags =
-        _config.tags &&
-        _config.tags[tagName] &&
-        _config.tags[tagName].disallowedParentTags
-      return isAllowedParentTag(
-        parentTagName,
-        allowedParentTags,
-        disAllowedParentTags
-      )
-    })
-  const subTagsOrCategories =
-    _config.tags &&
-    _config.tags[parentTagName] &&
-    _config.tags[parentTagName].allowedSubTags
-  if (subTagsOrCategories !== undefined) {
-    const allSubTags = subTagsOrCategories.flatMap(subTagOrCategory => {
-      let tags: string[]
-      if (typeof subTagOrCategory === 'string') {
-        tags = [subTagOrCategory]
-      } else {
-        tags = getTagsByCategory(subTagOrCategory.category)
-      }
-      return tags
-    })
-    const filteredSubTags = filterTags(allSubTags)
-    if (filteredSubTags.length === 0) {
-      return undefined
-    }
-    return filteredSubTags.map(subTag => ({
-      name: subTag,
-    }))
-  }
-  const globalTags = Object.keys(_config.tags || {})
-  const filteredGlobalTags = filterTags(globalTags)
-  if (filteredGlobalTags.length === 0) {
-    return undefined
-  }
-  return filteredGlobalTags.map(name => ({
-    name,
-  }))
-}
-
-export const getSuggestedSnippets: (
-  parentTagName: string
-) => NamedSnippet[] | undefined = parentTagName => {
-  const snippets = _config.snippets
-  if (snippets === undefined) {
-    return undefined
-  }
-  return Object.entries(snippets).map(([key, value]) => ({
-    name: key,
-    value,
-  }))
+) => string[] = parentTagName => {
+  return Object.keys(_config.tags || {}).filter(
+    tagName =>
+      isAllowedSubTag(parentTagName, tagName) &&
+      isAllowedParentTag(parentTagName, tagName) &&
+      !isDeepDisallowedSubTag(parentTagName, tagName)
+  )
 }
 
 /**

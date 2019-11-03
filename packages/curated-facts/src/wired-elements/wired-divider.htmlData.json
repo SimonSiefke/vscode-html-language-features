@@ -1,0 +1,16 @@
+{
+  "tags": {
+    "wired-divider": {
+      "categories": ["flow content"],
+      "allowedSubTags": [],
+      "description": "Hand-drawn sketchy line to divide sections",
+      "attributes": {
+        "elevation": {
+          "description": " Number between 1 and 5 (inclusive) represents number of lines drawn. Default value is 1.",
+          "type": "integer",
+          "suggest": "1"
+        }
+      }
+    }
+  }
+}

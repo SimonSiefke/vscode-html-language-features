@@ -1,0 +1,20 @@
+{
+  "tags": {
+    "wired-spinner": {
+      "categories": ["flow content"],
+      "description": "Hand-drawn sketchy spinner to show progress or a pending task.",
+      "allowedSubTags": [],
+      "attributes": {
+        "spinning": {
+          "description": "Is the spinner spinning. Default is false.",
+          "type": "boolean"
+        },
+        "duration": {
+          "description": "Time in milliseconds to complete one complete spin. Default is 1500",
+          "type": "integer",
+          "suggest": "1500"
+        }
+      }
+    }
+  }
+}

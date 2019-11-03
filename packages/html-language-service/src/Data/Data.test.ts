@@ -216,70 +216,47 @@ test('getSuggestedAttributeValues', () => {
   ])
 })
 
-test('getSuggestedTags', () => {
-  expect(getSuggestedTags('ul')).toEqual(undefined)
-  expect(getSuggestedTags('a')).toEqual(undefined)
+test('getSuggestedTags `ul`', () => {
+  expect(getSuggestedTags('ul')).toEqual([])
   addConfigs({
     tags: {
       script: {
-        categories: ['script-supporting content'],
+        categories: ['script-supporting'],
       },
       template: {
-        categories: ['script-supporting content'],
+        categories: ['script-supporting'],
       },
       ul: {
-        allowedSubTags: ['li', { category: 'script-supporting content' }],
+        allowedSubTags: ['li', { category: 'script-supporting' }],
       },
       li: {},
-      a: {
-        categories: ['phrasing content'],
-        disallowedParentTags: ['a'],
-        allowedSubTags: [{ category: 'phrasing content' }],
+      div: {
+        categories: ['flow content'],
       },
       span: {
         categories: ['phrasing content'],
       },
     },
   })
-  expect(getSuggestedTags('ul')).toEqual([
-    {
-      name: 'li',
-    },
-    {
-      name: 'script',
-    },
-    {
-      name: 'template',
-    },
-  ])
-  expect(getSuggestedTags('a')).toEqual([
-    {
-      name: 'span',
-    },
-  ])
+  expect(getSuggestedTags('ul')).toEqual(['script', 'template', 'li'])
 })
 
 test('getSuggestedTags bug #1 (never use the `reverse` method)', () => {
   addConfigs({
     tags: {
       a: {
-        categories: [
-          'flow content',
-          'phrasing content',
-          'interactive content',
-          'palpable content',
-        ],
-        allowedParentTags: [
-          {
-            category: 'phrasing content',
-          },
-        ],
-        disallowedParentTags: ['a'],
+        categories: ['flow content', 'phrasing content', 'palpable content'],
+        // allowedParentTags: [
+        //   {
+        //     category: 'phrasing content',
+        //   },
+        // ],
+        deepDisallowedSubTags: ['a', { category: 'interactive content' }],
       },
     },
   })
-  expect(getSuggestedTags('a')).toEqual(undefined)
-  expect(getSuggestedTags('a')).toEqual(undefined)
+  expect(getSuggestedTags('a')).toEqual([])
+  expect(getSuggestedTags('a')).toEqual([])
 })
 
 test('getSuggestedTags bug #2', () => {
@@ -300,28 +277,141 @@ test('getSuggestedTags bug #2', () => {
       },
     },
   })
-  expect(getSuggestedTags('body')).toEqual([{ name: 'br' }])
+  expect(getSuggestedTags('body')).toEqual(['br'])
 })
 
-test('getSuggestedTags bug #3', () => {
+test('getSuggestedTags with custom tags #1', () => {
   addConfigs({
     tags: {
-      br: {
-        categories: ['flow content', 'phrasing content'],
-        allowedSubTags: [],
-      },
-      body: {
-        categories: ['sectioning root content'],
-        allowedParentTags: ['html'],
+      a: {
+        categories: ['phrasing content', 'flow content'],
+        deepDisallowedSubTags: ['a', { category: 'interactive content' }],
         allowedSubTags: [
           {
-            category: 'flow content',
+            category: 'phrasing content',
+          },
+        ],
+      },
+      span: {
+        categories: ['phrasing content'],
+      },
+      'my-button': {
+        categories: [],
+      },
+    },
+  })
+  expect(getSuggestedTags('a')).toEqual(['span'])
+})
+
+test('getSuggestedTags with custom tags #2', () => {
+  addConfigs({
+    tags: {
+      a: {
+        categories: ['phrasing content'],
+        deepDisallowedSubTags: ['a', { category: 'interactive content' }],
+        allowedSubTags: [
+          {
+            category: 'phrasing content',
+          },
+        ],
+      },
+      span: {
+        categories: ['phrasing content'],
+      },
+      'my-button': {
+        categories: ['phrasing content'],
+      },
+    },
+  })
+  expect(getSuggestedTags('a')).toEqual(['span', 'my-button'])
+})
+
+test('getSuggestedTags `button` not allowed inside `a`', () => {
+  addConfigs({
+    tags: {
+      a: {
+        categories: ['phrasing content'],
+        allowedSubTags: [
+          {
+            category: 'phrasing content',
+          },
+        ],
+        deepDisallowedSubTags: ['a', { category: 'interactive content' }],
+      },
+      span: {
+        categories: ['phrasing content'],
+      },
+      div: {
+        categories: ['flow content'],
+      },
+      button: {
+        categories: ['flow content', 'phrasing content', 'interactive content'],
+      },
+    },
+  })
+  expect(getSuggestedTags('a')).toEqual(['span'])
+})
+
+test('getSuggestedTags `a` allowed inside `button`', () => {
+  addConfigs({
+    tags: {
+      a: {
+        categories: ['phrasing content'],
+        allowedSubTags: [
+          {
+            category: 'phrasing content',
+          },
+        ],
+        deepDisallowedSubTags: ['a', { category: 'interactive content' }],
+      },
+      span: {
+        categories: ['phrasing content'],
+      },
+      div: {
+        categories: ['flow content'],
+      },
+      button: {
+        categories: ['flow content', 'phrasing content', 'interactive content'],
+        deepDisallowedSubTags: [{ category: 'interactive content' }],
+        allowedSubTags: [
+          {
+            category: 'phrasing content',
           },
         ],
       },
     },
   })
-  expect(getSuggestedTags('body')).toEqual([{ name: 'br' }])
+  expect(getSuggestedTags('button')).toEqual(['a', 'span'])
 })
 
-test('getSuggestedAttributes', () => {})
+test('getSuggestedTags `wired-button` not allowed inside `wired-button`', () => {
+  addConfigs({
+    tags: {
+      'wired-button': {
+        categories: [
+          'flow content',
+          'phrasing content',
+          'interactive content',
+          'listed content',
+          'labelable',
+          'submittable content',
+          'form-associated content',
+          'palpable content',
+        ],
+        allowedSubTags: [
+          {
+            category: 'phrasing content',
+          },
+        ],
+        deepDisallowedSubTags: [
+          {
+            category: 'interactive content',
+          },
+        ],
+      },
+    },
+  })
+  expect(getSuggestedTags('wired-button')).toEqual([])
+})
+
+// test('getSuggestedAttributes', () => {})

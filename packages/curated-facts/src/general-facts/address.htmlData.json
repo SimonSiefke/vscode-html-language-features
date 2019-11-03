@@ -1,0 +1,20 @@
+{
+  "__meta__": {
+    "source": "https://html.spec.whatwg.org/multipage/sections.html#the-address-element"
+  },
+  "tags": {
+    "address": {
+      "deepDisallowedSubTags": [
+        {
+          "category": "heading content"
+        },
+        {
+          "category": "sectioning content"
+        },
+        "header",
+        "footer",
+        "address"
+      ]
+    }
+  }
+}

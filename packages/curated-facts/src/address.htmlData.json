@@ -1,8 +1,0 @@
-{
-  "__meta__": "see https://developer.mozilla.org/en-US/docs/Web/HTML/Element/address",
-  "tags": {
-    "address": {
-      "disallowedParentTags": ["address"]
-    }
-  }
-}

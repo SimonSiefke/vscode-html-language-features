@@ -10,7 +10,6 @@ import {
 } from 'vscode-languageserver-types'
 import {
   doSuggestionElementStartTag,
-  NamedTag,
   isDeprecatedTag,
 } from '@html-language-features/html-language-service'
 import { getDocumentationForTagName } from '../../util/getDocumentation'
@@ -26,18 +25,18 @@ const blueishIcon = CompletionItemKind.Variable
 const insertTextFormat = InsertTextFormat.PlainText
 
 const createCompletionItem: (
-  item: NamedTag
+  item: string
 ) => CompletionItemWithData | undefined = item => {
   const completionItem: CompletionItemWithData = {
     data: {
-      tagName: item.name,
+      tagName: item,
     },
-    insertText: item.name,
+    insertText: item,
     insertTextFormat,
     kind: blueishIcon,
-    label: item.name,
+    label: item,
   }
-  if (isDeprecatedTag(item.name)) {
+  if (isDeprecatedTag(item)) {
     if (settings.showDeprecatedSuggestions === true) {
       completionItem.tags = [CompletionItemTag.Deprecated]
     } else {
@@ -57,15 +56,9 @@ export const remotePluginSuggestionElementStartTag: RemotePlugin = api => {
       )
       const offset = document.offsetAt(position)
       const result = doSuggestionElementStartTag(text, offset)
-      if (!result) {
-        return undefined
-      }
       const items = result
         .map(createCompletionItem)
         .filter(Boolean) as CompletionItemWithData[]
-      if (items.length === 0) {
-        return undefined
-      }
       return {
         isIncomplete: false,
         items,

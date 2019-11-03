@@ -1,0 +1,28 @@
+{
+  "tags": {
+    "wired-fab": {
+      "categories": [
+        "flow content",
+        "phrasing content",
+        "interactive content",
+        "listed content",
+        "labelable",
+        "submittable content",
+        "form-associated content",
+        "palpable content"
+      ],
+      "allowedSubTags": [
+        {
+          "category": "phrasing content"
+        }
+      ],
+      "description": "Hand-drawn sketchy Floating Action Button (FAB)",
+      "attributes": {
+        "disabled": {
+          "description": " disables the button. Default value is false.",
+          "type": "boolean"
+        }
+      }
+    }
+  }
+}

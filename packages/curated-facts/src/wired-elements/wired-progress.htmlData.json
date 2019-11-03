@@ -1,0 +1,31 @@
+{
+  "tags": {
+    "wired-progress": {
+      "categories": [
+        "flow content",
+        "phrasing content",
+        "labelable",
+        "palpable content"
+      ],
+      "description": "Hand-drawn sketchy progress bar web component.",
+      "allowedSubTags": [],
+      "attributes": {
+        "value": {
+          "description": "Numeric value of the progress."
+        },
+        "min": {
+          "description": "Minimum value",
+          "suggest": "0"
+        },
+        "max": {
+          "description": "Maximum value",
+          "suggest": "100"
+        },
+        "percentage": {
+          "description": "Boolean indicating if the label should show a % symbol.",
+          "type": "boolean"
+        }
+      }
+    }
+  }
+}

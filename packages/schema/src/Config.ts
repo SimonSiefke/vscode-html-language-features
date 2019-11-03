@@ -15,23 +15,42 @@ export type AttributeInfo = Readonly<{
   description?: string
   experimental?: boolean
   deprecated?: boolean
-  tags?: string[]
   reference?: Reference
-  type?: 'string' | 'enum'
+  // TODO validation property
+  // validation:{
+  //    type: integer,
+  //    min: 0,
+  //    max: 2
+  // }
+  // or
+  // attributeValues
+  //
+  type?: 'string' | 'enum' | 'color' | 'integer' | 'number' | 'string'
   options?: {
     [attributeValue: string]: AttributeValueInfo
   }
 }>
 
+export type Category =
+  | 'flow content'
+  | 'phrasing content'
+  | 'interactive content'
+  | 'listed content'
+  | 'labelable'
+  | 'submittable content'
+  | 'form-associated content'
+  | 'palpable content'
+  | 'sectioning root content'
+  | 'sectioning content'
+  | 'embedded content'
+  | 'metadata content'
+  | 'heading'
+  | 'script-supporting'
+  | 'resettable'
+
 export type SubTag =
   | Readonly<{
-      category: string
-    }>
-  | string
-
-export type ParentTag =
-  | Readonly<{
-      category: string
+      category: Category
     }>
   | string
 
@@ -41,13 +60,13 @@ export type Tag = Readonly<{
   reference?: Reference
   selfClosing?: boolean
   newline?: boolean
-  categories?: string[]
+  categories?: Category[]
   attributes?: {
     [attributeName: string]: AttributeInfo
   }
+  allowedParentTags?: string[]
   allowedSubTags?: SubTag[]
-  allowedParentTags?: ParentTag[]
-  disallowedParentTags?: ParentTag[]
+  deepDisallowedSubTags?: SubTag[]
 }>
 
 export type Config = {
@@ -56,9 +75,6 @@ export type Config = {
     readonly [key: string]: AttributeInfo
   }
   readonly tags?: {
-    readonly [key: string]: Tag
-  }
-  readonly snippets?: {
-    readonly [key: string]: Snippet
+    readonly [tagName: string]: Tag
   }
 }

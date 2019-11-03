@@ -86,13 +86,35 @@ test('a#target', () => {
 })
 
 test.skip('global attributes', () => {
-  expect(mdnGlobalAttributesConfig.globalAttributes.spellcheck).toHaveProperty(
-    'description'
-  )
-  expect(
-    mdnGlobalAttributesConfig.globalAttributes.spellcheck.options
-  ).toHaveProperty('true')
-  expect(
-    mdnGlobalAttributesConfig.globalAttributes.spellcheck.options
-  ).toHaveProperty('false')
+  const spellcheck = mdnGlobalAttributesConfig.globalAttributes.spellcheck
+  expect(spellcheck).toHaveProperty('description')
+  expect(spellcheck.options).toHaveProperty('true')
+  expect(spellcheck.options).toHaveProperty('false')
+
+  const dropzone = mdnGlobalAttributesConfig.globalAttributes.spellcheck
+  expect(dropzone).toHaveProperty('description')
+  expect(dropzone.options).toHaveProperty('copy')
+  expect(dropzone.options).toHaveProperty('move')
+  expect(dropzone.options).toHaveProperty('link')
+})
+
+test('referrerpolicy', () => {
+  const attributeValues = [
+    'no-referrer',
+    'no-referrer-when-downgrade',
+    'origin',
+    'origin-when-cross-origin',
+    'same-origin',
+    'strict-origin',
+    'strict-origin-when-cross-origin',
+    'unsafe-url',
+  ]
+  const tagsWithRefererPolicy = ['a', 'area', 'img', 'iframe', 'link']
+  for (const tag of tagsWithRefererPolicy) {
+    for (const attributeValue of attributeValues) {
+      expect(
+        mdnConfig.tags[tag].attributes.referrerpolicy.options
+      ).toHaveProperty(attributeValue)
+    }
+  }
 })

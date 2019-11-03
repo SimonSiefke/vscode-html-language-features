@@ -10,15 +10,15 @@ import { getPreviousOpeningTagName } from '../util/getParentTagName'
 export const doSuggestionElementStartTag: (
   text: string,
   offset: number
-) => NamedTag[] | undefined = (text, offset) => {
+) => string[] = (text, offset) => {
   const scanner = createScanner(text, {
     initialOffset: offset,
   })
   if (!scanner.stream.currentlyEndsWith('<')) {
-    return undefined
+    return []
   }
   if (!scanner.stream.currentlyEndsWithRegex(/<[\S]*$/)) {
-    return undefined
+    return []
   }
   const completionOffset = offset
   // const currentPosition = scanner.stream.position
@@ -43,7 +43,7 @@ export const doSuggestionElementStartTag: (
   let tagName: string | undefined
 
   if (parent && !parent.seenRightAngleBracket) {
-    return undefined
+    return []
   }
 
   const parentTagName = (parent && parent.tagName) || 'root'

@@ -9,6 +9,7 @@ const validateConfig: (
   const { errors } = validate(config, schema)
   if (errors.length > 0) {
     for (const error of errors) {
+      console.log(',' + JSON.stringify(error))
       console.error(`invalid schema: ${error.message}`)
     }
     return {

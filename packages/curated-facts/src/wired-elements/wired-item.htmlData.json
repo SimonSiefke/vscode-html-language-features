@@ -1,0 +1,14 @@
+{
+  "tags": {
+    "wired-item": {
+      "categories": [],
+      "allowedSubTags": [
+        {
+          "category": "flow content"
+        }
+      ],
+      "deepDisallowedSubTags": ["wired-item"],
+      "description": "wired-item is a list item used by Wired components like wired-combo and wired-list-box"
+    }
+  }
+}

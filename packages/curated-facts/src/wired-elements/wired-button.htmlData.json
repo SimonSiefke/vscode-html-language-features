@@ -1,0 +1,33 @@
+{
+  "tags": {
+    "wired-button": {
+      "categories": [
+        "flow content",
+        "phrasing content",
+        "interactive content",
+        "listed content",
+        "labelable",
+        "submittable content",
+        "form-associated content",
+        "palpable content"
+      ],
+      "allowedSubTags": [
+        {
+          "category": "phrasing content"
+        }
+      ],
+      "description": "Hand-drawn sketchy Button web component.",
+      "attributes": {
+        "elevation": {
+          "type": "integer",
+          "suggest": "1",
+          "description": "Number between 1 and 5 (inclusive) that gives the button a sketchy height. Default value is 1."
+        },
+        "disabled": {
+          "type": "boolean",
+          "description": "disables the button. Default value is false."
+        }
+      }
+    }
+  }
+}

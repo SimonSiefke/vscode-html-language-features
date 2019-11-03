@@ -1,0 +1,14 @@
+{
+  "tags": {
+    "wired-tabs": {
+      "categories": ["flow content", "palpable content"],
+      "allowedSubTags": ["wired-tab"],
+      "description": "Hand-drawn sketchy Tabs web component.",
+      "attributes": {
+        "selected": {
+          "description": "Name of the currently selected tab"
+        }
+      }
+    }
+  }
+}
