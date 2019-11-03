@@ -1,4 +1,9 @@
 {
+  "html.customData": {
+    "extends": [
+      "https://raw.githubusercontent.com/SimonSiefke/vscode-html-language-features/master/packages/curated-facts/generated/wired-elements/curated.htmlData.json"
+    ]
+  },
   "search.exclude": {
     "**/node_modules": true,
     "**/bower_components": true,
@@ -8,10 +13,6 @@
   },
   "typescript.tsdk": "node_modules/typescript/lib",
   "json.schemas": [
-    {
-      "fileMatch": ["**/*.htmlData2.json"],
-      "url": "./packages/schema/src/schema/schema.json"
-    },
     {
       "fileMatch": ["**/*.htmlData.json"],
       "url": "./packages/schema/src/schema/schema.json"

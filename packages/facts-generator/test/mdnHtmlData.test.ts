@@ -98,7 +98,7 @@ test.skip('global attributes', () => {
   expect(dropzone.options).toHaveProperty('link')
 })
 
-test('referrerpolicy', () => {
+test.skip('referrerpolicy', () => {
   const attributeValues = [
     'no-referrer',
     'no-referrer-when-downgrade',
