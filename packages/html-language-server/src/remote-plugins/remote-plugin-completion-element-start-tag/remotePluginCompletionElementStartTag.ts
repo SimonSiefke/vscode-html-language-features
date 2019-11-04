@@ -61,6 +61,9 @@ export const remotePluginCompletionElementStartTag: RemotePlugin = api => {
       const items = result
         .map(createCompletionItem)
         .filter(Boolean) as CompletionItemWithData[]
+      if (items.length === 0) {
+        return undefined
+      }
       return {
         isIncomplete: false,
         items,

@@ -30,6 +30,7 @@ import { remotePluginSettingsCustomData } from './remote-plugins/remote-plugin-s
 import { remotePluginCompletionElementStartTag } from './remote-plugins/remote-plugin-completion-element-start-tag/remotePluginCompletionElementStartTag'
 import { remotePluginCompletionAttributeName } from './remote-plugins/remote-plugin-completion-attribute-name/remotePluginCompletionAttributeName'
 import { remotePluginSymbol } from './remote-plugins/remote-plugin-symbol/remotePluginSymbol'
+import { remotePluginCompletionAttributeValue } from './remote-plugins/remote-plugin-completion-attribute-value/remotePluginSuggestAttributeValue'
 
 const connection: IConnection = createConnection()
 
@@ -126,7 +127,7 @@ connection.onInitialized(async () => {
   remotePluginCompletionElementExpand(api)
   remotePluginCompletionElementStartTag(api)
   remotePluginCompletionAttributeName(api)
-  remotePluginCompletionAttributeName(api)
+  remotePluginCompletionAttributeValue(api)
 
   const symbolOptions: DocumentSymbolOptions = {}
   connection.client.register(DocumentSymbolRequest.type, symbolOptions)
