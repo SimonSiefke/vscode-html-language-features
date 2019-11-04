@@ -36,7 +36,7 @@ test('option', () => {
       selected: {},
       value: {},
     },
-    allowedParentTags: ['select', 'datalist', 'optgroup'],
+    // allowedParentTags: ['select', 'datalist', 'optgroup'],
     allowedSubTags: [],
   })
 })
