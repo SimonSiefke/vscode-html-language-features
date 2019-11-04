@@ -12,6 +12,12 @@ module.exports = withDefaults({
     splitChunks: {
       minSize: 0,
       cacheGroups: {
+        dependencies: {
+          test: /node_modules\/(axios|jsonschema)/,
+          chunks: 'all',
+          priority: 100,
+          name: 'dependencies',
+        },
         'vscode-dependencies': {
           test: /node_modules\/(vscode|semver)/,
           chunks: 'all',

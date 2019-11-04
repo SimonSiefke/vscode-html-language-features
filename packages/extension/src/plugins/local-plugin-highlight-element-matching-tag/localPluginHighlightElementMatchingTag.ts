@@ -1,7 +1,7 @@
 import * as vscode from 'vscode'
-import * as vsl from 'vscode-languageclient'
 import { LocalPluginApi } from '../../local-plugin-api/localPluginApi'
 import { LocalPlugin } from '../localPlugin'
+import { TextDocumentPositionParams, RequestType } from 'vscode-languageclient'
 
 type Result =
   | {
@@ -21,8 +21,8 @@ type Result =
       endTagOffset: number
     }
 
-const requestType = new vsl.RequestType<
-  vsl.TextDocumentPositionParams,
+const requestType = new RequestType<
+  TextDocumentPositionParams,
   Result,
   any,
   any

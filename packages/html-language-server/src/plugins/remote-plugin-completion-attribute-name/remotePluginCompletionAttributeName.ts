@@ -2,7 +2,6 @@ import { RemotePlugin } from '../remotePlugin'
 import {
   CompletionItemKind,
   CompletionItem,
-  TextDocument,
   Range,
   Position,
   CompletionItemTag,
@@ -43,7 +42,7 @@ const createCompletionItem: ({
     label: attribute.name,
   }
   if (attribute.deprecated === true) {
-    if (constants.showDeprecatedSuggestions === true) {
+    if (constants.showDeprecatedCompletions === true) {
       completionItem.tags = [CompletionItemTag.Deprecated]
     } else {
       return undefined
@@ -54,9 +53,12 @@ const createCompletionItem: ({
 
 export const remotePluginCompletionAttributeName: RemotePlugin = api => {
   api.connectionProxy.onCompletion(
-    'suggestion-attribute-name',
+    'completion-attribute-name',
     ({ textDocument, position }) => {
-      const document = api.documents.get(textDocument.uri) as TextDocument
+      const document = api.documentsProxy.get(textDocument.uri)
+      if (!document) {
+        return undefined
+      }
       const text = document.getText(
         Range.create(Position.create(0, 0), position)
       )
@@ -81,7 +83,7 @@ export const remotePluginCompletionAttributeName: RemotePlugin = api => {
   )
 
   api.connectionProxy.onCompletionResolve(
-    'suggestion-attribute-name',
+    'completion-attribute-name',
     params => {
       const { tagName, attributeName } = params.data as Data
       const documentation = getDocumentationForAttributeName(

@@ -2,7 +2,6 @@ import { RemotePlugin } from '../remotePlugin'
 import {
   CompletionItem,
   CompletionItemKind,
-  TextDocument,
   Range,
   Position,
   CompletionItemTag,
@@ -37,7 +36,7 @@ const createCompletionItem: (
     label: item,
   }
   if (isDeprecatedTag(item)) {
-    if (constants.showDeprecatedSuggestions === true) {
+    if (constants.showDeprecatedCompletions === true) {
       completionItem.tags = [CompletionItemTag.Deprecated]
     } else {
       return undefined
@@ -50,7 +49,10 @@ export const remotePluginCompletionElementStartTag: RemotePlugin = api => {
   api.connectionProxy.onCompletion(
     'completion-element-start-tag',
     ({ textDocument, position }) => {
-      const document = api.documents.get(textDocument.uri) as TextDocument
+      const document = api.documentsProxy.get(textDocument.uri)
+      if (!document) {
+        return undefined
+      }
       const text = document.getText(
         Range.create(Position.create(0, 0), position)
       )

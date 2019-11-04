@@ -1,11 +1,9 @@
 import { ConnectionProxy } from './connectionProxy/connectionProxy'
-import { TextDocuments } from 'vscode-languageserver'
 import { SettingsProxy } from './settingsProxy/settingsProxy'
+import { DocumentsProxy } from './documentsProxy/documentsProxy'
 
 export interface RemotePluginApi {
   readonly connectionProxy: ConnectionProxy
+  readonly documentsProxy: DocumentsProxy
   readonly settingsProxy: SettingsProxy
-  readonly documents: {
-    readonly get: TextDocuments['get']
-  }
 }

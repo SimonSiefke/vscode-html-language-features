@@ -8,6 +8,9 @@ type Result = {
   word: string
 }
 
+// TODO
+// its necessary to have on the client
+
 // const requestType = new vsl.RequestType<
 //   vsl.TextDocumentPositionParams,
 //   Result,

@@ -1,5 +1,13 @@
 import * as vscode from 'vscode'
-import * as vsl from 'vscode-languageclient'
+import {
+  Code2ProtocolConverter,
+  LanguageClientOptions,
+  TransportKind,
+  LanguageClient,
+  RequestType,
+  ErrorCodes,
+  ServerOptions,
+} from 'vscode-languageclient'
 
 // const defaultTimeout = 3 // for self closing tag
 // const defaultTimeout = 40 // for expand abbreviation
@@ -62,17 +70,17 @@ import * as vsl from 'vscode-languageclient'
 // }
 
 type VslSendRequest = <P, R, E, RO>(
-  type: vsl.RequestType<P, R, E, RO>,
+  type: RequestType<P, R, E, RO>,
   params: P,
   token?: vscode.CancellationToken
 ) => Thenable<R>
 
 export interface LanguageClientProxy {
-  code2ProtocolConverter: vsl.Code2ProtocolConverter
+  code2ProtocolConverter: Code2ProtocolConverter
   sendRequest: VslSendRequest
 }
 
-const clientOptions: vsl.LanguageClientOptions = {
+const clientOptions: LanguageClientOptions = {
   documentSelector: [
     {
       language: 'html',
@@ -89,11 +97,11 @@ export const createLanguageClientProxy = async (
   )
   // If the extension is launch in debug mode the debug server options are use
   // Otherwise the run options are used
-  const serverOptions: vsl.ServerOptions = {
-    run: { module: serverModule, transport: vsl.TransportKind.ipc },
+  const serverOptions: ServerOptions = {
+    run: { module: serverModule, transport: TransportKind.ipc },
     debug: {
       module: serverModule,
-      transport: vsl.TransportKind.ipc,
+      transport: TransportKind.ipc,
       options: { execArgv: ['--nolazy', '--inspect=6009'] },
     },
   }
@@ -220,7 +228,7 @@ export const createLanguageClientProxy = async (
   // // // // //                \\ \\ \\ \\ \\
   // // // // // // // // \\ \\ \\ \\ \\ \\ \\
 
-  const languageClient = new vsl.LanguageClient(
+  const languageClient = new LanguageClient(
     'htmlLanguageClient',
     'HTML Language Client',
     serverOptions,
@@ -240,12 +248,12 @@ export const createLanguageClientProxy = async (
     sendRequest: async (
       type,
       params,
-      token = new vsl.CancellationTokenSource().token
+      token = new vscode.CancellationTokenSource().token
     ) => {
       try {
         return await languageClient.sendRequest(type, params, token)
       } catch (error) {
-        if (error.code && error.code === vsl.ErrorCodes.RequestCancelled) {
+        if (error.code && error.code === ErrorCodes.RequestCancelled) {
           // console.log('request cancelled')
           return undefined
         }

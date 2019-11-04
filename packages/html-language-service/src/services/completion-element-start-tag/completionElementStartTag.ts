@@ -46,7 +46,6 @@ export const doCompletionElementStartTag: (
   }
 
   const parentTagName = (parent && parent.tagName) || 'root'
-  console.log('parent is' + parent.tagName)
 
   const suggestions = getSuggestedTags(parentTagName)
   // console.log('sug')

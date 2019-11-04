@@ -48,3 +48,7 @@ You can specify custom data inside your vscode settings. Make sure to specify `c
 
 
  -->
+
+Credits:
+This project is based on [vscode-html-language-service](https://github.com/microsoft/vscode-html-languageservice) and [vscode-html-language-features](https://github.com/microsoft/vscode/tree/master/extensions/html-language-features)
+The descriptions for tags and attributes are taken from [MDN](https://developer.mozilla.org/en-US/docs/Web/HTML/Element) and [Whatwg](https://html.spec.whatwg.org/multipage/indices.html#elements-3)

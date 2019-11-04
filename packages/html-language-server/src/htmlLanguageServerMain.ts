@@ -27,6 +27,7 @@ import { remotePluginHoverElement } from './plugins/remote-plugin-hover-element/
 import { remotePluginCompletionAttributeName } from './plugins/remote-plugin-completion-attribute-name/remotePluginCompletionAttributeName'
 import { remotePluginCompletionElementStartTag } from './plugins/remote-plugin-completion-element-start-tag/remotePluginCompletionElementStartTag'
 import { remotePluginHighlightElementMatchingTag } from './plugins/remote-plugin-highlight-element-matching-tag/remotePluginHighlightElementMatchingTag'
+import { createDocumentsProxy } from './remotePluginApi/documentsProxy/documentsProxy'
 
 const connection: IConnection = createConnection()
 
@@ -92,7 +93,7 @@ connection.onInitialized(async () => {
   const api: RemotePluginApi = {
     connectionProxy: createConnectionProxy(connection),
     settingsProxy: createSettingsProxy(connection),
-    documents,
+    documentsProxy: createDocumentsProxy(documents),
   }
 
   remotePluginAutoCompletionElementAutoClose(api)

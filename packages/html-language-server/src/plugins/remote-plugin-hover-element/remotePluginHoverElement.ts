@@ -4,7 +4,7 @@ import { getDocumentationForTagName } from '../../util/getDocumentation'
 
 export const remotePluginHoverElement: RemotePlugin = api => {
   api.connectionProxy.onHover(({ textDocument, position }) => {
-    const document = api.documents.get(textDocument.uri)
+    const document = api.documentsProxy.get(textDocument.uri)
     if (!document) {
       return undefined
     }

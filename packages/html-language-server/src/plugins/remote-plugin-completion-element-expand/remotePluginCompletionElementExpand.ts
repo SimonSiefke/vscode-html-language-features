@@ -80,7 +80,7 @@ export const remotePluginCompletionElementExpand: RemotePlugin = api => {
   api.connectionProxy.onCompletion(
     'completion-element-expand',
     ({ textDocument, position }) => {
-      const document = api.documents.get(textDocument.uri) as TextDocument
+      const document = api.documentsProxy.get(textDocument.uri) as TextDocument
       const text = document.getText(
         Range.create(Position.create(0, 0), position)
       )

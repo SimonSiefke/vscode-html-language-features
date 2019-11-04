@@ -1,7 +1,7 @@
 import * as vscode from 'vscode'
-import * as vsl from 'vscode-languageclient'
 import { LocalPluginApi } from '../../local-plugin-api/localPluginApi'
 import { LocalPlugin } from '../localPlugin'
+import { RequestType, TextDocumentPositionParams } from 'vscode-languageclient'
 
 // TODO use optional chaining once prettier works with that
 
@@ -10,8 +10,8 @@ type Result = {
   completionOffset: number
 }
 
-const requestType = new vsl.RequestType<
-  vsl.TextDocumentPositionParams,
+const requestType = new RequestType<
+  TextDocumentPositionParams,
   Result,
   any,
   any

@@ -4,7 +4,8 @@
     "outDir": "dist",
     "rootDir": "src",
     "esModuleInterop": true,
-    "noImplicitAny": false
+    "noImplicitAny": false,
+    "resolveJsonModule": true
   },
   "include": ["src/**/*.ts", "src/**/*.json"]
 }

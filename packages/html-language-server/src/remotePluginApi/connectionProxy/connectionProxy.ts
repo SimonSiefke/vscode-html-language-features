@@ -34,6 +34,9 @@ type RequestHandler<Params, Result> = (
   handler: (params: Params) => Result
 ) => void
 
+/**
+ * Wrapper around `connection`
+ */
 export interface ConnectionProxy {
   /**
    * Installs a handler for the `Hover` request.

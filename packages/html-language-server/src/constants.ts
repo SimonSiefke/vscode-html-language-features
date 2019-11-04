@@ -1,10 +1,10 @@
 export interface Constants {
   /**
-   * Wether or not to show deprecated suggestions
+   * Wether or not to show deprecated completions
    */
-  showDeprecatedSuggestions: boolean
+  showDeprecatedCompletions: boolean
 }
 
 export const constants: Constants = {
-  showDeprecatedSuggestions: true,
+  showDeprecatedCompletions: true,
 }
