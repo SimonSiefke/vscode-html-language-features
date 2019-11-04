@@ -1,7 +1,7 @@
 import * as vscode from 'vscode'
 import * as vsl from 'vscode-languageclient'
-import { LocalPlugin } from '../localPlugin'
 import { LocalPluginApi } from '../../local-plugin-api/localPluginApi'
+import { LocalPlugin } from '../localPlugin'
 
 type Result =
   | {

@@ -1,3 +1,5 @@
+export { doHoverElement } from './services/hover-element/hoverElement'
+
 export {
   AttributeInfo,
   AttributeValueInfo,
@@ -10,49 +12,45 @@ export {
 } from '@html-language-features/schema'
 export {
   addConfigs,
-  removeConfigs,
   getDescriptionForAttributeName,
   getDescriptionForAttributeValue,
   getDescriptionForTag,
   getReferenceForAttributeName,
   getReferenceForTag,
   getSuggestedTags,
+  isDeprecatedTag,
   isSelfClosingTag,
   NamedAttribute,
   NamedAttributeValue,
   NamedTag,
+  removeConfigs,
   setConfigs as setConfig,
   shouldHaveNewline,
-  isDeprecatedTag,
 } from './Data/Data'
 export {
-  doCompletionElementAutoClose,
-} from './services/completion-element-auto-close/completionElementAutoClose'
+  doAutoCompletionElementAutoClose,
+} from './services/auto-completion-element-auto-close/autoCompletionElementAutoClose'
 export {
-  doCompletionElementAutoRenameTag,
-} from './services/completion-element-auto-rename-tag/autoRenameTagCompletion'
+  doAutoCompletionElementClose,
+} from './services/auto-completion-element-close/autoCompletionElementClose'
 export {
-  doCompletionElementClose,
-} from './services/completion-element-close/completionElementClose'
-// export {
-//   doCompletionElementExpand,
-// } from './services/completion-element-expand/completionElementExpand'
+  doAutoCompletionElementRenameTag,
+} from './services/auto-completion-element-rename-tag/autoCompletionElementRenameTag'
 export {
-  doCompletionElementSelfClosing,
-} from './services/completion-element-self-closing/completionElementSelfClosing'
-export { doHoverElement } from './services/hover-element/hoverElement'
+  doAutoCompletionElementSelfClosing,
+} from './services/auto-completion-element-self-closing/autoCompletionElementSelfClosing'
 export {
-  doSuggestionAttributeName,
-} from './services/suggestion-attribute-name/suggestionAttributeName'
+  doCompletionAttributeName,
+} from './services/completion-attribute-name/completionAttributeName'
 export {
-  doSuggestionAttributeValue,
-} from './services/suggestion-attribute-value/suggestionAttributeValue'
+  doCompletionAttributeValue,
+} from './services/completion-attribute-value/completionAttributeValue'
 export {
-  doSuggestionElementExpand,
-} from './services/suggestion-element-expand/suggestionElementExpand'
+  doCompletionElementExpand,
+} from './services/completion-element-expand/suggestionElementExpand'
 export {
-  doSuggestionElementStartTag,
-} from './services/suggestion-element-start-tag/suggestionElementStartTag'
+  doCompletionElementStartTag,
+} from './services/completion-element-start-tag/completionElementStartTag'
 export {
   findMatchingTags,
   MatchingTagResult,

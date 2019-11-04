@@ -17,20 +17,16 @@ import {
   DidChangeConfigurationRegistrationOptions,
 } from 'vscode-languageserver'
 import { createConnectionProxy } from './remotePluginApi/connectionProxy/connectionProxy'
-import { remotePluginCompletionElementAutoClose } from './plugins/remote-plugin-completion-element-auto-close/remotePluginCompletionElementAutoClose'
-import { remotePluginCompletionElementAutoRenameTag } from './plugins/remote-plugin-completion-element-auto-rename-tag/remotePluginCompletionElementAutoRenameTag'
-import { remotePluginCompletionElementClose } from './plugins/remote-plugin-completion-element-close/remotePluginCompletionElementClose'
-import { remotePluginCompletionElementSelfClosing } from './plugins/remote-plugin-completion-element-self-closing/remotePluginCompletionElementSelfClosing'
-import { remotePluginHighlightElementMatchingTag } from './plugins/remote-plugin-highlight-element-matching-tag/remotePluginHighlightElementMatchingTag'
-import { remotePluginHoverElement } from './plugins/remote-plugin-hover-element/remotePluginHoverElement'
-import { remotePluginSuggestionAttributeValue } from './plugins/remote-plugin-suggest-attribute-value/remotePluginSuggestAttributeValue'
-import { remotePluginSuggestionAttributeName } from './plugins/remote-plugin-suggestion-attribute-name/remotePluginSuggestionAttributeName'
-// import { remotePluginSuggestionElementExpand } from './plugins/remote-plugin-suggestion-element-expand/remotePluginSuggestionElementExpand'
-import { remotePluginSuggestionElementStartTag } from './plugins/remote-plugin-suggestion-element-start-tag/remotePluginSuggestionElementStartTag'
 import { remotePluginSymbol } from './plugins/remote-plugin-symbol/remotePluginSymbol'
 import { createSettingsProxy } from './remotePluginApi/settingsProxy/settingsProxy'
 import { RemotePluginApi } from './remotePluginApi/remotePluginApi'
 import { remotePluginSettingsCustomData } from './plugins/remote-plugin-settings-custom-data/remotePluginSettingsCustomData'
+import { remotePluginAutoCompletionElementAutoClose } from './plugins/remote-plugin-auto-completion-element-auto-close/remotePluginAutoCompletionElementAutoClose'
+import { remotePluginAutoCompletionElementSelfClosing } from './plugins/remote-plugin-auto-completion-element-self-closing/remotePluginAutoCompletionElementSelfClosing'
+import { remotePluginHoverElement } from './plugins/remote-plugin-hover-element/remotePluginHoverElement'
+import { remotePluginCompletionAttributeName } from './plugins/remote-plugin-completion-attribute-name/remotePluginCompletionAttributeName'
+import { remotePluginCompletionElementStartTag } from './plugins/remote-plugin-completion-element-start-tag/remotePluginCompletionElementStartTag'
+import { remotePluginHighlightElementMatchingTag } from './plugins/remote-plugin-highlight-element-matching-tag/remotePluginHighlightElementMatchingTag'
 
 const connection: IConnection = createConnection()
 
@@ -99,10 +95,8 @@ connection.onInitialized(async () => {
     documents,
   }
 
-  remotePluginCompletionElementAutoClose(api)
-  remotePluginCompletionElementClose(api)
-  remotePluginCompletionElementSelfClosing(api)
-  remotePluginCompletionElementAutoRenameTag(api)
+  remotePluginAutoCompletionElementAutoClose(api)
+  remotePluginAutoCompletionElementSelfClosing(api)
 
   remotePluginHighlightElementMatchingTag(api)
 
@@ -125,9 +119,9 @@ connection.onInitialized(async () => {
   }
   connection.client.register(CompletionRequest.type, completionOptions)
   // remotePluginSuggestionElementExpand(api) // TODO
-  remotePluginSuggestionElementStartTag(api)
-  remotePluginSuggestionAttributeName(api)
-  remotePluginSuggestionAttributeValue(api)
+  remotePluginCompletionAttributeName(api)
+  remotePluginCompletionElementStartTag(api)
+  remotePluginCompletionAttributeName(api)
 
   const symbolOptions: DocumentSymbolOptions = {}
   connection.client.register(DocumentSymbolRequest.type, symbolOptions)
