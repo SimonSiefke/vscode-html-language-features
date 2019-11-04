@@ -143,7 +143,22 @@ const getInfoForElement = async element => {
   const html = await fetch(fullUrl).then(res => res.text())
   // @ts-ignore
   const $ = cheerio.load(html)
-  const description = $('#wikiArticle .seoSummary').html() //?
+  let description
+  if (
+    $('#wikiArticle .seoSummary').html() //?
+  ) {
+    description = $('#wikiArticle .seoSummary').html() //?
+  } else if ($('#Summary + p').html()) {
+    // e.g. acronym
+    description = $('#Summary + p').html()
+  } else {
+    const firstP = $('#wikiArticle > p')
+      .first()
+      .get()
+    description = $('#wikiArticle > p')
+      .first()
+      .html() //?
+  }
 
   const dlAttributes = $('#Attributes ~ dl')
     .not('#Usage_notes ~ dl, #Methods ~ dl')

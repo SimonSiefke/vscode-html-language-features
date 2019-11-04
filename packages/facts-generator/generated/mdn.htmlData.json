@@ -136,7 +136,8 @@
         "name": "MDN Reference",
         "url": "https://developer.mozilla.org//en-US/docs/Web/HTML/Element/acronym"
       },
-      "deprecated": true
+      "deprecated": true,
+      "description": "The HTML Acronym Element (<acronym>) allows authors to clearly indicate a sequence of characters that compose an acronym or abbreviation for a word."
     },
     "address": {
       "reference": {
@@ -266,6 +267,7 @@
         "url": "https://developer.mozilla.org//en-US/docs/Web/HTML/Element/area"
       },
       "selfClosing": true,
+      "description": "The HTML <area> element defines a hot-spot region on an image, and optionally associates it with a hypertext link. This element is used only within a <map> element.",
       "attributes": {
         "alt": {
           "description": "A text string alternative to display on browsers that do not display images. The text should be phrased so that it presents the user with the same kind of choice as the image would offer when displayed without the alternative text. In HTML4, this attribute is required, but may be the empty string (\"\"). In HTML5, this attribute is required only if the href attribute is used.",
@@ -714,6 +716,7 @@
         "name": "MDN Reference",
         "url": "https://developer.mozilla.org//en-US/docs/Web/HTML/Element/blockquote"
       },
+      "description": "The HTML <blockquote> Element (or HTML Block Quotation Element) indicates that the enclosed text is an extended quotation. Usually, this is rendered visually by indentation (see Notes for how to change it). A URL for the source of the quotation may be given using the cite attribute, while a text representation of the source can be given using the <cite> element.",
       "attributes": {
         "cite": {
           "description": "A URL that designates a source document or message for the information quoted. This attribute is intended to point to information explaining the context or the reference for the quote.",
@@ -946,6 +949,7 @@
         "url": "https://developer.mozilla.org//en-US/docs/Web/HTML/Element/br"
       },
       "selfClosing": true,
+      "description": "The HTML <br> element produces a line break in text (carriage-return). It is useful for writing a poem or an address, where the division of lines is significant.",
       "attributes": {
         "clear": {
           "description": "Indicates where to begin the next line after the break.",
@@ -1110,6 +1114,7 @@
         "name": "MDN Reference",
         "url": "https://developer.mozilla.org//en-US/docs/Web/HTML/Element/canvas"
       },
+      "description": "Use the HTML <canvas> element with either the canvas scripting API or the WebGL API to draw graphics and animations.",
       "attributes": {
         "height": {
           "description": "The height of the coordinate space in CSS pixels. Defaults to 150.",
@@ -1179,6 +1184,7 @@
         "url": "https://developer.mozilla.org//en-US/docs/Web/HTML/Element/col"
       },
       "selfClosing": true,
+      "description": "The HTML <col> element defines a column within a table and is used for defining common semantics on all common cells. It is generally found within a <colgroup> element.",
       "attributes": {
         "align": {
           "deprecated": true,
@@ -1297,6 +1303,7 @@
         "name": "MDN Reference",
         "url": "https://developer.mozilla.org//en-US/docs/Web/HTML/Element/colgroup"
       },
+      "description": "The HTML <colgroup> element defines a group of columns within a table.",
       "attributes": {
         "align": {
           "deprecated": true,
@@ -1496,6 +1503,7 @@
         "name": "MDN Reference",
         "url": "https://developer.mozilla.org//en-US/docs/Web/HTML/Element/data"
       },
+      "description": "The HTML <data> element links a given content with a machine-readable translation. If the content is time- or date-related, the <time> element must be used.",
       "attributes": {
         "value": {
           "description": "This attribute specifies the machine-readable translation of the content of the element.",
@@ -1510,7 +1518,8 @@
       "reference": {
         "name": "MDN Reference",
         "url": "https://developer.mozilla.org//en-US/docs/Web/HTML/Element/datalist"
-      }
+      },
+      "description": "The HTML <datalist> element contains a set of <option> elements that represent the values available for other controls."
     },
     "dd": {
       "reference": {
@@ -1580,6 +1589,7 @@
         "url": "https://developer.mozilla.org//en-US/docs/Web/HTML/Element/dialog"
       },
       "experimental": true,
+      "description": "The HTML <dialog> element represents a dialog box or other interactive component, such as an inspector or window.",
       "attributes": {
         "open": {
           "description": "Indicates that the dialog is active and available for interaction. When the open attribute is not set, the dialog shouldn't be shown to the user.",
@@ -1618,7 +1628,8 @@
       "reference": {
         "name": "MDN Reference",
         "url": "https://developer.mozilla.org//en-US/docs/Web/HTML/Element/dl"
-      }
+      },
+      "description": "The HTML <dl> element represents a description list. The element encloses a list of groups of terms (specified using the <dt> element) and descriptions (provided by <dd> elements). Common uses for this element are to implement a glossary or to display metadata (a list of key-value pairs)."
     },
     "dt": {
       "reference": {
@@ -1639,7 +1650,8 @@
       "reference": {
         "name": "MDN Reference",
         "url": "https://developer.mozilla.org//en-US/docs/Web/HTML/Element/em"
-      }
+      },
+      "description": "The HTML <em> element marks text that has stress emphasis. The <em> element can be nested, with each level of nesting indicating a greater degree of emphasis."
     },
     "embed": {
       "reference": {
@@ -1647,6 +1659,7 @@
         "url": "https://developer.mozilla.org//en-US/docs/Web/HTML/Element/embed"
       },
       "selfClosing": true,
+      "description": "The HTML <embed> element embeds external content at the specified point in the document. This content is provided by an external application or other source of interactive content such as a browser plug-in.",
       "attributes": {
         "height": {
           "description": "The displayed height of the resource, in CSS pixels. This must be an absolute value; percentages are not allowed.",
@@ -1683,6 +1696,7 @@
         "name": "MDN Reference",
         "url": "https://developer.mozilla.org//en-US/docs/Web/HTML/Element/fieldset"
       },
+      "description": "The HTML <fieldset> element is used to group several controls as well as labels (<label>) within a web form.",
       "attributes": {
         "disabled": {
           "description": "If this Boolean attribute is set, all form controls that are descendants of the <fieldset>, are disabled, meaning they are not editable but will be submitted along with <form> in comparison with disabled attribute on form controls. They won't receive any browsing events, like mouse clicks or focus-related events. By default browsers display such controls grayed out. Note that form elements inside the <legend> element won't be disabled.",
@@ -1727,6 +1741,7 @@
         "url": "https://developer.mozilla.org//en-US/docs/Web/HTML/Element/font"
       },
       "deprecated": true,
+      "description": "The HTML Font Element (<font>) defines the font size, color and face for its content.",
       "attributes": {
         "color": {
           "description": "This attribute sets the text color using either a named color or a color specified in the hexadecimal #RRGGBB format.",
@@ -1763,6 +1778,7 @@
         "name": "MDN Reference",
         "url": "https://developer.mozilla.org//en-US/docs/Web/HTML/Element/form"
       },
+      "description": "The HTML <form> element represents a document section that contains interactive controls for submitting information to a web server.",
       "attributes": {
         "accept": {
           "deprecated": true,
@@ -1929,6 +1945,7 @@
         "url": "https://developer.mozilla.org//en-US/docs/Web/HTML/Element/frame"
       },
       "deprecated": true,
+      "description": "<frame> is an HTML element which defines a particular area in which another HTML document can be displayed. A frame should be used within a <frameset>.",
       "attributes": {
         "src": {
           "description": "This attribute specifies the document that will be displayed by the frame.",
@@ -1987,6 +2004,7 @@
         "url": "https://developer.mozilla.org//en-US/docs/Web/HTML/Element/frameset"
       },
       "deprecated": true,
+      "description": "The HTML <frameset> element is used to contain <frame> elements.",
       "attributes": {
         "cols": {
           "description": "This attribute specifies the number and size of horizontal spaces in a frameset.",
@@ -2040,7 +2058,8 @@
         "name": "MDN Reference",
         "url": "https://developer.mozilla.org//en-US/docs/Web/HTML/Element/hgroup"
       },
-      "experimental": true
+      "experimental": true,
+      "description": "The HTML <hgroup> element represents a multi-level heading for a section of a document. It groups a set of <h1>–<h6> elements."
     },
     "hr": {
       "reference": {
@@ -2123,7 +2142,8 @@
       "reference": {
         "name": "MDN Reference",
         "url": "https://developer.mozilla.org//en-US/docs/Web/HTML/Element/i"
-      }
+      },
+      "description": "The HTML <i> element represents a range of text that is set off from the normal text for some reason. Some examples include technical terms, foreign language phrases, or fictional character thoughts. It is typically displayed in italic type."
     },
     "iframe": {
       "reference": {
@@ -2971,6 +2991,7 @@
       },
       "deprecated": true,
       "selfClosing": true,
+      "description": "The HTML <keygen> element exists to facilitate generation of key material, and submission of the public key as part of an HTML form. This mechanism is designed for use with Web-based certificate management systems. It is expected that the <keygen> element will be used in an HTML form along with other information needed to construct a certificate request, and that the result of the process will be a signed certificate.",
       "attributes": {
         "autofocus": {
           "description": "This Boolean attribute lets you specify that the control should have input focus when the page loads, unless the user overrides it, for example by typing in a different control. Only one form element in a document can have the autofocus attribute, which is a Boolean.",
@@ -3020,13 +3041,15 @@
       "reference": {
         "name": "MDN Reference",
         "url": "https://developer.mozilla.org//en-US/docs/Web/HTML/Element/label"
-      }
+      },
+      "description": "The HTML <label> element represents a caption for an item in a user interface."
     },
     "legend": {
       "reference": {
         "name": "MDN Reference",
         "url": "https://developer.mozilla.org//en-US/docs/Web/HTML/Element/legend"
-      }
+      },
+      "description": "The HTML <legend> element represents a caption for the content of its parent <fieldset>."
     },
     "li": {
       "reference": {
@@ -3079,6 +3102,7 @@
         "url": "https://developer.mozilla.org//en-US/docs/Web/HTML/Element/link"
       },
       "selfClosing": true,
+      "description": "The HTML External Resource Link element (<link>) specifies relationships between the current document and an external resource. This element is most commonly used to link to stylesheets, but is also used to establish site icons (both \"favicon\" style icons and icons for the home screen and apps on mobile devices) among other things.",
       "attributes": {
         "as": {
           "description": "This attribute is only used when rel=\"preload\" or rel=\"prefetch\" has been set on the <link> element. It specifies the type of content being loaded by the <link>, which is necessary for request matching, application of correct content security policy, and setting of correct Accept request header. Furthermore, rel=\"preload\" uses this as a signal for request prioritization. The table below lists the valid values for this attribute and the elements or resources they apply to.",
@@ -3250,7 +3274,8 @@
         "name": "MDN Reference",
         "url": "https://developer.mozilla.org//en-US/docs/Web/HTML/Element/listing"
       },
-      "deprecated": true
+      "deprecated": true,
+      "description": "The HTML Listing Element (<listing>) renders text between the start and end tags without interpreting the HTML in between and using a monospaced font. The HTML 2 standard recommended that lines shouldn't be broken when not greater than 132 characters."
     },
     "main": {
       "reference": {
@@ -3264,6 +3289,7 @@
         "name": "MDN Reference",
         "url": "https://developer.mozilla.org//en-US/docs/Web/HTML/Element/map"
       },
+      "description": "The HTML <map> element is used with <area> elements to define an image map (a clickable link area).",
       "attributes": {
         "name": {
           "description": "The name attribute gives the map a name so that it can be referenced. The attribute must be present and must have a non-empty value with no space characters. The value of the name attribute must not be a compatibility-caseless match for the value of the name attribute of another map element in the same document. If the id attribute is also specified, both attributes must have the same value.",
@@ -3287,6 +3313,7 @@
         "url": "https://developer.mozilla.org//en-US/docs/Web/HTML/Element/marquee"
       },
       "deprecated": true,
+      "description": "The HTML <marquee> element is used to insert a scrolling area of text. You can control what happens when the text reaches the edges of its content area using its attributes.",
       "attributes": {
         "behavior": {
           "description": "Sets how the text is scrolled within the marquee. Possible values are scroll, slide and alternate. If no value is specified, the default value is scroll.",
@@ -3394,6 +3421,7 @@
         "url": "https://developer.mozilla.org//en-US/docs/Web/HTML/Element/menu"
       },
       "experimental": true,
+      "description": "The HTML <menu> element represents a group of commands that a user can perform or activate. This includes both list menus, which might appear across the top of a screen, as well as context menus, such as those that might appear underneath a button after it has been clicked.",
       "attributes": {
         "label": {
           "description": "The name of the menu as shown to the user. Used within nested menus, to provide a label through which the submenu can be accessed. Must only be specified when the parent element is a <menu> in the context menu state.",
@@ -3428,6 +3456,7 @@
       },
       "deprecated": true,
       "selfClosing": true,
+      "description": "The HTML <menuitem> element represents a command that a user is able to invoke through a popup menu. This includes context menus, as well as menus that might be attached to a menu button.",
       "attributes": {
         "checked": {
           "description": "Boolean attribute which indicates whether the command is selected. May only be used when the type attribute is checkbox or radio.",
@@ -3507,6 +3536,7 @@
         "url": "https://developer.mozilla.org//en-US/docs/Web/HTML/Element/meta"
       },
       "selfClosing": true,
+      "description": "The HTML <meta> element represents metadata that cannot be represented by other HTML meta-related elements, like <base>, <link>, <script>, <style> or <title>.",
       "attributes": {
         "charset": {
           "description": "This attribute declares the page's character encoding. It must contain a standard IANA MIME name for character encodings. Although the standard doesn't request a specific encoding, it suggests:\n\n*   Authors are encouraged to use UTF-8.\n*   Authors should not use ASCII-incompatible encodings to avoid security risk: browsers not supporting them may interpret harmful content as HTML. This happens with the JIS_C6226-1983, JIS_X0212-1990, HZ-GB-2312, JOHAB, the ISO-2022 family and the EBCDIC family.\n\nNote: ASCII-incompatible encodings are those that don't map the 8-bit code points 0x20 to 0x7E to the 0x0020 to 0x007E Unicode code points.\n\n*   Authors must not use CESU-8, UTF-7, BOCU-1 and/or SCSU as cross-site scripting attacks with these encodings have been demonstrated.\n*   Authors should not use UTF-32 because not all HTML5 encoding algorithms can distinguish it from UTF-16.\n\nNotes:\n\n*   The declared character encoding must match the one the page was saved with to avoid garbled characters and security holes.\n*   The <meta> element declaring the encoding must be inside the <head> element and within the first 1024 bytes of the HTML as some browsers only look at those bytes before choosing an encoding.\n*   This <meta> element is only one part of the algorithm to determine a page's character set. The Content-Type header and any Byte-Order Marks override this element.\n*   It is strongly recommended to define the character encoding. If a page's encoding is undefined, cross-scripting techniques are possible, such as the UTF-7 fallback cross-scripting technique.\n*   The <meta> element with a charset attribute is a synonym for the pre-HTML5 <meta http-equiv=\"Content-Type\" content=\"text/html; charset=IANAcharset\">, where IANAcharset contains the value of the equivalent charset attribute. This syntax is still allowed, although no longer recommended.",
@@ -3663,6 +3693,7 @@
         "name": "MDN Reference",
         "url": "https://developer.mozilla.org//en-US/docs/Web/HTML/Element/meter"
       },
+      "description": "The HTML <meter> element represents either a scalar value within a known range or a fractional value.",
       "attributes": {
         "value": {
           "description": "The current numeric value. This must be between the minimum and maximum values (min attribute and max attribute) if they are specified. If unspecified or malformed, the value is 0. If specified, but not within the range given by the min attribute and max attribute, the value is equal to the nearest end of the range.\n\nUsage note: Unless the value attribute is between 0 and 1 (inclusive), the min and max attributes should define the range so that the value attribute's value is within it.",
@@ -3752,7 +3783,8 @@
         "name": "MDN Reference",
         "url": "https://developer.mozilla.org//en-US/docs/Web/HTML/Element/nobr"
       },
-      "deprecated": true
+      "deprecated": true,
+      "description": "The non-standard, obsolete HTML <nobr> element prevents the text it contains from automatically wrapping across multiple lines, potentially resulting in the user having to scroll horizontally to see the entire width of the text."
     },
     "noembed": {
       "reference": {
@@ -3774,13 +3806,15 @@
       "reference": {
         "name": "MDN Reference",
         "url": "https://developer.mozilla.org//en-US/docs/Web/HTML/Element/noscript"
-      }
+      },
+      "description": "The HTML <noscript> element defines a section of HTML to be inserted if a script type on the page is unsupported or if scripting is currently turned off in the browser."
     },
     "object": {
       "reference": {
         "name": "MDN Reference",
         "url": "https://developer.mozilla.org//en-US/docs/Web/HTML/Element/object"
       },
+      "description": "The HTML <object> element represents an external resource, which can be treated as an image, a nested browsing context, or a resource to be handled by a plugin.",
       "attributes": {
         "archive": {
           "deprecated": true,
@@ -3961,6 +3995,7 @@
         "name": "MDN Reference",
         "url": "https://developer.mozilla.org//en-US/docs/Web/HTML/Element/optgroup"
       },
+      "description": "The HTML <optgroup> element creates a grouping of options within a <select> element.",
       "attributes": {
         "disabled": {
           "description": "If this Boolean attribute is set, none of the items in this option group is selectable. Often browsers grey out such control and it won't receive any browsing events, like mouse clicks or focus-related ones.",
@@ -4058,6 +4093,7 @@
         "url": "https://developer.mozilla.org//en-US/docs/Web/HTML/Element/param"
       },
       "selfClosing": true,
+      "description": "The HTML <param> element defines parameters for an <object> element.",
       "attributes": {
         "name": {
           "description": "Name of the parameter.",
@@ -4143,6 +4179,7 @@
         "name": "MDN Reference",
         "url": "https://developer.mozilla.org//en-US/docs/Web/HTML/Element/progress"
       },
+      "description": "The HTML <progress> element displays an indicator showing the completion progress of a task, typically displayed as a progress bar.",
       "attributes": {
         "max": {
           "description": "This attribute describes how much work the task indicated by the progress element requires. The max attribute, if present, must have a value greater than zero and be a valid floating point number. The default value is 1.",
@@ -4194,25 +4231,29 @@
       "reference": {
         "name": "MDN Reference",
         "url": "https://developer.mozilla.org//en-US/docs/Web/HTML/Element/rt"
-      }
+      },
+      "description": "The HTML Ruby Text (<rt>) element specifies the ruby text component of a ruby annotation, which is used to provide pronunciation, translation, or transliteration information for East Asian typography. The <rt> element must always be contained within a <ruby> element."
     },
     "rtc": {
       "reference": {
         "name": "MDN Reference",
         "url": "https://developer.mozilla.org//en-US/docs/Web/HTML/Element/rtc"
-      }
+      },
+      "description": "The HTML Ruby Text Container (<rtc>) element embraces semantic annotations of characters presented in a ruby of <rb> elements used inside of <ruby> element. <rb> elements can have both pronunciation (<rt>) and semantic (<rtc>) annotations."
     },
     "ruby": {
       "reference": {
         "name": "MDN Reference",
         "url": "https://developer.mozilla.org//en-US/docs/Web/HTML/Element/ruby"
-      }
+      },
+      "description": "The HTML <ruby> element represents a ruby annotation. Ruby annotations are for showing pronunciation of East Asian characters."
     },
     "s": {
       "reference": {
         "name": "MDN Reference",
         "url": "https://developer.mozilla.org//en-US/docs/Web/HTML/Element/s"
-      }
+      },
+      "description": "The HTML <s> element renders text with a strikethrough, or a line through it. Use the <s> element to represent things that are no longer relevant or no longer accurate. However, <s> is not appropriate when indicating document edits; for that, use the <del> and <ins> elements, as appropriate."
     },
     "samp": {
       "reference": {
@@ -4441,7 +4482,8 @@
       "reference": {
         "name": "MDN Reference",
         "url": "https://developer.mozilla.org//en-US/docs/Web/HTML/Element/small"
-      }
+      },
+      "description": "The HTML <small> element represents side-comments and small print, like copyright and legal text, independent of its styled presentation. By default, it renders text within it one font-size small, such as from small to x-small."
     },
     "source": {
       "reference": {
@@ -4545,7 +4587,8 @@
         "name": "MDN Reference",
         "url": "https://developer.mozilla.org//en-US/docs/Web/HTML/Element/strike"
       },
-      "deprecated": true
+      "deprecated": true,
+      "description": "The HTML <strike> element (or HTML Strikethrough Element) places a strikethrough (horizontal line) over text."
     },
     "strong": {
       "reference": {
@@ -4941,6 +4984,7 @@
         "name": "MDN Reference",
         "url": "https://developer.mozilla.org//en-US/docs/Web/HTML/Element/textarea"
       },
+      "description": "The HTML <textarea> element represents a multi-line plain-text editing control, useful when you want to allow users to enter a sizeable amount of free-form text, for example a comment on a review or feedback form.",
       "attributes": {
         "autocapitalize": {
           "description": "This is a non-standard attribute supported by WebKit on iOS (therefore nearly all browsers running on iOS, including Safari, Firefox, and Chrome), which controls whether and how the text value should be automatically capitalized as it is entered/edited by the user. The non-deprecated values are available in iOS 5 and later. Possible values are:\n\n*   none: Completely disables automatic capitalization.\n*   sentences: Automatically capitalize the first letter of sentences.\n*   words: Automatically capitalize the first letter of words.\n*   characters: Automatically capitalize all characters.\n*   on: Deprecated since iOS 5.\n*   off: Deprecated since iOS 5.",
@@ -5118,6 +5162,7 @@
         "name": "MDN Reference",
         "url": "https://developer.mozilla.org//en-US/docs/Web/HTML/Element/tfoot"
       },
+      "description": "The HTML <tfoot> element defines a set of rows summarizing the columns of the table.",
       "attributes": {
         "align": {
           "deprecated": true,
@@ -5373,6 +5418,7 @@
         "name": "MDN Reference",
         "url": "https://developer.mozilla.org//en-US/docs/Web/HTML/Element/thead"
       },
+      "description": "The HTML <thead> element defines a set of rows defining the head of the columns of the table.",
       "attributes": {
         "align": {
           "deprecated": true,
@@ -5533,6 +5579,7 @@
         "url": "https://developer.mozilla.org//en-US/docs/Web/HTML/Element/track"
       },
       "selfClosing": true,
+      "description": "The HTML <track> element is used as a child of the media elements <audio> and <video>. It lets you specify timed text tracks (or time-based data), for example to automatically handle subtitles. The tracks are formatted in WebVTT format (.vtt files) — Web Video Text Tracks or Timed Text Markup Language (TTML).",
       "attributes": {
         "default": {
           "description": "This attribute indicates that the track should be enabled unless the user's preferences indicate that another track is more appropriate. This may only be used on one track element per media element.",
@@ -5617,6 +5664,7 @@
         "name": "MDN Reference",
         "url": "https://developer.mozilla.org//en-US/docs/Web/HTML/Element/ul"
       },
+      "description": "The HTML <ul> element represents an unordered list of items, typically rendered as a bulleted list.",
       "attributes": {
         "compact": {
           "description": "This Boolean attribute hints that the list should be rendered in a compact style. The interpretation of this attribute depends on the user agent, and it doesn't work in all browsers.",
@@ -5657,6 +5705,7 @@
         "name": "MDN Reference",
         "url": "https://developer.mozilla.org//en-US/docs/Web/HTML/Element/video"
       },
+      "description": "The HTML Video element (<video>) embeds a media player which supports video playback into the document. You can use <video> for audio content as well, but the <audio> element may provide a more appropriate user experience.",
       "attributes": {
         "autoplay": {
           "description": "A Boolean attribute; if specified, the video automatically begins to play back as soon as it can do so without stopping to finish loading the data.",
@@ -5831,14 +5880,16 @@
         "name": "MDN Reference",
         "url": "https://developer.mozilla.org//en-US/docs/Web/HTML/Element/wbr"
       },
-      "selfClosing": true
+      "selfClosing": true,
+      "description": "The HTML <wbr> element represents a word break opportunity—a position within text where the browser may optionally break a line, though its line-breaking rules would not otherwise create a break at that location."
     },
     "xmp": {
       "reference": {
         "name": "MDN Reference",
         "url": "https://developer.mozilla.org//en-US/docs/Web/HTML/Element/xmp"
       },
-      "deprecated": true
+      "deprecated": true,
+      "description": "The HTML Example Element (<xmp>) renders text between the start and end tags without interpreting the HTML in between and using a monospaced font. The HTML2 specification recommended that it should be rendered wide enough to allow 80 characters per line."
     }
   }
 }
