@@ -1,0 +1,125 @@
+{
+  "tags": {
+    "a": {
+      "deepDisallowedSubTags": [
+        {
+          "category": "interactive content"
+        },
+        "a"
+      ]
+    },
+    "address": {
+      "deepDisallowedSubTags": [
+        {
+          "category": "heading"
+        },
+        {
+          "category": "sectioning content"
+        },
+        "header",
+        "footer",
+        "address"
+      ]
+    },
+    "audio": {
+      "deepDisallowedSubTags": [
+        "audio",
+        "video"
+      ]
+    },
+    "button": {
+      "deepDisallowedSubTags": [
+        {
+          "category": "interactive content"
+        }
+      ]
+    },
+    "canvas": {
+      "deepDisallowedSubTags": [
+        {
+          "category": "interactive content"
+        }
+      ]
+    },
+    "caption": {
+      "deepDisallowedSubTags": [
+        "table"
+      ]
+    },
+    "dfn": {
+      "deepDisallowedSubTags": [
+        "dfn"
+      ]
+    },
+    "dt": {
+      "deepDisallowedSubTags": [
+        "header",
+        "footer",
+        {
+          "category": "sectioning content"
+        },
+        {
+          "category": "heading"
+        }
+      ]
+    },
+    "footer": {
+      "deepDisallowedSubTags": [
+        "header",
+        "footer"
+      ]
+    },
+    "form": {
+      "deepDisallowedSubTags": [
+        "form"
+      ]
+    },
+    "header": {
+      "deepDisallowedSubTags": [
+        "header",
+        "footer"
+      ]
+    },
+    "label": {
+      "deepDisallowedSubTags": [
+        {
+          "category": "labelable"
+        },
+        "label"
+      ]
+    },
+    "meter": {
+      "deepDisallowedSubTags": [
+        "meter"
+      ]
+    },
+    "noscript": {
+      "deepDisallowedSubTags": [
+        "noscript"
+      ]
+    },
+    "progress": {
+      "deepDisallowedSubTags": [
+        "progress"
+      ]
+    },
+    "th": {
+      "deepDisallowedSubTags": [
+        "header",
+        "footer",
+        {
+          "category": "sectioning content"
+        },
+        {
+          "category": "heading"
+        }
+      ]
+    },
+    "video": {
+      "deepDisallowedSubTags": [
+        "audio",
+        "video"
+      ]
+    }
+  }
+}

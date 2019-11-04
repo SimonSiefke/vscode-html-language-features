@@ -6,5 +6,5 @@ export interface Constants {
 }
 
 export const constants: Constants = {
-  showDeprecatedCompletions: true,
+  showDeprecatedCompletions: false,
 }

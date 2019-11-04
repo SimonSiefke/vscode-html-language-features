@@ -145,7 +145,7 @@ export const getNextClosingTag: (
         // pop closing tags from the tags
         if (stack.length) {
           if (stack.pop() !== closingTagName) {
-            console.error('no 2')
+            // console.error('no 2')
           }
           scanner.stream.advanceUntilChar('>')
           scanner.stream.advance(1)

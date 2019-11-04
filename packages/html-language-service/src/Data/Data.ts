@@ -73,6 +73,7 @@ export const addConfigs: (...configs: Config[]) => Promise<void> = async (
     _configs.add(config)
   }
   _mergedConfig = result
+  DEBUGConfig()
 }
 
 export const removeConfigs: (...configs: Config[]) => void = (...configs) => {

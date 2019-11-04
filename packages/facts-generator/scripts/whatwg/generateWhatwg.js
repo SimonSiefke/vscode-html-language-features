@@ -8,9 +8,13 @@ const referenceUrl =
 
 /** @typedef {{elementName:string, parents:string[], categories:string[],
       description:string,
+      elementLink:string
       children:string[],
       attributes:string[]}} PreElement */
 
+/**
+ * @return {Promise<PreElement[]>}
+ */
 async function getElementsInfo() {
   // @ts-ignore
   const html = await fetch(referenceUrl).then(res => res.text())
@@ -29,6 +33,9 @@ async function getElementsInfo() {
       let elementName = $(ths[0])
         .find('a')
         .html()
+      const elementLink = $(ths[0])
+        .find('a')
+        .attr('href')
       const description = $(tds[0]).html()
       const categories = $(tds[1])
         .find('a')
@@ -76,10 +83,13 @@ async function getElementsInfo() {
         parents,
         children,
         attributes,
+        elementLink,
       }
     })
     .get()
 }
+
+exports.getElementsInfo = getElementsInfo
 
 const categoryMap = {
   flow: 'flow content',
@@ -103,8 +113,12 @@ const categoryMap = {
   'sectioning root': 'sectioning root content',
   'sectioning root content': 'sectioning root content',
   heading: 'heading',
+  'heading content': 'heading',
+  'heading\n   content': 'heading',
+
   resettable: 'resettable',
   labelable: 'labelable',
+  'labelable elements': 'labelable',
   metadata: 'metadata content',
   'metadata content': 'metadata content',
   'script-supporting': 'script-supporting',
@@ -118,9 +132,11 @@ const getRefinedCategory = category => {
   }
   throw new Error('unknown category')
 }
+exports.getRefinedCategory = getRefinedCategory
 
 const isCategory = category => !!categoryMap[category]
 
+exports.isCategory = isCategory
 /**
  * @type {(keyof typeof categoryMap)[]}
  */
@@ -211,13 +227,14 @@ const getTags = async () => {
       [info.elementName]: {
         categories,
         attributes,
-        allowedParentTags,
+        // allowedParentTags,
         allowedSubTags,
       },
     }
   }, {})
 }
 
+exports.getTags = getTags
 const all = async () => {
   const tags = await getTags() //?
   delete tags['autonomous custom elements']
