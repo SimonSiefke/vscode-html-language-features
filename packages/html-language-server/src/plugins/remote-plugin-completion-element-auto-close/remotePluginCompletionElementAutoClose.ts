@@ -1,7 +1,7 @@
 import { doCompletionElementAutoClose } from '@html-language-features/html-language-service'
 import { RequestType, TextDocumentPositionParams } from 'vscode-languageserver'
-import { Position, Range, TextDocument } from 'vscode-languageserver-types'
-import { RemotePlugin } from '../remotePluginApi'
+import { Position, Range } from 'vscode-languageserver-types'
+import { RemotePlugin } from '../remotePlugin'
 
 type Result = {
   completionString: string
@@ -16,10 +16,13 @@ const requestType = new RequestType<
 >('html/completion-element-auto-close')
 
 export const remotePluginCompletionElementAutoClose: RemotePlugin = api => {
-  api.languageServer.onRequest(
+  api.connectionProxy.onRequest(
     requestType,
     async ({ textDocument, position }) => {
-      const document = api.documents.get(textDocument.uri) as TextDocument
+      const document = api.documents.get(textDocument.uri)
+      if (!document) {
+        return undefined
+      }
       const text = document.getText(
         Range.create(Position.create(0, 0), position)
       )

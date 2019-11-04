@@ -1,6 +1,5 @@
 import * as vscode from 'vscode'
 import * as vsl from 'vscode-languageclient'
-import { LocalPlugin, LocalPluginApi } from '../plugins/localPluginApi'
 
 // const defaultTimeout = 3 // for self closing tag
 // const defaultTimeout = 40 // for expand abbreviation
@@ -62,6 +61,17 @@ import { LocalPlugin, LocalPluginApi } from '../plugins/localPluginApi'
 //   }
 // }
 
+type VslSendRequest = <P, R, E, RO>(
+  type: vsl.RequestType<P, R, E, RO>,
+  params: P,
+  token?: vscode.CancellationToken
+) => Thenable<R>
+
+export interface LanguageClientProxy {
+  code2ProtocolConverter: vsl.Code2ProtocolConverter
+  sendRequest: VslSendRequest
+}
+
 const clientOptions: vsl.LanguageClientOptions = {
   documentSelector: [
     {
@@ -71,9 +81,9 @@ const clientOptions: vsl.LanguageClientOptions = {
   ],
 }
 
-export const createLanguageClient = async (
+export const createLanguageClientProxy = async (
   context: vscode.ExtensionContext
-): Promise<{ registerLocalPlugin: (plugin: LocalPlugin) => void }> => {
+): Promise<LanguageClientProxy> => {
   const serverModule = context.asAbsolutePath(
     '../html-language-server/dist/htmlLanguageServerMain.js'
   )
@@ -94,7 +104,7 @@ export const createLanguageClient = async (
   // // //        Begin Debug         \\ \\ \\
   // //                                  \\ \\
   //                                        \\
-  if (true) {
+  if (process.env.NODE_ENV !== 'production') {
     const streamLogs = true
     if (streamLogs) {
       // eslint-disable-next-line global-require
@@ -125,7 +135,10 @@ export const createLanguageClient = async (
         },
         appendLine(value: string) {
           try {
-            JSON.parse(value)
+            const message = JSON.parse(value)
+            if (!message.isLSPMessage) {
+              console.log(message)
+            }
           } catch (error) {
             if (typeof value !== 'object') {
               console.log(value)
@@ -150,7 +163,10 @@ export const createLanguageClient = async (
         append() {},
         appendLine(value: string) {
           try {
-            JSON.parse(value)
+            const message = JSON.parse(value)
+            if (!message.isLSPMessage) {
+              console.log(message)
+            }
           } catch (error) {
             if (typeof value !== 'object') {
               console.log(value)
@@ -163,9 +179,38 @@ export const createLanguageClient = async (
         dispose() {},
       }
       clientOptions.outputChannel = consoleChannel
-      // clientOptions.outputChannel = vscode.window.createOutputChannel(
-      //   'htmlLanguageClient'
-      // )
+    }
+  } else {
+    const productionOutputChannel: vscode.OutputChannel = vscode.window.createOutputChannel(
+      'htmlLanguageClient'
+    )
+    clientOptions.outputChannel = {
+      name: productionOutputChannel.name,
+      append() {},
+      appendLine(value: string) {
+        try {
+          const message = JSON.parse(value)
+          if (!message.isLSPMessage) {
+            productionOutputChannel.appendLine(value)
+          }
+        } catch (error) {
+          if (typeof value !== 'object') {
+            productionOutputChannel.appendLine(value)
+          }
+        }
+      },
+      clear() {
+        productionOutputChannel.clear()
+      },
+      show() {
+        productionOutputChannel.show()
+      },
+      hide() {
+        productionOutputChannel.hide()
+      },
+      dispose() {
+        productionOutputChannel.dispose()
+      },
     }
   }
   //                                        \\
@@ -184,55 +229,74 @@ export const createLanguageClient = async (
   context.subscriptions.push(languageClient.start())
   await languageClient.onReady()
 
-  const autoDispose: <Fn extends (...args: any[]) => vscode.Disposable>(
-    fn: Fn
-  ) => (...args: Parameters<Fn>) => void = fn => (...args) => {
-    context.subscriptions.push(fn(...args))
-  }
-
-  const api: LocalPluginApi = {
-    vscode: {
-      // context,
-      window: {
-        onDidChangeTextEditorSelection: autoDispose(
-          vscode.window.onDidChangeTextEditorSelection
-        ),
-      },
-      workspace: {
-        onDidChangeTextDocument: autoDispose(
-          vscode.workspace.onDidChangeTextDocument
-        ),
-      },
-      commands: {
-        registerTextEditorCommand: autoDispose(
-          vscode.commands.registerTextEditorCommand
-        ),
-      },
-    },
-    languageClient: {
-      code2ProtocolConverter: languageClient.code2ProtocolConverter,
-      sendRequest: async (
-        type,
-        params,
-        token = new vsl.CancellationTokenSource().token
-      ) => {
-        try {
-          return await languageClient.sendRequest(type, params, token)
-        } catch (error) {
-          if (error.code && error.code === vsl.ErrorCodes.RequestCancelled) {
-            // console.log('request cancelled')
-            return undefined
-          }
-          console.error(error)
-          return undefined
-        }
-      },
-    },
-  }
+  // const autoDispose: <Fn extends (...args: any[]) => vscode.Disposable>(
+  //   fn: Fn
+  // ) => (...args: Parameters<Fn>) => void = fn => (...args) => {
+  //   context.subscriptions.push(fn(...args))
+  // }
 
   return {
-    registerLocalPlugin: plugin => {
-      plugin(api)
+    code2ProtocolConverter: languageClient.code2ProtocolConverter,
+    sendRequest: async (
+      type,
+      params,
+      token = new vsl.CancellationTokenSource().token
+    ) => {
+      try {
+        return await languageClient.sendRequest(type, params, token)
+      } catch (error) {
+        if (error.code && error.code === vsl.ErrorCodes.RequestCancelled) {
+          // console.log('request cancelled')
+          return undefined
+        }
+        console.error(error)
+        return undefined
+      }
     },
   }
+
+  // const api: LocalPluginApi = {
+  //   vscode: {
+  //     window: {
+  //       onDidChangeTextEditorSelection: autoDispose(
+  //         vscode.window.onDidChangeTextEditorSelection
+  //       ),
+  //     },
+  //     workspace: {
+  //       onDidChangeTextDocument: autoDispose(
+  //         vscode.workspace.onDidChangeTextDocument
+  //       ),
+  //     },
+  //     commands: {
+  //       registerTextEditorCommand: autoDispose(
+  //         vscode.commands.registerTextEditorCommand
+  //       ),
+  //     },
+  //   },
+  //   languageClient: {
+  //     code2ProtocolConverter: languageClient.code2ProtocolConverter,
+  //     sendRequest: async (
+  //       type,
+  //       params,
+  //       token = new vsl.CancellationTokenSource().token
+  //     ) => {
+  //       try {
+  //         return await languageClient.sendRequest(type, params, token)
+  //       } catch (error) {
+  //         if (error.code && error.code === vsl.ErrorCodes.RequestCancelled) {
+  //           // console.log('request cancelled')
+  //           return undefined
+  //         }
+  //         console.error(error)
+  //         return undefined
+  //       }
+  //     },
+  //   },
+  // }
+
+  // return {
+  //   registerLocalPlugin: plugin => {
+  //     plugin(api)
+  //   },
+  // }
 }

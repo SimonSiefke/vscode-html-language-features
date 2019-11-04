@@ -1,10 +1,10 @@
-export interface Settings {
+export interface Constants {
   /**
    * Wether or not to show deprecated suggestions
    */
   showDeprecatedSuggestions: boolean
 }
 
-export const settings: Settings = {
+export const constants: Constants = {
   showDeprecatedSuggestions: true,
 }

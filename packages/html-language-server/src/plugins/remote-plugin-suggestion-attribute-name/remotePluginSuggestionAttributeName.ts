@@ -1,4 +1,4 @@
-import { RemotePlugin } from '../remotePluginApi'
+import { RemotePlugin } from '../remotePlugin'
 import {
   CompletionItemKind,
   CompletionItem,
@@ -13,7 +13,7 @@ import {
   NamedAttribute,
 } from '@html-language-features/html-language-service'
 import { getDocumentationForAttributeName } from '../../util/getDocumentation'
-import { settings } from '../../Settings'
+import { constants } from '../../constants'
 
 interface Data {
   tagName: string
@@ -43,7 +43,7 @@ const createCompletionItem: ({
     label: attribute.name,
   }
   if (attribute.deprecated === true) {
-    if (settings.showDeprecatedSuggestions === true) {
+    if (constants.showDeprecatedSuggestions === true) {
       completionItem.tags = [CompletionItemTag.Deprecated]
     } else {
       return undefined
@@ -53,7 +53,7 @@ const createCompletionItem: ({
 }
 
 export const remotePluginSuggestionAttributeName: RemotePlugin = api => {
-  api.languageServer.onCompletion(
+  api.connectionProxy.onCompletion(
     'suggestion-attribute-key',
     ({ textDocument, position }) => {
       const document = api.documents.get(textDocument.uri) as TextDocument
@@ -80,13 +80,16 @@ export const remotePluginSuggestionAttributeName: RemotePlugin = api => {
     }
   )
 
-  api.languageServer.onCompletionResolve('suggestion-attribute-key', params => {
-    const { tagName, attributeName } = params.data as Data
-    const documentation = getDocumentationForAttributeName(
-      tagName,
-      attributeName
-    )
-    params.documentation = documentation
-    return params
-  })
+  api.connectionProxy.onCompletionResolve(
+    'suggestion-attribute-key',
+    params => {
+      const { tagName, attributeName } = params.data as Data
+      const documentation = getDocumentationForAttributeName(
+        tagName,
+        attributeName
+      )
+      params.documentation = documentation
+      return params
+    }
+  )
 }

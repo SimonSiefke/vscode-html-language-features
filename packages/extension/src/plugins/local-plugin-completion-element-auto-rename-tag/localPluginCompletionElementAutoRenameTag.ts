@@ -1,6 +1,6 @@
 import { doCompletionElementAutoRenameTag } from '@html-language-features/html-language-service'
 import * as vscode from 'vscode'
-import { LocalPlugin } from '../localPluginApi'
+import { LocalPlugin } from '../localPlugin'
 
 type Result = {
   startOffset: number
@@ -93,7 +93,7 @@ const applyResults: (results: Result[]) => Promise<void> = async results => {
 }
 
 export const localPluginCompletionElementAutoRenameTag: LocalPlugin = api => {
-  api.vscode.workspace.onDidChangeTextDocument(async event => {
+  api.vscodeProxy.workspace.onDidChangeTextDocument(async event => {
     if (event.document.languageId !== 'html') {
       return
     }

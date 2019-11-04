@@ -1,6 +1,15 @@
 {
   "html.customData": {
-    "extends": "https://raw.githubusercontent.com/SimonSiefke/vscode-html-language-features/master/packages/curated-facts/generated/wired-elements/curated.htmlData.json"
+    "extends": "https://raw.githubusercontent.com/SimonSiefke/vscode-html-language-features/master/packages/curated-facts/generated/wired-elements/curated.htmlData.json",
+    "tags": {
+      "mouse": {
+        "description": "aaa",
+        "categories": [
+          "phrasing content",
+          "flow content"
+        ]
+      }
+    }
   },
   "htmlLanguageClient.trace.server": {
     "format": "json", // or "text"

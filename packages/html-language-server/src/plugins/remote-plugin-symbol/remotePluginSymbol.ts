@@ -1,4 +1,4 @@
-import { RemotePlugin } from '../remotePluginApi'
+import { RemotePlugin } from '../remotePlugin'
 import {
   TextDocument,
   DocumentSymbol,
@@ -6,7 +6,7 @@ import {
 } from 'vscode-languageserver-types'
 
 export const remotePluginSymbol: RemotePlugin = api => {
-  api.languageServer.onDocumentSymbol(({ textDocument }) => {
+  api.connectionProxy.onDocumentSymbol(({ textDocument }) => {
     const document = api.documents.get(textDocument.uri) as TextDocument
     const range = {
       start: document.positionAt(0),

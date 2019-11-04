@@ -1,4 +1,4 @@
-import { RemotePlugin } from '../remotePluginApi'
+import { RemotePlugin } from '../remotePlugin'
 import {
   CompletionItem,
   CompletionItemKind,
@@ -13,7 +13,7 @@ import {
   isDeprecatedTag,
 } from '@html-language-features/html-language-service'
 import { getDocumentationForTagName } from '../../util/getDocumentation'
-import { settings } from '../../Settings'
+import { constants } from '../../constants'
 
 interface Data {
   tagName: string
@@ -37,7 +37,7 @@ const createCompletionItem: (
     label: item,
   }
   if (isDeprecatedTag(item)) {
-    if (settings.showDeprecatedSuggestions === true) {
+    if (constants.showDeprecatedSuggestions === true) {
       completionItem.tags = [CompletionItemTag.Deprecated]
     } else {
       return undefined
@@ -47,7 +47,7 @@ const createCompletionItem: (
 }
 
 export const remotePluginSuggestionElementStartTag: RemotePlugin = api => {
-  api.languageServer.onCompletion(
+  api.connectionProxy.onCompletion(
     'suggestion-element-start-tag',
     ({ textDocument, position }) => {
       const document = api.documents.get(textDocument.uri) as TextDocument
@@ -66,7 +66,7 @@ export const remotePluginSuggestionElementStartTag: RemotePlugin = api => {
     }
   )
 
-  api.languageServer.onCompletionResolve(
+  api.connectionProxy.onCompletionResolve(
     'suggestion-element-start-tag',
     params => {
       const { tagName } = params.data as Data

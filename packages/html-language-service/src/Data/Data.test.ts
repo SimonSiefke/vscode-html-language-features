@@ -16,9 +16,9 @@ beforeEach(() => {
   resetConfig()
 })
 
-test('iSelfClosingTag', () => {
+test('iSelfClosingTag', async () => {
   expect(isSelfClosingTag('input')).toEqual(false)
-  addConfigs({
+  await addConfigs({
     tags: {
       input: {
         selfClosing: true,
@@ -31,9 +31,9 @@ test('iSelfClosingTag', () => {
   expect(isSelfClosingTag('non-existent tag')).toEqual(false)
 })
 
-test('shouldHaveNewline', () => {
+test('shouldHaveNewline', async () => {
   expect(shouldHaveNewline('div')).toEqual(false)
-  addConfigs({
+  await addConfigs({
     tags: {
       div: {
         newline: true,
@@ -48,9 +48,9 @@ test('shouldHaveNewline', () => {
   expect(shouldHaveNewline('non-existing tag')).toEqual(false)
 })
 
-test('getReferenceForTag', () => {
+test('getReferenceForTag', async () => {
   expect(getReferenceForTag('h1')).toEqual(undefined)
-  addConfigs({
+  await addConfigs({
     tags: {
       h1: {
         reference: {
@@ -68,9 +68,9 @@ test('getReferenceForTag', () => {
   })
 })
 
-test('getReferenceForAttributeName', () => {
+test('getReferenceForAttributeName', async () => {
   expect(getReferenceForAttributeName('a', 'href')).toEqual(undefined)
-  addConfigs({
+  await addConfigs({
     tags: {
       a: {
         attributes: {
@@ -92,10 +92,10 @@ test('getReferenceForAttributeName', () => {
   })
 })
 
-test('getDescriptionForAttributeName', () => {
+test('getDescriptionForAttributeName', async () => {
   expect(getDescriptionForAttributeName('a', 'href')).toEqual(undefined)
   expect(getDescriptionForAttributeName('a', 'class')).toEqual(undefined)
-  addConfigs({
+  await addConfigs({
     globalAttributes: {
       class: {
         description: 'A space-separated list of the classes of the element',
@@ -119,13 +119,13 @@ test('getDescriptionForAttributeName', () => {
   )
 })
 
-test('getDescriptionForAttributeValue', () => {
+test('getDescriptionForAttributeValue', async () => {
   expect(getDescriptionForAttributeValue('a', 'target', '_blank')).toEqual(
     undefined
   )
   expect(getDescriptionForAttributeValue('h1', 'dir', 'ltr')).toEqual(undefined)
 
-  addConfigs({
+  await addConfigs({
     globalAttributes: {
       dir: {
         options: {
@@ -156,9 +156,9 @@ test('getDescriptionForAttributeValue', () => {
   )
 })
 
-test('isTagName', () => {
+test('isTagName', async () => {
   expect(isTagName('a')).toEqual(false)
-  addConfigs({
+  await addConfigs({
     tags: {
       a: {},
     },
@@ -166,10 +166,10 @@ test('isTagName', () => {
   expect(isTagName('a')).toEqual(true)
 })
 
-test('getSuggestedAttributeValues', () => {
+test('getSuggestedAttributeValues', async () => {
   expect(getSuggestedAttributeValues('a', 'target')).toEqual(undefined)
   expect(getSuggestedAttributeValues('a', 'dir')).toEqual(undefined)
-  addConfigs({
+  await addConfigs({
     globalAttributes: {
       dir: {
         options: {
@@ -216,9 +216,9 @@ test('getSuggestedAttributeValues', () => {
   ])
 })
 
-test('getSuggestedTags `ul`', () => {
+test('getSuggestedTags `ul`', async () => {
   expect(getSuggestedTags('ul')).toEqual([])
-  addConfigs({
+  await addConfigs({
     tags: {
       script: {
         categories: ['script-supporting'],
@@ -241,8 +241,8 @@ test('getSuggestedTags `ul`', () => {
   expect(getSuggestedTags('ul')).toEqual(['script', 'template', 'li'])
 })
 
-test('getSuggestedTags bug #1 (never use the `reverse` method)', () => {
-  addConfigs({
+test('getSuggestedTags bug #1 (never use the `reverse` method)', async () => {
+  await addConfigs({
     tags: {
       a: {
         categories: ['flow content', 'phrasing content', 'palpable content'],
@@ -259,8 +259,8 @@ test('getSuggestedTags bug #1 (never use the `reverse` method)', () => {
   expect(getSuggestedTags('a')).toEqual([])
 })
 
-test('getSuggestedTags bug #2', () => {
-  addConfigs({
+test('getSuggestedTags bug #2', async () => {
+  await addConfigs({
     tags: {
       br: {
         categories: ['flow content', 'phrasing content'],
@@ -280,8 +280,8 @@ test('getSuggestedTags bug #2', () => {
   expect(getSuggestedTags('body')).toEqual(['br'])
 })
 
-test('getSuggestedTags with custom tags #1', () => {
-  addConfigs({
+test('getSuggestedTags with custom tags #1', async () => {
+  await addConfigs({
     tags: {
       a: {
         categories: ['phrasing content', 'flow content'],
@@ -303,8 +303,8 @@ test('getSuggestedTags with custom tags #1', () => {
   expect(getSuggestedTags('a')).toEqual(['span'])
 })
 
-test('getSuggestedTags with custom tags #2', () => {
-  addConfigs({
+test('getSuggestedTags with custom tags #2', async () => {
+  await addConfigs({
     tags: {
       a: {
         categories: ['phrasing content'],
@@ -326,8 +326,8 @@ test('getSuggestedTags with custom tags #2', () => {
   expect(getSuggestedTags('a')).toEqual(['span', 'my-button'])
 })
 
-test('getSuggestedTags `button` not allowed inside `a`', () => {
-  addConfigs({
+test('getSuggestedTags `button` not allowed inside `a`', async () => {
+  await addConfigs({
     tags: {
       a: {
         categories: ['phrasing content'],
@@ -352,8 +352,8 @@ test('getSuggestedTags `button` not allowed inside `a`', () => {
   expect(getSuggestedTags('a')).toEqual(['span'])
 })
 
-test('getSuggestedTags `a` allowed inside `button`', () => {
-  addConfigs({
+test('getSuggestedTags `a` allowed inside `button`', async () => {
+  await addConfigs({
     tags: {
       a: {
         categories: ['phrasing content'],
@@ -384,8 +384,8 @@ test('getSuggestedTags `a` allowed inside `button`', () => {
   expect(getSuggestedTags('button')).toEqual(['a', 'span'])
 })
 
-test('getSuggestedTags `wired-button` not allowed inside `wired-button`', () => {
-  addConfigs({
+test('getSuggestedTags `wired-button` not allowed inside `wired-button`', async () => {
+  await addConfigs({
     tags: {
       'wired-button': {
         categories: [

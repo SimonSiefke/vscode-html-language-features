@@ -7,8 +7,16 @@ import {
   IConnection,
   ServerCapabilities,
   TextDocuments,
+  CompletionRequest,
+  HoverRequest,
+  DocumentSymbolRequest,
+  DocumentSymbolOptions,
+  CompletionOptions,
+  HoverOptions,
+  DidChangeConfigurationNotification,
+  DidChangeConfigurationRegistrationOptions,
 } from 'vscode-languageserver'
-import { createConnectionProxy } from './htmlLanguageServer/connectionProxy'
+import { createConnectionProxy } from './remotePluginApi/connectionProxy/connectionProxy'
 import { remotePluginCompletionElementAutoClose } from './plugins/remote-plugin-completion-element-auto-close/remotePluginCompletionElementAutoClose'
 import { remotePluginCompletionElementAutoRenameTag } from './plugins/remote-plugin-completion-element-auto-rename-tag/remotePluginCompletionElementAutoRenameTag'
 import { remotePluginCompletionElementClose } from './plugins/remote-plugin-completion-element-close/remotePluginCompletionElementClose'
@@ -20,17 +28,28 @@ import { remotePluginSuggestionAttributeName } from './plugins/remote-plugin-sug
 // import { remotePluginSuggestionElementExpand } from './plugins/remote-plugin-suggestion-element-expand/remotePluginSuggestionElementExpand'
 import { remotePluginSuggestionElementStartTag } from './plugins/remote-plugin-suggestion-element-start-tag/remotePluginSuggestionElementStartTag'
 import { remotePluginSymbol } from './plugins/remote-plugin-symbol/remotePluginSymbol'
-import { RemotePluginApi } from './plugins/remotePluginApi'
+import { createSettingsProxy } from './remotePluginApi/settingsProxy/settingsProxy'
+import { RemotePluginApi } from './remotePluginApi/remotePluginApi'
+import { remotePluginSettingsCustomData } from './plugins/remote-plugin-settings-custom-data/remotePluginSettingsCustomData'
 
 const connection: IConnection = createConnection()
 
 console.log = connection.console.log.bind(connection.console)
 console.error = connection.console.error.bind(connection.console)
 
-process.on('uncaughtException', error =>
-  console.error(JSON.stringify(error.message))
-)
-process.on('unhandledRejection', error => console.error(JSON.stringify(error)))
+process.on('uncaughtException', error => {
+  console.error(
+    'An uncaught exception occurred. Please open an issue on Github (https://github.com/SimonSiefke/vscode-html-language-features)'
+  )
+  console.error(error.stack)
+})
+
+process.on('unhandledRejection', error => {
+  console.error(
+    'An unhandled rejection occurred. Please open an issue on Github (https://github.com/SimonSiefke/vscode-html-language-features)'
+  )
+  console.error((error as Error).stack)
+})
 
 const documents: TextDocuments = new TextDocuments()
 
@@ -39,12 +58,6 @@ documents.listen(connection)
 connection.onInitialize(() => {
   const capabilities: ServerCapabilities = {
     textDocumentSync: documents.syncKind,
-    completionProvider: {
-      resolveProvider: true,
-      triggerCharacters: ['<'],
-    },
-    hoverProvider: true,
-    documentSymbolProvider: true, // TODO progress for this
   }
   return { capabilities }
 })
@@ -78,12 +91,14 @@ connection.onInitialized(async () => {
     console.error('an error occurred')
     console.error(error)
   }
-  // TODO send to client and client shows error message
-  const connectionProxy = createConnectionProxy(connection)
+  // TODO errors send to client and client shows helpful error message
+
   const api: RemotePluginApi = {
-    languageServer: connectionProxy,
+    connectionProxy: createConnectionProxy(connection),
+    settingsProxy: createSettingsProxy(connection),
     documents,
   }
+
   remotePluginCompletionElementAutoClose(api)
   remotePluginCompletionElementClose(api)
   remotePluginCompletionElementSelfClosing(api)
@@ -91,32 +106,32 @@ connection.onInitialized(async () => {
 
   remotePluginHighlightElementMatchingTag(api)
 
+  const hoverOptions: HoverOptions = {}
+  connection.client.register(HoverRequest.type, hoverOptions)
   remotePluginHoverElement(api)
 
-  // remotePluginSuggestionElementExpand(api)
+  const didChangeConfigurationOptions: DidChangeConfigurationRegistrationOptions = {
+    section: 'html',
+  }
+  connection.client.register(
+    DidChangeConfigurationNotification.type,
+    didChangeConfigurationOptions
+  )
+  remotePluginSettingsCustomData(api)
+
+  const completionOptions: CompletionOptions = {
+    resolveProvider: true,
+    triggerCharacters: ['<'],
+  }
+  connection.client.register(CompletionRequest.type, completionOptions)
+  // remotePluginSuggestionElementExpand(api) // TODO
   remotePluginSuggestionElementStartTag(api)
   remotePluginSuggestionAttributeName(api)
   remotePluginSuggestionAttributeValue(api)
 
+  const symbolOptions: DocumentSymbolOptions = {}
+  connection.client.register(DocumentSymbolRequest.type, symbolOptions)
   remotePluginSymbol(api)
-
-  connection.onDidChangeConfiguration(event => {
-    event.settings
-  })
-  try {
-    // TODO workspace folders
-    // const config = await connection.workspace.getConfiguration({
-    //   scopeUri: '',
-    //   section: 'html.customData',
-    // })
-    const config: Config = await connection.workspace.getConfiguration(
-      'html.customData'
-    )
-    await addConfigs(config)
-  } catch (error) {
-    console.error(JSON.stringify(error))
-    console.error(error.message)
-  }
 })
 
 connection.listen()

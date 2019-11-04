@@ -1,11 +1,14 @@
-import { RemotePlugin } from '../remotePluginApi'
-import { TextDocument } from 'vscode-languageserver-types'
+import { RemotePlugin } from '../remotePlugin'
+// import { TextDocument } from 'vscode-languageserver-types'
 import { doHoverElement } from '@html-language-features/html-language-service'
 import { getDocumentationForTagName } from '../../util/getDocumentation'
 
 export const remotePluginHoverElement: RemotePlugin = api => {
-  api.languageServer.onHover(({ textDocument, position }) => {
-    const document = api.documents.get(textDocument.uri) as TextDocument
+  api.connectionProxy.onHover(({ textDocument, position }) => {
+    const document = api.documents.get(textDocument.uri)
+    if (!document) {
+      return undefined
+    }
     const text = document.getText()
     const offset = document.offsetAt(position)
     const result = doHoverElement(text, offset)

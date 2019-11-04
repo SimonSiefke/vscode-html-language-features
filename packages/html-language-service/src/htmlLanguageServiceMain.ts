@@ -10,6 +10,7 @@ export {
 } from '@html-language-features/schema'
 export {
   addConfigs,
+  removeConfigs,
   getDescriptionForAttributeName,
   getDescriptionForAttributeValue,
   getDescriptionForTag,

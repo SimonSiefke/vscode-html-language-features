@@ -23,10 +23,11 @@ const cancelValue = new ResponseError<undefined>(
 const enum ErrorMessages {
   onHover = 'onHover Error',
   onCompletion = 'onCompletion Error',
-  onCompletionResolveError = 'onCompletionResolve Error',
-  onSignatureHelpError = 'onSignatureHelp Error',
+  onCompletionResolve = 'onCompletionResolve Error',
+  onSignatureHelp = 'onSignatureHelp Error',
   onRequest = 'onRequest Error',
-  onDocumentSymbolError = 'onDocumentSymbol Error',
+  onDocumentSymbol = 'onDocumentSymbol Error',
+  onDidChangeConfiguration = 'onDidChangeConfiguration Error',
 }
 
 type RequestHandler<Params, Result> = (
@@ -39,14 +40,17 @@ export interface ConnectionProxy {
    *
    * @param handler The corresponding handler.
    */
-  onHover: RequestHandler<TextDocumentPositionParams, Hover | undefined>
+  readonly onHover: RequestHandler<
+    TextDocumentPositionParams,
+    Hover | undefined
+  >
   /**
    * Installs a handler for the `Completion` request.
    *
    * @param id - Unique identifier of the corresponding handler
    * @param handler - The corresponding handler.
    */
-  onCompletion: (
+  readonly onCompletion: (
     id: string,
     handler: (params: CompletionParams) => CompletionList | undefined
   ) => void
@@ -56,7 +60,7 @@ export interface ConnectionProxy {
    *
    * @param handler The corresponding handler.
    */
-  onCompletionResolve: (
+  readonly onCompletionResolve: (
     id: string,
     handler: (
       params: CompletionItem & {
@@ -82,7 +86,7 @@ export interface ConnectionProxy {
    *
    * @param handler The corresponding handler.
    */
-  onSignatureHelp: RequestHandler<
+  readonly onSignatureHelp: RequestHandler<
     TextDocumentPositionParams,
     SignatureHelp | undefined
   >
@@ -91,7 +95,7 @@ export interface ConnectionProxy {
    *
    * @param handler The corresponding handler.
    */
-  onDocumentSymbol: RequestHandler<
+  readonly onDocumentSymbol: RequestHandler<
     TextDocumentPositionParams,
     DocumentSymbol[] | undefined
   >
@@ -101,7 +105,7 @@ export interface ConnectionProxy {
    * @param type The [RequestType](#RequestType) describing the request.
    * @param handler The handler to install
    */
-  onRequest: <Params, Result>(
+  readonly onRequest: <Params, Result>(
     requestType: RequestType<Params, Result, any, any>,
     handler: (params: Params) => Result | Promise<Result>
   ) => void
@@ -109,6 +113,9 @@ export interface ConnectionProxy {
 
 const measure = false
 
+/**
+ * Runs a handler
+ */
 const runSafe: <Handler extends (...args: any) => any>(
   handler: Handler,
   errorMessage: string,
@@ -165,13 +172,10 @@ export const createConnectionProxy: (
   // const onSignatureHelpHandlers: any[] = []
   // const onRequestHandlers: any[] = []
   return {
+    workspace: connection.workspace,
     onDocumentSymbol: handler => {
       connection.onDocumentSymbol(
-        runSafe(
-          handler,
-          ErrorMessages.onDocumentSymbolError,
-          'onDocumentSymbol'
-        )
+        runSafe(handler, ErrorMessages.onDocumentSymbol, 'onDocumentSymbol')
       )
     },
     onHover: handler => {
@@ -235,7 +239,7 @@ export const createConnectionProxy: (
               params.data = params.data.data
               return handler(params)
             },
-            ErrorMessages.onCompletionResolveError,
+            ErrorMessages.onCompletionResolve,
             'onCompletionResolve'
           )
         )
@@ -244,7 +248,7 @@ export const createConnectionProxy: (
     },
     onSignatureHelp: handler => {
       connection.onSignatureHelp(
-        runSafe(handler, ErrorMessages.onSignatureHelpError, 'onSignatureHelp')
+        runSafe(handler, ErrorMessages.onSignatureHelp, 'onSignatureHelp')
       )
     },
     onRequest: (requestType, handler) => {

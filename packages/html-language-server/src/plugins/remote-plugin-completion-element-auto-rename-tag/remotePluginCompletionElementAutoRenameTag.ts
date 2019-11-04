@@ -1,7 +1,7 @@
 import { doCompletionElementAutoRenameTag } from '@html-language-features/html-language-service'
 import { RequestType, TextDocumentPositionParams } from 'vscode-languageserver'
 import { TextDocument } from 'vscode-languageserver-types'
-import { RemotePlugin } from '../remotePluginApi'
+import { RemotePlugin } from '../remotePlugin'
 
 type Result = {
   startOffset: number
@@ -17,7 +17,7 @@ const requestType = new RequestType<
 >('html/completion-element-auto-rename-tag')
 
 export const remotePluginCompletionElementAutoRenameTag: RemotePlugin = api => {
-  api.languageServer.onRequest(
+  api.connectionProxy.onRequest(
     requestType,
     async ({ textDocument, position }) => {
       const document = api.documents.get(textDocument.uri) as TextDocument

@@ -25,7 +25,7 @@ Note: for this to work, you need to disable:
 
 ## Settings
 
-You can specify custom data inside your vscode settings. After changing the configuration, you need to reload vscode.
+You can specify custom data inside your vscode settings. Make sure to specify `categories` for custom tags, otherwise they won't show up.
 
 ```json
 {

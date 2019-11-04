@@ -1,6 +1,7 @@
-import { LocalPlugin, LocalPluginApi } from '../localPluginApi'
+import { LocalPlugin } from '../localPlugin'
 import * as vsl from 'vscode-languageclient'
 import * as vscode from 'vscode'
+import { LocalPluginApi } from '../../local-plugin-api/localPluginApi'
 
 // TODO use optional chaining once prettier works with that
 
@@ -21,11 +22,11 @@ const askServerForCompletionElementClose: (
   document: vscode.TextDocument,
   position: vscode.Position
 ) => Promise<Result> = async (api, document, position) => {
-  const params = api.languageClient.code2ProtocolConverter.asTextDocumentPositionParams(
+  const params = api.languageClientProxy.code2ProtocolConverter.asTextDocumentPositionParams(
     document,
     position
   )
-  const result = await api.languageClient.sendRequest(requestType, params)
+  const result = await api.languageClientProxy.sendRequest(requestType, params)
   // TODO duplicate code below
   if (
     !vscode.window.activeTextEditor ||
@@ -46,7 +47,7 @@ const applyResult: (result: Result) => void = result => {
 }
 
 export const localPluginCompletionElementClose: LocalPlugin = api => {
-  api.vscode.workspace.onDidChangeTextDocument(async event => {
+  api.vscodeProxy.workspace.onDidChangeTextDocument(async event => {
     if (event.document.languageId !== 'html') {
       return
     }

@@ -3,7 +3,7 @@ import {
   getSuggestedTags,
 } from '@html-language-features/html-language-service'
 import { Position, Range, TextDocument } from 'vscode-languageserver-types'
-import { RemotePlugin } from '../remotePluginApi'
+import { RemotePlugin } from '../remotePlugin'
 
 // const thinSpace = `\u2009`
 // const weirdCharAtTheEndOfTheAlphabet = `\uE83A`
@@ -77,7 +77,7 @@ import { RemotePlugin } from '../remotePluginApi'
 // }
 
 export const remotePluginSuggestionElementExpand: RemotePlugin = api => {
-  api.languageServer.onCompletion(
+  api.connectionProxy.onCompletion(
     'suggestion-element-expand',
     ({ textDocument, position }) => {
       const document = api.documents.get(textDocument.uri) as TextDocument
@@ -120,7 +120,7 @@ export const remotePluginSuggestionElementExpand: RemotePlugin = api => {
     }
   )
 
-  api.languageServer.onCompletionResolve(
+  api.connectionProxy.onCompletionResolve(
     'suggestion-element-expand',
     params => {
       // const { tagName } = params.data as Data

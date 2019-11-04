@@ -18,12 +18,12 @@ const DEBUGConfig = () => {
   console.log('debug')
   fs.writeFileSync(
     path.join(__dirname, '../../tmp-config.json'),
-    JSON.stringify(_config, null, 2)
+    JSON.stringify(_mergedConfig, null, 2)
   )
 }
 
-let _config: Config = {}
-let _configs: Set<Config> = new Set()
+let _mergedConfig: Config = {}
+const _configs: Set<Config> = new Set()
 
 export const setConfigs: (
   ...config: Config[]
@@ -32,14 +32,19 @@ export const setConfigs: (
   if ('errors' in result) {
     return result
   }
-  _config = result
+  _mergedConfig = result
+  _configs.clear()
+  for (const config of configs) {
+    _configs.add(config)
+  }
   return {
     errors: [],
   }
 }
 
 export const resetConfig: () => void = () => {
-  _config = {}
+  _mergedConfig = {}
+  _configs.clear()
 }
 
 class InvalidConfigError extends Error {}
@@ -60,11 +65,14 @@ export const addConfigs: (...configs: Config[]) => Promise<void> = async (
       return config
     })
   )
-  const result = mergeConfigs(_config, ...resolvedConfigs)
+  const result = mergeConfigs(_mergedConfig, ...resolvedConfigs)
   if ('errors' in result) {
     throw new Error('invalid config')
   }
-  _config = result
+  for (const config of configs) {
+    _configs.add(config)
+  }
+  _mergedConfig = result
 }
 
 export const removeConfigs: (...configs: Config[]) => void = (...configs) => {
@@ -77,48 +85,55 @@ export const removeConfigs: (...configs: Config[]) => void = (...configs) => {
   setConfigs(..._configs)
 }
 
-export const isSelfClosingTag: (tagName: string) => boolean = tagName =>
-  _config.tags !== undefined &&
-  _config.tags[tagName] !== undefined &&
-  _config.tags[tagName].selfClosing === true
+export const isSelfClosingTag: (tagName: string) => boolean = tagName => {
+  return (
+    _mergedConfig.tags !== undefined &&
+    _mergedConfig.tags[tagName] !== undefined &&
+    _mergedConfig.tags[tagName].selfClosing === true
+  )
+}
 
 export const isDeprecatedTag: (tagName: string) => boolean = tagName =>
-  _config.tags !== undefined &&
-  _config.tags[tagName] !== undefined &&
-  _config.tags[tagName].deprecated === true
+  _mergedConfig.tags !== undefined &&
+  _mergedConfig.tags[tagName] !== undefined &&
+  _mergedConfig.tags[tagName].deprecated === true
 
 export const shouldHaveNewline: (tagName: string) => boolean = tagName =>
-  _config.tags !== undefined &&
-  _config.tags[tagName] !== undefined &&
-  _config.tags[tagName].newline === true
+  _mergedConfig.tags !== undefined &&
+  _mergedConfig.tags[tagName] !== undefined &&
+  _mergedConfig.tags[tagName].newline === true
 
 export const getReferenceForTag: (
   tagName: string
 ) => Reference | undefined = tagName =>
-  _config.tags && _config.tags[tagName] && _config.tags[tagName].reference
+  _mergedConfig.tags &&
+  _mergedConfig.tags[tagName] &&
+  _mergedConfig.tags[tagName].reference
 
 export const getDescriptionForTag: (
   tagName: string
 ) => string | undefined = tagName =>
-  _config.tags && _config.tags[tagName] && _config.tags[tagName].description
+  _mergedConfig.tags &&
+  _mergedConfig.tags[tagName] &&
+  _mergedConfig.tags[tagName].description
 
 export const getReferenceForAttributeName: (
   tagName: string,
   attributeName: string
 ) => Reference | undefined = (tagName, attributeName) => {
   const elementAttributeReference =
-    _config.tags &&
-    _config.tags[tagName] &&
-    _config.tags[tagName].attributes &&
-    _config.tags[tagName].attributes![attributeName] &&
-    _config.tags[tagName].attributes![attributeName].reference
+    _mergedConfig.tags &&
+    _mergedConfig.tags[tagName] &&
+    _mergedConfig.tags[tagName].attributes &&
+    _mergedConfig.tags[tagName].attributes![attributeName] &&
+    _mergedConfig.tags[tagName].attributes![attributeName].reference
   if (elementAttributeReference) {
     return elementAttributeReference
   }
   return (
-    _config.globalAttributes &&
-    _config.globalAttributes[attributeName] &&
-    _config.globalAttributes[attributeName].reference
+    _mergedConfig.globalAttributes &&
+    _mergedConfig.globalAttributes[attributeName] &&
+    _mergedConfig.globalAttributes[attributeName].reference
   )
 }
 
@@ -127,18 +142,18 @@ export const getDescriptionForAttributeName: (
   attributeName: string
 ) => string | undefined = (tagName, attributeName) => {
   const elementAttributeDescription =
-    _config.tags &&
-    _config.tags[tagName] &&
-    _config.tags[tagName].attributes &&
-    _config.tags[tagName].attributes[attributeName] &&
-    _config.tags[tagName].attributes[attributeName].description
+    _mergedConfig.tags &&
+    _mergedConfig.tags[tagName] &&
+    _mergedConfig.tags[tagName].attributes &&
+    _mergedConfig.tags[tagName].attributes[attributeName] &&
+    _mergedConfig.tags[tagName].attributes[attributeName].description
   if (elementAttributeDescription) {
     return elementAttributeDescription
   }
   return (
-    _config.globalAttributes &&
-    _config.globalAttributes[attributeName] &&
-    _config.globalAttributes[attributeName].description
+    _mergedConfig.globalAttributes &&
+    _mergedConfig.globalAttributes[attributeName] &&
+    _mergedConfig.globalAttributes[attributeName].description
   )
 }
 
@@ -148,29 +163,33 @@ export const getDescriptionForAttributeValue: (
   attributeValue: string
 ) => string | undefined = (tagName, attributeName, attributeValue) => {
   const elementAttributeValueDescription =
-    _config.tags &&
-    _config.tags[tagName] &&
-    _config.tags[tagName].attributes &&
-    _config.tags[tagName].attributes[attributeName] &&
-    _config.tags[tagName].attributes[attributeName].options &&
-    _config.tags[tagName].attributes[attributeName].options![attributeValue] &&
-    _config.tags[tagName].attributes[attributeName].options![attributeValue]
-      .description
+    _mergedConfig.tags &&
+    _mergedConfig.tags[tagName] &&
+    _mergedConfig.tags[tagName].attributes &&
+    _mergedConfig.tags[tagName].attributes[attributeName] &&
+    _mergedConfig.tags[tagName].attributes[attributeName].options &&
+    _mergedConfig.tags[tagName].attributes[attributeName].options![
+      attributeValue
+    ] &&
+    _mergedConfig.tags[tagName].attributes[attributeName].options![
+      attributeValue
+    ].description
 
   if (elementAttributeValueDescription) {
     return elementAttributeValueDescription
   }
   return (
-    _config.globalAttributes &&
-    _config.globalAttributes[attributeName] &&
-    _config.globalAttributes[attributeName].options &&
-    _config.globalAttributes[attributeName].options[attributeValue] &&
-    _config.globalAttributes[attributeName].options[attributeValue].description
+    _mergedConfig.globalAttributes &&
+    _mergedConfig.globalAttributes[attributeName] &&
+    _mergedConfig.globalAttributes[attributeName].options &&
+    _mergedConfig.globalAttributes[attributeName].options[attributeValue] &&
+    _mergedConfig.globalAttributes[attributeName].options[attributeValue]
+      .description
   )
 }
 
 export const isTagName: (tagName: string) => boolean = tagName =>
-  _config.tags !== undefined && _config.tags[tagName] !== undefined
+  _mergedConfig.tags !== undefined && _mergedConfig.tags[tagName] !== undefined
 
 export type NamedTag = { readonly name: string }
 
@@ -201,18 +220,18 @@ export const getSuggestedAttributeValues: (
   attributeName: string
 ) => NamedAttributeValue[] | undefined = (tagName, attributeName) => {
   const elementAttributeValues =
-    _config.tags &&
-    _config.tags[tagName] &&
-    _config.tags[tagName].attributes &&
-    _config.tags[tagName].attributes![attributeName] &&
-    _config.tags[tagName].attributes![attributeName].options
+    _mergedConfig.tags &&
+    _mergedConfig.tags[tagName] &&
+    _mergedConfig.tags[tagName].attributes &&
+    _mergedConfig.tags[tagName].attributes![attributeName] &&
+    _mergedConfig.tags[tagName].attributes![attributeName].options
   if (elementAttributeValues) {
     return toNamed(elementAttributeValues)
   }
   const globalAttributeValues =
-    _config.globalAttributes &&
-    _config.globalAttributes[attributeName] &&
-    _config.globalAttributes[attributeName].options
+    _mergedConfig.globalAttributes &&
+    _mergedConfig.globalAttributes[attributeName] &&
+    _mergedConfig.globalAttributes[attributeName].options
   if (globalAttributeValues) {
     return toNamed(globalAttributeValues)
   }
@@ -220,7 +239,7 @@ export const getSuggestedAttributeValues: (
 }
 
 const getTagsByCategory: (category: Category) => string[] = category => {
-  return Object.entries(_config.tags || {})
+  return Object.entries(_mergedConfig.tags || {})
     .filter(([key, value]) => {
       if (!value.categories) {
         return false
@@ -250,9 +269,9 @@ const isAllowedParentTag: (
   subTagName: string
 ) => boolean = (parentTagName, subTagName) => {
   const allowedParentTags =
-    _config.tags &&
-    _config.tags[subTagName] &&
-    _config.tags[subTagName].allowedParentTags
+    _mergedConfig.tags &&
+    _mergedConfig.tags[subTagName] &&
+    _mergedConfig.tags[subTagName].allowedParentTags
   if (!allowedParentTags) {
     return true
   }
@@ -269,9 +288,9 @@ const isAllowedSubTag: (
   subTagName: string
 ) => boolean = (parentTagName, subTagName) => {
   const allowedSubTags =
-    _config.tags &&
-    _config.tags[parentTagName] &&
-    _config.tags[parentTagName].allowedSubTags
+    _mergedConfig.tags &&
+    _mergedConfig.tags[parentTagName] &&
+    _mergedConfig.tags[parentTagName].allowedSubTags
   if (!allowedSubTags) {
     return true
   }
@@ -290,9 +309,9 @@ const isDeepDisallowedSubTag: (
   subTagName: string
 ) => boolean = (parentTagName, subTagName) => {
   const deepDisallowedSubTags =
-    _config.tags &&
-    _config.tags[parentTagName] &&
-    _config.tags[parentTagName].deepDisallowedSubTags
+    _mergedConfig.tags &&
+    _mergedConfig.tags[parentTagName] &&
+    _mergedConfig.tags[parentTagName].deepDisallowedSubTags
   if (!deepDisallowedSubTags) {
     return false
   }
@@ -309,7 +328,7 @@ const isDeepDisallowedSubTag: (
 export const getSuggestedTags: (
   parentTagName: string
 ) => string[] = parentTagName => {
-  return Object.keys(_config.tags || {}).filter(
+  return Object.keys(_mergedConfig.tags || {}).filter(
     tagName =>
       isAllowedSubTag(parentTagName, tagName) &&
       isAllowedParentTag(parentTagName, tagName) &&
@@ -326,8 +345,10 @@ export const getSuggestedAttributes: (
   tagName: string
 ) => NamedAttribute[] | undefined = tagName => {
   const elementAttributes =
-    _config.tags && _config.tags[tagName] && _config.tags[tagName].attributes
-  const globalAttributes = _config && _config.globalAttributes
+    _mergedConfig.tags &&
+    _mergedConfig.tags[tagName] &&
+    _mergedConfig.tags[tagName].attributes
+  const globalAttributes = _mergedConfig && _mergedConfig.globalAttributes
   if (!elementAttributes && !globalAttributes) {
     return undefined
   }

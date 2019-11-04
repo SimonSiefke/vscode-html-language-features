@@ -37,7 +37,6 @@ export const doSuggestionElementStartTag: (
   // scanner.state = ScannerState.WithinContent
   // scanner.scan()
 
-  console.log('suggest start tag')
   const incompleteTagName = scanner.getTokenText()
   const parent = getPreviousOpeningTagName(scanner, completionOffset - 2)
   let tagName: string | undefined

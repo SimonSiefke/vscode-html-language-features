@@ -1,6 +1,7 @@
 import * as vscode from 'vscode'
 import * as vsl from 'vscode-languageclient'
-import { LocalPlugin, LocalPluginApi } from '../localPluginApi'
+import { LocalPlugin } from '../localPlugin'
+import { LocalPluginApi } from '../../local-plugin-api/localPluginApi'
 
 type Result =
   | {
@@ -50,11 +51,11 @@ const askServerForHighlightElementMatchingTag: (
   document: vscode.TextDocument,
   position: vscode.Position
 ) => Promise<Result> = async (api, document, position) => {
-  const params = api.languageClient.code2ProtocolConverter.asTextDocumentPositionParams(
+  const params = api.languageClientProxy.code2ProtocolConverter.asTextDocumentPositionParams(
     document,
     position
   )
-  const result = await api.languageClient.sendRequest(requestType, params)
+  const result = await api.languageClientProxy.sendRequest(requestType, params)
   if (
     !vscode.window.activeTextEditor ||
     vscode.window.activeTextEditor.document.version !== document.version
@@ -125,7 +126,7 @@ const doHighlightElementMatchingTag: (
 }
 
 export const localPluginHighlightElementMatchingTag: LocalPlugin = async api => {
-  api.vscode.workspace.onDidChangeTextDocument(event => {
+  api.vscodeProxy.workspace.onDidChangeTextDocument(event => {
     if (event.document.languageId !== 'html') {
       return
     }
@@ -140,7 +141,7 @@ export const localPluginHighlightElementMatchingTag: LocalPlugin = async api => 
     }
     doHighlightElementMatchingTag(api)
   })
-  api.vscode.window.onDidChangeTextEditorSelection(async event => {
+  api.vscodeProxy.window.onDidChangeTextEditorSelection(async event => {
     if (event.textEditor.document.languageId !== 'html') {
       return
     }
