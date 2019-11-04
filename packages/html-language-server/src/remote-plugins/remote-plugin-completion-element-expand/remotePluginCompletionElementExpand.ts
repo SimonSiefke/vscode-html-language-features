@@ -1,9 +1,59 @@
 import {
   doCompletionElementExpand,
-  getSuggestedTags,
+  isDeprecatedTag,
+  isSelfClosingTag,
+  shouldHaveNewline,
 } from '@html-language-features/html-language-service'
-import { Position, Range, TextDocument } from 'vscode-languageserver-types'
+import {
+  Position,
+  Range,
+  TextDocument,
+  CompletionItem,
+  CompletionItemKind,
+  InsertTextFormat,
+  CompletionItemTag,
+} from 'vscode-languageserver-types'
 import { RemotePlugin } from '../remotePlugin'
+import { constants } from '../../constants'
+
+interface Data {
+  tagName: string
+}
+
+type CompletionItemWithData = CompletionItem & { data: Data }
+
+const blueishIcon = CompletionItemKind.Variable
+const insertTextFormat = InsertTextFormat.Snippet
+
+const createCompletionItem: (
+  item: string
+) => CompletionItemWithData | undefined = item => {
+  let insertText: string
+  if (isSelfClosingTag(item)) {
+    insertText = `<${item}>`
+  } else if (shouldHaveNewline(item)) {
+    insertText = `<${item}>\n\t\${0}\n</${item}>`
+  } else {
+    insertText = `<${item}>\${0}</${item}>`
+  }
+  const completionItem: CompletionItemWithData = {
+    data: {
+      tagName: item,
+    },
+    insertText,
+    insertTextFormat,
+    kind: blueishIcon,
+    label: item,
+  }
+  if (isDeprecatedTag(item)) {
+    if (constants.showDeprecatedCompletions === true) {
+      completionItem.tags = [CompletionItemTag.Deprecated]
+    } else {
+      return undefined
+    }
+  }
+  return completionItem
+}
 
 // const thinSpace = `\u2009`
 // const weirdCharAtTheEndOfTheAlphabet = `\uE83A`
@@ -86,12 +136,15 @@ export const remotePluginCompletionElementExpand: RemotePlugin = api => {
       )
       const offset = document.offsetAt(position)
       const result = doCompletionElementExpand(text, offset)
-      if (!result) {
+      const items = result
+        .map(createCompletionItem)
+        .filter(Boolean) as CompletionItemWithData[]
+      if (items.length === 0) {
         return undefined
       }
-      const suggestedTags = getSuggestedTags(result.tagName)
-      if (!suggestedTags) {
-        return undefined
+      return {
+        isIncomplete: false,
+        items,
       }
       // const snippets = getSuggestedSnippets(result.tagName) || []
       // const snippets: any[] = []
@@ -116,7 +169,7 @@ export const remotePluginCompletionElementExpand: RemotePlugin = api => {
       //   isIncomplete: false,
       //   items: [...suggestedTagItems],
       // }
-      return undefined
+      // return undefined
     }
   )
 

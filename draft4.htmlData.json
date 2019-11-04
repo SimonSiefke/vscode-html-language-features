@@ -1,8 +1,0 @@
-{
-  "tags": {
-    "wired-listbox": {
-      "is": "div",
-      "allowedSubTags": ["wired-item"]
-    }
-  }
-}

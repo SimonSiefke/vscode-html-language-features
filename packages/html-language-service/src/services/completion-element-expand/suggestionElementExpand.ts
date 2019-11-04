@@ -78,11 +78,7 @@ export const expandAbbreviation = (
 export const doCompletionElementExpand: (
   text: string,
   offset: number
-) =>
-  | ({
-      tagName: string
-    })
-  | undefined = (text, offset) => {
+) => string[] = (text, offset) => {
   const scanner = createScanner(text, { initialOffset: offset })
   // const prevChar = scanner.stream.peekLeft(1) //?
   // const currentChar = scanner.stream.peekRight(0) //?
@@ -91,10 +87,10 @@ export const doCompletionElementExpand: (
   // }
   const leftChar = scanner.stream.peekLeft(1)
   if (leftChar === '<' || !leftChar.trim()) {
-    return undefined
+    return []
   }
   if (!scanner.stream.currentlyEndsWithRegex(/[\S]+$/)) {
-    return undefined
+    return []
   }
   const currentPosition = scanner.stream.position
   scanner.stream.goBackToUntilChar('\n')
@@ -117,12 +113,13 @@ export const doCompletionElementExpand: (
   let tagName: string | undefined
 
   if (parent && !parent.seenRightAngleBracket) {
-    return undefined
+    return []
   }
 
-  return {
-    tagName: (parent && parent.tagName) || 'root',
-  }
+  const parentTagName = (parent && parent.tagName) || 'root'
+  const suggestions = getSuggestedTags(parentTagName)
+
+  return suggestions
   // if (!parent) {
   //   tagName = expandAbbreviation(incompleteTagName, 'root')
   // } else {
