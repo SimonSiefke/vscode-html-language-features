@@ -13,6 +13,9 @@ const all = async () => {
   const entities = await getEntities() //?
   const processedEntities = {}
   for (const entity in entities) {
+    if (!entity.endsWith(';')) {
+      continue
+    }
     processedEntities[entity.slice(1, -1)] = entities[entity].characters
   }
   processedEntities

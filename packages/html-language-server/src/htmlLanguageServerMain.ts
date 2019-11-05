@@ -121,7 +121,7 @@ connection.onInitialized(async () => {
 
   const completionOptions: CompletionOptions = {
     resolveProvider: true,
-    triggerCharacters: ['<'],
+    triggerCharacters: ['<', '&'],
   }
   connection.client.register(CompletionRequest.type, completionOptions)
   // remotePluginSuggestionElementExpand(api) // TODO
