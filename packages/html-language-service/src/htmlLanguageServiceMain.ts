@@ -1,4 +1,8 @@
 export {
+  doCompletionElementSimpleDocument,
+} from './services/completion-element-simple-document/completionElementSimpleDocument'
+
+export {
   doCompletionEntity,
 } from './services/completion-entity/completionEntity'
 

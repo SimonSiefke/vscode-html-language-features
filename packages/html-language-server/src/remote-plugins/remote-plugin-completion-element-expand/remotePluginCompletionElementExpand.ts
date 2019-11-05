@@ -136,8 +136,8 @@ export const remotePluginCompletionElementExpand: RemotePlugin = api => {
         Range.create(Position.create(0, 0), position)
       )
       const offset = document.offsetAt(position)
-      const result = doCompletionElementExpand(text, offset)
-      const items = result
+      const results = doCompletionElementExpand(text, offset)
+      const items = results
         .map(createCompletionItem)
         .filter(Boolean) as CompletionItemWithData[]
       if (items.length === 0) {

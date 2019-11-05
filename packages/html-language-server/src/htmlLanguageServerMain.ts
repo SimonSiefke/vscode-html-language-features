@@ -32,6 +32,7 @@ import { remotePluginCompletionAttributeName } from './remote-plugins/remote-plu
 import { remotePluginSymbol } from './remote-plugins/remote-plugin-symbol/remotePluginSymbol'
 import { remotePluginCompletionAttributeValue } from './remote-plugins/remote-plugin-completion-attribute-value/remotePluginSuggestAttributeValue'
 import { remotePluginCompletionEntity } from './remote-plugins/remote-plugin-completion-entity/remotePluginCompletionEntity'
+import { remotePluginCompletionElementSimpleDocument } from './remote-plugins/remote-plugin-completion-element-simple-document/remotePluginCompletionElementSimpleDocument'
 
 const connection: IConnection = createConnection()
 
@@ -126,12 +127,13 @@ connection.onInitialized(async () => {
 
   const completionOptions: CompletionOptions = {
     resolveProvider: true,
-    triggerCharacters: ['<', '&'],
+    triggerCharacters: ['<', '&', '!'],
   }
   connection.client.register(CompletionRequest.type, completionOptions)
   // remotePluginSuggestionElementExpand(api) // TODO
   remotePluginCompletionEntity(api)
 
+  remotePluginCompletionElementSimpleDocument(api)
   remotePluginCompletionElementExpand(api)
   remotePluginCompletionElementStartTag(api)
   remotePluginCompletionAttributeName(api)
