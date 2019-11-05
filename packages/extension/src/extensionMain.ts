@@ -15,6 +15,7 @@ export const activate: (
   const api: LocalPluginApi = {
     languageClientProxy: await createLanguageClientProxy(context),
     vscodeProxy: createVscodeProxy(context),
+    autoRenameTagPromise: undefined,
   }
   localPluginLanguageConfiguration(api)
 

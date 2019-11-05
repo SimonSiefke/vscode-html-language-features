@@ -106,23 +106,47 @@ const applyResults = (results: Result[]) => {
 
 // TODO very slight delay when renaming tag (because of duplicate requests?)
 
+let requestBuffer: (() => Promise<Result[]>)[] = []
+
 // TODO different highlight color for different users
+
+/**
+ * Asks the server for matching tags and highlights them.
+ * For performance reasons there is a request buffer. When a
+ * file is changed, the auto-rename-tag plugin might cause
+ * another change. For the first change the server returns no
+ * matching tags so that the highlight will disappear. For the
+ * second change the server returns the matching tags. This causes
+ * flickering, which is bad. In current implementation, only for
+ * the second change a request will be sent to the server, which
+ * should prevent flickering since the second change is caused by
+ * auto-rename tag and the tags are still matching.
+ */
 const doHighlightElementMatchingTag: (
   api: LocalPluginApi
 ) => Promise<void> = async api => {
   if (!vscode.window.activeTextEditor) {
     return
   }
-  const results = await Promise.all(
-    vscode.window.activeTextEditor.selections.map(selection =>
-      askServerForHighlightElementMatchingTag(
-        api,
-        vscode.window.activeTextEditor.document,
-        selection.active
+  const requestFunction = () =>
+    Promise.all(
+      vscode.window.activeTextEditor.selections.map(selection =>
+        askServerForHighlightElementMatchingTag(
+          api,
+          vscode.window.activeTextEditor.document,
+          selection.active
+        )
       )
     )
-  )
-  applyResults(results)
+  requestBuffer.push(requestFunction)
+  if (api.autoRenameTagPromise) {
+    await api.autoRenameTagPromise
+  }
+  if (requestBuffer[requestBuffer.length - 1] === requestFunction) {
+    requestBuffer = []
+    const results = await requestFunction()
+    applyResults(results)
+  }
 }
 
 export const localPluginHighlightElementMatchingTag: LocalPlugin = async api => {

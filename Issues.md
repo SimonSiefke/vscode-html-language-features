@@ -213,7 +213,18 @@ some attribute value enums missing
 spellcheck: true/false inside sentence, maybe hard to extract
  -->
 
-<!-- TODO fill deepDisallowedSubTags with data
-button -> deepDisallowedSubTags: interactive content
-a -> deepDisallowedSubTags: interactive content
+<!-- TODO idea
+fast completions:
+<div spellcheck="|"> type "t" automatically complete to true
+
+
+ -->
+
+<!-- TODO auto insert quotes after equal sing for attributes
+https://github.com/microsoft/vscode/issues/18071
+ -->
+
+<!-- TODO
+maybe merge auto-rename-tag and highlight-matching-tag since they both need to know about matching tags and currently it is computed separately for each of them
+separately
  -->

@@ -35,5 +35,8 @@
     "**/*.d.ts": true,
     "**/tsconfig.tsbuildinfo": true,
     "**/deprecated": true
-  }
+  },
+  "cSpell.words": [
+    "ello"
+  ]
 }

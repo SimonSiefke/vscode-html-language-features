@@ -120,6 +120,14 @@ export const localPluginAutoCompletionElementRenameTag: LocalPlugin = api => {
     const results = positions.map(position =>
       askServiceForAutoCompletionElementRenameTag(event.document, position)
     )
-    await applyResults(results)
+    api.autoRenameTagPromise = new Promise(async (resolve, reject) => {
+      try {
+        await applyResults(results)
+      } catch (error) {
+        reject(error)
+      }
+      api.autoRenameTagPromise = undefined
+      resolve()
+    })
   })
 }

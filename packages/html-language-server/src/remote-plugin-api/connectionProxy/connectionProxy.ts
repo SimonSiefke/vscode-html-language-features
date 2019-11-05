@@ -206,16 +206,13 @@ export const createConnectionProxy: (
         connection.onCompletion(
           runSafe(
             params => {
-              console.log('on')
               for (const [id, onCompletionHandler] of Object.entries(
                 onCompletionHandlers
               )) {
                 const result = onCompletionHandler(params)
                 if (!result) {
-                  console.log('none' + id)
                   continue
                 }
-                console.log('some' + id)
                 for (const item of result.items) {
                   item.data = {
                     id,

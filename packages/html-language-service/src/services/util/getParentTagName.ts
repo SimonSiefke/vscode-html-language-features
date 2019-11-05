@@ -23,7 +23,7 @@ export const getPreviousOpeningTagName: (
   let i = 0
   do {
     if (i++ > 100) {
-      throw new Error('infinite loop')
+      throw new Error('probably infinite loop')
     }
     scanner.stream.goTo(offset - 2)
     scanner.stream.goBackToUntilEitherChar('<', '>')

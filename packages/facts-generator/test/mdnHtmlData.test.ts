@@ -36,7 +36,7 @@ test('deprecated elements', () => {
   expect(mdnConfig.tags.noframes.deprecated).toBe(true)
 })
 
-test.skip('descriptions', () => {
+test('descriptions', () => {
   for (const [key, value] of Object.entries(mdnConfig.tags)) {
     expect(value).toHaveProperty('description')
   }
