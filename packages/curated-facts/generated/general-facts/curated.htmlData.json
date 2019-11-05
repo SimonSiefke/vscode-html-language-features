@@ -1,0 +1,154 @@
+{
+  "tags": {
+    "a": {
+      "newline": false
+    },
+    "abbr": {
+      "newline": false
+    },
+    "acronym": {
+      "newline": false
+    },
+    "applet": {
+      "newline": false
+    },
+    "b": {
+      "newline": false
+    },
+    "basefont": {
+      "newline": false
+    },
+    "bdi": {
+      "newline": false
+    },
+    "bdo": {
+      "newline": false
+    },
+    "big": {
+      "newline": false
+    },
+    "br": {
+      "newline": false
+    },
+    "button": {
+      "newline": false
+    },
+    "caption": {
+      "newline": false
+    },
+    "cite": {
+      "newline": false
+    },
+    "code": {
+      "newline": false
+    },
+    "del": {
+      "newline": false
+    },
+    "dfn": {
+      "newline": false
+    },
+    "em": {
+      "newline": false
+    },
+    "font": {
+      "newline": false
+    },
+    "i": {
+      "newline": false
+    },
+    "iframe": {
+      "newline": false
+    },
+    "img": {
+      "newline": false
+    },
+    "input": {
+      "newline": false
+    },
+    "ins": {
+      "newline": false
+    },
+    "kbd": {
+      "newline": false
+    },
+    "label": {
+      "newline": false
+    },
+    "li": {
+      "newline": false
+    },
+    "legend": {
+      "newline": false
+    },
+    "map": {
+      "newline": false
+    },
+    "meter": {
+      "newline": false
+    },
+    "object": {
+      "newline": false
+    },
+    "option": {
+      "newline": false
+    },
+    "output": {
+      "newline": false
+    },
+    "progress": {
+      "newline": false
+    },
+    "q": {
+      "newline": false
+    },
+    "s": {
+      "newline": false
+    },
+    "samp": {
+      "newline": false
+    },
+    "small": {
+      "newline": false
+    },
+    "span": {
+      "newline": false
+    },
+    "strike": {
+      "newline": false
+    },
+    "strong": {
+      "newline": false
+    },
+    "sub": {
+      "newline": false
+    },
+    "summary": {
+      "newline": false
+    },
+    "sup": {
+      "newline": false
+    },
+    "textarea": {
+      "newline": false
+    },
+    "title": {
+      "newline": false
+    },
+    "td": {
+      "newline": false
+    },
+    "th": {
+      "newline": false
+    },
+    "tt": {
+      "newline": false
+    },
+    "u": {
+      "newline": false
+    },
+    "var": {
+      "newline": false
+    }
+  }
+}

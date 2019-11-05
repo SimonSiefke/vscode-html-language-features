@@ -99,10 +99,18 @@ export const isDeprecatedTag: (tagName: string) => boolean = tagName =>
   _mergedConfig.tags[tagName] !== undefined &&
   _mergedConfig.tags[tagName].deprecated === true
 
-export const shouldHaveNewline: (tagName: string) => boolean = tagName =>
-  _mergedConfig.tags !== undefined &&
-  _mergedConfig.tags[tagName] !== undefined &&
-  _mergedConfig.tags[tagName].newline === true
+export const shouldHaveNewline: (tagName: string) => boolean = tagName => {
+  if (!_mergedConfig.tags) {
+    return true
+  }
+  if (!_mergedConfig.tags[tagName]) {
+    return true
+  }
+  if (_mergedConfig.tags[tagName].newline === undefined) {
+    return true
+  }
+  return _mergedConfig.tags[tagName].newline === true
+}
 
 export const getReferenceForTag: (
   tagName: string

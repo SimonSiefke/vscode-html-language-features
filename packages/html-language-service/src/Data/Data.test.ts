@@ -32,7 +32,8 @@ test('iSelfClosingTag', async () => {
 })
 
 test('shouldHaveNewline', async () => {
-  expect(shouldHaveNewline('div')).toEqual(false)
+  expect(shouldHaveNewline('div')).toEqual(true)
+  expect(shouldHaveNewline('a')).toEqual(true)
   await addConfigs({
     tags: {
       div: {
@@ -45,7 +46,7 @@ test('shouldHaveNewline', async () => {
   })
   expect(shouldHaveNewline('div')).toEqual(true)
   expect(shouldHaveNewline('a')).toEqual(false)
-  expect(shouldHaveNewline('non-existing tag')).toEqual(false)
+  expect(shouldHaveNewline('non-existing tag')).toEqual(true)
 })
 
 test('getReferenceForTag', async () => {

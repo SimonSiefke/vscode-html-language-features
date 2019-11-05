@@ -4,6 +4,15 @@ import { doAutoCompletionElementAutoClose } from './autoCompletionElementAutoClo
 beforeAll(() => {
   setConfigs({
     tags: {
+      h1: {
+        newline: false,
+      },
+      Daten: {
+        newline: false,
+      },
+      DatenSätze: {
+        newline: false,
+      },
       input: {
         selfClosing: true,
       },

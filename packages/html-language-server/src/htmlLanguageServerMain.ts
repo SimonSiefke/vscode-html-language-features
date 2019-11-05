@@ -81,13 +81,18 @@ connection.onInitialized(async () => {
     '@html-language-features/facts-generator/generated/whatwgDeepDisallowedSubTags.htmlData.json'
   )) as Config
 
+  const generalFactsConfig: Config = await import(
+    '@html-language-features/curated-facts/generated/general-facts/curated.htmlData.json'
+  )
+
   try {
     await addConfigs(
       mdnConfig,
       mdnGlobalAttributeConfig,
       mdnLinkTypeConfig,
       whatwgConfig,
-      whatwgConfigDeepDisallowedSubTags
+      whatwgConfigDeepDisallowedSubTags,
+      generalFactsConfig
     )
   } catch (error) {
     console.error('an error occurred')

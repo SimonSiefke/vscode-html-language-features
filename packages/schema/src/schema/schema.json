@@ -211,7 +211,7 @@
             },
             "newline": {
               "type": "boolean",
-              "default": false,
+              "default": true,
               "description": "Whether or not there should be a new line when this tag is inserted"
             },
             "allowedParentTags": {

@@ -22,3 +22,4 @@ const processDirectory = directory => {
 }
 
 processDirectory('wired-elements')
+processDirectory('general-facts')

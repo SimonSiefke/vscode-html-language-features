@@ -36,6 +36,7 @@ const createCompletionItem: (
   } else {
     insertText = `<${item}>\${0}</${item}>`
   }
+  // insertText = `<${item}>\n\t\${0}\n</${item}>`
   const completionItem: CompletionItemWithData = {
     data: {
       tagName: item,
