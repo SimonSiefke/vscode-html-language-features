@@ -237,6 +237,9 @@ const getTags = async () => {
 exports.getTags = getTags
 const all = async () => {
   const tags = await getTags() //?
+  for (let i = 2; i <= 6; i++) {
+    tags[`h${i}`] = tags['h1']
+  }
   delete tags['autonomous custom elements']
 
   fs.ensureDirSync(path.join(__dirname, '../../generated'))

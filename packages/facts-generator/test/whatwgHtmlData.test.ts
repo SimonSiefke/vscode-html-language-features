@@ -40,3 +40,10 @@ test('option', () => {
     allowedSubTags: [],
   })
 })
+
+test('headings', () => {
+  for (let i = 1; i <= 6; i++) {
+    expect(whatwgConfig.tags).toHaveProperty(`h${i}`)
+  }
+  expect(whatwgConfig.tags).not.toHaveProperty('h7')
+})

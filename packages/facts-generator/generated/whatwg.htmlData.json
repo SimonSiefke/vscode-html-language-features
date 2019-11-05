@@ -1540,6 +1540,71 @@
       ],
       "attributes": {},
       "allowedSubTags": []
+    },
+    "h2": {
+      "categories": [
+        "flow content",
+        "heading",
+        "palpable content"
+      ],
+      "attributes": {},
+      "allowedSubTags": [
+        {
+          "category": "phrasing content"
+        }
+      ]
+    },
+    "h3": {
+      "categories": [
+        "flow content",
+        "heading",
+        "palpable content"
+      ],
+      "attributes": {},
+      "allowedSubTags": [
+        {
+          "category": "phrasing content"
+        }
+      ]
+    },
+    "h4": {
+      "categories": [
+        "flow content",
+        "heading",
+        "palpable content"
+      ],
+      "attributes": {},
+      "allowedSubTags": [
+        {
+          "category": "phrasing content"
+        }
+      ]
+    },
+    "h5": {
+      "categories": [
+        "flow content",
+        "heading",
+        "palpable content"
+      ],
+      "attributes": {},
+      "allowedSubTags": [
+        {
+          "category": "phrasing content"
+        }
+      ]
+    },
+    "h6": {
+      "categories": [
+        "flow content",
+        "heading",
+        "palpable content"
+      ],
+      "attributes": {},
+      "allowedSubTags": [
+        {
+          "category": "phrasing content"
+        }
+      ]
     }
   }
 }
