@@ -7,11 +7,8 @@ https://github.com/microsoft/vscode/issues/58315
 ## suggestions
 
 - svg support https://github.com/microsoft/vscode/issues/66053
-- custom tags https://github.com/microsoft/vscode/issues/62976
-- html entities https://github.com/microsoft/vscode/issues/63217
 - data attributes https://github.com/microsoft/vscode/issues/40149
 - context aware https://github.com/microsoft/vscode/issues/375
-- attributes https://github.com/microsoft/vscode/issues/7008
 
 ## auto close tag
 
@@ -21,10 +18,6 @@ https://github.com/microsoft/vscode/issues/58315
 - dont duplicate close https://github.com/microsoft/vscode/issues/35143
 - wrong closing tab https://github.com/microsoft/vscode/issues/24322
 - wrong undo/redo https://github.com/microsoft/vscode/issues/52777
-
-## auto rename tag
-
-- https://github.com/microsoft/vscode/issues/47069
 
 ## embedded support
 
@@ -38,10 +31,6 @@ https://github.com/microsoft/vscode/issues/58315
 
 - long documents https://github.com/microsoft/vscode/issues/47712
 
-## highlight matching tag
-
-- case with duplicate end tag https://github.com/microsoft/vscode/issues/54616
-
 ## syntax
 
 - webpack syntax https://github.com/microsoft/vscode/issues/52495
@@ -49,7 +38,6 @@ https://github.com/microsoft/vscode/issues/58315
 ## interesting features
 
 - auto id class https://github.com/microsoft/vscode/issues/33592
-- show deprecated attributes https://github.com/microsoft/vscode/issues/47192
 - star custom attributes https://github.com/microsoft/vscode/issues/68548
 - go to css https://github.com/microsoft/vscode/issues/27892
 - convert to self-closing tag https://github.com/microsoft/vscode/issues/58315
@@ -204,11 +192,6 @@ type '/' as href, auto closing tag does its weird part
  -->
 
 <!-- TODO
-some descriptions missing
-- area
- -->
-
-<!-- TODO
 some attribute value enums missing
 spellcheck: true/false inside sentence, maybe hard to extract
  -->
@@ -228,3 +211,12 @@ https://github.com/microsoft/vscode/issues/18071
 maybe merge auto-rename-tag and highlight-matching-tag since they both need to know about matching tags and currently it is computed separately for each of them
 separately
  -->
+
+<!--
+figure out why `!??` is a suggested tag inside a `div`
+
+filter out custom tags like `<todo-item>` when fetching sites
+
+<!-- analyze error (statistics): https://github.com/lyons194/Intellident-Website-Python-Flask -->
+
+-->

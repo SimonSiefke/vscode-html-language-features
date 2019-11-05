@@ -5,11 +5,8 @@
 ![Demo](./demo.png)
 
 <!-- Features:
-
 - Html intellisense
-- Auto rename tags
-- Auto close tags
-- Highlight Matching Tags -->
+ -->
 
 <!-- TODO better image -->
 
@@ -20,8 +17,7 @@ Note: for this to work, you need to disable:
 
 <!-- TODO:
 
-- snippets
-- support for emmet abbreviations -->
+- snippets-->
 
 ## Settings
 
@@ -41,8 +37,6 @@ You can specify custom data inside your vscode settings. Make sure to specify `c
 ```
 
 <!-- TODO:  [html] Automatically delete HTML closing tag when converting to self-closing tag #58315  -->
-
-<!-- TODO emmet is really smart: it computed the expansions as one types so when one hits tab the expansions are already computed and applied instantly -->
 
 <!-- TODO
 
