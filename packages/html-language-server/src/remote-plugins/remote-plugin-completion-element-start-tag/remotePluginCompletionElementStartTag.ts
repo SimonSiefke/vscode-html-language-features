@@ -30,10 +30,10 @@ const createCompletionItem: (
     data: {
       tagName: item,
     },
-    insertText: item,
-    insertTextFormat,
     kind: blueishIcon,
     label: item,
+    insertText: item,
+    insertTextFormat,
   }
   if (isDeprecatedTag(item)) {
     if (constants.showDeprecatedCompletions === true) {

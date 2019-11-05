@@ -8,6 +8,7 @@
     "generate:w3schools": "node scripts/w3schools/generateW3schools",
     "generate:whatwg": "node scripts/whatwg/generateWhatwg",
     "generate:whatwgDeepDisallowedSubTags": "node scripts/whatwg/generateWhatwgDeepDisallowedSubTags",
+    "generate:whatwgEntities": "node scripts/whatwg/generateWhatwgEntities",
     "generate:all": "npm run generate:mdnElements && npm run generate:mdnGlobalAttributes && npm run generate:w3schools && npm run generate:whatwg",
     "dev": "npm run generate:all",
     "test": "jest"

@@ -1,3 +1,7 @@
+export {
+  doCompletionEntity,
+} from './services/completion-entity/completionEntity'
+
 export { doHoverElement } from './services/hover-element/hoverElement'
 
 export {
