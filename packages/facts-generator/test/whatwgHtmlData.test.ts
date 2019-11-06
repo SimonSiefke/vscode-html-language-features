@@ -36,7 +36,6 @@ test('option', () => {
       selected: {},
       value: {},
     },
-    // allowedParentTags: ['select', 'datalist', 'optgroup'],
     allowedSubTags: [],
   })
 })
@@ -46,4 +45,33 @@ test('headings', () => {
     expect(whatwgConfig.tags).toHaveProperty(`h${i}`)
   }
   expect(whatwgConfig.tags).not.toHaveProperty('h7')
+})
+
+test('dl', () => {
+  expect(whatwgConfig.tags).toHaveProperty('dl', {
+    categories: ['flow content', 'palpable content'],
+    attributes: {},
+    allowedSubTags: [
+      'dt',
+      'dd',
+      'div',
+      {
+        category: 'script-supporting',
+      },
+    ],
+  })
+})
+
+test('ruby', () => {
+  expect(whatwgConfig.tags).toHaveProperty('ruby', {
+    categories: ['flow content', 'phrasing content', 'palpable content'],
+    attributes: {},
+    allowedSubTags: [
+      {
+        category: 'phrasing content',
+      },
+      'rt',
+      'rp',
+    ],
+  })
 })
