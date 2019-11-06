@@ -6,7 +6,6 @@
   "publisher": "SimonSiefke",
   "main": "dist/extensionMain.js",
   "enableProposedApi": true,
-  "preview": true,
   "activationEvents": [
     "onLanguage:html"
   ],
@@ -63,13 +62,11 @@
     "@types/ws": "^6.0.3",
     "glob": "^7.1.5",
     "mocha": "^6.2.2",
-    "typescript": "^3.7.0-dev.20191013",
-    "vscode-test": "^1.2.2",
-    "ws": "^7.2.0"
+    "typescript": "^3.7.2",
+    "vscode-test": "^1.2.2"
   },
   "dependencies": {
     "@html-language-features/html-language-service": "^1.0.0-dev",
-    "lodash": "^4.17.15",
-    "vscode-languageclient": "^6.0.0-next.1"
+    "vscode-languageclient": "^6.0.0-next.3"
   }
 }
