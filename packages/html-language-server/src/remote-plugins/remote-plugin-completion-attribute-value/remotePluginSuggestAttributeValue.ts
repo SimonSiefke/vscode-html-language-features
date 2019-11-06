@@ -13,6 +13,7 @@ import {
 } from '@html-language-features/html-language-service'
 import { getDocumentationForAttributeValue } from '../../util/getDocumentation'
 import { constants } from '../../constants'
+import { AttributeType } from '../../../../schema/dist/Config'
 
 interface Data {
   tagName: string
@@ -25,7 +26,7 @@ type CompletionItemWithData = CompletionItem & { data: Data }
 const kind = CompletionItemKind.Value
 const insertTextFormat = InsertTextFormat.Snippet
 
-const createCompletionItem: ({
+const createCompletionItemForAttributeValue: ({
   tagName,
   attributeName,
   attributeValue,
@@ -59,6 +60,23 @@ const createCompletionItem: ({
   return completionItem
 }
 
+const createCompletionItemsForAttributeType: (
+  attributeType: AttributeType
+) => CompletionItem[] = attributeType => {
+  if (attributeType === 'boolean') {
+    return ['true', 'false'].map(value => {
+      const completionItem: CompletionItem = {
+        insertText: value,
+        label: value,
+        kind,
+      }
+      return completionItem
+    })
+  }
+  console.error('unknown attribute type')
+  return []
+}
+
 export const remotePluginCompletionAttributeValue: RemotePlugin = api => {
   api.connectionProxy.onCompletion(
     'completion-attribute-value',
@@ -75,21 +93,34 @@ export const remotePluginCompletionAttributeValue: RemotePlugin = api => {
       if (!result) {
         return undefined
       }
-      const items = result.attributeValues
-        .map(attributeValue =>
-          createCompletionItem({
-            tagName: result.tagName,
-            attributeName: result.attributeName,
-            attributeValue,
-          })
+      if ('attributeValues' in result) {
+        const items = result.attributeValues
+          .map(attributeValue =>
+            createCompletionItemForAttributeValue({
+              tagName: result.tagName,
+              attributeName: result.attributeName,
+              attributeValue,
+            })
+          )
+          .filter(Boolean) as CompletionItemWithData[]
+        if (items.length === 0) {
+          return undefined
+        }
+        return {
+          isIncomplete: false,
+          items,
+        }
+      } else {
+        const items = createCompletionItemsForAttributeType(
+          result.attributeType
         )
-        .filter(Boolean) as CompletionItemWithData[]
-      if (items.length === 0) {
-        return undefined
-      }
-      return {
-        isIncomplete: false,
-        items,
+        if (items.length === 0) {
+          return undefined
+        }
+        return {
+          isIncomplete: false,
+          items,
+        }
       }
     }
   )
@@ -97,6 +128,9 @@ export const remotePluginCompletionAttributeValue: RemotePlugin = api => {
   api.connectionProxy.onCompletionResolve(
     'completion-attribute-value',
     params => {
+      if (!params.data) {
+        return params
+      }
       const { tagName, attributeName, attributeValue } = params.data as Data
       const documentation = getDocumentationForAttributeValue(
         tagName,

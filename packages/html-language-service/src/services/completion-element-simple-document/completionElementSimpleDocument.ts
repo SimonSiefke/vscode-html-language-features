@@ -16,7 +16,6 @@ export const doCompletionElementSimpleDocument: (
   offset: number
 ) => string[] = (text, offset) => {
   const previousChar = text[offset - 1]
-  console.log('prev' + previousChar)
   if (previousChar !== '!') {
     return []
   }

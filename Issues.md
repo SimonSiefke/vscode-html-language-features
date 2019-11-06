@@ -194,6 +194,7 @@ type '/' as href, auto closing tag does its weird part
 <!-- TODO
 some attribute value enums missing
 spellcheck: true/false inside sentence, maybe hard to extract
+input/autocorrect 'on' | 'off'
  -->
 
 <!-- TODO idea

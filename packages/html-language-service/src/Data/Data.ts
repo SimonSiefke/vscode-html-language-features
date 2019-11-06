@@ -8,6 +8,7 @@ import {
   SubTag,
   Category,
   resolveConfig,
+  AttributeType,
 } from '@html-language-features/schema'
 import * as fs from 'fs'
 import * as path from 'path'
@@ -243,6 +244,29 @@ export const getSuggestedAttributeValues: (
     _mergedConfig.globalAttributes[attributeName].options
   if (globalAttributeValues) {
     return toNamed(globalAttributeValues)
+  }
+  return undefined
+}
+
+export const getAttributeType: (
+  tagName: string,
+  attributeName: string
+) => AttributeType | undefined = (tagName, attributeName) => {
+  const elementAttributeType =
+    _mergedConfig.tags &&
+    _mergedConfig.tags[tagName] &&
+    _mergedConfig.tags[tagName].attributes &&
+    _mergedConfig.tags[tagName].attributes[attributeName] &&
+    _mergedConfig.tags[tagName].attributes[attributeName].type
+  if (elementAttributeType) {
+    return elementAttributeType
+  }
+  const globalAttributeType =
+    _mergedConfig.globalAttributes &&
+    _mergedConfig.globalAttributes[attributeName] &&
+    _mergedConfig.globalAttributes[attributeName].type
+  if (globalAttributeType) {
+    return globalAttributeType
   }
   return undefined
 }

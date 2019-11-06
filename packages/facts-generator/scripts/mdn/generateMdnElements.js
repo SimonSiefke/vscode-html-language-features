@@ -135,7 +135,7 @@ const getAttributeNameOrValue = ($, $dt, fullUrl) => {
 /**
  *
  * @param {PreElement} element
- * @return {Promise<{selfClosing: boolean, reference:{ url:string,name:string}, description:string,categories:string[], attributes:{deprecated:boolean,name:string, experimental:boolean, description: string, attributeValues:any}[]}>}
+ * @return {Promise<{selfClosing: boolean, reference:{ url:string,name:string}, description:string, attributes:{deprecated:boolean,name:string, experimental:boolean, description: string,type:string, attributeValues:any}[]}>}
  */
 const getInfoForElement = async element => {
   const fullUrl = 'https://developer.mozilla.org/' + element.href
@@ -144,6 +144,7 @@ const getInfoForElement = async element => {
   // @ts-ignore
   const $ = cheerio.load(html)
   let description
+  let type
   if (
     $('#wikiArticle .seoSummary').html() //?
   ) {
@@ -359,6 +360,9 @@ const getInfoForElement = async element => {
       } else {
         currentAttribute.description = childHtml
       }
+      if (currentAttribute.description.includes('Boolean')) {
+        currentAttribute.type = 'boolean'
+      }
     }
   }
   finishAttribute()
@@ -389,7 +393,6 @@ const getInfoForElement = async element => {
       url: fullUrl,
     },
     attributes,
-    categories: ['builtin'],
   }
 }
 
@@ -408,7 +411,6 @@ const all = async () => {
         experimental: element.experimental,
         selfClosing: elementInfo.selfClosing,
         attributes: elementInfo.attributes,
-        categories: elementInfo.categories,
       }
     })
   )
@@ -432,7 +434,7 @@ const all = async () => {
   }
   /**
    *
-   * @param {{name:string,deprecated:boolean,experimental:boolean, description:string, attributeValues:{name:string, description:string, deprecated:boolean}[]}[] } attributes
+   * @param {{name:string,deprecated:boolean,experimental:boolean, description:string, type:string,attributeValues:{name:string, description:string, deprecated:boolean}[]}[] } attributes
    * @param {{url:string, name:string|undefined}} reference
    */
   const fixAttributes = (reference, attributes) => {
@@ -463,6 +465,7 @@ const all = async () => {
       return {
         ...total,
         [current.name]: {
+          type: current.type,
           deprecated: current.deprecated || undefined,
           experimental: current.experimental || undefined,
           description: fixDescriptionMarkdown(current.description),

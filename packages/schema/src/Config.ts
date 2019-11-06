@@ -11,6 +11,15 @@ export type AttributeValueInfo = Readonly<{
 
 export type Snippet = string
 
+export type AttributeType =
+  | 'string'
+  | 'enum'
+  | 'color'
+  | 'integer'
+  | 'number'
+  | 'string'
+  | 'boolean'
+
 export type AttributeInfo = Readonly<{
   description?: string
   experimental?: boolean
@@ -25,7 +34,7 @@ export type AttributeInfo = Readonly<{
   // or
   // attributeValues
   //
-  type?: 'string' | 'enum' | 'color' | 'integer' | 'number' | 'string'
+  type?: AttributeType
   options?: {
     [attributeValue: string]: AttributeValueInfo
   }

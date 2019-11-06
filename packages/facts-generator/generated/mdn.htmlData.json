@@ -450,6 +450,7 @@
       "description": "The HTML <audio> element is used to embed sound content in documents. It may contain one or more audio sources, represented using the src attribute or the <source> element: the browser will choose the most suitable one. It can also be the destination for streamed media, using a MediaStream.",
       "attributes": {
         "autoplay": {
+          "type": "boolean",
           "description": "A Boolean attribute: if specified, the audio will automatically begin playback as soon as it can do so, without waiting for the entire audio file to finish downloading.\n\nNote: Sites that automatically play audio (or videos with an audio track) can be an unpleasant experience for users, so should be avoided when possible. If you must offer autoplay functionality, you should make it opt-in (requiring a user to specifically enable it). However, this can be useful when creating media elements whose source will be set at a later time, under user control. See our autoplay guide for additional information about how to properly use autoplay.",
           "reference": {
             "name": "MDN Reference",
@@ -478,6 +479,7 @@
           }
         },
         "disableRemotePlayback": {
+          "type": "boolean",
           "experimental": true,
           "description": "A Boolean attribute used to disable the capability of remote playback in devices that are attached using wired (HDMI, DVI, etc.) and wireless technologies (Miracast, Chromecast, DLNA, AirPlay, etc). See this proposed specification for more information.\n\nIn Safari, you can use x-webkit-airplay=\"deny\" as a fallback.",
           "reference": {
@@ -493,6 +495,7 @@
           }
         },
         "loop": {
+          "type": "boolean",
           "description": "A Boolean attribute: if specified, the audio player will automatically seek back to the start upon reaching the end of the audio.",
           "reference": {
             "name": "MDN Reference",
@@ -500,6 +503,7 @@
           }
         },
         "muted": {
+          "type": "boolean",
           "description": "A Boolean attribute that indicates whether the audio will be initially silenced. Its default value is false.",
           "reference": {
             "name": "MDN Reference",
@@ -968,6 +972,7 @@
       "description": "The HTML <button> element represents a clickable button, which can be used in forms or anywhere in a document that needs simple, standard button functionality.",
       "attributes": {
         "autofocus": {
+          "type": "boolean",
           "description": "This Boolean attribute specifies that the button should have input focus when the page loads. It can then be overridden by the user, for example by typing in a different control. Only one element in a document can have this attribute.",
           "reference": {
             "name": "MDN Reference",
@@ -982,6 +987,7 @@
           }
         },
         "disabled": {
+          "type": "boolean",
           "description": "This Boolean attribute prevents the user from interacting with the button. If this attribute isn't set, the button can still be disabled from a containing element, for example <fieldset>; if there is no containing element with the disabled attribute set, then the button is enabled.\n\nFirefox will, unlike other browsers, persist the dynamic disabled state of a <button> across page loads. Use the autocomplete attribute to control this feature.",
           "reference": {
             "name": "MDN Reference",
@@ -1041,6 +1047,7 @@
           }
         },
         "formnovalidate": {
+          "type": "boolean",
           "description": "If the button is a submit button, this Boolean attribute specifies that the form is not to be validated when it is submitted. If this attribute is specified, it overrides the novalidate attribute of the button's form owner.",
           "reference": {
             "name": "MDN Reference",
@@ -1568,6 +1575,7 @@
       "description": "The HTML Details Element (<details>) creates a disclosure widget in which information is visible only when the widget is toggled into an \"open\" state.",
       "attributes": {
         "open": {
+          "type": "boolean",
           "description": "This Boolean attribute indicates whether or not the details — that is, the contents of the <details> element — are currently visible. The default, false, means the details are not visible.",
           "reference": {
             "name": "MDN Reference",
@@ -1609,6 +1617,7 @@
       "description": "The obsolete HTML Directory element (<dir>) is used as a container for a directory of files and/or folders, potentially with styles and icons applied by the user agent.",
       "attributes": {
         "compact": {
+          "type": "boolean",
           "description": "This Boolean attribute hints that the list should be rendered in a compact style. The interpretation of this attribute depends on the user agent and it doesn't work in all browsers.\n\nUsage note: Do not use this attribute, as it has been deprecated: the <dir> element should be styled using CSS. To give a similar effect as that achieved with the compact attribute, the CSS property line-height can be used with a value of 80%.",
           "reference": {
             "name": "MDN Reference",
@@ -1699,6 +1708,7 @@
       "description": "The HTML <fieldset> element is used to group several controls as well as labels (<label>) within a web form.",
       "attributes": {
         "disabled": {
+          "type": "boolean",
           "description": "If this Boolean attribute is set, all form controls that are descendants of the <fieldset>, are disabled, meaning they are not editable but will be submitted along with <form> in comparison with disabled attribute on form controls. They won't receive any browsing events, like mouse clicks or focus-related events. By default browsers display such controls grayed out. Note that form elements inside the <legend> element won't be disabled.",
           "reference": {
             "name": "MDN Reference",
@@ -1902,6 +1912,7 @@
           }
         },
         "novalidate": {
+          "type": "boolean",
           "description": "This Boolean attribute indicates that the form is not to be validated when submitted. If this attribute is not specified (and therefore the form is validated), this default setting can be overridden by a formnovalidate attribute on a <button>, <input type=\"submit\"> or <input type=\"image\"> element belonging to the form.",
           "reference": {
             "name": "MDN Reference",
@@ -2496,6 +2507,7 @@
           }
         },
         "ismap": {
+          "type": "boolean",
           "description": "This Boolean attribute indicates that the image is part of a server-side map. If so, the coordinates where the user clicked on the image are sent to the server.\n\nNote: This attribute is allowed only if the <img> element is a descendant of an <a> element with a valid href attribute. This gives users without pointing devices a fallback destination.",
           "reference": {
             "name": "MDN Reference",
@@ -2657,6 +2669,7 @@
           }
         },
         "autocomplete": {
+          "type": "boolean",
           "description": "Not a Boolean attribute, the autocomplete attribute takes as it's value a space separated string that describes what, if any, type of autocomplete functionality the input should provide. A typical implementation of autocomplete simply recalls previous values entered in the same input field, but more complex forms of autocomplete can exist. For instance, a browser could integrate with a device's contacts list to autocomplete email addresses in an email input field. See Values in The HTML autocomplete attribute for permitted values.\n\nThe autocomplete attribute is valid on hidden, text, search, url, tel, email, date, month, week, time, datetime-local, number, range, color and password. This attribute has no effect on input types that do not return numeric or text data, being valid for all input types except checkbox, radio, file, or any of the button types. See The HTML autocomplete attribute for additional information, including information on password security and how autocomplete is slightly different for hidden than for other input types.",
           "reference": {
             "name": "MDN Reference",
@@ -2664,6 +2677,7 @@
           }
         },
         "autofocus": {
+          "type": "boolean",
           "description": "A Boolean attribute which, if present, indicates that the input should automatically have focus when the page has finished loading (or when the <dialog> containing the element has been displayed).\n\nNote: An element with the autofocus attribute may gain focus before the DOMContentLoaded event is fired.\n\nNo more than one element in the document may have the autofocus attribute, and autofocus cannot be used on inputs of type hidden, because hidden inputs can't be focused. If put on more than one element, the first one with the attribute receives focus .\n\nWarning: Automatically focusing a form control can confuse visually-impaired people using screen-reading technology and people with cognitive impairments. When autofocus is assigned, screen-readers \"teleport\" their user to the form control without warning them beforehand.\n\nFor better usability, avoid using autofocus. Automatically focusing on a form control can cause the page to scroll on load. The focus can also cause dynamic keyboards to display on some touch devices. While a screen reader will announce the label of the form control receiving focus, the screen reader  will not announce anything before the label, and the sighted user on a small device will equally miss the context created by the preceding content.",
           "reference": {
             "name": "MDN Reference",
@@ -2678,6 +2692,7 @@
           }
         },
         "checked": {
+          "type": "boolean",
           "description": "Valid for both radio and checkbox types, checked is a Boolean attribute. If present on a radio type, it indicates that that radio button is the currently selected one in the group of same-named radio buttons. If present on a checkbox type, it indicates that the checkbox is checked by default (when the page loads). It does not indicate whether this checkbox is currently checked: if the checkbox’s state is changed, this content attribute does not reflect the change. (Only the HTMLInputElement’s checked IDL attribute is updated.)\n\nNote: Unlike other input controls, a checkboxes and radio buttons value are only included in the submitted data if they are currently checked. If they are, the name and the value(s) of the checked controls are submitted.\n\nFor example, if a checkbox whose name is fruit has a value of cherry, and the checkbox is checked, the form data submitted will include fruit=cherry. If the checkbox isn't active, it isn't listed in the form data at all. The default value for checkboxes and radio buttons is on.",
           "reference": {
             "name": "MDN Reference",
@@ -2692,6 +2707,7 @@
           }
         },
         "disabled": {
+          "type": "boolean",
           "description": "A Boolean attribute which, if present, indicates that the user should not be able to interact with the input. Disabled inputs are typically rendered with a dimmer color or using some other form of indication that the field is not available for use.\n\nSpecifically, disabled inputs do not receive the click event, and disabled inputs are not submitted with the form.\n\nNote: Although not required by the specification, Firefox will by default persist the dynamic disabled state of an <input> across page loads. Use the autocomplete attribute to control this feature.",
           "reference": {
             "name": "MDN Reference",
@@ -2797,6 +2813,7 @@
           }
         },
         "multiple": {
+          "type": "boolean",
           "description": "The Boolean multiple attribute, if set, means the user can enter comma separated email addresses in the email widget or can choose more than one file with the file input. See the email and file input type.",
           "reference": {
             "name": "MDN Reference",
@@ -2825,6 +2842,7 @@
           }
         },
         "readonly": {
+          "type": "boolean",
           "description": "A Boolean attribute which, if present, indicates that the user should not be able to edit the value of the input.\n\nThe difference between disabled and readonly is that read-only controls can still function, whereas disabled controls are not submitted with the form and generally do not function as controls until they are enabled.\n\nNote: The required attribute is not permitted on inputs with the readonly attribute specified.\n\nNote: Only text controls can be made read-only, since for other controls (such as checkboxes and buttons) there is no useful distinction between being read-only and being disabled, so the readonly attribute does not apply.",
           "reference": {
             "name": "MDN Reference",
@@ -2832,6 +2850,7 @@
           }
         },
         "required": {
+          "type": "boolean",
           "description": "required is a Boolean attribute which, if present, indicates that the user must specify a value for the input before the owning form can be submitted. The required attribute is supported  text, search, url, tel, email, date, month, week, time, datetime-local, number, password, checkbox, radio, and file. It is not supported by the hidden, range, and color.or any of the button types, including image. by all input types except the following:\n\nNote color and range don't support required, but type color defaults to #00000, and range defaults to the midpoint between min and max -- with min and max defaulting to 0 and 100 respectively in most browsers if not declared -- so always has a value.\n\nWhen an input has the required attribute, the :required pseudo-class also applies to it. Conversely, inputs without the required attribute (except the elements that don't support it) have the :optional pseudo-class applied.\n\nSee Client-side validation for more information.\n\nNote: Because a read-only field cannot have a value, required does not have any effect on inputs with the readonly attribute also specified.",
           "reference": {
             "name": "MDN Reference",
@@ -2895,6 +2914,7 @@
           }
         },
         "incremental": {
+          "type": "boolean",
           "description": "The Boolean attribute incremental is a WebKit and Blink extension (so supported by Safari, Opera, Chrome, etc.) which, if present, tells the user agent to process the input as a live search. As the user edits the value of the field, the user agent sends search events to the HTMLInputElement object representing the search box. This allows your code to update the search results in real time as the user edits the search.\n\nIf incremental is not specified, the search event is only sent when the user explicitly initiates a search (such as by pressing the Enter or Return key while editing the field).\n\nThe search event is rate-limited so that it is not sent more more frequently than an implementation-defined interval.",
           "reference": {
             "name": "MDN Reference",
@@ -2922,6 +2942,7 @@
           }
         },
         "webkitdirectory": {
+          "type": "boolean",
           "description": "The Boolean webkitdirectory attribute, if present, indicates that only directories should be available to be selected by the user in the file picker interface. See HTMLInputElement.webkitdirectory for additional details and examples.\n\nNote: Though originally implemented only for WebKit-based browsers, webkitdirectory is also usable in Microsoft Edge as well as Firefox 50 and later. However, even though it has relatively broad support, it is still not standard and should not be used unless you have no alternative.",
           "reference": {
             "name": "MDN Reference",
@@ -2994,6 +3015,7 @@
       "description": "The HTML <keygen> element exists to facilitate generation of key material, and submission of the public key as part of an HTML form. This mechanism is designed for use with Web-based certificate management systems. It is expected that the <keygen> element will be used in an HTML form along with other information needed to construct a certificate request, and that the result of the process will be a signed certificate.",
       "attributes": {
         "autofocus": {
+          "type": "boolean",
           "description": "This Boolean attribute lets you specify that the control should have input focus when the page loads, unless the user overrides it, for example by typing in a different control. Only one form element in a document can have the autofocus attribute, which is a Boolean.",
           "reference": {
             "name": "MDN Reference",
@@ -3008,6 +3030,7 @@
           }
         },
         "disabled": {
+          "type": "boolean",
           "description": "This Boolean attribute indicates that the form control is not available for interaction.",
           "reference": {
             "name": "MDN Reference",
@@ -3119,6 +3142,7 @@
           }
         },
         "disabled": {
+          "type": "boolean",
           "description": "For rel=\"stylesheet\" only, the disabled Boolean attribute indicates whether or not the described stylesheet should be loaded and applied to the document. If disabled is specified in the HTML when it is loaded, the stylesheet will not be loaded during page load. Instead, the stylesheet will be loaded on-demand, if and when the disabled attribute is changed to false or removed.\n\nOnce the stylesheet has been loaded, however, changes made to the value of the disabled property no longer have any relationship to the value of the StyleSheet.disabled property. Changing the value of this property instead simply enables and disables the stylesheet form being applied to the document.\n\nThis differs from StyleSheet's disabled property; changing it to true removes the stylesheet from the document's document.styleSheets list, and doesn't automatically reload the stylesheet when it's toggled back to false.",
           "reference": {
             "name": "MDN Reference",
@@ -3459,6 +3483,7 @@
       "description": "The HTML <menuitem> element represents a command that a user is able to invoke through a popup menu. This includes context menus, as well as menus that might be attached to a menu button.",
       "attributes": {
         "checked": {
+          "type": "boolean",
           "description": "Boolean attribute which indicates whether the command is selected. May only be used when the type attribute is checkbox or radio.",
           "reference": {
             "name": "MDN Reference",
@@ -3473,6 +3498,7 @@
           }
         },
         "default": {
+          "type": "boolean",
           "description": "This Boolean attribute indicates use of the same command as the menu's subject element (such as a button or input).",
           "reference": {
             "name": "MDN Reference",
@@ -3480,6 +3506,7 @@
           }
         },
         "disabled": {
+          "type": "boolean",
           "description": "Boolean attribute which indicates that the command is not available in the current state. Note that disabled is distinct from hidden; the disabled attribute is appropriate in any context where a change in circumstances might render the command relevant.",
           "reference": {
             "name": "MDN Reference",
@@ -3864,6 +3891,7 @@
           }
         },
         "declare": {
+          "type": "boolean",
           "deprecated": true,
           "description": "The presence of this Boolean attribute makes this element a declaration only. The object must be instantiated by a subsequent <object> element. In HTML5, repeat the <object> element completely each that that the resource is reused.",
           "reference": {
@@ -3916,6 +3944,7 @@
           }
         },
         "typemustmatch": {
+          "type": "boolean",
           "description": "This Boolean attribute indicates if the type attribute and the actual content type of the resource must match to be used.",
           "reference": {
             "name": "MDN Reference",
@@ -3946,6 +3975,7 @@
       "description": "The HTML <ol> element represents an ordered list of items — typically rendered as a numbered list.",
       "attributes": {
         "reversed": {
+          "type": "boolean",
           "description": "This Boolean attribute specifies that the list’s items are in reverse order. Items will be numbered from high to low.",
           "reference": {
             "name": "MDN Reference",
@@ -3998,6 +4028,7 @@
       "description": "The HTML <optgroup> element creates a grouping of options within a <select> element.",
       "attributes": {
         "disabled": {
+          "type": "boolean",
           "description": "If this Boolean attribute is set, none of the items in this option group is selectable. Often browsers grey out such control and it won't receive any browsing events, like mouse clicks or focus-related ones.",
           "reference": {
             "name": "MDN Reference",
@@ -4021,6 +4052,7 @@
       "description": "The HTML <option> element is used to define an item contained in a <select>, an <optgroup>, or a <datalist> element. As such, <option> can represent menu items in popups and other lists of items in an HTML document.",
       "attributes": {
         "disabled": {
+          "type": "boolean",
           "description": "If this Boolean attribute is set, this option is not checkable. Often browsers grey out such control and it won't receive any browsing event, like mouse clicks or focus-related ones. If this attribute is not set, the element can still be disabled if one of its ancestors is a disabled <optgroup> element.",
           "reference": {
             "name": "MDN Reference",
@@ -4035,6 +4067,7 @@
           }
         },
         "selected": {
+          "type": "boolean",
           "description": "If present, this Boolean attribute indicates that the option is initially selected. If the <option> element is the descendant of a <select> element whose multiple attribute is not set, only one single <option> of this <select> element may have the selected attribute.",
           "reference": {
             "name": "MDN Reference",
@@ -4270,6 +4303,7 @@
       "description": "The HTML <script> element is used to embed or reference executable code; this is typically used to embed or refer to JavaScript code.",
       "attributes": {
         "async": {
+          "type": "boolean",
           "description": "This is a Boolean attribute indicating that the browser should, if possible, load the script asynchronously and then execute it as soon as it’s downloaded.\n\nThis attribute must not be used if the src attribute is absent (i.e. for inline scripts). If it is included in this case it will have no effect.\n\nBrowsers usually assume the worst case scenario and load scripts synchronously, (i.e. async=\"false\") during HTML parsing.\n\nDynamically inserted scripts (using document.createElement()) load asynchronously by default, so to turn on synchronous loading (i.e. scripts load in the order they were inserted) set async=\"false\".\n\nThis attribute allows the elimination of render-blocking JavaScript where the page would have to load and execute scripts before finishing to render the page. defer has a similar effect in this case.\n\nSee Browser compatibility for notes on browser support. See also Async scripts for asm.js.",
           "reference": {
             "name": "MDN Reference",
@@ -4284,6 +4318,7 @@
           }
         },
         "defer": {
+          "type": "boolean",
           "description": "This Boolean attribute is set to indicate to a browser that the script is meant to be executed after the document has been parsed, but before firing DOMContentLoaded.\n\nScripts with the defer attribute will prevent the DOMContentLoaded event from firing until the script has loaded and finished evaluating.\n\nThis attribute must not be used if the src attribute is absent (i.e. for inline scripts), in this case it would have no effect.\n\nTo achieve a similar effect for dynamically inserted scripts use async=\"false\" instead. Scripts with the defer attribute will execute in the order in which they appear in the document.\n\nThis attribute allows the elimination of render-blocking JavaScript where the page would have to load and execute scripts before finishing to render the page. async has a similar effect in this case.",
           "reference": {
             "name": "MDN Reference",
@@ -4298,6 +4333,7 @@
           }
         },
         "nomodule": {
+          "type": "boolean",
           "description": "This Boolean attribute is set to indicate that the script should not be executed in browsers that support ES2015 modules — in effect, this can be used to serve fallback scripts to older browsers that do not support modular JavaScript code.",
           "reference": {
             "name": "MDN Reference",
@@ -4404,6 +4440,7 @@
           }
         },
         "autofocus": {
+          "type": "boolean",
           "description": "This Boolean attribute lets you specify that a form control should have input focus when the page loads. Only one form element in a document can have the autofocus attribute.",
           "reference": {
             "name": "MDN Reference",
@@ -4411,6 +4448,7 @@
           }
         },
         "disabled": {
+          "type": "boolean",
           "description": "This Boolean attribute indicates that the user cannot interact with the control. If this attribute is not specified, the control inherits its setting from the containing element, for example fieldset; if there is no containing element with the disabled attribute set, then the control is enabled.",
           "reference": {
             "name": "MDN Reference",
@@ -4425,6 +4463,7 @@
           }
         },
         "multiple": {
+          "type": "boolean",
           "description": "This Boolean attribute indicates that multiple options can be selected in the list. If it is not specified, then only one option can be selected at a time. When multiple is specified, most browsers will show a scrolling list box instead of a single line dropdown.",
           "reference": {
             "name": "MDN Reference",
@@ -4439,6 +4478,7 @@
           }
         },
         "required": {
+          "type": "boolean",
           "description": "A Boolean attribute indicating that an option with a non-empty string value must be selected.",
           "reference": {
             "name": "MDN Reference",
@@ -4501,7 +4541,7 @@
           }
         },
         "sizes": {
-          "description": "Is a list of source sizes that describes the final rendered width of the image represented by the source. Each source size consists of a comma-separated list of media condition-length pairs. This information is used by the browser to determine, before laying the page out, which image defined in srcset to use. Please note that sizes will have its effect only if width dimension descriptors are provided with srcset instead of pixel ratio values (200w instead of 2x for example).  \nThe sizes attribute has an effect only when the <source> element is the direct child of a <picture> element.",
+          "description": "Is a list of source sizes that describes the final rendered width of the image represented by the source. Each source size consists of a comma-separated list of media condition-length pairs. This information is used by the browser to determine, before laying the page out, which image defined in srcset to use. Please note that sizes will have its effect only if width dimension descriptors are provided with srcset instead of pixel ratio values (200w instead of 2x for example).\n\nThe sizes attribute has an effect only when the <source> element is the direct child of a <picture> element.",
           "reference": {
             "name": "MDN Reference",
             "url": "https://developer.mozilla.org//en-US/docs/Web/HTML/Element/source#attr-sizes"
@@ -4515,14 +4555,14 @@
           }
         },
         "srcset": {
-          "description": "A list of one or more strings separated by commas indicating a set of possible images represented by the source for the browser to use. Each string is composed of:\n\n1.  one URL to an image,\n2.  a width descriptor, that is a positive integer directly followed by 'w'. The default value, if missing, is the infinity.\n3.  a pixel density descriptor, that is a positive floating number directly followed by 'x'. The default value, if missing, is 1x.\n\nEach string in the list must have at least a width descriptor or a pixel density descriptor to be valid. Among the list, there must be only one string containing the same tuple of width descriptor and pixel density descriptor.  \nThe browser chooses the most adequate image to display at a given point of time.  \nThe srcset attribute has an effect only when the <source> element is the direct child of a <picture> element.",
+          "description": "A list of one or more strings separated by commas indicating a set of possible images represented by the source for the browser to use. Each string is composed of:\n\n1.  One URL specifying an image.\n2.  A width descriptor, which consists of a string containing a positive integer directly followed by \"w\", such as 300w. The default value, if missing, is the infinity.\n3.  A pixel density descriptor, that is a positive floating number directly followed by \"x\". The default value, if missing, is 1x.\n\nEach string in the list must have at least a width descriptor or a pixel density descriptor to be valid. Among the list, there must be only one string containing the same tuple of width descriptor and pixel density descriptor. The browser chooses the most adequate image to display at a given point of time.\n\nThe srcset attribute has an effect only when the <source> element is the direct child of a <picture> or <video> element.",
           "reference": {
             "name": "MDN Reference",
             "url": "https://developer.mozilla.org//en-US/docs/Web/HTML/Element/source#attr-srcset"
           }
         },
         "type": {
-          "description": "The MIME-type of the resource, optionally with a codecs parameter. See RFC 4281 for information about how to specify codecs.",
+          "description": "The MIME media type of the resource, optionally with a codecs parameter.",
           "reference": {
             "name": "MDN Reference",
             "url": "https://developer.mozilla.org//en-US/docs/Web/HTML/Element/source#attr-type"
@@ -5037,6 +5077,7 @@
           }
         },
         "autofocus": {
+          "type": "boolean",
           "description": "This Boolean attribute lets you specify that a form control should have input focus when the page loads. Only one form-associated element in a document can have this attribute specified.",
           "reference": {
             "name": "MDN Reference",
@@ -5051,6 +5092,7 @@
           }
         },
         "disabled": {
+          "type": "boolean",
           "description": "This Boolean attribute indicates that the user cannot interact with the control. If this attribute is not specified, the control inherits its setting from the containing element, for example <fieldset>; if there is no containing element when the disabled attribute is set, the control is enabled.",
           "reference": {
             "name": "MDN Reference",
@@ -5093,6 +5135,7 @@
           }
         },
         "readonly": {
+          "type": "boolean",
           "description": "This Boolean attribute indicates that the user cannot modify the value of the control. Unlike the disabled attribute, the readonly attribute does not prevent the user from clicking or selecting in the control. The value of a read-only control is still submitted with the form.",
           "reference": {
             "name": "MDN Reference",
@@ -5667,6 +5710,7 @@
       "description": "The HTML <ul> element represents an unordered list of items, typically rendered as a bulleted list.",
       "attributes": {
         "compact": {
+          "type": "boolean",
           "description": "This Boolean attribute hints that the list should be rendered in a compact style. The interpretation of this attribute depends on the user agent, and it doesn't work in all browsers.",
           "reference": {
             "name": "MDN Reference",
@@ -5708,6 +5752,7 @@
       "description": "The HTML Video element (<video>) embeds a media player which supports video playback into the document. You can use <video> for audio content as well, but the <audio> element may provide a more appropriate user experience.",
       "attributes": {
         "autoplay": {
+          "type": "boolean",
           "description": "A Boolean attribute; if specified, the video automatically begins to play back as soon as it can do so without stopping to finish loading the data.",
           "reference": {
             "name": "MDN Reference",
@@ -5715,6 +5760,7 @@
           }
         },
         "autoPictureInPicture": {
+          "type": "boolean",
           "experimental": true,
           "description": "An experimental Boolean attribute which if true indicates that the element should automatically toggle picture-in-picture mode when the user switches back and forth between this document and another document or application.",
           "reference": {
@@ -5767,6 +5813,7 @@
           }
         },
         "disableRemotePlayback": {
+          "type": "boolean",
           "experimental": true,
           "description": "A Boolean attribute used to disable the capability of remote playback in devices that are attached using wired (HDMI, DVI, etc.) and wireless technologies (Miracast, Chromecast, DLNA, AirPlay, etc).\n\nIn Safari, you can use x-webkit-airplay=\"deny\" as a fallback.",
           "reference": {
@@ -5797,6 +5844,7 @@
           }
         },
         "loop": {
+          "type": "boolean",
           "description": "A Boolean attribute; if specified, the browser will automatically seek back to the start upon reaching the end of the video.",
           "reference": {
             "name": "MDN Reference",
@@ -5804,6 +5852,7 @@
           }
         },
         "muted": {
+          "type": "boolean",
           "description": "A Boolean attribute that indicates the default setting of the audio contained in the video. If set, the audio will be initially silenced. Its default value is false, meaning that the audio will be played when the video is played.",
           "reference": {
             "name": "MDN Reference",
@@ -5811,6 +5860,7 @@
           }
         },
         "playsinline": {
+          "type": "boolean",
           "description": "A Boolean attribute indicating that the video is to be played \"inline\", that is within the element's playback area. Note that the absence of this attribute does not imply that the video will always be played in fullscreen.",
           "reference": {
             "name": "MDN Reference",

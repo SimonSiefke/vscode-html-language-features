@@ -65,9 +65,9 @@ connection.onInitialize(() => {
 })
 
 connection.onInitialized(async () => {
-  const mdnConfig: Config = await import(
+  const mdnConfig: Config = (await import(
     '@html-language-features/facts-generator/generated/mdn.htmlData.json'
-  )
+  )) as Config
   const mdnGlobalAttributeConfig: Config = await import(
     '@html-language-features/facts-generator/generated/mdnGlobalAttributes.htmlData.json'
   )

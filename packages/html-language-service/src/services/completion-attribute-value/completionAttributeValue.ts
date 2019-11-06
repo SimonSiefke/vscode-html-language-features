@@ -6,7 +6,9 @@ import {
 import {
   getSuggestedAttributeValues,
   NamedAttributeValue,
+  getAttributeType,
 } from '../../Data/Data'
+import { AttributeType } from '@html-language-features/schema'
 
 /**
  * Suggestions for attribute values
@@ -21,6 +23,11 @@ export const doCompletionAttributeValue: (
       tagName: string
       attributeName: string
       attributeValues: NamedAttributeValue[]
+    }
+  | {
+      tagName: string
+      attributeName: string
+      attributeType: AttributeType
     }
   | undefined = (text, offset) => {
   const scanner = createScanner(text, { initialOffset: offset })
@@ -75,11 +82,19 @@ export const doCompletionAttributeValue: (
     tagName,
     lastSeenAttributeName
   )
-  if (!attributeValues) {
+  if (attributeValues) {
+    return {
+      attributeValues,
+      attributeName: lastSeenAttributeName,
+      tagName,
+    }
+  }
+  const attributeType = getAttributeType(tagName, lastSeenAttributeName)
+  if (!attributeType) {
     return undefined
   }
   return {
-    attributeValues,
+    attributeType,
     attributeName: lastSeenAttributeName,
     tagName,
   }
