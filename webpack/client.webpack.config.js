@@ -4,9 +4,9 @@ const BundleAnalyzerPlugin = require('webpack-bundle-analyzer')
   .BundleAnalyzerPlugin
 
 module.exports = withDefaults({
-  context: path.join(__dirname, 'packages/html-language-server'),
+  context: path.join(__dirname, '../packages/extension'),
   entry: {
-    htmlLanguageServerMain: './src/htmlLanguageServerMain.ts',
+    extensionMain: './src/extensionMain.ts',
   },
   optimization: {
     splitChunks: {
@@ -18,23 +18,22 @@ module.exports = withDefaults({
           priority: 100,
           name: 'dependencies',
         },
-        json: {
-          test: /\.json$/,
-          chunks: 'all',
-          priority: -10,
-          name: 'json-stats',
-        },
         'vscode-dependencies': {
-          test: /node_modules\/vscode/,
+          test: /node_modules\/(vscode|semver)/,
           chunks: 'all',
           name: 'vscode-dependencies',
+        },
+        'debug-dependencies': {
+          test: /node_modules\/ws/,
+          chunks: 'all',
+          name: 'debug-dependencies',
         },
       },
     },
   },
   output: {
     filename: '[name].js',
-    path: path.join(__dirname, 'dist', 'packages/html-language-server/dist'),
+    path: path.join(__dirname, '../dist', 'packages/extension/dist'),
   },
   // plugins: [new BundleAnalyzerPlugin()],
 })

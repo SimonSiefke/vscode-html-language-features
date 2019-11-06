@@ -9,8 +9,8 @@
     "clean": "",
     "test": "cd packages/html-language-service && npm test && cd ../../ && cd packages/schema && npm test && cd ../../ && cd packages/facts-generator && npm test",
     "bundle": "npm run clean && npm run bundle:client && npm run bundle:server",
-    "bundle:client": "webpack --mode production --config ./client.webpack.config.js",
-    "bundle:server": "webpack --mode production --config ./server.webpack.config.js",
+    "bundle:client": "webpack --mode production --config ./webpack/client.webpack.config.js",
+    "bundle:server": "webpack --mode production --config ./webpack/server.webpack.config.js",
     "bundlesize": "bundlesize",
     "package": "rimraf dist && npm run bundle && node scripts/package.js && npm run bundlesize && cd dist && vsce package"
   },
