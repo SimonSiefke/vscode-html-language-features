@@ -118,3 +118,23 @@ test.skip('referrerpolicy', () => {
     }
   }
 })
+
+test('boolean attributes', () => {
+  const booleanAttributes = [
+    'button/disabled',
+    'input/checked',
+    'input/multiple',
+    'keygen/autofocus',
+    'ol/reversed',
+    'optgroup/disabled',
+    'script/async',
+    'ul/compact',
+  ]
+  for (const booleanAttribute of booleanAttributes) {
+    const [tagName, attributeName] = booleanAttribute.split('/')
+    expect(mdnConfig.tags[tagName].attributes[attributeName]).toHaveProperty(
+      'type',
+      'boolean'
+    )
+  }
+})
