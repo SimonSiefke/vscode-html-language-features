@@ -26,6 +26,7 @@ const DEBUGConfig = () => {
 let _mergedConfig: Config = {}
 const _configs: Set<Config> = new Set()
 
+// TODO resolve extends
 export const setConfigs: (
   ...config: Config[]
 ) => { errors: ValidationError[] } = (...configs) => {
@@ -201,10 +202,6 @@ export const getDescriptionForAttributeValue: (
 export const isTagName: (tagName: string) => boolean = tagName =>
   _mergedConfig.tags !== undefined && _mergedConfig.tags[tagName] !== undefined
 
-export type NamedTag = { readonly name: string }
-
-export type NamedAttribute = AttributeInfo & { readonly name: string }
-
 export type NamedAttributeValue = AttributeValueInfo & { readonly name: string }
 
 export type NamedSnippet = { readonly name: string; value: string }
@@ -372,28 +369,19 @@ export const getSuggestedTags: (
 /**
  * Get the most likely attributes for a given tag.
  * @example
- * getSuggestedAttributes('option') // { value: { probability: 0.95 }}
+ * getSuggestedAttributes('option') // ['value']
  */
 export const getSuggestedAttributes: (
   tagName: string
-) => NamedAttribute[] | undefined = tagName => {
+) => string[] = tagName => {
   const elementAttributes =
     _mergedConfig.tags &&
     _mergedConfig.tags[tagName] &&
     _mergedConfig.tags[tagName].attributes
   const globalAttributes = _mergedConfig && _mergedConfig.globalAttributes
-  if (!elementAttributes && !globalAttributes) {
-    return undefined
-  }
   const mergedAttributes = {
     ...(elementAttributes || {}),
     ...(globalAttributes || {}),
   }
-
-  return Object.entries(mergedAttributes)
-    .filter(([key]) => !key.startsWith('-'))
-    .map(([key, value]) => ({
-      name: key,
-      ...value,
-    }))
+  return Object.keys(mergedAttributes).filter(key => !key.startsWith('-'))
 }

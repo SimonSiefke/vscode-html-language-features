@@ -1,7 +1,7 @@
 import { setConfigs } from '../../Data/Data'
 import { doCompletionAttributeValue } from './completionAttributeValue'
 
-beforeEach(() => {
+test('suggestion-attribute-value with attribute values', () => {
   setConfigs({
     tags: {
       a: {
@@ -20,9 +20,6 @@ beforeEach(() => {
       },
     },
   })
-})
-
-test('suggestion-attribute-value', () => {
   const testCases: { input: string; expected: any | undefined }[] = [
     {
       input: '<a target="|"',
@@ -126,6 +123,37 @@ test('suggestion-attribute-value', () => {
     //   input: '<🚀/|',
     //   expected: undefined,
     // },
+  ]
+  for (const testCase of testCases) {
+    const offset = testCase.input.indexOf('|')
+    expect(offset).toBeGreaterThan(-1)
+    const text = testCase.input.replace('|', '')
+    const result = doCompletionAttributeValue(text, offset)
+    expect(result).toEqual(testCase.expected)
+  }
+})
+
+test('suggestion-attribute-value with attribute type', () => {
+  setConfigs({
+    tags: {
+      button: {
+        attributes: {
+          disabled: {
+            type: 'boolean',
+          },
+        },
+      },
+    },
+  })
+  const testCases: { input: string; expected: any | undefined }[] = [
+    {
+      input: '<button disabled="|"',
+      expected: {
+        tagName: 'button',
+        attributeName: 'disabled',
+        attributeType: 'boolean',
+      },
+    },
   ]
   for (const testCase of testCases) {
     const offset = testCase.input.indexOf('|')

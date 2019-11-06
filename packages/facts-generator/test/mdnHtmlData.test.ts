@@ -127,6 +127,8 @@ test('boolean attributes', () => {
     'keygen/autofocus',
     'ol/reversed',
     'optgroup/disabled',
+    'option/disabled',
+    'option/selected',
     'script/async',
     'ul/compact',
   ]

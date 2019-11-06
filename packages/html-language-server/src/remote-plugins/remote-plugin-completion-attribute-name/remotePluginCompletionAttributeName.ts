@@ -4,15 +4,11 @@ import {
   CompletionItem,
   Range,
   Position,
-  CompletionItemTag,
   InsertTextFormat,
 } from 'vscode-languageserver-types'
-import {
-  doCompletionAttributeName,
-  NamedAttribute,
-} from '@html-language-features/html-language-service'
+import { doCompletionAttributeName } from '@html-language-features/html-language-service'
 import { getDocumentationForAttributeName } from '../../util/getDocumentation'
-import { constants } from '../../constants'
+import { getAttributeType } from '@html-language-features/html-language-service/dist/Data/Data'
 
 interface Data {
   tagName: string
@@ -24,30 +20,35 @@ type CompletionItemWithData = CompletionItem & { data: Data }
 const kind = CompletionItemKind.Value
 const insertTextFormat = InsertTextFormat.Snippet
 
-const createCompletionItem: ({
-  attribute,
-  tagName,
-}: {
-  attribute: NamedAttribute
-  tagName: string
-}) => CompletionItemWithData | undefined = ({ attribute, tagName }) => {
+const createCompletionItem: (
+  tagName: string,
+  attributeName: string
+) => CompletionItemWithData | undefined = (tagName, attributeName) => {
+  const attributeType = getAttributeType(tagName, attributeName)
+  let insertText: string
+  if (attributeType === 'boolean') {
+    insertText = attributeName
+  } else {
+    insertText = `${attributeName}="$1"`
+  }
   const completionItem: CompletionItemWithData = {
     data: {
-      attributeName: attribute.name,
+      attributeName: attributeName,
       tagName,
     },
-    insertText: `${attribute.name}="$1"`,
+    insertText,
     insertTextFormat,
     kind,
-    label: attribute.name,
+    label: attributeName,
   }
-  if (attribute.deprecated === true) {
-    if (constants.showDeprecatedCompletions === true) {
-      completionItem.tags = [CompletionItemTag.Deprecated]
-    } else {
-      return undefined
-    }
-  }
+
+  // if (attributeName.deprecated === true) {
+  //   if (constants.showDeprecatedCompletions === true) {
+  //     completionItem.tags = [CompletionItemTag.Deprecated]
+  //   } else {
+  //     return undefined
+  //   }
+  // }
   return completionItem
 }
 
@@ -68,8 +69,8 @@ export const remotePluginCompletionAttributeName: RemotePlugin = api => {
         return undefined
       }
       const items = result.attributes
-        .map(attribute =>
-          createCompletionItem({ attribute, tagName: result.tagName })
+        .map(attributeName =>
+          createCompletionItem(result.tagName, attributeName)
         )
         .filter(Boolean) as CompletionItemWithData[]
       if (items.length === 0) {

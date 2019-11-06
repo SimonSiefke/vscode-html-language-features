@@ -1,7 +1,7 @@
 import { setConfigs } from '../../Data/Data'
 import { doCompletionAttributeName } from './completionAttributeName'
 
-beforeEach(() => {
+test('completion-attribute-name', () => {
   setConfigs({
     tags: {
       h1: {
@@ -11,9 +11,6 @@ beforeEach(() => {
       },
     },
   })
-})
-
-test('suggestion-attribute-name', () => {
   const testCases: { input: string; expected: any | undefined }[] = [
     {
       input: '<|',
@@ -32,15 +29,15 @@ test('suggestion-attribute-name', () => {
     },
     {
       input: '<h1 |',
-      expected: { tagName: 'h1', attributes: [{ name: 'class' }] },
+      expected: { tagName: 'h1', attributes: ['class'] },
     },
     {
       input: '<h1 class="big" |',
-      expected: { tagName: 'h1', attributes: [{ name: 'class' }] },
+      expected: { tagName: 'h1', attributes: ['class'] },
     },
     {
       input: `<h1 class="big"\n  |`,
-      expected: { tagName: 'h1', attributes: [{ name: 'class' }] },
+      expected: { tagName: 'h1', attributes: ['class'] },
     },
     {
       input: '<h1 x="y"|',
@@ -80,7 +77,7 @@ test('suggestion-attribute-name', () => {
     },
     {
       input: '<h1></h1><h1 |',
-      expected: { tagName: 'h1', attributes: [{ name: 'class' }] },
+      expected: { tagName: 'h1', attributes: ['class'] },
     },
     {
       input: '<Daten/|',

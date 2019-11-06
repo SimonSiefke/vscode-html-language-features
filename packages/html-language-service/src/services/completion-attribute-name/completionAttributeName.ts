@@ -2,7 +2,7 @@ import {
   createScanner,
   ScannerState,
 } from '@html-language-features/html-parser'
-import { getSuggestedAttributes, NamedAttribute } from '../../Data/Data'
+import { getSuggestedAttributes } from '../../Data/Data'
 
 /**
  * Suggestions for attribute names
@@ -12,10 +12,7 @@ import { getSuggestedAttributes, NamedAttribute } from '../../Data/Data'
 export const doCompletionAttributeName: (
   text: string,
   offset: number
-) => { tagName: string; attributes: NamedAttribute[] } | undefined = (
-  text,
-  offset
-) => {
+) => { tagName: string; attributes: string[] } | undefined = (text, offset) => {
   const scanner = createScanner(text, { initialOffset: offset })
   const endsWithAttributeValue = scanner.stream.currentlyEndsWithRegex(
     /\S+=\S+$/
@@ -46,7 +43,7 @@ export const doCompletionAttributeName: (
   // 2. fuzzy search in statistics[tagName][inCompleteAttributeName]
 
   const attributes = getSuggestedAttributes(tagName)
-  if (!attributes) {
+  if (attributes.length === 0) {
     return undefined
   }
   return {
