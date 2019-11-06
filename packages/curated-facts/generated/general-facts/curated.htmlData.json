@@ -54,6 +54,24 @@
     "font": {
       "newline": false
     },
+    "h1": {
+      "newline": false
+    },
+    "h2": {
+      "newline": false
+    },
+    "h3": {
+      "newline": false
+    },
+    "h4": {
+      "newline": false
+    },
+    "h5": {
+      "newline": false
+    },
+    "h6": {
+      "newline": false
+    },
     "i": {
       "newline": false
     },

@@ -146,3 +146,10 @@ connection.onInitialized(async () => {
 })
 
 connection.listen()
+
+// documents.onDidChangeContent(event => {
+//   event.document.getText()
+//   // TODO auto close tag => send request to client or better: apply edit from server
+//   // connection.sendRequest()
+//   connection.workspace.applyEdit()
+// })

@@ -36,13 +36,50 @@ const askServerForAutoCompletionElementAutoClose: (
   return result
 }
 
-const applyResult: (result: Result) => void = result => {
-  if (!result) {
+const applyResults: (
+  results: (Result | undefined)[]
+) => Promise<void> = async results => {
+  const relevantResults = results.filter(Boolean).map(result => {
+    const document = vscode.window.activeTextEditor.document
+    const startPosition = document.positionAt(result.completionOffset)
+    const endPosition = document.positionAt(result.completionOffset)
+    return {
+      range: new vscode.Range(startPosition, endPosition),
+      word: result.completionString,
+    }
+  })
+  if (relevantResults.length === 0) {
     return
   }
-  vscode.window.activeTextEditor.insertSnippet(
-    new vscode.SnippetString(result.completionString)
+  const firstResult = relevantResults[0]
+  const isSameWordForEveryResult = relevantResults.every(
+    ({ word }) => word === firstResult.word
   )
+  if (isSameWordForEveryResult) {
+    if (relevantResults.length === 1) {
+      await vscode.window.activeTextEditor.insertSnippet(
+        new vscode.SnippetString(firstResult.word),
+        firstResult.range
+      )
+    } else {
+      const inlineWord = firstResult.word.replace(/\s/g, '')
+      const ranges = relevantResults.map(({ range }) => range)
+      await vscode.window.activeTextEditor.insertSnippet(
+        new vscode.SnippetString(inlineWord),
+        ranges
+      )
+    }
+  } else {
+    await Promise.all(
+      relevantResults.map(result => {
+        const inlineWord = result.word.replace(/\s/g, '')
+        vscode.window.activeTextEditor.insertSnippet(
+          new vscode.SnippetString(inlineWord),
+          result.range
+        )
+      })
+    )
+  }
 }
 
 export const localPluginAutoCompletionElementAutoClose: LocalPlugin = api => {
@@ -58,26 +95,26 @@ export const localPluginAutoCompletionElementAutoClose: LocalPlugin = api => {
     if (event.document !== activeDocument) {
       return
     }
-    const lastChange = event.contentChanges[event.contentChanges.length - 1]
-    const lastCharacter = lastChange.text[lastChange.text.length - 1]
-    if (
-      lastChange.rangeLength > 0 ||
-      (lastCharacter !== '>' && lastCharacter !== '/')
-    ) {
-      return
-    }
-    const rangeStart = lastChange.range.start
-    const position = new vscode.Position(
-      rangeStart.line,
-      rangeStart.character + lastChange.text.length
+    const relevantChanges = event.contentChanges.filter(change => {
+      const lastChar = change.text[change.text.length - 1]
+      return change.rangeLength === 0 && lastChar === '>'
+    })
+    const positions = relevantChanges.map(
+      change =>
+        new vscode.Position(
+          change.range.start.line,
+          change.range.start.character + change.text.length
+        )
     )
-    if (lastCharacter === '>') {
-      const result = await askServerForAutoCompletionElementAutoClose(
-        api,
-        event.document,
-        position
+    const results = await Promise.all(
+      positions.map(position =>
+        askServerForAutoCompletionElementAutoClose(
+          api,
+          event.document,
+          position
+        )
       )
-      applyResult(result)
-    }
+    )
+    await applyResults(results)
   })
 }

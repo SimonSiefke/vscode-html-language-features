@@ -35,11 +35,11 @@ const askServerForAutoCompletionElementSelfClosing: (
   return result
 }
 
-const applyResult: (result: Result) => void = result => {
+const applyResult: (result: Result) => Promise<void> = async result => {
   if (!result) {
     return
   }
-  vscode.window.activeTextEditor.insertSnippet(
+  await vscode.window.activeTextEditor.insertSnippet(
     new vscode.SnippetString(result.completionString)
   )
 }

@@ -56,7 +56,9 @@ const askServiceForAutoCompletionElementRenameTag: (
   return doAutoCompletionElementRenameTag(text, offset)
 }
 
-const applyResults: (results: Result[]) => Promise<void> = async results => {
+const applyResults: (
+  results: (Result | undefined)[]
+) => Promise<void> = async results => {
   const relevantResults = results.filter(Boolean).map(result => {
     const startPosition = vscode.window.activeTextEditor.document.positionAt(
       result.startOffset
