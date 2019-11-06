@@ -221,3 +221,51 @@ filter out custom tags like `<todo-item>` when fetching sites
 <!-- analyze error (statistics): https://github.com/lyons194/Intellident-Website-Python-Flask -->
 
 -->
+
+<!-- TODO
+autoclose tag bug
+
+https://youtrack.jetbrains.com/issue/WEB-36793
+
+ -->
+
+<!-- TODO
+test https://youtrack.jetbrains.com/issue/WEB-18206
+<div id="div1">
+    <div class="dummy" id="div2">
+    </div>
+</div>
+
+
+ -->
+
+<!-- TODO
+completion for input/autocomplete https://youtrack.jetbrains.com/issue/WEB-32612
+
+ -->
+
+<!-- TODO
+
+not sure
+https://youtrack.jetbrains.com/issue/WEB-33713
+ -->
+
+<!-- TODO auto rename tag issue https://youtrack.jetbrains.com/issue/WEB-28449 / test case -->
+
+<!-- TODO other bugs
+https://youtrack.jetbrains.com/issue/WEB-28014
+https://youtrack.jetbrains.com/issue/WEB-28004
+ -->
+
+<!-- TODO idea
+fuzzy search for attributes
+<input tt> -> <input type="text">
+<input tn> -> <input type="number">
+ -->
+
+ <!-- TODO idea
+ need a way to go inside tag
+ input -> <input>|
+ input -> <input | > -> <input tt| > -> <input type="text" | >
+
+  -->

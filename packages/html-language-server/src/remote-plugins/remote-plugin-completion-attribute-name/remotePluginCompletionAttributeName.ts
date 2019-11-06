@@ -9,6 +9,7 @@ import {
 } from 'vscode-languageserver'
 import { getDocumentationForAttributeName } from '../../util/getDocumentation'
 import { RemotePlugin } from '../remotePlugin'
+import { constants } from '../../constants'
 
 interface Data {
   tagName: string
@@ -29,7 +30,7 @@ const createCompletionItem: (
   if (attributeType === 'boolean') {
     insertText = attributeName
   } else {
-    insertText = `${attributeName}="$1"`
+    insertText = `${attributeName}=${constants.quote}$1${constants.quote}`
   }
   const completionItem: CompletionItemWithData = {
     data: {
