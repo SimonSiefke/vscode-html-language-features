@@ -12,7 +12,7 @@ import {
   CompletionItemKind,
   InsertTextFormat,
   CompletionItemTag,
-} from 'vscode-languageserver-types'
+} from 'vscode-languageserver'
 import { RemotePlugin } from '../remotePlugin'
 import { constants } from '../../constants'
 

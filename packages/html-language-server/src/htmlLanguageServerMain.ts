@@ -15,6 +15,7 @@ import {
   HoverOptions,
   DidChangeConfigurationNotification,
   DidChangeConfigurationRegistrationOptions,
+  TextDocumentSyncKind,
 } from 'vscode-languageserver'
 
 import { remotePluginCompletionElementExpand } from './remote-plugins/remote-plugin-completion-element-expand/remotePluginCompletionElementExpand'
@@ -30,10 +31,10 @@ import { remotePluginSettingsCustomData } from './remote-plugins/remote-plugin-s
 import { remotePluginCompletionElementStartTag } from './remote-plugins/remote-plugin-completion-element-start-tag/remotePluginCompletionElementStartTag'
 import { remotePluginCompletionAttributeName } from './remote-plugins/remote-plugin-completion-attribute-name/remotePluginCompletionAttributeName'
 import { remotePluginSymbol } from './remote-plugins/remote-plugin-symbol/remotePluginSymbol'
-import { remotePluginCompletionAttributeValue } from './remote-plugins/remote-plugin-completion-attribute-value/remotePluginSuggestAttributeValue'
+import { remotePluginCompletionAttributeValue } from './remote-plugins/remote-plugin-completion-attribute-value/remotePluginCompletionAttributeValue'
 import { remotePluginCompletionEntity } from './remote-plugins/remote-plugin-completion-entity/remotePluginCompletionEntity'
 import { remotePluginCompletionElementSimpleDocument } from './remote-plugins/remote-plugin-completion-element-simple-document/remotePluginCompletionElementSimpleDocument'
-
+import { TextDocument } from 'vscode-languageserver-textdocument'
 const connection: IConnection = createConnection()
 
 console.log = connection.console.log.bind(connection.console)
@@ -53,13 +54,13 @@ process.on('unhandledRejection', error => {
   console.error((error as Error).stack)
 })
 
-const documents: TextDocuments = new TextDocuments()
+const documents = new TextDocuments(TextDocument)
 
 documents.listen(connection)
 
 connection.onInitialize(() => {
   const capabilities: ServerCapabilities = {
-    textDocumentSync: documents.syncKind,
+    textDocumentSync: TextDocumentSyncKind.Incremental,
   }
   return { capabilities }
 })

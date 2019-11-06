@@ -11,6 +11,7 @@ export { doHoverElement } from './services/hover-element/hoverElement'
 export {
   AttributeInfo,
   AttributeValueInfo,
+  AttributeType,
   Config,
   Reference,
   Snippet,
@@ -30,7 +31,7 @@ export {
   isSelfClosingTag,
   NamedAttributeValue,
   removeConfigs,
-  setConfigs as setConfig,
+  setConfigs,
   shouldHaveNewline,
 } from './Data/Data'
 export {

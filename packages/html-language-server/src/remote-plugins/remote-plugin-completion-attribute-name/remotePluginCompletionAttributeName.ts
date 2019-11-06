@@ -1,14 +1,14 @@
-import { RemotePlugin } from '../remotePlugin'
-import {
-  CompletionItemKind,
-  CompletionItem,
-  Range,
-  Position,
-  InsertTextFormat,
-} from 'vscode-languageserver-types'
 import { doCompletionAttributeName } from '@html-language-features/html-language-service'
-import { getDocumentationForAttributeName } from '../../util/getDocumentation'
 import { getAttributeType } from '@html-language-features/html-language-service/dist/Data/Data'
+import {
+  CompletionItem,
+  CompletionItemKind,
+  InsertTextFormat,
+  Position,
+  Range,
+} from 'vscode-languageserver'
+import { getDocumentationForAttributeName } from '../../util/getDocumentation'
+import { RemotePlugin } from '../remotePlugin'
 
 interface Data {
   tagName: string

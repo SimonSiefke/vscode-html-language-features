@@ -6,7 +6,7 @@ import {
   Position,
   CompletionItemTag,
   InsertTextFormat,
-} from 'vscode-languageserver-types'
+} from 'vscode-languageserver'
 import {
   doCompletionElementStartTag,
   isDeprecatedTag,

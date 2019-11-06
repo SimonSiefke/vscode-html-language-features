@@ -4,8 +4,6 @@ import {
   SignatureHelp,
   Hover,
   DocumentSymbol,
-} from 'vscode-languageserver-types'
-import {
   ResponseError,
   ErrorCodes,
   TextDocumentPositionParams,

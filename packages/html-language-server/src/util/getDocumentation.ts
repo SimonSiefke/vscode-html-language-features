@@ -6,7 +6,7 @@ import {
   getReferenceForTag,
   Reference,
 } from '@html-language-features/html-language-service'
-import { MarkupKind } from 'vscode-languageserver-types'
+import { MarkupKind } from 'vscode-languageserver'
 
 interface Documentation {
   kind: typeof MarkupKind.Markdown

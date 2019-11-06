@@ -1,7 +1,11 @@
 import { RemotePlugin } from '../remotePlugin'
-import { Range, Position } from 'vscode-languageserver-types'
 import { doAutoCompletionElementSelfClosing } from '@html-language-features/html-language-service'
-import { RequestType, TextDocumentPositionParams } from 'vscode-languageserver'
+import {
+  Range,
+  Position,
+  RequestType,
+  TextDocumentPositionParams,
+} from 'vscode-languageserver'
 
 type Result = {
   completionString: string
