@@ -1,8 +1,7 @@
 import { TestCase, createTestFile, run, activateExtension } from '../test-utils'
 import { before } from 'mocha'
 
-const ciSlowness = 3
-const timeout = 300 * ciSlowness
+const timeout = 300
 
 suite('Auto Close Tag', () => {
   before(async () => {
