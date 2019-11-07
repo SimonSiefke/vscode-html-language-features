@@ -1,19 +1,27 @@
 import * as path from 'path'
-import { runTests } from 'vscode-test'
+import { runTests, downloadAndUnzipVSCode } from 'vscode-test'
+import * as rimraf from 'rimraf'
+
+const vscodeVersion = '1.40.0'
 ;(async () => {
   try {
-    // The folder containing the Extension Manifest package.json
-    // Passed to `--extensionDevelopmentPath`
     const extensionDevelopmentPath = path.resolve(__dirname, '../../')
-
-    // The path to the extension test script
-    // Passed to --extensionTestsPath
     const extensionTestsPath = path.resolve(__dirname, './suite/index')
 
-    // Download VS Code, unzip it and run the integration test
+    await downloadAndUnzipVSCode(vscodeVersion)
+    const builtInHtmlLanguageFeaturesPath = path.join(
+      __dirname,
+      `../../.vscode-test/vscode-${vscodeVersion}/VSCode-linux-x64/resources/app/extensions/html-language-features`
+    )
+    rimraf.sync(builtInHtmlLanguageFeaturesPath)
     await runTests({
+      version: vscodeVersion,
       extensionDevelopmentPath,
       extensionTestsPath,
+      // vscodeExecutablePath: path.join(
+      //   __dirname,
+      //   `../../.vscode-test/vscode-${vscodeVersion}/VSCode-linux-x64/bin/code`
+      // ),
       launchArgs: ['--disable-extensions'],
     })
   } catch (err) {

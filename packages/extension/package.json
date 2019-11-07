@@ -5,7 +5,6 @@
   "description": "HTML Language Features",
   "publisher": "SimonSiefke",
   "main": "dist/extensionMain.js",
-  "enableProposedApi": true,
   "activationEvents": [
     "onLanguage:html"
   ],
@@ -67,14 +66,18 @@
   "author": "Simon Siefke",
   "license": "MIT",
   "devDependencies": {
+    "@types/fs-extra": "^8.0.1",
     "@types/glob": "^7.1.1",
     "@types/lodash": "^4.14.144",
     "@types/mocha": "^5.2.7",
+    "@types/rimraf": "^2.0.3",
     "@types/vscode": "^1.39.0",
     "@types/ws": "^6.0.3",
     "cross-env": "^6.0.3",
+    "fs-extra": "^8.1.0",
     "glob": "^7.1.5",
     "mocha": "^6.2.2",
+    "rimraf": "^3.0.0",
     "typescript": "^3.7.2",
     "vscode-test": "^1.2.2"
   },

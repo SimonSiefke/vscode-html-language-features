@@ -317,3 +317,9 @@ p+p
 <p></p>
 <p></p>
  -->
+
+<!-- TODO
+attribute types https://www.w3.org/TR/REC-html40/index/attributes.html
+and https://www.w3.org/TR/2017/REC-html52-20171214/fullindex.html#attributes-table
+
+ -->

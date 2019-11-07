@@ -5,7 +5,12 @@ import * as glob from 'glob'
 // const testFiles = '**/**.test.js'
 // const testFiles = '**/+(emmetCompleteTag|autoCloseTag).test.js'
 // const testFiles = '**/+(emmetCompleteTag).test.js'
-const testFiles = '**/+(autoRenameTag).test.js'
+const files = [
+  'autoCloseTag',
+  //
+  'autoRenameTag',
+]
+const testFiles = `**/+(${files.join('|')}).test.js`
 // const testFiles = '**/+(emmetCompleteTag).benchmark.js'
 
 export function run(): Promise<void> {
@@ -15,6 +20,7 @@ export function run(): Promise<void> {
     timeout: 1000000,
   })
   mocha.useColors(true)
+  mocha.bail(true)
 
   const testsRoot = path.resolve(__dirname, '..')
 

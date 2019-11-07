@@ -19,6 +19,8 @@ export interface TestCase {
   speed?: number
   skip?: boolean
   timeout?: 'never' | number
+  debug?: boolean
+  waitForAutoComplete?: 1
 }
 
 export async function createTestFile(
@@ -131,7 +133,10 @@ export function getText(): string {
   return vscode.window.activeTextEditor.document.getText()
 }
 
-export async function run(testCases: TestCase[], { speed = 0 } = {}) {
+export async function run(
+  testCases: TestCase[],
+  { speed = 0, timeout = 40 } = {}
+) {
   const only = testCases.filter(testCase => testCase.only)
   const applicableTestCases = only.length ? only : testCases
   for (const testCase of applicableTestCases) {
@@ -143,9 +148,12 @@ export async function run(testCases: TestCase[], { speed = 0 } = {}) {
     await setText(input)
     setCursorPosition(cursorOffset)
     await type(testCase.type, testCase.speed || speed)
-    let timeout = testCase.timeout === undefined ? 40 : testCase.timeout
-    await waitForAutoComplete(timeout)
+    const autoCompleteTimeout = testCase.timeout || timeout
+    await waitForAutoComplete(autoCompleteTimeout)
     const result = getText()
+    if (testCase.debug) {
+      await new Promise(() => {})
+    }
     assert.equal(result, testCase.expect)
   }
 }

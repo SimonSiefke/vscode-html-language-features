@@ -22,6 +22,13 @@ const askServerForAutoCompletionElementAutoClose: (
   document: vscode.TextDocument,
   position: vscode.Position
 ) => Promise<Result> = async (api, document, position) => {
+  // console.log(
+  //   'ask server' +
+  //     document.version +
+  //     'oo' +
+  //     document.offsetAt(position) +
+  //     document.getText()
+  // )
   const params = api.languageClientProxy.code2ProtocolConverter.asTextDocumentPositionParams(
     document,
     position
@@ -33,12 +40,18 @@ const askServerForAutoCompletionElementAutoClose: (
   ) {
     throw new Error('too slow')
   }
+  // console.log('not too slow')
   return result
 }
 
 const applyResults: (
   results: (Result | undefined)[]
 ) => Promise<void> = async results => {
+  // console.log(
+  //   'apply result' +
+  //     vscode.window.activeTextEditor.document.version +
+  //     JSON.stringify(results)
+  // )
   const relevantResults = results.filter(Boolean).map(result => {
     const document = vscode.window.activeTextEditor.document
     const startPosition = document.positionAt(result.completionOffset)
@@ -57,10 +70,14 @@ const applyResults: (
   )
   if (isSameWordForEveryResult) {
     if (relevantResults.length === 1) {
+      // console.log('one')
+      // console.log(vscode.window.activeTextEditor.document.getText())
+      // await new Promise(r => setTimeout(r, 1000))
       await vscode.window.activeTextEditor.insertSnippet(
         new vscode.SnippetString(firstResult.word),
         firstResult.range
       )
+      // console.log(vscode.window.activeTextEditor.document.getText())
     } else {
       const inlineWord = firstResult.word.replace(/\s/g, '')
       const ranges = relevantResults.map(({ range }) => range)
@@ -82,6 +99,8 @@ const applyResults: (
   }
 }
 
+// const doAutoCompletionElementAutoClose: () => any = () => {}
+
 export const localPluginAutoCompletionElementAutoClose: LocalPlugin = api => {
   api.vscodeProxy.workspace.onDidChangeTextDocument(async event => {
     if (event.document.languageId !== 'html') {
@@ -97,8 +116,15 @@ export const localPluginAutoCompletionElementAutoClose: LocalPlugin = api => {
     }
     const relevantChanges = event.contentChanges.filter(change => {
       const lastChar = change.text[change.text.length - 1]
-      return change.rangeLength === 0 && lastChar === '>'
+      return (
+        change.rangeLength === 0 &&
+        lastChar === '>' &&
+        !/<\/[a-zA-Z]*>$/.test(change.text)
+      )
     })
+    if (relevantChanges.length === 0) {
+      return
+    }
     const positions = relevantChanges.map(
       change =>
         new vscode.Position(
@@ -106,6 +132,7 @@ export const localPluginAutoCompletionElementAutoClose: LocalPlugin = api => {
           change.range.start.character + change.text.length
         )
     )
+    // console.log(JSON.stringify(relevantChanges))
     const results = await Promise.all(
       positions.map(position =>
         askServerForAutoCompletionElementAutoClose(

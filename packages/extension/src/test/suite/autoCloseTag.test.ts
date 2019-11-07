@@ -1,15 +1,13 @@
 import { TestCase, createTestFile, run, activateExtension } from '../test-utils'
 import { before } from 'mocha'
 
+const timeout = 300
+
 suite('Auto Close Tag', () => {
   before(async () => {
     await createTestFile('auto-close-tag.html')
     await activateExtension()
   })
-
-  // after(async () => {
-  //   closeTestFile()
-  // })
 
   test('basic', async () => {
     const testCases: TestCase[] = [
@@ -23,7 +21,23 @@ suite('Auto Close Tag', () => {
         type: '<ul>',
         expect: '<div>\n  <ul>\n    \n  </ul>\n</div>',
       },
+      {
+        input: '',
+        type: '<input>',
+        expect: '<input>',
+      },
+      {
+        input: '',
+        type: '<div>\n<img src="https://source.unsplash.com/random"></div>',
+        expect: '<div>\n<img src="https://example.jpg"></div>',
+        skip: true,
+      },
+      {
+        input: '',
+        type: '<!DOCTYPE html>',
+        expect: '<!DOCTYPE html>',
+      },
     ]
-    await run(testCases)
+    await run(testCases, { timeout })
   })
 })

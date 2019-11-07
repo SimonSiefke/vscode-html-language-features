@@ -1,5 +1,8 @@
 {
   "tags": {
+    "!DOCTYPE": {
+      "selfClosing": true
+    },
     "a": {
       "newline": false
     },
