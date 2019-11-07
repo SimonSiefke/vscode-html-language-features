@@ -112,7 +112,7 @@ export const createLanguageClientProxy = async (
   // // //        Begin Debug         \\ \\ \\
   // //                                  \\ \\
   //                                        \\
-  if (process.env.NODE_ENV !== 'production') {
+  if (true) {
     const streamLogs = true
     if (streamLogs) {
       // eslint-disable-next-line global-require
