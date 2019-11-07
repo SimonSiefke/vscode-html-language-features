@@ -202,6 +202,8 @@ import { TestCase, createTestFile, run, activateExtension } from '../test-utils'
 //   })
 // })
 
+const speed = 500
+
 suite.only('Auto Rename Tag', () => {
   before(async () => {
     await createTestFile('auto-rename-tag.html')
@@ -262,7 +264,7 @@ suite.only('Auto Rename Tag', () => {
         expect: '<sdiv>test</sdiv>',
       },
     ]
-    await run(testCases)
+    await run(testCases, { speed })
   })
 
   test('tag with class', async () => {
@@ -295,10 +297,9 @@ suite.only('Auto Rename Tag', () => {
         input: '<div|>\n  test\n</div>',
         type: '{backspace}{backspace}{backspace}h3',
         expect: '<h3>\n  test\n</h3>',
-        speed: 500,
       },
     ]
-    await run(testCases)
+    await run(testCases, { speed })
   })
 
   test.skip('div and a nested span', async () => {
@@ -318,7 +319,7 @@ suite.only('Auto Rename Tag', () => {
       //   input: '<div>\n  <span|>test</span>\n</div>',
       // },
     ]
-    await run(testCases)
+    await run(testCases, { speed })
   })
 
   test('nested div tags', async () => {
@@ -336,7 +337,7 @@ suite.only('Auto Rename Tag', () => {
         skip: true,
       },
     ]
-    await run(testCases)
+    await run(testCases, { speed })
   })
 
   test('dashed tag', async () => {
@@ -345,10 +346,9 @@ suite.only('Auto Rename Tag', () => {
         input: '<dashed-div|>test</dashed-div>',
         type: '{backspace}{backspace}{backspace}{backspace}-span',
         expect: '<dashed-span>test</dashed-span>',
-        speed: 500,
       },
     ]
-    await run(testCases)
+    await run(testCases, { speed })
   })
 
   test('uppercase tag', async () => {
@@ -359,7 +359,7 @@ suite.only('Auto Rename Tag', () => {
         expect: '<DIVS>test</DIVS>',
       },
     ]
-    await run(testCases)
+    await run(testCases, { speed })
   })
 
   test('with class on second line', async () => {
@@ -370,7 +370,7 @@ suite.only('Auto Rename Tag', () => {
         expect: '<fo\n  class="bar">foobar</fo>',
       },
     ]
-    await run(testCases)
+    await run(testCases, { speed })
   })
 
   test.skip('weird chars at start tag', async () => {
@@ -391,7 +391,7 @@ suite.only('Auto Rename Tag', () => {
         expect: '<fo( class="bar">foobar</fo>',
       },
     ]
-    await run(testCases)
+    await run(testCases, { speed })
   })
 
   test('with incomplete inner tag', async () => {
@@ -402,7 +402,7 @@ suite.only('Auto Rename Tag', () => {
         expect: '<foo>\n<foob\n</foo>',
       },
     ]
-    await run(testCases)
+    await run(testCases, { speed })
   })
 
   test('end tag with inline div tag', async () => {
@@ -413,7 +413,7 @@ suite.only('Auto Rename Tag', () => {
         expect: '<divs>test</divs>',
       },
     ]
-    await run(testCases)
+    await run(testCases, { speed })
   })
 
   test.skip('with comments', async () => {
@@ -451,6 +451,6 @@ suite.only('Auto Rename Tag', () => {
         expect: '<div><!-- <divv></divv> -->',
       },
     ]
-    await run(testCases)
+    await run(testCases, { speed })
   })
 })

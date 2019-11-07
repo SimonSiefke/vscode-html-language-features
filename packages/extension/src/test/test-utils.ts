@@ -131,7 +131,7 @@ export function getText(): string {
   return vscode.window.activeTextEditor.document.getText()
 }
 
-export async function run(testCases: TestCase[]) {
+export async function run(testCases: TestCase[], { speed = 0 } = {}) {
   const only = testCases.filter(testCase => testCase.only)
   const applicableTestCases = only.length ? only : testCases
   for (const testCase of applicableTestCases) {
@@ -142,7 +142,7 @@ export async function run(testCases: TestCase[]) {
     const input = testCase.input.replace('|', '')
     await setText(input)
     setCursorPosition(cursorOffset)
-    await type(testCase.type, testCase.speed || 0)
+    await type(testCase.type, testCase.speed || speed)
     let timeout = testCase.timeout === undefined ? 40 : testCase.timeout
     await waitForAutoComplete(timeout)
     const result = getText()
