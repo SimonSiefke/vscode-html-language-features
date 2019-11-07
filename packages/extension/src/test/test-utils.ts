@@ -13,7 +13,7 @@ export async function activateExtension() {
 
 export interface TestCase {
   input: string
-  type: string
+  type?: string
   expect: string
   only?: boolean
   speed?: number
@@ -21,6 +21,7 @@ export interface TestCase {
   timeout?: 'never' | number
   debug?: boolean
   waitForAutoComplete?: 1
+  selection?: [number, number]
 }
 
 export async function createTestFile(
@@ -135,7 +136,7 @@ export function getText(): string {
 
 export async function run(
   testCases: TestCase[],
-  { speed = 0, timeout = 40 } = {}
+  { speed = 0, timeout = 40, afterCommand = '' } = {}
 ) {
   const only = testCases.filter(testCase => testCase.only)
   const applicableTestCases = only.length ? only : testCases
@@ -147,9 +148,23 @@ export async function run(
     const input = testCase.input.replace('|', '')
     await setText(input)
     setCursorPosition(cursorOffset)
-    await type(testCase.type, testCase.speed || speed)
-    const autoCompleteTimeout = testCase.timeout || timeout
-    await waitForAutoComplete(autoCompleteTimeout)
+    if (testCase.selection) {
+      const [start, end] = testCase.selection
+      vscode.window.activeTextEditor.selection = new vscode.Selection(
+        vscode.window.activeTextEditor.document.positionAt(start),
+        vscode.window.activeTextEditor.document.positionAt(end)
+      )
+    }
+    if (testCase.type) {
+      await type(testCase.type, testCase.speed || speed)
+      const autoCompleteTimeout = testCase.timeout || timeout
+      await waitForAutoComplete(autoCompleteTimeout)
+    }
+    if (afterCommand) {
+      await vscode.commands.executeCommand(afterCommand)
+      const autoCompleteTimeout = testCase.timeout || timeout
+      await waitForAutoComplete(autoCompleteTimeout)
+    }
     const result = getText()
     if (testCase.debug) {
       await new Promise(() => {})

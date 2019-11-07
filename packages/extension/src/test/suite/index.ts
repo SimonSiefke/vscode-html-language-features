@@ -5,11 +5,7 @@ import * as glob from 'glob'
 // const testFiles = '**/**.test.js'
 // const testFiles = '**/+(emmetCompleteTag|autoCloseTag).test.js'
 // const testFiles = '**/+(emmetCompleteTag).test.js'
-const files = [
-  'autoCloseTag',
-  //
-  'autoRenameTag',
-]
+const files = ['autoCloseTag', 'wrapTag', 'autoRenameTag']
 const testFiles = `**/+(${files.join('|')}).test.js`
 // const testFiles = '**/+(emmetCompleteTag).benchmark.js'
 
@@ -26,6 +22,7 @@ export function run(): Promise<void> {
 
   return new Promise((resolve, reject) => {
     glob(testFiles, { cwd: testsRoot }, (err, files) => {
+      console.log(files)
       if (err) {
         return reject(err)
       }
