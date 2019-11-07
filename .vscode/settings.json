@@ -1,6 +1,8 @@
 {
   "html.customData": {
-    "extends": "https://raw.githubusercontent.com/SimonSiefke/vscode-html-language-features/master/packages/curated-facts/generated/wired-elements/curated.htmlData.json"
+    "extends": [
+      "https://raw.githubusercontent.com/SimonSiefke/vscode-html-language-features/master/packages/curated-facts/generated/wired-elements/curated.htmlData.json"
+    ]
   },
   "search.exclude": {
     "**/node_modules": true,
@@ -36,7 +38,5 @@
     "**/tsconfig.tsbuildinfo": false,
     "**/deprecated": false
   },
-  "cSpell.words": [
-    "ello"
-  ]
+  "cSpell.words": ["ello"]
 }

@@ -147,7 +147,8 @@
       "description": "Extend other configurations",
       "items": {
         "type": "string",
-        "description": "Either a url or a relative path or an absolute path to a config"
+        "description": "Either a relative path or an absolute path or a url pointing to another config",
+        "pattern": ".*\\.htmlData\\.json"
       }
     },
     "definitions": {
