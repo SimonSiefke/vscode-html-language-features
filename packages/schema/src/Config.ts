@@ -79,7 +79,7 @@ export type Tag = Readonly<{
 }>
 
 export type Config = {
-  extends?: string
+  extends?: string[]
   __meta__?: unknown
   readonly globalAttributes?: {
     readonly [key: string]: AttributeInfo

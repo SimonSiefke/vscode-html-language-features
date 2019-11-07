@@ -5,6 +5,9 @@ type AutoDispose<Fn extends (...args: any) => vscode.Disposable> = (
 ) => void
 
 export interface VscodeProxy {
+  extensions: {
+    onDidChange: AutoDispose<typeof vscode.extensions['onDidChange']>
+  }
   commands: {
     registerTextEditorCommand: AutoDispose<
       typeof vscode.commands.registerTextEditorCommand
@@ -36,6 +39,9 @@ export const createVscodeProxy: (
     context.subscriptions.push(fn(...args))
   }
   return {
+    extensions: {
+      onDidChange: autoDispose(vscode.extensions.onDidChange),
+    },
     languages: {
       setLanguageConfiguration: autoDispose(
         vscode.languages.setLanguageConfiguration

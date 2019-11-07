@@ -4,7 +4,9 @@
     "outDir": "dist",
     "rootDir": "src",
     "strictNullChecks": false,
-    "strictPropertyInitialization": false
+    "strictPropertyInitialization": false,
+    "noUnusedLocals": false,
+    "noUnusedParameters": false
   },
   "include": ["src", "vscode.proposed.d.ts"],
   "references": [

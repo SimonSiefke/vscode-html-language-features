@@ -23,9 +23,6 @@ import { RemotePluginApi } from './remote-plugin-api/remotePluginApi'
 import { createConnectionProxy } from './remote-plugin-api/connectionProxy/connectionProxy'
 import { createSettingsProxy } from './remote-plugin-api/settingsProxy/settingsProxy'
 import { createDocumentsProxy } from './remote-plugin-api/documentsProxy/documentsProxy'
-import { remotePluginAutoCompletionElementAutoClose } from './remote-plugins/remote-plugin-auto-completion-element-auto-close/remotePluginAutoCompletionElementAutoClose'
-import { remotePluginAutoCompletionElementSelfClosing } from './remote-plugins/remote-plugin-auto-completion-element-self-closing/remotePluginAutoCompletionElementSelfClosing'
-import { remotePluginHighlightElementMatchingTag } from './remote-plugins/remote-plugin-highlight-element-matching-tag/remotePluginHighlightElementMatchingTag'
 import { remotePluginHoverElement } from './remote-plugins/remote-plugin-hover-element/remotePluginHoverElement'
 import { remotePluginSettingsCustomData } from './remote-plugins/remote-plugin-settings-custom-data/remotePluginSettingsCustomData'
 import { remotePluginCompletionElementStartTag } from './remote-plugins/remote-plugin-completion-element-start-tag/remotePluginCompletionElementStartTag'
@@ -35,6 +32,10 @@ import { remotePluginCompletionAttributeValue } from './remote-plugins/remote-pl
 import { remotePluginCompletionEntity } from './remote-plugins/remote-plugin-completion-entity/remotePluginCompletionEntity'
 import { remotePluginCompletionElementSimpleDocument } from './remote-plugins/remote-plugin-completion-element-simple-document/remotePluginCompletionElementSimpleDocument'
 import { TextDocument } from 'vscode-languageserver-textdocument'
+import { remotePluginAutoCompletionElementAutoClose } from './remote-plugins/remote-plugin-auto-completion-element-auto-close/remotePluginAutoCompletionElementAutoClose'
+import { remotePluginAutoCompletionElementSelfClosing } from './remote-plugins/remote-plugin-auto-completion-element-self-closing/remotePluginAutoCompletionElementSelfClosing'
+import { remotePluginHighlightElementMatchingTag } from './remote-plugins/remote-plugin-highlight-element-matching-tag/remotePluginHighlightElementMatchingTag'
+import { remotePluginConfigs } from './remote-plugins/remote-plugin-configs/remotePluginEndPointConfigs'
 const connection: IConnection = createConnection()
 
 console.log = connection.console.log.bind(connection.console)
@@ -88,14 +89,14 @@ connection.onInitialized(async () => {
   )
 
   try {
-    await addConfigs(
+    await addConfigs([
       mdnConfig,
       mdnGlobalAttributeConfig,
       mdnLinkTypeConfig,
       whatwgConfig,
       whatwgConfigDeepDisallowedSubTags,
-      generalFactsConfig
-    )
+      generalFactsConfig,
+    ])
   } catch (error) {
     console.error('an error occurred')
     console.error(error)
@@ -143,6 +144,8 @@ connection.onInitialized(async () => {
   const symbolOptions: DocumentSymbolOptions = {}
   connection.client.register(DocumentSymbolRequest.type, symbolOptions)
   remotePluginSymbol(api)
+
+  remotePluginConfigs(api)
 })
 
 connection.listen()
@@ -152,4 +155,13 @@ connection.listen()
 //   // TODO auto close tag => send request to client or better: apply edit from server
 //   // connection.sendRequest()
 //   connection.workspace.applyEdit()
+// })
+
+// connection.workspace.getWorkspaceFolders().then(w=>{
+//   w.
+// })
+// documents.get(uri)
+
+// connection.workspace.getWorkspaceFolders().then(w => {
+//   const r = w![0].uri
 // })

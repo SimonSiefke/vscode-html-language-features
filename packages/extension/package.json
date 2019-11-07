@@ -29,6 +29,7 @@
       "title": "Html Language Features configuration",
       "properties": {
         "html.customData": {
+          "scope": "resource",
           "$ref": "https://raw.githubusercontent.com/SimonSiefke/vscode-html-language-features/master/packages/schema/src/schema/schema.json",
           "default": {}
         }

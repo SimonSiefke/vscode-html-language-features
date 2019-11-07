@@ -25,12 +25,12 @@ export {
   getDescriptionForAttributeValue,
   getDescriptionForTag,
   getReferenceForAttributeName,
+  replaceConfigs,
   getReferenceForTag,
   getSuggestedTags,
   isDeprecatedTag,
   isSelfClosingTag,
   NamedAttributeValue,
-  removeConfigs,
   setConfigs,
   shouldHaveNewline,
 } from './Data/Data'

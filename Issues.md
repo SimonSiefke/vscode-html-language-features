@@ -269,3 +269,51 @@ fuzzy search for attributes
  input -> <input | > -> <input tt| > -> <input type="text" | >
 
   -->
+
+<!-- TODO
+https://youtrack.jetbrains.com/issue/WEB-13292
+ -->
+
+<!-- TODO
+very interesting, maybe also for adding attribute(classes or something)
+https://youtrack.jetbrains.com/issue/WEB-14154
+
+original request is to wrap with tag:
+<h1>hello world</h1>.div -> wrapping with div
+
+another idea is similar to auto-class-id
+<h1>.</h1> -> <h1 | ></h1>
+<h1></h1>. -> <h1 | ></h1>
+go inside the tag
+ -->
+
+<!-- TODO
+class name validation
+https://youtrack.jetbrains.com/issue/WEB-8150
+in cooperation with css language server / class name provider
+ -->
+
+<!-- TODO
+
+sparkup
+https://youtrack.jetbrains.com/issue/WEB-537
+ -->
+
+<!-- TODO idea
+ul li a*3
+<ul>
+  <li><a></a></li>
+  <li><a></a></li>
+  <li><a></a></li>
+</ul>
+
+apply multiplication to sensible selector
+
+ul li a lorem10*3
+
+
+
+p+p
+<p></p>
+<p></p>
+ -->

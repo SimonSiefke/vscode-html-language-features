@@ -8,6 +8,7 @@ import { localPluginAutoCompletionElementClose } from './local-plugins/local-plu
 import { localPluginAutoCompletionElementRenameTag } from './local-plugins/local-plugin-auto-completion-element-rename-tag/localPluginAutoCompletionElementRenameTag'
 import { localPluginAutoCompletionElementSelfClosing } from './local-plugins/local-plugin-auto-completion-element-self-closing/localPluginAutoCompletionElementSelfClosing'
 import { localPluginHighlightElementMatchingTag } from './local-plugins/local-plugin-highlight-element-matching-tag/localPluginHighlightElementMatchingTag'
+import { localPluginConfigs } from './local-plugins/local-plugin-configs/localPluginConfigs'
 
 export const activate: (
   context: vscode.ExtensionContext
@@ -16,6 +17,7 @@ export const activate: (
     languageClientProxy: await createLanguageClientProxy(context),
     vscodeProxy: createVscodeProxy(context),
     autoRenameTagPromise: undefined,
+    context,
   }
   localPluginLanguageConfiguration(api)
 
@@ -26,4 +28,6 @@ export const activate: (
   localPluginAutoCompletionElementSelfClosing(api)
 
   localPluginHighlightElementMatchingTag(api)
+
+  localPluginConfigs(api)
 }

@@ -1,24 +1,13 @@
 import { RemotePlugin } from '../remotePlugin'
 import {
   addConfigs,
-  removeConfigs,
   Config,
+  replaceConfigs,
 } from '@html-language-features/html-language-service'
 
-let _settingsConfig: Config | undefined
-
 const updateConfig: (config: Config) => Promise<void> = async config => {
-  if (_settingsConfig) {
-    removeConfigs(_settingsConfig)
-  }
   try {
-    // TODO workspace folders
-    // const config = await connection.workspace.getConfiguration({
-    //   scopeUri: '',
-    //   section: 'html.customData',
-    // })
-    await addConfigs(config)
-    _settingsConfig = config
+    replaceConfigs([config], 'config.from.settings')
   } catch (error) {
     console.error('error while updating config')
     console.error(JSON.stringify(error))
@@ -27,6 +16,7 @@ const updateConfig: (config: Config) => Promise<void> = async config => {
 }
 
 export const remotePluginSettingsCustomData: RemotePlugin = async api => {
+  // api.connectionProxy
   api.settingsProxy.onDidChangeSettings(async settings => {
     await updateConfig(settings.customData)
   })

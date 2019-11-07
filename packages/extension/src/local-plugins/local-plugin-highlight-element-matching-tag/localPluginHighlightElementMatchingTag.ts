@@ -50,7 +50,7 @@ const askServerForHighlightElementMatchingTag: (
   api: LocalPluginApi,
   document: vscode.TextDocument,
   position: vscode.Position
-) => Promise<Result> = async (api, document, position) => {
+) => Promise<Result | undefined> = async (api, document, position) => {
   const params = api.languageClientProxy.code2ProtocolConverter.asTextDocumentPositionParams(
     document,
     position
@@ -60,7 +60,8 @@ const askServerForHighlightElementMatchingTag: (
     !vscode.window.activeTextEditor ||
     vscode.window.activeTextEditor.document.version !== document.version
   ) {
-    throw new Error('too slow')
+    return undefined
+    // throw new Error('too slow')
   }
   return result
 }
@@ -82,7 +83,7 @@ const setDecorations: (
   )
 }
 
-const applyResults = (results: Result[]) => {
+const applyResults = (results: (Result | undefined)[]) => {
   const decorations = results.filter(Boolean).flatMap(result => {
     if (result.type === 'startAndEndTag') {
       const { startTagOffset, endTagOffset, tagName } = result

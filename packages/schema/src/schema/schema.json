@@ -142,8 +142,13 @@
       "description": "Optional meta data about this configuration (comments etc.)"
     },
     "extends": {
-      "type": "string",
-      "description": "Extend other configurations"
+      "type": "array",
+      "additionalItems": false,
+      "description": "Extend other configurations",
+      "items": {
+        "type": "string",
+        "description": "Either a url or a relative path or an absolute path to a config"
+      }
     },
     "definitions": {
       "description": "Custom definitions",

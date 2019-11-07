@@ -26,6 +26,43 @@ const DEBUGConfig = () => {
 let _mergedConfig: Config = {}
 const _configs: Set<Config> = new Set()
 
+const idMap: Map<string, Config[] | undefined> = new Map()
+
+const removeConfigs: (...configs: Config[]) => void = (...configs) => {
+  for (const config of configs) {
+    if (!_configs.has(config)) {
+      throw new Error("config doesn't exist")
+    }
+    _configs.delete(config)
+  }
+  setConfigs(..._configs)
+}
+
+const updateMergedConfig: () => void = () => {
+  const result = mergeConfigs(..._configs)
+  if ('errors' in result) {
+    return result
+  }
+  _mergedConfig = result
+}
+
+export const replaceConfigs: (configs: Config[], id: string) => void = (
+  configs,
+  id
+) => {
+  const existingConfigs = idMap.get(id)
+  if (existingConfigs) {
+    for (const existingConfig of existingConfigs) {
+      _configs.delete(existingConfig)
+    }
+  }
+  idMap.set(id, configs)
+  for (const config of configs) {
+    _configs.add(config)
+  }
+  updateMergedConfig()
+}
+
 // TODO resolve extends
 export const setConfigs: (
   ...config: Config[]
@@ -51,14 +88,16 @@ export const resetConfig: () => void = () => {
 
 class InvalidConfigError extends Error {}
 
-export const addConfigs: (...configs: Config[]) => Promise<void> = async (
-  ...configs
-) => {
+export const addConfigs: (
+  configs: Config[]
+) => Promise<void> = async configs => {
   const resolvedConfigs = await Promise.all(
     configs.map(async config => {
       if (config.extends) {
-        const otherConfig = await resolveConfig(config.extends)
-        const result = mergeConfigs(config, otherConfig)
+        const otherConfigs = await Promise.all(
+          config.extends.map(resolveConfig)
+        )
+        const result = mergeConfigs(config, ...otherConfigs)
         if ('errors' in result) {
           throw new Error('invalid config')
         }
@@ -76,16 +115,6 @@ export const addConfigs: (...configs: Config[]) => Promise<void> = async (
   }
   _mergedConfig = result
   // DEBUGConfig()
-}
-
-export const removeConfigs: (...configs: Config[]) => void = (...configs) => {
-  for (const config of configs) {
-    if (!_configs.has(config)) {
-      throw new Error("config doesn't exist")
-    }
-    _configs.delete(config)
-  }
-  setConfigs(..._configs)
 }
 
 export const isSelfClosingTag: (tagName: string) => boolean = tagName => {
