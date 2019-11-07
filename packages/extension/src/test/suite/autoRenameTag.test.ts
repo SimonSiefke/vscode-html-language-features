@@ -208,7 +208,7 @@ suite.only('Auto Rename Tag', () => {
     await activateExtension()
   })
 
-  test('Cursor is at the back of a start tag', async () => {
+  test.skip('Cursor is at the back of a start tag', async () => {
     const testCases: TestCase[] = [
       {
         input: '<div|>test</div>',
@@ -295,12 +295,13 @@ suite.only('Auto Rename Tag', () => {
         input: '<div|>\n  test\n</div>',
         type: '{backspace}{backspace}{backspace}h3',
         expect: '<h3>\n  test\n</h3>',
+        speed: 500,
       },
     ]
     await run(testCases)
   })
 
-  test('div and a nested span', async () => {
+  test.skip('div and a nested span', async () => {
     const testCases: TestCase[] = [
       {
         input: '<div|>\n  <span>test</span>\n</div>',
@@ -344,6 +345,7 @@ suite.only('Auto Rename Tag', () => {
         input: '<dashed-div|>test</dashed-div>',
         type: '{backspace}{backspace}{backspace}{backspace}-span',
         expect: '<dashed-span>test</dashed-span>',
+        speed: 500,
       },
     ]
     await run(testCases)
@@ -371,7 +373,7 @@ suite.only('Auto Rename Tag', () => {
     await run(testCases)
   })
 
-  test('weird chars at start tag', async () => {
+  test.skip('weird chars at start tag', async () => {
     const testCases: TestCase[] = [
       {
         input: '<foo\\n|  class="bar">foobar</foo>',
@@ -414,7 +416,7 @@ suite.only('Auto Rename Tag', () => {
     await run(testCases)
   })
 
-  test('with comments', async () => {
+  test.skip('with comments', async () => {
     const testCases: TestCase[] = [
       {
         input: '<div|><!-- </div>',

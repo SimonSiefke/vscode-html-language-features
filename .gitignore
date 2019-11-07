@@ -3,6 +3,7 @@ packages/html-intellicode/files
 tmp
 tmp-config.json
 tmp-generated
+.vscode-test
 
 # Logs
 logs

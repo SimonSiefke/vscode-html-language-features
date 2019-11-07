@@ -22,7 +22,8 @@
   },
   "scripts": {
     "dev": "cd ../../ && npm run dev",
-    "update-proposed": "vscode-dts dev"
+    "update-proposed": "vscode-dts dev",
+    "e2e": "rm -rf dist tsconfig.tsbuildinfo && tsc -b && cross-env NODE_ENV=test node ./dist/test/runTest.js"
   },
   "contributes": {
     "configuration": {
@@ -71,6 +72,7 @@
     "@types/mocha": "^5.2.7",
     "@types/vscode": "^1.39.0",
     "@types/ws": "^6.0.3",
+    "cross-env": "^6.0.3",
     "glob": "^7.1.5",
     "mocha": "^6.2.2",
     "typescript": "^3.7.2",

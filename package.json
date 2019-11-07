@@ -12,7 +12,8 @@
     "bundle:client": "webpack --mode production --config ./webpack/client.webpack.config.js",
     "bundle:server": "webpack --mode production --config ./webpack/server.webpack.config.js",
     "bundlesize": "bundlesize",
-    "package": "rimraf dist && npm run bundle && node scripts/package.js && npm run bundlesize && cd dist && vsce package"
+    "package": "rimraf dist && npm run bundle && node scripts/package.js && npm run bundlesize && cd dist && vsce package",
+    "e2e": "cd packages/extension && npm run e2e"
   },
   "devDependencies": {
     "@types/jest": "^24.0.21",

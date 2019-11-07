@@ -1,5 +1,4 @@
 import * as path from 'path'
-
 import { runTests } from 'vscode-test'
 ;(async () => {
   try {
@@ -15,7 +14,7 @@ import { runTests } from 'vscode-test'
     await runTests({
       extensionDevelopmentPath,
       extensionTestsPath,
-      // launchArgs: ['--disable-extensions'],
+      launchArgs: ['--disable-extensions'],
     })
   } catch (err) {
     console.error('Failed to run tests')
