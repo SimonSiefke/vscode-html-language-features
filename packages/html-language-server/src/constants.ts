@@ -11,5 +11,5 @@ export interface Constants {
 
 export const constants: Constants = {
   showDeprecatedCompletions: false,
-  quote: "'",
+  quote: '"',
 }
