@@ -1,8 +1,8 @@
 import { doCompletionAttributeName } from './completionAttributeName'
 import { replaceConfigs } from '../../Data/Data'
 
-test('completion-attribute-name', () => {
-  replaceConfigs(
+test('completion-attribute-name', async () => {
+  await replaceConfigs(
     [
       {
         tags: {

@@ -1,8 +1,8 @@
 import { doCompletionAttributeValue } from './completionAttributeValue'
-import { replaceConfigs } from '../../Data/Data'
+import { replaceConfigs, resetConfigs } from '../../Data/Data'
 
-test('suggestion-attribute-value with attribute values', () => {
-  replaceConfigs(
+test('completion-attribute-value with attribute values', async () => {
+  await replaceConfigs(
     [
       {
         tags: {
@@ -50,84 +50,6 @@ test('suggestion-attribute-value with attribute values', () => {
         ],
       },
     },
-    // {
-    //   input: '<|',
-    //   expected: undefined,
-    // },
-    // {
-    //   input: `<
-
-    //   |`,
-    //   expected: undefined,
-    // },
-    // {
-    //   input: '<h1|',
-    //   expected: undefined,
-    // },
-    // {
-    //   input: '<h1 |',
-    //   expected: { tagName: 'h1', attributes: [{ name: 'class' }] },
-    // },
-    // {
-    //   input: '<h1 class="big" |',
-    //   expected: { tagName: 'h1', attributes: [{ name: 'class' }] },
-    // },
-    // {
-    //   input: `<h1 class="big"\n  |`,
-    //   expected: { tagName: 'h1', attributes: [{ name: 'class' }] },
-    // },
-    // {
-    //   input: '<h1 x="y"|',
-    //   expected: undefined,
-    // },
-    // {
-    //   input: '<h1 x=y|',
-    //   expected: undefined,
-    // },
-    // // {
-    // //   input: '<h1 disabled|',
-    // //   expected: undefined,
-    // // },
-    // {
-    //   input: '<h1>|',
-    //   expected: undefined,
-    // },
-    // {
-    //   input: `<h1>\n|`,
-    //   expected: undefined,
-    // },
-    // {
-    //   input: '<h1><|',
-    //   expected: undefined,
-    // },
-    // {
-    //   input: '<h1/|',
-    //   expected: undefined,
-    // },
-    // {
-    //   input: '<h1></|',
-    //   expected: undefined,
-    // },
-    // {
-    //   input: '<h1></h1>|',
-    //   expected: undefined,
-    // },
-    // {
-    //   input: '<h1></h1><h1 |',
-    //   expected: { tagName: 'h1', attributes: [{ name: 'class' }] },
-    // },
-    // {
-    //   input: '<Daten/|',
-    //   expected: undefined,
-    // },
-    // {
-    //   input: '<DatenSätze/|',
-    //   expected: undefined,
-    // },
-    // {
-    //   input: '<🚀/|',
-    //   expected: undefined,
-    // },
   ]
   for (const testCase of testCases) {
     const offset = testCase.input.indexOf('|')
@@ -138,8 +60,8 @@ test('suggestion-attribute-value with attribute values', () => {
   }
 })
 
-test('suggestion-attribute-value with attribute type', () => {
-  replaceConfigs(
+test('suggestion-attribute-value with attribute type', async () => {
+  await replaceConfigs(
     [
       {
         tags: {

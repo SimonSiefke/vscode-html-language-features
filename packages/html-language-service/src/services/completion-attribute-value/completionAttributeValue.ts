@@ -13,7 +13,7 @@ import { AttributeType } from '@html-language-features/schema'
 /**
  * Suggestions for attribute values
  * @example
- * doSuggestionAttributeValue('<a target="">', 11) // { tagName: 'a', attributeName: 'target', attributeValues: [{ name: '_blank' }] }
+ * doCompletionAttributeValue('<a target="">', 11) // { tagName: 'a', attributeName: 'target', attributeValues: [{ name: '_blank' }] }
  */
 export const doCompletionAttributeValue: (
   text: string,
@@ -82,6 +82,8 @@ export const doCompletionAttributeValue: (
     tagName,
     lastSeenAttributeName
   )
+  console.log('sug')
+  console.log(attributeValues)
   if (attributeValues) {
     return {
       attributeValues,
