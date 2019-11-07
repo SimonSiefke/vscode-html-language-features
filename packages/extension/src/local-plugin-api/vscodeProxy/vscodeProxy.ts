@@ -12,6 +12,7 @@ export interface VscodeProxy {
     registerTextEditorCommand: AutoDispose<
       typeof vscode.commands.registerTextEditorCommand
     >
+    registerCommand: AutoDispose<typeof vscode.commands.registerCommand>
   }
   languages: {
     setLanguageConfiguration: AutoDispose<
@@ -61,6 +62,7 @@ export const createVscodeProxy: (
       registerTextEditorCommand: autoDispose(
         vscode.commands.registerTextEditorCommand
       ),
+      registerCommand: autoDispose(vscode.commands.registerCommand),
     },
   }
 }

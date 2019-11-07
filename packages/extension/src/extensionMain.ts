@@ -9,6 +9,7 @@ import { localPluginAutoCompletionElementRenameTag } from './local-plugins/local
 import { localPluginAutoCompletionElementSelfClosing } from './local-plugins/local-plugin-auto-completion-element-self-closing/localPluginAutoCompletionElementSelfClosing'
 import { localPluginHighlightElementMatchingTag } from './local-plugins/local-plugin-highlight-element-matching-tag/localPluginHighlightElementMatchingTag'
 import { localPluginConfigs } from './local-plugins/local-plugin-configs/localPluginConfigs'
+import { localPluginWrapSelectionWithTag } from './local-plugins/local-plugin-wrap-selection-with-tag/localPluginWrapSelectionWithTag'
 
 export const activate: (
   context: vscode.ExtensionContext
@@ -24,8 +25,9 @@ export const activate: (
   localPluginAutoCompletionElementAutoClose(api)
   localPluginAutoCompletionElementClose(api)
   localPluginAutoCompletionElementRenameTag(api)
-
   localPluginAutoCompletionElementSelfClosing(api)
+
+  localPluginWrapSelectionWithTag(api)
 
   localPluginHighlightElementMatchingTag(api)
 

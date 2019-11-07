@@ -41,10 +41,20 @@
         "url": "https://raw.githubusercontent.com/SimonSiefke/vscode-html-language-features/master/packages/schema/src/schema/schema.json"
       }
     ],
+    "keybindings": {
+      "command": "html.wrap-selection-with-tag",
+      "key": "alt+w",
+      "mac": "alt+w",
+      "when": "editorTextFocus && !editorReadonly && editorLangId == html"
+    },
     "commands": [
       {
         "command": "htmlLanguageClient.startStreaming",
-        "title": "Start Stream Logs into htmlLanguageClient.port"
+        "title": "Html: Start Stream Logs into htmlLanguageClient.port"
+      },
+      {
+        "command": "html.wrap-selection-with-tag",
+        "title": "Html: Wrap selection with tag"
       }
     ]
   },

@@ -19,6 +19,12 @@ Note: for this to work, you need to disable:
 
 - snippets-->
 
+## Commands
+
+| Command                       | Keybinding |
+| ----------------------------- | ---------- |
+| Html: Wrap selection with tag | `alt+w`    |
+
 ## Settings
 
 You can specify custom data inside your vscode settings. Make sure to specify `categories` for custom tags, otherwise they won't show up.
