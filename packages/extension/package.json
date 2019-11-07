@@ -17,7 +17,7 @@
     "url": "https://github.com/SimonSiefke/vscode-html-language-features/issues"
   },
   "engines": {
-    "vscode": "^1.39.2"
+    "vscode": "^1.40.0"
   },
   "scripts": {
     "dev": "cd ../../ && npm run dev",
