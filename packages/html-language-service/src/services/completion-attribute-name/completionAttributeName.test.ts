@@ -1,16 +1,21 @@
-import { setConfigs } from '../../Data/Data'
 import { doCompletionAttributeName } from './completionAttributeName'
+import { replaceConfigs } from '../../Data/Data'
 
 test('completion-attribute-name', () => {
-  setConfigs({
-    tags: {
-      h1: {
-        attributes: {
-          class: {},
+  replaceConfigs(
+    [
+      {
+        tags: {
+          h1: {
+            attributes: {
+              class: {},
+            },
+          },
         },
       },
-    },
-  })
+    ],
+    'test'
+  )
   const testCases: { input: string; expected: any | undefined }[] = [
     {
       input: '<|',

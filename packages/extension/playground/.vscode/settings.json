@@ -1,6 +1,9 @@
 {
   "html.customData": {
-    "extends": ["sample.htmlData.json"],
+    "extends": [
+      "sample.htmlData.json",
+      "https://raw.githubusercontent.com/SimonSiefke/vscode-html-language-features/master/packages/curated-facts/generated/wired-elements/curated.htmlData.json"
+    ],
     "tags": {
       "bbb": {
         "description": "its bbb"

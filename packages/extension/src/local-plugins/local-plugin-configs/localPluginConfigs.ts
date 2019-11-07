@@ -64,17 +64,16 @@ const getConfigsFromWorkspaceFolders: () => Promise<any[]> = async () => {
       }
       if (customData.extends) {
         const otherConfigs = await Promise.all(
-          customData.extends.map(async extendsPath => {
-            if (extendsPath.startsWith('https')) {
-              return extendsPath
-            }
-            const absolutePath = path.resolve(
-              workspaceFolder.uri.fsPath,
-              extendsPath
-            )
-            const fileContent = await readFile(absolutePath, 'utf-8')
-            return JSON.parse(fileContent)
-          })
+          customData.extends
+            .filter(extendsPath => !extendsPath.startsWith('https'))
+            .map(async extendsPath => {
+              const absolutePath = path.resolve(
+                workspaceFolder.uri.fsPath,
+                extendsPath
+              )
+              const fileContent = await readFile(absolutePath, 'utf-8')
+              return JSON.parse(fileContent)
+            })
         )
         customData.extends = customData.extends.filter(extend =>
           extend.startsWith('https')
@@ -117,6 +116,7 @@ export const localPluginConfigs: LocalPlugin = async api => {
   const initialConfigsFromExtensions = await getConfigsFromExtensions()
   await askServerToUpdateConfigsFromExtensions(initialConfigsFromExtensions)
   const initialConfigsFromWorkspaceFolders = await getConfigsFromWorkspaceFolders()
+  console.log(initialConfigsFromWorkspaceFolders)
   await askServerToUpdateConfigsFromWorkspaceFolders(
     initialConfigsFromWorkspaceFolders
   )

@@ -1,25 +1,30 @@
-import { setConfigs } from '../../Data/Data'
 import { doCompletionAttributeValue } from './completionAttributeValue'
+import { replaceConfigs } from '../../Data/Data'
 
 test('suggestion-attribute-value with attribute values', () => {
-  setConfigs({
-    tags: {
-      a: {
-        attributes: {
-          rel: {
-            options: {
-              'noopener noreferrer': {},
-            },
-          },
-          target: {
-            options: {
-              _blank: {},
+  replaceConfigs(
+    [
+      {
+        tags: {
+          a: {
+            attributes: {
+              rel: {
+                options: {
+                  'noopener noreferrer': {},
+                },
+              },
+              target: {
+                options: {
+                  _blank: {},
+                },
+              },
             },
           },
         },
       },
-    },
-  })
+    ],
+    'test'
+  )
   const testCases: { input: string; expected: any | undefined }[] = [
     {
       input: '<a target="|"',
@@ -134,17 +139,22 @@ test('suggestion-attribute-value with attribute values', () => {
 })
 
 test('suggestion-attribute-value with attribute type', () => {
-  setConfigs({
-    tags: {
-      button: {
-        attributes: {
-          disabled: {
-            type: 'boolean',
+  replaceConfigs(
+    [
+      {
+        tags: {
+          button: {
+            attributes: {
+              disabled: {
+                type: 'boolean',
+              },
+            },
           },
         },
       },
-    },
-  })
+    ],
+    'test'
+  )
   const testCases: { input: string; expected: any | undefined }[] = [
     {
       input: '<button disabled="|"',

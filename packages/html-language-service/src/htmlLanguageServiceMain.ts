@@ -7,7 +7,6 @@ export {
 } from './services/completion-entity/completionEntity'
 
 export { doHoverElement } from './services/hover-element/hoverElement'
-
 export {
   AttributeInfo,
   AttributeValueInfo,
@@ -20,7 +19,6 @@ export {
   ValidationError,
 } from '@html-language-features/schema'
 export {
-  addConfigs,
   getDescriptionForAttributeName,
   getDescriptionForAttributeValue,
   getDescriptionForTag,
@@ -31,7 +29,6 @@ export {
   isDeprecatedTag,
   isSelfClosingTag,
   NamedAttributeValue,
-  setConfigs,
   shouldHaveNewline,
 } from './Data/Data'
 export {

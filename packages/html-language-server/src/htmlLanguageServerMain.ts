@@ -1,6 +1,6 @@
 import {
-  addConfigs,
   Config,
+  replaceConfigs,
 } from '@html-language-features/html-language-service'
 import {
   createConnection,
@@ -89,14 +89,17 @@ connection.onInitialized(async () => {
   )
 
   try {
-    await addConfigs([
-      mdnConfig,
-      mdnGlobalAttributeConfig,
-      mdnLinkTypeConfig,
-      whatwgConfig,
-      whatwgConfigDeepDisallowedSubTags,
-      generalFactsConfig,
-    ])
+    await replaceConfigs(
+      [
+        mdnConfig,
+        mdnGlobalAttributeConfig,
+        mdnLinkTypeConfig,
+        whatwgConfig,
+        whatwgConfigDeepDisallowedSubTags,
+        generalFactsConfig,
+      ],
+      'default'
+    )
   } catch (error) {
     console.error('an error occurred')
     console.error(error)

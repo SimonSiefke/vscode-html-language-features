@@ -7,7 +7,7 @@ import {
   ValidationError,
   SubTag,
   Category,
-  resolveConfig,
+  resolveConfig as resolveConfigByUrl,
   AttributeType,
 } from '@html-language-features/schema'
 import * as fs from 'fs'
@@ -23,99 +23,61 @@ const DEBUGConfig = () => {
   )
 }
 
+/**
+ * Map of id's and resolved configs.
+ *
+ */
+const _resolvedConfigs: Map<string, Config[]> = new Map()
+
+/**
+ * The final resolved Config. Computed from `_resolvedConfigs`
+ */
 let _mergedConfig: Config = {}
-const _configs: Set<Config> = new Set()
 
-const idMap: Map<string, Config[] | undefined> = new Map()
-
-const removeConfigs: (...configs: Config[]) => void = (...configs) => {
-  for (const config of configs) {
-    if (!_configs.has(config)) {
-      throw new Error("config doesn't exist")
-    }
-    _configs.delete(config)
-  }
-  setConfigs(..._configs)
-}
-
+/**
+ * Updates `_mergedConfig`. Must be called whenever `_resolvedConfig` changes.
+ */
 const updateMergedConfig: () => void = () => {
-  const result = mergeConfigs(..._configs)
+  const allConfigs = Array.from(_resolvedConfigs.values()).flat()
+  const result = mergeConfigs(...allConfigs)
   if ('errors' in result) {
     return result
   }
   _mergedConfig = result
 }
 
-export const replaceConfigs: (configs: Config[], id: string) => void = (
-  configs,
-  id
-) => {
-  const existingConfigs = idMap.get(id)
-  if (existingConfigs) {
-    for (const existingConfig of existingConfigs) {
-      _configs.delete(existingConfig)
-    }
-  }
-  idMap.set(id, configs)
-  for (const config of configs) {
-    _configs.add(config)
-  }
+const resolveConfig: (config: Config) => Promise<Config[]> = async config => {
+  const otherConfigs = await Promise.all(
+    (config.extends || [])
+      .filter(extendUrl => extendUrl.startsWith('https'))
+      .map(resolveConfigByUrl)
+  )
+  return [config, ...otherConfigs]
+}
+
+const resolveAllConfigs: (
+  configs: Config[]
+) => Promise<Config[]> = async configs => {
+  const result = await Promise.all(configs.map(resolveConfig))
+  return result.flat()
+}
+
+export const replaceConfigs: (
+  configs: Config[],
+  id: string
+) => Promise<void> = async (configs, id) => {
+  const resolvedConfigs = await resolveAllConfigs(configs)
+  _resolvedConfigs.set(id, resolvedConfigs)
   updateMergedConfig()
 }
 
-// TODO resolve extends
-export const setConfigs: (
-  ...config: Config[]
-) => { errors: ValidationError[] } = (...configs) => {
-  const result = mergeConfigs(...configs)
-  if ('errors' in result) {
-    return result
-  }
-  _mergedConfig = result
-  _configs.clear()
-  for (const config of configs) {
-    _configs.add(config)
-  }
-  return {
-    errors: [],
-  }
+export const resetConfigs: () => void = () => {
+  _resolvedConfigs.clear()
+  updateMergedConfig()
 }
 
-export const resetConfig: () => void = () => {
-  _mergedConfig = {}
-  _configs.clear()
-}
-
+// TODO
 class InvalidConfigError extends Error {}
-
-export const addConfigs: (
-  configs: Config[]
-) => Promise<void> = async configs => {
-  const resolvedConfigs = await Promise.all(
-    configs.map(async config => {
-      if (config.extends) {
-        const otherConfigs = await Promise.all(
-          config.extends.map(resolveConfig)
-        )
-        const result = mergeConfigs(config, ...otherConfigs)
-        if ('errors' in result) {
-          throw new Error('invalid config')
-        }
-        return result
-      }
-      return config
-    })
-  )
-  const result = mergeConfigs(_mergedConfig, ...resolvedConfigs)
-  if ('errors' in result) {
-    throw new Error('invalid config')
-  }
-  for (const config of configs) {
-    _configs.add(config)
-  }
-  _mergedConfig = result
-  // DEBUGConfig()
-}
 
 export const isSelfClosingTag: (tagName: string) => boolean = tagName => {
   return (
