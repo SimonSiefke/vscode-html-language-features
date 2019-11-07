@@ -1,8 +1,14 @@
 import { before, test } from 'mocha'
-import { activateExtension, createTestFile, run, TestCase } from '../test-utils'
+import {
+  activateExtension,
+  createTestFile,
+  run,
+  TestCase,
+  ciSlowNess,
+} from '../test-utils'
 
 // const slowSpeed = 70
-const slowSpeed = 95
+const slowSpeed = 95 * ciSlowNess
 
 suite('Auto Rename Tag', () => {
   before(async () => {

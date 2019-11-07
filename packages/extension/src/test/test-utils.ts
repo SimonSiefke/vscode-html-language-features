@@ -172,3 +172,5 @@ export async function run(
     assert.equal(result, testCase.expect)
   }
 }
+
+export const ciSlowNess = 2

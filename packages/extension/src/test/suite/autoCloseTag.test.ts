@@ -1,7 +1,13 @@
-import { TestCase, createTestFile, run, activateExtension } from '../test-utils'
+import {
+  TestCase,
+  createTestFile,
+  run,
+  activateExtension,
+  ciSlowNess,
+} from '../test-utils'
 import { before } from 'mocha'
 
-const timeout = 300
+const timeout = 300 * ciSlowNess
 
 suite('Auto Close Tag', () => {
   before(async () => {
