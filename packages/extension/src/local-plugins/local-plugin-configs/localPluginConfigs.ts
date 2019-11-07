@@ -116,7 +116,6 @@ export const localPluginConfigs: LocalPlugin = async api => {
   const initialConfigsFromExtensions = await getConfigsFromExtensions()
   await askServerToUpdateConfigsFromExtensions(initialConfigsFromExtensions)
   const initialConfigsFromWorkspaceFolders = await getConfigsFromWorkspaceFolders()
-  console.log(initialConfigsFromWorkspaceFolders)
   await askServerToUpdateConfigsFromWorkspaceFolders(
     initialConfigsFromWorkspaceFolders
   )

@@ -82,8 +82,6 @@ export const doCompletionAttributeValue: (
     tagName,
     lastSeenAttributeName
   )
-  console.log('sug')
-  console.log(attributeValues)
   if (attributeValues) {
     return {
       attributeValues,

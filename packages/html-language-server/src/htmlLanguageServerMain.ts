@@ -61,7 +61,7 @@ documents.listen(connection)
 
 connection.onInitialize(() => {
   const capabilities: ServerCapabilities = {
-    textDocumentSync: TextDocumentSyncKind.Incremental,
+    textDocumentSync: TextDocumentSyncKind.Full,
   }
   return { capabilities }
 })
