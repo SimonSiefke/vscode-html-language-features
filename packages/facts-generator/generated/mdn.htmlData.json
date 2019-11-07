@@ -1806,7 +1806,7 @@
           }
         },
         "action": {
-          "description": "The URL of a program that processes the form information. This value can be overridden by a formaction attribute on a <button>, <input type=\"submit\"> or <input type=\"image\"> element.",
+          "description": "The URI of a program that processes the form information. This value can be overridden by a formaction attribute on a <button>, <input type=\"submit\"> or <input type=\"image\"> element.",
           "reference": {
             "name": "MDN Reference",
             "url": "https://developer.mozilla.org//en-US/docs/Web/HTML/Element/form#attr-action"
@@ -1884,7 +1884,7 @@
           }
         },
         "method": {
-          "description": "The HTTP method that the browser uses to submit the form. Possible values are:\n\n*   post: Corresponds to the HTTP POST method ; form data are included in the body of the form and sent to the server.\n*   get: Corresponds to the HTTP GET method; form data are appended to the action attribute URL with a '?' as separator, and the resulting URL is sent to the server. Use this method when the form has no side-effects and contains only ASCII characters.\n*   dialog: Use when the form is inside a <dialog> element to close the dialog when submitted.\n\nThis value can be overridden by a formmethod attribute on a <button>, <input type=\"submit\"> or <input type=\"image\"> element.",
+          "description": "The HTTP method that the browser uses to submit the form. Possible values are:\n\n*   post: Corresponds to the HTTP POST method ; form data are included in the body of the form and sent to the server.\n*   get: Corresponds to the HTTP GET method; form data are appended to the action attribute URI with a '?' as separator, and the resulting URI is sent to the server. Use this method when the form has no side-effects and contains only ASCII characters.\n*   dialog: Use when the form is inside a <dialog> element to close the dialog when submitted.\n\nThis value can be overridden by a formmethod attribute on a <button>, <input type=\"submit\"> or <input type=\"image\"> element.",
           "reference": {
             "name": "MDN Reference",
             "url": "https://developer.mozilla.org//en-US/docs/Web/HTML/Element/form#attr-method"
@@ -1895,7 +1895,7 @@
               "deprecated": false
             },
             "get": {
-              "description": "Corresponds to the HTTP GET method; form data are appended to the action attribute URL with a '?' as separator, and the resulting URL is sent to the server. Use this method when the form has no side-effects and contains only ASCII characters.",
+              "description": "Corresponds to the HTTP GET method; form data are appended to the action attribute URI with a '?' as separator, and the resulting URI is sent to the server. Use this method when the form has no side-effects and contains only ASCII characters.",
               "deprecated": false
             },
             "dialog": {
