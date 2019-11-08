@@ -39,7 +39,7 @@
   "bundlesize": [
     {
       "path": "./dist/packages/extension/dist/extensionMain.js",
-      "maxSize": "70 kB",
+      "maxSize": "80 kB",
       "compression": "none"
     },
     {
