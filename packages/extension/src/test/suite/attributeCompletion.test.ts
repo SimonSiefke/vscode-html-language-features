@@ -63,7 +63,7 @@ suite.only('Attribute Completion', () => {
     })
   })
 
-  test('ol - type - tabindex', async () => {
+  test.skip('ol - type - tabindex', async () => {
     const testCases: TestCase[] = [
       {
         input: '<ol |',
