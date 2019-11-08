@@ -5,6 +5,8 @@ const path = require('path')
 var TurndownService = require('turndown')
 var turndownService = new TurndownService({})
 
+const { getAttributeValuesInsideUl } = require('./generateMdnElements')
+
 turndownService.addRule('remove', {
   filter: ['a', 'h1', 'code', 'pre', 'strong', 'i', 'em'],
   replacement: function(content, x) {
@@ -16,7 +18,7 @@ turndownService.addRule('remove', {
 const reference =
   'https://developer.mozilla.org/en-US/docs/Web/HTML/Global_attributes'
 
-/** @typedef {{name:string, description:string, link:string, deprecated:boolean, experimental:boolean} } PreAttribute */
+/** @typedef {{name:string, description:string, link:string, deprecated:boolean, experimental:boolean, attributeValues:any[]} } PreAttribute */
 
 /**
  * @return {Promise<PreAttribute[]>}
@@ -65,12 +67,15 @@ const getGlobalAttributes = async () => {
 
   const dds = definitionList.find('dd')
   const descriptions = dds.map((index, dd) => $(dd).html()).get()
+  // const
 
   const results = []
   for (let i = 0; i < links.length; i++) {
     const link = links[i]
     const name = attributeNames[i]
     const description = descriptions[i]
+    const $2 = cheerio.load(descriptions[i])
+    const attributeValues = getAttributeValuesInsideUl($2, $2('ul')) //?
     const experimental = experimentalAttributes[i]
     const deprecated = deprecatedAttributes[i]
     results.push({
@@ -79,6 +84,7 @@ const getGlobalAttributes = async () => {
       link,
       experimental,
       deprecated,
+      attributeValues,
     })
   }
   return results
@@ -109,6 +115,15 @@ const finishAttributes = attributes => {
     }
     if (attribute.experimental) {
       current.experimental = true
+    }
+    if (attribute.attributeValues.length > 0) {
+      current.options = {}
+      for (const attributeValue of attribute.attributeValues) {
+        current.options[attributeValue.name] = {
+          description: attributeValue.description,
+          deprecated: attributeValue.deprecated,
+        }
+      }
     }
     current.description = fixDescriptionMarkdown(attribute.description)
     current.reference = {

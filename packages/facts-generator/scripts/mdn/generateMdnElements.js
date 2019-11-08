@@ -132,6 +132,86 @@ const getAttributeNameOrValue = ($, $dt, fullUrl) => {
     throw new Error('nothing found')
   }
 }
+
+const getAttributeValuesInsideUl = ($, element) => {
+  inner: if ($(element).find('ul > li > code')) {
+    const children = $(element)
+      .find('ul li')
+      .get()
+    children
+
+    children[0] //?
+    children[0] && $(children[0]).html() //?
+    if (
+      !children[0] ||
+      !$(children[0])
+        .html()
+        .startsWith('<code>')
+    ) {
+      children
+      break inner
+    }
+    const attributeValues = []
+
+    for (const child of children) {
+      const attributeValueName = $(child)
+        .find('code')
+        .first()
+        .html() //?
+      const isDeprecated =
+        $(child)
+          .find('i.icon-thumbs-down-alt')
+          .html() !== null
+      let attributeValueDescription = $(child)
+        .html()
+        .slice(
+          $(child)
+            .html()
+            .indexOf('</code>') + '</code>'.length
+        ) //?
+      // attributeValueDescription = attributeValueDescription.trim()
+      if (attributeValueDescription.startsWith(':')) {
+        attributeValueDescription = attributeValueDescription.slice(1)
+      }
+      if (attributeValueDescription.startsWith(', which indicates')) {
+        attributeValueDescription = attributeValueDescription.slice(
+          ', which '.length
+        )
+      }
+      if (attributeValueDescription.startsWith(', ')) {
+        attributeValueDescription = attributeValueDescription.slice(', '.length)
+      }
+      if (attributeValueDescription.startsWith('which ')) {
+        attributeValueDescription = attributeValueDescription.slice(
+          'which '.length
+        )
+      }
+      if (attributeValueDescription.startsWith('will put')) {
+        attributeValueDescription =
+          'puts ' + attributeValueDescription.slice('will put'.length)
+      }
+      if (attributeValueDescription.startsWith('meaning that ')) {
+        attributeValueDescription = attributeValueDescription.slice(
+          'meaning that '.length
+        )
+      }
+      if (attributeValueDescription.startsWith('is a ')) {
+        attributeValueDescription = attributeValueDescription.slice(
+          'is a '.length
+        )
+      }
+      attributeValues.push({
+        name: attributeValueName,
+        description: attributeValueDescription,
+        deprecated: isDeprecated,
+      })
+    }
+    return attributeValues
+  }
+  return []
+}
+
+exports.getAttributeValuesInsideUl = getAttributeValuesInsideUl
 /**
  *
  * @param {PreElement} element
@@ -260,53 +340,14 @@ const getInfoForElement = async element => {
       }
       // $(child).find('p').first().html() //?
       // $(child).find('p').first().html().startsWith('<code>') //?
-      inner: if ($(child).find('ul > li > code')) {
-        const children = $(child)
-          .find('ul li')
-          .get()
-        children
-
-        children[0] //?
-        children[0] && $(children[0]).html() //?
-        if (
-          !children[0] ||
-          !$(children[0])
-            .html()
-            .startsWith('<code>')
-        ) {
-          children
-          break inner
+      if ($(child).find('ul > li > code')) {
+        const attributeValues = getAttributeValuesInsideUl($, child)
+        if (attributeValues.length > 0) {
+          currentAttribute.attributeValues = attributeValues
         }
-        const attributeValues = []
-
-        for (const child of children) {
-          const attributeValueName = $(child)
-            .find('code')
-            .first()
-            .html() //?
-          const isDeprecated =
-            $(child)
-              .find('i.icon-thumbs-down-alt')
-              .html() !== null
-          let attributeValueDescription = $(child)
-            .html()
-            .slice(
-              $(child)
-                .html()
-                .indexOf('</code>') + '</code>'.length
-            ) //?
-          // attributeValueDescription = attributeValueDescription.trim()
-          if (attributeValueDescription.startsWith(':')) {
-            attributeValueDescription = attributeValueDescription.slice(1)
-          }
-          attributeValues.push({
-            name: attributeValueName,
-            description: attributeValueDescription,
-            deprecated: isDeprecated,
-          })
-        }
-        // attributeValues
-        currentAttribute.attributeValues = attributeValues
+        // if (currentAttribute.attributeValues.length === 0) {
+        //   delete currentAttribute['attributeValues']
+        // }
       }
       //  if (childHtml.includes('<ul>')) {
       //     childHtml //?

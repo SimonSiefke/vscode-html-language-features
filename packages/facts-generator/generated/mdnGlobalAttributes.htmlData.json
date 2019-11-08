@@ -8,6 +8,24 @@
       }
     },
     "autocapitalize": {
+      "options": {
+        "off": {
+          "description": " or <code>none</code>, no autocapitalization is applied (all letters default to lowercase)",
+          "deprecated": false
+        },
+        "on": {
+          "description": " or <code>sentences</code>, the first letter of each sentence defaults to a capital letter; all other letters default to lowercase",
+          "deprecated": false
+        },
+        "words": {
+          "description": "the first letter of each word defaults to a capital letter; all other letters default to lowercase",
+          "deprecated": false
+        },
+        "characters": {
+          "description": "all letters should default to uppercase",
+          "deprecated": false
+        }
+      },
       "description": "Controls whether and how text input is automatically capitalized as it is entered/edited by the user. It can have the following values:\n\n*   off or none, no autocapitalization is applied (all letters default to lowercase)\n*   on or sentences, the first letter of each sentence defaults to a capital letter; all other letters default to lowercase\n*   words, the first letter of each word defaults to a capital letter; all other letters default to lowercase\n*   characters, all letters should default to uppercase",
       "reference": {
         "name": "MDN Reference",
@@ -22,6 +40,16 @@
       }
     },
     "contenteditable": {
+      "options": {
+        "true": {
+          "description": " or the <em>empty string</em>, which indicates that the element must be editable;",
+          "deprecated": false
+        },
+        "false": {
+          "description": "indicates that the element must not be editable.",
+          "deprecated": false
+        }
+      },
       "description": "An enumerated attribute indicating if the element should be editable by the user. If so, the browser modifies its widget to allow editing. The attribute must take one of the following values:\n\n*   true or the empty string, which indicates that the element must be editable;\n*   false, which indicates that the element must not be editable.",
       "reference": {
         "name": "MDN Reference",
@@ -44,6 +72,20 @@
       }
     },
     "dir": {
+      "options": {
+        "ltr": {
+          "description": "means <em>left to right </em>and is to be used for languages that are written from the left to the right (like English);",
+          "deprecated": false
+        },
+        "rtl": {
+          "description": "means <em>right to left</em> and is to be used for languages that are written from the right to the left (like Arabic);",
+          "deprecated": false
+        },
+        "auto": {
+          "description": "lets the user agent decide. It uses a basic algorithm as it parses the characters inside the element until it finds a character with a strong directionality, then it applies that directionality to the whole element.",
+          "deprecated": false
+        }
+      },
       "description": "An enumerated attribute indicating the directionality of the element's text. It can have the following values:\n\n*   ltr, which means left to right and is to be used for languages that are written from the left to the right (like English);\n*   rtl, which means right to left and is to be used for languages that are written from the right to the left (like Arabic);\n*   auto, which lets the user agent decide. It uses a basic algorithm as it parses the characters inside the element until it finds a character with a strong directionality, then it applies that directionality to the whole element.",
       "reference": {
         "name": "MDN Reference",
@@ -51,6 +93,16 @@
       }
     },
     "draggable": {
+      "options": {
+        "true": {
+          "description": "indicates that the element may be dragged",
+          "deprecated": false
+        },
+        "false": {
+          "description": "indicates that the element may not be dragged.",
+          "deprecated": false
+        }
+      },
       "description": "An enumerated attribute indicating whether the element can be dragged, using the Drag and Drop API. It can have the following values:\n\n*   true, which indicates that the element may be dragged\n*   false, which indicates that the element may not be dragged.",
       "reference": {
         "name": "MDN Reference",
@@ -59,6 +111,20 @@
     },
     "dropzone": {
       "experimental": true,
+      "options": {
+        "copy": {
+          "description": "indicates that dropping will create a copy of the element that was dragged",
+          "deprecated": false
+        },
+        "move": {
+          "description": "indicates that the element that was dragged will be moved to this new location.",
+          "deprecated": false
+        },
+        "link": {
+          "description": "will create a link to the dragged data.",
+          "deprecated": false
+        }
+      },
       "description": "An enumerated attribute indicating what types of content can be dropped on an element, using the Drag and Drop API. It can have the following values:\n\n*   copy, which indicates that dropping will create a copy of the element that was dragged\n*   move, which indicates that the element that was dragged will be moved to this new location.\n*   link, will create a link to the dragged data.",
       "reference": {
         "name": "MDN Reference",
@@ -159,6 +225,16 @@
     },
     "spellcheck": {
       "experimental": true,
+      "options": {
+        "true": {
+          "description": "indicates that the element should be, if possible, checked for spelling errors;",
+          "deprecated": false
+        },
+        "false": {
+          "description": "indicates that the element should not be checked for spelling errors.",
+          "deprecated": false
+        }
+      },
       "description": "An enumerated attribute defines whether the element may be checked for spelling errors. It may have the following values:\n\n*   true, which indicates that the element should be, if possible, checked for spelling errors;\n*   false, which indicates that the element should not be checked for spelling errors.",
       "reference": {
         "name": "MDN Reference",

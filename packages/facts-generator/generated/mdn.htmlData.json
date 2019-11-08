@@ -1202,19 +1202,19 @@
           },
           "options": {
             "left": {
-              "description": ", center, right or justify values:\n\n*   Do not try to set the text-align property on a selector giving a <col> element. Because <td> elements are not descendant of the <col> element, they won't inherit it.\n*   If the table doesn't use a colspan attribute, use the td:nth-child(an+b) CSS selector. Set a to zero and b to the position of the column in the table, e.g. td:nth-child(2) { text-align: right; } to right-align the second column.\n*   If the table does use a colspan attribute, the effect can be achieved by combining adequate CSS attribute selectors like [colspan=n], though this is not trivial.",
+              "description": "center, right or justify values:\n\n*   Do not try to set the text-align property on a selector giving a <col> element. Because <td> elements are not descendant of the <col> element, they won't inherit it.\n*   If the table doesn't use a colspan attribute, use the td:nth-child(an+b) CSS selector. Set a to zero and b to the position of the column in the table, e.g. td:nth-child(2) { text-align: right; } to right-align the second column.\n*   If the table does use a colspan attribute, the effect can be achieved by combining adequate CSS attribute selectors like [colspan=n], though this is not trivial.",
               "deprecated": false
             },
             "center": {
-              "description": ", centering the content in the cell",
+              "description": "centering the content in the cell",
               "deprecated": false
             },
             "right": {
-              "description": ", aligning the content to the right of the cell",
+              "description": "aligning the content to the right of the cell",
               "deprecated": false
             },
             "justify": {
-              "description": ", inserting spaces into the textual content so that the content is justified in the cell",
+              "description": "inserting spaces into the textual content so that the content is justified in the cell",
               "deprecated": false
             },
             "char": {
@@ -1270,19 +1270,19 @@
           },
           "options": {
             "baseline": {
-              "description": ", which will put the text as close to the bottom of the cell as it is possible, but align it on the baseline of the characters instead of the bottom of them. If characters are all of the size, this has the same effect as bottom.",
+              "description": "puts the text as close to the bottom of the cell as it is possible, but align it on the baseline of the characters instead of the bottom of them. If characters are all of the size, this has the same effect as bottom.",
               "deprecated": false
             },
             "bottom": {
-              "description": ", which will put the text as close to the bottom of the cell as it is possible;",
+              "description": "puts the text as close to the bottom of the cell as it is possible;",
               "deprecated": false
             },
             "middle": {
-              "description": ", which will center the text in the cell;",
+              "description": "will center the text in the cell;",
               "deprecated": false
             },
             "top": {
-              "description": ", which will put the text as close to the top of the cell as it is possible.",
+              "description": "puts the text as close to the top of the cell as it is possible.",
               "deprecated": false
             },
             "vertical-align": {
@@ -1321,19 +1321,19 @@
           },
           "options": {
             "left": {
-              "description": ", center, right or justify values:\n\n*   Do not try to set the text-align property on a selector giving a <colgroup> element. Because <td> elements are not descendant of the <colgroup> element, they won't inherit it.\n*   If the table doesn't use a colspan attribute, use one td:nth-child(an+b) CSS selector per column, where a is the total number of the columns in the table and b is the ordinal position of this column in the table. Only after this selector the text-align property can be used.\n*   If the table does use a colspan attribute, the effect can be achieved by combining adequate CSS attribute selectors like [colspan=n], though this is not trivial.",
+              "description": "center, right or justify values:\n\n*   Do not try to set the text-align property on a selector giving a <colgroup> element. Because <td> elements are not descendant of the <colgroup> element, they won't inherit it.\n*   If the table doesn't use a colspan attribute, use one td:nth-child(an+b) CSS selector per column, where a is the total number of the columns in the table and b is the ordinal position of this column in the table. Only after this selector the text-align property can be used.\n*   If the table does use a colspan attribute, the effect can be achieved by combining adequate CSS attribute selectors like [colspan=n], though this is not trivial.",
               "deprecated": false
             },
             "center": {
-              "description": ", centering the content in the cell",
+              "description": "centering the content in the cell",
               "deprecated": false
             },
             "right": {
-              "description": ", aligning the content to the right of the cell",
+              "description": "aligning the content to the right of the cell",
               "deprecated": false
             },
             "justify": {
-              "description": ", inserting spaces into the textual content so that the content is justified in the cell",
+              "description": "inserting spaces into the textual content so that the content is justified in the cell",
               "deprecated": false
             },
             "char": {
@@ -1389,19 +1389,19 @@
           },
           "options": {
             "baseline": {
-              "description": ", which will put the text as close to the bottom of the cell as it is possible, but align it on the baseline of the characters instead of the bottom of them. If characters are all of the size, this has the same effect as bottom.",
+              "description": "puts the text as close to the bottom of the cell as it is possible, but align it on the baseline of the characters instead of the bottom of them. If characters are all of the size, this has the same effect as bottom.",
               "deprecated": false
             },
             "bottom": {
-              "description": ", which will put the text as close to the bottom of the cell as it is possible;",
+              "description": "puts the text as close to the bottom of the cell as it is possible;",
               "deprecated": false
             },
             "middle": {
-              "description": ", which will center the text in the cell;",
+              "description": "will center the text in the cell;",
               "deprecated": false
             },
             "top": {
-              "description": ", which will put the text as close to the top of the cell as it is possible.",
+              "description": "puts the text as close to the top of the cell as it is possible.",
               "deprecated": false
             },
             "vertical-align": {
@@ -3231,7 +3231,7 @@
           },
           "options": {
             "any": {
-              "description": ", meaning that the icon can be scaled to any size as it is in a vector format, like image/svg+xml.",
+              "description": "the icon can be scaled to any size as it is in a vector format, like image/svg+xml.",
               "deprecated": false
             },
             "<em>&lt;width in pixels&gt;</em>x<em>&lt;height in pixels&gt;</em>": {
@@ -3652,7 +3652,7 @@
               "deprecated": false
             },
             "always": {
-              "description": ", default, and never for referrer.",
+              "description": "default, and never for referrer.",
               "deprecated": false
             },
             "&lt;meta name=&quot;referrer&quot;&gt;": {
@@ -3672,7 +3672,7 @@
               "deprecated": false
             },
             "googlebot": {
-              "description": ", a synonym of robots, is only followed by Googlebot (the indexing crawler for Google).",
+              "description": "a synonym of robots, is only followed by Googlebot (the indexing crawler for Google).",
               "deprecated": false
             },
             "publisher": {
@@ -3696,11 +3696,11 @@
               "deprecated": false
             },
             "slurp": {
-              "description": ", is a synonym of robots, but only for Slurp - the crawler for Yahoo Search.",
+              "description": "synonym of robots, but only for Slurp - the crawler for Yahoo Search.",
               "deprecated": false
             },
             "viewport": {
-              "description": ", which gives hints about the size of the initial size of the viewport. Used by mobile devices only.\n\nValues for the content of <meta name=\"viewport\">\n\nValue\n\nPossible subvalues\n\nDescription\n\nwidth\n\nA positive integer number, or the text device-width\n\nDefines the pixel width of the viewport that you want the web site to be rendered at.\n\nheight\n\nA positive integer, or the text device-height\n\nDefines the height of the viewport. Not used by any browser.\n\ninitial-scale\n\nA positive number between 0.0 and 10.0\n\nDefines the ratio between the device width (device-width in portrait mode or device-height in landscape mode) and the viewport size.\n\nmaximum-scale\n\nA positive number between 0.0 and 10.0\n\nDefines the maximum amount to zoom in. It must be greater or equal to the minimum-scale or the behaviour is undefined. Browser settings can ignore this rule and iOS10+ ignores it by default.\n\nminimum-scale\n\nA positive number between 0.0 and 10.0\n\nDefines the minimum zoom level. It must be smaller or equal to the maximum-scale or the behaviour is undefined. Browser settings can ignore this rule and iOS10+ ignores it by default.\n\nuser-scalable\n\nyes or no\n\nIf set to no, the user is not able to zoom in the webpage. The default is yes. Browser settings can ignore this rule, and iOS10+ ignores it by default.\n\nSpecification\n\nStatus\n\nComment\n\nCSS Device Adaptation  \nThe definition of '<meta name=\"viewport\">' in that specification.\n\nWorking Draft\n\nNon-normatively describes the Viewport META element\n\nSee also: @viewport\n\nNotes:\n\n*   Though unstandardized, this declaration is respected by most mobile browsers due to de-facto dominance.\n*   The default values may vary between devices and browsers.\n*   To learn about this declaration in Firefox for Mobile, see this article.",
+              "description": "gives hints about the size of the initial size of the viewport. Used by mobile devices only.\n\nValues for the content of <meta name=\"viewport\">\n\nValue\n\nPossible subvalues\n\nDescription\n\nwidth\n\nA positive integer number, or the text device-width\n\nDefines the pixel width of the viewport that you want the web site to be rendered at.\n\nheight\n\nA positive integer, or the text device-height\n\nDefines the height of the viewport. Not used by any browser.\n\ninitial-scale\n\nA positive number between 0.0 and 10.0\n\nDefines the ratio between the device width (device-width in portrait mode or device-height in landscape mode) and the viewport size.\n\nmaximum-scale\n\nA positive number between 0.0 and 10.0\n\nDefines the maximum amount to zoom in. It must be greater or equal to the minimum-scale or the behaviour is undefined. Browser settings can ignore this rule and iOS10+ ignores it by default.\n\nminimum-scale\n\nA positive number between 0.0 and 10.0\n\nDefines the minimum zoom level. It must be smaller or equal to the maximum-scale or the behaviour is undefined. Browser settings can ignore this rule and iOS10+ ignores it by default.\n\nuser-scalable\n\nyes or no\n\nIf set to no, the user is not able to zoom in the webpage. The default is yes. Browser settings can ignore this rule, and iOS10+ ignores it by default.\n\nSpecification\n\nStatus\n\nComment\n\nCSS Device Adaptation  \nThe definition of '<meta name=\"viewport\">' in that specification.\n\nWorking Draft\n\nNon-normatively describes the Viewport META element\n\nSee also: @viewport\n\nNotes:\n\n*   Though unstandardized, this declaration is respected by most mobile browsers due to de-facto dominance.\n*   The default values may vary between devices and browsers.\n*   To learn about this declaration in Firefox for Mobile, see this article.",
               "deprecated": false
             }
           }
@@ -4791,19 +4791,19 @@
           },
           "options": {
             "left": {
-              "description": ", center, right or justify values, use the CSS text-align property on it.",
+              "description": "center, right or justify values, use the CSS text-align property on it.",
               "deprecated": false
             },
             "center": {
-              "description": ", centering the content in the cell",
+              "description": "centering the content in the cell",
               "deprecated": false
             },
             "right": {
-              "description": ", aligning the content to the right of the cell",
+              "description": "aligning the content to the right of the cell",
               "deprecated": false
             },
             "justify": {
-              "description": ", inserting spaces into the textual content so that the content is justified in the cell",
+              "description": "inserting spaces into the textual content so that the content is justified in the cell",
               "deprecated": false
             },
             "char": {
@@ -4844,19 +4844,19 @@
           },
           "options": {
             "baseline": {
-              "description": ", which will put the text as close to the bottom of the cell as it is possible, but align it on the baseline of the characters instead of the bottom of them. If characters are all of the size, this has the same effect as bottom.",
+              "description": "puts the text as close to the bottom of the cell as it is possible, but align it on the baseline of the characters instead of the bottom of them. If characters are all of the size, this has the same effect as bottom.",
               "deprecated": false
             },
             "bottom": {
-              "description": ", which will put the text as close to the bottom of the cell as it is possible;",
+              "description": "puts the text as close to the bottom of the cell as it is possible;",
               "deprecated": false
             },
             "middle": {
-              "description": ", which will center the text in the cell;",
+              "description": "will center the text in the cell;",
               "deprecated": false
             },
             "top": {
-              "description": ", which will put the text as close to the top of the cell as it is possible.",
+              "description": "puts the text as close to the top of the cell as it is possible.",
               "deprecated": false
             }
           }
@@ -4887,7 +4887,7 @@
           },
           "options": {
             "left": {
-              "description": ", center, right or justify values, apply the CSS text-align property to the element.",
+              "description": "center, right or justify values, apply the CSS text-align property to the element.",
               "deprecated": false
             },
             "center": {
@@ -5216,19 +5216,19 @@
           },
           "options": {
             "left": {
-              "description": ", center, right or justify values, use the CSS text-align property on it.",
+              "description": "center, right or justify values, use the CSS text-align property on it.",
               "deprecated": false
             },
             "center": {
-              "description": ", centering the content in the cell",
+              "description": "centering the content in the cell",
               "deprecated": false
             },
             "right": {
-              "description": ", aligning the content to the right of the cell",
+              "description": "aligning the content to the right of the cell",
               "deprecated": false
             },
             "justify": {
-              "description": ", inserting spaces into the textual content so that the content is justified in the cell",
+              "description": "inserting spaces into the textual content so that the content is justified in the cell",
               "deprecated": false
             },
             "char": {
@@ -5269,19 +5269,19 @@
           },
           "options": {
             "baseline": {
-              "description": ", which will put the text as close to the bottom of the cell as it is possible, but align it on the baseline of the characters instead of the bottom of them. If characters are all of the size, this has the same effect as bottom.",
+              "description": "puts the text as close to the bottom of the cell as it is possible, but align it on the baseline of the characters instead of the bottom of them. If characters are all of the size, this has the same effect as bottom.",
               "deprecated": false
             },
             "bottom": {
-              "description": ", which will put the text as close to the bottom of the cell as it is possible;",
+              "description": "puts the text as close to the bottom of the cell as it is possible;",
               "deprecated": false
             },
             "middle": {
-              "description": ", which will center the text in the cell;",
+              "description": "will center the text in the cell;",
               "deprecated": false
             },
             "top": {
-              "description": ", which will put the text as close to the top of the cell as it is possible.",
+              "description": "puts the text as close to the top of the cell as it is possible.",
               "deprecated": false
             }
           }
@@ -5311,7 +5311,7 @@
           },
           "options": {
             "left": {
-              "description": ", center, right or justify values, apply the CSS text-align property to the element.",
+              "description": "center, right or justify values, apply the CSS text-align property to the element.",
               "deprecated": false
             },
             "center": {
@@ -5472,19 +5472,19 @@
           },
           "options": {
             "left": {
-              "description": ", center, right or justify values, use the CSS text-align property on it.",
+              "description": "center, right or justify values, use the CSS text-align property on it.",
               "deprecated": false
             },
             "center": {
-              "description": ", centering the content in the cell",
+              "description": "centering the content in the cell",
               "deprecated": false
             },
             "right": {
-              "description": ", aligning the content to the right of the cell",
+              "description": "aligning the content to the right of the cell",
               "deprecated": false
             },
             "justify": {
-              "description": ", inserting spaces into the textual content so that the content is justified in the cell",
+              "description": "inserting spaces into the textual content so that the content is justified in the cell",
               "deprecated": false
             },
             "char": {
@@ -5525,19 +5525,19 @@
           },
           "options": {
             "baseline": {
-              "description": ", which will put the text as close to the bottom of the cell as it is possible, but align it on the baseline of the characters instead of the bottom of them. If characters are all of the size, this has the same effect as bottom.",
+              "description": "puts the text as close to the bottom of the cell as it is possible, but align it on the baseline of the characters instead of the bottom of them. If characters are all of the size, this has the same effect as bottom.",
               "deprecated": false
             },
             "bottom": {
-              "description": ", which will put the text as close to the bottom of the cell as it is possible;",
+              "description": "puts the text as close to the bottom of the cell as it is possible;",
               "deprecated": false
             },
             "middle": {
-              "description": ", which will center the text in the cell;",
+              "description": "will center the text in the cell;",
               "deprecated": false
             },
             "top": {
-              "description": ", which will put the text as close to the top of the cell as it is possible.",
+              "description": "puts the text as close to the top of the cell as it is possible.",
               "deprecated": false
             }
           }

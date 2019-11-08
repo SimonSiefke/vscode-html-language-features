@@ -341,3 +341,13 @@ extract values from global attributes (should be same as for normal attributes):
 dir: ltr or rtl
 draggable -> boolean
  -->
+
+<!-- TODO
+align attributes wrong because notes
+
+ -->
+
+<!-- TODO
+
+autocapitalization wrong because of multiple
+ -->
