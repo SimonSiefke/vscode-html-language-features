@@ -344,3 +344,8 @@ autocapitalization wrong because of multiple
 missing
 link#importance
  -->
+
+<!-- TODO
+tests for fuzzy attribute search
+
+ -->
