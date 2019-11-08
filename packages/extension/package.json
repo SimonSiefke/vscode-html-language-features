@@ -1,8 +1,8 @@
 {
   "name": "html-language-features",
-  "displayName": "HTML Language Features",
+  "displayName": "Html Language Features",
   "version": "1.0.0",
-  "description": "HTML Language Features",
+  "description": "Html Language Features",
   "publisher": "SimonSiefke",
   "main": "dist/extensionMain.js",
   "activationEvents": [
@@ -59,9 +59,13 @@
     ]
   },
   "keywords": [
-    "HTML",
-    "HTML IntelliCode",
-    "HTML Language Features"
+    "Html",
+    "Html IntelliCode",
+    "Html Language Features",
+    "Html Intellisense",
+    "Auto Rename Tag",
+    "Auto Close Tag",
+    "Highlight Matching Tag"
   ],
   "author": "Simon Siefke",
   "license": "MIT",

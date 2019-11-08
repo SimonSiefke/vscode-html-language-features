@@ -17,11 +17,11 @@
     "publish:extensionPack": "cd packages/extension-pack && npx vsce publish"
   },
   "devDependencies": {
-    "@types/jest": "^24.0.21",
-    "@types/node": "^12.12.5",
+    "@types/jest": "^24.0.22",
+    "@types/node": "^12.12.6",
     "bundlesize": "^0.18.0",
     "fs-extra": "^8.1.0",
-    "lerna": "^3.18.3",
+    "lerna": "^3.18.4",
     "merge-options": "^2.0.0",
     "rimraf": "^3.0.0",
     "semantic-release": "^15.13.30",
