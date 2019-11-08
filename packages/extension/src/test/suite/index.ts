@@ -10,6 +10,7 @@ const files = [
   'closeTag',
   'wrapTag',
   'autoRenameTag',
+  'attributeCompletion',
   'expandTag',
 ]
 const testFiles = `**/+(${files.join('|')}).test.js`
