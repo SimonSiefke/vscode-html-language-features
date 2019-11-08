@@ -1,23 +1,21 @@
 # schema
 
-## Example 1: Adding Configuration for <abbr> elements
+## Example 1: Adding Configuration for a custom `my-button` element
 
 ```json
 {
-  "$comment": "Configuration for the HTML <abbr> Tag",
-  "elements": {
-    "abbr": {
-      "description": "The <abbr> tag defines an abbreviation or an acronym, like HTML, Mr., Dec., ASAP, ATM.",
-      "attributes": {
-        "title": {
-          "type": "string",
-          "description": "The title attribute can provide an expansion or description for the abbreviation"
-        }
+  "html.customData": {
+    "tags": {
+      "my-button": {
+        "description": "Custom button element",
+        "categories": ["flow content", "phrasing content", "palpable content"]
       }
     }
   }
 }
 ```
+
+TODO
 
 ## Example 2: Adding the `loading` attribute to <img> and <iframe> elements
 
