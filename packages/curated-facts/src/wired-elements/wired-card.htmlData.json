@@ -13,7 +13,14 @@
         "elevation": {
           "type": "integer",
           "suggest": "1",
-          "description": "Numerical number between 1-5 (inclusive) - sets the elevation of the card. Default is 1."
+          "description": "Numerical number between 1-5 (inclusive) - sets the elevation of the card. Default is 1.",
+          "options": {
+            "1": {},
+            "2": {},
+            "3": {},
+            "4": {},
+            "5": {}
+          }
         },
         "fill": {
           "description": "A color to fill the background of the card in a sketchy format",

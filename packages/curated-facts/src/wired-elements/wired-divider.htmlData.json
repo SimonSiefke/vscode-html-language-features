@@ -8,7 +8,14 @@
         "elevation": {
           "description": " Number between 1 and 5 (inclusive) represents number of lines drawn. Default value is 1.",
           "type": "integer",
-          "suggest": "1"
+          "suggest": "1",
+          "options": {
+            "1": {},
+            "2": {},
+            "3": {},
+            "4": {},
+            "5": {}
+          }
         }
       }
     }

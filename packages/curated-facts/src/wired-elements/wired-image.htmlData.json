@@ -18,7 +18,14 @@
         "elevation": {
           "description": "Numerical number between 1-5 (inclusive) - sets the elevation of the card. Default is 1.",
           "type": "integer",
-          "suggest": "1"
+          "suggest": "1",
+          "options": {
+            "1": {},
+            "2": {},
+            "3": {},
+            "4": {},
+            "5": {}
+          }
         }
       }
     }
