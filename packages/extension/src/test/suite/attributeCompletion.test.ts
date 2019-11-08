@@ -15,7 +15,7 @@ suite.only('Attribute Completion', () => {
     await activateExtension()
   })
 
-  test('input', async () => {
+  test('input - type', async () => {
     const testCases: TestCase[] = [
       {
         input: '<input |',
@@ -63,7 +63,7 @@ suite.only('Attribute Completion', () => {
     })
   })
 
-  test('ol', async () => {
+  test('ol - type - tabindex', async () => {
     const testCases: TestCase[] = [
       {
         input: '<ol |',
@@ -79,6 +79,106 @@ suite.only('Attribute Completion', () => {
         input: '<ol |',
         type: 't1',
         expect: '<ol type="1"',
+      },
+    ]
+    await run(testCases, {
+      timeout,
+      afterCommands: [
+        'editor.action.triggerSuggest',
+        'acceptSelectedSuggestion',
+      ],
+    })
+  })
+
+  test('img - class - crossorigin', async () => {
+    const testCases: TestCase[] = [
+      {
+        input: '<img |',
+        type: 'c',
+        expect: '<img class=""',
+      },
+      {
+        input: '<img |',
+        type: 'cr',
+        expect: '<img crossorigin=""',
+      },
+      {
+        input: '<img |',
+        type: 'cra',
+        expect: '<img crossorigin="anonymous"',
+      },
+      {
+        input: '<img |',
+        type: 'cru',
+        expect: '<img crossorigin="use-credentials"',
+      },
+    ]
+    await run(testCases, {
+      timeout,
+      afterCommands: [
+        'editor.action.triggerSuggest',
+        'acceptSelectedSuggestion',
+      ],
+    })
+  })
+
+  test('button - dir - disabled', async () => {
+    const testCases: TestCase[] = [
+      {
+        input: '<button |',
+        type: 'di',
+        expect: '<button dir=""',
+      },
+      {
+        input: '<button |',
+        type: 'dis',
+        expect: '<button disabled',
+      },
+      {
+        input: '<button disabled|',
+        type: '=',
+        expect: '<button disabled=""',
+        afterCommands: [],
+      },
+    ]
+    await run(testCases, {
+      timeout,
+      afterCommands: [
+        'editor.action.triggerSuggest',
+        'acceptSelectedSuggestion',
+      ],
+    })
+  })
+
+  test('textarea - autocapitalize', async () => {
+    const testCases: TestCase[] = [
+      {
+        input: '<textarea |',
+        type: 'auto',
+        expect: '<textarea autocapitalize=""',
+        skip: true,
+      },
+      {
+        input: '<textarea |',
+        type: 'ao',
+        expect: '<textarea autocapitalize="off"',
+      },
+    ]
+    await run(testCases, {
+      timeout,
+      afterCommands: [
+        'editor.action.triggerSuggest',
+        'acceptSelectedSuggestion',
+      ],
+    })
+  })
+
+  test('div - class', async () => {
+    const testCases: TestCase[] = [
+      {
+        input: '<div |',
+        type: 'c',
+        expect: '<div class=""',
       },
     ]
     await run(testCases, {
