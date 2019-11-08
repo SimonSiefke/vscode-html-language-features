@@ -19,7 +19,6 @@
       "description": "Hand-drawn sketchy Button web component.",
       "attributes": {
         "elevation": {
-          "type": "integer",
           "suggest": "1",
           "description": "Number between 1 and 5 (inclusive) that gives the button a sketchy height. Default value is 1.",
           "options": {

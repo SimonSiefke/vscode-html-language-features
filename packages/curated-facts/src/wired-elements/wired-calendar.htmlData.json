@@ -8,7 +8,13 @@
         "elevation": {
           "description": "Numerical number between 1-5 (inclusive) - sets the elevation of the card. Default is 1.",
           "suggest": "1",
-          "type": "integer"
+          "options": {
+            "1": {},
+            "2": {},
+            "3": {},
+            "4": {},
+            "5": {}
+          }
         },
         "selected": {
           "description": "Optional string value that will be parsed as Date. Pre selects a date highlighted in the calendar"

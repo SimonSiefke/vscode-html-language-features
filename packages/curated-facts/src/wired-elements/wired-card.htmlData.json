@@ -11,7 +11,6 @@
       "description": "wired-card is a container for other web elements - with a hand-drawn, wireframe like, look.",
       "attributes": {
         "elevation": {
-          "type": "integer",
           "suggest": "1",
           "description": "Numerical number between 1-5 (inclusive) - sets the elevation of the card. Default is 1.",
           "options": {
