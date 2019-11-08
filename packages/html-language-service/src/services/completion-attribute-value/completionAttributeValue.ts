@@ -22,7 +22,7 @@ export const doCompletionAttributeValue: (
   | {
       tagName: string
       attributeName: string
-      attributeValues: NamedAttributeValue[]
+      attributeValues: string[]
     }
   | {
       tagName: string

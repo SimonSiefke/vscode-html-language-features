@@ -92,6 +92,56 @@ export const isDeprecatedTag: (tagName: string) => boolean = tagName =>
   _mergedConfig.tags[tagName] !== undefined &&
   _mergedConfig.tags[tagName].deprecated === true
 
+export const isDeprecatedAttribute: (
+  tagName: string,
+  attributeName: string
+) => boolean = (tagName, attributeName) => {
+  const elementAttributeDeprecated =
+    _mergedConfig.tags &&
+    _mergedConfig.tags[tagName] &&
+    _mergedConfig.tags[tagName].attributes &&
+    _mergedConfig.tags[tagName].attributes[attributeName] &&
+    _mergedConfig.tags[tagName].attributes[attributeName].deprecated === true
+  if (elementAttributeDeprecated) {
+    return elementAttributeDeprecated
+  }
+  return (
+    _mergedConfig.globalAttributes &&
+    _mergedConfig.globalAttributes[attributeName] &&
+    _mergedConfig.globalAttributes[attributeName].deprecated === true
+  )
+}
+
+export const isDeprecatedAttributeValue: (
+  tagName: string,
+  attributeName: string,
+  attributeValue: string
+) => boolean = (tagName, attributeName, attributeValue) => {
+  const elementAttributeValueDeprecated =
+    _mergedConfig.tags &&
+    _mergedConfig.tags[tagName] &&
+    _mergedConfig.tags[tagName].attributes &&
+    _mergedConfig.tags[tagName].attributes[attributeName] &&
+    _mergedConfig.tags[tagName].attributes[attributeName].options &&
+    _mergedConfig.tags[tagName].attributes[attributeName].options[
+      attributeValue
+    ] &&
+    _mergedConfig.tags[tagName].attributes[attributeName].options[
+      attributeValue
+    ].deprecated === true
+  if (elementAttributeValueDeprecated) {
+    return true
+  }
+  return (
+    _mergedConfig.globalAttributes &&
+    _mergedConfig.globalAttributes[attributeName] &&
+    _mergedConfig.globalAttributes[attributeName].options &&
+    _mergedConfig.globalAttributes[attributeName].options[attributeValue] &&
+    _mergedConfig.globalAttributes[attributeName].options[attributeValue]
+      .deprecated === true
+  )
+}
+
 export const shouldHaveNewline: (tagName: string) => boolean = tagName => {
   if (!_mergedConfig.tags) {
     return true
@@ -216,7 +266,7 @@ const toNamed: <T extends object>(values: {
 export const getSuggestedAttributeValues: (
   tagName: string,
   attributeName: string
-) => NamedAttributeValue[] | undefined = (tagName, attributeName) => {
+) => string[] | undefined = (tagName, attributeName) => {
   const elementAttributeValues =
     _mergedConfig.tags &&
     _mergedConfig.tags[tagName] &&
@@ -224,14 +274,14 @@ export const getSuggestedAttributeValues: (
     _mergedConfig.tags[tagName].attributes![attributeName] &&
     _mergedConfig.tags[tagName].attributes![attributeName].options
   if (elementAttributeValues) {
-    return toNamed(elementAttributeValues)
+    return Object.keys(elementAttributeValues)
   }
   const globalAttributeValues =
     _mergedConfig.globalAttributes &&
     _mergedConfig.globalAttributes[attributeName] &&
     _mergedConfig.globalAttributes[attributeName].options
   if (globalAttributeValues) {
-    return toNamed(globalAttributeValues)
+    return Object.keys(globalAttributeValues)
   }
   return undefined
 }

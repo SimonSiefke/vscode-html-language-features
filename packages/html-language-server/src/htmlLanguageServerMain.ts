@@ -36,6 +36,7 @@ import { remotePluginAutoCompletionElementAutoClose } from './remote-plugins/rem
 import { remotePluginAutoCompletionElementSelfClosing } from './remote-plugins/remote-plugin-auto-completion-element-self-closing/remotePluginAutoCompletionElementSelfClosing'
 import { remotePluginHighlightElementMatchingTag } from './remote-plugins/remote-plugin-highlight-element-matching-tag/remotePluginHighlightElementMatchingTag'
 import { remotePluginConfigs } from './remote-plugins/remote-plugin-configs/remotePluginEndPointConfigs'
+import { remotePluginAutoCompletionInsertQuotesAfterEqualSign } from './remote-plugins/remote-plugin-auto-completion-insert-quotes-after-equal-sign/remotePluginAutoCompletionInsertQuotesAfterEqualSign'
 const connection: IConnection = createConnection()
 
 console.log = connection.console.log.bind(connection.console)
@@ -114,6 +115,7 @@ connection.onInitialized(async () => {
 
   remotePluginAutoCompletionElementAutoClose(api)
   remotePluginAutoCompletionElementSelfClosing(api)
+  remotePluginAutoCompletionInsertQuotesAfterEqualSign(api)
 
   remotePluginHighlightElementMatchingTag(api)
 
@@ -135,14 +137,12 @@ connection.onInitialized(async () => {
     triggerCharacters: ['<', '&', '!'],
   }
   connection.client.register(CompletionRequest.type, completionOptions)
-  // remotePluginSuggestionElementExpand(api) // TODO
   remotePluginCompletionEntity(api)
-
   remotePluginCompletionElementSimpleDocument(api)
-  remotePluginCompletionElementExpand(api)
-  remotePluginCompletionElementStartTag(api)
-  remotePluginCompletionAttributeName(api)
   remotePluginCompletionAttributeValue(api)
+  remotePluginCompletionElementExpand(api)
+  remotePluginCompletionAttributeName(api)
+  remotePluginCompletionElementStartTag(api)
 
   const symbolOptions: DocumentSymbolOptions = {}
   connection.client.register(DocumentSymbolRequest.type, symbolOptions)

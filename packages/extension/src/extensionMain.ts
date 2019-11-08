@@ -10,6 +10,7 @@ import { localPluginAutoCompletionElementSelfClosing } from './local-plugins/loc
 import { localPluginHighlightElementMatchingTag } from './local-plugins/local-plugin-highlight-element-matching-tag/localPluginHighlightElementMatchingTag'
 import { localPluginConfigs } from './local-plugins/local-plugin-configs/localPluginConfigs'
 import { localPluginWrapSelectionWithTag } from './local-plugins/local-plugin-wrap-selection-with-tag/localPluginWrapSelectionWithTag'
+import { localPluginAutoCompletionInsertQuotesAfterEqualSign } from './local-plugins/local-plugin-auto-completion-insert-quotes-after-equal-sign/localPluginAutoCompletionInsertQuotesAfterEqualSign'
 
 export const activate: (
   context: vscode.ExtensionContext
@@ -26,6 +27,7 @@ export const activate: (
   localPluginAutoCompletionElementClose(api)
   localPluginAutoCompletionElementRenameTag(api)
   localPluginAutoCompletionElementSelfClosing(api)
+  localPluginAutoCompletionInsertQuotesAfterEqualSign(api)
 
   localPluginWrapSelectionWithTag(api)
 

@@ -1,11 +1,15 @@
 import { doCompletionAttributeName } from '@html-language-features/html-language-service'
-import { getAttributeType } from '@html-language-features/html-language-service/dist/Data/Data'
+import {
+  getAttributeType,
+  isDeprecatedAttribute,
+} from '@html-language-features/html-language-service/dist/Data/Data'
 import {
   CompletionItem,
   CompletionItemKind,
   InsertTextFormat,
   Position,
   Range,
+  CompletionItemTag,
 } from 'vscode-languageserver'
 import { getDocumentationForAttributeName } from '../../util/getDocumentation'
 import { RemotePlugin } from '../remotePlugin'
@@ -27,10 +31,15 @@ const createCompletionItem: (
 ) => CompletionItemWithData | undefined = (tagName, attributeName) => {
   const attributeType = getAttributeType(tagName, attributeName)
   let insertText: string
+  let command: { title: string; command: string } | undefined
   if (attributeType === 'boolean') {
     insertText = attributeName
   } else {
     insertText = `${attributeName}=${constants.quote}$1${constants.quote}`
+    command = {
+      title: 'Suggest',
+      command: 'editor.action.triggerSuggest',
+    }
   }
   const completionItem: CompletionItemWithData = {
     data: {
@@ -41,15 +50,15 @@ const createCompletionItem: (
     insertTextFormat,
     kind,
     label: attributeName,
+    command,
   }
-
-  // if (attributeName.deprecated === true) {
-  //   if (constants.showDeprecatedCompletions === true) {
-  //     completionItem.tags = [CompletionItemTag.Deprecated]
-  //   } else {
-  //     return undefined
-  //   }
-  // }
+  if (isDeprecatedAttribute(tagName, attributeName)) {
+    if (constants.showDeprecatedCompletions === true) {
+      completionItem.tags = [CompletionItemTag.Deprecated]
+    } else {
+      return undefined
+    }
+  }
   return completionItem
 }
 

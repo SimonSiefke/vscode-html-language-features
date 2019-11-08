@@ -6,8 +6,8 @@ import { RequestType, TextDocumentPositionParams } from 'vscode-languageclient'
 // TODO use optional chaining once prettier works with that
 
 type Result = {
-  completionString: string
   completionOffset: number
+  completionString: string
 }
 
 const requestType = new RequestType<
@@ -15,43 +15,29 @@ const requestType = new RequestType<
   Result,
   any,
   any
->('html/auto-completion-element-auto-close')
+>('html/auto-completion-insert-quotes-after-equal-sign')
 
-const askServerForAutoCompletionElementAutoClose: (
+const askServerForAutoCompletionQuotesAfterEqualSign: (
   api: LocalPluginApi,
   document: vscode.TextDocument,
   position: vscode.Position
 ) => Promise<Result> = async (api, document, position) => {
-  // console.log(
-  //   'ask server' +
-  //     document.version +
-  //     'oo' +
-  //     document.offsetAt(position) +
-  //     document.getText()
-  // )
   const params = api.languageClientProxy.code2ProtocolConverter.asTextDocumentPositionParams(
     document,
     position
   )
   const result = await api.languageClientProxy.sendRequest(requestType, params)
+  // TODO duplicate code below
   if (
     !vscode.window.activeTextEditor ||
     vscode.window.activeTextEditor.document.version !== document.version
   ) {
     throw new Error('too slow')
   }
-  // console.log('not too slow')
   return result
 }
 
-const applyResults: (
-  results: (Result | undefined)[]
-) => Promise<void> = async results => {
-  // console.log(
-  //   'apply result' +
-  //     vscode.window.activeTextEditor.document.version +
-  //     JSON.stringify(results)
-  // )
+const applyResults: (results: Result[]) => Promise<void> = async results => {
   const document = vscode.window.activeTextEditor.document
   const relevantResults = results.filter(Boolean).map(result => {
     const startPosition = document.positionAt(result.completionOffset)
@@ -64,63 +50,32 @@ const applyResults: (
   if (relevantResults.length === 0) {
     return
   }
-  const firstResult = relevantResults[0]
-  const isSameWordForEveryResult = relevantResults.every(
-    ({ word }) => word === firstResult.word
+
+  // TODO different results
+  const ranges = relevantResults.map(({ range }) => range)
+  await vscode.window.activeTextEditor.insertSnippet(
+    new vscode.SnippetString(relevantResults[0].word),
+    ranges
   )
-  if (isSameWordForEveryResult) {
-    if (relevantResults.length === 1) {
-      // console.log('one')
-      // console.log(vscode.window.activeTextEditor.document.getText())
-      // await new Promise(r => setTimeout(r, 1000))
-      await vscode.window.activeTextEditor.insertSnippet(
-        new vscode.SnippetString(firstResult.word),
-        firstResult.range
-      )
-      // console.log(vscode.window.activeTextEditor.document.getText())
-    } else {
-      const inlineWord = firstResult.word.replace(/\s/g, '')
-      const ranges = relevantResults.map(({ range }) => range)
-      await vscode.window.activeTextEditor.insertSnippet(
-        new vscode.SnippetString(inlineWord),
-        ranges
-      )
-    }
-  } else {
-    await Promise.all(
-      relevantResults.map(result => {
-        const inlineWord = result.word.replace(/\s/g, '')
-        vscode.window.activeTextEditor.insertSnippet(
-          new vscode.SnippetString(inlineWord),
-          result.range
-        )
-      })
-    )
-  }
+  await vscode.commands.executeCommand('editor.action.triggerSuggest')
 }
 
-// const doAutoCompletionElementAutoClose: () => any = () => {}
-
-export const localPluginAutoCompletionElementAutoClose: LocalPlugin = api => {
+export const localPluginAutoCompletionInsertQuotesAfterEqualSign: LocalPlugin = api => {
   api.vscodeProxy.workspace.onDidChangeTextDocument(async event => {
     if (event.document.languageId !== 'html') {
       return
     }
     const activeDocument =
       vscode.window.activeTextEditor && vscode.window.activeTextEditor.document
-    if (event.contentChanges.length === 0) {
-      return
-    }
-    if (event.document !== activeDocument) {
+    if (
+      event.document !== activeDocument ||
+      event.contentChanges.length === 0
+    ) {
       return
     }
     const relevantChanges = event.contentChanges.filter(change => {
       const lastChar = change.text[change.text.length - 1]
-      return (
-        change.rangeLength === 0 &&
-        lastChar === '>' &&
-        !/<\/[a-zA-Z]*>$/.test(change.text)
-      )
+      return change.rangeLength === 0 && lastChar === '='
     })
     if (relevantChanges.length === 0) {
       return
@@ -135,7 +90,7 @@ export const localPluginAutoCompletionElementAutoClose: LocalPlugin = api => {
     // console.log(JSON.stringify(relevantChanges))
     const results = await Promise.all(
       positions.map(position =>
-        askServerForAutoCompletionElementAutoClose(
+        askServerForAutoCompletionQuotesAfterEqualSign(
           api,
           event.document,
           position

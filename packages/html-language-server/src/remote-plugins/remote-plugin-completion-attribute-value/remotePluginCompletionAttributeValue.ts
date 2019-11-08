@@ -2,6 +2,7 @@ import {
   doCompletionAttributeValue,
   NamedAttributeValue,
   AttributeType,
+  isDeprecatedAttributeValue,
 } from '@html-language-features/html-language-service'
 import {
   CompletionItem,
@@ -26,31 +27,27 @@ type CompletionItemWithData = CompletionItem & { data: Data }
 const kind = CompletionItemKind.Value
 const insertTextFormat = InsertTextFormat.Snippet
 
-const createCompletionItemForAttributeValue: ({
+const createCompletionItemForAttributeValue: (
+  tagName: string,
+  attributeName: string,
+  attributeValue: string
+) => CompletionItemWithData | undefined = (
   tagName,
   attributeName,
-  attributeValue,
-}: {
-  tagName: string
-  attributeName: string
-  attributeValue: NamedAttributeValue
-}) => CompletionItemWithData | undefined = ({
-  tagName,
-  attributeName,
-  attributeValue,
-}) => {
+  attributeValue
+) => {
   const completionItem: CompletionItemWithData = {
     data: {
       attributeName,
       tagName: tagName,
-      attributeValue: attributeValue.name,
+      attributeValue: attributeValue,
     },
-    insertText: attributeValue.name,
+    insertText: attributeValue,
     insertTextFormat,
     kind,
-    label: attributeValue.name,
+    label: attributeValue,
   }
-  if (attributeValue.deprecated) {
+  if (isDeprecatedAttributeValue(tagName, attributeName, attributeValue)) {
     if (constants.showDeprecatedCompletions === true) {
       completionItem.tags = [CompletionItemTag.Deprecated]
     } else {
@@ -96,11 +93,11 @@ export const remotePluginCompletionAttributeValue: RemotePlugin = api => {
       if ('attributeValues' in result) {
         const items = result.attributeValues
           .map(attributeValue =>
-            createCompletionItemForAttributeValue({
-              tagName: result.tagName,
-              attributeName: result.attributeName,
-              attributeValue,
-            })
+            createCompletionItemForAttributeValue(
+              result.tagName,
+              result.attributeName,
+              attributeValue
+            )
           )
           .filter(Boolean) as CompletionItemWithData[]
         if (items.length === 0) {

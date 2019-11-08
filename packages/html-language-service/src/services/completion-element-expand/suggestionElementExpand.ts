@@ -85,6 +85,12 @@ export const doCompletionElementExpand: (
   // const nextChar = scanner.stream.peekRight(1) //?
   // if (prevChar.trim() || !currentChar.trim()) {
   // }
+  scanner.stream.goBackToUntilEitherChar('<', '>')
+  const char = scanner.stream.peekLeft(1)
+  if (char === '<') {
+    return []
+  }
+  scanner.stream.goTo(offset)
   const leftChar = scanner.stream.peekLeft(1)
   if (leftChar === '<' || !leftChar.trim()) {
     return []

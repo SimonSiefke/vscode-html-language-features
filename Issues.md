@@ -267,6 +267,7 @@ fuzzy search for attributes
  need a way to go inside tag
  input -> <input>|
  input -> <input | > -> <input tt| > -> <input type="text" | >
+ input -> <input | > -> <input tn| > -> <input type="number" | >
 
   -->
 
@@ -328,4 +329,15 @@ and https://www.w3.org/TR/2017/REC-html52-20171214/fullindex.html#attributes-tab
 new completion api
 
 https://code.visualstudio.com/updates/v1_40#_support-intellisense-replace-mode
+ -->
+
+<!-- TODO why is deprecated contextmenu showing up in attribute names? -->
+
+<!-- TODO
+attributes:
+contenteditable -> boolean
+
+extract values from global attributes (should be same as for normal attributes):
+dir: ltr or rtl
+draggable -> boolean
  -->

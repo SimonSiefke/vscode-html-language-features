@@ -28,8 +28,10 @@ export {
   getSuggestedTags,
   isDeprecatedTag,
   isSelfClosingTag,
+  isDeprecatedAttribute,
   NamedAttributeValue,
   shouldHaveNewline,
+  isDeprecatedAttributeValue,
 } from './Data/Data'
 export {
   doAutoCompletionElementAutoClose,
