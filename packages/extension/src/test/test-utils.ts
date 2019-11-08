@@ -12,7 +12,7 @@ export async function activateExtension() {
 }
 
 export interface TestCase {
-  input: string
+  input?: string
   type?: string
   expect: string
   only?: boolean
@@ -22,6 +22,7 @@ export interface TestCase {
   debug?: boolean
   waitForAutoComplete?: 1
   selection?: [number, number]
+  afterCommands?: string[]
 }
 
 export async function createTestFile(
@@ -136,7 +137,7 @@ export function getText(): string {
 
 export async function run(
   testCases: TestCase[],
-  { speed = 0, timeout = 40, afterCommand = '' } = {}
+  { speed = 0, timeout = 40, afterCommands = [] as any[] } = {}
 ) {
   const only = testCases.filter(testCase => testCase.only)
   const applicableTestCases = only.length ? only : testCases
@@ -144,10 +145,12 @@ export async function run(
     if (testCase.skip) {
       continue
     }
-    const cursorOffset = testCase.input.indexOf('|')
-    const input = testCase.input.replace('|', '')
-    await setText(input)
-    setCursorPosition(cursorOffset)
+    if (testCase.input !== undefined) {
+      const cursorOffset = testCase.input.indexOf('|')
+      const input = testCase.input.replace('|', '')
+      await setText(input)
+      setCursorPosition(cursorOffset)
+    }
     if (testCase.selection) {
       const [start, end] = testCase.selection
       vscode.window.activeTextEditor.selection = new vscode.Selection(
@@ -160,7 +163,8 @@ export async function run(
       const autoCompleteTimeout = testCase.timeout || timeout
       await waitForAutoComplete(autoCompleteTimeout)
     }
-    if (afterCommand) {
+    const resolvedAfterCommands = testCase.afterCommands || afterCommands
+    for (const afterCommand of resolvedAfterCommands) {
       await vscode.commands.executeCommand(afterCommand)
       const autoCompleteTimeout = testCase.timeout || timeout
       await waitForAutoComplete(autoCompleteTimeout)

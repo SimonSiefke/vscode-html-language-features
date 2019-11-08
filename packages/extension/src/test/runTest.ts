@@ -15,7 +15,12 @@ const vscodeVersion = '1.40.0'
       __dirname,
       `../../.vscode-test/vscode-${vscodeVersion}/VSCode-linux-x64/resources/app/extensions/html-language-features`
     )
+    const builtinEmmetPath = path.join(
+      __dirname,
+      `../../.vscode-test/vscode-${vscodeVersion}/VSCode-linux-x64/resources/app/extensions/emmet`
+    )
     rimraf.sync(builtInHtmlLanguageFeaturesPath)
+    rimraf.sync(builtinEmmetPath)
     await runTests({
       version: vscodeVersion,
       extensionDevelopmentPath,

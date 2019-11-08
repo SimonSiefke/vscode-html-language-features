@@ -21,7 +21,7 @@ suite('Wrap Tag', () => {
       },
     ]
     await run(testCases, {
-      afterCommand: 'html.wrap-selection-with-tag',
+      afterCommands: ['html.wrap-selection-with-tag'],
     })
   })
 })

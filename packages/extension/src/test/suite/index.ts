@@ -5,7 +5,13 @@ import * as glob from 'glob'
 // const testFiles = '**/**.test.js'
 // const testFiles = '**/+(emmetCompleteTag|autoCloseTag).test.js'
 // const testFiles = '**/+(emmetCompleteTag).test.js'
-const files = ['autoCloseTag', 'wrapTag', 'autoRenameTag']
+const files = [
+  'autoCloseTag',
+  'closeTag',
+  'wrapTag',
+  'autoRenameTag',
+  'expandTag',
+]
 const testFiles = `**/+(${files.join('|')}).test.js`
 // const testFiles = '**/+(emmetCompleteTag).benchmark.js'
 

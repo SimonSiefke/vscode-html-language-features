@@ -3,6 +3,9 @@
     "!DOCTYPE": {
       "selfClosing": true
     },
+    "!doctype": {
+      "selfClosing": true
+    },
     "a": {
       "newline": false
     },

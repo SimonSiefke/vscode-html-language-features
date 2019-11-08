@@ -43,6 +43,11 @@ suite('Auto Close Tag', () => {
         type: '<!DOCTYPE html>',
         expect: '<!DOCTYPE html>',
       },
+      {
+        input: '',
+        type: '<!doctype html>',
+        expect: '<!doctype html>',
+      },
     ]
     await run(testCases, { timeout })
   })
