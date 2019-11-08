@@ -52,7 +52,6 @@ https://github.com/microsoft/vscode/issues/58315
 
 ## todo
 
-- check if element requires newline from mdn
 - https://designmodo.com/css-editors/
 - http://websitetips.com/html/tools/
 - https://www.developerdrive.com/10-best-open-source-tools-for-web-developers/
@@ -329,17 +328,6 @@ and https://www.w3.org/TR/2017/REC-html52-20171214/fullindex.html#attributes-tab
 new completion api
 
 https://code.visualstudio.com/updates/v1_40#_support-intellisense-replace-mode
- -->
-
-<!-- TODO why is deprecated contextmenu showing up in attribute names? -->
-
-<!-- TODO
-attributes:
-contenteditable -> boolean
-
-extract values from global attributes (should be same as for normal attributes):
-dir: ltr or rtl
-draggable -> boolean
  -->
 
 <!-- TODO
