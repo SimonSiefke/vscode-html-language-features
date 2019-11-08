@@ -177,4 +177,4 @@ export async function run(
   }
 }
 
-export const ciSlowNess = 2
+export const ciSlowNess = 2.7
