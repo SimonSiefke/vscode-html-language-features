@@ -237,24 +237,12 @@ test('getSuggestedAttributeValues', async () => {
     'test'
   )
   expect(getSuggestedAttributeValues('a', 'target')).toEqual([
-    {
-      name: '_blank',
-      description: 'Opens the url in a new tab',
-    },
-    {
-      name: '_top',
-    },
-    {
-      name: '_self',
-    },
-    {
-      name: '_parent',
-    },
+    '_blank',
+    '_top',
+    '_self',
+    '_parent',
   ])
-  expect(getSuggestedAttributeValues('a', 'dir')).toEqual([
-    { name: 'ltr', description: 'left to right' },
-    { name: 'rtl', description: 'right to left' },
-  ])
+  expect(getSuggestedAttributeValues('a', 'dir')).toEqual(['ltr', 'rtl'])
 })
 
 test('getSuggestedTags `ul`', async () => {

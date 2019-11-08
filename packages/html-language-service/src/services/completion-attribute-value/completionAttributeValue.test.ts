@@ -31,11 +31,7 @@ test('completion-attribute-value with attribute values', async () => {
       expected: {
         tagName: 'a',
         attributeName: 'target',
-        attributeValues: [
-          {
-            name: '_blank',
-          },
-        ],
+        attributeValues: ['_blank'],
       },
     },
     {
@@ -43,11 +39,7 @@ test('completion-attribute-value with attribute values', async () => {
       expected: {
         tagName: 'a',
         attributeName: 'rel',
-        attributeValues: [
-          {
-            name: 'noopener noreferrer',
-          },
-        ],
+        attributeValues: ['noopener noreferrer'],
       },
     },
   ]
