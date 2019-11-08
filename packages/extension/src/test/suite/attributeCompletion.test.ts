@@ -83,6 +83,7 @@ suite.only('Attribute Completion', () => {
     ]
     await run(testCases, {
       timeout,
+      speed: 200,
       afterCommands: [
         'editor.action.triggerSuggest',
         'acceptSelectedSuggestion',
