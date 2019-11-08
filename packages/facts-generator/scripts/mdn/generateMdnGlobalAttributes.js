@@ -18,7 +18,7 @@ turndownService.addRule('remove', {
 const reference =
   'https://developer.mozilla.org/en-US/docs/Web/HTML/Global_attributes'
 
-/** @typedef {{name:string, description:string, link:string, deprecated:boolean, experimental:boolean, attributeValues:any[]} } PreAttribute */
+/** @typedef {{name:string, description:string, link:string, deprecated:boolean, experimental:boolean, attributeValues:any[], type?:string} } PreAttribute */
 
 /**
  * @return {Promise<PreAttribute[]>}
@@ -76,6 +76,10 @@ const getGlobalAttributes = async () => {
     const description = descriptions[i]
     const $2 = cheerio.load(descriptions[i])
     const attributeValues = getAttributeValuesInsideUl($2, $2('ul')) //?
+    let type
+    if (description.includes('Boolean')) {
+      type = 'boolean'
+    }
     const experimental = experimentalAttributes[i]
     const deprecated = deprecatedAttributes[i]
     results.push({
@@ -85,6 +89,7 @@ const getGlobalAttributes = async () => {
       experimental,
       deprecated,
       attributeValues,
+      type,
     })
   }
   return results
@@ -124,6 +129,9 @@ const finishAttributes = attributes => {
           deprecated: attributeValue.deprecated,
         }
       }
+    }
+    if (attribute.type) {
+      current.type = attribute.type
     }
     current.description = fixDescriptionMarkdown(attribute.description)
     current.reference = {

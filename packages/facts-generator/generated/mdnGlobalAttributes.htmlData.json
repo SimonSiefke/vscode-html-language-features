@@ -140,6 +140,7 @@
       }
     },
     "hidden": {
+      "type": "boolean",
       "description": "A Boolean attribute indicates that the element is not yet, or is no longer, relevant. For example, it can be used to hide elements of the page that can't be used until the login process has been completed. The browser won't render such elements. This attribute must not be used to hide content that could legitimately be shown.",
       "reference": {
         "name": "MDN Reference",
