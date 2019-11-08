@@ -1,10 +1,9 @@
 import axios from 'axios'
 import { Config } from '@html-language-features/schema'
+// @ts-ignore
 import _mdnConfig from '../generated/mdn.htmlData.json'
-import _mdnGlobalAttributesConfig from '../generated/mdnGlobalAttributes.htmlData.json'
 
 const mdnConfig = _mdnConfig as Config
-const mdnGlobalAttributesConfig = _mdnGlobalAttributesConfig as Config
 
 test('empty elements', () => {
   const emptyTags = [
@@ -83,19 +82,6 @@ test('a#target', () => {
     '_parent',
     '_top',
   ])
-})
-
-test.skip('global attributes', () => {
-  const spellcheck = mdnGlobalAttributesConfig.globalAttributes.spellcheck
-  expect(spellcheck).toHaveProperty('description')
-  expect(spellcheck.options).toHaveProperty('true')
-  expect(spellcheck.options).toHaveProperty('false')
-
-  const dropzone = mdnGlobalAttributesConfig.globalAttributes.spellcheck
-  expect(dropzone).toHaveProperty('description')
-  expect(dropzone.options).toHaveProperty('copy')
-  expect(dropzone.options).toHaveProperty('move')
-  expect(dropzone.options).toHaveProperty('link')
 })
 
 test.skip('referrerpolicy', () => {
