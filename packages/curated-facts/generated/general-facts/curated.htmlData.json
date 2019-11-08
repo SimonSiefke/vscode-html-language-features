@@ -6,6 +6,37 @@
     "!doctype": {
       "selfClosing": true
     },
+    "input": {
+      "attributes": {
+        "type": {
+          "options": {
+            "button": {},
+            "checkbox": {},
+            "color": {},
+            "date": {},
+            "datetime-local": {},
+            "email": {},
+            "file": {},
+            "hidden": {},
+            "image": {},
+            "month": {},
+            "number": {},
+            "password": {},
+            "radio": {},
+            "range": {},
+            "reset": {},
+            "search": {},
+            "submit": {},
+            "tel": {},
+            "text": {},
+            "time": {},
+            "url": {},
+            "week": {}
+          }
+        }
+      },
+      "newline": false
+    },
     "a": {
       "newline": false
     },
@@ -88,9 +119,6 @@
       "newline": false
     },
     "img": {
-      "newline": false
-    },
-    "input": {
       "newline": false
     },
     "ins": {

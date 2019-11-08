@@ -2,7 +2,12 @@ import {
   createScanner,
   ScannerState,
 } from '@html-language-features/html-parser'
-import { getSuggestedAttributes } from '../../Data/Data'
+import {
+  getSuggestedAttributes,
+  getSuggestedAttributeValues,
+} from '../../Data/Data'
+import { fuzzySearch } from './fuzzySearch'
+import { fuzzySearchAndSort } from './fuzzySearchAndSort'
 
 /**
  * Suggestions for attribute names
@@ -12,7 +17,16 @@ import { getSuggestedAttributes } from '../../Data/Data'
 export const doCompletionAttributeName: (
   text: string,
   offset: number
-) => { tagName: string; attributes: string[] } | undefined = (text, offset) => {
+) =>
+  | {
+      tagName: string
+      attributes: {
+        name: string
+        attributeValueScores?: { value: string; score: number }[]
+        attributeOnlyScore: number
+      }[]
+    }
+  | undefined = (text, offset) => {
   const scanner = createScanner(text, { initialOffset: offset })
   const endsWithAttributeValue = scanner.stream.currentlyEndsWithRegex(
     /\S+=\S+$/
@@ -26,6 +40,12 @@ export const doCompletionAttributeName: (
   if (!isSomewhereInStartingTag) {
     return undefined
   }
+  const partialAttributeNameMatch = scanner.stream
+    .getSource()
+    .slice(0, offset)
+    .match(/([a-zA-Z0-9]*)?$/)
+  const partialAttributeName =
+    (partialAttributeNameMatch && partialAttributeNameMatch[1]) || ''
   scanner.stream.goBackToUntilEitherChar('<', '>')
   const char = scanner.stream.peekLeft()
   if (char === '>') {
@@ -43,11 +63,32 @@ export const doCompletionAttributeName: (
   // 2. fuzzy search in statistics[tagName][inCompleteAttributeName]
 
   const attributes = getSuggestedAttributes(tagName)
-  if (attributes.length === 0) {
+  const attributesWithScores = attributes
+    .map(attributeName => {
+      const attributeValues = getSuggestedAttributeValues(
+        tagName,
+        attributeName
+      )
+      const result = fuzzySearchAndSort(
+        partialAttributeName,
+        attributeName,
+        attributeValues
+      )
+      // console.log(attributeName)
+      // console.log(JSON.stringify(result))
+      return {
+        name: attributeName,
+        ...result,
+      }
+    })
+    .filter(x => x.attributeOnlyScore > 0)
+  // console.log(JSON.stringify(attributesWithScores))
+  // console.log(JSON.stringify(attributes))
+  if (attributesWithScores.length === 0) {
     return undefined
   }
   return {
-    attributes,
+    attributes: attributesWithScores,
     tagName,
   }
 }

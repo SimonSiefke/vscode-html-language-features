@@ -34,15 +34,39 @@ test('completion-attribute-name', async () => {
     },
     {
       input: '<h1 |',
-      expected: { tagName: 'h1', attributes: ['class'] },
+      expected: {
+        tagName: 'h1',
+        attributes: [
+          {
+            attributeOnlyScore: 1,
+            name: 'class',
+          },
+        ],
+      },
     },
     {
       input: '<h1 class="big" |',
-      expected: { tagName: 'h1', attributes: ['class'] },
+      expected: {
+        tagName: 'h1',
+        attributes: [
+          {
+            attributeOnlyScore: 1,
+            name: 'class',
+          },
+        ],
+      },
     },
     {
       input: `<h1 class="big"\n  |`,
-      expected: { tagName: 'h1', attributes: ['class'] },
+      expected: {
+        tagName: 'h1',
+        attributes: [
+          {
+            attributeOnlyScore: 1,
+            name: 'class',
+          },
+        ],
+      },
     },
     {
       input: '<h1 x="y"|',
@@ -82,7 +106,15 @@ test('completion-attribute-name', async () => {
     },
     {
       input: '<h1></h1><h1 |',
-      expected: { tagName: 'h1', attributes: ['class'] },
+      expected: {
+        tagName: 'h1',
+        attributes: [
+          {
+            attributeOnlyScore: 1,
+            name: 'class',
+          },
+        ],
+      },
     },
     {
       input: '<Daten/|',

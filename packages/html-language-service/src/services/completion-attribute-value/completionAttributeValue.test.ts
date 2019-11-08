@@ -52,7 +52,7 @@ test('completion-attribute-value with attribute values', async () => {
   }
 })
 
-test('suggestion-attribute-value with attribute type', async () => {
+test('completion-attribute-value with attribute type', async () => {
   await replaceConfigs(
     [
       {
