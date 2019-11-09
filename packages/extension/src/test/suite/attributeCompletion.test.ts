@@ -4,12 +4,13 @@ import {
   run,
   activateExtension,
   ciSlowNess,
+  slowSpeed,
 } from '../test-utils'
 import { before } from 'mocha'
 
 const timeout = 300 * ciSlowNess
 
-suite.only('Attribute Completion', () => {
+suite('Attribute Completion', () => {
   before(async () => {
     await createTestFile('attribute-completion.html')
     await activateExtension()
@@ -56,6 +57,7 @@ suite.only('Attribute Completion', () => {
     ]
     await run(testCases, {
       timeout,
+      speed: slowSpeed,
       afterCommands: [
         'editor.action.triggerSuggest',
         'acceptSelectedSuggestion',
@@ -83,7 +85,7 @@ suite.only('Attribute Completion', () => {
     ]
     await run(testCases, {
       timeout,
-      speed: 200,
+      speed: slowSpeed,
       afterCommands: [
         'editor.action.triggerSuggest',
         'acceptSelectedSuggestion',
@@ -102,20 +104,24 @@ suite.only('Attribute Completion', () => {
         input: '<img |',
         type: 'cr',
         expect: '<img crossorigin=""',
+        skip: true,
       },
       {
         input: '<img |',
         type: 'cra',
         expect: '<img crossorigin="anonymous"',
+        skip: true,
       },
       {
         input: '<img |',
         type: 'cru',
         expect: '<img crossorigin="use-credentials"',
+        skip: true,
       },
     ]
     await run(testCases, {
       timeout,
+      speed: slowSpeed,
       afterCommands: [
         'editor.action.triggerSuggest',
         'acceptSelectedSuggestion',

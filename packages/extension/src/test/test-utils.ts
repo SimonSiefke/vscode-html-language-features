@@ -50,18 +50,20 @@ async function setText(text: string): Promise<void> {
   )
 }
 
-function setCursorPosition(offset: number): void {
-  const position = vscode.window.activeTextEditor.document.positionAt(offset)
-  vscode.window.activeTextEditor.selection = new vscode.Selection(
-    position,
-    position
+function setCursorPositions(offsets: number[]): void {
+  const positions = offsets.map(offset =>
+    vscode.window.activeTextEditor.document.positionAt(offset)
   )
+  const selections = positions.map(
+    position => new vscode.Selection(position, position)
+  )
+  vscode.window.activeTextEditor.selections = selections
 }
 
 async function typeLiteral(text: string): Promise<void> {
   await vscode.window.activeTextEditor.insertSnippet(
     new vscode.SnippetString(text),
-    vscode.window.activeTextEditor.selection.active,
+    vscode.window.activeTextEditor.selections,
     {
       undoStopAfter: false,
       undoStopBefore: false,
@@ -139,6 +141,7 @@ export async function run(
   testCases: TestCase[],
   { speed = 0, timeout = 40, afterCommands = [] as any[] } = {}
 ) {
+  await setText('')
   const only = testCases.filter(testCase => testCase.only)
   const applicableTestCases = only.length ? only : testCases
   for (const testCase of applicableTestCases) {
@@ -146,10 +149,15 @@ export async function run(
       continue
     }
     if (testCase.input !== undefined) {
-      const cursorOffset = testCase.input.indexOf('|')
-      const input = testCase.input.replace('|', '')
+      const cursorOffsets = []
+      for (let i = 0; i < testCase.input.length; i++) {
+        if (testCase.input[i] === '|') {
+          cursorOffsets.push(i - cursorOffsets.length)
+        }
+      }
+      const input = testCase.input.replace(/\|/g, '')
       await setText(input)
-      setCursorPosition(cursorOffset)
+      setCursorPositions(cursorOffsets)
     }
     if (testCase.selection) {
       const [start, end] = testCase.selection
@@ -178,3 +186,5 @@ export async function run(
 }
 
 export const ciSlowNess = 2.7
+
+export const slowSpeed = 400 * ciSlowNess

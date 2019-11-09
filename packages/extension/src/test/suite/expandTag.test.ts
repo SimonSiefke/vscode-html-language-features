@@ -18,12 +18,12 @@ suite('Expand Tag', () => {
   test('basic', async () => {
     const testCases: TestCase[] = [
       {
-        input: '',
+        input: '|',
         type: 'button',
         expect: '<button></button>',
       },
       {
-        input: '',
+        input: '|',
         type: '<!DOCTYPE html>\nhtml',
         expect: '<!DOCTYPE html>\n<html>\n  \n</html>',
       },
@@ -45,7 +45,7 @@ suite('Expand Tag', () => {
   test('html document from scratch', async () => {
     const testCases: TestCase[] = [
       {
-        input: '',
+        input: '|',
         type: '<',
         expect: '<!DOCTYPE',
       },

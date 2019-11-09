@@ -6,6 +6,7 @@ import {
   ciSlowNess,
 } from '../test-utils'
 import { before } from 'mocha'
+// TODO use deindent from typescript
 
 const timeout = 300 * ciSlowNess
 
@@ -28,25 +29,80 @@ suite('Auto Close Tag', () => {
         expect: '<div>\n  <ul>\n    \n  </ul>\n</div>',
       },
       {
-        input: '',
+        input: '|',
         type: '<input>',
         expect: '<input>',
       },
       {
-        input: '',
+        input: '|',
         type: '<div>\n<img src="https://source.unsplash.com/random"></div>',
         expect: '<div>\n<img src="https://example.jpg"></div>',
         skip: true,
       },
       {
-        input: '',
+        input: '|',
         type: '<!DOCTYPE html>',
         expect: '<!DOCTYPE html>',
       },
       {
-        input: '',
+        input: '|',
         type: '<!doctype html>',
         expect: '<!doctype html>',
+      },
+    ]
+    await run(testCases, { timeout })
+  })
+
+  test('multicursor', async () => {
+    const testCases: TestCase[] = [
+      {
+        input: `
+<h1|
+<h2|
+<h3|
+<h4|
+<h5|
+<h6|
+`.trimStart(),
+        type: '>',
+        expect: `
+<h1></h1>
+<h2></h2>
+<h3></h3>
+<h4></h4>
+<h5></h5>
+<h6></h6>
+`.trimStart(),
+      },
+      {
+        input: `
+<div|
+<div|
+<div|
+<div|
+<div|
+<div|
+`.trimStart(),
+        type: '>',
+        expect: `
+<div></div>
+<div></div>
+<div></div>
+<div></div>
+<div></div>
+<div></div>
+`.trimStart(),
+      },
+      {
+        type: '<button>',
+        expect: `
+<div><button></button></div>
+<div><button></button></div>
+<div><button></button></div>
+<div><button></button></div>
+<div><button></button></div>
+<div><button></button></div>
+`.trimStart(),
       },
     ]
     await run(testCases, { timeout })

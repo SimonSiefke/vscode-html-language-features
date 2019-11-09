@@ -92,7 +92,11 @@ const applyResults: (
         const inlineWord = result.word.replace(/\s/g, '')
         vscode.window.activeTextEditor.insertSnippet(
           new vscode.SnippetString(inlineWord),
-          result.range
+          result.range,
+          {
+            undoStopBefore: false,
+            undoStopAfter: false,
+          }
         )
       })
     )
