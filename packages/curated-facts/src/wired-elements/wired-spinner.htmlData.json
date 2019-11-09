@@ -1,6 +1,7 @@
 {
   "tags": {
     "wired-spinner": {
+      "newline": false,
       "categories": ["flow content"],
       "description": "Hand-drawn sketchy spinner to show progress or a pending task.",
       "allowedSubTags": [],

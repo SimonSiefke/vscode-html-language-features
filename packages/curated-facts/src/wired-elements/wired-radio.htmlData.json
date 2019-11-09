@@ -1,6 +1,7 @@
 {
   "tags": {
     "wired-radio": {
+      "newline": false,
       "categories": [
         "flow content",
         "phrasing content",

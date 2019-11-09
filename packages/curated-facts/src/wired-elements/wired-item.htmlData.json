@@ -1,6 +1,7 @@
 {
   "tags": {
     "wired-item": {
+      "newline": false,
       "categories": [],
       "allowedSubTags": [
         {

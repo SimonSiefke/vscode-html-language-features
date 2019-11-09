@@ -1,6 +1,7 @@
 {
   "tags": {
     "wired-image": {
+      "newline": false,
       "categories": [
         "flow content",
         "phrasing content",

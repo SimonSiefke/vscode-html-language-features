@@ -1,6 +1,7 @@
 {
   "tags": {
     "wired-toggle": {
+      "newline": false,
       "categories": [
         "flow content",
         "phrasing content",

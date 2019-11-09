@@ -1,6 +1,7 @@
 {
   "tags": {
     "wired-input": {
+      "newline": false,
       "categories": [
         "flow content",
         "phrasing content",

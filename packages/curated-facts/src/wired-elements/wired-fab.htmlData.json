@@ -1,6 +1,7 @@
 {
   "tags": {
     "wired-fab": {
+      "newline": false,
       "categories": [
         "flow content",
         "phrasing content",

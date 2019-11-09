@@ -2,6 +2,7 @@
   "tags": {
     "wired-calendar": {
       "categories": ["flow content"],
+      "newline": false,
       "allowedSubTags": [],
       "description": "Calendar control with a hand-drawn, wireframe like, style.",
       "attributes": {

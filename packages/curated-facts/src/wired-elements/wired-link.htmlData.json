@@ -1,6 +1,7 @@
 {
   "tags": {
     "wired-link": {
+      "newline": false,
       "categories": [
         "flow content",
         "phrasing content",

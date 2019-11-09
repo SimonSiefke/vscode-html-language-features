@@ -1,6 +1,7 @@
 {
   "tags": {
     "wired-icon-button": {
+      "newline": false,
       "categories": [
         "flow content",
         "phrasing content",

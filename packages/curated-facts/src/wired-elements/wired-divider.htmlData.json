@@ -1,6 +1,7 @@
 {
   "tags": {
     "wired-divider": {
+      "newline": false,
       "categories": ["flow content"],
       "allowedSubTags": [],
       "description": "Hand-drawn sketchy line to divide sections",

@@ -1,6 +1,7 @@
 {
   "tags": {
     "wired-textarea": {
+      "newline": false,
       "categories": [
         "flow content",
         "phrasing content",

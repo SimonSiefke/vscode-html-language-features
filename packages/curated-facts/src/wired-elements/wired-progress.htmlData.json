@@ -1,6 +1,7 @@
 {
   "tags": {
     "wired-progress": {
+      "newline": false,
       "categories": [
         "flow content",
         "phrasing content",
