@@ -1,4 +1,10 @@
-import { TestCase, createTestFile, run, activateExtension } from '../test-utils'
+import {
+  TestCase,
+  createTestFile,
+  run,
+  activateExtension,
+  slowTimeout,
+} from '../test-utils'
 import { before } from 'mocha'
 
 suite('Wrap Tag', () => {
@@ -21,6 +27,7 @@ suite('Wrap Tag', () => {
       },
     ]
     await run(testCases, {
+      timeout: slowTimeout,
       afterCommands: ['html.wrap-selection-with-tag'],
     })
   })
