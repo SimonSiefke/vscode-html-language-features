@@ -62,5 +62,10 @@
       "maxSize": "70 kB",
       "compression": "none"
     }
-  ]
+  ],
+  "prettier": {
+    "semi": false,
+    "trailingComma": "es5",
+    "singleQuote": true
+  }
 }

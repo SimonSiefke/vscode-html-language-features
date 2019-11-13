@@ -1,8 +1,9 @@
 import {
   getPreviousOpeningTagName,
-  getNextClosingTag,
+  // getNextClosingTag,
 } from '../util/getParentTagName'
 import { createScanner } from '@html-language-features/html-parser'
+import { getNextClosingTagName } from '../util/getNextClosingTagName'
 
 /**
  * Completion for closing end-tag
@@ -13,10 +14,10 @@ export const doAutoCompletionElementClose: (
   text: string,
   offset: number
 ) =>
-  | ({
+  | {
       completionString: string
       completionOffset: number
-    })
+    }
   | undefined = (text, offset) => {
   // TODO partial get text
   const scanner = createScanner(text)
@@ -37,7 +38,7 @@ export const doAutoCompletionElementClose: (
       return undefined
     }
     const previousOpeningTagName = getPreviousOpeningTagName(scanner, before)
-    const nextClosingTagName = getNextClosingTag(scanner, after)
+    const nextClosingTagName = getNextClosingTagName(scanner, after)
     if (!previousOpeningTagName) {
       return undefined
     }

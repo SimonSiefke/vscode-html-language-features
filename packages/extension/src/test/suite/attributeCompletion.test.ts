@@ -145,7 +145,7 @@ suite('Attribute Completion', () => {
         input: '<button disabled|',
         type: '=',
         expect: '<button disabled=""',
-        afterCommands: [],
+        afterTypeCommands: [],
       },
     ]
     await run(testCases, {

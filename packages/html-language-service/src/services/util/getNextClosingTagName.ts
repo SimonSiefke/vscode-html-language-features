@@ -2,115 +2,115 @@ import {
   Scanner,
   ScannerState,
   TokenType,
-  createScanner
-} from "@html-language-features/html-parser";
+  createScanner,
+} from '@html-language-features/html-parser'
 
-import { isSelfClosingTag } from "../../Data/Data";
+import { isSelfClosingTag } from '../../Data/Data'
 
 export const getNextClosingTagName: (
   scanner: Scanner,
   initialOffset: number
 ) =>
   | {
-      tagName: string;
-      offset: number;
-      seenRightAngleBracket: boolean;
+      tagName: string
+      offset: number
+      seenRightAngleBracket: boolean
     }
   | undefined = (scanner, initialOffset) => {
-  let offset = initialOffset;
-  let nextClosingTagName: string | undefined;
-  let stack: string[] = [];
-  let seenRightAngleBracket = false;
-  let i = 0;
-  scanner.stream.goTo(offset);
+  let offset = initialOffset
+  let nextClosingTagName: string | undefined
+  let stack: string[] = []
+  let seenRightAngleBracket = false
+  let i = 0
+  scanner.stream.goTo(offset)
   do {
     if (i++ > 100) {
-      throw new Error("probably infinite loop");
+      throw new Error('probably infinite loop')
     }
-    scanner.stream.advanceUntilEitherChar("<", ">");
-    const char = scanner.stream.peekRight(); //?
-    if (!["<", ">"].includes(char)) {
-      return undefined;
+    scanner.stream.advanceUntilEitherChar('<', '>')
+    const char = scanner.stream.peekRight() //?
+    if (!['<', '>'].includes(char)) {
+      return undefined
     }
-    if (char === "<") {
+    if (char === '<') {
       // skip comment
       // scanner.stream.nextChars(4); //?
-      if (scanner.stream.peekRight(1) === "/") {
-        scanner.stream.advance(2);
-        offset = scanner.stream.position;
-        scanner.state = ScannerState.AfterOpeningEndTag;
-        const token = scanner.scan();
+      if (scanner.stream.peekRight(1) === '/') {
+        scanner.stream.advance(2)
+        offset = scanner.stream.position
+        scanner.state = ScannerState.AfterOpeningEndTag
+        const token = scanner.scan()
         if (token !== TokenType.EndTag) {
-          return undefined;
+          return undefined
         }
-        const tokenText = scanner.getTokenText();
+        const tokenText = scanner.getTokenText()
         if (stack.length) {
           if (stack.pop() !== tokenText) {
-            console.error("no");
+            console.error('no')
           }
-          continue;
+          continue
         }
-        nextClosingTagName = tokenText;
+        nextClosingTagName = tokenText
         if (nextClosingTagName !== undefined) {
-          break;
+          break
         }
       }
 
-      if (scanner.stream.nextChars(4) === "<!--") {
-        scanner.stream.advanceUntilChars("-->");
-        scanner.stream.advance(3);
-        continue;
+      if (scanner.stream.nextChars(4) === '<!--') {
+        scanner.stream.advanceUntilChars('-->')
+        scanner.stream.advance(3)
+        continue
       } else {
-        scanner.stream.advance(1);
-        scanner.state = ScannerState.AfterOpeningStartTag;
-        const token = scanner.scan();
+        scanner.stream.advance(1)
+        scanner.state = ScannerState.AfterOpeningStartTag
+        const token = scanner.scan()
         if (token !== TokenType.StartTag) {
           // console.log(scanner.getTokenText());
           // console.log("no start tag");
-          return undefined;
+          return undefined
         }
-        const tokenText = scanner.getTokenText();
+        const tokenText = scanner.getTokenText()
         if (isSelfClosingTag(tokenText)) {
-          continue;
+          continue
         }
         // push opening tag onto the stack
-        stack.push(tokenText);
-        continue;
+        stack.push(tokenText)
+        continue
       }
     } else {
-      if (scanner.stream.peekRight(1) === "") {
+      if (scanner.stream.peekRight(1) === '') {
         // console.log("end");
-        return undefined;
+        return undefined
       }
       // don't go outside of comment when inside
-      if (scanner.stream.previousChars(2) === "--") {
+      if (scanner.stream.previousChars(2) === '--') {
         // console.log("return undefined");
-        return undefined;
+        return undefined
       }
-      if (scanner.stream.peekLeft(1) === "/") {
-        if (scanner.stream.peekLeft(1) === "/") {
+      if (scanner.stream.peekLeft(1) === '/') {
+        if (scanner.stream.peekLeft(1) === '/') {
           if (stack.length === 0) {
             // console.log("return undefined 2");
-            return undefined;
+            return undefined
           }
-          stack.pop();
+          stack.pop()
           // console.log("pop");
-          scanner.stream.advance(1);
-          continue;
+          scanner.stream.advance(1)
+          continue
         }
       }
       // console.log("advance 1");
-      scanner.stream.advance(1);
+      scanner.stream.advance(1)
     }
-  } while (true);
+  } while (true)
 
   return {
     tagName: nextClosingTagName,
     offset,
-    seenRightAngleBracket
-  };
-};
+    seenRightAngleBracket,
+  }
+}
 
-const text = `<a><span></span></a></button>`;
+const text = `<a><img /></a>`
 
-// getNextClosingTagName(createScanner(text), 0); //?
+getNextClosingTagName(createScanner(text), 0) //?

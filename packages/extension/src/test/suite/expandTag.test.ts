@@ -52,7 +52,7 @@ suite('Expand Tag', () => {
       {
         type: ' html>',
         expect: '<!DOCTYPE html>',
-        afterCommands: [],
+        afterTypeCommands: [],
       },
       {
         type: '\nht',
@@ -90,7 +90,7 @@ suite('Expand Tag', () => {
   </head>
 </html>
 `.trim(),
-        afterCommands: [],
+        afterTypeCommands: [],
       },
       {
         type: '{down}\nbo',
@@ -133,7 +133,7 @@ suite('Expand Tag', () => {
   </body>
 </html>    
 `.trim(),
-        afterCommands: [],
+        afterTypeCommands: [],
       },
     ]
     await run(testCases, {

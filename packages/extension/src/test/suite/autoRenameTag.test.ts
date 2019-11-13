@@ -272,4 +272,60 @@ suite('Auto Rename Tag', () => {
     ]
     await run(testCases)
   })
+
+  test('auto rename tag - bug 1', async () => {
+    // TODO test for Button in the middle (should not be renamed)
+    const testCases: TestCase[] = [
+      {
+        input: `<View
+  prop1="1"
+>
+  <View />
+</View|>`,
+        type: 'w',
+        undoStops: true,
+        expect: `<View
+  prop1="1"
+>
+  <Vieww />
+</Vieww>`,
+      },
+      {
+        type: 'w',
+        undoStops: true,
+        expect: `<View
+  prop1="1"
+>
+  <Viewww />
+</Viewww>`,
+      },
+      {
+        type: 'w',
+        undoStops: true,
+        expect: `<View
+  prop1="1"
+>
+  <Viewwww />
+</Viewwww>`,
+      },
+      {
+        type: '',
+        afterTypeCommands: ['undo'],
+        expect: `<View
+  prop1="1"
+>
+  <Viewww />
+</Viewww>`,
+      },
+      {
+        type: 'w',
+        expect: `<View
+  prop1="1"
+>
+  <Viewwww />
+</Viewwww>`,
+      },
+    ]
+    await run(testCases)
+  })
 })

@@ -22,7 +22,8 @@ export interface TestCase {
   debug?: boolean
   waitForAutoComplete?: 1
   selection?: [number, number]
-  afterCommands?: string[]
+  afterTypeCommands?: string[]
+  undoStops?: boolean
 }
 
 export async function createTestFile(
@@ -60,13 +61,13 @@ function setCursorPositions(offsets: number[]): void {
   vscode.window.activeTextEditor.selections = selections
 }
 
-async function typeLiteral(text: string): Promise<void> {
+async function typeLiteral(text: string, undoStops = false): Promise<void> {
   await vscode.window.activeTextEditor.insertSnippet(
     new vscode.SnippetString(text),
     vscode.window.activeTextEditor.selections,
     {
-      undoStopAfter: false,
-      undoStopBefore: false,
+      undoStopAfter: undoStops,
+      undoStopBefore: undoStops,
     }
   )
 }
@@ -87,7 +88,11 @@ async function typeDelete(times: number = 1): Promise<void> {
     resolve()
   })
 }
-async function type(text: string, speed = 150): Promise<void> {
+async function type(
+  text: string,
+  speed = 150,
+  undoStops = false
+): Promise<void> {
   for (let i = 0; i < text.length; i++) {
     if (i === 0) {
       await new Promise(resolve => setTimeout(resolve, speed / 2))
@@ -116,7 +121,7 @@ async function type(text: string, speed = 150): Promise<void> {
       await vscode.commands.executeCommand('editor.action.copyLinesDownAction')
       i += '{copyLineDown}'.length - 1
     } else {
-      await typeLiteral(text[i])
+      await typeLiteral(text[i], undoStops)
     }
   }
 }
@@ -167,11 +172,15 @@ export async function run(
       )
     }
     if (testCase.type) {
-      await type(testCase.type, testCase.speed || speed)
+      await type(
+        testCase.type,
+        testCase.speed || speed,
+        testCase.undoStops || false
+      )
       const autoCompleteTimeout = testCase.timeout || timeout
       await waitForAutoComplete(autoCompleteTimeout)
     }
-    const resolvedAfterCommands = testCase.afterCommands || afterCommands
+    const resolvedAfterCommands = testCase.afterTypeCommands || afterCommands
     for (const afterCommand of resolvedAfterCommands) {
       await vscode.commands.executeCommand(afterCommand)
       const autoCompleteTimeout = testCase.timeout || timeout

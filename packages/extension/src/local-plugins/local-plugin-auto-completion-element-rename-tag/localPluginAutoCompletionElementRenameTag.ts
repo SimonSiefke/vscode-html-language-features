@@ -56,6 +56,15 @@ const askServiceForAutoCompletionElementRenameTag: (
   return doAutoCompletionElementRenameTag(text, offset)
 }
 
+/**
+ * Utility variable that stores the last changed version (document.uri.fsPath and document.version)
+ * When a change was caused by auto-rename-tag, we can ignore that change, which is a simple performance improvement. One thing to take care of is undo, but that works now (and there are test cases).
+ */
+let lastChangeByAutoRenameTag: { fsPath: string; version: number } = {
+  fsPath: '',
+  version: -1,
+}
+
 const applyResults: (
   results: (Result | undefined)[]
 ) => Promise<void> = async results => {
@@ -74,12 +83,10 @@ const applyResults: (
   if (relevantResults.length === 0) {
     return
   }
-  // const t: vscode.TextEdit = {
-  //   newText: '',
-  //   range: null,
-  // }
-  // console.log('before version', vscode.window.activeTextEditor.document.version)
-  // vscode.window.activeTextEditor.document
+  lastChangeByAutoRenameTag = {
+    fsPath: vscode.window.activeTextEditor.document.uri.fsPath,
+    version: vscode.window.activeTextEditor.document.version,
+  }
   await vscode.window.activeTextEditor.edit(
     editBuilder => {
       for (const result of relevantResults) {
@@ -91,10 +98,6 @@ const applyResults: (
       undoStopAfter: false,
     }
   )
-  // console.log(
-  //   'created version',
-  //   vscode.window.activeTextEditor.document.version
-  // )
 }
 
 export const localPluginAutoCompletionElementRenameTag: LocalPlugin = api => {
@@ -111,7 +114,12 @@ export const localPluginAutoCompletionElementRenameTag: LocalPlugin = api => {
     if (event.contentChanges.length === 0) {
       return
     }
-    // console.log('is version', vscode.window.activeTextEditor.document.version)
+    if (
+      lastChangeByAutoRenameTag.fsPath === event.document.uri.fsPath &&
+      lastChangeByAutoRenameTag.version + 1 === event.document.version
+    ) {
+      return
+    }
     const positions = event.contentChanges.map(
       ({ range, text }) =>
         new vscode.Position(

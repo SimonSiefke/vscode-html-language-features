@@ -393,3 +393,26 @@ rename path to circle, renames closing svg tag even though path is self-closing
 - rename opening h1 should only rename closing h1
 - rename closing h1 should only rename opening h1
  -->
+
+<!-- TODO auto rename tag bug
+<View
+  prop1="1"
+>
+  <Button />
+</View>
+
+1. type w inside closing View tag
+2. undo (ctrl+z)
+3. auto rename tag goes crazyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyy
+ -->
+
+<!-- TODO bug
+<View
+  prop1="1"
+>
+  <Button />
+</View>
+
+The one in the middle is always renamed
+same issue as another where getPreviousTagName doesn't work properly with self-closing tags
+ -->
