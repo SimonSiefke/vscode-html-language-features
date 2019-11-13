@@ -44,7 +44,7 @@
     },
     {
       "path": "./dist/packages/extension/dist/vscode-dependencies.js",
-      "maxSize": "171.6 kB",
+      "maxSize": "180 kB",
       "compression": "none"
     },
     {

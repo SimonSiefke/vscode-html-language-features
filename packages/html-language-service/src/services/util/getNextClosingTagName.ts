@@ -24,7 +24,8 @@ export const getNextClosingTagName: (
   let i = 0
   scanner.stream.goTo(offset)
   do {
-    if (i++ > 100) {
+    if (i++ > 1000) {
+      // TODO show ui error (Auto Rename Tag does not work for this tag because the matching tag is too far away.)
       throw new Error('probably infinite loop')
     }
     scanner.stream.advanceUntilEitherChar('<', '>')

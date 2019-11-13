@@ -23,7 +23,7 @@ export const getPreviousOpeningTagName: (
   let selfClosing = false
   let i = 0
   do {
-    if (i++ > 100) {
+    if (i++ > 1000) {
       throw new Error('probably infinite loop')
     }
     scanner.stream.goTo(offset - 2)
