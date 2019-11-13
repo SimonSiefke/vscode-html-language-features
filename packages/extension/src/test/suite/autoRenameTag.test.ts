@@ -326,6 +326,8 @@ suite('Auto Rename Tag', () => {
 </Viewwww>`,
       },
     ]
-    await run(testCases)
+    await run(testCases, {
+      speed: slowSpeed,
+    })
   })
 })
