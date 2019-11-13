@@ -4,8 +4,8 @@ tmp
 tmp-config.json
 tmp-generated
 .vscode-test
-playground/*.*
-!playground/.gitkeep
+**/playground/*.*
+!.gitkeep
 
 # Logs
 logs

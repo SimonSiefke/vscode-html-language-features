@@ -5,7 +5,8 @@
   "private": true,
   "main": "dist/htmlLanguageServiceMain.js",
   "scripts": {
-    "test": "jest"
+    "test": "jest",
+    "dev": "tsc -b -w"
   },
   "keywords": [],
   "author": "",
