@@ -284,45 +284,45 @@ suite('Auto Rename Tag', () => {
 </View|>`,
         type: 'w',
         undoStops: true,
-        expect: `<View
+        expect: `<Vieww
   prop1="1"
 >
-  <Vieww />
+  <View />
 </Vieww>`,
       },
       {
         type: 'w',
         undoStops: true,
-        expect: `<View
+        expect: `<Viewww
   prop1="1"
 >
-  <Viewww />
+  <View />
 </Viewww>`,
       },
       {
         type: 'w',
         undoStops: true,
-        expect: `<View
+        expect: `<Viewwww
   prop1="1"
 >
-  <Viewwww />
+  <View />
 </Viewwww>`,
       },
       {
         type: '',
         afterTypeCommands: ['undo'],
-        expect: `<View
+        expect: `<Viewww
   prop1="1"
 >
-  <Viewww />
+  <View />
 </Viewww>`,
       },
       {
         type: 'w',
-        expect: `<View
+        expect: `<Viewwww
   prop1="1"
 >
-  <Viewwww />
+  <View />
 </Viewwww>`,
       },
     ]
