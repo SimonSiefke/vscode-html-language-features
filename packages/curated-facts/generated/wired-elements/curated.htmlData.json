@@ -1,6 +1,7 @@
 {
   "tags": {
     "wired-button": {
+      "newline": false,
       "categories": [
         "flow content",
         "phrasing content",
@@ -19,9 +20,15 @@
       "description": "Hand-drawn sketchy Button web component.",
       "attributes": {
         "elevation": {
-          "type": "integer",
           "suggest": "1",
-          "description": "Number between 1 and 5 (inclusive) that gives the button a sketchy height. Default value is 1."
+          "description": "Number between 1 and 5 (inclusive) that gives the button a sketchy height. Default value is 1.",
+          "options": {
+            "1": {},
+            "2": {},
+            "3": {},
+            "4": {},
+            "5": {}
+          }
         },
         "disabled": {
           "type": "boolean",
@@ -33,13 +40,20 @@
       "categories": [
         "flow content"
       ],
+      "newline": false,
       "allowedSubTags": [],
       "description": "Calendar control with a hand-drawn, wireframe like, style.",
       "attributes": {
         "elevation": {
           "description": "Numerical number between 1-5 (inclusive) - sets the elevation of the card. Default is 1.",
           "suggest": "1",
-          "type": "integer"
+          "options": {
+            "1": {},
+            "2": {},
+            "3": {},
+            "4": {},
+            "5": {}
+          }
         },
         "selected": {
           "description": "Optional string value that will be parsed as Date. Pre selects a date highlighted in the calendar"
@@ -84,9 +98,15 @@
       "description": "wired-card is a container for other web elements - with a hand-drawn, wireframe like, look.",
       "attributes": {
         "elevation": {
-          "type": "integer",
           "suggest": "1",
-          "description": "Numerical number between 1-5 (inclusive) - sets the elevation of the card. Default is 1."
+          "description": "Numerical number between 1-5 (inclusive) - sets the elevation of the card. Default is 1.",
+          "options": {
+            "1": {},
+            "2": {},
+            "3": {},
+            "4": {},
+            "5": {}
+          }
         },
         "fill": {
           "description": "A color to fill the background of the card in a sketchy format",
@@ -95,6 +115,7 @@
       }
     },
     "wired-checkbox": {
+      "newline": false,
       "categories": [
         "flow content",
         "phrasing content",
@@ -162,7 +183,13 @@
       "attributes": {
         "elevation": {
           "description": "Number between 1 and 5 (inclusive) that gives the sketchy link underline a height. Default value is 1.",
-          "type": "integer"
+          "options": {
+            "1": {},
+            "2": {},
+            "3": {},
+            "4": {},
+            "5": {}
+          }
         },
         "open": {
           "type": "boolean",
@@ -171,6 +198,7 @@
       }
     },
     "wired-divider": {
+      "newline": false,
       "categories": [
         "flow content"
       ],
@@ -179,12 +207,19 @@
       "attributes": {
         "elevation": {
           "description": " Number between 1 and 5 (inclusive) represents number of lines drawn. Default value is 1.",
-          "type": "integer",
-          "suggest": "1"
+          "suggest": "1",
+          "options": {
+            "1": {},
+            "2": {},
+            "3": {},
+            "4": {},
+            "5": {}
+          }
         }
       }
     },
     "wired-fab": {
+      "newline": false,
       "categories": [
         "flow content",
         "phrasing content",
@@ -209,6 +244,7 @@
       }
     },
     "wired-icon-button": {
+      "newline": false,
       "categories": [
         "flow content",
         "phrasing content",
@@ -229,6 +265,7 @@
       }
     },
     "wired-image": {
+      "newline": false,
       "categories": [
         "flow content",
         "phrasing content",
@@ -245,12 +282,19 @@
         },
         "elevation": {
           "description": "Numerical number between 1-5 (inclusive) - sets the elevation of the card. Default is 1.",
-          "type": "integer",
-          "suggest": "1"
+          "suggest": "1",
+          "options": {
+            "1": {},
+            "2": {},
+            "3": {},
+            "4": {},
+            "5": {}
+          }
         }
       }
     },
     "wired-input": {
+      "newline": false,
       "categories": [
         "flow content",
         "phrasing content",
@@ -283,6 +327,7 @@
       }
     },
     "wired-item": {
+      "newline": false,
       "categories": [],
       "allowedSubTags": [
         {
@@ -295,6 +340,7 @@
       "description": "wired-item is a list item used by Wired components like wired-combo and wired-list-box"
     },
     "wired-link": {
+      "newline": false,
       "categories": [
         "flow content",
         "phrasing content",
@@ -308,8 +354,14 @@
       "attributes": {
         "elevation": {
           "description": "Number between 1 and 5 (inclusive) that gives the sketchy link underline a height. Default value is 1.",
-          "type": "integer",
-          "suggest": "1"
+          "suggest": "1",
+          "options": {
+            "1": {},
+            "2": {},
+            "3": {},
+            "4": {},
+            "5": {}
+          }
         },
         "href": {
           "description": "URL of the page to link to",
@@ -347,6 +399,7 @@
       }
     },
     "wired-progress": {
+      "newline": false,
       "categories": [
         "flow content",
         "phrasing content",
@@ -388,6 +441,7 @@
       }
     },
     "wired-radio": {
+      "newline": false,
       "categories": [
         "flow content",
         "phrasing content",
@@ -422,6 +476,7 @@
       }
     },
     "wired-search-input": {
+      "newline": false,
       "categories": [
         "flow content",
         "phrasing content",
@@ -483,6 +538,7 @@
       }
     },
     "wired-spinner": {
+      "newline": false,
       "categories": [
         "flow content"
       ],
@@ -539,6 +595,7 @@
       }
     },
     "wired-textarea": {
+      "newline": false,
       "categories": [
         "flow content",
         "phrasing content",
@@ -574,6 +631,7 @@
       }
     },
     "wired-toggle": {
+      "newline": false,
       "categories": [
         "flow content",
         "phrasing content",

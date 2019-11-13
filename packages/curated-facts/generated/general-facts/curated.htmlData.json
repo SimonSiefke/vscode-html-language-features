@@ -151,6 +151,9 @@
     "output": {
       "newline": false
     },
+    "p": {
+      "newline": false
+    },
     "progress": {
       "newline": false
     },
