@@ -13,8 +13,8 @@
     "@html-language-features/schema": "^1.0.0-dev",
     "@html-language-features/statistics-generator": "^1.0.0-dev",
     "axios": "^0.19.0",
-    "execa": "^3.2.0",
-    "glob": "^7.1.5",
+    "execa": "^3.3.0",
+    "glob": "^7.1.6",
     "rimraf": "^3.0.0"
   }
 }

@@ -18,14 +18,14 @@
   "license": "MIT",
   "devDependencies": {
     "@types/fs-extra": "^8.0.1",
-    "@types/lodash": "^4.14.144",
+    "@types/lodash": "^4.14.146",
     "cheerio": "^1.0.0-rc.3",
     "fs-extra": "^8.1.0",
     "jest": "^24.9.0",
     "node-fetch": "^2.6.0",
     "ts-jest": "^24.1.0",
     "turndown": "^5.0.3",
-    "typescript": "^3.6.4"
+    "typescript": "^3.7.2"
   },
   "dependencies": {
     "@html-language-features/schema": "^1.0.0-dev",

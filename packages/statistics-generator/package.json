@@ -11,11 +11,11 @@
   "license": "MIT",
   "dependencies": {
     "fs-extra": "^8.1.0",
-    "glob": "^7.1.5",
+    "glob": "^7.1.6",
     "@html-language-features/html-parser": "^1.0.0-dev"
   },
   "devDependencies": {
     "@types/fs-extra": "^8.0.1",
-    "ts-node": "^8.4.1"
+    "ts-node": "^8.5.0"
   }
 }

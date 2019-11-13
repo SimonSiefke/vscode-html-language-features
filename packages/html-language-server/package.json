@@ -12,8 +12,10 @@
   "dependencies": {
     "@html-language-features/curated-facts": "^1.0.0-dev",
     "@html-language-features/facts-generator": "^1.0.0-dev",
-    "@html-language-features/html-language-service": "^1.0.0-dev",
-    "vscode-languageserver": "^6.0.0-next.3",
-    "vscode-languageserver-textdocument": "^1.0.0-next.4"
+    "@html-language-features/html-language-service": "^1.0.0-dev"
+  },
+  "devDependencies": {
+    "vscode-languageserver": "^6.0.0-next.5",
+    "vscode-languageserver-textdocument": "^1.0.0-next.5"
   }
 }
