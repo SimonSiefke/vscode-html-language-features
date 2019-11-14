@@ -49,7 +49,7 @@
     },
     {
       "path": "./dist/packages/html-language-server/dist/vscode-dependencies.js",
-      "maxSize": "86.42 kB",
+      "maxSize": "90 kB",
       "compression": "none"
     },
     {
