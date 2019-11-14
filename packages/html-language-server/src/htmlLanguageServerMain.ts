@@ -37,6 +37,7 @@ import { remotePluginAutoCompletionElementSelfClosing } from './remote-plugins/r
 import { remotePluginHighlightElementMatchingTag } from './remote-plugins/remote-plugin-highlight-element-matching-tag/remotePluginHighlightElementMatchingTag'
 import { remotePluginConfigs } from './remote-plugins/remote-plugin-configs/remotePluginEndPointConfigs'
 import { remotePluginAutoCompletionInsertQuotesAfterEqualSign } from './remote-plugins/remote-plugin-auto-completion-insert-quotes-after-equal-sign/remotePluginAutoCompletionInsertQuotesAfterEqualSign'
+import { remotePluginCommandWrapSelectionWithTag } from './remote-plugins/remote-plugin-command-wrap-selection-with-tag/remotePluginCommandWrapSelectionWithTag'
 const connection: IConnection = createConnection()
 
 console.log = connection.console.log.bind(connection.console)
@@ -118,6 +119,8 @@ connection.onInitialized(async () => {
   remotePluginAutoCompletionInsertQuotesAfterEqualSign(api)
 
   remotePluginHighlightElementMatchingTag(api)
+
+  remotePluginCommandWrapSelectionWithTag(api)
 
   const hoverOptions: HoverOptions = {}
   connection.client.register(HoverRequest.type, hoverOptions)
