@@ -1,4 +1,393 @@
 import { findMatchingTags, MatchingTagResult } from './findMatchingTags'
+import { replaceConfigs } from '../../../Data/Data'
+interface MatchingTagRegion {
+  start: number
+  end: number
+  result: MatchingTagResult | undefined
+}
+
+const expectRegions: (
+  text: string,
+  expectedRegions: MatchingTagRegion[]
+) => void = (text, expectedRegions) => {
+  let previousRegion: MatchingTagRegion | undefined
+  if (text.length > 0) {
+    expect(expectedRegions.length).toBeGreaterThan(0)
+  }
+  for (let j = 0; j < expectedRegions.length; j++) {
+    const region = expectedRegions[j]
+    if (previousRegion) {
+      expect(previousRegion.end + 1).toBe(region.start)
+    } else {
+      expect(region.start).toBe(0)
+    }
+    previousRegion = region
+    for (let i = region.start; i <= region.end; i++) {
+      expect(findMatchingTags(text, i)).toEqual(region.result)
+    }
+  }
+}
+
+beforeEach(async () => {
+  replaceConfigs(
+    [
+      {
+        tags: {
+          input: {
+            selfClosing: true,
+          },
+        },
+      },
+    ],
+    'test-config'
+  )
+})
+
+test('works with nothing passed', () => {
+  const text = ''
+  const regions: MatchingTagRegion[] = [
+    {
+      start: text.length,
+      end: text.length,
+      result: undefined,
+    },
+  ]
+  expectRegions(text, regions)
+})
+
+test.skip('works with just > symbol', () => {
+  // TODO stackoverflow error
+  const text = '>'
+  const regions: MatchingTagRegion[] = [
+    {
+      start: 0,
+      end: text.length,
+      result: undefined,
+    },
+  ]
+  expectRegions(text, regions)
+})
+
+test('ignore non tag content', () => {
+  const text = 'before<div>inside</div>after'
+  const expectedDiv: MatchingTagResult = {
+    type: 'startAndEndTag',
+    startTagOffset: 6,
+    endTagOffset: 17,
+    tagName: 'div',
+  }
+  const regions: MatchingTagRegion[] = [
+    {
+      start: 0,
+      end: 5,
+      result: undefined,
+    },
+    {
+      start: 6,
+      end: 10,
+      result: expectedDiv,
+    },
+    {
+      start: 11,
+      end: 16,
+      result: undefined,
+    },
+    {
+      start: 17,
+      end: 22,
+      result: expectedDiv,
+    },
+    {
+      start: 23,
+      end: text.length,
+      result: undefined,
+    },
+  ]
+  expectRegions(text, regions)
+})
+
+test('minimal self closing tag', () => {
+  const text = '<div/>'
+  const regions: MatchingTagRegion[] = [
+    {
+      start: 0,
+      end: text.length - 1,
+      result: {
+        type: 'onlyStartTag',
+        tagName: 'div',
+        startTagOffset: 0,
+      },
+    },
+  ]
+  expectRegions(text, regions)
+})
+
+test('self closing tag with whitespace', () => {
+  const text = 'nonimportant<div />nonimportant'
+  const regions: MatchingTagRegion[] = [
+    {
+      start: 0,
+      end: 11,
+      result: undefined,
+    },
+    {
+      start: 12,
+      end: 18,
+      result: {
+        tagName: 'div',
+        type: 'onlyStartTag',
+        startTagOffset: 12,
+      },
+    },
+    {
+      start: 19,
+      end: text.length,
+      result: undefined,
+    },
+  ]
+  expectRegions(text, regions)
+})
+
+test('simple opening and closing tag', () => {
+  const text = '<div>content</div>'
+  const expectedDiv: MatchingTagResult = {
+    tagName: 'div',
+    type: 'startAndEndTag',
+    startTagOffset: 0,
+    endTagOffset: 12,
+  }
+  const regions: MatchingTagRegion[] = [
+    {
+      start: 0,
+      end: 4,
+      result: expectedDiv,
+    },
+    {
+      start: 5,
+      end: 11,
+      result: undefined,
+    },
+    {
+      start: 12,
+      end: 17,
+      result: expectedDiv,
+    },
+    {
+      start: text.length,
+      end: text.length,
+      result: undefined,
+    },
+  ]
+  expectRegions(text, regions)
+})
+
+test.skip('simple nested tags', () => {
+  const text = '<div><span><self-closing /></span></div>'
+  const expectedDiv: MatchingTagResult = {
+    type: 'startAndEndTag',
+    startTagOffset: 0,
+    endTagOffset: 34,
+    tagName: 'div',
+  }
+  const expectedSpan: MatchingTagResult = {
+    type: 'startAndEndTag',
+    startTagOffset: 5,
+    endTagOffset: 27,
+    tagName: 'span',
+  }
+  const expectedSelfClosing: MatchingTagResult = {
+    type: 'onlyStartTag',
+    tagName: 'self-closing',
+    startTagOffset: 11,
+  }
+  const regions: MatchingTagRegion[] = [
+    {
+      start: 0,
+      end: 4,
+      result: expectedDiv,
+    },
+    {
+      start: 5,
+      end: 10,
+      result: expectedSpan,
+    },
+    {
+      start: 11,
+      end: 26,
+      result: expectedSelfClosing,
+    },
+    {
+      start: 27,
+      end: 33,
+      result: expectedSpan,
+    },
+    // TODO bug should be div
+    {
+      start: 34,
+      end: 34,
+      result: undefined,
+    },
+    // {
+    //   start: 34,
+    //   end: 34,
+    //   result: expectedDiv,
+    // },
+    // {
+    //   start: 38,
+    //   end: text.length,
+    //   result: undefined,
+    // },
+  ]
+  expectRegions(text, regions)
+})
+
+test('simple tag with attributes', () => {
+  const text = '<div attribute attribute="value">content</div>'
+  const expectedDiv: MatchingTagResult = {
+    tagName: 'div',
+    startTagOffset: 0,
+    endTagOffset: 40,
+    type: 'startAndEndTag',
+  }
+  const regions: MatchingTagRegion[] = [
+    {
+      start: 0,
+      end: 32,
+      result: expectedDiv,
+    },
+    {
+      start: 33,
+      end: 39,
+      result: undefined,
+    },
+    {
+      start: 40,
+      end: 45,
+      result: expectedDiv,
+    },
+    {
+      start: text.length,
+      end: text.length,
+      result: undefined,
+    },
+  ]
+  expectRegions(text, regions)
+})
+
+test.skip('tag as an attribute value', () => {
+  const text = '<div attribute={<span>content</span>}>content</div>'
+  const expectedDiv: MatchingTagResult = {
+    tagName: 'div',
+    type: 'startAndEndTag',
+    startTagOffset: 0,
+    endTagOffset: 41,
+  }
+  const expectedSpan: MatchingTagResult = {
+    tagName: 'span',
+    type: 'startAndEndTag',
+    startTagOffset: 15,
+    endTagOffset: 21,
+  }
+  const regions: MatchingTagRegion[] = []
+  expectRegions(text, regions)
+})
+
+test.skip('tag deep in the attribute value', () => {
+  const text = `<x a={f(
+          <s cmp={
+            <>content<a></a></>
+          }>s content</s>
+        )}>x content</x>`
+
+  const regions: MatchingTagRegion[] = []
+  expectRegions(text, regions)
+})
+
+test.skip('React fragments', () => {
+  const text = 'text<>content</>text'
+  const expectedFragment: MatchingTagResult = {
+    type: 'startAndEndTag',
+    tagName: '',
+    startTagOffset: 4,
+    endTagOffset: 14,
+  }
+  const regions: MatchingTagRegion[] = []
+  expectRegions(text, regions)
+})
+
+test.skip('unopened tag', () => {
+  const text = '<a><b></c></b></a>'
+  const expectedA: MatchingTagResult = {
+    type: 'startAndEndTag',
+    startTagOffset: 0,
+    endTagOffset: 16,
+    tagName: 'a',
+  }
+  const regions: MatchingTagRegion[] = [
+    {
+      start: 0,
+      end: 2,
+      result: expectedA,
+    },
+  ]
+  expectRegions(text, regions)
+})
+
+test('unclosed tag', () => {
+  const text = '<div><input type="button"></div>'
+  const expectedDiv: MatchingTagResult = {
+    type: 'startAndEndTag',
+    tagName: 'div',
+    startTagOffset: 0,
+    endTagOffset: 26,
+  }
+  const expectedInput: MatchingTagResult = {
+    type: 'onlyStartTag',
+    startTagOffset: 5,
+    tagName: 'input',
+  }
+  const regions: MatchingTagRegion[] = [
+    {
+      start: 0,
+      end: 4,
+      result: expectedDiv,
+    },
+    {
+      start: 5,
+      end: 25,
+      result: expectedInput,
+    },
+    {
+      start: 26,
+      end: 31,
+      result: expectedDiv,
+    },
+    {
+      start: text.length,
+      end: text.length,
+      result: undefined,
+    },
+  ]
+  expectRegions(text, regions)
+})
+
+test.skip('unclosed tag inside attribute', () => {
+  const text = '<div attr={<input type="button">}></div>'
+  const expectedDiv: MatchingTagResult = {
+    tagName: 'div',
+    startTagOffset: 0,
+    endTagOffset: 62,
+    type: 'startAndEndTag',
+  }
+  const regions: MatchingTagRegion[] = [
+    {
+      start: 0,
+      end: 4,
+      result: expectedDiv,
+    },
+  ]
+  expectRegions(text, regions)
+})
 
 test('can match from opening and closing tag', () => {
   const data = '<a>a</a>\na'
@@ -307,12 +696,11 @@ test('matches self closing tag when flag is true', () => {
 })
 
 test('auto rename tag - bug 1', () => {
-  const data = `<View
+  const text = `<View
   prop1="1"
 >
   <View />
-</View>
-`
+</View>`
   const expectedOuterView: MatchingTagResult = {
     type: 'startAndEndTag',
     tagName: 'View',
@@ -324,47 +712,379 @@ test('auto rename tag - bug 1', () => {
     tagName: 'View',
     startTagOffset: 22,
   }
-  expect(findMatchingTags(data, 0)).toEqual(expectedOuterView) // '<'
-  expect(findMatchingTags(data, 1)).toEqual(expectedOuterView) // 'V'
-  expect(findMatchingTags(data, 2)).toEqual(expectedOuterView) // 'i'
-  expect(findMatchingTags(data, 3)).toEqual(expectedOuterView) // 'e'
-  expect(findMatchingTags(data, 4)).toEqual(expectedOuterView) // 'w'
-  expect(findMatchingTags(data, 5)).toEqual(expectedOuterView) // '\n'
-  expect(findMatchingTags(data, 6)).toEqual(expectedOuterView) // ' '
-  expect(findMatchingTags(data, 7)).toEqual(expectedOuterView) // ' '
-  expect(findMatchingTags(data, 8)).toEqual(expectedOuterView) // 'p'
-  expect(findMatchingTags(data, 9)).toEqual(expectedOuterView) // 'r'
-  expect(findMatchingTags(data, 10)).toEqual(expectedOuterView) // 'o'
-  expect(findMatchingTags(data, 11)).toEqual(expectedOuterView) // 'p'
-  expect(findMatchingTags(data, 12)).toEqual(expectedOuterView) // '1'
-  expect(findMatchingTags(data, 13)).toEqual(expectedOuterView) // '='
-  expect(findMatchingTags(data, 14)).toEqual(expectedOuterView) // '"'
-  expect(findMatchingTags(data, 15)).toEqual(expectedOuterView) // '1'
-  expect(findMatchingTags(data, 16)).toEqual(expectedOuterView) // '"'
-  expect(findMatchingTags(data, 17)).toEqual(expectedOuterView) // '\n'
-  expect(findMatchingTags(data, 18)).toEqual(expectedOuterView) // '>'
-  expect(findMatchingTags(data, 19)).toEqual(undefined) // '\n'
-  expect(findMatchingTags(data, 20)).toEqual(undefined) // ' '
-  expect(findMatchingTags(data, 21)).toEqual(undefined) // ' '
-  expect(findMatchingTags(data, 22)).toEqual(expectedInnerView) // '<'
-  expect(findMatchingTags(data, 23)).toEqual(expectedInnerView) // 'V'
-  expect(findMatchingTags(data, 24)).toEqual(expectedInnerView) // 'i'
-  expect(findMatchingTags(data, 25)).toEqual(expectedInnerView) // 'e'
-  expect(findMatchingTags(data, 26)).toEqual(expectedInnerView) // 'w'
-  expect(findMatchingTags(data, 27)).toEqual(expectedInnerView) // ' '
-  expect(findMatchingTags(data, 28)).toEqual(expectedInnerView) // '/'
-  expect(findMatchingTags(data, 29)).toEqual(expectedInnerView) // '>'
-  expect(findMatchingTags(data, 30)).toEqual(undefined) // '\n'
-  expect(findMatchingTags(data, 31)).toEqual(expectedOuterView) // '<'
-  expect(findMatchingTags(data, 32)).toEqual(expectedOuterView) // '/'
-  expect(findMatchingTags(data, 33)).toEqual(expectedOuterView) // 'V'
-  expect(findMatchingTags(data, 34)).toEqual(expectedOuterView) // 'i'
-  expect(findMatchingTags(data, 35)).toEqual(expectedOuterView) // 'e'
-  expect(findMatchingTags(data, 36)).toEqual(expectedOuterView) // 'w'
-  expect(findMatchingTags(data, 37)).toEqual(expectedOuterView) // '>'
-  expect(findMatchingTags(data, 38)).toEqual(undefined) // ''
+  const regions: MatchingTagRegion[] = [
+    {
+      start: 0,
+      end: 18,
+      result: expectedOuterView,
+    },
+    {
+      start: 19,
+      end: 21,
+      result: undefined,
+    },
+    {
+      start: 22,
+      end: 29,
+      result: expectedInnerView,
+    },
+    {
+      start: 30,
+      end: 30,
+      result: undefined,
+    },
+    {
+      start: 31,
+      end: 37,
+      result: expectedOuterView,
+    },
+    {
+      start: 38,
+      end: 38,
+      result: undefined,
+    },
+  ]
+  expectRegions(text, regions)
 })
 
+test('OPTIONAL: multiline string attribute', () => {
+  const text = `<cfset sql = "
+          SELECT	*
+          FROM	SomeTable
+        ">`
+
+  const regions: MatchingTagRegion[] = [
+    {
+      start: 0,
+      end: text.length - 1,
+      result: {
+        type: 'onlyStartTag',
+        startTagOffset: 0,
+        tagName: 'cfset',
+      },
+    },
+    {
+      start: text.length,
+      end: text.length,
+      result: undefined,
+    },
+  ]
+  expectRegions(text, regions)
+})
+
+test('string attribute with escapes inside', () => {
+  const text =
+    '<cffile action="read" file="\\"#directory#\\"\\#fileName#" variable="localFile">'
+  const regions: MatchingTagRegion[] = [
+    {
+      start: 0,
+      end: text.length - 1,
+      result: {
+        type: 'onlyStartTag',
+        startTagOffset: 0,
+        tagName: 'cffile',
+      },
+    },
+    {
+      start: text.length,
+      end: text.length,
+      result: undefined,
+    },
+  ]
+  expectRegions(text, regions)
+})
+
+test('escaped string in attribute', () => {
+  const text = '<div class=\\"myclass\\"></div>'
+  const regions: MatchingTagRegion[] = [
+    {
+      start: 0,
+      end: text.length - 1,
+      result: {
+        tagName: 'div',
+        type: 'startAndEndTag',
+        startTagOffset: 0,
+        endTagOffset: 23,
+      },
+    },
+    { start: text.length, end: text.length, result: undefined },
+  ]
+  expectRegions(text, regions)
+})
+
+test.skip('OPTIONAL: inverse matching', () => {
+  const text = `<?
+        $.each(data, function(i, v) {
+          lista += '<tr><td class="text-center">' + v.idconfig +
+              '</td><td>' + v.titulo + '</td><td class="text-center">' +
+              <input class="form-check-input" type="checkbox" disabled ' + (v.ativo == 1 ? 'checked' : '')  +
+              '></td><td class="text-center">' +
+              '<button class="btedit btn btn-link btn-sm" data-id="' + v.idconfig + '">' +
+              '<i class="fas fa-edit"></i></button></td></tr>'
+        });
+        $('#tableconfigs tbody').html(lista);
+      `.trim()
+
+  const expectedTr1: MatchingTagResult = {
+    type: 'startAndEndTag',
+    tagName: 'tr',
+    startTagOffset: 61,
+    endTagOffset: 90,
+  }
+  const regions: MatchingTagRegion[] = [
+    {
+      start: 0,
+      end: 60,
+      result: undefined,
+    },
+    {
+      start: 61,
+      end: 70,
+      result: expectedTr1,
+    },
+    {
+      start: text.length,
+      end: text.length,
+      result: undefined,
+    },
+  ]
+  expectRegions(text, regions)
+})
+
+test('function call as an attribute value', () => {
+  const text = '<cfset someFileHash = hash(someFile, "SHA-512")>content</cfset>'
+  const expectedCfset: MatchingTagResult = {
+    type: 'startAndEndTag',
+    tagName: 'cfset',
+    startTagOffset: 0,
+    endTagOffset: 55,
+  }
+  const regions: MatchingTagRegion[] = [
+    {
+      start: 0,
+      end: 47,
+      result: expectedCfset,
+    },
+    {
+      start: 48,
+      end: 54,
+      result: undefined,
+    },
+    {
+      start: 55,
+      end: text.length - 1,
+      result: expectedCfset,
+    },
+    {
+      start: text.length,
+      end: text.length,
+      result: undefined,
+    },
+  ]
+  expectRegions(text, regions)
+})
+
+test('vue-js special syntax', () => {
+  const text = '<element-tag @attr="f(x)" :special=special></element-tag>'
+  const expectedElementTag: MatchingTagResult = {
+    type: 'startAndEndTag',
+    startTagOffset: 0,
+    endTagOffset: 43,
+    tagName: 'element-tag',
+  }
+  const regions: MatchingTagRegion[] = [
+    {
+      start: 0,
+      end: text.length - 1,
+      result: expectedElementTag,
+    },
+    {
+      start: text.length,
+      end: text.length,
+      result: undefined,
+    },
+  ]
+  expectRegions(text, regions)
+})
+
+test('xml namespaces', () => {
+  const text = '<ns:element></ns:element>'
+  const expectedNsElement: MatchingTagResult = {
+    startTagOffset: 0,
+    endTagOffset: 12,
+    tagName: 'ns:element',
+    type: 'startAndEndTag',
+  }
+  const regions: MatchingTagRegion[] = [
+    {
+      start: 0,
+      end: text.length - 1,
+      result: expectedNsElement,
+    },
+    {
+      start: text.length,
+      end: text.length,
+      result: undefined,
+    },
+  ]
+  expectRegions(text, regions)
+})
+
+test('dot separated tag name', () => {
+  const text = '<ns.element></ns.element>'
+  const expectedNsElement: MatchingTagResult = {
+    startTagOffset: 0,
+    endTagOffset: 12,
+    tagName: 'ns.element',
+    type: 'startAndEndTag',
+  }
+  const regions: MatchingTagRegion[] = [
+    {
+      start: 0,
+      end: text.length - 1,
+      result: expectedNsElement,
+    },
+    {
+      start: text.length,
+      end: text.length,
+      result: undefined,
+    },
+  ]
+  expectRegions(text, regions)
+})
+
+test.skip('challenging jsx syntax', () => {
+  const text = `<Carousel
+            x={isMobile ? 3>6 : 4<7}
+            prevArrow={<div>{2<9}</div>}
+            nextArrow={<div>{'>'}</div>}
+          >
+          </Carousel>`
+  const expectedCarousel: MatchingTagResult = {
+    type: 'startAndEndTag',
+    startTagOffset: 0,
+    endTagOffset: 81,
+    tagName: 'Carousel',
+  }
+  const expectedDiv1: MatchingTagResult = {
+    type: 'startAndEndTag',
+    startTagOffset: 0,
+    endTagOffset: 81,
+    tagName: 'div',
+  }
+  const expectedDiv2: MatchingTagResult = {
+    type: 'startAndEndTag',
+    startTagOffset: 0,
+    endTagOffset: 81,
+    tagName: 'div',
+  }
+  const regions: MatchingTagRegion[] = [
+    {
+      start: 0,
+      end: 21,
+      result: expectedCarousel,
+    },
+  ]
+  expectRegions(text, regions)
+})
+
+test.skip('function as an attribute without block', () => {
+  // TODO comment bug
+  const text = `<cfset testArr = ['Hello', 'Hi', 'Howdy', ''] />
+          <cfif ArrayLen(testArr) GT 2>
+            <!--- do something --->
+          </cfif>`
+  const expectedCfset: MatchingTagResult = {
+    type: 'onlyStartTag',
+    tagName: 'cfset',
+    startTagOffset: 0,
+  }
+  const expectedCfif: MatchingTagResult = {
+    type: 'startAndEndTag',
+    startTagOffset: 59,
+    endTagOffset: 135,
+    tagName: 'cfif',
+  }
+  const regions: MatchingTagRegion[] = [
+    {
+      start: 0,
+      end: 47,
+      result: expectedCfset,
+    },
+    {
+      start: 48,
+      end: 58,
+      result: undefined,
+    },
+    {
+      start: 59,
+      end: 87,
+      result: expectedCfif,
+    },
+    {
+      start: 88,
+      end: 102,
+      result: undefined,
+    },
+  ]
+  expectRegions(text, regions)
+})
+
+test.skip('angular syntax', () => {
+  // TODO comment bug
+  const text = `<div> <!-- cant find -->
+          <div> <!-- cant find -->
+            <div class="some-class" *ngFor="let bar of bars"> <!-- cant find -->
+              <div class="foo"> <!--works!-->
+                <p>Hello</p> <!--works-->
+              </div>
+              <div class="bar"><!--works!-->
+                <p>Hello</p> <!--works-->
+              </div>
+            </div>
+          </div>
+        </div>`
+  const expectedDiv1: MatchingTagResult = {
+    type: 'startAndEndTag',
+    tagName: 'div',
+    startTagOffset: 0,
+    endTagOffset: 402,
+  }
+  const regions: MatchingTagRegion[] = [
+    {
+      start: 0,
+      end: 4,
+      result: expectedDiv1,
+    },
+    {
+      start: 5,
+      end: 21,
+      result: undefined,
+    },
+  ]
+  expectRegions(text, regions)
+})
+
+test.skip('php syntax + bad formatting', () => {
+  const text = `<div class = 'bg-warning' >
+            <?php displayErrors($errors); ?>
+          </div>`
+
+  const expectedDiv: MatchingTagResult = {
+    type: 'startAndEndTag',
+    tagName: 'div',
+    startTagOffset: 0,
+    endTagOffset: 63,
+  }
+  const regions: MatchingTagRegion[] = [
+    {
+      start: 0,
+      end: 33,
+      result: expectedDiv,
+    },
+  ]
+  expectRegions(text, regions)
+})
 // TODO test compound react tags, e.g. <Toggle.On> <Toggle.Off>
 
 // TODO test different languages, e.g. german, greek, chinese

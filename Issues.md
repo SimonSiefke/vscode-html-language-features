@@ -426,3 +426,28 @@ same issue as another where getPreviousTagName doesn't work properly with self-c
 type 3 inside closing h3 tag
 img tag gets renamed to h33
  -->
+
+<!-- TODO find matching tag bug
+<ul>
+  <li></li>
+  <!-- <li class="x"> --\>
+    <a></a>
+  </li>
+</ul>
+
+ - closing ul tag throws error
+ - closing li tag nothing gets highlighted
+ -->
+
+<!-- TODO bug
+<div>
+<div onClick={() => foo()} />
+</div>
+ -->
+
+<!-- TODO bug
+if (i<2) return 3>2
+ -->
+
+<!-- TODO use more tests from  https://github.com/vincaslt/vscode-highlight-matching-tag
+ -->
