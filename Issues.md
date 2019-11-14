@@ -451,3 +451,18 @@ if (i<2) return 3>2
 
 <!-- TODO use more tests from  https://github.com/vincaslt/vscode-highlight-matching-tag
  -->
+
+<!-- TODO bug
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <title>title</title>
+    s
+  </meta>
+  <body>
+  </body>
+</html>
+
+no suggestions for style etc. when typing s
+ -->
