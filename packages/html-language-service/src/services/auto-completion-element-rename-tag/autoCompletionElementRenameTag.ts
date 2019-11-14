@@ -25,9 +25,9 @@ export const doAutoCompletionElementRenameTag: (
   | undefined = (text, offset) => {
   const scanner = createScanner(text, { initialOffset: offset })
   scanner.stream.goBack(1)
-  scanner.stream.goBackToUntilEitherChar('<', '>')
+  scanner.stream.goBackToUntilEitherChar('<', '>', '\\', ' ', '\t', '\n')
   const char = scanner.stream.peekLeft(1)
-  if (char === '>') {
+  if (char !== '<') {
     return undefined
   }
   const nextChar = scanner.stream.peekRight(0)
