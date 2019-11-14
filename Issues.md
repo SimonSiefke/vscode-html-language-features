@@ -416,3 +416,13 @@ rename path to circle, renames closing svg tag even though path is self-closing
 The one in the middle is always renamed
 same issue as another where getPreviousTagName doesn't work properly with self-closing tags
  -->
+
+<!-- TODO bug auto rename tag
+ <h3>
+  <span></span>
+  <img>
+</h3>
+
+type 3 inside closing h3 tag
+img tag gets renamed to h33
+ -->
