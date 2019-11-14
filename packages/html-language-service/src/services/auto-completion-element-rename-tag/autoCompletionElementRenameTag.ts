@@ -23,18 +23,21 @@ export const doAutoCompletionElementRenameTag: (
       word: string
     }
   | undefined = (text, offset) => {
-  const scanner = createScanner(text)
-  scanner.stream.goTo(offset)
-  // console.log(scanner.stream.position)
-  // console.log(scanner.stream.previousChars(3))
-  // console.log(scanner.stream.peekRight())
-  // scanner.stream.goBack(1)
-  const atStartTag = scanner.stream.currentlyEndsWithRegex(/<[!a-zA-Z\d-]*$/)
-  const atEndTag = scanner.stream.currentlyEndsWithRegex(/<\/[!a-zA-Z\d-]*$/)
-  if (!atStartTag && !atEndTag) {
+  const scanner = createScanner(text, { initialOffset: offset })
+  scanner.stream.goBack(1)
+  scanner.stream.goBackToUntilEitherChar('<', '>')
+  const char = scanner.stream.peekLeft(1)
+  if (char === '>') {
+    return undefined
+  }
+  const nextChar = scanner.stream.peekRight(0)
+  const atEndTag = nextChar === '/'
+  const atStartTag = /[^\s<>]/.test(nextChar)
+  if (!atEndTag && !atStartTag) {
     return undefined
   }
   if (atEndTag) {
+    scanner.stream.advance(1)
     const currentPosition = scanner.stream.position
     scanner.stream.goBackToUntilChar('/')
     scanner.state = ScannerState.AfterOpeningEndTag
@@ -71,6 +74,9 @@ export const doAutoCompletionElementRenameTag: (
       return undefined
     }
     scanner.stream.advanceUntilChar('>')
+    if (scanner.stream.previousChars(2) === '--') {
+      return undefined
+    }
     scanner.stream.advance(1)
     const nextClosingTag = getNextClosingTagName(
       scanner,
@@ -94,5 +100,11 @@ export const doAutoCompletionElementRenameTag: (
   }
 }
 
-doAutoCompletionElementRenameTag('<input></dov>', 10) //?
+// TODO add to tests
+const text = `<h1>
+         hello world
+         <!-- <h11 -->
+       </h1>`
+doAutoCompletionElementRenameTag(text, 43) //?
+// doAutoCompletionElementRenameTag('<input></dov>', 10) //?
 // createDoAutoRenameTagCompletion('', 5) //?

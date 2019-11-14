@@ -151,7 +151,7 @@ const doHighlightElementMatchingTag: (
 }
 
 export const localPluginHighlightElementMatchingTag: LocalPlugin = async api => {
-  api.vscodeProxy.workspace.onDidChangeTextDocument(event => {
+  api.vscodeProxy.workspace.onDidChangeTextDocument(async event => {
     if (event.document.languageId !== 'html') {
       return
     }

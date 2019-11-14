@@ -22,10 +22,10 @@ export const activate: (
     context,
   }
   localPluginLanguageConfiguration(api)
+  localPluginAutoCompletionElementRenameTag(api)
 
   localPluginAutoCompletionElementAutoClose(api)
   localPluginAutoCompletionElementClose(api)
-  localPluginAutoCompletionElementRenameTag(api)
   localPluginAutoCompletionElementSelfClosing(api)
   localPluginAutoCompletionInsertQuotesAfterEqualSign(api)
 

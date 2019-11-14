@@ -538,6 +538,69 @@ test('bug 1', () => {
   expect(findMatchingTags(data, 36)).toEqual(undefined) // ''
 })
 
+test('bug 2', () => {
+  const text = `<h1>
+         hello world
+         <!-- <h1 -->
+       </h1>`
+  const expectedH1: MatchingTagResult = {
+    tagName: 'h1',
+    startTagOffset: 0,
+    endTagOffset: 55,
+    type: 'startAndEndTag',
+  }
+  const expectedH1InsideComment: MatchingTagResult = {
+    tagName: 'h1',
+    startTagOffset: 40,
+    type: 'onlyStartTag',
+  }
+  const regions: MatchingTagRegion[] = [
+    {
+      start: 0,
+      end: 3,
+      result: expectedH1,
+    },
+    {
+      start: 4,
+      end: 39,
+      result: undefined,
+    },
+    {
+      start: 40,
+      end: 43,
+      result: expectedH1InsideComment,
+    },
+    {
+      start: 44,
+      end: 54,
+      result: undefined,
+    },
+    {
+      start: 55,
+      end: 59,
+      result: expectedH1,
+    },
+    {
+      start: text.length,
+      end: text.length,
+      result: undefined,
+    },
+  ]
+  expectRegions(text, regions)
+})
+
+test('bug 3', () => {
+  const text = '<!-- -->'
+  const regions: MatchingTagRegion[] = [
+    {
+      start: 0,
+      end: text.length,
+      result: undefined,
+    },
+  ]
+  expectRegions(text, regions)
+})
+
 test('deep nested tags', () => {
   const data =
     '<a><span><ins>hello</ins><img src="./something.png" alt="" /><del>world</del></span></a>'

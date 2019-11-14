@@ -33,7 +33,7 @@ export const findMatchingTags: (
   scanner.stream.goBackToUntilEitherChar('<', '>')
   const char = scanner.stream.peekLeft(1) //?
   if (char === '<') {
-    if (scanner.stream.nextChars(2) === '--') {
+    if (scanner.stream.nextChars(3) === '!--') {
       return undefined
     }
     if (scanner.stream.peekRight() === '/') {
@@ -73,6 +73,16 @@ export const findMatchingTags: (
         }
       }
       scanner.stream.advanceUntilChar('>')
+      if (scanner.stream.previousChars(2) === '--') {
+        if (scanner.stream.position - offset <= 2) {
+          return undefined
+        }
+        return {
+          type: 'onlyStartTag',
+          tagName,
+          startTagOffset,
+        }
+      }
       if (scanner.stream.peekLeft(1) === '/') {
         return {
           type: 'onlyStartTag',
@@ -81,6 +91,8 @@ export const findMatchingTags: (
         }
       }
       scanner.stream.advance(1)
+      // console.log('advanced')
+      // scanner.stream.nextChars(20) //?
       const nextClosingTag = getNextClosingTagName(
         scanner,
         scanner.stream.position
@@ -100,6 +112,9 @@ export const findMatchingTags: (
       }
     }
   } else if (char === '>') {
+    if (scanner.stream.previousChars(3) === '-->') {
+      return undefined
+    }
     if (offset >= scanner.stream.position) {
       return undefined
     }
@@ -114,4 +129,9 @@ export const findMatchingTags: (
   return undefined
 }
 
-findMatchingTags('<View><View /></View>', 14) //?
+const text = `<h1>
+         hello world
+         <!-- <h1 -->
+       </h1>`
+// findMatchingTags('<View><View /></View>', 14) //?
+findMatchingTags(text, 46) //?
