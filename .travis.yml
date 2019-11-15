@@ -24,7 +24,9 @@ jobs:
         - npm test
         - npm run package:html-language-features
         - npm run package:html-missing-features
-    - stage: release
+    - stage: release-html-language-features
       script:
         - npm run publish:html-language-features
+    - stage: release-html-missing-features
+      script:
         - npm run publish:html-missing-features
