@@ -22,9 +22,9 @@ jobs:
       script:
         - npm run e2e
         - npm test
-        - npm run package
+        - npm run package:html-language-features
+        - npm run package:html-missing-features
     - stage: release
       script:
-        - npm run package
-        - cd dist
-        - npx semantic-release
+        - npm run publish:html-language-features
+        - npm run publish:html-missing-features

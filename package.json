@@ -8,12 +8,18 @@
     "postinstall": "lerna bootstrap && tsc -b",
     "clean": "",
     "test": "cd packages/html-language-service && npm test && cd ../../ && cd packages/schema && npm test && cd ../../ && cd packages/facts-generator && npm test",
-    "bundle": "npm run clean && npm run bundle:client && npm run bundle:server",
-    "bundle:client": "webpack --mode production --config ./webpack/client.webpack.config.js",
-    "bundle:server": "webpack --mode production --config ./webpack/server.webpack.config.js",
-    "bundlesize": "bundlesize",
-    "package": "rimraf dist && npm run bundle && node scripts/package.js && npm run bundlesize && cd dist && vsce package",
+    "bundle:html-language-features": "npm run clean && npm run bundle:html-language-features:client && npm run bundle:html-language-features:server",
+    "bundle:html-language-features:client": "webpack --mode production --config ./webpack/html-language-features.client.webpack.config.js",
+    "bundle:html-language-features:server": "webpack --mode production --config ./webpack/html-language-features.server.webpack.config.js",
+    "package:html-language-features": "rimraf dist && npm run bundle:html-language-features && node scripts/package-html-language-features.js && npm run bundlesize && cd dist && vsce package",
+    "publish:html-language-features": "npm run package:html-language-features && cd dist && npx semantic-release",
+    "bundle:html-missing-features": "npm run clean && npm run bundle:html-missing-features:client && npm run bundle:html-missing-features:server",
+    "bundle:html-missing-features:client": "webpack --mode production --config ./webpack/html-missing-features.client.webpack.config.js",
+    "bundle:html-missing-features:server": "webpack --mode production --config ./webpack/html-missing-features.server.webpack.config.js",
+    "package:html-missing-features": "rimraf dist && npm run bundle:html-missing-features && node scripts/package-html-missing-features.js && npm run bundlesize && cd dist && vsce package",
+    "publish:html-missing-features": "npm run package:html-missing-features && cd dist && npx semantic-release",
     "e2e": "cd packages/extension && npm run e2e",
+    "bundlesize": "bundlesize",
     "publish:extensionPack": "cd packages/extension-pack && npx vsce publish"
   },
   "devDependencies": {
@@ -36,33 +42,7 @@
   "renovate": {
     "extends": "bitworkers"
   },
-  "bundlesize": [
-    {
-      "path": "./dist/packages/extension/dist/extensionMain.js",
-      "maxSize": "80 kB",
-      "compression": "none"
-    },
-    {
-      "path": "./dist/packages/extension/dist/vscode-dependencies.js",
-      "maxSize": "180 kB",
-      "compression": "none"
-    },
-    {
-      "path": "./dist/packages/html-language-server/dist/vscode-dependencies.js",
-      "maxSize": "90 kB",
-      "compression": "none"
-    },
-    {
-      "path": "./dist/packages/html-language-server/dist/json-stats.js",
-      "maxSize": "530 kB",
-      "compression": "none"
-    },
-    {
-      "path": "./dist/packages/html-language-server/dist/htmlLanguageServerMain.js",
-      "maxSize": "70 kB",
-      "compression": "none"
-    }
-  ],
+  "bundlesize": [],
   "prettier": {
     "semi": false,
     "trailingComma": "es5",

@@ -454,3 +454,42 @@ if (i<2) return 3>2
 
 no suggestions for style etc. when typing s
  -->
+
+<!-- TODO bug
+auto rename tag when php is in the middle
+
+ -->
+
+ <!-- TODO bug
+ auto rename tag with elixir
+ 
+  -->
+
+<!-- TODO
+better performance by using 1 listener for onDidchangetextdocument and determine if document languageId is relevant or file is too large
+ -->
+
+<!-- TODO bug
+<div>
+
+</div>
+
+paste div 2 times
+<divdivdiv>
+
+</divdivdiv>
+
+do undo two times does not work, it only toggles between 2 divs and 3 divs
+ -->
+
+<!-- TODO bug
+auto rename tag does not work when editing closing tag and opening tag at the same time (what should happen?)
+
+ -->
+
+<!-- TODO bug
+auto rename tag does not work when there are multiple cursors on a start tag / end tag
+at least it should not throw an error that overlapping ranges are not allowed
+ -->
+
+<!-- TODO split missing features extension and html language features extension -->
