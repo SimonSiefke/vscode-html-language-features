@@ -13,11 +13,6 @@
     "bundle:html-language-features:server": "webpack --mode production --config ./webpack/html-language-features.server.webpack.config.js",
     "package:html-language-features": "rimraf dist && npm run bundle:html-language-features && node scripts/package-html-language-features.js && npm run bundlesize && cd dist && vsce package",
     "publish:html-language-features": "npm run package:html-language-features && cd dist && npx semantic-release",
-    "bundle:html-missing-features": "npm run clean && npm run bundle:html-missing-features:client && npm run bundle:html-missing-features:server",
-    "bundle:html-missing-features:client": "webpack --mode production --config ./webpack/html-missing-features.client.webpack.config.js",
-    "bundle:html-missing-features:server": "webpack --mode production --config ./webpack/html-missing-features.server.webpack.config.js",
-    "package:html-missing-features": "rimraf dist && npm run bundle:html-missing-features && node scripts/package-html-missing-features.js && npm run bundlesize && cd dist && vsce package",
-    "publish:html-missing-features": "npm run package:html-missing-features && cd dist && npx semantic-release",
     "e2e": "cd packages/extension && npm run e2e",
     "bundlesize": "bundlesize",
     "publish:extensionPack": "cd packages/extension-pack && npx vsce publish"

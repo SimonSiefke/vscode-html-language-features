@@ -23,10 +23,6 @@ jobs:
         - npm run e2e
         - npm test
         - npm run package:html-language-features
-        - npm run package:html-missing-features
     - stage: release-html-language-features
       script:
         - npm run publish:html-language-features
-    - stage: release-html-missing-features
-      script:
-        - npm run publish:html-missing-features

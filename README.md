@@ -2,6 +2,16 @@
 
 # HTML Language Features for VSCode
 
+---
+
+**Important: The following features have been moved into a [separate extension](https://github.com/SimonSiefke/vscode-html-missing-features)**
+
+- Auto Rename Tag
+- Highlight Matching Tag
+- Wrap Tag
+
+---
+
 ![Demo](./demo.png)
 
 <!-- Features:
