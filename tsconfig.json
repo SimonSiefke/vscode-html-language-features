@@ -6,8 +6,6 @@
     { "path": "./packages/html-language-server" },
     { "path": "./packages/html-language-service" },
     { "path": "./packages/html-parser" },
-    { "path": "./packages/html-missing-features-extension" },
-    { "path": "./packages/statistics-generator" },
-    { "path": "./packages/html-missing-features-server" }
+    { "path": "./packages/statistics-generator" }
   ]
 }
