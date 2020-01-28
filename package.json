@@ -25,7 +25,7 @@
     "lerna": "^3.18.4",
     "merge-options": "^2.0.0",
     "rimraf": "^3.0.0",
-    "semantic-release": "^16.0.0",
+    "semantic-release": "^17.0.0",
     "semantic-release-vsce": "^2.2.8",
     "ts-loader": "^6.2.1",
     "ts-node": "^8.5.0",
