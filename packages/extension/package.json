@@ -74,7 +74,7 @@
     "@types/glob": "^7.1.1",
     "@types/lodash": "^4.14.146",
     "@types/mocha": "^7.0.0",
-    "@types/rimraf": "^2.0.3",
+    "@types/rimraf": "^3.0.0",
     "@types/vscode": "^1.40.0",
     "@types/ws": "^7.0.0",
     "cross-env": "^7.0.0",
