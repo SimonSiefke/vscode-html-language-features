@@ -21,7 +21,7 @@
     "@types/jest": "^25.0.0",
     "@types/node": "^12.12.7",
     "bundlesize": "^0.18.0",
-    "fs-extra": "^8.1.0",
+    "fs-extra": "^9.0.0",
     "lerna": "^3.18.4",
     "merge-options": "^2.0.0",
     "rimraf": "^3.0.0",

@@ -9,7 +9,7 @@
   "author": "",
   "license": "MIT",
   "dependencies": {
-    "fs-extra": "^8.1.0",
+    "fs-extra": "^9.0.0",
     "@html-language-features/html-parser": "^1.0.0-dev"
   },
   "devDependencies": {

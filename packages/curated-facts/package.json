@@ -10,7 +10,7 @@
   "author": "",
   "dependencies": {
     "@html-language-features/schema": "^1.0.0-dev",
-    "fs-extra": "^8.1.0"
+    "fs-extra": "^9.0.0"
   },
   "devDependencies": {
     "@types/fs-extra": "^8.0.1",
