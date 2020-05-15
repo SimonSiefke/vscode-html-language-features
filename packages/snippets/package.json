@@ -13,6 +13,6 @@
     "@html-language-features/html-parser": "^1.0.0-dev"
   },
   "devDependencies": {
-    "@types/fs-extra": "^8.0.1"
+    "@types/fs-extra": "^9.0.0"
   }
 }

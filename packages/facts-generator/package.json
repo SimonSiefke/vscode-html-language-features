@@ -17,7 +17,7 @@
   "author": "",
   "license": "MIT",
   "devDependencies": {
-    "@types/fs-extra": "^8.0.1",
+    "@types/fs-extra": "^9.0.0",
     "@types/lodash": "^4.14.146",
     "cheerio": "^1.0.0-rc.3",
     "fs-extra": "^9.0.0",
