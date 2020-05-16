@@ -23,7 +23,7 @@
     "fs-extra": "^9.0.0",
     "jest": "^26.0.0",
     "node-fetch": "^2.6.0",
-    "ts-jest": "^25.0.0",
+    "ts-jest": "^26.0.0",
     "turndown": "^6.0.0",
     "typescript": "^3.7.2"
   },
