@@ -493,3 +493,5 @@ at least it should not throw an error that overlapping ranges are not allowed
  -->
 
 <!-- TODO split missing features extension and html language features extension -->
+
+<!-- TODO find hidden notes about emacs & other things -->
